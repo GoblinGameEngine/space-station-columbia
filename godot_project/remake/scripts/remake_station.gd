@@ -115,6 +115,7 @@ func _ready() -> void:
 	_place_structures()
 	_mark("structures (first slice)")
 	_place_aerostats()
+	_place_ground_vehicles()
 	_mark("aerostats (first slice)")
 	_watch_load()
 
@@ -142,6 +143,7 @@ func _watch_load() -> void:
 		"cloud skins": func() -> bool: return (get_node("Clouds") as RemakeClouds)._skin_task == -1,
 		"structures": func() -> bool: return streamer.records.size() > 0,
 		"aerostats": func() -> bool: return _aero_done,
+		"ground vehicles": func() -> bool: return _cars_done,
 	}
 	var worst := 0.0
 	var frames := 0
@@ -209,6 +211,34 @@ func _hide_splash() -> void:
 	for c in s.get_children():
 		tw.parallel().tween_property(c, "modulate:a", 0.0, 0.6)
 	tw.tween_callback(s.queue_free)
+
+
+func _place_ground_vehicles() -> void:
+	## The pods and vans, parked where remake/tools/place_ground_vehicles.gd put them
+	## (remake/groundcars.json): kerbside in every town, a van at every farm without an aerostat.
+	if not FileAccess.file_exists("res://remake/groundcars.json"):
+		_cars_done = true
+		return
+	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json"))
+	var root := Node3D.new()
+	root.name = "GroundVehicles"
+	add_child(root)
+	var t0 := Time.get_ticks_usec()
+	for a in d.groundcars:
+		var s: float = a.s
+		var x: float = a.x
+		var v: RemakeGroundVehicle = RemakeVan.new() if a.kind == "van" else RemakePod.new()
+		v.name = a.id
+		root.add_child(v)
+		v.global_transform = Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
+		if Time.get_ticks_usec() - t0 > 4000:
+			await get_tree().process_frame
+			t0 = Time.get_ticks_usec()
+	print("RemakeStation: %d ground vehicles parked" % d.groundcars.size())
+	_cars_done = true
+
+
+var _cars_done := false
 
 
 func _place_aerostats() -> void:
