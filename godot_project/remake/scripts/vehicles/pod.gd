@@ -13,7 +13,7 @@ const DOOR_HW := 0.62
 
 
 func _init() -> void:
-	max_speed = 16.0
+	max_speed = 75.0 / 3.6               # 75 km/h
 	reverse_speed = 4.0
 	accel = 3.0
 	brake = 6.0
@@ -39,7 +39,6 @@ func _build_hull() -> void:
 	add_box(Vector3(1.8, wall_h, 0.1), Vector3(0, yc, -1.55))        # behind the windscreen, clear of the dash
 	add_box(Vector3(1.8, wall_h, 0.1), Vector3(0, yc, 1.88))
 	add_box(Vector3(1.85, 0.1, 3.8), Vector3(0, H - 0.08, 0))
-	add_box(Vector3(1.85, 0.4, 3.9), Vector3(0, 0.45, 0))            # the body below the floor
 	add_box(Vector3(1.7, 0.35, 0.3), Vector3(0, 1.0, -1.4))          # the dash
 	for sx in [-0.42, 0.42]:
 		add_box(Vector3(0.52, 0.5, 0.5), Vector3(sx, FLOOR + 0.25, -0.72))

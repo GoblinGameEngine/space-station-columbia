@@ -13,9 +13,9 @@ const DOOR_HW := 0.55
 
 
 func _init() -> void:
-	max_speed = 18.0
+	max_speed = 100.0 / 3.6              # 100 km/h
 	reverse_speed = 4.0
-	accel = 2.4
+	accel = 3.0
 	brake = 5.5
 	wheelbase = 3.34
 	track = 1.68
@@ -40,7 +40,6 @@ func _build_hull() -> void:
 	add_box(Vector3(1.9, wall_h, 0.1), Vector3(0, yc, -2.2))
 	add_box(Vector3(1.9, wall_h, 0.1), Vector3(0, yc, 2.45))
 	add_box(Vector3(1.95, 0.1, 5.0), Vector3(0, H - 0.08, 0))
-	add_box(Vector3(1.95, 0.45, 5.1), Vector3(0, 0.55, 0))
 	add_box(Vector3(1.8, 0.4, 0.35), Vector3(0, 1.1, -2.05))
 	for sx in [-0.48, 0.48]:
 		add_box(Vector3(0.52, 0.5, 0.5), Vector3(sx, FLOOR + 0.25, -1.5))

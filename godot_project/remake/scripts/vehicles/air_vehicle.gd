@@ -364,4 +364,4 @@ func _show_hud(on: bool) -> void:
 
 func _update_hud(h: float) -> void:
 	if _hud:
-		_hud.text = "SPD %4.1f m/s   ALT %4.0f m (above ground)\nW/S thrust   A/D turn   Space/Ctrl climb/descend   E leave seat" % [-_lv.z, h]
+		_hud.text = "SPEED %3d km/h   ALT %4.0f m (above ground)\nW/S thrust   A/D turn   Space/Ctrl climb/descend   E leave seat" % [roundi(-_lv.z * 3.6), h]

@@ -444,7 +444,7 @@ def bucket_seat(m, x, y, xf_yaw=0.0):
     m.box((-0.25, -0.24, 0.4), (0.25, 0.25, 0.5), "seat", xf=base)                             # cushion
     for sxs in (-1, 1):                                                                        # bolsters
         m.box((sxs * 0.25 - 0.04, -0.24, 0.4), (sxs * 0.25 + 0.04, 0.25, 0.56), "seat", xf=base)
-    back = base @ Matrix.Translation((0, -0.24, 0.45)) @ Matrix.Rotation(math.radians(-12), 4, "X")
+    back = base @ Matrix.Translation((0, -0.24, 0.45)) @ Matrix.Rotation(math.radians(12), 4, "X")   # reclined (toward -Y)
     m.box((-0.26, -0.1, 0.0), (0.26, 0.02, 0.72), "seat", xf=back)
     m.box((-0.13, -0.09, 0.76), (0.13, 0.03, 0.98), "seat", xf=back)                          # headrest
     m.box((-0.04, -0.06, 0.7), (0.04, -0.02, 0.78), "silver", xf=back)

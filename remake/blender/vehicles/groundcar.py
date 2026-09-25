@@ -449,7 +449,7 @@ trim.obj(smooth=False)
 
 # ------------------------------------------------------------------ sliding doors
 LEAF_X = A - 0.1
-leaves = [(1, -1), (2, 1)] if VARIANT == "pod" else [(2, 1)]   # (n, direction of the leaf from the door centre)
+leaves = [(1, 1), (2, -1)] if VARIANT == "pod" else [(2, 1)]   # odd leaves toward the nose (+Y), even toward the tail   # (n, direction of the leaf from the door centre)
 for right in (True, False):
     sx = 1 if right else -1
     for n_, dirn in leaves:
@@ -492,7 +492,7 @@ def seat(m, x, y, w=0.52, back=0.78):
     m.box((-w * 0.4, -0.2, 0.0), (w * 0.4, 0.2, 0.3), "dark", xf=base)
     m.box((-w * 0.5, -0.24, 0.3), (w * 0.5, 0.26, 0.44), "seat", xf=base)
     m.box((-w * 0.45, -0.2, 0.44), (w * 0.45, 0.24, 0.5), "cushion", xf=base)
-    bk = base @ Matrix.Translation((0, -0.24, 0.44)) @ Matrix.Rotation(math.radians(-12), 4, "X")
+    bk = base @ Matrix.Translation((0, -0.24, 0.44)) @ Matrix.Rotation(math.radians(14), 4, "X")   # the back reclines (toward -Y)
     m.box((-w * 0.5, -0.1, 0.0), (w * 0.5, 0.04, back), "seat", xf=bk)
     m.box((-w * 0.42, 0.04, 0.12), (w * 0.42, 0.06, back - 0.12), "cushion", xf=bk)
     m.box((-0.13, -0.08, back + 0.04), (0.13, 0.04, back + 0.24), "seat", xf=bk)

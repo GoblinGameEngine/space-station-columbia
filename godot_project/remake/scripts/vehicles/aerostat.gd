@@ -19,6 +19,9 @@ func _init() -> void:
 	stand_point = Vector3(0.45, FLOOR + 1.45, -0.35)     # in the aisle just behind the front seats
 	cabin_box = AABB(Vector3(-1.2, 0.0, -HALF_L), Vector3(2.4, 2.5, HALF_L * 2.0))
 	seat_forward = 0.2
+	max_speed = 150.0 / 3.6              # 150 km/h
+	accel = 5.0
+	brake = 7.0
 
 
 func _build_hull() -> void:
