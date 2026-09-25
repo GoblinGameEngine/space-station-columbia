@@ -34,6 +34,7 @@ func _ready() -> void:
 	_t_mark = Time.get_ticks_msec()
 	print("LOAD ready starts at %d ms after launch" % _t_mark)
 	add_to_group("space_station")
+	_show_splash()
 	_setup_environment()
 	_mark("environment")
 	_build_shell()
@@ -144,7 +145,14 @@ func _watch_load() -> void:
 	}
 	var worst := 0.0
 	var frames := 0
+	var total := waiting.size()
 	while not waiting.is_empty():
+		if _splash:
+			_splash_bar.value = 1.0 - waiting.size() / float(total)
+			# the splash covers the start of the load: gone once the ground, trees and the walks round
+			# the player are in (the rest carries on streaming in behind the game)
+			if not waiting.has("trees") and not waiting.has("walks") and not waiting.has("cliffs"):
+				_hide_splash()
 		await get_tree().process_frame
 		frames += 1
 		worst = maxf(worst, get_process_delta_time())
@@ -153,6 +161,54 @@ func _watch_load() -> void:
 				print("LOAD %-24s done at t=%d  (%d ms after ready)" % [k, Time.get_ticks_msec(), Time.get_ticks_msec() - t0])
 				waiting.erase(k)
 	print("LOAD complete: %d frames, worst frame %.0f ms, t=%d" % [frames, worst * 1000.0, Time.get_ticks_msec()])
+
+
+var _splash: CanvasLayer
+var _splash_bar: ProgressBar
+
+
+func _show_splash() -> void:
+	## A placeholder splash (ui/pda/splash.png -- also the engine's boot splash) held over the start of
+	## the load, with a progress bar.
+	_splash = CanvasLayer.new()
+	_splash.layer = 100
+	var bg := ColorRect.new()
+	bg.color = Color(0.0157, 0.0235, 0.047)
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_splash.add_child(bg)
+	var img := TextureRect.new()
+	img.texture = load("res://ui/pda/splash.png")
+	img.set_anchors_preset(Control.PRESET_FULL_RECT)
+	img.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_splash.add_child(img)
+	_splash_bar = ProgressBar.new()
+	_splash_bar.max_value = 1.0
+	_splash_bar.show_percentage = false
+	_splash_bar.anchor_left = 0.3
+	_splash_bar.anchor_right = 0.7
+	_splash_bar.anchor_top = 0.9
+	_splash_bar.anchor_bottom = 0.9
+	_splash_bar.offset_bottom = 6
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = Color(0.6, 0.72, 0.9)
+	var back := StyleBoxFlat.new()
+	back.bg_color = Color(0.12, 0.14, 0.2)
+	_splash_bar.add_theme_stylebox_override("fill", fill)
+	_splash_bar.add_theme_stylebox_override("background", back)
+	_splash.add_child(_splash_bar)
+	add_child(_splash)
+
+
+func _hide_splash() -> void:
+	if _splash == null:
+		return
+	var s := _splash
+	_splash = null
+	var tw := create_tween()
+	for c in s.get_children():
+		tw.parallel().tween_property(c, "modulate:a", 0.0, 0.6)
+	tw.tween_callback(s.queue_free)
 
 
 func _place_aerostats() -> void:

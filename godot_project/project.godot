@@ -6,10 +6,14 @@ config_version=5
 
 [application]
 
-config/name="Goblin Engine -- Sample Story: Lloyd St."
+config/name="Space Station Columbia"
 config/version="0.6.1-prealpha.14"
 run/main_scene="res://remake/scenes/RemakeStation.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.0157, 0.0235, 0.047, 1)
+boot_splash/image="res://ui/pda/splash.png"
+boot_splash/fullsize=true
+boot_splash/use_filter=true
 
 [input]
 
