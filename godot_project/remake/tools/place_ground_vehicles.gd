@@ -7,7 +7,8 @@ extends SceneTree
 ##   towns   kerbside on the town's streets, nearest its middle first, by size (buildings on the
 ##           map): 120+ -> 8, 80+ -> 6, 30+ -> 4, a village -> 2; pods and vans in turn
 ##   farms   a van at every farmstead the aerostats skipped (they took every other one), in the yard
-## A spot is kerbside: KERB m out from the road's edge, parallel to it; clear of every structure's
+## A spot is kerbside: in the kerbside lane just inside the gutter (county roads: KERB m out past the
+## road's edge), parallel to it; clear of every structure's
 ## footprint (its own turned rectangle) by CLEAR m, off water, near level, APART m from other
 ## vehicles and the aerostats.
 
@@ -51,8 +52,11 @@ func _init() -> void:
 			towns[t] = []
 		towns[t].append(e)
 	var roads: Array = []
-	for rd in terrain.roads:
+	var fur: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/road_furniture.json"))
+	for i in terrain.roads.size():
+		var rd: Dictionary = terrain.roads[i]
 		if STREETS.has(rd.cls):
+			rd["jn"] = fur.jn[i]
 			roads.append(rd)
 	var names := towns.keys()
 	names.sort()
@@ -120,33 +124,52 @@ func _middle(bs: Array) -> Vector2:
 
 
 func _kerbside(roads: Array, c: Vector2, reach: float) -> Array:
-	## [s, x, yaw, distance to c] every 14 m along both kerbs of every street near c.
+	## [s, x, yaw, distance to c] every 14 m along both kerbs of every street near c, clear of junctions
+	## (road_furniture.json's junction flags: none within 3 points, ~18 m) and of the road's ends.
 	var out := []
 	for rd in roads:
 		var pts: Array = rd.pts
-		var off: float = float(rd.w) * 0.5 + KERB + HALF.x
+		var jn: String = rd.get("jn", "")
+		# in the kerbside lane, just inside the gutter (main streets have a parking lane); county roads
+		# have none: there the car pulls onto the verge past the kerb
+		var off: float = float(rd.w) * 0.5 - HALF.x - 0.35 if rd.cls != "county" else float(rd.w) * 0.5 + KERB + HALF.x
+		var run := 0.0
+		var next_t := 12.0
+		var total := 0.0
+		for k in pts.size() - 1:
+			total += Vector2(StationGeo.wrap_ds(pts[k + 1][0] - pts[k][0]), pts[k + 1][1] - pts[k][1]).length()
 		for k in pts.size() - 1:
 			var a := Vector2(pts[k][0], pts[k][1])
 			var b := Vector2(pts[k + 1][0], pts[k + 1][1])
 			var dv := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
 			var L := dv.length()
-			if L < 1.0:
+			if L < 0.01:
 				continue
-			var mid := a + dv * 0.5
-			if Vector2(StationGeo.wrap_ds(mid.x - c.x), mid.y - c.y).length() > reach + L:
+			if Vector2(StationGeo.wrap_ds(a.x - c.x), a.y - c.y).length() > reach + 20.0:
+				run += L
+				next_t = maxf(next_t, run)
 				continue
 			var u := dv / L
 			var side := Vector2(-u.y, u.x)
 			var yaw := atan2(-u.y, u.x)
-			var t := 10.0
-			while t < L - 10.0:
+			while next_t < run + L:
+				var t := next_t - run
+				next_t += 14.0
+				if next_t > total - 10.0:
+					break
+				var clear_j := true
+				for q in range(maxi(0, k - 3), mini(jn.length(), k + 5)):
+					if jn[q] == "1":
+						clear_j = false
+				if not clear_j:
+					continue
 				for sg in [1.0, -1.0]:
 					var p: Vector2 = a + u * t + side * off * sg
 					var d := Vector2(StationGeo.wrap_ds(p.x - c.x), p.y - c.y).length()
 					if d < reach:
-						# kerbside cars face the traffic's way on their side
-						out.append([p.x, p.y, yaw if sg < 0.0 else yaw + PI, d])
-				t += 14.0
+						# we drive on the right: side is the right of u, so a car there faces along u
+						out.append([p.x, p.y, yaw if sg > 0.0 else yaw + PI, d])
+			run += L
 	return out
 
 

@@ -65,8 +65,13 @@ func _ready() -> void:
 	var roads := MapRoads.new()
 	roads.name = "Roads"
 	add_child(roads)
-	roads.setup()
+	roads.setup(Vector2(StationGeo.s_of(player.global_position), player.global_position.x))
 	_mark("roads setup")
+	var furniture := RoadFurniture.new()
+	furniture.name = "RoadFurniture"
+	add_child(furniture)
+	furniture.setup()
+	_mark("road furniture setup")
 	var walks := CoastalWalks.new()
 	walks.name = "Walks"
 	add_child(walks)
@@ -153,7 +158,8 @@ func _watch_load() -> void:
 			_splash_bar.value = 1.0 - waiting.size() / float(total)
 			# the splash covers the start of the load: gone once the ground, trees and the walks round
 			# the player are in (the rest carries on streaming in behind the game)
-			if not waiting.has("trees") and not waiting.has("walks") and not waiting.has("cliffs"):
+			if not waiting.has("trees") and not waiting.has("walks") and not waiting.has("cliffs") \
+					and (get_node("Roads") as MapRoads).near_done:
 				_hide_splash()
 		await get_tree().process_frame
 		frames += 1

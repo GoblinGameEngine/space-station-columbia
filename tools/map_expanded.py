@@ -1634,7 +1634,12 @@ for _sg, _cls, _nm in ((-1, "county", "Ocean Rd"), (1, "hwy", "Coast Hwy")):
     _w, _line, _off = site_weight(_ss, _sg)
     _ro = 300.0 * _w + _off * (1 - _w)
     _cst = coast(_ss, _sg)
-    road([(float(a), _sg * float(c - r)) for a, c, r in zip(_ss, _cst, _ro)], _cls, _nm, smooth=1)
+    _pl = [(float(a), _sg * float(c - r)) for a, c, r in zip(_ss, _cst, _ro)]
+    # round the ring and back to its start: the last 600 m ease onto the start's line, so the loop
+    # closes without a jog at the seam
+    _gap = _pl[0][1] - _pl[-1][1]
+    _pl = [(a, x + _gap * max(0.0, 1.0 - (C - a) / 600.0) ** 2) for a, x in _pl] + [(C, _pl[0][1])]
+    road(_pl, _cls, _nm, smooth=1)
 # connectors from the coastal cities and lake town to the highways
 _pc, _sp, _pt, _hp = T["Port Carrow"], T["Solana Point"], T["Port Tamsin"], T["Haven Point"]
 road([_pc.g(182, -660), (_pc.g(182, -660)[0] + 60, -2200), P(1830, -760)], "county", "Carrow Pike", 2)
@@ -1762,16 +1767,75 @@ def near_river(p):
     return float(top) - 150 < p[1] < float(bot) + 150
 
 
+_CREEK_NEAR = dilate((WCAT == 3) | (WCAT == 4), fk(10))
+
+
+def _creek_run(pts):
+    """How much of a line lies along a creek (a section road must cross creeks, not follow one)."""
+    n = 0
+    for p in pts:
+        i, j = idx(*p)
+        n += bool(_CREEK_NEAR[j, i])
+    return n
+
+
+def big_water(s, x):
+    """Sea, harbour, the great rivers and the lake -- what a section road stops at (a creek it bridges)."""
+    i, j = idx(s, x)
+    return is_sea(s, x) or WCAT[j, i] in (1, 2, 7)
+
+
 for s in SECTION_S:
-    pts = densify([(s, -COAST_MEAN - 300), (s, COAST_MEAN + 300)], 3.0)
-    for run in clip_runs(pts, lambda p: near_river(p) or in_blocked(*p) or near_great_river(*p)):
+    # the surveyed line, nudged (as a real section road jogs) off any creek that runs along it
+    best = None
+    for off in (0.0, 25.0, -25.0, 45.0, -45.0, 65.0, -65.0):
+        pts = densify([(s + off, -COAST_MEAN - 300), (s + off, COAST_MEAN + 300)], 3.0)
+        sc = _creek_run(pts)
+        if best is None or sc < best[0] - 12:
+            best = (sc, pts)
+    for run in clip_runs(best[1], lambda p: near_river(p) or in_blocked(*p) or near_great_river(*p)):
         if math.dist(run[0], run[-1]) > 60:
             ROADS.append((run, "gravel", ""))
 for x in SECTION_X:
     pts = densify([(0, x), (C, x)], 3.0)
-    for run in clip_runs(pts, lambda p: in_blocked(*p) or is_water(*p)):
+    for run in clip_runs(pts, lambda p: in_blocked(*p) or big_water(*p)):
         if math.dist(run[0], run[-1]) > 60:
             ROADS.append((run, "gravel", ""))
+
+# Every road end joins another road (SSC road standard §6: tools/road_network.py) -- the roads and
+# every town's streets as one network; an end with nowhere to go gets a turning circle
+from road_network import Network
+_bi = Image.new("L", (CW, WH), 0)
+_bd = ImageDraw.Draw(_bi)
+for t in TOWNS:
+    for poly, _, _ in t.bldgs:
+        draw_poly(_bd, poly, fill=1)
+_BLD = dilate(np.array(_bi) > 0, fk(3))
+del _bi, _bd
+
+
+def _road_clear(s, x):
+    i, j = idx(s, x)
+    return not (_BLD[j, i] or big_water(s, x))
+
+
+_NET_ROADS = [[list(pts), cls, nm] for pts, cls, nm in ROADS]
+_NET_TOWN = []
+for t in TOWNS:
+    for k, (p, cls) in enumerate(t.streets):
+        _NET_TOWN.append((t, k, len(_NET_ROADS)))
+        _NET_ROADS.append([densify(list(p), 6.0), cls, ""])
+_culs = [(sum(q[0] for q in poly) / len(poly), sum(q[1] for q in poly) / len(poly))
+         for t in TOWNS for poly, kind in t.areas if kind == "culdesac"]
+_net = Network(_NET_ROADS, C, _road_clear, {"hwy": 12, "county": 8, "gravel": 6, "main": 11, "street": 7, "alley": 3}, _culs)
+_net.join_all(["hwy", "county", "main", "street", "gravel", "alley"])
+_n_town0 = len(_NET_ROADS)
+_net.connect_islands(name_of=lambda p: min(TOWNS, key=lambda t: math.dist(t.g(0, 0), p)).name + " Rd")
+ROADS[:] = [(r[0], r[1], r[2]) for r in _NET_ROADS[:len(ROADS)]] + [(r[0], r[1], r[2]) for r in _NET_ROADS[_n_town0:]]
+for t, k, n in _NET_TOWN:
+    t.streets[k] = (_NET_ROADS[n][0], _NET_ROADS[n][1])
+TURNS = _net.turns
+print(f"road network: {_net.log}", file=sys.stderr)
 
 # Rail -- one closed loop on the starboard side (rail-spine towns + Pruett + Kessler sit on it)
 RAIL = [(s, rail_x(s)) for s in np.arange(0, C + 5, 5.0)]
@@ -2114,6 +2178,8 @@ for a, b_, cls in BRIDGES["small"]:
     draw_line(dr, [a, b_], fill=(60, 60, 60), width=ROAD_W[cls] + 5)
 for pts, cls in ALL_ROADS:
     draw_line(dr, pts, fill=FILL[cls], width=ROAD_W[cls], joint="curve")
+for a, b_, r_, cls in TURNS:
+    draw_ellipse(dr, a, b_, r_, fill=FILL[cls])
 for a, b_, cls in BRIDGES["culvert"]:
     m = ((a[0] + b_[0]) / 2, (a[1] + b_[1]) / 2)
     draw_ellipse(dr, m[0], m[1], 2.2, fill=(40, 70, 120))
@@ -2601,6 +2667,7 @@ if "--game-data" in sys.argv:
                     + [{"cls": cls, "w": ROAD_W[cls], "town": t.name, "pts": [[round(a, 1), round(b_, 1)] for a, b_ in pts]}
                        for t in TOWNS for pts, cls in t.streets],
            "rail": {"w": 8, "pts": [[round(a, 1), round(b_, 1)] for a, b_ in RAIL]},
+           "turns": [{"s": round(a % C, 1), "x": round(b_, 1), "r": round(r_, 1), "cls": c_} for a, b_, r_, c_ in TURNS],
            "areas": [{"kind": kind, "town": t.name, "poly": [[round(a, 1), round(b_, 1)] for a, b_ in poly]}
                      for t in TOWNS for poly, kind in t.areas]}
     json.dump(ter, open(os.path.join(GD, "terrain.json"), "w"), indent=0)
