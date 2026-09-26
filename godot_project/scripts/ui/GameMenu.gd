@@ -163,8 +163,7 @@ func _process(_delta: float) -> void:
 # ------------------------------------------------------------------ look
 func _pixel_font(path: String) -> FontFile:
 	## A pixel font drawn at its own size: no smoothing, no hinting, whole-pixel positions.
-	var f: FontFile = FontFile.new()
-	f.load_dynamic_font(path)
+	var f: FontFile = (load(path) as FontFile).duplicate()
 	f.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	f.hinting = TextServer.HINTING_NONE
 	f.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
