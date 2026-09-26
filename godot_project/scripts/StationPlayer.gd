@@ -4,7 +4,7 @@ class_name StationPlayer
 # Space-station variant of Player.gd -- same FPS controller shape
 # (WASD, mouse look, jump, weapons via WeaponManager) but with radial
 # gravity instead of fixed world-down, since the floor here is the
-# inside of a ring (see scripts/SpaceStation.gd and
+# inside of a ring (see scripts/world/StationGeo.gd and
 # scripts/world/StationRingBuilder.gd). Forked from Player.gd rather
 # than adding a gravity-mode flag to it -- the gravity/up-direction
 # change touches nearly every line of the physics step, so branching it
@@ -14,10 +14,10 @@ class_name StationPlayer
 # comfortably inside CharacterBody3D's default floor_max_angle.
 #
 # NOT a spinning station -- RingBody never moves (see the file-level
-# comment in SpaceStation.gd for why: rotating it, and simulating
+# comment in StationGeo.gd for why: rotating it, and simulating
 # centrifugal force from that rotation, went through several rounds of
 # hard-to-fix bugs before this settled on a stationary ring with an
-# artificial radial gravity gradient, SpaceStation.gravity_at(),
+# artificial radial gravity gradient, StationGeo.gravity_at(),
 # instead). "Down" is still radial, toward the ring wall -- that part
 # is pure geometry, unrelated to whether anything is spinning -- but
 # nothing here is being carried by a moving platform any more.
@@ -42,7 +42,7 @@ class_name StationPlayer
 # LIVE TUNING: `static var`, not `const` -- read fresh every physics/
 # input frame, so these can be changed from a running game with no
 # restart, e.g. `python3 tools/gcmd.py run "StationPlayer.WALK_SPEED = 6.0"`.
-# See the matching comment in SpaceStation.gd for the geometry/gravity
+# See the matching comment in StationGeo.gd for the geometry/gravity
 # side of tuning (radius, ceiling height, etc.), which needs a
 # rebuild_ring() call instead since those are baked into the built mesh.
 static var WALK_SPEED := 4.2
@@ -168,9 +168,6 @@ func _unhandled_input(event: InputEvent) -> void:
 				head.rotate_x(-event.relative.y * sens)
 				head.rotation.x = clamp(head.rotation.x, -PITCH_LIMIT, PITCH_LIMIT)
 
-	if MapEditorUI.active:
-		return
-
 	if event.is_action_pressed("shoot") and _vehicle == null:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			WeaponManager.try_use_equipped()
@@ -214,7 +211,7 @@ func _radial_vector() -> Vector3:
 	if _station == null:
 		return Vector3.ZERO
 	var rel := global_position - _station.global_position
-	var axis: Vector3 = SpaceStation.AXIS
+	var axis: Vector3 = StationGeo.AXIS
 	return rel - axis * rel.dot(axis)
 
 func _physics_process(delta: float) -> void:
@@ -261,12 +258,12 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			# Stepped radial gradient (0G at the axis, TARGET_G at the wall)
 			# instead of a flat pull or omega^2*radial_len -- see
-			# SpaceStation.gravity_at(). Using radial_len here (not just
+			# StationGeo.gravity_at(). Using radial_len here (not just
 			# whatever gravity_at() was for the floor you took off from)
 			# means a jump/fall that drifts toward the axis genuinely gets
 			# lighter as it goes, same as it would get lighter walking
 			# inward through the bands on foot.
-			up_speed -= SpaceStation.gravity_at(radial_len) * delta
+			up_speed -= StationGeo.gravity_at(radial_len) * delta
 
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			up_speed = JUMP_VELOCITY

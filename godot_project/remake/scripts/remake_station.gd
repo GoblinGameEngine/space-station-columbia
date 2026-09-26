@@ -10,7 +10,7 @@ class_name RemakeStation
 ##   * the map's structures (RemakeWorld: SETTLEMENTS, or everything), with full detail streamed
 ##     near the player (RemakeDetailStreamer).
 ## Nothing of the earlier procedural layout.  The player (StationPlayer, radial spin gravity via
-## SpaceStation.gravity_at) finds this node through the "space_station" group.
+## StationGeo.gravity_at) finds this node through the "space_station" group.
 
 const STATION_PLAYER_SCENE := preload("res://scenes/StationPlayer.tscn")
 const WALL_TILE := 6.0

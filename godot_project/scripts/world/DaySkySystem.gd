@@ -88,7 +88,7 @@ func setup(p_station: Node3D, p_sun: DirectionalLight3D, ring_mesh: MeshInstance
 	ring_mesh.set_surface_override_material(1, ceiling_material)
 
 	# Walls: explicitly NOT given the sky/cliff blend shader ("We do not
-	# need it on the walls") -- surface 2 is left as whatever SpaceStation.
+	# need it on the walls") -- surface 2 is left as whatever the station builder set.
 	# gd's _build_ring() already applied (station_metal_wall.png, already
 	# cel-shaded by ToonShading.apply_to_world() before this setup() call
 	# runs), so this function doesn't touch it at all.
@@ -171,10 +171,6 @@ func _apply(_delta: float) -> void:
 	var moon_intensity: float = sm["moon_intensity"]
 	var moon_pos: float = sm["moon_pos"]
 
-	var width: float = SpaceStation.WIDTH
-	var sun_center: float = lerp(-width * 0.5, width * 0.5, sun_pos)
-	var moon_center: float = lerp(-width * 0.5, width * 0.5, moon_pos)
-	var half_width: float = width * 0.025  # 5% of the ceiling's width, requested directly
 
 	var sun_color := Color(tint.r, tint.g * 0.95, tint.b * 0.85)
 	var moon_color := Color(0.75, 0.8, 0.95)  # pale, cool moonlight -- distinct from the sun's warm arc

@@ -20,6 +20,20 @@ const SHAFT_R := 50.0
 const CIRC := TAU * R
 
 
+## Spin gravity (the user's spec): 0 G at the axis to TARGET_G at the floor, stepping up by
+## TARGET_G / GRAVITY_BANDS across GRAVITY_BANDS equal concentric bands -- a step function, not a
+## smooth ramp.  (static vars: tunable live from DevBridge.)
+static var TARGET_G := 9.8
+static var GRAVITY_BANDS := 10
+const AXIS := Vector3.RIGHT          # the cylinder's axis (world x)
+
+
+static func gravity_at(radial_len: float) -> float:
+	var band_width := R / float(GRAVITY_BANDS)
+	var band := clampi(ceili(radial_len / band_width), 0, GRAVITY_BANDS)
+	return (float(band) / GRAVITY_BANDS) * TARGET_G
+
+
 static func point(s: float, x: float, h: float = 0.0) -> Vector3:
 	var th := s / R
 	var r := R - h

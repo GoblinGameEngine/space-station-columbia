@@ -49,7 +49,7 @@ extends Node
 #                                                   root.get_node("/root/QuestManager")).
 #                                                   Write a `return` to get a value
 #                                                   back. This is the main way to
-#                                                   drive MapEditorUI/QuestEditorUI
+#                                                   drive GameMenu/Hud
 #                                                   etc. precisely -- call their own
 #                                                   methods directly instead of
 #                                                   simulating clicks on them.
@@ -64,7 +64,7 @@ extends Node
 #                                                   from a screenshot.
 #   key         {"physical_keycode": 4194333, "pressed": true, "ctrl"/"shift"/"alt": false}
 #   key_tap     {"physical_keycode": 4194333, ...}   -> press then release
-#   press_action / release_action  {"action": "toggle_editor"} -> Input.action_press/release
+#   press_action / release_action  {"action": "jump"} -> Input.action_press/release
 #   mouse_button {"button_index": 1, "pressed": true, "x":.., "y":..}
 #   mouse_click  {"button_index": 1, "x":.., "y":..}  -> press then release
 #   mouse_motion {"x":.., "y":.., "dx":.., "dy":..}   -> for camera-look drags;

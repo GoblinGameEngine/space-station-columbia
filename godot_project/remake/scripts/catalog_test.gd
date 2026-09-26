@@ -20,7 +20,7 @@ func _ready() -> void:
 	var slope := float(args.get("slope", "0"))
 	var lod := int(args.get("lod", "0"))            # 1..3: load the distance versions (<id>.lodN.glb) instead
 	SPACING = float(args.get("spacing", "22"))
-	for ui in ["Hud", "MapEditorUI", "GameMenu", "QuestEditorUI"]:
+	for ui in ["Hud", "GameMenu"]:
 		var n := get_node_or_null("/root/" + ui)
 		if n and "visible" in n:
 			n.visible = false

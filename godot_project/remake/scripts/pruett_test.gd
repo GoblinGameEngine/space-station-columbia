@@ -17,7 +17,7 @@ var loaded := {}
 
 
 func _ready() -> void:
-	for ui in ["Hud", "MapEditorUI", "GameMenu", "QuestEditorUI"]:
+	for ui in ["Hud", "GameMenu"]:
 		var n := get_node_or_null("/root/" + ui)
 		if n and "visible" in n:
 			n.visible = false
