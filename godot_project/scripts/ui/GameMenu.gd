@@ -21,7 +21,7 @@ const TITLE_H := 19
 const SYS_SIZE := 12                    # ChicagoFLF: crisp at 12
 const TEXT_SIZE := 16                   # Pixel Operator: crisp at 16
 # the case round the screen, in screen pixels at 800 px of display height
-const CASE_TOP := 36.0
+const CASE_TOP := 46.0
 const CASE_BOTTOM := 72.0
 const CASE_SIDE := 22.0
 const BEZEL := 8.0
@@ -36,8 +36,7 @@ var _theme: Theme
 var _font: FontFile                     # Pixel Operator 16: text
 var _bold: FontFile                     # ChicagoFLF 12: titles, menus, buttons, tabs
 var _case_font: Font                    # the case's printing (smooth type, drawn at screen size)
-var _case_bold: Font
-var _px := 2                            # screen pixels per LCD pixel
+var _px := 2.0                          # screen pixels per LCD pixel
 var _k := 1.0                           # the case's scale
 
 var _dim: ColorRect
@@ -206,7 +205,6 @@ func _build_theme() -> void:
 	_font = _pixel_font(PDA + "PixelOperator.ttf")
 	_bold = _pixel_font(PDA + "ChicagoFLF.ttf")
 	_case_font = load(PDA + "DejaVuSans.ttf")
-	_case_bold = load(PDA + "DejaVuSans-Bold.ttf")
 	_theme = Theme.new()
 	_theme.default_font = _font
 	_theme.default_font_size = TEXT_SIZE
@@ -291,11 +289,21 @@ func _build_theme() -> void:
 # ------------------------------------------------------------------ the device
 class DeviceBody extends Control:
 	## The NYNEX Communicator's case, drawn at screen resolution round the LCD: charcoal plastic, the
-	## screen's bezel, the NYNEX wordmark and "Communicator", a speaker grille, the key labels.
-	var bold: Font
+	## screen's bezel, the NYNEX wordmark, the Bell bell beside "COMMUNICATOR" (tools/pda_case.py), a
+	## speaker grille, the key labels.
 	var font: Font
 	var k := 1.0
 	var lcd := Rect2()
+	var nynex: Texture2D
+	var bell: Texture2D
+	var word: Texture2D
+	const INK := Color(0.84, 0.85, 0.87)
+
+	func _mark(tex: Texture2D, h: float, at: Vector2) -> float:
+		## a printed mark h tall, its top left at `at`; returns its width
+		var w := h * tex.get_width() / tex.get_height()
+		draw_texture_rect(tex, Rect2(at, Vector2(w, h)), false, INK)
+		return w
 
 	func _draw() -> void:
 		var body := StyleBoxFlat.new()
@@ -314,15 +322,24 @@ class DeviceBody extends Control:
 		bezel.bg_color = Color(0.07, 0.075, 0.08)
 		bezel.set_corner_radius_all(int(6 * k))
 		draw_style_box(bezel, lcd.grow(BEZEL * k))
-		draw_string(bold, Vector2(24, 26) * k, "NYNEX", HORIZONTAL_ALIGNMENT_LEFT, -1, int(15 * k), Color(0.86, 0.87, 0.89))
-		draw_string(font, Vector2(size.x - 24 * k - 120 * k, 26 * k), "Communicator", HORIZONTAL_ALIGNMENT_RIGHT, 120 * k,
-			int(11 * k), Color(0.62, 0.64, 0.67))
+		# the printing over the screen: NYNEX on the left; the bell and COMMUNICATOR on the right
+		var top := lcd.position.y - BEZEL * k
+		var cap := 17.0 * k
+		var y := floorf((top - cap) * 0.6)
+		_mark(nynex, cap, Vector2(lcd.position.x, y))
+		var wh := cap * 0.6
+		var ww := wh * word.get_width() / word.get_height()
+		var bh := cap * 1.05
+		var x := lcd.end.x - ww
+		_mark(word, wh, Vector2(x, y + (cap - wh) * 0.5))
+		_mark(bell, bh, Vector2(x - bh - 4 * k, y + (cap - bh) * 0.5))
+		# the earpiece grille, centred over it all
 		for i in 5:
-			draw_rect(Rect2(Vector2(size.x * 0.5 + (-22 + i * 10) * k, 14 * k), Vector2(6, 2) * k), Color(0.06, 0.06, 0.07))
-		var y := lcd.end.y + BEZEL * k + 36 * k
+			draw_rect(Rect2(Vector2(size.x * 0.5 + (-22 + i * 10) * k, 5 * k), Vector2(6, 2) * k), Color(0.06, 0.06, 0.07))
+		var ky := lcd.end.y + BEZEL * k + 36 * k
 		for i in 4:
 			var cx := size.x * (i + 0.5) / 4.0
-			draw_string(font, Vector2(cx - 40 * k, y), ["MAP", "ITEMS", "QUESTS", "SETUP"][i], HORIZONTAL_ALIGNMENT_CENTER, 80 * k,
+			draw_string(font, Vector2(cx - 40 * k, ky), ["MAP", "ITEMS", "QUESTS", "SETUP"][i], HORIZONTAL_ALIGNMENT_CENTER, 80 * k,
 				int(8 * k), Color(0.55, 0.57, 0.6))
 		draw_string(font, Vector2(size.x * 0.5 - 40 * k, size.y - 6 * k), "POWER", HORIZONTAL_ALIGNMENT_CENTER, 80 * k, int(7 * k),
 			Color(0.45, 0.47, 0.5))
@@ -355,8 +372,11 @@ func _build_device() -> void:
 	_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_dim)
 	var body := DeviceBody.new()
-	body.bold = _case_bold
 	body.font = _case_font
+	body.nynex = _mipmapped(PDA + "case_nynex.png")
+	body.bell = _mipmapped(PDA + "case_bell.png")
+	body.word = _mipmapped(PDA + "case_communicator.png")
+	body.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	body.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(body)
 	_device = body
@@ -394,6 +414,13 @@ func _build_device() -> void:
 	_layout()
 
 
+func _mipmapped(path: String) -> ImageTexture:
+	## the case's printing is drawn much smaller than its artwork: smooth it down
+	var img := (load(path) as Texture2D).get_image()
+	img.generate_mipmaps()
+	return ImageTexture.create_from_image(img)
+
+
 func _screen_input(event: InputEvent) -> void:
 	## Taps and drags on the glass go to The System, in LCD pixels.
 	if event is InputEventMouse:
@@ -412,18 +439,17 @@ func _layout() -> void:
 	_k = clampf(vs.y / 800.0, 0.6, 3.0)
 	var case_w := 2.0 * (CASE_SIDE + BEZEL) * _k
 	var case_h := (CASE_TOP + CASE_BOTTOM + 2.0 * BEZEL) * _k
-	# the biggest whole-number scale whose screen fits; the case may run off the display's edges
-	# when there's no room for it too (the device held up close)
-	_px = maxi(1, floori(minf(vs.y / SCREEN.y, (vs.x * 0.95 - case_w) / SCREEN.x)))
-	var lcd := Vector2(SCREEN * _px)
+	# the whole device on the display, its screen as big as that allows: a whole number of screen
+	# pixels per LCD pixel when that's within 8% of it (perfectly sharp), else the exact size, the
+	# LCD shader keeping each dot a solid block with a one-pixel soft edge
+	var fit := minf((vs.y * 0.97 - case_h) / SCREEN.y, (vs.x * 0.95 - case_w) / SCREEN.x)
+	_px = maxf(0.5, floorf(fit) if fit >= 1.0 and fit - floorf(fit) < 0.08 * fit else fit)
+	var lcd := (Vector2(SCREEN) * _px).round()
 	var body := (lcd + Vector2(case_w, case_h)).round()
 	_device.size = body
 	_device.scale = Vector2.ONE
+	_device.position = ((vs - body) * 0.5).floor()
 	_screen_rect.position = (Vector2(CASE_SIDE + BEZEL, CASE_TOP + BEZEL) * _k).floor()
-	var pos := ((vs - body) * 0.5).floor()
-	if body.y > vs.y:
-		pos.y = floorf((vs.y - lcd.y) * 0.5) - _screen_rect.position.y     # centre the screen itself
-	_device.position = pos
 	_screen_rect.size = lcd
 	var dev := _device as DeviceBody
 	dev.k = _k
