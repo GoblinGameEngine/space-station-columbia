@@ -60,8 +60,43 @@ func setup() -> void:
 			m.emission_energy_multiplier = 2.0
 		_mats[key] = m
 	MapTerrain.elevation(0.0, 0.0)
-	_task = WorkerThreadPool.add_task(_build_all, false, "coastal walks")
+	if ResourceLoader.exists(BAKED):
+		_task = WorkerThreadPool.add_task(_load_baked, false, "coastal walks (baked)")
+	else:
+		_task = WorkerThreadPool.add_task(_build_all, false, "coastal walks")
 	set_process(true)
+
+
+const BAKED := "res://remake/baked/walks.res"
+const BAKE_VERSION := 1              # bump when the builder's output changes
+
+
+static func stamp() -> String:
+	## what the walks are built from: their lines, the water levels and the ground they meet
+	return BakedMeshes.fingerprint(["res://remake/walks.json", MapTerrain.PATH, "res://remake/terrain_base.bin.gz",
+		"res://remake/terrain_level.bin.gz", "res://remake/terrain_depth.bin.gz", "res://remake/placement.json"], BAKE_VERSION)
+
+
+func _load_baked() -> void:
+	## (worker) the baked walks, if they're of this map; else build them here after all
+	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	if b and b.stamp == stamp():
+		_out = b.data.get("out", [])
+		return
+	push_warning("CoastalWalks: the baked walks are of other map data -- building them (rerun remake/tools/bake_world.gd)")
+	_build_all()
+
+
+func bake() -> BakedMeshes:
+	## every walk as mesh arrays and collision faces (remake/tools/bake_world.gd saves them)
+	_walks = JSON.parse_string(FileAccess.get_file_as_string("res://remake/walks.json")).walks
+	MapTerrain.elevation(0.0, 0.0)
+	_build_all()
+	var b := BakedMeshes.new()
+	b.stamp = stamp()
+	b.data["out"] = _out
+	_out = []
+	return b
 
 
 func _process(_delta: float) -> void:

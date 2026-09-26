@@ -18,11 +18,14 @@ const vec3 DAY_BG = vec3(0.64, 0.71, 0.52);
 const vec3 NIGHT_INK = vec3(0.02, 0.08, 0.04);
 const vec3 NIGHT_BG = vec3(0.45, 0.96, 0.64);
 
-float level_at(sampler2D tex, vec2 dot) {
-	// the 4-shade level of LCD dot `dot` (integer coordinates)
-	dot = clamp(dot, vec2(0.0), screen_px - 1.0);
-	float lum = dot(texture(tex, (dot + 0.5) / screen_px).rgb, vec3(0.299, 0.587, 0.114));
+float level_of(vec4 texel) {
+	// a texel's 4-shade level
+	float lum = dot(texel.rgb, vec3(0.299, 0.587, 0.114));
 	return floor(lum * 3.0 + 0.5) / 3.0;
+}
+
+vec2 centre_of(vec2 dot) {
+	return (clamp(dot, vec2(0.0), screen_px - 1.0) + 0.5) / screen_px;
 }
 
 void fragment() {
@@ -35,10 +38,10 @@ void fragment() {
 	vec2 base = floor(px);
 	vec2 other = base + sign(f);
 	vec2 w = abs(f);
-	float l00 = level_at(TEXTURE, base);
-	float l10 = level_at(TEXTURE, vec2(other.x, base.y));
-	float l01 = level_at(TEXTURE, vec2(base.x, other.y));
-	float l11 = level_at(TEXTURE, other);
+	float l00 = level_of(texture(TEXTURE, centre_of(base)));
+	float l10 = level_of(texture(TEXTURE, centre_of(vec2(other.x, base.y))));
+	float l01 = level_of(texture(TEXTURE, centre_of(vec2(base.x, other.y))));
+	float l11 = level_of(texture(TEXTURE, centre_of(other)));
 	float level = mix(mix(l00, l10, w.x), mix(l01, l11, w.x), w.y);
 	vec3 ink = mix(DAY_INK, NIGHT_INK, backlight);
 	vec3 bg = mix(DAY_BG, NIGHT_BG, backlight);

@@ -19,6 +19,15 @@ const DECK_H := 2.5             # a pier / wharf deck over the water level (Coas
 
 
 static func build(root: Node3D, settlements: Array) -> Dictionary:
+	var entries := entries_for(settlements)
+	var t0 := Time.get_ticks_msec()
+	var info: Dictionary = await RemakeLodClusters.build(root, entries, false)      # full detail streams (RemakeDetailStreamer)
+	info["ms"] = Time.get_ticks_msec() - t0
+	return info
+
+
+static func entries_for(settlements: Array) -> Array:
+	## every placed structure: where it stands and which LOD cells it falls in
 	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json")).structures
 	var entries := []
 	for e in pl:
@@ -39,10 +48,7 @@ static func build(root: Node3D, settlements: Array) -> Dictionary:
 			if w.x > -9000.0:
 				h = w.x + DECK_H
 		entries.append(_entry(e, s, x, basis, h))
-	var t0 := Time.get_ticks_msec()
-	var info: Dictionary = await RemakeLodClusters.build(root, entries, false)      # full detail streams (RemakeDetailStreamer)
-	info["ms"] = Time.get_ticks_msec() - t0
-	return info
+	return entries
 
 
 static func _entry(e: Dictionary, s: float, x: float, basis: Basis, h: float) -> Dictionary:

@@ -202,9 +202,13 @@ var _mid := {}
 var _todo := []                     # [end, tile] still to build (mid + far)
 
 func _process(delta: float) -> void:
-	if not _todo.is_empty():
+	# a tile a frame (as many as fit in 60 ms while the loading screen is up)
+	var t0 := Time.get_ticks_usec()
+	while not _todo.is_empty():
 		var job: Array = _todo.pop_front()
 		_build_tile(job[0], job[1])
+		if not StationGeo.loading or Time.get_ticks_usec() - t0 > 60000:
+			break
 	_t -= delta
 	if _t > 0.0 or target == null:
 		return

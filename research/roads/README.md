@@ -23,3 +23,7 @@ In the game:
 - `MapRoads.gd` draws the road ribbons, markings, curbs and gutters, gravel shoulders and turning
   circles.
 - `RoadFurniture.gd` builds the signs, signals and level crossings.
+
+After any of these, rebake what the game would otherwise build at launch (see research/perf/loading.md):
+`godot4 --headless --path . --script res://remake/tools/bake_world.gd -- roads terrain trees walks water`,
+then `godot4 --path . --script res://remake/tools/bake_world.gd -- structures` (it needs a display).

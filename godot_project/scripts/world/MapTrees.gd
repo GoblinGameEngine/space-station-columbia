@@ -19,6 +19,8 @@ const NEAR := 320.0
 const FAR := 900.0
 
 const BUDGET_USEC := 4000
+const BAKED := "res://remake/baked/trees.res"
+const BAKE_VERSION := 1              # bump when the placement changes
 
 var _cells: Array = []
 var _task := -1
@@ -36,36 +38,106 @@ func setup() -> void:
 	for cs in ceili(StationGeo.CIRC / CELL):
 		for cx in ceili(StationGeo.LENGTH / CELL):
 			_cells.append(Vector2i(cs, cx))
-	_task = WorkerThreadPool.add_group_task(_cell_task, _cells.size(), -1, false, "trees")
+	if ResourceLoader.exists(BAKED):
+		_task = WorkerThreadPool.add_task(_load_baked, false, "trees (baked)")
+		_single = true
+	else:
+		_task = WorkerThreadPool.add_group_task(_cell_task, _cells.size(), -1, false, "trees")
 	set_process(true)
+
+
+var _single := false                  # _task is a plain task (the baked load), not a group task
+
+
+static func stamp() -> String:
+	## what the trees stand on: the land cover, the terrain, the roads and water they keep off
+	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/landcover.png", "res://remake/terrain_base.bin.gz",
+		"res://remake/terrain_level.bin.gz", "res://remake/terrain_depth.bin.gz", "res://remake/placement.json"], BAKE_VERSION)
+
+
+func _load_baked() -> void:
+	## (worker) the baked trees if they're of this map; else place them here after all
+	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	if b and b.stamp == stamp():
+		var cells: Dictionary = b.data.get("cells", {})
+		var out := []
+		for c in _cells:
+			out.append([c, cells.get(c, PackedFloat32Array())])
+		_lock.lock()
+		_done.append_array(out)
+		_lock.unlock()
+		return
+	push_warning("MapTrees: the baked trees are of other map data -- placing them (rerun remake/tools/bake_world.gd)")
+	for i in _cells.size():
+		_cell_task(i)
+
+
+static func buffer_of(xforms: Array, cols: Array) -> PackedFloat32Array:
+	## a MultiMesh's instance buffer (3D transforms, colours): 12 floats of transform, 4 of colour each
+	var buf := PackedFloat32Array()
+	buf.resize(xforms.size() * 16)
+	for k in xforms.size():
+		var t: Transform3D = xforms[k]
+		var c: Color = cols[k]
+		var o := k * 16
+		var b := t.basis
+		var vals := [b.x.x, b.y.x, b.z.x, t.origin.x, b.x.y, b.y.y, b.z.y, t.origin.y, b.x.z, b.y.z, b.z.z, t.origin.z,
+			c.r, c.g, c.b, c.a]
+		for v in 16:
+			buf[o + v] = vals[v]
+	return buf
+
+
+func bake() -> BakedMeshes:
+	## every cell's trees, as MultiMesh buffers (remake/tools/bake_world.gd saves them)
+	MapTerrain.elevation(0.0, 0.0)
+	var b := BakedMeshes.new()
+	b.stamp = stamp()
+	var cells := {}
+	for cs in ceili(StationGeo.CIRC / CELL):
+		for cx in ceili(StationGeo.LENGTH / CELL):
+			var c := Vector2i(cs, cx)
+			var r := _place(c)
+			if not (r[0] as Array).is_empty():
+				cells[c] = buffer_of(r[0], r[1])
+	b.data["cells"] = cells
+	return b
 
 
 func _cell_task(i: int) -> void:
 	var r := _place(_cells[i])
 	_lock.lock()
-	_done.append([_cells[i], r[0], r[1]])
+	_done.append([_cells[i], buffer_of(r[0], r[1])])
 	_lock.unlock()
 
 
 func _process(_delta: float) -> void:
 	var t0 := Time.get_ticks_usec()
-	while Time.get_ticks_usec() - t0 < BUDGET_USEC:
+	while Time.get_ticks_usec() - t0 < (60000 if StationGeo.loading else BUDGET_USEC):
 		_lock.lock()
 		var job: Array = _done.pop_back() if not _done.is_empty() else []
 		_lock.unlock()
 		if job.is_empty():
 			break
-		_make(job[0], job[1], job[2])
+		_make(job[0], job[1])
 		_made += 1
 	if _made >= _cells.size():
-		WorkerThreadPool.wait_for_group_task_completion(_task)
-		_task = -1
+		_wait()
 		set_process(false)
 
 
-func _exit_tree() -> void:
-	if _task >= 0:
+func _wait() -> void:
+	if _task < 0:
+		return
+	if _single:
+		WorkerThreadPool.wait_for_task_completion(_task)
+	else:
 		WorkerThreadPool.wait_for_group_task_completion(_task)
+	_task = -1
+
+
+func _exit_tree() -> void:
+	_wait()
 
 
 func _place(c: Vector2i) -> Array:
@@ -105,18 +177,16 @@ func _place(c: Vector2i) -> Array:
 	return [xforms, cols]
 
 
-func _make(c: Vector2i, xforms: Array, cols: Array) -> void:
-	if xforms.is_empty():
+func _make(c: Vector2i, buf: PackedFloat32Array) -> void:
+	if buf.is_empty():
 		return
 	for version in [[_near_mesh, 0.0, NEAR], [_far_mesh, NEAR, FAR]]:
 		var mm := MultiMesh.new()
 		mm.transform_format = MultiMesh.TRANSFORM_3D
 		mm.use_colors = true
 		mm.mesh = version[0]
-		mm.instance_count = xforms.size()
-		for k in xforms.size():
-			mm.set_instance_transform(k, xforms[k])
-			mm.set_instance_color(k, cols[k])
+		mm.instance_count = buf.size() / 16
+		mm.buffer = buf
 		var mmi := MultiMeshInstance3D.new()
 		mmi.multimesh = mm
 		mmi.visibility_range_begin = version[1]

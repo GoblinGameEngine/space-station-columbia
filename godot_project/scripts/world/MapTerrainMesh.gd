@@ -23,6 +23,8 @@ const SKIRT := 1.5
 const TEX_M := 8.0
 const BUDGET_USEC := 5000
 static var MAX_TASKS := clampi(OS.get_processor_count() - 2, 2, 6)   # tiles generated at once
+const BAKED_FAR := "res://remake/baked/terrain_far.res"
+const BAKE_VERSION := 1              # bump when the far tier's output changes
 const COL_PARTS := 4                 # a streamed near tile's collision goes in this many pieces, a frame each
 
 var half_w := StationGeo.HALF_LEN
@@ -43,6 +45,8 @@ var _done_lock := Mutex.new()
 var _col_queue: Array = []            # [MeshInstance3D, faces]: collision pieces still to add
 var _pending := {}                    # [tier, key] being generated, so they aren't queued twice
 var _t := 0.0
+var _far_task := -1                   # loading the baked far tier
+var _far_baked: Array = []            # [[key, arrays]] from it, once loaded
 
 
 func setup(p_target: Node3D, p_material: Material) -> void:
@@ -55,10 +59,13 @@ func setup(p_target: Node3D, p_material: Material) -> void:
 	for gs in range(0, _n_cs, GROUP):
 		for gx in range(0, _n_cx, GROUP):
 			_far_todo.append(Vector2i(gs / GROUP, gx / GROUP))
+	if ResourceLoader.exists(BAKED_FAR):
+		_far_task = WorkerThreadPool.add_task(_load_far, false, "terrain far tier (baked)")
 	if target:
 		_update()
 		var n := 0
-		while not _queue.is_empty() and _queue[0][0] == 0 and n < 4:
+		# only the tile underfoot now (~0.4 s): the rest generate on the workers behind the loading screen
+		while not _queue.is_empty() and _queue[0][0] == 0 and n < 1:
 			_do(_queue.pop_front())
 			n += 1
 	set_process(target != null)
@@ -260,7 +267,7 @@ func _process(delta: float) -> void:
 	# (always at least one, so a busy frame can't stall it)
 	var t0 := Time.get_ticks_usec()
 	var first := true
-	while first or Time.get_ticks_usec() - t0 < BUDGET_USEC:
+	while first or Time.get_ticks_usec() - t0 < (60000 if StationGeo.loading else BUDGET_USEC):
 		first = false
 		if not _col_queue.is_empty():
 			var c: Array = _col_queue.pop_front()
@@ -274,6 +281,17 @@ func _process(delta: float) -> void:
 			break
 		_pending.erase([res[0], res[1]])
 		_finish(res[0], res[1], res[2])
+	if _far_task >= 0 and WorkerThreadPool.is_task_completed(_far_task):
+		WorkerThreadPool.wait_for_task_completion(_far_task)
+		_far_task = -1
+		if not _far_baked.is_empty():
+			_done_lock.lock()
+			for kv in _far_baked:
+				_pending[[3, kv[0]]] = true
+				_done.append([3, kv[0], kv[1]])
+			_done_lock.unlock()
+			_far_todo.clear()
+			_far_baked = []
 	for id in _tasks.keys():
 		if WorkerThreadPool.is_task_completed(id):
 			WorkerThreadPool.wait_for_task_completion(id)
@@ -283,7 +301,7 @@ func _process(delta: float) -> void:
 		var job: Array = []
 		if not _queue.is_empty():
 			job = _queue.pop_front()
-		elif not _far_todo.is_empty():
+		elif not _far_todo.is_empty() and _far_task < 0:
 			job = [3, _far_todo.pop_front()]
 		else:
 			break
@@ -317,6 +335,41 @@ func _ground_under_target() -> void:
 	_col_queue = rest
 
 
+static func stamp() -> String:
+	## what the far tier is made from: the terrain, its land cover and the pads levelled into it
+	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/terrain_base.bin.gz", "res://remake/terrain_level.bin.gz",
+		"res://remake/terrain_depth.bin.gz", "res://remake/landcover.png", "res://remake/placement.json"], BAKE_VERSION)
+
+
+func _load_far() -> void:
+	## (worker) the baked far tier, if it's of this terrain
+	var b := ResourceLoader.load(BAKED_FAR) as BakedMeshes
+	if b == null or b.stamp != stamp():
+		push_warning("MapTerrainMesh: the baked far tier is of other data -- building it (rerun remake/tools/bake_world.gd)")
+		return
+	var out := []
+	var far: Dictionary = b.data.get("far", {})
+	for key in far:
+		out.append([key, far[key]])
+	_far_baked = out
+
+
+func bake_far() -> BakedMeshes:
+	## every group's far tier (T3) as vertex arrays (remake/tools/bake_world.gd saves them)
+	_n_cs = CHUNKS_ROUND
+	_n_cx = ceili(StationGeo.LENGTH / CHUNK_X)
+	MapTerrain.elevation(0.0, 0.0)
+	var b := BakedMeshes.new()
+	b.stamp = stamp()
+	var far := {}
+	for gs in range(0, _n_cs, GROUP):
+		for gx in range(0, _n_cx, GROUP):
+			var key := Vector2i(gs / GROUP, gx / GROUP)
+			far[key] = _gen(_group_rect(key), 32.0)
+	b.data["far"] = far
+	return b
+
+
 func _gen_task(tier: int, key: Vector2i, r: Rect2, step: float) -> void:
 	var arrays := _gen(r, step)
 	_done_lock.lock()
@@ -326,7 +379,8 @@ func _gen_task(tier: int, key: Vector2i, r: Rect2, step: float) -> void:
 
 func busy() -> bool:
 	## Anything still to build or being built (the far-side bake waits on this).
-	return not _queue.is_empty() or not _tasks.is_empty() or not _pending.is_empty() or not _col_queue.is_empty()
+	return not _queue.is_empty() or not _tasks.is_empty() or not _pending.is_empty() or not _col_queue.is_empty() \
+		or _far_task >= 0
 
 
 func _has_tile(tier: int, key: Vector2i) -> bool:
@@ -361,6 +415,9 @@ func _exit_tree() -> void:
 	for id in _tasks:
 		WorkerThreadPool.wait_for_task_completion(id)
 	_tasks.clear()
+	if _far_task >= 0:
+		WorkerThreadPool.wait_for_task_completion(_far_task)
+		_far_task = -1
 
 
 func _update() -> void:

@@ -111,8 +111,47 @@ const FILL := 0.75                   # the small water stands at this fraction o
 const SMALL_CELL := 400.0
 
 
+const BAKED_SMALL := "res://remake/baked/small_water.res"
+const BAKE_VERSION := 1              # bump when the small water's output changes
+
+
+static func stamp() -> String:
+	## what the small water is made from: the map's creeks, ponds and oxbows on the graded terrain
+	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/terrain_base.bin.gz", "res://remake/terrain_level.bin.gz",
+		"res://remake/terrain_depth.bin.gz", "res://remake/placement.json"], BAKE_VERSION)
+
+
+static func bake_small() -> BakedMeshes:
+	## (remake/tools/bake_world.gd) the small water's cells as mesh arrays
+	var b := BakedMeshes.new()
+	b.stamp = stamp()
+	b.data["cells"] = small_arrays()
+	return b
+
+
 static func build_small(root: Node3D) -> void:
-	## The small water, merged per SMALL_CELL m of s (the far side hides its own).
+	## The small water, merged per SMALL_CELL m of s (the far side hides its own) -- baked, or made now.
+	var cells := {}
+	if ResourceLoader.exists(BAKED_SMALL):
+		var b := ResourceLoader.load(BAKED_SMALL) as BakedMeshes
+		if b and b.stamp == stamp():
+			cells = b.data.get("cells", {})
+	if cells.is_empty():
+		cells = small_arrays()
+	var mat := _small_material()
+	for key in cells:
+		var mesh := ArrayMesh.new()
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, cells[key])
+		mesh.surface_set_material(0, mat)
+		var mi := MeshInstance3D.new()
+		mi.name = "map_small_water_%d" % key
+		mi.mesh = mesh
+		mi.set_script(load("res://scripts/world/LakeWater.gd"))
+		root.add_child(mi)
+
+
+static func small_arrays() -> Dictionary:
+	## cell -> mesh arrays of the creeks, spurs, ponds and oxbows in it
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MapTerrain.PATH))
 	MapTerrain.elevation(0.0, 0.0)                        # loads the terrain data
 	var cells := {}
@@ -168,15 +207,10 @@ static func build_small(root: Node3D) -> void:
 				st.set_normal(StationGeo.up(q.x))
 				st.set_uv(q / 20.0)
 				st.add_vertex(StationGeo.point(q.x, q.y, lo))
-	var mat := _small_material()
+	var out := {}
 	for key in cells:
-		var st: SurfaceTool = cells[key]
-		st.set_material(mat)
-		var mi := MeshInstance3D.new()
-		mi.name = "map_small_water_%d" % key
-		mi.mesh = st.commit()
-		mi.set_script(load("res://scripts/world/LakeWater.gd"))
-		root.add_child(mi)
+		out[key] = (cells[key] as SurfaceTool).commit_to_arrays()
+	return out
 
 
 static func _cell_st(cells: Dictionary, s: float) -> SurfaceTool:

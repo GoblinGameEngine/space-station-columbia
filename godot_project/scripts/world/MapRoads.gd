@@ -36,6 +36,8 @@ const CURB_W := 0.2
 const FINE := ["paint_w", "paint_y", "decal", "kerb", "shoulder"]
 const FINE_CELL := 100.0
 const NEAR_R := 900.0
+const BAKED := "res://remake/baked/roads.res"
+const BAKE_VERSION := 1              # bump when the builder's output changes
 const RXR_CELL := 19                 # tools/sign_atlas.py: the RXR marking's cell
 
 var _roads: Array = []
@@ -53,12 +55,6 @@ var _mats := {}
 func setup(near := Vector2(INF, INF)) -> void:
 	## near (s, x): the roads within NEAR_R of it are built first (the splash waits for those only)
 	_near = near
-	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MapTerrain.PATH))
-	_roads = d.roads
-	_turns = d.get("turns", [])
-	_roads.append({"cls": "rail", "w": 4.0, "pts": d.rail.pts})
-	if FileAccess.file_exists("res://remake/road_furniture.json"):
-		_fur = JSON.parse_string(FileAccess.get_file_as_string("res://remake/road_furniture.json"))
 	for key in TEX:
 		var m := StandardMaterial3D.new()
 		var root := "res://remake/textures/%s_" % TEX[key][0]
@@ -84,9 +80,61 @@ func setup(near := Vector2(INF, INF)) -> void:
 	dm.cull_mode = BaseMaterial3D.CULL_DISABLED
 	dm.roughness = 0.7
 	_mats["decal"] = dm
-	MapTerrain.elevation(0.0, 0.0)                         # loads the terrain data (_body_profile reads it)
-	_task = WorkerThreadPool.add_task(_build_all, false, "roads")
+	if ResourceLoader.exists(BAKED):
+		_task = WorkerThreadPool.add_task(_load_baked, false, "roads (baked)")
+	else:
+		load_data()
+		_task = WorkerThreadPool.add_task(_build_all, false, "roads")
 	set_process(true)
+
+
+static func stamp() -> String:
+	## what the roads are built from: the map, the road furniture, the placement (bridge decks grade them)
+	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/road_furniture.json", "res://remake/placement.json"],
+		BAKE_VERSION)
+
+
+func load_data() -> void:
+	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MapTerrain.PATH))
+	_roads = d.roads
+	_turns = d.get("turns", [])
+	_roads.append({"cls": "rail", "w": 4.0, "pts": d.rail.pts})
+	if FileAccess.file_exists("res://remake/road_furniture.json"):
+		_fur = JSON.parse_string(FileAccess.get_file_as_string("res://remake/road_furniture.json"))
+	MapTerrain.elevation(0.0, 0.0)                         # loads the terrain data (_body_profile reads it)
+
+
+func _load_baked() -> void:
+	## (worker) the baked roads, if they're of this map; else build them here after all
+	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	if b and b.stamp == stamp():
+		var out := []
+		for i in b.keys.size():
+			out.append([b.keys[i], b.meshes[i]])
+		_pass = 1
+		_out = out
+		return
+	push_warning("MapRoads: the baked roads are of other map data -- building them (rerun remake/tools/bake_world.gd)")
+	load_data()
+	_pass = 1
+	_build_all()
+
+
+func bake() -> BakedMeshes:
+	## every road, in one go, as meshes (remake/tools/bake_world.gd saves them)
+	load_data()
+	_near = Vector2(INF, INF)
+	_pass = 0
+	_build_all()
+	var b := BakedMeshes.new()
+	b.stamp = stamp()
+	for job in _out:
+		var m := ArrayMesh.new()
+		m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, job[1])
+		b.keys.append(job[0])
+		b.meshes.append(m)
+	_out.clear()
+	return b
 
 
 func _build_all() -> void:
@@ -384,8 +432,9 @@ func _add_decal(dc: Dictionary) -> void:
 func _commit() -> void:
 	for job in _out:
 		var key: Array = job[0]
-		var mesh := ArrayMesh.new()
-		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, job[1])
+		var mesh: ArrayMesh = job[1] if job[1] is ArrayMesh else ArrayMesh.new()
+		if not job[1] is ArrayMesh:
+			mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, job[1])
 		mesh.surface_set_material(0, _mats[key[1]])
 		var mi := MeshInstance3D.new()
 		mi.name = "roads_%d_%d_%s" % [key[0].x, key[0].y, key[1]]

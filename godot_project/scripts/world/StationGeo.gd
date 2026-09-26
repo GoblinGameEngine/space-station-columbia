@@ -25,7 +25,10 @@ const CIRC := TAU * R
 ## smooth ramp.  (static vars: tunable live from DevBridge.)
 static var TARGET_G := 9.8
 static var GRAVITY_BANDS := 10
-const AXIS := Vector3.RIGHT          # the cylinder's axis (world x)
+const AXIS := Vector3.RIGHT
+## true while the loading screen is up (RemakeStation sets it): builders that spread their work over
+## frames to keep the game smooth may then take much longer frames -- nobody is watching them
+static var loading := true          # the cylinder's axis (world x)
 
 
 static func gravity_at(radial_len: float) -> float:

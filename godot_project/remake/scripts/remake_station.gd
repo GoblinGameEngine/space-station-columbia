@@ -156,10 +156,9 @@ func _watch_load() -> void:
 	while not waiting.is_empty():
 		if _splash:
 			_splash_bar.value = 1.0 - waiting.size() / float(total)
-			# the splash covers the start of the load: gone once the ground, trees and the walks round
-			# the player are in (the rest carries on streaming in behind the game)
-			if not waiting.has("trees") and not waiting.has("walks") and not waiting.has("cliffs") \
-					and (get_node("Roads") as MapRoads).near_done:
+			# the splash stays up until the world is all in (the builders work flat out meanwhile, the 3D
+			# view off), or LOADING_MAX_MS at the most
+			if Time.get_ticks_msec() - t0 > LOADING_MAX_MS:
 				_hide_splash()
 		await get_tree().process_frame
 		frames += 1
@@ -168,14 +167,18 @@ func _watch_load() -> void:
 			if waiting[k].call():
 				print("LOAD %-24s done at t=%d  (%d ms after ready)" % [k, Time.get_ticks_msec(), Time.get_ticks_msec() - t0])
 				waiting.erase(k)
+	_hide_splash()
 	print("LOAD complete: %d frames, worst frame %.0f ms, t=%d" % [frames, worst * 1000.0, Time.get_ticks_msec()])
 
 
 var _splash: CanvasLayer
+const LOADING_MAX_MS := 90000
 var _splash_bar: ProgressBar
 
 
 func _show_splash() -> void:
+	StationGeo.loading = true
+	get_viewport().disable_3d = true            # nothing to see behind the splash: let the GPU rest
 	## A placeholder splash (ui/pda/splash.png -- also the engine's boot splash) held over the start of
 	## the load, with a progress bar.
 	_splash = CanvasLayer.new()
@@ -209,6 +212,8 @@ func _show_splash() -> void:
 
 
 func _hide_splash() -> void:
+	StationGeo.loading = false
+	get_viewport().disable_3d = false
 	if _splash == null:
 		return
 	var s := _splash
