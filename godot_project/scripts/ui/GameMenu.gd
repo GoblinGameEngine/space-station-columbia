@@ -22,7 +22,7 @@ const SYS_SIZE := 12                    # ChicagoFLF: crisp at 12
 const TEXT_SIZE := 16                   # Pixel Operator: crisp at 16
 # the case round the screen, in screen pixels at 800 px of display height
 const CASE_TOP := 46.0
-const CASE_BOTTOM := 72.0
+const CASE_BOTTOM := 90.0
 const CASE_SIDE := 22.0
 const BEZEL := 8.0
 const W := Color(1, 1, 1)
@@ -36,6 +36,7 @@ var _theme: Theme
 var _font: FontFile                     # Pixel Operator 16: text
 var _bold: FontFile                     # ChicagoFLF 12: titles, menus, buttons, tabs
 var _case_font: Font                    # the case's printing (smooth type, drawn at screen size)
+var _case_bold: Font
 var _px := 2.0                          # screen pixels per LCD pixel
 var _k := 1.0                           # the case's scale
 
@@ -205,6 +206,7 @@ func _build_theme() -> void:
 	_font = _pixel_font(PDA + "PixelOperator.ttf")
 	_bold = _pixel_font(PDA + "ChicagoFLF.ttf")
 	_case_font = load(PDA + "DejaVuSans.ttf")
+	_case_bold = load(PDA + "DejaVuSans-Bold.ttf")
 	_theme = Theme.new()
 	_theme.default_font = _font
 	_theme.default_font_size = TEXT_SIZE
@@ -336,21 +338,20 @@ class DeviceBody extends Control:
 		# the earpiece grille, centred over it all
 		for i in 5:
 			draw_rect(Rect2(Vector2(size.x * 0.5 + (-22 + i * 10) * k, 5 * k), Vector2(6, 2) * k), Color(0.06, 0.06, 0.07))
-		var ky := lcd.end.y + BEZEL * k + 36 * k
-		for i in 4:
-			var cx := size.x * (i + 0.5) / 4.0
-			draw_string(font, Vector2(cx - 40 * k, ky), ["MAP", "ITEMS", "QUESTS", "SETUP"][i], HORIZONTAL_ALIGNMENT_CENTER, 80 * k,
-				int(8 * k), Color(0.55, 0.57, 0.6))
-		draw_string(font, Vector2(size.x * 0.5 - 40 * k, size.y - 6 * k), "POWER", HORIZONTAL_ALIGNMENT_CENTER, 80 * k, int(7 * k),
-			Color(0.45, 0.47, 0.5))
 
 
-func _hw_button(on_press: Callable, round := true) -> Button:
+func _hw_button(label: String, on_press: Callable, round := true) -> Button:
+	## A hardware key, its name moulded on it.
 	var b := Button.new()
+	b.text = label
 	b.focus_mode = Control.FOCUS_NONE
+	b.add_theme_font_override("font", _case_bold)
+	b.add_theme_color_override("font_color", Color(0.86, 0.87, 0.89))
+	b.add_theme_color_override("font_hover_color", Color(1, 1, 1))
+	b.add_theme_color_override("font_pressed_color", Color(0.7, 0.72, 0.75))
 	var up := StyleBoxFlat.new()
 	up.bg_color = Color(0.27, 0.28, 0.3)
-	up.set_corner_radius_all(12 if round else 4)
+	up.set_corner_radius_all(14 if round else 8)
 	up.border_color = Color(0.4, 0.41, 0.44)
 	up.set_border_width_all(1)
 	up.shadow_color = Color(0, 0, 0, 0.5)
@@ -404,11 +405,11 @@ func _build_device() -> void:
 	_screen_rect.gui_input.connect(_screen_input)
 	body.add_child(_screen_rect)
 	# the hardware keys: four app keys (as the Palm Pilot's) and the power key
-	for app in ["map", "inventory", "quests", "control"]:
-		var b := _hw_button(_open_app.bind(app))
+	for spec in [["map", "MAP"], ["inventory", "ITEMS"], ["quests", "QUESTS"], ["control", "SETUP"]]:
+		var b := _hw_button(spec[1], _open_app.bind(spec[0]))
 		body.add_child(b)
 		_hw_keys.append(b)
-	var pw := _hw_button(func(): set_open(false), false)
+	var pw := _hw_button("POWER", func(): set_open(false), false)
 	body.add_child(pw)
 	_hw_keys.append(pw)
 	_layout()
@@ -455,14 +456,17 @@ func _layout() -> void:
 	dev.k = _k
 	dev.lcd = Rect2(_screen_rect.position, lcd)
 	dev.queue_redraw()
-	var y := dev.lcd.end.y + BEZEL * _k + 10 * _k
+	var y := dev.lcd.end.y + BEZEL * _k + 12 * _k
+	var kw := minf(64.0 * _k, body.x / 4.0 - 10 * _k)
 	for i in 4:
 		var b: Button = _hw_keys[i]
-		b.size = Vector2(38, 20) * _k
-		b.position = Vector2(body.x * (i + 0.5) / 4.0 - 19 * _k, y).floor()
+		b.size = Vector2(kw, 30 * _k).round()
+		b.position = Vector2(body.x * (i + 0.5) / 4.0 - kw * 0.5, y).floor()
+		b.add_theme_font_size_override("font_size", maxi(10, int(13 * _k)))
 	var pw: Button = _hw_keys[4]
-	pw.size = Vector2(26, 9) * _k
-	pw.position = Vector2(body.x * 0.5 - 13 * _k, body.y - 27 * _k).floor()
+	pw.size = Vector2(78, 20).max(Vector2(78, 20) * _k).round() if _k < 1.0 else (Vector2(78, 20) * _k).round()
+	pw.position = Vector2(body.x * 0.5 - pw.size.x * 0.5, body.y - pw.size.y - 12 * _k).floor()
+	pw.add_theme_font_size_override("font_size", maxi(9, int(11 * _k)))
 	_lcd.set_shader_parameter("px_scale", float(_px))
 
 
