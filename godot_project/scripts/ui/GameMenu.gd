@@ -1,23 +1,30 @@
 extends CanvasLayer
 
 ## The game menu is the player's handheld: a NYNEX Communicator, a portrait mid-90s PDA (the Apple
-## Newton MessagePad's and Palm Pilot's upright form) running "The System" -- an operating system in
-## the manner of Windows CE 1.0 (1996): a desktop of icons, a taskbar with a Start button and a clock,
-## a Start menu that doesn't cascade (CE 1.0's didn't), and full-screen apps whose title bar carries
-## [?] [OK] [X].  The menu's options are the apps; their sub-menus are the apps' tabs:
+## Newton MessagePad's and Palm Pilot's upright form) running "The System".  The System keeps
+## Windows CE 1.0's way of working -- a desktop of icons, a taskbar whose System button opens a flat
+## (non-cascading) menu, full-screen apps with tabs -- and wears the Macintosh System 6 look: Chicago
+## type, pinstriped title bars with a close box, rounded push buttons, the grey dither desktop.
 ##   Station Map (Station, Nearby) · Inventory (Weapons, Items) · Quests (Active, Completed)
-##   Control Panel (Sound, Display, Controls) · Help (Contents, About)
-##   Start menu: the apps, New Game..., Suspend (back to the game).
-## The screen is a 240 x 320 dot-matrix STN LCD, 4 shades of black on green (ui/pda/lcd.gdshader),
-## with the green electroluminescent backlight on at night.  The System draws in 4 greys into a
-## SubViewport; the LCD shader turns them green.  Below the screen, four hardware buttons open the
-## apps (as the Palm Pilot's did) and the power button puts the device away.
+##   NPC AI (Setup, Voice, Try it) · Control Panel (Sound, Display, Controls) · Help (Contents, About)
+##   System menu: the apps, New Game..., Suspend (back to the game).
+## The screen is a 240 x 320 dot-matrix LCD in 4 shades of black on green (ui/pda/lcd.gdshader), the
+## green backlight on at night.  It is drawn at a whole number of screen pixels per LCD pixel (2 on
+## the Steam Deck), and its type is pixel type drawn at its own size -- ChicagoFLF 12 for the
+## system, Pixel Operator 16 for text -- so every letter lands on whole pixels: crisp at any size.
+## Below the screen, four hardware keys open the apps (as the Palm Pilot's did) and the power key
+## puts the device away.
 
 const SCREEN := Vector2i(240, 320)
-const BODY := Vector2(288, 478)        # the device, in screen pixels
-const SCREEN_AT := Vector2(24, 50)
-const TASKBAR_H := 18
-const TITLE_H := 15
+const TASKBAR_H := 20
+const TITLE_H := 19
+const SYS_SIZE := 12                    # ChicagoFLF: crisp at 12
+const TEXT_SIZE := 16                   # Pixel Operator: crisp at 16
+# the case round the screen, in screen pixels at 800 px of display height
+const CASE_TOP := 36.0
+const CASE_BOTTOM := 72.0
+const CASE_SIDE := 22.0
+const BEZEL := 8.0
 const W := Color(1, 1, 1)
 const L := Color(0.667, 0.667, 0.667)
 const D := Color(0.333, 0.333, 0.333)
@@ -26,15 +33,21 @@ const PDA := "res://ui/pda/"
 
 var _is_open := false
 var _theme: Theme
-var _font: FontFile
-var _bold: FontFile
+var _font: FontFile                     # Pixel Operator 16: text
+var _bold: FontFile                     # ChicagoFLF 12: titles, menus, buttons, tabs
+var _case_font: Font                    # the case's printing (smooth type, drawn at screen size)
+var _case_bold: Font
+var _px := 2                            # screen pixels per LCD pixel
+var _k := 1.0                           # the case's scale
 
 var _dim: ColorRect
 var _device: Control
+var _hw_keys: Array = []
 var _screen_rect: TextureRect
 var _vp: SubViewport
 var _lcd: ShaderMaterial
 var _desk: Control
+var _desk_icons := {}
 var _taskbar: Control
 var _task_btn: Button
 var _clock: Label
@@ -53,11 +66,19 @@ var _quest_active: VBoxContainer
 var _quest_done: VBoxContainer
 var _weapons: VBoxContainer
 var _items: VBoxContainer
+var _ai_status: Label
+var _ai_key_edit: LineEdit
+var _ai_clip_row: Control
+var _ai_usage: Label
+var _ai_say: LineEdit
+var _ai_log: VBoxContainer
+var _ai_history: Array = []
 
 const APPS := [
 	["map", "Station Map", "icon_map.png"],
 	["inventory", "Inventory", "icon_inventory.png"],
 	["quests", "Quests", "icon_quests.png"],
+	["ai", "NPC AI", "icon_ai.png"],
 	["control", "Control Panel", "icon_control.png"],
 	["help", "Help", "icon_help.png"],
 ]
@@ -78,12 +99,27 @@ func _ready() -> void:
 	Inventory.changed.connect(_refresh_inventory)
 	WeaponManager.loadout_changed.connect(_refresh_inventory)
 	WeaponManager.weapon_equipped.connect(func(_id): _refresh_inventory())
+	NpcAI.key_changed.connect(_refresh_ai)
 	get_viewport().size_changed.connect(_layout)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_menu"):
 		set_open(not _is_open)
+
+
+func _input(event: InputEvent) -> void:
+	## Typing goes to the text box that has the focus on The System's screen (the screen is its own
+	## viewport, which only hears what it's handed).  Esc there just leaves the box.
+	if not _is_open or not event is InputEventKey:
+		return
+	var f := _vp.gui_get_focus_owner()
+	if f is LineEdit:
+		if event.pressed and event.physical_keycode == KEY_ESCAPE:
+			f.release_focus()
+		else:
+			_vp.push_input(event)
+		get_viewport().set_input_as_handled()
 
 
 func set_open(open: bool) -> void:
@@ -96,6 +132,7 @@ func set_open(open: bool) -> void:
 		_refresh_quests()
 		_refresh_inventory()
 		_refresh_map()
+		_refresh_ai()
 		_update_backlight()
 		_update_clock()
 	else:
@@ -125,138 +162,179 @@ func _process(_delta: float) -> void:
 
 # ------------------------------------------------------------------ look
 func _pixel_font(path: String) -> FontFile:
-	var f: FontFile = load(path)
-	f = f.duplicate()
+	## A pixel font drawn at its own size: no smoothing, no hinting, whole-pixel positions.
+	var f: FontFile = FontFile.new()
+	f.load_dynamic_font(path)
 	f.antialiasing = TextServer.FONT_ANTIALIASING_NONE
-	f.hinting = TextServer.HINTING_NORMAL
+	f.hinting = TextServer.HINTING_NONE
 	f.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED
+	f.generate_mipmaps = false
 	return f
 
 
-func _box(file: String, margin := 2) -> StyleBoxTexture:
-	var s := StyleBoxTexture.new()
-	s.texture = load(PDA + file)
-	for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
-		s.set_texture_margin(side, margin)
-		s.set_content_margin(side, margin + 2)
-	return s
-
-
-func _flat(c: Color, border := Color.TRANSPARENT, bw := 0) -> StyleBoxFlat:
+func _flat(c: Color, border := Color.TRANSPARENT, bw := 0, radius := 0, margin := 2) -> StyleBoxFlat:
 	var s := StyleBoxFlat.new()
 	s.bg_color = c
 	s.border_color = border
 	s.set_border_width_all(bw)
-	s.set_content_margin_all(2)
+	s.set_corner_radius_all(radius)
+	s.corner_detail = 3
+	s.anti_aliasing = false
+	s.set_content_margin_all(margin)
+	return s
+
+
+func _image(rows: Array) -> ImageTexture:
+	## A little picture from rows of K / D / L / W / . (clear)
+	var img := Image.create(rows[0].length(), rows.size(), false, Image.FORMAT_RGBA8)
+	var pal := {"K": K, "D": D, "L": L, "W": W, ".": Color(0, 0, 0, 0)}
+	for y in rows.size():
+		for x in rows[y].length():
+			img.set_pixel(x, y, pal[rows[y][x]])
+	return ImageTexture.create_from_image(img)
+
+
+func _checker() -> StyleBoxTexture:
+	## The System 6 grey: a 50% dither
+	var s := StyleBoxTexture.new()
+	s.texture = _image(["LW", "WL"])
+	s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
+	s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
 	return s
 
 
 func _build_theme() -> void:
-	_font = _pixel_font(PDA + "DejaVuSans.ttf")
-	_bold = _pixel_font(PDA + "DejaVuSans-Bold.ttf")
+	_font = _pixel_font(PDA + "PixelOperator.ttf")
+	_bold = _pixel_font(PDA + "ChicagoFLF.ttf")
+	_case_font = load(PDA + "DejaVuSans.ttf")
+	_case_bold = load(PDA + "DejaVuSans-Bold.ttf")
 	_theme = Theme.new()
 	_theme.default_font = _font
-	_theme.default_font_size = 10
-	for t in ["Label", "Button", "CheckBox", "TabContainer", "TabBar", "RichTextLabel"]:
+	_theme.default_font_size = TEXT_SIZE
+	for t in ["Button", "TabContainer", "TabBar", "OptionButton", "PopupMenu", "CheckBox"]:
+		_theme.set_font("font", t, _bold)
+		_theme.set_font_size("font_size", t, SYS_SIZE)
+	for t in ["Label", "Button", "CheckBox", "TabContainer", "TabBar", "RichTextLabel", "LineEdit", "OptionButton", "PopupMenu"]:
 		_theme.set_color("font_color", t, K)
 	_theme.set_color("default_color", "RichTextLabel", K)
-	_theme.set_color("font_hover_color", "Button", K)
-	_theme.set_color("font_pressed_color", "Button", K)
-	_theme.set_color("font_focus_color", "Button", K)
-	_theme.set_color("font_disabled_color", "Button", D)
-	_theme.set_color("font_selected_color", "TabContainer", K)
-	_theme.set_color("font_unselected_color", "TabContainer", K)
-	_theme.set_color("font_hovered_color", "TabContainer", K)
-	_theme.set_stylebox("normal", "Button", _box("btn_up.png"))
-	_theme.set_stylebox("hover", "Button", _box("btn_up.png"))
-	_theme.set_stylebox("pressed", "Button", _box("btn_down.png"))
-	_theme.set_stylebox("disabled", "Button", _box("btn_down.png"))
-	_theme.set_stylebox("focus", "Button", StyleBoxEmpty.new())
-	var tab_on := _box("tab_on.png")
-	tab_on.set_content_margin(SIDE_TOP, 2)
-	tab_on.set_content_margin(SIDE_BOTTOM, 3)
-	var tab_off := _box("tab_off.png")
-	tab_off.set_content_margin(SIDE_TOP, 1)
-	tab_off.set_content_margin(SIDE_BOTTOM, 1)
-	tab_off.expand_margin_top = -2
+	# push buttons: rounded, black edged; pressed ones go black (System 6)
+	for t in ["Button", "OptionButton"]:
+		_theme.set_color("font_hover_color", t, K)
+		_theme.set_color("font_focus_color", t, K)
+		_theme.set_color("font_pressed_color", t, W)
+		_theme.set_color("font_hover_pressed_color", t, W)
+		_theme.set_color("font_disabled_color", t, L)
+		_theme.set_stylebox("normal", t, _flat(W, K, 1, 5, 3))
+		_theme.set_stylebox("hover", t, _flat(W, K, 1, 5, 3))
+		_theme.set_stylebox("pressed", t, _flat(K, K, 1, 5, 3))
+		_theme.set_stylebox("hover_pressed", t, _flat(K, K, 1, 5, 3))
+		_theme.set_stylebox("disabled", t, _flat(W, L, 1, 5, 3))
+		_theme.set_stylebox("focus", t, StyleBoxEmpty.new())
+	_theme.set_icon("arrow", "OptionButton", _image(["KKKKKKK", ".KKKKK.", "..KKK..", "...K..."]))
+	# tabs: folder tabs over a white panel
+	var tab_on := _flat(W, K, 1, 0, 3)
+	tab_on.border_width_bottom = 0
+	tab_on.corner_radius_top_left = 3
+	tab_on.corner_radius_top_right = 3
+	var tab_off := _flat(L, K, 1, 0, 3)
+	tab_off.corner_radius_top_left = 3
+	tab_off.corner_radius_top_right = 3
 	_theme.set_stylebox("tab_selected", "TabContainer", tab_on)
 	_theme.set_stylebox("tab_unselected", "TabContainer", tab_off)
 	_theme.set_stylebox("tab_hovered", "TabContainer", tab_off)
-	_theme.set_stylebox("panel", "TabContainer", _box("raised_panel.png"))
-	_theme.set_constant("side_margin", "TabContainer", 2)
-	_theme.set_stylebox("panel", "PanelContainer", _box("raised_panel.png"))
-	_theme.set_stylebox("panel", "ScrollContainer", _box("sunken.png"))
-	_theme.set_stylebox("scroll", "VScrollBar", _flat(L))
-	_theme.set_stylebox("grabber", "VScrollBar", _box("btn_up.png"))
-	_theme.set_stylebox("grabber_highlight", "VScrollBar", _box("btn_up.png"))
-	_theme.set_stylebox("grabber_pressed", "VScrollBar", _box("btn_down.png"))
-	_theme.set_stylebox("slider", "HSlider", _box("sunken.png", 1))
+	_theme.set_stylebox("panel", "TabContainer", _flat(W, K, 1, 0, 4))
+	_theme.set_color("font_selected_color", "TabContainer", K)
+	_theme.set_color("font_unselected_color", "TabContainer", K)
+	_theme.set_color("font_hovered_color", "TabContainer", K)
+	_theme.set_constant("side_margin", "TabContainer", 0)
+	_theme.set_stylebox("panel", "PanelContainer", _flat(W, K, 1, 0, 2))
+	_theme.set_stylebox("panel", "ScrollContainer", StyleBoxEmpty.new())
+	# scroll bars: the grey dither track, a white thumb, arrow boxes
+	_theme.set_stylebox("scroll", "VScrollBar", _checker())
+	_theme.set_stylebox("scroll_focus", "VScrollBar", _checker())
+	for st in ["grabber", "grabber_highlight", "grabber_pressed"]:
+		_theme.set_stylebox(st, "VScrollBar", _flat(W, K, 1, 0, 5))
+	_theme.set_icon("decrement", "VScrollBar", _image(["KKKKKKKKKKK", "KWWWWWWWWWK", "KWWWWKWWWWK", "KWWWKKKWWWK",
+		"KWWKKKKKWWK", "KWKKKKKKKWK", "KWWWKKKWWWK", "KWWWKKKWWWK", "KWWWWWWWWWK", "KKKKKKKKKKK"]))
+	_theme.set_icon("increment", "VScrollBar", _image(["KKKKKKKKKKK", "KWWWWWWWWWK", "KWWWKKKWWWK", "KWWWKKKWWWK",
+		"KWKKKKKKKWK", "KWWKKKKKWWK", "KWWWKKKWWWK", "KWWWWKWWWWK", "KWWWWWWWWWK", "KKKKKKKKKKK"]))
+	for st in ["decrement_highlight", "decrement_pressed"]:
+		_theme.set_icon(st, "VScrollBar", _theme.get_icon("decrement", "VScrollBar"))
+	for st in ["increment_highlight", "increment_pressed"]:
+		_theme.set_icon(st, "VScrollBar", _theme.get_icon("increment", "VScrollBar"))
+	# sliders: a thin track and a white knob
+	_theme.set_stylebox("slider", "HSlider", _flat(W, K, 1, 0, 1))
 	_theme.set_stylebox("grabber_area", "HSlider", _flat(D))
 	_theme.set_stylebox("grabber_area_highlight", "HSlider", _flat(D))
-	var knob := Image.create(7, 11, false, Image.FORMAT_RGBA8)
-	knob.fill(L)
-	for y in 11:
-		knob.set_pixel(0, y, W)
-		knob.set_pixel(6, y, K)
-	for x in 7:
-		knob.set_pixel(x, 0, W)
-		knob.set_pixel(x, 10, K)
-	var kt := ImageTexture.create_from_image(knob)
-	_theme.set_icon("grabber", "HSlider", kt)
-	_theme.set_icon("grabber_highlight", "HSlider", kt)
-	_theme.set_stylebox("separator", "HSeparator", _flat(D))
+	var knob := _image(["KKKKKKKKK", "KWWWWWWWK", "KWWWWWWWK", "KWWWWWWWK", "KWKKKKKWK", "KWWWWWWWK", "KWKKKKKWK",
+		"KWWWWWWWK", "KWWWWWWWK", "KWWWWWWWK", "KKKKKKKKK"])
+	_theme.set_icon("grabber", "HSlider", knob)
+	_theme.set_icon("grabber_highlight", "HSlider", knob)
+	# text boxes
+	_theme.set_stylebox("normal", "LineEdit", _flat(W, K, 1, 0, 3))
+	_theme.set_stylebox("focus", "LineEdit", _flat(W, K, 2, 0, 3))
+	_theme.set_stylebox("read_only", "LineEdit", _flat(W, L, 1, 0, 3))
+	_theme.set_color("caret_color", "LineEdit", K)
+	_theme.set_color("selection_color", "LineEdit", L)
+	_theme.set_color("font_selected_color", "LineEdit", K)
+	_theme.set_color("font_placeholder_color", "LineEdit", L)
+	# menus (the OptionButton's list)
+	_theme.set_stylebox("panel", "PopupMenu", _flat(W, K, 1, 0, 2))
+	_theme.set_stylebox("hover", "PopupMenu", _flat(K))
+	_theme.set_color("font_hover_color", "PopupMenu", W)
+	var line := StyleBoxLine.new()
+	line.color = K
+	line.thickness = 1
+	_theme.set_stylebox("separator", "HSeparator", line)
+	_theme.set_constant("separation", "HSeparator", 5)
 
 
 # ------------------------------------------------------------------ the device
 class DeviceBody extends Control:
-	## The NYNEX Communicator's case: charcoal plastic, the screen's bezel, the NYNEX wordmark and
-	## "Communicator" script, a speaker grille, and the silk-screened labels of the buttons below.
+	## The NYNEX Communicator's case, drawn at screen resolution round the LCD: charcoal plastic, the
+	## screen's bezel, the NYNEX wordmark and "Communicator", a speaker grille, the key labels.
 	var bold: Font
 	var font: Font
+	var k := 1.0
+	var lcd := Rect2()
 
 	func _draw() -> void:
-		var r := Rect2(Vector2.ZERO, size)
 		var body := StyleBoxFlat.new()
 		body.bg_color = Color(0.16, 0.17, 0.18)
-		body.set_corner_radius_all(26)
+		body.set_corner_radius_all(int(26 * k))
 		body.border_color = Color(0.3, 0.31, 0.33)
-		body.set_border_width_all(2)
+		body.set_border_width_all(maxi(1, int(2 * k)))
 		body.shadow_color = Color(0, 0, 0, 0.6)
-		body.shadow_size = 12
-		draw_style_box(body, r)
-		# a slightly lighter face plate round the screen
+		body.shadow_size = int(12 * k)
+		draw_style_box(body, Rect2(Vector2.ZERO, size))
 		var face := StyleBoxFlat.new()
 		face.bg_color = Color(0.2, 0.21, 0.22)
-		face.set_corner_radius_all(18)
-		draw_style_box(face, Rect2(Vector2(10, 10), size - Vector2(20, 20)))
-		# the bezel
+		face.set_corner_radius_all(int(18 * k))
+		draw_style_box(face, Rect2(Vector2(9, 9) * k, size - Vector2(18, 18) * k))
 		var bezel := StyleBoxFlat.new()
 		bezel.bg_color = Color(0.07, 0.075, 0.08)
-		bezel.set_corner_radius_all(6)
-		draw_style_box(bezel, Rect2(SCREEN_AT - Vector2(8, 8), Vector2(SCREEN) + Vector2(16, 16)))
-		# wordmarks and the speaker
-		draw_string(bold, Vector2(26, 34), "NYNEX", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color(0.86, 0.87, 0.89))
-		draw_string(font, Vector2(size.x - 26 - 90, 34), "Communicator", HORIZONTAL_ALIGNMENT_RIGHT, 90, 11, Color(0.62, 0.64, 0.67))
+		bezel.set_corner_radius_all(int(6 * k))
+		draw_style_box(bezel, lcd.grow(BEZEL * k))
+		draw_string(bold, Vector2(24, 26) * k, "NYNEX", HORIZONTAL_ALIGNMENT_LEFT, -1, int(15 * k), Color(0.86, 0.87, 0.89))
+		draw_string(font, Vector2(size.x - 24 * k - 120 * k, 26 * k), "Communicator", HORIZONTAL_ALIGNMENT_RIGHT, 120 * k,
+			int(11 * k), Color(0.62, 0.64, 0.67))
 		for i in 5:
-			draw_rect(Rect2(Vector2(size.x * 0.5 - 22 + i * 10, 20), Vector2(6, 2)), Color(0.06, 0.06, 0.07))
-		# under the screen: the labels of the four app keys, and the power key's
-		var y := SCREEN_AT.y + SCREEN.y + 22
+			draw_rect(Rect2(Vector2(size.x * 0.5 + (-22 + i * 10) * k, 14 * k), Vector2(6, 2) * k), Color(0.06, 0.06, 0.07))
+		var y := lcd.end.y + BEZEL * k + 36 * k
 		for i in 4:
-			var cx := 44.0 + i * 66.0
-			draw_string(font, Vector2(cx - 30, y + 34), ["MAP", "ITEMS", "QUESTS", "SETUP"][i], HORIZONTAL_ALIGNMENT_CENTER, 60, 8,
-				Color(0.55, 0.57, 0.6))
-		draw_string(font, Vector2(size.x * 0.5 - 30, size.y - 10), "POWER", HORIZONTAL_ALIGNMENT_CENTER, 60, 7, Color(0.45, 0.47, 0.5))
+			var cx := size.x * (i + 0.5) / 4.0
+			draw_string(font, Vector2(cx - 40 * k, y), ["MAP", "ITEMS", "QUESTS", "SETUP"][i], HORIZONTAL_ALIGNMENT_CENTER, 80 * k,
+				int(8 * k), Color(0.55, 0.57, 0.6))
+		draw_string(font, Vector2(size.x * 0.5 - 40 * k, size.y - 6 * k), "POWER", HORIZONTAL_ALIGNMENT_CENTER, 80 * k, int(7 * k),
+			Color(0.45, 0.47, 0.5))
 
 
-func _hw_button(label: String, at: Vector2, sz: Vector2, on_press: Callable, round := true) -> Button:
+func _hw_button(on_press: Callable, round := true) -> Button:
 	var b := Button.new()
-	b.text = label
-	b.position = at
-	b.size = sz
 	b.focus_mode = Control.FOCUS_NONE
 	var up := StyleBoxFlat.new()
 	up.bg_color = Color(0.27, 0.28, 0.3)
-	up.set_corner_radius_all(int(sz.y * 0.5) if round else 4)
+	up.set_corner_radius_all(12 if round else 4)
 	up.border_color = Color(0.4, 0.41, 0.44)
 	up.set_border_width_all(1)
 	up.shadow_color = Color(0, 0, 0, 0.5)
@@ -268,10 +346,6 @@ func _hw_button(label: String, at: Vector2, sz: Vector2, on_press: Callable, rou
 	b.add_theme_stylebox_override("hover", up)
 	b.add_theme_stylebox_override("pressed", dn)
 	b.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
-	b.add_theme_color_override("font_color", Color(0.75, 0.77, 0.8))
-	b.add_theme_color_override("font_hover_color", Color(0.9, 0.9, 0.92))
-	b.add_theme_font_override("font", _bold)
-	b.add_theme_font_size_override("font_size", 9)
 	b.pressed.connect(on_press)
 	return b
 
@@ -282,24 +356,26 @@ func _build_device() -> void:
 	_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_dim)
 	var body := DeviceBody.new()
-	body.bold = _bold
-	body.font = _font
-	body.size = BODY
+	body.bold = _case_bold
+	body.font = _case_font
 	body.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(body)
 	_device = body
-	# the screen: The System renders into a 240 x 320 viewport; the LCD shader draws it
+	# the screen: The System renders into a 240 x 320 viewport; the LCD shader draws it, whole
+	# screen pixels to each LCD pixel
 	_vp = SubViewport.new()
 	_vp.size = SCREEN
 	_vp.transparent_bg = false
 	_vp.handle_input_locally = true
 	_vp.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	_vp.gui_embed_subwindows = true
+	_vp.snap_2d_transforms_to_pixel = true
+	_vp.snap_2d_vertices_to_pixel = true
 	body.add_child(_vp)
 	_screen_rect = TextureRect.new()
 	_screen_rect.texture = _vp.get_texture()
-	_screen_rect.position = SCREEN_AT
-	_screen_rect.size = Vector2(SCREEN)
+	_screen_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_screen_rect.stretch_mode = TextureRect.STRETCH_SCALE
 	_screen_rect.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_lcd = ShaderMaterial.new()
 	_lcd.shader = load(PDA + "lcd.gdshader")
@@ -308,31 +384,61 @@ func _build_device() -> void:
 	_screen_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	_screen_rect.gui_input.connect(_screen_input)
 	body.add_child(_screen_rect)
-	# the hardware buttons: four app keys (as the Palm Pilot's) and the power key
-	var y := SCREEN_AT.y + SCREEN.y + 22
-	for i in 4:
-		var app: String = ["map", "inventory", "quests", "control"][i]
-		body.add_child(_hw_button("", Vector2(26 + i * 66, y), Vector2(36, 22), _open_app.bind(app)))
-	body.add_child(_hw_button("", Vector2(BODY.x * 0.5 - 12, BODY.y - 32), Vector2(24, 10), func(): set_open(false), false))
+	# the hardware keys: four app keys (as the Palm Pilot's) and the power key
+	for app in ["map", "inventory", "quests", "control"]:
+		var b := _hw_button(_open_app.bind(app))
+		body.add_child(b)
+		_hw_keys.append(b)
+	var pw := _hw_button(func(): set_open(false), false)
+	body.add_child(pw)
+	_hw_keys.append(pw)
 	_layout()
 
 
 func _screen_input(event: InputEvent) -> void:
-	## Taps and drags on the glass go to The System (the screen rect is in LCD pixels already).
+	## Taps and drags on the glass go to The System, in LCD pixels.
 	if event is InputEventMouse:
 		var ev: InputEventMouse = event.duplicate()
-		ev.position = event.position
-		ev.global_position = event.position
+		ev.position = (event.position / _px).floor()
+		ev.global_position = ev.position
 		_vp.push_input(ev, true)
 
 
 func _layout() -> void:
+	## Size the device to the display: the LCD at the largest whole number of screen pixels per LCD
+	## pixel that fits, the case round it scaled smoothly.
 	if _device == null:
 		return
 	var vs := get_viewport().get_visible_rect().size
-	var k := minf(vs.y * 0.95 / BODY.y, vs.x * 0.9 / BODY.x)
-	_device.scale = Vector2(k, k)
-	_device.position = (vs - BODY * k) * 0.5
+	_k = clampf(vs.y / 800.0, 0.6, 3.0)
+	var case_w := 2.0 * (CASE_SIDE + BEZEL) * _k
+	var case_h := (CASE_TOP + CASE_BOTTOM + 2.0 * BEZEL) * _k
+	# the biggest whole-number scale whose screen fits; the case may run off the display's edges
+	# when there's no room for it too (the device held up close)
+	_px = maxi(1, floori(minf(vs.y / SCREEN.y, (vs.x * 0.95 - case_w) / SCREEN.x)))
+	var lcd := Vector2(SCREEN * _px)
+	var body := (lcd + Vector2(case_w, case_h)).round()
+	_device.size = body
+	_device.scale = Vector2.ONE
+	_screen_rect.position = (Vector2(CASE_SIDE + BEZEL, CASE_TOP + BEZEL) * _k).floor()
+	var pos := ((vs - body) * 0.5).floor()
+	if body.y > vs.y:
+		pos.y = floorf((vs.y - lcd.y) * 0.5) - _screen_rect.position.y     # centre the screen itself
+	_device.position = pos
+	_screen_rect.size = lcd
+	var dev := _device as DeviceBody
+	dev.k = _k
+	dev.lcd = Rect2(_screen_rect.position, lcd)
+	dev.queue_redraw()
+	var y := dev.lcd.end.y + BEZEL * _k + 10 * _k
+	for i in 4:
+		var b: Button = _hw_keys[i]
+		b.size = Vector2(38, 20) * _k
+		b.position = Vector2(body.x * (i + 0.5) / 4.0 - 19 * _k, y).floor()
+	var pw: Button = _hw_keys[4]
+	pw.size = Vector2(26, 9) * _k
+	pw.position = Vector2(body.x * 0.5 - 13 * _k, body.y - 27 * _k).floor()
+	_lcd.set_shader_parameter("px_scale", float(_px))
 
 
 func _update_backlight() -> void:
@@ -363,27 +469,129 @@ func _update_clock() -> void:
 
 
 # ------------------------------------------------------------------ The System
+class MacTitle extends Control:
+	## A System 6 title bar: pinstripes, the close box on the left, the title centred on a white
+	## band, and (in the zoom box's place) a help box.
+	signal close_pressed
+	signal help_pressed
+	var title := ""
+	var font: Font
+	var font_size := 12
+	var _down := ""
+
+	func _frame(r: Rect2, c: Color) -> void:
+		draw_rect(Rect2(r.position, Vector2(r.size.x, 1)), c)
+		draw_rect(Rect2(r.position + Vector2(0, r.size.y - 1), Vector2(r.size.x, 1)), c)
+		draw_rect(Rect2(r.position, Vector2(1, r.size.y)), c)
+		draw_rect(Rect2(r.position + Vector2(r.size.x - 1, 0), Vector2(1, r.size.y)), c)
+
+	func close_box() -> Rect2:
+		return Rect2(8, 4, 11, 11)
+
+	func help_box() -> Rect2:
+		return Rect2(size.x - 19, 4, 11, 11)
+
+	func _draw() -> void:
+		draw_rect(Rect2(Vector2.ZERO, size), Color.WHITE)
+		for y in range(4, int(size.y) - 4, 2):
+			draw_rect(Rect2(1, y, size.x - 2, 1), Color.BLACK)
+		draw_rect(Rect2(0, size.y - 1, size.x, 1), Color.BLACK)
+		for spec in [[close_box(), "close"], [help_box(), "help"]]:
+			var r: Rect2 = spec[0]
+			draw_rect(r.grow(1), Color.WHITE)
+			_frame(r, Color.BLACK)
+			if _down == spec[1]:
+				draw_rect(r.grow(-2), Color.BLACK)
+		# the help box's "?"
+		var h := help_box().position + Vector2(3, 2)
+		for p in [Vector2(1, 0), Vector2(2, 0), Vector2(3, 0), Vector2(0, 1), Vector2(4, 1), Vector2(4, 2), Vector2(3, 3),
+				Vector2(2, 4), Vector2(2, 6)]:
+			draw_rect(Rect2(h + p, Vector2.ONE), Color.WHITE if _down == "help" else Color.BLACK)
+		var tw := font.get_string_size(title, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+		var tx := floorf((size.x - tw) * 0.5)
+		draw_rect(Rect2(tx - 6, 1, tw + 12, size.y - 2), Color.WHITE)
+		var base := floorf((size.y - font.get_height(font_size)) * 0.5) + font.get_ascent(font_size)
+		draw_string(font, Vector2(tx, base), title, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, Color.BLACK)
+
+	func _gui_input(e: InputEvent) -> void:
+		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
+			var hit := ""
+			if close_box().grow(2).has_point(e.position):
+				hit = "close"
+			elif help_box().grow(2).has_point(e.position):
+				hit = "help"
+			if e.pressed:
+				_down = hit
+			else:
+				if hit != "" and hit == _down:
+					if hit == "close":
+						close_pressed.emit()
+					else:
+						help_pressed.emit()
+				_down = ""
+			queue_redraw()
+			accept_event()
+
+
+class DeskIcon extends Control:
+	## A desktop icon: the picture, and its name on a white label under it; the label goes black
+	## when the icon is selected (the Finder's way).
+	signal activated
+	var tex: Texture2D
+	var text := ""
+	var font: Font
+	var font_size := 16
+	var selected := false
+
+	func _draw() -> void:
+		var ix := floorf((size.x - tex.get_width()) * 0.5)
+		draw_texture(tex, Vector2(ix, 0))
+		if selected:
+			draw_rect(Rect2(ix, 0, tex.get_width(), tex.get_height()), Color(0, 0, 0, 0.5))
+		var lines := text.split("\n")
+		var y := float(tex.get_height() + 2)
+		for line in lines:
+			var tw := font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
+			var tx := floorf((size.x - tw) * 0.5)
+			var hgt := font.get_height(font_size)
+			draw_rect(Rect2(tx - 2, y, tw + 4, hgt), Color.BLACK if selected else Color.WHITE)
+			draw_string(font, Vector2(tx, y + font.get_ascent(font_size)), line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size,
+				Color.WHITE if selected else Color.BLACK)
+			y += hgt
+
+	func _gui_input(e: InputEvent) -> void:
+		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed:
+			activated.emit()
+			accept_event()
+
+
 func _build_system() -> void:
 	var root := Control.new()
 	root.theme = _theme
 	root.size = Vector2(SCREEN)
 	_vp.add_child(root)
-	# the desktop
-	_desk = Control.new()
+	# the desktop: the grey dither, the icons
+	_desk = Panel.new()
 	_desk.size = Vector2(SCREEN.x, SCREEN.y - TASKBAR_H)
-	var bg := ColorRect.new()
-	bg.color = W
-	bg.size = _desk.size
-	bg.mouse_filter = Control.MOUSE_FILTER_PASS
-	bg.gui_input.connect(func(e): if e is InputEventMouseButton and e.pressed: _start_menu.visible = false)
-	_desk.add_child(bg)
+	_desk.add_theme_stylebox_override("panel", _checker())
+	_desk.gui_input.connect(_desk_input)
 	for i in APPS.size():
-		_desk.add_child(_desk_icon(APPS[i], Vector2(8 + (i % 3) * 76, 8 + (i / 3) * 58)))
+		var ic := DeskIcon.new()
+		ic.tex = load(PDA + APPS[i][2])
+		ic.text = String(APPS[i][1]).replace(" ", "\n") if String(APPS[i][1]).length() > 10 else APPS[i][1]
+		ic.font = _font
+		ic.font_size = TEXT_SIZE
+		ic.position = Vector2(4 + (i % 3) * 78, 10 + (i / 3) * 84)
+		ic.size = Vector2(76, 72)
+		ic.activated.connect(_icon_tapped.bind(APPS[i][0]))
+		_desk.add_child(ic)
+		_desk_icons[APPS[i][0]] = ic
 	root.add_child(_desk)
 	# the apps
 	_apps["map"] = _app("Station Map", _map_tabs(), "The station's map.  Station: the whole ring, north (the Marlowe end) up.  Nearby: the kilometre round you.")
 	_apps["inventory"] = _app("Inventory", _inventory_tabs(), "What you carry.  Weapons: tap Equip to arm one.")
 	_apps["quests"] = _app("Quests", _quest_tabs(), "Your tasks.  Tap Track to follow one on the map.")
+	_apps["ai"] = _app("NPC AI", _ai_tabs(), "The station's people talk through an AI service.  Setup: get a free Groq key and paste it in.  Voice: choose the model.  Try it: talk to someone.")
 	_apps["control"] = _app("Control Panel", _control_tabs(), "Sound, Display and Controls settings.")
 	_apps["help"] = _app("Help", _help_tabs(), "The System Help.")
 	for a in _apps.values():
@@ -393,38 +601,47 @@ func _build_system() -> void:
 	_taskbar = PanelContainer.new()
 	_taskbar.position = Vector2(0, SCREEN.y - TASKBAR_H)
 	_taskbar.size = Vector2(SCREEN.x, TASKBAR_H)
-	_taskbar.add_theme_stylebox_override("panel", _box("raised_panel.png", 1))
+	var tb := _flat(W, K, 0, 0, 1)
+	tb.border_width_top = 1
+	_taskbar.add_theme_stylebox_override("panel", tb)
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 2)
+	row.add_theme_constant_override("separation", 3)
 	_taskbar.add_child(row)
-	var start := Button.new()
-	start.text = "Start"
-	start.icon = load(PDA + "start_logo.png")
-	start.add_theme_font_override("font", _bold)
-	start.add_theme_font_size_override("font_size", 9)
-	start.add_theme_constant_override("h_separation", 2)
-	start.custom_minimum_size = Vector2(46, 14)
-	start.pressed.connect(func(): _start_menu.visible = not _start_menu.visible)
-	row.add_child(start)
+	var sysb := Button.new()
+	sysb.text = "System"
+	sysb.icon = load(PDA + "system_logo.png")
+	sysb.add_theme_constant_override("h_separation", 3)
+	for st in ["normal", "hover", "pressed", "hover_pressed"]:
+		var sb: StyleBoxFlat = _theme.get_stylebox(st, "Button").duplicate()
+		sb.content_margin_top = 0
+		sb.content_margin_bottom = 0
+		sysb.add_theme_stylebox_override(st, sb)
+	sysb.pressed.connect(func(): _start_menu.visible = not _start_menu.visible)
+	row.add_child(sysb)
 	_task_btn = Button.new()
-	_task_btn.add_theme_font_size_override("font_size", 9)
 	_task_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_task_btn.clip_text = true
 	_task_btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	_task_btn.visible = false
+	for st in ["normal", "hover", "pressed", "hover_pressed"]:
+		var sb: StyleBoxFlat = _theme.get_stylebox(st, "Button").duplicate()
+		sb.content_margin_top = 0
+		sb.content_margin_bottom = 0
+		_task_btn.add_theme_stylebox_override(st, sb)
 	_task_btn.pressed.connect(func(): if _current != "": _apps[_current].visible = not _apps[_current].visible)
 	row.add_child(_task_btn)
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_child(spacer)
-	var tray := PanelContainer.new()
-	tray.add_theme_stylebox_override("panel", _box("sunken.png", 1))
+	_task_btn.visibility_changed.connect(func(): spacer.visible = not _task_btn.visible)
 	_clock = Label.new()
-	_clock.add_theme_font_size_override("font_size", 9)
-	_clock.custom_minimum_size = Vector2(44, 0)
-	_clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	tray.add_child(_clock)
-	row.add_child(tray)
+	_clock.add_theme_font_override("font", _bold)
+	_clock.add_theme_font_size_override("font_size", SYS_SIZE)
+	_clock.custom_minimum_size = Vector2(56, 0)
+	_clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_clock.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	row.add_child(_clock)
 	root.add_child(_taskbar)
 	_start_menu = _build_start_menu()
 	root.add_child(_start_menu)
@@ -434,128 +651,136 @@ func _build_system() -> void:
 	root.add_child(_msgbox)
 
 
-func _desk_icon(app: Array, at: Vector2) -> Control:
-	var b := Button.new()
-	b.flat = true
-	b.position = at
-	b.size = Vector2(70, 52)
-	b.icon = load(PDA + app[2])
-	b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	b.vertical_icon_alignment = VERTICAL_ALIGNMENT_TOP
-	b.text = app[1]
-	b.add_theme_font_size_override("font_size", 9)
-	b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-	b.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
-	b.add_theme_stylebox_override("pressed", _flat(D))
-	b.add_theme_stylebox_override("focus", _flat(Color.TRANSPARENT, K, 1))
-	b.add_theme_color_override("font_pressed_color", W)
-	# CE opens a desktop icon on a double tap; one tap selects it
-	b.pressed.connect(func():
-		var now := Time.get_ticks_msec()
-		if now - int(_last_click.get(app[0], -10000)) < 600:
-			_open_app(app[0])
-			_last_click[app[0]] = -10000
-		else:
-			_last_click[app[0]] = now
-			b.grab_focus())
-	return b
+func _desk_input(e: InputEvent) -> void:
+	if e is InputEventMouseButton and e.pressed:
+		_start_menu.visible = false
+		_select_icon("")
+
+
+func _select_icon(name: String) -> void:
+	for k in _desk_icons:
+		_desk_icons[k].selected = (k == name)
+		_desk_icons[k].queue_redraw()
+
+
+func _icon_tapped(name: String) -> void:
+	## One tap selects, a double tap opens.
+	_start_menu.visible = false
+	var now := Time.get_ticks_msec()
+	if now - int(_last_click.get(name, -10000)) < 600:
+		_last_click[name] = -10000
+		_select_icon("")
+		_open_app(name)
+	else:
+		_last_click[name] = now
+		_select_icon(name)
 
 
 func _build_start_menu() -> Control:
-	## CE 1.0's Start menu: one flat list (no cascading submenus), the OS name down its left edge.
+	## The System menu (CE 1.0's Start menu: one flat list, no cascading), drawn as a System 6 menu:
+	## white, black edged, a drop shadow, the highlighted item inverted; the OS's name down the left.
+	var holder := Control.new()
+	holder.visible = false
+	var shadow := ColorRect.new()
+	shadow.color = K
+	holder.add_child(shadow)
 	var m := PanelContainer.new()
-	m.visible = false
+	m.add_theme_stylebox_override("panel", _flat(W, K, 1, 0, 1))
+	holder.add_child(m)
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 0)
 	m.add_child(row)
 	var banner := ColorRect.new()
-	banner.color = D
-	banner.custom_minimum_size = Vector2(16, 0)
+	banner.color = K
+	banner.custom_minimum_size = Vector2(20, 0)
 	var bl := Label.new()
 	bl.text = "The System"
 	bl.add_theme_font_override("font", _bold)
-	bl.add_theme_font_size_override("font_size", 10)
+	bl.add_theme_font_size_override("font_size", SYS_SIZE)
 	bl.add_theme_color_override("font_color", W)
 	bl.rotation = -PI * 0.5
-	bl.position = Vector2(2, 150)
 	banner.add_child(bl)
+	var logo := TextureRect.new()
+	logo.texture = load(PDA + "system_logo.png")
+	var logo_bg := ColorRect.new()
+	logo_bg.color = W
+	logo_bg.size = Vector2(18, 18)
+	logo.position = Vector2(1, 1)
+	logo_bg.add_child(logo)
+	banner.add_child(logo_bg)
+	banner.resized.connect(func():
+		logo_bg.position = Vector2(1, banner.size.y - 19)
+		bl.position = Vector2(3, banner.size.y - 24))
 	row.add_child(banner)
 	var col := VBoxContainer.new()
 	col.add_theme_constant_override("separation", 0)
 	row.add_child(col)
 	var entries := []
 	for a in APPS:
-		entries.append([a[1], a[2], _open_app.bind(a[0])])
+		entries.append([a[1], _open_app.bind(a[0])])
 	entries.append([])
-	entries.append(["New Game...", "", _confirm_new_game])
-	entries.append(["Suspend", "", func(): set_open(false)])
+	entries.append(["New Game...", _confirm_new_game])
+	entries.append(["Suspend", func(): set_open(false)])
 	for e in entries:
 		if e.is_empty():
-			col.add_child(HSeparator.new())
+			var sep := HSeparator.new()
+			sep.add_theme_stylebox_override("separator", _dotted())
+			col.add_child(sep)
 			continue
 		var b := Button.new()
 		b.text = e[0]
-		if e[1] != "":
-			var img: Image = (load(PDA + e[1]) as Texture2D).get_image()
-			img.resize(16, 16, Image.INTERPOLATE_NEAREST)
-			b.icon = ImageTexture.create_from_image(img)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		b.custom_minimum_size = Vector2(118, 18)
-		b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
-		b.add_theme_stylebox_override("hover", _flat(K))
-		b.add_theme_stylebox_override("pressed", _flat(K))
+		b.custom_minimum_size = Vector2(124, 18)
+		b.add_theme_stylebox_override("normal", _flat(Color.TRANSPARENT, Color.TRANSPARENT, 0, 0, 4))
+		b.add_theme_stylebox_override("hover", _flat(K, K, 0, 0, 4))
+		b.add_theme_stylebox_override("pressed", _flat(K, K, 0, 0, 4))
+		b.add_theme_stylebox_override("hover_pressed", _flat(K, K, 0, 0, 4))
 		b.add_theme_color_override("font_hover_color", W)
-		b.add_theme_color_override("font_pressed_color", W)
 		b.pressed.connect(func():
 			_start_menu.visible = false
-			e[2].call())
+			e[1].call())
 		col.add_child(b)
-	m.reset_size()
-	m.position = Vector2(0, SCREEN.y - TASKBAR_H - m.size.y)
-	m.resized.connect(func(): m.position = Vector2(0, SCREEN.y - TASKBAR_H - m.size.y))
-	return m
+	var place := func():
+		m.reset_size()
+		m.position = Vector2(0, SCREEN.y - TASKBAR_H - m.size.y - 1)
+		shadow.position = m.position + Vector2(1, 1)
+		shadow.size = m.size
+		holder.size = Vector2(SCREEN)
+	m.resized.connect(place)
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	place.call()
+	return holder
+
+
+func _dotted() -> StyleBoxTexture:
+	## the grey (dotted) line System 6 menus separate groups with
+	var s := StyleBoxTexture.new()
+	s.texture = _image(["KW"])
+	s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
+	s.content_margin_top = 1
+	return s
 
 
 func _app(title: String, tabs: TabContainer, help: String) -> Control:
-	## A full-screen app (CE 1.0's apps weren't overlapping windows): a title bar with [?] [OK] [X],
-	## then its tabs.
+	## A full-screen app window (CE's apps didn't overlap): a System 6 title bar -- close box, title,
+	## help box -- a black frame, then the app's tabs.
 	var w := Control.new()
 	w.size = Vector2(SCREEN.x, SCREEN.y - TASKBAR_H)
-	var bg := ColorRect.new()
-	bg.color = W
+	var bg := Panel.new()
 	bg.size = w.size
+	bg.add_theme_stylebox_override("panel", _flat(W, K, 1))
 	w.add_child(bg)
-	var bar := ColorRect.new()
-	bar.color = K
+	var bar := MacTitle.new()
+	bar.title = title
+	bar.font = _bold
+	bar.font_size = SYS_SIZE
+	bar.position = Vector2.ZERO
 	bar.size = Vector2(SCREEN.x, TITLE_H)
+	bar.close_pressed.connect(_close_app)
+	bar.help_pressed.connect(func(): _show_message(title, help))
 	w.add_child(bar)
-	var t := Label.new()
-	t.text = title
-	t.position = Vector2(3, 0)
-	t.add_theme_font_override("font", _bold)
-	t.add_theme_font_size_override("font_size", 10)
-	t.add_theme_color_override("font_color", W)
-	bar.add_child(t)
-	var bx := SCREEN.x - 1
-	for spec in [["X", 14, _close_app], ["OK", 20, _close_app], ["?", 14, _show_message.bind(title, help)]]:
-		var b := Button.new()
-		b.text = spec[0]
-		b.add_theme_font_override("font", _bold)
-		b.add_theme_font_size_override("font_size", 8)
-		b.add_theme_stylebox_override("normal", _box("btn_up.png", 1))
-		b.add_theme_stylebox_override("hover", _box("btn_up.png", 1))
-		b.add_theme_stylebox_override("pressed", _box("btn_down.png", 1))
-		for st in ["normal", "hover", "pressed"]:
-			var sb: StyleBoxTexture = b.get_theme_stylebox(st)
-			sb.set_content_margin_all(1)
-		var bw := maxf(spec[1], b.get_combined_minimum_size().x)
-		bx -= bw + 1
-		b.position = Vector2(bx, 1)
-		b.size = Vector2(bw, TITLE_H - 2)
-		b.pressed.connect(spec[2])
-		bar.add_child(b)
-	tabs.position = Vector2(2, TITLE_H + 2)
-	tabs.size = Vector2(SCREEN.x - 4, SCREEN.y - TASKBAR_H - TITLE_H - 4)
+	tabs.position = Vector2(4, TITLE_H + 3)
+	tabs.size = Vector2(SCREEN.x - 8, SCREEN.y - TASKBAR_H - TITLE_H - 7)
 	w.add_child(tabs)
 	return w
 
@@ -573,6 +798,8 @@ func _open_app(name: String) -> void:
 	_task_btn.visible = true
 	if name == "map":
 		_refresh_map()
+	if name == "ai":
+		_refresh_ai()
 
 
 func _close_app() -> void:
@@ -583,43 +810,65 @@ func _close_app() -> void:
 
 
 func _show_message(title: String, text: String, buttons := [["OK", Callable()]]) -> void:
-	## A CE message box: a small raised window in the middle of the screen.
+	## A System 6 alert: a double-framed box in the middle of the screen, the logo, the message and
+	## rounded buttons (the first, the default, ringed).
 	for c in _msgbox.get_children():
 		c.queue_free()
-	var shade := ColorRect.new()
-	shade.color = Color(0, 0, 0, 0.0)
+	var shade := Control.new()
 	shade.size = Vector2(SCREEN)
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
 	_msgbox.add_child(shade)
-	var p := PanelContainer.new()
-	p.position = Vector2(20, 100)
-	p.custom_minimum_size = Vector2(200, 0)
+	var outer := PanelContainer.new()
+	outer.add_theme_stylebox_override("panel", _flat(W, K, 1, 0, 2))
+	var inner := PanelContainer.new()
+	inner.add_theme_stylebox_override("panel", _flat(W, K, 2, 0, 6))
+	outer.add_child(inner)
 	var v := VBoxContainer.new()
-	p.add_child(v)
-	var bar := Label.new()
-	bar.text = " " + title
-	bar.add_theme_font_override("font", _bold)
-	bar.add_theme_color_override("font_color", W)
-	var barbg := _flat(K)
-	bar.add_theme_stylebox_override("normal", barbg)
-	v.add_child(bar)
+	v.add_theme_constant_override("separation", 6)
+	inner.add_child(v)
+	var head := HBoxContainer.new()
+	head.add_theme_constant_override("separation", 6)
+	var ic := TextureRect.new()
+	ic.texture = load(PDA + "system_logo_32.png")
+	ic.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	head.add_child(ic)
+	var tv := VBoxContainer.new()
+	var tl := Label.new()
+	tl.text = title
+	tl.add_theme_font_override("font", _bold)
+	tl.add_theme_font_size_override("font_size", SYS_SIZE)
+	tv.add_child(tl)
 	var msg := Label.new()
 	msg.text = text
 	msg.autowrap_mode = TextServer.AUTOWRAP_WORD
-	msg.custom_minimum_size = Vector2(190, 0)
-	v.add_child(msg)
+	msg.custom_minimum_size = Vector2(150, 0)
+	tv.add_child(msg)
+	head.add_child(tv)
+	v.add_child(head)
 	var row := HBoxContainer.new()
-	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.alignment = BoxContainer.ALIGNMENT_END
+	row.add_theme_constant_override("separation", 8)
 	v.add_child(row)
-	for spec in buttons:
+	for i in buttons.size():
+		var spec: Array = buttons[i]
 		var b := Button.new()
 		b.text = spec[0]
-		b.custom_minimum_size = Vector2(50, 16)
+		b.custom_minimum_size = Vector2(52, 18)
 		b.pressed.connect(func():
 			_msgbox.visible = false
 			if spec[1].is_valid():
 				spec[1].call())
-		row.add_child(b)
-	_msgbox.add_child(p)
+		if i == 0:
+			# the default button's heavy ring
+			var ring := PanelContainer.new()
+			ring.add_theme_stylebox_override("panel", _flat(Color.TRANSPARENT, K, 2, 7, 2))
+			ring.add_child(b)
+			row.add_child(ring)
+		else:
+			row.add_child(b)
+	_msgbox.add_child(outer)
+	outer.reset_size()
+	outer.position = ((Vector2(SCREEN) - Vector2(0, TASKBAR_H) - outer.size) * 0.5).floor()
 	_msgbox.visible = true
 
 
@@ -661,10 +910,20 @@ func _label(text: String, bold := false, wrap := true) -> Label:
 	l.text = text
 	if bold:
 		l.add_theme_font_override("font", _bold)
+		l.add_theme_font_size_override("font_size", SYS_SIZE)
 	if wrap:
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD
 		l.custom_minimum_size = Vector2(200, 0)
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return l
+
+
+func _button(text: String, on_press: Callable) -> Button:
+	var b := Button.new()
+	b.text = text
+	b.custom_minimum_size = Vector2(0, 18)
+	b.pressed.connect(on_press)
+	return b
 
 
 # ------------------------------------------------------------------ Station Map
@@ -672,14 +931,14 @@ func _map_tabs() -> TabContainer:
 	var tabs := TabContainer.new()
 	var st := _tab_page(tabs, "Station", false)
 	_map_station = Control.new()
-	_map_station.custom_minimum_size = Vector2(228, 114)
+	_map_station.custom_minimum_size = Vector2(222, 128)
 	_map_station.draw.connect(_draw_station_map)
 	st.add_child(_map_station)
 	_map_here = _label("")
 	st.add_child(_map_here)
 	var nb := _tab_page(tabs, "Nearby", false)
 	_map_nearby = TextureRect.new()
-	_map_nearby.custom_minimum_size = Vector2(228, 250)
+	_map_nearby.custom_minimum_size = Vector2(222, 236)
 	_map_nearby.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_map_nearby.stretch_mode = TextureRect.STRETCH_SCALE
 	_map_nearby.draw.connect(_draw_nearby_marker)
@@ -724,13 +983,13 @@ func _refresh_map() -> void:
 			nd = d
 			near = k
 	var dirs := "north" if p.y < 0 else "south"
-	_map_here.text = "You are %.1f km round the ring, %.1f km %s of the middle.\nNearest town: %s (%.1f km)." % [
+	_map_here.text = "You are %.1f km round the ring, %.1f km %s of the middle.  Nearest town: %s (%.1f km)." % [
 		p.x / 1000.0, absf(p.y) / 1000.0, dirs, near, nd / 1000.0]
 	if _map_tex:
 		# Nearby: a 0.9 km x 1 km window of the map round the player, north up
 		var ppm: float = _map_tex.get_width() / StationGeo.FARSIDE_W
-		var wm := 912.0                                     # 1 LCD pixel = one 4 m map pixel
-		var hm := wm * 250.0 / 228.0
+		var wm := 888.0                                     # 1 LCD pixel = one 4 m map pixel
+		var hm := wm * 236.0 / 222.0
 		var at := AtlasTexture.new()
 		at.atlas = _map_tex
 		var cx := fposmod(p.x, StationGeo.CIRC) * ppm
@@ -744,25 +1003,26 @@ func _refresh_map() -> void:
 func _draw_station_map() -> void:
 	var sz := _map_station.size
 	if _map_tex:
-		var h := sz.x * StationGeo.FARSIDE_H / StationGeo.FARSIDE_W
+		var h := floorf(sz.x * StationGeo.FARSIDE_H / StationGeo.FARSIDE_W)
 		_map_station.draw_texture_rect(_map_overview, Rect2(0, 0, sz.x, h), false)
 		_map_station.draw_rect(Rect2(0, 0, sz.x, h), K, false)
 		var p := _player_sx()
 		var u := Vector2(fposmod(p.x, StationGeo.CIRC) / StationGeo.FARSIDE_W * sz.x,
-			(p.y + StationGeo.FARSIDE_H * 0.5) / StationGeo.FARSIDE_H * h)
+			(p.y + StationGeo.FARSIDE_H * 0.5) / StationGeo.FARSIDE_H * h).floor()
 		var blink := int(Time.get_ticks_msec() / 400) % 2 == 0
 		_map_station.draw_rect(Rect2(u - Vector2(3, 3), Vector2(7, 7)), K if blink else W)
-		_map_station.draw_string(_font, Vector2(2, h + 11), "N (Marlowe) up   E ->", HORIZONTAL_ALIGNMENT_LEFT, -1, 9, K)
+		_map_station.draw_string(_font, Vector2(2, h + 14), "N (Marlowe) up   E ->", HORIZONTAL_ALIGNMENT_LEFT, -1, TEXT_SIZE, K)
 
 
 func _draw_nearby_marker() -> void:
-	var c := _map_nearby.size * 0.5
+	var c := (_map_nearby.size * 0.5).floor()
 	var p := _player_sx()
 	var d := Vector2(cos(p.z), sin(p.z))
 	var side := Vector2(-d.y, d.x)
 	_map_nearby.draw_colored_polygon(PackedVector2Array([c + d * 8, c - d * 5 + side * 5, c - d * 2, c - d * 5 - side * 5]), K)
 	_map_nearby.draw_rect(Rect2(Vector2.ZERO, _map_nearby.size), K, false)
-	_map_nearby.draw_string(_font, Vector2(3, 10), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, 10, K)
+	_map_nearby.draw_rect(Rect2(2, 2, 12, 15), W)
+	_map_nearby.draw_string(_bold, Vector2(4, 14), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE, K)
 
 
 # ------------------------------------------------------------------ Inventory
@@ -856,6 +1116,157 @@ func _objective_label(obj: Dictionary) -> String:
 			return String(obj.type)
 
 
+# ------------------------------------------------------------------ NPC AI
+const TRY_PERSONA := "You are Marge Pruett, 58, who runs the Main Street Diner in Harrow Falls, a small town " + \
+	"on Space Station Columbia -- an O'Neill cylinder whose inside is American countryside, with towns, farms, " + \
+	"rivers and two seas.  You are warm, nosy and practical, proud of your pie, and you've never left the " + \
+	"station.  Speak as Marge, in one to three short sentences of plain speech.  Never mention being an AI."
+
+
+func _ai_tabs() -> TabContainer:
+	var tabs := TabContainer.new()
+	# Setup: three steps, as few taps as can be
+	var su := _tab_page(tabs, "Setup")
+	su.add_child(_label("The station's people talk through Groq, a free AI service.  Setup takes a minute:"))
+	su.add_child(_label("1. Get a free key", true))
+	su.add_child(_label("Sign in at console.groq.com/keys, press Create API Key, then Copy."))
+	var r1 := HBoxContainer.new()
+	r1.add_child(_button("Open Groq", func(): OS.shell_open(NpcAI.info().key_url)))
+	su.add_child(r1)
+	su.add_child(_label("2. Paste it here", true))
+	_ai_clip_row = HBoxContainer.new()
+	_ai_key_edit = LineEdit.new()
+	_ai_key_edit.placeholder_text = "gsk_..."
+	_ai_key_edit.secret = true
+	_ai_key_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_ai_key_edit.text_submitted.connect(func(t): _ai_use_key(t))
+	var r2 := HBoxContainer.new()
+	r2.add_child(_ai_key_edit)
+	r2.add_child(_button("Paste", func(): _ai_use_key(DisplayServer.clipboard_get())))
+	su.add_child(r2)
+	su.add_child(_label("3. That's it", true))
+	_ai_status = _label("")
+	su.add_child(_ai_status)
+	var r3 := HBoxContainer.new()
+	r3.add_theme_constant_override("separation", 6)
+	r3.add_child(_button("Test again", _ai_test))
+	r3.add_child(_button("Remove key", _ai_remove_key))
+	su.add_child(r3)
+	su.add_child(HSeparator.new())
+	su.add_child(_label(NpcAI.info().free))
+	# Voice: the model
+	var vo := _tab_page(tabs, "Voice")
+	vo.add_child(_label("Model", true))
+	var models: Array = NpcAI.info().models
+	var group := ButtonGroup.new()
+	for m in models:
+		var cb := CheckBox.new()
+		cb.button_group = group
+		cb.text = m[1]
+		cb.button_pressed = m[0] == NpcAI.model
+		cb.toggled.connect(func(on): if on: NpcAI.set_model(m[0]))
+		vo.add_child(cb)
+		vo.add_child(_label("    " + m[2]))
+	vo.add_child(HSeparator.new())
+	_ai_usage = _label("")
+	vo.add_child(_ai_usage)
+	# Try it: talk to someone
+	var tr := _tab_page(tabs, "Try it")
+	tr.add_child(_label("Marge Pruett, Main Street Diner, Harrow Falls.", true))
+	var r4 := HBoxContainer.new()
+	_ai_say = LineEdit.new()
+	_ai_say.placeholder_text = "Say something..."
+	_ai_say.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_ai_say.text_submitted.connect(func(_t): _ai_talk())
+	r4.add_child(_ai_say)
+	r4.add_child(_button("Say", _ai_talk))
+	tr.add_child(r4)
+	_ai_log = VBoxContainer.new()
+	_ai_log.add_theme_constant_override("separation", 3)
+	tr.add_child(_ai_log)
+	_style_checkboxes(vo)
+	return tabs
+
+
+func _style_checkboxes(parent: Control) -> void:
+	## System 6 radio buttons: a round-ish box, filled when chosen
+	var off := _image(["..KKKK..", ".K....K.", "K......K", "K......K", "K......K", "K......K", ".K....K.", "..KKKK.."])
+	var on := _image(["..KKKK..", ".K....K.", "K.KKKK.K", "K.KKKK.K", "K.KKKK.K", "K.KKKK.K", ".K....K.", "..KKKK.."])
+	for c in parent.get_children():
+		if c is CheckBox:
+			for n in ["radio_unchecked", "unchecked"]:
+				c.add_theme_icon_override(n, off)
+			for n in ["radio_checked", "checked"]:
+				c.add_theme_icon_override(n, on)
+			for st in ["normal", "hover", "pressed", "hover_pressed", "focus"]:
+				c.add_theme_stylebox_override(st, StyleBoxEmpty.new())
+			c.add_theme_color_override("font_pressed_color", K)
+			c.add_theme_color_override("font_hover_pressed_color", K)
+			c.add_theme_color_override("font_hover_color", K)
+
+
+func _refresh_ai() -> void:
+	if _ai_status == null:
+		return
+	if NpcAI.has_key():
+		_ai_status.text = "Key %s is set%s.  NPCs can talk." % [NpcAI.masked_key(), " (from GROQ_API_KEY)" if NpcAI.key_from_env() else ""]
+	else:
+		_ai_status.text = "No key yet.  Paste one above."
+		# a key already on the clipboard: offer it
+		var clip := NpcAI.clean_key(DisplayServer.clipboard_get()) if DisplayServer.has_feature(DisplayServer.FEATURE_CLIPBOARD) else ""
+		if NpcAI.looks_like_key(clip):
+			_ai_status.text = "A Groq key is on the clipboard.  Press Paste to use it."
+	_ai_usage.text = "Replies today: %d." % NpcAI.requests_today
+	if NpcAI.last_latency_ms > 0:
+		_ai_usage.text += "  The last took %.1f s." % (NpcAI.last_latency_ms / 1000.0)
+
+
+func _ai_remove_key() -> void:
+	NpcAI.clear_key()
+	_ai_status.text = "Key removed."
+
+
+func _ai_use_key(raw: String) -> void:
+	var k := NpcAI.clean_key(raw)
+	if k == "":
+		_ai_status.text = "The clipboard is empty.  Copy the key on Groq's page first."
+		return
+	if not NpcAI.looks_like_key(k):
+		_ai_status.text = "That doesn't look like a Groq key (they start gsk_).  Copy it again?"
+		return
+	NpcAI.set_key(k)
+	_ai_key_edit.text = ""
+	_ai_key_edit.release_focus()
+	await _ai_test()
+
+
+func _ai_test() -> void:
+	_ai_status.text = "Checking the key with Groq..."
+	var r: Dictionary = await NpcAI.test_connection()
+	_ai_status.text = ("Key %s works.  %s  NPCs can talk." % [NpcAI.masked_key(), r.message]) if r.ok else r.message
+
+
+func _ai_talk() -> void:
+	var line := _ai_say.text.strip_edges()
+	if line == "":
+		line = "Hello!"
+	_ai_say.text = ""
+	_ai_log.add_child(_label("You: " + line))
+	var wait := _label("Marge: ...")
+	_ai_log.add_child(wait)
+	_ai_history.append({"role": "user", "content": line})
+	var msgs: Array = [{"role": "system", "content": TRY_PERSONA}]
+	msgs.append_array(_ai_history.slice(-8))
+	var r: Dictionary = await NpcAI.chat(msgs)
+	if r.ok:
+		wait.text = "Marge: " + r.text
+		_ai_history.append({"role": "assistant", "content": r.text})
+	else:
+		wait.text = "(%s)" % r.error
+		_ai_history.pop_back()
+	_refresh_ai()
+
+
 # ------------------------------------------------------------------ Control Panel
 func _slider_row(parent: Control, text: String, lo: float, hi: float, value: float, on_change: Callable) -> void:
 	parent.add_child(_label(text, false, false))
@@ -888,12 +1299,12 @@ func _control_tabs() -> TabContainer:
 	ctl.add_child(HSeparator.new())
 	ctl.add_child(_label("Keys", true))
 	var names := {"move_forward": "Forward", "move_back": "Back", "move_left": "Left", "move_right": "Right",
-		"jump": "Jump", "shoot": "Attack / Fire", "next_weapon": "Next weapon", "prev_weapon": "Previous weapon",
+		"jump": "Jump", "shoot": "Attack / Fire", "next_weapon": "Next weapon", "prev_weapon": "Prev. weapon",
 		"interact": "Use / Talk", "toggle_menu": "Communicator"}
 	for action in names:
 		var row := HBoxContainer.new()
 		var a := _label(names[action], false, false)
-		a.custom_minimum_size = Vector2(110, 0)
+		a.custom_minimum_size = Vector2(112, 0)
 		row.add_child(a)
 		row.add_child(_label(_format_binding(action), true, false))
 		ctl.add_child(row)
@@ -924,16 +1335,23 @@ func _help_tabs() -> TabContainer:
 	var tabs := TabContainer.new()
 	var c := _tab_page(tabs, "Contents")
 	for line in [["Using The System", true],
-			["Double-tap an icon on the desktop to open it, or tap Start and choose it.  The keys under the screen open the Map, Items, Quests and Setup.", false],
+			["Double-tap an icon on the desktop to open it, or tap System and choose it.  The keys under the screen open the Map, Items, Quests and Setup.", false],
 			["In an app", true],
-			["The tabs along the top change pages.  OK or X closes the app; ? explains it.", false],
+			["The tabs change pages.  The box at the top left closes the app; the ? box at the top right explains it.", false],
+			["Talking to people", true],
+			["Open NPC AI and follow its three steps to give the station's people their voices.", false],
 			["Putting it away", true],
-			["Choose Suspend from the Start menu, press the Power key, or press the Communicator key again.", false]]:
+			["Choose Suspend from the System menu, press the Power key, or press the Communicator key again.", false]]:
 		c.add_child(_label(line[0], line[1]))
 	var a := _tab_page(tabs, "About")
+	var logo := TextureRect.new()
+	logo.texture = load(PDA + "system_logo_32.png")
+	logo.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	a.add_child(logo)
 	a.add_child(_label("NYNEX Communicator", true))
-	a.add_child(_label("The System  version 1.0"))
+	a.add_child(_label("The System  version 1.1"))
 	a.add_child(_label("240 x 320, 4-level display.  Backlight: automatic."))
 	a.add_child(HSeparator.new())
 	a.add_child(_label("Space Station Columbia", true))
+	a.add_child(_label("Chicago FLF (public domain) and Pixel Operator (CC0) type."))
 	return tabs
