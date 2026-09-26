@@ -21,10 +21,12 @@ const TITLE_H := 19
 const SYS_SIZE := 12                    # ChicagoFLF: crisp at 12
 const TEXT_SIZE := 16                   # Pixel Operator: crisp at 16
 # the case round the screen, in screen pixels at 800 px of display height
-const CASE_TOP := 46.0
-const CASE_BOTTOM := 90.0
-const CASE_SIDE := 22.0
-const BEZEL := 8.0
+const CASE_TOP := 58.0                  # the forehead: NYNEX, the speaker, the power key
+const CASE_BOTTOM := 56.0               # the chin: the bell and COMMUNICATOR
+const CASE_SIDE := 26.0
+const BEZEL := 9.0                      # the well round the glass
+const STRIP := 44.0                     # the soft keys' glass under the screen
+const SHADOW := 24.0
 const W := Color(1, 1, 1)
 const L := Color(0.667, 0.667, 0.667)
 const D := Color(0.333, 0.333, 0.333)
@@ -290,81 +292,102 @@ func _build_theme() -> void:
 
 # ------------------------------------------------------------------ the device
 class DeviceBody extends Control:
-	## The NYNEX Communicator's case, drawn at screen resolution round the LCD: charcoal plastic, the
-	## screen's bezel, the NYNEX wordmark, the Bell bell beside "COMMUNICATOR" (tools/pda_case.py), a
-	## speaker grille, the key labels.
+	## The NYNEX Communicator's case, after the Apple Newton MessagePad (ui/pda/case.gdshader draws
+	## the plastic).  This draws the case and holds the printing layer.
+	func _draw() -> void:
+		var m := SHADOW
+		draw_rect(Rect2(Vector2(-m, -m), size + Vector2(m, m) * 2.0), Color.WHITE)
+
+
+class CasePrint extends Control:
+	## What's printed on the case and its glass: NYNEX centred on the forehead; the Bell bell and
+	## COMMUNICATOR centred on the chin (tools/pda_case.py); on the glass strip under the screen, the
+	## soft keys -- the apps' pictures and names in the LCD's ink, as the Newton's were printed.
 	var font: Font
 	var k := 1.0
-	var lcd := Rect2()
 	var nynex: Texture2D
 	var bell: Texture2D
 	var word: Texture2D
-	const INK := Color(0.84, 0.85, 0.87)
+	var forehead := Rect2()
+	var chin := Rect2()
+	var strip := Rect2()
+	var power := Rect2()
+	var keys: Array = []                  # [texture, label]
+	const SILVER := Color(0.8, 0.81, 0.83)
+	const INK := Color(0.07, 0.1, 0.06, 0.85)
 
-	func _mark(tex: Texture2D, h: float, at: Vector2) -> float:
-		## a printed mark h tall, its top left at `at`; returns its width
+	func _mark(tex: Texture2D, h: float, at: Vector2, c := SILVER) -> float:
 		var w := h * tex.get_width() / tex.get_height()
-		draw_texture_rect(tex, Rect2(at, Vector2(w, h)), false, INK)
+		draw_texture_rect(tex, Rect2(at.round(), Vector2(w, h)), false, c)
 		return w
 
 	func _draw() -> void:
-		var body := StyleBoxFlat.new()
-		body.bg_color = Color(0.16, 0.17, 0.18)
-		body.set_corner_radius_all(int(26 * k))
-		body.border_color = Color(0.3, 0.31, 0.33)
-		body.set_border_width_all(maxi(1, int(2 * k)))
-		body.shadow_color = Color(0, 0, 0, 0.6)
-		body.shadow_size = int(12 * k)
-		draw_style_box(body, Rect2(Vector2.ZERO, size))
-		var face := StyleBoxFlat.new()
-		face.bg_color = Color(0.2, 0.21, 0.22)
-		face.set_corner_radius_all(int(18 * k))
-		draw_style_box(face, Rect2(Vector2(9, 9) * k, size - Vector2(18, 18) * k))
-		var bezel := StyleBoxFlat.new()
-		bezel.bg_color = Color(0.07, 0.075, 0.08)
-		bezel.set_corner_radius_all(int(6 * k))
-		draw_style_box(bezel, lcd.grow(BEZEL * k))
-		# the printing over the screen: NYNEX on the left; the bell and COMMUNICATOR on the right
-		var top := lcd.position.y - BEZEL * k
-		var cap := 17.0 * k
-		var y := floorf((top - cap) * 0.6)
-		_mark(nynex, cap, Vector2(lcd.position.x, y))
-		var wh := cap * 0.6
+		var cap := 16.0 * k
+		var nw := cap * nynex.get_width() / nynex.get_height()
+		_mark(nynex, cap, forehead.get_center() - Vector2(nw, cap) * 0.5)
+		var wh := 11.5 * k
 		var ww := wh * word.get_width() / word.get_height()
-		var bh := cap * 1.05
-		var x := lcd.end.x - ww
-		_mark(word, wh, Vector2(x, y + (cap - wh) * 0.5))
-		_mark(bell, bh, Vector2(x - bh - 4 * k, y + (cap - bh) * 0.5))
-		# the earpiece grille, centred over it all
-		for i in 5:
-			draw_rect(Rect2(Vector2(size.x * 0.5 + (-22 + i * 10) * k, 5 * k), Vector2(6, 2) * k), Color(0.06, 0.06, 0.07))
+		var bh := 17.0 * k
+		var gap := 6.0 * k
+		var x := chin.get_center().x - (bh + gap + ww) * 0.5
+		var cy := chin.get_center().y
+		_mark(bell, bh, Vector2(x, cy - bh * 0.5))
+		_mark(word, wh, Vector2(x + bh + gap, cy - wh * 0.5))
+		# the power key's name, under it
+		var fs := maxi(10, int(10 * k))
+		draw_string(font, Vector2(power.position.x - 20 * k, power.end.y + fs + 3 * k), "POWER", HORIZONTAL_ALIGNMENT_CENTER,
+			power.size.x + 40 * k, fs, Color(0.62, 0.64, 0.67))
+		# the soft keys
+		var n := keys.size()
+		var icon := minf(24.0 * k, strip.size.y * 0.55)
+		var ls := maxi(10, int(11 * k))
+		for i in n:
+			var cx := strip.position.x + strip.size.x * (i + 0.5) / n
+			var tex: Texture2D = keys[i][0]
+			draw_texture_rect(tex, Rect2(Vector2(cx - icon * 0.5, strip.position.y + 4 * k).round(), Vector2(icon, icon)), false, INK)
+			draw_string(font, Vector2(cx - 40 * k, strip.end.y - 5 * k).round(), keys[i][1], HORIZONTAL_ALIGNMENT_CENTER, 80 * k, ls, INK)
 
 
-func _hw_button(label: String, on_press: Callable, round := true) -> Button:
-	## A hardware key, its name moulded on it.
+func _soft_key(on_press: Callable) -> Button:
+	## an invisible touch area over a printed soft key (it darkens a moment when pressed)
 	var b := Button.new()
-	b.text = label
 	b.focus_mode = Control.FOCUS_NONE
-	b.add_theme_font_override("font", _case_bold)
-	b.add_theme_color_override("font_color", Color(0.86, 0.87, 0.89))
-	b.add_theme_color_override("font_hover_color", Color(1, 1, 1))
-	b.add_theme_color_override("font_pressed_color", Color(0.7, 0.72, 0.75))
-	var up := StyleBoxFlat.new()
-	up.bg_color = Color(0.27, 0.28, 0.3)
-	up.set_corner_radius_all(14 if round else 8)
-	up.border_color = Color(0.4, 0.41, 0.44)
-	up.set_border_width_all(1)
-	up.shadow_color = Color(0, 0, 0, 0.5)
-	up.shadow_size = 2
-	var dn := up.duplicate()
-	dn.bg_color = Color(0.2, 0.21, 0.22)
-	dn.shadow_size = 0
-	b.add_theme_stylebox_override("normal", up)
-	b.add_theme_stylebox_override("hover", up)
+	b.flat = true
+	for st in ["normal", "hover", "focus", "disabled"]:
+		b.add_theme_stylebox_override(st, StyleBoxEmpty.new())
+	var dn := StyleBoxFlat.new()
+	dn.bg_color = Color(0, 0, 0, 0.18)
+	dn.set_corner_radius_all(4)
 	b.add_theme_stylebox_override("pressed", dn)
-	b.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	b.add_theme_stylebox_override("hover_pressed", dn)
 	b.pressed.connect(on_press)
 	return b
+
+
+func _power_key() -> Button:
+	## the power key: a small dark rubber key set into the forehead
+	var b := Button.new()
+	b.focus_mode = Control.FOCUS_NONE
+	var up := StyleBoxFlat.new()
+	up.bg_color = Color(0.1, 0.105, 0.11)
+	up.set_corner_radius_all(6)
+	up.border_color = Color(0.05, 0.05, 0.055)
+	up.set_border_width_all(1)
+	up.border_width_bottom = 2
+	var dn := up.duplicate()
+	dn.bg_color = Color(0.07, 0.075, 0.08)
+	dn.border_width_bottom = 1
+	dn.border_width_top = 2
+	for st in ["normal", "hover", "focus"]:
+		b.add_theme_stylebox_override(st, up)
+	b.add_theme_stylebox_override("pressed", dn)
+	b.add_theme_stylebox_override("hover_pressed", dn)
+	b.pressed.connect(func(): set_open(false))
+	return b
+
+
+var _print: CasePrint
+var _case_mat: ShaderMaterial
 
 
 func _build_device() -> void:
@@ -373,14 +396,22 @@ func _build_device() -> void:
 	_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_dim)
 	var body := DeviceBody.new()
-	body.font = _case_font
-	body.nynex = _mipmapped(PDA + "case_nynex.png")
-	body.bell = _mipmapped(PDA + "case_bell.png")
-	body.word = _mipmapped(PDA + "case_communicator.png")
-	body.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_case_mat = ShaderMaterial.new()
+	_case_mat.shader = load(PDA + "case.gdshader")
+	body.material = _case_mat
 	body.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(body)
 	_device = body
+	_print = CasePrint.new()
+	_print.font = _case_bold
+	_print.nynex = _mipmapped(PDA + "case_nynex.png")
+	_print.bell = _mipmapped(PDA + "case_bell.png")
+	_print.word = _mipmapped(PDA + "case_communicator.png")
+	for spec in [["icon_map.png", "MAP"], ["icon_inventory.png", "ITEMS"], ["icon_quests.png", "QUESTS"], ["icon_control.png", "SETUP"]]:
+		_print.keys.append([_ink(PDA + spec[0]), spec[1]])
+	_print.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_print.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	body.add_child(_print)
 	# the screen: The System renders into a 240 x 320 viewport; the LCD shader draws it, whole
 	# screen pixels to each LCD pixel
 	_vp = SubViewport.new()
@@ -404,12 +435,12 @@ func _build_device() -> void:
 	_screen_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	_screen_rect.gui_input.connect(_screen_input)
 	body.add_child(_screen_rect)
-	# the hardware keys: four app keys (as the Palm Pilot's) and the power key
-	for spec in [["map", "MAP"], ["inventory", "ITEMS"], ["quests", "QUESTS"], ["control", "SETUP"]]:
-		var b := _hw_button(spec[1], _open_app.bind(spec[0]))
+	# the soft keys printed under the screen, and the power key
+	for app in ["map", "inventory", "quests", "control"]:
+		var b := _soft_key(_open_app.bind(app))
 		body.add_child(b)
 		_hw_keys.append(b)
-	var pw := _hw_button("POWER", func(): set_open(false), false)
+	var pw := _power_key()
 	body.add_child(pw)
 	_hw_keys.append(pw)
 	_layout()
@@ -418,6 +449,18 @@ func _build_device() -> void:
 func _mipmapped(path: String) -> ImageTexture:
 	## the case's printing is drawn much smaller than its artwork: smooth it down
 	var img := (load(path) as Texture2D).get_image()
+	img.generate_mipmaps()
+	return ImageTexture.create_from_image(img)
+
+
+func _ink(path: String) -> ImageTexture:
+	## an icon as printing: its dark lines kept (as coverage), its white fill left out
+	var img := (load(path) as Texture2D).get_image()
+	img.convert(Image.FORMAT_RGBA8)
+	for y in img.get_height():
+		for x in img.get_width():
+			var c := img.get_pixel(x, y)
+			img.set_pixel(x, y, Color(1, 1, 1, c.a * clampf(1.4 - c.get_luminance() * 1.5, 0.0, 1.0)))
 	img.generate_mipmaps()
 	return ImageTexture.create_from_image(img)
 
@@ -439,11 +482,11 @@ func _layout() -> void:
 	var vs := get_viewport().get_visible_rect().size
 	_k = clampf(vs.y / 800.0, 0.6, 3.0)
 	var case_w := 2.0 * (CASE_SIDE + BEZEL) * _k
-	var case_h := (CASE_TOP + CASE_BOTTOM + 2.0 * BEZEL) * _k
+	var case_h := (CASE_TOP + CASE_BOTTOM + 2.0 * BEZEL + STRIP) * _k
 	# the whole device on the display, its screen as big as that allows: a whole number of screen
 	# pixels per LCD pixel when that's within 8% of it (perfectly sharp), else the exact size, the
 	# LCD shader keeping each dot a solid block with a one-pixel soft edge
-	var fit := minf((vs.y * 0.97 - case_h) / SCREEN.y, (vs.x * 0.95 - case_w) / SCREEN.x)
+	var fit := minf((vs.y * 0.96 - case_h) / SCREEN.y, (vs.x * 0.95 - case_w) / SCREEN.x)
 	_px = maxf(0.5, floorf(fit) if fit >= 1.0 and fit - floorf(fit) < 0.08 * fit else fit)
 	var lcd := (Vector2(SCREEN) * _px).round()
 	var body := (lcd + Vector2(case_w, case_h)).round()
@@ -452,21 +495,36 @@ func _layout() -> void:
 	_device.position = ((vs - body) * 0.5).floor()
 	_screen_rect.position = (Vector2(CASE_SIDE + BEZEL, CASE_TOP + BEZEL) * _k).floor()
 	_screen_rect.size = lcd
-	var dev := _device as DeviceBody
-	dev.k = _k
-	dev.lcd = Rect2(_screen_rect.position, lcd)
-	dev.queue_redraw()
-	var y := dev.lcd.end.y + BEZEL * _k + 12 * _k
-	var kw := minf(64.0 * _k, body.x / 4.0 - 10 * _k)
+	var lr := Rect2(_screen_rect.position, lcd)
+	var well := Rect2(lr.position - Vector2(BEZEL, BEZEL) * _k, lr.size + Vector2(2.0 * BEZEL, 2.0 * BEZEL + STRIP) * _k)
+	var strip := Rect2(Vector2(lr.position.x, lr.end.y + 4 * _k), Vector2(lr.size.x, (STRIP - 2.0) * _k))
+	var forehead := Rect2(Vector2.ZERO, Vector2(body.x, well.position.y))
+	var chin := Rect2(Vector2(0, well.end.y), Vector2(body.x, body.y - well.end.y))
+	var power := Rect2(Vector2(well.position.x + 6 * _k, forehead.size.y * 0.5 - 8 * _k), Vector2(30, 11) * _k)
+	_case_mat.set_shader_parameter("body_size", body)
+	_case_mat.set_shader_parameter("radius", 24.0 * _k)
+	_case_mat.set_shader_parameter("k", _k)
+	_case_mat.set_shader_parameter("well", Vector4(well.position.x, well.position.y, well.size.x, well.size.y))
+	_case_mat.set_shader_parameter("well_radius", 5.0 * _k)
+	_case_mat.set_shader_parameter("strip", Vector4(strip.position.x, strip.position.y, strip.size.x, strip.size.y))
+	var gw := 7.0 * 6 * _k
+	_case_mat.set_shader_parameter("grille", Vector4(well.end.x - gw - 4 * _k, forehead.size.y * 0.5 - 10.5 * _k, gw, 21.0 * _k))
+	_case_mat.set_shader_parameter("silo", Vector4(5 * _k, well.position.y + 30 * _k, 7 * _k, well.size.y - 60 * _k))
+	_device.queue_redraw()
+	_print.size = body
+	_print.k = _k
+	_print.forehead = forehead
+	_print.chin = chin
+	_print.strip = strip
+	_print.power = power
+	_print.queue_redraw()
 	for i in 4:
 		var b: Button = _hw_keys[i]
-		b.size = Vector2(kw, 30 * _k).round()
-		b.position = Vector2(body.x * (i + 0.5) / 4.0 - kw * 0.5, y).floor()
-		b.add_theme_font_size_override("font_size", maxi(10, int(13 * _k)))
+		b.size = Vector2(strip.size.x / 4.0 - 4 * _k, strip.size.y).round()
+		b.position = Vector2(strip.position.x + strip.size.x * i / 4.0 + 2 * _k, strip.position.y).floor()
 	var pw: Button = _hw_keys[4]
-	pw.size = Vector2(78, 20).max(Vector2(78, 20) * _k).round() if _k < 1.0 else (Vector2(78, 20) * _k).round()
-	pw.position = Vector2(body.x * 0.5 - pw.size.x * 0.5, body.y - pw.size.y - 12 * _k).floor()
-	pw.add_theme_font_size_override("font_size", maxi(9, int(11 * _k)))
+	pw.size = power.size.round()
+	pw.position = power.position.floor()
 	_lcd.set_shader_parameter("px_scale", float(_px))
 
 
@@ -486,6 +544,7 @@ func _update_backlight() -> void:
 		elif t > DaySkySystem.DAY_END:
 			bl = (t - DaySkySystem.DAY_END) / (DaySkySystem.DUSK_END - DaySkySystem.DAY_END)
 	_lcd.set_shader_parameter("backlight", clampf(bl, 0.0, 1.0))
+	_case_mat.set_shader_parameter("backlight", clampf(bl, 0.0, 1.0))
 
 
 func _update_clock() -> void:
