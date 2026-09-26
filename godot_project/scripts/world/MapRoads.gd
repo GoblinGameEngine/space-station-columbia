@@ -106,7 +106,9 @@ func _build_all() -> void:
 		_add_decal(dc)
 	var out := []
 	for key in _cells:
-		out.append([key, (_cells[key] as SurfaceTool).commit_to_arrays()])
+		var arr := (_cells[key] as SurfaceTool).commit_to_arrays()
+		if arr[Mesh.ARRAY_VERTEX] != null and (arr[Mesh.ARRAY_VERTEX] as PackedVector3Array).size() > 0:
+			out.append([key, arr])
 	_cells.clear()
 	_out = out
 
