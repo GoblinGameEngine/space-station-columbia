@@ -8,6 +8,17 @@ NYNEX Communicator, a mid-90s PDA running "The System", is the menu.
 Forked from Goblin Engine on 2026-09-25. The engine's agent tooling (`tools/gcmd.py` talking to the
 in-game `DevBridge.gd`) is how the game is built and tested.
 
+## Download
+
+The builds are on the [Releases](https://github.com/GoblinGameEngine/space-station-columbia/releases)
+page. The latest is [0.7.0 pre-alpha 15](https://github.com/GoblinGameEngine/space-station-columbia/releases/tag/v0.7.0-prealpha.15):
+- **Windows (x86_64):** `SpaceStationColumbia-windows.zip`. Unzip it, keep the `.pck` beside the
+  `.exe`, and run `SpaceStationColumbia.exe`. It's unsigned, so SmartScreen may warn you: choose
+  More info, then Run anyway.
+
+You need a Vulkan-capable graphics card. The NPCs talk through Groq: paste your own free key in the
+Communicator's NPC AI app.
+
 ## License
 
 All rights reserved for now (see `LICENSE`) — this repo is public so
