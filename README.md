@@ -16,7 +16,7 @@ permissive license is planned once the project reaches a usable state.
 
 ## Version
 
-**Current: `0.6.1-prealpha.14`** — pre-alpha. Tracked in the `VERSION`
+**Current: `0.7.0-prealpha.15`** — pre-alpha. Tracked in the `VERSION`
 file at the repo root (single source of truth) and mirrored into
 `godot_project/project.godot`'s `config/version`.
 
