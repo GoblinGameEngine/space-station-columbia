@@ -128,6 +128,7 @@ func _new_cloud(li: int, puffs: Array, s: float, x: float, h: float, kind: int) 
 	node.add_child(mi)
 	var area := WaterVolume.new()
 	area.name = "volume"
+	area.flat_base = true                # drawn cut flat underneath: only what's above that is cloud
 	for p in puffs:
 		var cs := CollisionShape3D.new()
 		var sph := SphereShape3D.new()

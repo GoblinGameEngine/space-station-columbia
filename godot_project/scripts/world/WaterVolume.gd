@@ -16,6 +16,17 @@ class_name WaterVolume
 # implements them) and decides its own swim physics; see
 # StationPlayer.gd for the player's side of that contract.
 
+## a cloud's volume: its puffs are spheres, but the cloud is drawn cut flat at its base (its parent's
+## local y = 0) -- it only holds what's above that
+var flat_base := false
+
+
+func holds(p: Vector3) -> bool:
+	if not flat_base:
+		return true
+	return ((get_parent() as Node3D).global_transform.affine_inverse() * p).y >= 0.0
+
+
 func _ready() -> void:
 	monitorable = false
 	body_entered.connect(_on_body_entered)

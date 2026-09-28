@@ -26,10 +26,9 @@ class_name StationPlayer
 # direction from the station's central axis through the player (the
 # floor is further out along that direction; the ceiling/axis is the
 # other way). up_direction is set to match every frame, and the body's
-# whole basis is rotated by the SAME incremental rotation that carried
-# "up" from its previous value to its new one (Quaternion(_prev_up, up)
-# * basis) -- not reconstructed from a fixed forward vector via
-# Basis.looking_at(). That keeps forward (and any yaw/pitch already
+# whole basis is turned by the shortest rotation from its own current up
+# to that true up (Quaternion(basis.y, up) * basis) -- not reconstructed
+# from a fixed forward vector via Basis.looking_at(). That keeps forward (and any yaw/pitch already
 # applied via mouse look) correctly glued to the floor as you WALK
 # along its curve, the same "align to a changing surface normal, keep
 # facing" technique used for walking on curved/spherical ground
@@ -63,8 +62,6 @@ static var SWIM_VERTICAL_SPEED := 2.6
 
 var spawn_transform: Transform3D
 var _station: Node3D
-var _prev_up := Vector3.UP
-var _prev_up_valid := false
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
@@ -105,13 +102,19 @@ func stand_up(at: Vector3, basis_: Basis) -> void:
 	weapon_mount.visible = true
 	head.rotation.y = 0.0
 	velocity = Vector3.ZERO
-	_prev_up_valid = false
 
 func is_seated() -> bool:
 	return _vehicle != null
 
 func is_swimming() -> bool:
-	return not _water_volumes.is_empty() and not sheltered and _vehicle == null
+	if _water_volumes.is_empty() or sheltered or _vehicle != null:
+		return false
+	# in a volume that really holds this spot (a cloud only above its flat base: its spheres reach far
+	# below what's drawn)
+	for v in _water_volumes:
+		if is_instance_valid(v) and (not v.has_method("holds") or v.holds(global_position)):
+			return true
+	return false
 
 ## WaterVolume.gd's own contract -- called via has_method(), not a typed
 ## signal connection, so any body (not just this class) can opt in.
@@ -230,14 +233,14 @@ func _physics_process(delta: float) -> void:
 	var up := -radial_dir
 	up_direction = up
 
-	if not _prev_up_valid:
-		_prev_up = up
-		_prev_up_valid = true
-	if not up.is_equal_approx(_prev_up):
-		var spin := Quaternion(_prev_up, up)
-		global_transform.basis = Basis(spin) * global_transform.basis
-		global_transform.basis = global_transform.basis.orthonormalized()
-	_prev_up = up
+	# Stand along the true up every tick: turn the body from wherever its own up now points, not by
+	# the change since last tick -- that way nothing can leave it tilted (the old incremental turn
+	# skipped changes below Vector3's epsilon yet still recorded them as done, so a slow drift --
+	# floating in a cloud -- piled up an unrecoverable lean).
+	var body_up := global_transform.basis.y.normalized()
+	if body_up.angle_to(up) > 1e-6:
+		global_transform.basis = Basis(Quaternion(body_up, up)) * global_transform.basis
+	global_transform.basis = global_transform.basis.orthonormalized()
 
 	var up_speed := (velocity - _last_carrier).dot(up)
 	var swimming := is_swimming()
@@ -290,12 +293,3 @@ func _on_died(_attacker: Node) -> void:
 	velocity = Vector3.ZERO
 	_water_volumes.clear()  # a mid-swim death would otherwise respawn the player still "swimming" on dry land
 	health.heal(health.max_health)
-	# _prev_up tracks "up" continuously frame-to-frame to co-rotate the
-	# body with the ring (see _physics_process). This teleport is a
-	# discontinuous jump, so _prev_up is now stale -- left alone, the
-	# next physics frame would read it as "up just swung from wherever
-	# the player died to the spawn point," a huge one-frame rotation
-	# slammed onto the orientation we just reset. Invalidating it makes
-	# the next frame reseed from the real post-spawn up instead, same
-	# as the very first frame after _ready().
-	_prev_up_valid = false
