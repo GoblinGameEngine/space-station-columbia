@@ -19,6 +19,10 @@ page. The latest is [0.7.0 pre-alpha 15](https://github.com/GoblinGameEngine/spa
 You need a Vulkan-capable graphics card. The NPCs talk through Groq: paste your own free key in the
 Communicator's NPC AI app.
 
+**Testing?** Please report bugs and impressions on the [Issues](https://github.com/GoblinGameEngine/space-station-columbia/issues)
+page. Say what you were doing, what you expected and what happened; include your graphics card and a
+screenshot if you can.
+
 ## License
 
 All rights reserved for now (see `LICENSE`) — this repo is public so
