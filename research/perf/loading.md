@@ -41,10 +41,10 @@ godot4 --path . --script res://remake/tools/bake_world.gd -- structures
 The structures bake needs the real renderer: the headless dummy renderer keeps no mesh data.
 Rerun the far-side bake after that, as before.
 
-The export includes `remake/landcover.png` as a raw file, so the bakes' stamps match in the build.
+Stamps only name files the export carries as they are (JSON, `.bin.gz`). `landcover.png` isn't one of them: it is regenerated together with `terrain.json` and the height rasters, which the stamps already cover.
 
 ## Further options, by expected value
-1. **Godot 4.4+ (4.5 current).** Ubershaders and pipeline precompilation remove the shader-compile
+1. **Godot 4.4+.** Done 2026-09-28: 4.7.2 (4.5.2 and 4.6.3 crash on concurrent threaded and main-thread loads). Ubershaders and pipeline precompilation remove the shader-compile
    hitches (our worst frame is still ~150 ms, the first time things are drawn). Pipelines can
    precompile while the loading screen is up. 4.5 also brings general performance work. It's an
    engine upgrade, so test everything after it.

@@ -338,7 +338,7 @@ func _ground_under_target() -> void:
 static func stamp() -> String:
 	## what the far tier is made from: the terrain, its land cover and the pads levelled into it
 	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/terrain_base.bin.gz", "res://remake/terrain_level.bin.gz",
-		"res://remake/terrain_depth.bin.gz", "res://remake/landcover.png", "res://remake/placement.json"], BAKE_VERSION)
+		"res://remake/terrain_depth.bin.gz", "res://remake/placement.json"], BAKE_VERSION)
 
 
 func _load_far() -> void:

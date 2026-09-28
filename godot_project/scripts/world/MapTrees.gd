@@ -51,7 +51,7 @@ var _single := false                  # _task is a plain task (the baked load), 
 
 static func stamp() -> String:
 	## what the trees stand on: the land cover, the terrain, the roads and water they keep off
-	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/landcover.png", "res://remake/terrain_base.bin.gz",
+	return BakedMeshes.fingerprint([MapTerrain.PATH, "res://remake/terrain_base.bin.gz",
 		"res://remake/terrain_level.bin.gz", "res://remake/terrain_depth.bin.gz", "res://remake/placement.json"], BAKE_VERSION)
 
 
