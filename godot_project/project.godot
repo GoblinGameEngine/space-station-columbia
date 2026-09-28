@@ -9,7 +9,7 @@ config_version=5
 config/name="Space Station Columbia"
 config/version="0.6.1-prealpha.14"
 run/main_scene="res://remake/scenes/RemakeStation.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.0157, 0.0235, 0.047, 1)
 boot_splash/image="res://ui/pda/splash.png"
 boot_splash/fullsize=true
@@ -117,3 +117,7 @@ Hud="*res://scenes/ui/Hud.tscn"
 renderer/rendering_method="forward_plus"
 renderer/rendering_method.mobile="mobile"
 textures/vram_compression/import_etc2_astc=true
+
+[physics]
+
+3d/physics_engine="GodotPhysics3D"

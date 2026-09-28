@@ -34,7 +34,7 @@ Each versioned push is tagged in git as `v<version>` (e.g. `v0.1.0-prealpha.1`).
 
 ## Repo layout
 
-- `godot_project/` — the Godot 4.3 project. The main scene is `remake/scenes/RemakeStation.tscn`.
+- `godot_project/` — the Godot 4.7 project. The main scene is `remake/scenes/RemakeStation.tscn`.
   - `remake/`: the station's data (terrain, placement, roads, vehicles), its buildings (`buildings/`,
     built from the catalog) and its textures.
   - `scripts/world/`: the world systems (MapTerrain, MapRoads, RoadFurniture, MapWater, MapTrees,

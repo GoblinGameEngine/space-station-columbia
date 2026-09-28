@@ -77,12 +77,14 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 	var records := []
 	for idx in entries.size():
 		var e: Dictionary = entries[idx]
-		while ahead < mini(entries.size(), idx + LOOKAHEAD):
+		# (behind the loading screen they load right here instead: hitches don't matter there, and Godot
+		# 4.5 can crash when many scenes sharing materials load on sub-threads at once)
+		while not StationGeo.loading and ahead < mini(entries.size(), idx + LOOKAHEAD):
 			var am: String = entries[ahead].get("model", entries[ahead].id)
 			for l in ([1] if baked and not meta.get(entries[ahead].id, [1.0, true])[1] else [1, 2, 3]):
 				var ap := "res://remake/buildings/%s.lod%d.glb" % [am, l]
 				if ResourceLoader.exists(ap):
-					ResourceLoader.load_threaded_request(ap, "", true)
+					ResourceLoader.load_threaded_request(ap)
 			ahead += 1
 		var id: String = e.id
 		var model: String = e.get("model", id)             # the glbs it uses (a crossing may reuse another's)
