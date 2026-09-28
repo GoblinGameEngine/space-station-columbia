@@ -13,6 +13,8 @@ var sfx_volume: float = 0.8
 var music_volume: float = 0.6
 var gamma: float = 1.0
 var mouse_sensitivity_mult: float = 1.0
+var stick_look_mult: float = 1.0          # a controller's right stick (Controls.gd)
+var invert_look_y: bool = false
 ## Scales DistanceCulling.gd's tiers (and NPCBase.gd's own sprite range)
 ## uniformly -- 1.0 is this project's own tuned default. Exists because
 ## "how far should things draw" stopped being a single fixed answer once
@@ -43,6 +45,8 @@ func load_settings() -> void:
 		music_volume = cfg.get_value("audio", "music_volume", music_volume)
 		gamma = cfg.get_value("video", "gamma", gamma)
 		mouse_sensitivity_mult = cfg.get_value("controls", "mouse_sensitivity", mouse_sensitivity_mult)
+		stick_look_mult = cfg.get_value("controls", "stick_look", stick_look_mult)
+		invert_look_y = cfg.get_value("controls", "invert_look_y", invert_look_y)
 		draw_distance_mult = cfg.get_value("video", "draw_distance", draw_distance_mult)
 
 func save_settings() -> void:
@@ -51,6 +55,8 @@ func save_settings() -> void:
 	cfg.set_value("audio", "music_volume", music_volume)
 	cfg.set_value("video", "gamma", gamma)
 	cfg.set_value("controls", "mouse_sensitivity", mouse_sensitivity_mult)
+	cfg.set_value("controls", "stick_look", stick_look_mult)
+	cfg.set_value("controls", "invert_look_y", invert_look_y)
 	cfg.set_value("video", "draw_distance", draw_distance_mult)
 	cfg.save(SAVE_PATH)
 
@@ -82,6 +88,14 @@ func set_mouse_sensitivity(v: float) -> void:
 ## a single value to poke. Main.gd listens for `changed` and does that
 ## work; this just persists the choice and announces it, same as every
 ## other setter here.
+func set_stick_look(v: float) -> void:
+	stick_look_mult = v
+	save_settings()
+
+func set_invert_look_y(on: bool) -> void:
+	invert_look_y = on
+	save_settings()
+
 func set_draw_distance(v: float) -> void:
 	draw_distance_mult = v
 	save_settings()

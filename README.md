@@ -23,6 +23,32 @@ Communicator's NPC AI app.
 page. Say what you were doing, what you expected and what happened; include your graphics card and a
 screenshot if you can.
 
+## Controls
+
+Keyboard and mouse, or a controller: any gamepad, or the built-in controls of the Steam Deck, ROG
+Ally, Legion Go and similar handhelds.
+
+| | Keyboard / mouse | Controller |
+|---|---|---|
+| Move / look | WASD / mouse | left stick / right stick |
+| Jump (swim up) / swim down | Space / Ctrl | A / B |
+| Use, talk, board, leave a vehicle | E | X |
+| Attack / change weapon | left click / wheel | RT / LB, RB |
+| Sprint | hold Shift | click the left stick (stays on until you stop) |
+| Communicator | Esc | Menu |
+| Drive: throttle / brake, reverse / steer | W / S / A, D | RT / LT / left stick |
+| Aerostat: climb / descend | Space / Ctrl | RT or A / LT or B |
+
+In the Communicator, a controller moves a stylus: A taps, B goes back, LB and RB change tabs, the
+right stick scrolls and Y opens the System menu. On a Steam Deck the touchscreen works too. Stick
+speed and invert-look are in Control Panel > Controls.
+
+**Handhelds:**
+- **Steam Deck:** add the game to Steam with *Add a Non-Steam Game* and play it in Game Mode. Steam's
+  on-screen keyboard comes up for text boxes.
+- **ROG Ally and Legion Go:** run it on Windows as it is. The controls work as a gamepad, and Windows'
+  touch keyboard comes up for text boxes.
+
 ## License
 
 All rights reserved for now (see `LICENSE`) — this repo is public so
@@ -31,7 +57,7 @@ permissive license is planned once the project reaches a usable state.
 
 ## Version
 
-**Current: `0.7.0-prealpha.15`** — pre-alpha. Tracked in the `VERSION`
+**Current: `0.8.0-prealpha.16`** — pre-alpha. Tracked in the `VERSION`
 file at the repo root (single source of truth) and mirrored into
 `godot_project/project.godot`'s `config/version`.
 

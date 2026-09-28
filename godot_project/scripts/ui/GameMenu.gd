@@ -75,6 +75,12 @@ var _ai_usage: Label
 var _ai_say: LineEdit
 var _ai_log: VBoxContainer
 var _ai_history: Array = []
+# a controller in the Communicator: the stylus (an arrow pointer on the LCD) the sticks move
+var _stylus: TextureRect
+var _stylus_at := Vector2(120, 150)
+var _pad_tap := false                  # the tap under way came from a controller's A
+var _scroll_t := 0.0
+const STYLUS_SPEED := 190.0            # LCD pixels a second at full stick
 
 const APPS := [
 	["map", "Station Map", "icon_map.png"],
@@ -106,14 +112,21 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_menu"):
+	# (not over the loading screen)
+	if event.is_action_pressed("toggle_menu") and not StationGeo.loading:
 		set_open(not _is_open)
 
 
 func _input(event: InputEvent) -> void:
 	## Typing goes to the text box that has the focus on The System's screen (the screen is its own
 	## viewport, which only hears what it's handed).  Esc there just leaves the box.
-	if not _is_open or not event is InputEventKey:
+	## A controller works the screen through the stylus (_pad_input).
+	if not _is_open:
+		return
+	if event is InputEventJoypadButton:
+		_pad_input(event)
+		return
+	if not event is InputEventKey:
 		return
 	var f := _vp.gui_get_focus_owner()
 	if f is LineEdit:
@@ -131,6 +144,8 @@ func set_open(open: bool) -> void:
 	if open:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		_layout()
+		if Controls.using_pad:
+			_set_stylus(Vector2(SCREEN) * 0.5)
 		_refresh_quests()
 		_refresh_inventory()
 		_refresh_map()
@@ -153,13 +168,121 @@ func _set_visible(v: bool) -> void:
 	_vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS if v else SubViewport.UPDATE_DISABLED
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if not _is_open:
 		return
+	_move_stylus(delta)
 	_update_clock()
 	_update_backlight()
 	if _current == "map":
 		_map_station.queue_redraw()
+
+
+# ------------------------------------------------------------------ a controller
+func _move_stylus(delta: float) -> void:
+	## The left stick moves the stylus, the right stick scrolls where it points.
+	_stylus.visible = Controls.using_pad
+	# one pointer at a time: the stylus with a controller, the system's with a mouse
+	var want := Input.MOUSE_MODE_HIDDEN if Controls.using_pad else Input.MOUSE_MODE_VISIBLE
+	if Input.mouse_mode != want:
+		Input.mouse_mode = want
+	if not Controls.using_pad:
+		return
+	var v := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	if v.length() > 0.0:
+		v = v.normalized() * pow(minf(v.length(), 1.0), 1.6)          # fine near the middle, quick at the rim
+		_set_stylus(_stylus_at + v * STYLUS_SPEED * delta)
+	var sc := Input.get_axis("look_up", "look_down")
+	_scroll_t -= delta
+	if absf(sc) > 0.3 and _scroll_t <= 0.0:
+		_scroll_t = lerpf(0.18, 0.05, absf(sc))
+		for pressed in [true, false]:
+			var w := InputEventMouseButton.new()
+			w.button_index = MOUSE_BUTTON_WHEEL_DOWN if sc > 0.0 else MOUSE_BUTTON_WHEEL_UP
+			w.pressed = pressed
+			w.position = _stylus_at.floor()
+			w.global_position = w.position
+			_vp.push_input(w, true)
+
+
+func _set_stylus(at: Vector2) -> void:
+	var p := at.clamp(Vector2.ZERO, Vector2(SCREEN) - Vector2.ONE)
+	if p.floor() != _stylus_at.floor():
+		var m := InputEventMouseMotion.new()
+		m.position = p.floor()
+		m.global_position = m.position
+		m.relative = p.floor() - _stylus_at.floor()
+		m.button_mask = MOUSE_BUTTON_MASK_LEFT if Input.is_joy_button_pressed(0, JOY_BUTTON_A) else 0
+		_vp.push_input(m, true)
+	_stylus_at = p
+	_stylus.position = p.floor()
+	_stylus.move_to_front()
+
+
+func _pad_input(e: InputEventJoypadButton) -> void:
+	## A taps (hold and move to drag), B goes back, LB / RB change tabs, Y the System menu, the D-pad
+	## nudges the stylus; Menu (toggle_menu) is left to put the device away.
+	if e.button_index == JOY_BUTTON_START:
+		return
+	get_viewport().set_input_as_handled()
+	match e.button_index:
+		JOY_BUTTON_A:
+			_pad_tap = true
+			var b := InputEventMouseButton.new()
+			b.button_index = MOUSE_BUTTON_LEFT
+			b.pressed = e.pressed
+			b.button_mask = MOUSE_BUTTON_MASK_LEFT if e.pressed else 0
+			b.position = _stylus_at.floor()
+			b.global_position = b.position
+			_vp.push_input(b, true)
+			_pad_tap = false
+			if not e.pressed and _vp.gui_get_focus_owner() is LineEdit:
+				_show_keyboard()
+		JOY_BUTTON_B:
+			if e.pressed:
+				_back()
+		JOY_BUTTON_Y:
+			if e.pressed:
+				_start_menu.visible = not _start_menu.visible
+		JOY_BUTTON_LEFT_SHOULDER, JOY_BUTTON_RIGHT_SHOULDER:
+			if e.pressed and _current != "":
+				var tabs := _apps[_current].get_child(2) as TabContainer
+				if tabs:
+					var step := 1 if e.button_index == JOY_BUTTON_RIGHT_SHOULDER else -1
+					tabs.current_tab = posmod(tabs.current_tab + step, tabs.get_tab_count())
+		JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN, JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_RIGHT:
+			if e.pressed:
+				var d := {JOY_BUTTON_DPAD_UP: Vector2.UP, JOY_BUTTON_DPAD_DOWN: Vector2.DOWN,
+					JOY_BUTTON_DPAD_LEFT: Vector2.LEFT, JOY_BUTTON_DPAD_RIGHT: Vector2.RIGHT}
+				_set_stylus(_stylus_at + d[e.button_index] * 6.0)
+
+
+func _back() -> void:
+	## B: the alert, then the System menu, then the app, then the device itself
+	var f := _vp.gui_get_focus_owner()
+	if f is LineEdit:
+		f.release_focus()
+	elif _msgbox.visible:
+		_msgbox.visible = false
+	elif _start_menu.visible:
+		_start_menu.visible = false
+	elif _current != "":
+		_close_app()
+	else:
+		set_open(false)
+
+
+func _show_keyboard() -> void:
+	## A text box tapped from a controller: the handheld's on-screen keyboard (Steam's on the Steam
+	## Deck -- running under Steam; Windows' touch keyboard on the Ally, the Legion Go and the like).
+	if DisplayServer.has_feature(DisplayServer.FEATURE_VIRTUAL_KEYBOARD):
+		DisplayServer.virtual_keyboard_show((_vp.gui_get_focus_owner() as LineEdit).text)
+	elif OS.get_name() == "Windows":
+		var tabtip := "C:/Program Files/Common Files/microsoft shared/ink/TabTip.exe"
+		if FileAccess.file_exists(tabtip):
+			OS.create_process(tabtip, [])
+	elif OS.get_environment("SteamAppId") != "" or OS.get_environment("SteamGameId") != "" or OS.get_environment("SteamDeck") != "":
+		OS.shell_open("steam://open/keyboard")
 
 
 # ------------------------------------------------------------------ look
@@ -737,6 +860,14 @@ func _build_system() -> void:
 	_msgbox.size = Vector2(SCREEN)
 	_msgbox.visible = false
 	root.add_child(_msgbox)
+	# the stylus: System 6's arrow, shown while a controller is in use
+	_stylus = TextureRect.new()
+	_stylus.texture = _image(["K..........", "KK.........", "KWK........", "KWWK.......", "KWWWK......", "KWWWWK.....",
+		"KWWWWWK....", "KWWWWWWK...", "KWWWWWWWK..", "KWWWWWWWWK.", "KWWWWWKKKKK", "KWWKWWK....", "KWK.KWWK...",
+		"KK..KWWK...", "K....KWWK..", ".....KWWK..", "......KK..."])
+	_stylus.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stylus.visible = false
+	root.add_child(_stylus)
 
 
 func _desk_input(e: InputEvent) -> void:
@@ -755,7 +886,7 @@ func _icon_tapped(name: String) -> void:
 	## One tap selects, a double tap opens.
 	_start_menu.visible = false
 	var now := Time.get_ticks_msec()
-	if now - int(_last_click.get(name, -10000)) < 600:
+	if _pad_tap or now - int(_last_click.get(name, -10000)) < 600:        # (a controller's tap opens at once)
 		_last_click[name] = -10000
 		_select_icon("")
 		_open_app(name)
@@ -1396,7 +1527,56 @@ func _control_tabs() -> TabContainer:
 		row.add_child(a)
 		row.add_child(_label(_format_binding(action), true, false))
 		ctl.add_child(row)
+	# a controller: gamepads, and handhelds' own controls (Steam Deck, ROG Ally, Legion Go)
+	ctl.add_child(HSeparator.new())
+	ctl.add_child(_label("Controller", true))
+	_slider_row(ctl, "Stick look speed", 0.3, 2.5, Settings.stick_look_mult, func(v): Settings.set_stick_look(v))
+	var inv := CheckBox.new()
+	inv.text = "Invert look up / down"
+	inv.button_pressed = Settings.invert_look_y
+	inv.toggled.connect(func(on): Settings.set_invert_look_y(on))
+	# System 6's checkbox: a square, crossed when on
+	inv.add_theme_icon_override("unchecked", _image(["KKKKKKKKKK", "KWWWWWWWWK", "KWWWWWWWWK", "KWWWWWWWWK", "KWWWWWWWWK",
+		"KWWWWWWWWK", "KWWWWWWWWK", "KWWWWWWWWK", "KWWWWWWWWK", "KKKKKKKKKK"]))
+	inv.add_theme_icon_override("checked", _image(["KKKKKKKKKK", "KKWWWWWWKK", "KWKWWWWKWK", "KWWKWWKWWK", "KWWWKKWWWK",
+		"KWWWKKWWWK", "KWWKWWKWWK", "KWKWWWWKWK", "KKWWWWWWKK", "KKKKKKKKKK"]))
+	for st in ["normal", "hover", "pressed", "hover_pressed", "focus"]:
+		inv.add_theme_stylebox_override(st, StyleBoxEmpty.new())
+	for c in ["font_pressed_color", "font_hover_pressed_color", "font_hover_color"]:
+		inv.add_theme_color_override(c, K)
+	ctl.add_child(inv)
+	_pad_rows = VBoxContainer.new()
+	ctl.add_child(_pad_rows)
+	_refresh_pad_rows()
+	Controls.device_changed.connect(func(_p): _refresh_pad_rows())
+	Input.joy_connection_changed.connect(func(_d, _c): _refresh_pad_rows())
 	return tabs
+
+
+var _pad_rows: VBoxContainer
+
+
+func _refresh_pad_rows() -> void:
+	## the controller's layout, its buttons named as the pad in hand labels them
+	for c in _pad_rows.get_children():
+		c.queue_free()
+	var pads := Input.get_connected_joypads()
+	_pad_rows.add_child(_label("Connected: %s" % (Input.get_joy_name(pads[0]) if not pads.is_empty() else "none")))
+	var B := func(b): return Controls.button(b)
+	for r in [["Move", B.call("LS")], ["Look", B.call("RS")], ["Jump / swim up", B.call(JOY_BUTTON_A)],
+			["Swim down", B.call(JOY_BUTTON_B)], ["Use / Talk / Board", B.call(JOY_BUTTON_X)],
+			["Attack / Fire", B.call("RT")], ["Weapons", "%s / %s" % [B.call(JOY_BUTTON_LEFT_SHOULDER), B.call(JOY_BUTTON_RIGHT_SHOULDER)]],
+			["Sprint", B.call(JOY_BUTTON_LEFT_STICK)], ["Communicator", B.call(JOY_BUTTON_START)],
+			["Drive / brake", "%s / %s" % [B.call("RT"), B.call("LT")]],
+			["Climb / descend", "%s / %s" % [B.call("RT"), B.call("LT")]],
+			["Stylus: tap / back", "%s / %s" % [B.call(JOY_BUTTON_A), B.call(JOY_BUTTON_B)]],
+			["Stylus: tabs", "%s / %s" % [B.call(JOY_BUTTON_LEFT_SHOULDER), B.call(JOY_BUTTON_RIGHT_SHOULDER)]]]:
+		var row := HBoxContainer.new()
+		var a := _label(r[0], false, false)
+		a.custom_minimum_size = Vector2(112, 0)
+		row.add_child(a)
+		row.add_child(_label(r[1], true, false))
+		_pad_rows.add_child(row)
 
 
 func _format_binding(action: String) -> String:
@@ -1426,6 +1606,8 @@ func _help_tabs() -> TabContainer:
 			["Double-tap an icon on the desktop to open it, or tap System and choose it.  The keys under the screen open the Map, Items, Quests and Setup.", false],
 			["In an app", true],
 			["The tabs change pages.  The box at the top left closes the app; the ? box at the top right explains it.", false],
+			["With a controller", true],
+			["The left stick moves the stylus; A taps, B goes back, LB and RB change tabs, the right stick scrolls, Y opens the System menu.  On a Steam Deck the screen also takes your finger.", false],
 			["Talking to people", true],
 			["Open NPC AI and follow its three steps to give the station's people their voices.", false],
 			["Putting it away", true],

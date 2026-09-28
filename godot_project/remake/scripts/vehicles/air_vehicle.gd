@@ -234,7 +234,8 @@ func _physics_process(delta: float) -> void:
 	if pilot:
 		fwd_in = Input.get_action_strength("move_forward") - Input.get_action_strength("move_back")
 		turn_in = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		lift_in = Input.get_action_strength("jump") - Input.get_action_strength("swim_down")
+		lift_in = clampf(Input.get_action_strength("jump") + Input.get_action_strength("accelerate")
+			- Input.get_action_strength("swim_down") - Input.get_action_strength("brake_reverse"), -1.0, 1.0)
 	# stay level with the local floor: the vehicle's up follows the station's
 	var up := StationGeo.up(StationGeo.s_of(global_position))
 	var b := global_transform.basis.orthonormalized()
@@ -364,4 +365,7 @@ func _show_hud(on: bool) -> void:
 
 func _update_hud(h: float) -> void:
 	if _hud:
-		_hud.text = "SPEED %3d km/h   ALT %4.0f m (above ground)\nW/S thrust   A/D turn   Space/Ctrl climb/descend   E leave seat" % [roundi(-_lv.z * 3.6), h]
+		_hud.text = "SPEED %3d km/h   ALT %4.0f m (above ground)\n" % [roundi(-_lv.z * 3.6), h] + Controls.hint(
+			"W/S thrust   A/D turn   Space/Ctrl climb/descend   E leave seat",
+			"%s thrust and turn   %s / %s climb / descend   %s leave seat" % [Controls.button("LS"), Controls.button("RT"),
+				Controls.button("LT"), Controls.button(JOY_BUTTON_X)])

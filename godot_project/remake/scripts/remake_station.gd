@@ -219,6 +219,7 @@ func _hide_splash() -> void:
 	var s := _splash
 	_splash = null
 	var tw := create_tween()
+	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)       # finishes even if the Communicator pauses the game
 	for c in s.get_children():
 		tw.parallel().tween_property(c, "modulate:a", 0.0, 0.6)
 	tw.tween_callback(s.queue_free)

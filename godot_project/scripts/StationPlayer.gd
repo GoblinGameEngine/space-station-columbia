@@ -70,6 +70,11 @@ var _station: Node3D
 @onready var health: Health = $Health
 
 var _skip_next_mouse_delta := true
+# a controller's right stick: turn / look speeds at full deflection (radians a second), scaled by
+# Settings.stick_look_mult; L3 sprint stays on until the stick comes back (Controls.gd)
+const STICK_YAW_SPEED := 3.2
+const STICK_PITCH_SPEED := 2.3
+var _sprint_latched := false
 
 # Which WaterVolume(s) the player is currently overlapping -- an Array,
 # not a bool, so two overlapping volumes (e.g. a future river/lake
@@ -217,6 +222,19 @@ func _radial_vector() -> Vector3:
 	var axis: Vector3 = StationGeo.AXIS
 	return rel - axis * rel.dot(axis)
 
+func _process(delta: float) -> void:
+	# looking round with a controller's right stick (the mouse's equivalent is in _unhandled_input)
+	var v := Controls.look_vector()
+	if v == Vector2.ZERO:
+		return
+	var k := Settings.stick_look_mult * delta
+	if _vehicle:
+		head.rotation.y = clamp(head.rotation.y - v.x * STICK_YAW_SPEED * k, -SEATED_YAW_LIMIT, SEATED_YAW_LIMIT)
+	else:
+		global_transform.basis = global_transform.basis.rotated(global_transform.basis.y.normalized(), -v.x * STICK_YAW_SPEED * k)
+	head.rotation.x = clamp(head.rotation.x - v.y * STICK_PITCH_SPEED * k, -PITCH_LIMIT, PITCH_LIMIT)
+
+
 func _physics_process(delta: float) -> void:
 	if _vehicle:
 		return                      # the vehicle places us on the seat
@@ -274,9 +292,16 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var move_dir := (transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 	if move_dir.length_squared() > 0.0001:
-		move_dir = move_dir.normalized()
+		# full speed on the keys; a stick walks as far over as it's pushed
+		move_dir = move_dir.normalized() * minf(input_dir.length(), 1.0)
 
-	var speed := SWIM_SPEED if swimming else (SPRINT_SPEED if Input.is_action_pressed("sprint") else WALK_SPEED)
+	# sprint: held (Shift), or clicked in on a stick (L3) until the player stops
+	if Controls.using_pad and Input.is_action_just_pressed("sprint"):
+		_sprint_latched = not _sprint_latched
+	if input_dir.length() < 0.2:
+		_sprint_latched = false
+	var sprinting := _sprint_latched or (Input.is_action_pressed("sprint") and not Controls.using_pad)
+	var speed := SWIM_SPEED if swimming else (SPRINT_SPEED if sprinting else WALK_SPEED)
 	velocity = up * up_speed + move_dir * speed + carrier_velocity
 	# a cabin carries us itself (carrier_velocity); the engine's own platform velocity would double it
 	platform_floor_layers = 0 if carrier_velocity != Vector3.ZERO else 0xFFFFFFFF

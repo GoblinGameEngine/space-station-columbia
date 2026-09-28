@@ -146,7 +146,9 @@ func _physics_process(delta: float) -> void:
 	var steer_in := 0.0
 	var brake_in := false
 	if pilot:
-		thr = Input.get_action_strength("move_forward") - Input.get_action_strength("move_back")
+		# the keys or the left stick; or a controller's triggers (RT accelerate, LT brake and reverse)
+		thr = clampf(Input.get_action_strength("move_forward") + Input.get_action_strength("accelerate")
+			- Input.get_action_strength("move_back") - Input.get_action_strength("brake_reverse"), -1.0, 1.0)
 		steer_in = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		brake_in = Input.is_action_pressed("jump")
 	# speed: drive, brake against the motion, reverse from a stop, coast
@@ -316,4 +318,7 @@ func _animate_car(delta: float) -> void:
 
 func _update_hud(_h: float) -> void:
 	if _hud:
-		_hud.text = "SPEED %3d km/h\nW/S drive / brake / reverse   A/D steer   Space brake   E leave seat" % roundi(absf(_speed) * 3.6)
+		_hud.text = "SPEED %3d km/h\n" % roundi(absf(_speed) * 3.6) + Controls.hint(
+			"W/S drive / brake / reverse   A/D steer   Space handbrake   E leave seat",
+			"%s drive   %s brake / reverse   %s steer   %s handbrake   %s leave seat" % [Controls.button("RT"),
+				Controls.button("LT"), Controls.button("LS"), Controls.button(JOY_BUTTON_A), Controls.button(JOY_BUTTON_X)])

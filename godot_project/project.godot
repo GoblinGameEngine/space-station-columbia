@@ -7,7 +7,7 @@ config_version=5
 [application]
 
 config/name="Space Station Columbia"
-config/version="0.7.0-prealpha.15"
+config/version="0.8.0-prealpha.16"
 run/main_scene="res://remake/scenes/RemakeStation.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.0157, 0.0235, 0.047, 1)
@@ -97,6 +97,7 @@ interact={
 
 DevBridge="*res://scripts/autoload/DevBridge.gd"
 Settings="*res://scripts/autoload/Settings.gd"
+Controls="*res://scripts/autoload/Controls.gd"
 NpcAI="*res://scripts/autoload/NpcAI.gd"
 FactionManager="*res://scripts/autoload/FactionManager.gd"
 Inventory="*res://scripts/autoload/Inventory.gd"
