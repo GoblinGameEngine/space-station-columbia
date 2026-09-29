@@ -11,7 +11,7 @@ in-game `DevBridge.gd`) is how the game is built and tested.
 ## Download
 
 The builds are on the [Releases](https://github.com/GoblinGameEngine/space-station-columbia/releases)
-page. The latest is [0.7.9 alpha 1](https://github.com/GoblinGameEngine/space-station-columbia/releases/tag/v0.7.9-alpha.1):
+page. The latest is [0.7.9 alpha 2](https://github.com/GoblinGameEngine/space-station-columbia/releases/tag/v0.7.9-alpha.2):
 - **Windows (x86_64):** `SpaceStationColumbia-windows.zip`. Unzip it, keep the `.pck` beside the
   `.exe`, and run `SpaceStationColumbia.exe`. It's unsigned, so SmartScreen may warn you: choose
   More info, then Run anyway.
@@ -62,7 +62,7 @@ permissive license is planned once the project reaches a usable state.
 
 ## Version
 
-**Current: `0.7.9-alpha.1`** — alpha. Tracked in the `VERSION`
+**Current: `0.7.9-alpha.2`** — alpha. Tracked in the `VERSION`
 file at the repo root (single source of truth) and mirrored into
 `godot_project/project.godot`'s `config/version`.
 
