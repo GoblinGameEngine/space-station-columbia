@@ -65,11 +65,7 @@ static func scan(max_report := 60, spans: Array = []) -> Dictionary:
 static func _on_bridge(p: Vector2, spans: Array) -> bool:
 	## Over a great bridge (its deck from end to end) or a small crossing's deck.
 	for sp in spans:
-		var o: Vector2 = sp.o
-		var d: Vector2 = sp.dir
-		var v := Vector2(StationGeo.wrap_ds(p.x - o.x), p.y - o.y)
-		var u := v.dot(d)
-		if u > -1.0 and u < float(sp.len) + 1.0 and absf(v.x * d.y - v.y * d.x) < 100.0:
+		if GreatBridges.off_line(sp, fposmod(p.x, StationGeo.CIRC), p.y) < float(sp.hw) + 3.0:
 			return true
 	for bd in MapTerrain._grid.get(Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / MapTerrain.CELL), floori(p.y / MapTerrain.CELL)), []):
 		if bd[0] != "bridge":

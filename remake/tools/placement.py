@@ -173,6 +173,133 @@ def clear_of_roads(out):
 
 
 CAR_CLEAR = 1.25       # m either side of a road's centreline a car needs to get by (half its width and a little)
+def snap_crossings(out):
+    """Each crossing onto the line it carries (a road; the railway for a RAIL- crossing): its deck's
+    two ends on that line's centreline -- the model centred between them and turned along them --
+    so the road runs straight on at both ends, not beside the bridge or across its parapet."""
+    ter = json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))
+    C = 2 * math.pi * ter["R"]
+    wrap = lambda d: (d + C / 2) % C - C / 2
+    lines = [(rd["pts"], False) for rd in ter["roads"]] + [(ter["rail"]["pts"], True)]
+    moved = 0
+    ends = []
+    for e in out:
+        if e["kind"] != "crossing" or "deck" not in e:
+            continue
+        rail = e["id"].startswith("RAIL-")
+        best = None
+        for pts, is_rail in lines:
+            if is_rail != rail:
+                continue
+            u = 0.0
+            for a, b in zip(pts, pts[1:]):
+                ds, dx = wrap(b[0] - a[0]), b[1] - a[1]
+                L = math.hypot(ds, dx)
+                if L < 1e-6:
+                    continue
+                if abs(wrap(a[0] - e["s"])) < 400 and abs(a[1] - e["x"]) < 400:
+                    t = max(0.0, min(1.0, (wrap(e["s"] - a[0]) * ds + (e["x"] - a[1]) * dx) / (L * L)))
+                    d = math.hypot(wrap(e["s"] - a[0]) - ds * t, (e["x"] - a[1]) - dx * t)
+                    if best is None or d < best[0]:
+                        best = (d, pts, u + L * t)
+                u += L
+        if best is None or best[0] > 25.0:
+            continue
+        _, pts, u0 = best
+        total = sum(math.hypot(wrap(b[0] - a[0]), b[1] - a[1]) for a, b in zip(pts, pts[1:]))
+        if u0 - e["deck"][0] * 0.5 < 2.0 or u0 + e["deck"][0] * 0.5 > total - 2.0:
+            ends.append(e["id"])                           # at a road's very end: a bridge to nowhere
+            continue
+
+        def at(u):
+            acc = 0.0
+            for a, b in zip(pts, pts[1:]):
+                ds, dx = wrap(b[0] - a[0]), b[1] - a[1]
+                L = math.hypot(ds, dx)
+                if acc + L >= u or b is pts[-1]:
+                    t = (u - acc) / L if L > 1e-9 else 0.0
+                    return (a[0] + ds * t, a[1] + dx * t)
+                acc += L
+            return tuple(pts[-1])
+        half = e["deck"][0] * 0.5
+        A, B = at(max(0.0, u0 - half)), at(u0 + half)
+        ds, dx = wrap(B[0] - A[0]), B[1] - A[1]
+        if math.hypot(ds, dx) < 0.5:
+            continue
+        # the footprint's middle across (lx) is where the deck's centre line runs
+        yaw = yaw_facing(ds, dx)
+        c, sn = math.cos(yaw), math.sin(yaw)
+        lx = (e["fmin"][0] + e["fmax"][0]) * 0.5
+        ms, mx = A[0] + ds * 0.5, A[1] + dx * 0.5
+        ns, nx = (ms - lx * sn) % C, mx - lx * c
+        if math.hypot(wrap(ns - e["s"]), nx - e["x"]) > 0.02 or abs(wrap(yaw - e["yaw"])) > 1e-3:
+            moved += 1
+        e["s"], e["x"], e["yaw"] = round(ns, 2), round(nx, 2), round(yaw, 4)
+    out[:] = [e for e in out if e["id"] not in ends]
+    print("crossings set onto their roads: %d%s" % (moved, ("; at a road's end, left out: " + " ".join(ends)) if ends else ""))
+    # a road that bends on a bridge is eased straight across it: its points over the deck and the
+    # approach slabs onto the bridge's axis, and back to the road's own line over the next EASE m
+    EASE = 15.0
+    eased = 0
+    for e in out:
+        if e["kind"] != "crossing" or "deck" not in e or e["id"].startswith("RAIL-"):
+            continue
+        c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
+        lx = (e["fmin"][0] + e["fmax"][0]) * 0.5
+        reach = max(abs(e["fmin"][1]), abs(e["fmax"][1]))       # the deck and its approach slabs
+
+        def seg_d(rd):
+            best = 1e9
+            for a, b in zip(rd["pts"], rd["pts"][1:]):
+                if abs(wrap(a[0] - e["s"])) > 300 or abs(a[1] - e["x"]) > 300:
+                    continue
+                bs, bx = wrap(b[0] - a[0]), b[1] - a[1]
+                ps, px = wrap(e["s"] - a[0]), e["x"] - a[1]
+                l2 = bs * bs + bx * bx
+                t = 0.0 if l2 < 1e-9 else max(0.0, min(1.0, (ps * bs + px * bx) / l2))
+                best = min(best, math.hypot(ps - bs * t, px - bx * t))
+            return best
+        own = min(ter["roads"], key=seg_d)                      # (only the road it carries)
+        for rd in [own]:
+            pts = rd["pts"]
+            hit = False
+            for k, p_ in enumerate(pts):
+                ds, dx = wrap(p_[0] - e["s"]), p_[1] - e["x"]
+                if abs(ds) > reach + EASE + 5 or abs(dx) > reach + EASE + 5:
+                    continue
+                plx = dx * c + ds * sn - lx                          # across the bridge
+                plz = dx * sn - ds * c                              # along it
+                if abs(plx) > 6.0 or abs(plz) > reach + EASE:
+                    continue
+                w = 1.0 if abs(plz) <= reach else 0.5 + 0.5 * math.cos(math.pi * (abs(plz) - reach) / EASE)
+                if abs(plx) * w < 0.02:
+                    continue
+                # move it across by -plx * w (local x in (s, x): (sn, c))
+                p_[0] = round(p_[0] - sn * plx * w, 2)
+                p_[1] = round(p_[1] - c * plx * w, 2)
+                hit = True
+            eased += hit
+    json.dump(ter, open(os.path.join(ROOT, "godot_project", "remake", "terrain.json"), "w"), indent=0)
+    print("roads eased straight across their bridges:", eased)
+
+
+def crossing_deck(model, inv):
+    """(length, width) m of a crossing model's bridge proper -- its deck between the abutments, not the
+    approach slabs -- as remake/blender/gen/bridges.py builds it (the same formula)."""
+    FT = 0.3048
+    clamp = lambda v, lo, hi: max(lo, min(hi, v))
+    rp = os.path.join(ROOT, "remake", "catalog", model + ".json")
+    tr = (json.load(open(rp)).get("traits") or {}) if os.path.exists(rp) else {}
+    ic = next((c for c in inv["crossings"] if c["id"] == model), {})
+    spans = int(clamp(tr.get("model_spans") or tr.get("spans") or 1, 1, 14))
+    span_each = (tr.get("span_ft") or 40) * FT
+    total = clamp(ic.get("span_m") or span_each * spans, 3.0, 120.0)
+    road = ic.get("road_class", "county")
+    width = (tr.get("width_ft") or 0) * FT or {"hwy": 9.0, "county": 7.0, "main": 10.0, "street": 8.0, "gravel": 5.5,
+                                                "rail": 4.2}.get(road, 7.0)
+    return total, clamp(width, 4.0, 12.0)
+
+
 RANK = {"hwy": 6, "main": 5, "county": 4, "street": 3, "gravel": 2, "alley": 1, "rail": 0}
 
 
@@ -344,7 +471,14 @@ def main():
         if math.hypot(*hd) < 0.5:
             hd = road_heading(c["s"], c["x"]) or (1.0, 0.0)
         _add(c["id"], "crossing", None, c["s"], c["x"], yaw_facing(*hd), c.get("model"))
+        if out and out[-1]["id"] == c["id"]:
+            dl, dw = crossing_deck(c.get("model") or c["id"], inv)
+            e_ = out[-1]
+            # (no longer than the model as built: some older models are shorter than their record says)
+            dl = min(dl, e_["fmax"][1] - e_["fmin"][1])
+            e_["deck"] = [round(dl, 2), round(dw, 2)]
 
+    snap_crossings(out)
     drop_overlapping_crossings(out, {c["id"]: c for c in inv["crossings"]})
     clear_of_roads(out)
     with open(OUT, "w") as f:

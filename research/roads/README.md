@@ -16,6 +16,8 @@ Regenerate everything after any change to the map or the standard, in this order
 2. `python3 remake/tools/placement.py` places the structures and crossings.
    placement.py also keeps the roads clear (§8): it moves buildings off carriageways and leaves out
    crossings that overlap each other, stand in another road's way or sit on a great bridge's line.
+   It also sets each crossing on its road (§9), easing bent roads straight across and rewriting
+   `terrain.json`'s road points, so run `tools/road_furniture.py` after it.
    Then `python3 tools/road_profile.py` grades every road (§7, grading.md). It writes each road's
    height profile and the small bridges' deck heights into `terrain.json`, and removes from
    `placement.json` any crossing that can't lie level within the grade.
@@ -38,6 +40,7 @@ Checks in the running game (DevBridge; see each file's header):
 - `remake/tools/drive_test.gd`: a car driven across every bridge, both ways, and down sample
   streets.
 - `remake/tools/measure_crossings.gd`: each crossing's deck height where the road meets it.
+- `remake/tools/bridge_ends.gd`: both ends of every bridge, for the road's offset, angle and step.
 
 After any of these, rebake what the game would otherwise build at launch (see research/perf/loading.md):
 `godot4 --headless --path . --script res://remake/tools/bake_world.gd -- roads terrain trees walks water`,

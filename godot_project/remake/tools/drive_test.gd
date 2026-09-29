@@ -182,12 +182,17 @@ static func bridge_routes(tree: SceneTree) -> Array:
 		for sp in gb.spans:
 			if sp.rail:
 				continue
-			var o: Vector2 = sp.o
-			var dir: Vector2 = sp.dir
-			var a := o - dir * 15.0                  # (onto the road each end: beyond, it may bend away)
-			var b := o + dir * (float(sp.len) + 15.0)
-			out.append({"name": "%s %s A-B" % [sp.id, sp.name], "pts": [a, b], "lane": 1.8})
-			out.append({"name": "%s %s B-A" % [sp.id, sp.name], "pts": [b, a], "lane": 1.8})
+			# its line (along the road it carries), 15 m of road on at each end
+			var line: PackedVector2Array = sp.line
+			var pts := [line[0] - (line[1] - line[0]).normalized() * 15.0]
+			for q in line:
+				pts.append(q)
+			var n := line.size()
+			pts.append(line[n - 1] + (line[n - 1] - line[n - 2]).normalized() * 15.0)
+			var back := pts.duplicate()
+			back.reverse()
+			out.append({"name": "%s %s A-B" % [sp.id, sp.name], "pts": pts, "lane": 1.8})
+			out.append({"name": "%s %s B-A" % [sp.id, sp.name], "pts": back, "lane": 1.8})
 	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json")).structures
 	for e in pl:
 		if e.kind != "crossing":

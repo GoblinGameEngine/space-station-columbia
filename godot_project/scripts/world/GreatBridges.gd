@@ -23,6 +23,8 @@ const APPROACH_MAX := 280.0
 const STEP := 5.0
 const FOUND := 25.0
 const DECK_D := 2.2
+const APPROACH_MIN := 30.0
+const SMOOTH_R := 20.0
 
 var _mats := {}
 static var decks: Array = []         # every great bridge's line (the spans), for the trees to keep out from under
@@ -37,6 +39,7 @@ func setup() -> void:
 	_mats["asphalt"] = _tex_mat("lib/asphalt", 1.0)
 	_mats["concrete"] = _tex_mat("lib/concrete", 1.0)
 	_mats["line"] = _solid(Color(0.95, 0.95, 0.9))
+	_mats["yellow"] = _solid(Color(0.95, 0.72, 0.1))              # the roads' own paint (MapRoads)
 	_mats["cable"] = _solid(Color(0.25, 0.25, 0.27))
 	_mats["ballast"] = _tex_mat("lib/gravel", 1.0)
 	_mats["rail"] = _solid(Color(0.35, 0.3, 0.28))
@@ -72,8 +75,10 @@ func _solid(c: Color, glow := false) -> StandardMaterial3D:
 var _st := {}                  # material -> SurfaceTool for the bridge being built
 var _col := PackedVector3Array()
 var _o := Vector2.ZERO         # map (s, x) of end A
-var _dir := Vector2.RIGHT      # unit, A -> B, map units
+var _dir := Vector2.RIGHT      # unit, A -> B, map units (the main span's line)
 var _side := Vector2.UP
+var _pp := PackedVector2Array()  # the bridge's line, approach to approach: along the road it carries
+var _pc := PackedFloat32Array()  # arc length at each of _pp
 
 
 func _surf(mat: String) -> SurfaceTool:
@@ -84,9 +89,30 @@ func _surf(mat: String) -> SurfaceTool:
 	return _st[mat]
 
 
+func _at(u: float) -> Vector2:
+	## the bridge's line at u m from end A (map s, x; s may run past the seam)
+	if _pp.size() < 2:
+		return _o + _dir * u
+	if u <= 0.0:
+		return _pp[0] + (_pp[1] - _pp[0]).normalized() * u
+	var n := _pp.size()
+	if u >= _pc[n - 1]:
+		return _pp[n - 1] + (_pp[n - 1] - _pp[n - 2]).normalized() * (u - _pc[n - 1])
+	var k := _pc.bsearch(u) - 1
+	k = clampi(k, 0, n - 2)
+	var t := (u - _pc[k]) / maxf(_pc[k + 1] - _pc[k], 1e-6)
+	return _pp[k].lerp(_pp[k + 1], t)
+
+
+func _left(u: float) -> Vector2:
+	## the unit vector to the line's left at u (the tangent over a few metres, so a curve's sides are smooth)
+	var t := (_at(u + 2.0) - _at(u - 2.0)).normalized()
+	return Vector2(-t.y, t.x)
+
+
 func _P(u: float, v: float, h: float) -> Vector3:
 	## a point at u m along the bridge from end A, v m to its left, h m above the floor datum
-	var m := _o + _dir * u + _side * v
+	var m := _at(u) + _left(u) * v
 	return StationGeo.point(m.x, m.y, h)
 
 
@@ -130,6 +156,112 @@ func _column(mat: String, u: float, v: float, z0: float, z1: float, hw: float, h
 	_tri_quad(mat, _P(u - hw, v - hd, z1), _P(u + hw, v - hd, z1), _P(u + hw, v + hd, z1), _P(u - hw, v + hd, z1))
 
 
+static func off_line(sp: Dictionary, s: float, x: float) -> float:
+	## How far (s, x) is from a bridge's line (spans / decks entries), to one side -- INF beyond its ends.
+	var line: PackedVector2Array = sp.line
+	var best := INF
+	for k in line.size() - 1:
+		var a := line[k]
+		var d := Vector2(line[k + 1].x - a.x, line[k + 1].y - a.y)
+		var L2 := d.length_squared()
+		if L2 < 1e-9:
+			continue
+		var v := Vector2(StationGeo.wrap_ds(s - a.x), x - a.y)
+		var t := v.dot(d) / L2
+		if (t < 0.0 and k > 0) or (t > 1.0 and k < line.size() - 2):
+			continue
+		if t < -0.2 or t > 1.2:
+			continue                                     # (just past an end still counts, a little)
+		best = minf(best, (v - d * clampf(t, 0.0, 1.0)).length())
+	return best
+
+
+func _smooth_line() -> void:
+	## The line resampled every 2 m and rounded (a running mean over SMOOTH_R m either side, shrinking
+	## to nothing at the two ends, which stay on the road): the bend where an approach that follows
+	## the road meets the straight span becomes a curve, not a corner.
+	var L := _pc[_pc.size() - 1]
+	var n := maxi(2, ceili(L / 2.0))
+	var pts := PackedVector2Array()
+	for i in n + 1:
+		pts.append(_at(L * i / float(n)))
+	var r := int(SMOOTH_R / 2.0)
+	var out := pts.duplicate()
+	for i in range(1, n):
+		var k := mini(r, mini(i, n - i))
+		var acc := Vector2.ZERO
+		for j in range(i - k, i + k + 1):
+			acc += pts[j]
+		out[i] = acc / float(2 * k + 1)
+	_pp = out
+	_pc = PackedFloat32Array([0.0])
+	for i in range(1, _pp.size()):
+		_pc.append(_pc[i - 1] + _pp[i].distance_to(_pp[i - 1]))
+
+
+func _carried_road(a: Vector2, b: Vector2, rail: bool) -> Dictionary:
+	## The road (the railway, for a rail bridge) passing both inventory ends: {road, ua, ub, a, b} --
+	## its arc lengths at the points nearest a and b, and those points -- or {} if none passes both.
+	MapTerrain.elevation(0.0, 0.0)
+	var roads: Array = MapTerrain._d.roads
+	var best := {}
+	var best_d := 160.0
+	for ri in roads.size():
+		var rd: Dictionary = roads[ri]
+		if (rd.cls == "rail") != rail:
+			continue
+		var pa := _nearest_on(rd, a)
+		var pb := _nearest_on(rd, b)
+		if pa.x + pb.x < best_d:
+			best_d = pa.x + pb.x
+			best = {"road": ri, "ua": pa.y, "ub": pb.y}
+	if best.is_empty():
+		return {}
+	var rd: Dictionary = roads[best.road]
+	best["a"] = _road_point(rd, best.ua)
+	var pb := _road_point(rd, best.ub)
+	best["b"] = Vector2(best.a.x + StationGeo.wrap_ds(pb.x - best.a.x), pb.y)
+	return best
+
+
+func _nearest_on(rd: Dictionary, p: Vector2) -> Vector2:
+	## (distance, arc length) of the point of road rd nearest p
+	var pts: Array = rd.pts
+	var cum: PackedFloat32Array = rd.cum
+	var best := Vector2(INF, 0.0)
+	for k in pts.size() - 1:
+		var pr := MapTerrain._seg_proj(p.x, p.y, pts[k][0], pts[k][1], pts[k + 1][0], pts[k + 1][1])
+		if pr.x < best.x:
+			best = Vector2(pr.x, lerpf(cum[k], cum[k + 1], pr.y))
+	return best
+
+
+static func _road_point(rd: Dictionary, u: float) -> Vector2:
+	## road rd at arc length u (past either end, straight on along its last segment)
+	var pts: Array = rd.pts
+	var cum: PackedFloat32Array = rd.cum
+	var n := pts.size()
+	var k := 0
+	if u <= 0.0:
+		k = 0
+	elif u >= cum[n - 1]:
+		k = n - 2
+	else:
+		k = clampi(cum.bsearch(u) - 1, 0, n - 2)
+	var a := Vector2(pts[k][0], pts[k][1])
+	var b := Vector2(pts[k + 1][0], pts[k + 1][1])
+	var d := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
+	return a + d * ((u - cum[k]) / maxf(cum[k + 1] - cum[k], 1e-6))
+
+
+func _road_from(c: Dictionary, back: bool, t: float) -> Vector2:
+	## The carried road t m out from the bank end: back (from a, away from b) or forward (from b).
+	var rd: Dictionary = MapTerrain._d.roads[c.road]
+	var sgn := 1.0 if c.ub > c.ua else -1.0
+	var u: float = (c.ua - sgn * t) if back else (c.ub + sgn * t)
+	return _road_point(rd, u)
+
+
 func _wet(m: Vector2) -> bool:
 	## Is (s, x) under the river / lake / sea (or its carved bed)?
 	var s := fposmod(m.x, StationGeo.CIRC)
@@ -141,13 +273,13 @@ func _ground_across(u: float, hw: float) -> float:
 	## The highest ground under the deck's width at u.
 	var h := -INF
 	for v: float in [-hw, -hw * 0.5, 0.0, hw * 0.5, hw]:
-		var m := _o + _dir * u + _side * v
+		var m := _at(u) + _left(u) * v
 		h = maxf(h, MapTerrain.elevation(m.x, m.y))
 	return h
 
 
 func _ground(u: float) -> float:
-	var m := _o + _dir * u
+	var m := _at(u)
 	return MapTerrain.elevation(m.x, m.y)
 
 
@@ -158,6 +290,14 @@ func _build(br: Dictionary) -> void:
 	var ends: Array = br.ends
 	var a := Vector2(ends[0][0], ends[0][1])
 	var b := Vector2(ends[1][0], ends[1][1])
+	_pp = PackedVector2Array()
+	_pc = PackedFloat32Array()
+	# the road (or railway) the bridge carries: its line is where the approaches go, so they meet it.
+	# The span runs straight between the road's points at the two banks.
+	var carried := _carried_road(a, b, str(br.get("road_class")) == "rail" or str(tr.get("type", "")) == "rail_viaduct_arch")
+	if not carried.is_empty():
+		a = carried.a
+		b = carried.b
 	var dv := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
 	var span := dv.length()
 	_dir = dv / span
@@ -180,17 +320,52 @@ func _build(br: Dictionary) -> void:
 	var ext_b := clampf((top - bank_b) / GRADE - span * 0.5, 0.0, APPROACH_MAX)
 	# each approach starts on dry ground -- the graded road -- never out in the basin: the deck's
 	# first metre then meets the road's surface exactly
-	while ext_a < APPROACH_MAX + 300.0 and _wet(a - _dir * ext_a):
+	# at least APPROACH_MIN of approach each end (along the road), however short the climb: the line
+	# eases from the road's heading onto the span's over it
+	ext_a = maxf(ext_a, APPROACH_MIN)
+	ext_b = maxf(ext_b, APPROACH_MIN)
+	var back := func(dd: float) -> Vector2: return _road_from(carried, true, dd) if not carried.is_empty() else a - _dir * dd
+	var fwd := func(dd: float) -> Vector2: return _road_from(carried, false, dd) if not carried.is_empty() else b + _dir * dd
+	while ext_a < APPROACH_MAX + 300.0 and _wet(back.call(ext_a)):
 		ext_a += 4.0
-	while ext_b < APPROACH_MAX + 300.0 and _wet(b + _dir * ext_b):
+	while ext_b < APPROACH_MAX + 300.0 and _wet(fwd.call(ext_b)):
 		ext_b += 4.0
-	# re-origin at the start of approach A; u runs to L
-	_o = a - _dir * ext_a
-	var L := span + ext_a + ext_b
-	spans.append({"id": br.id, "name": br.get("name", br.id), "o": _o, "dir": _dir, "len": L, "hw": hw, "rail": rail})
+	# the line: approach A along the road (toward the bank), the span straight across, approach B along
+	# the road; u runs from the start of approach A to L
+	var lay_a := ext_a
+	while lay_a > 0.0:
+		_pp.append(back.call(lay_a))
+		lay_a -= 2.0
+	var ia := _pp.size()
+	_pp.append(a)
+	_pp.append(a + dv)                                   # (b, kept continuous across the seam)
+	var lay_b := 2.0
+	while lay_b <= ext_b + 0.01:
+		var q: Vector2 = fwd.call(minf(lay_b, ext_b))
+		_pp.append(Vector2(_pp[_pp.size() - 1].x + StationGeo.wrap_ds(q.x - _pp[_pp.size() - 1].x), q.y))
+		lay_b += 2.0
+	for i in range(_pp.size() - 2, -1, -1):             # (continuous s back from a, too)
+		_pp[i] = Vector2(_pp[i + 1].x - StationGeo.wrap_ds(_pp[i + 1].x - _pp[i].x), _pp[i].y)
+	_pc.append(0.0)
+	for i in range(1, _pp.size()):
+		_pc.append(_pc[i - 1] + _pp[i].distance_to(_pp[i - 1]))
+	var span_start := _pc[ia]
+	_smooth_line()
+	_o = _pp[0]
+	var L := _pc[_pc.size() - 1]
+	# where the span starts along the line (the approach as laid, not the planned ext_a)
+	ext_a = span_start
+	ext_b = L - ext_a - span
+	var line := PackedVector2Array()
+	var u_ := 0.0
+	while u_ < L:
+		line.append(_at(u_))
+		u_ += 5.0
+	line.append(_at(L))
+	spans.append({"id": br.id, "name": br.get("name", br.id), "o": _o, "dir": _dir, "len": L, "hw": hw, "rail": rail, "line": line})
 	decks.append(spans[-1])
-	var z0 := _ground(0.0) + 0.05
-	var z1 := _ground(L) + 0.05
+	var z0 := _ground(0.0) + MapRoads.LIFT                # level with the road's own surface there
+	var z1 := _ground(L) + MapRoads.LIFT
 	var n := maxi(2, ceili(L / STEP))
 	var us := []
 	var zs := []
@@ -238,8 +413,11 @@ func _build(br: Dictionary) -> void:
 			_tri_quad("concrete", _P(ua, (hw - 0.4) * sg, za + 1.0), _P(ub, (hw - 0.4) * sg, zb + 1.0), _P(ub, hw * sg, zb + 1.0), _P(ua, hw * sg, za + 1.0))
 		_tri_quad("concrete", _P(ua, -hw, za - DECK_D), _P(ub, -hw, zb - DECK_D), _P(ub, hw, zb - DECK_D), _P(ua, hw, za - DECK_D))
 		if not rail:
-			for lv_ in [hw - 1.2, -hw + 1.2, 0.0]:
+			# white edge lines, and the two-way road's double yellow down the middle, as on the road
+			for lv_ in [hw - 1.2, -hw + 1.2]:
 				_tri_quad("line", _P(ua, lv_ + 0.08, za + 0.02), _P(ub, lv_ + 0.08, zb + 0.02), _P(ub, lv_ - 0.08, zb + 0.02), _P(ua, lv_ - 0.08, za + 0.02))
+			for lv_ in [0.12, -0.12]:
+				_tri_quad("yellow", _P(ua, lv_ + 0.05, za + 0.02), _P(ub, lv_ + 0.05, zb + 0.02), _P(ub, lv_ - 0.05, zb + 0.02), _P(ua, lv_ - 0.05, za + 0.02))
 		else:
 			for tv in [-2.2, -0.7, 0.7, 2.2]:
 				_tri_quad("rail", _P(ua, tv + 0.04, za + 0.35), _P(ub, tv + 0.04, zb + 0.35), _P(ub, tv - 0.04, zb + 0.35), _P(ua, tv - 0.04, za + 0.35))

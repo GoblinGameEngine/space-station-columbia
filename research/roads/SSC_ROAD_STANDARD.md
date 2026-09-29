@@ -171,3 +171,19 @@ Applied by `remake/tools/placement.py`, `tools/road_profile.py` and `CoastalWalk
 5. **Parked cars leave the middle clear.** Kerbside parking may narrow a lane, but a car can always
    pass down the middle. Boarding ramps are solid to people only.
 
+## 9. Where roads meet bridges
+Checked by `remake/tools/bridge_ends.gd`: at every end, the road's centreline must be within
+0.5 m of the bridge's middle and within 3° of its axis, with no step over 5 cm.
+
+1. **A great bridge follows the road it carries.** Its approaches run along that road's line, at
+   least 30 m each end. The span runs straight between the road's points on the two banks. The
+   line is rounded where the two meet. The deck starts level with the road's surface.
+2. **A small bridge sits on its road.** Its deck's two ends are on the road's centreline, and the
+   model is turned along the chord between them. A road that bends there is eased straight across
+   the deck and its approach slabs, blending back over 15 m. A crossing at a road's very end, a
+   bridge to nowhere, is left out.
+3. **The road's surface stops at a small bridge.** The road ribbon, its kerbs, shoulders and
+   markings end one row short of the deck, over the model's approach slab. The model carries the
+   road across.
+4. **Markings match.** A great bridge's deck has the road's double yellow centre line.
+

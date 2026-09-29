@@ -37,7 +37,7 @@ const FINE := ["paint_w", "paint_y", "decal", "kerb", "shoulder"]
 const FINE_CELL := 100.0
 const NEAR_R := 900.0
 const BAKED := "res://remake/baked/roads.res"
-const BAKE_VERSION := 1              # bump when the builder's output changes
+const BAKE_VERSION := 2              # bump when the builder's output changes
 const RXR_CELL := 19                 # tools/sign_atlas.py: the RXR marking's cell
 
 var _roads: Array = []
@@ -254,7 +254,9 @@ func _add_road(rd: Dictionary, ctx: String, jn: String, dup: String) -> void:
 		for i in range(0 if k == 0 else 1, n + 1):
 			var c := a + dv * (i / float(n))
 			var hidden := dup.length() > k + 1 and dup[k] == "1" and dup[k + 1] == "1"
-			var over_water := hidden or MapTerrain._body_profile(fposmod(c.x, StationGeo.CIRC), c.y) > 0.05
+			var over_water := hidden or MapTerrain._body_profile(fposmod(c.x, StationGeo.CIRC), c.y) > 0.05 \
+				or MapTerrain.on_small_bridge(c.x, c.y, 8.0, STEP)   # (the bridge model is the road there; its
+				                                                      # approach slab covers the row short of it)
 			var l := c + side * hw
 			var r := c - side * hw
 			var up := StationGeo.up(c.x)
@@ -380,7 +382,7 @@ func _add_line(ln: Dictionary) -> void:
 				var t1: float = lerpf(pc[0], pc[1], (q + 1) / float(m))
 				var p0: Vector2 = a + u * t0 + side * off
 				var p1: Vector2 = a + u * t1 + side * off
-				if MapTerrain._body_profile(fposmod(p0.x, StationGeo.CIRC), p0.y) > 0.05:
+				if MapTerrain._body_profile(fposmod(p0.x, StationGeo.CIRC), p0.y) > 0.05 or MapTerrain.on_small_bridge(p0.x, p0.y, 8.0, STEP):
 					continue
 				var up := StationGeo.up(p0.x)
 				var h0 := h_prev if q > 0 else MapTerrain.elevation(p0.x, p0.y) + LIFT + PAINT

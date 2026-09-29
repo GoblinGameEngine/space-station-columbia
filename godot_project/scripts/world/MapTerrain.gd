@@ -476,10 +476,32 @@ static func _load_bridge(e: Dictionary) -> void:
 		deck = maxf(deck, _road_grade(fposmod(ss, C), xx, base_elev(ss, xx)).x)
 	# the graded deck (tools/road_profile.py pins each crossing level at its higher approach)
 	deck = float(_d.get("decks", {}).get(e.id, deck))
-	_bridges.append([s0, x0, c, sn, e.fmin[0], e.fmin[1], e.fmax[0], e.fmax[1], deck])
+	var dk: Array = e.get("deck", [0.0, 0.0])            # the bridge proper's length and width (placement.py)
+	_bridges.append([s0, x0, c, sn, e.fmin[0], e.fmin[1], e.fmax[0], e.fmax[1], deck, float(dk[0]), float(dk[1])])
 	_pad_by_id[e.id] = deck
 	var reach := Vector2(maxf(absf(e.fmin[0]), absf(e.fmax[0])), maxf(absf(e.fmin[1]), absf(e.fmax[1]))).length()
 	_index(["bridge", _bridges.size() - 1], s0 - reach, x0 - reach, s0 + reach, x0 + reach, RAMP)
+
+
+static func on_small_bridge(s: float, x: float, reach := 8.0, before := 0.0) -> bool:
+	## Is (s, x) on a small crossing's deck -- between its abutments (and before m short of them),
+	## within reach m of its middle across (a road wider than the bridge is cut there too)?  The roads' own surface stops there:
+	## the bridge model carries them.
+	_load()
+	s = fposmod(s, C)
+	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
+		if it[0] != "bridge":
+			continue
+		var bd: Array = _bridges[it[1]]
+		if bd[9] <= 0.0:
+			continue
+		var ds := _wrap(s - bd[0])
+		var dx: float = x - bd[1]
+		var lx: float = dx * bd[2] + ds * bd[3]
+		var lz: float = dx * bd[3] - ds * bd[2]
+		if absf(lz - (bd[5] + bd[7]) * 0.5) <= bd[9] * 0.5 + before and absf(lx - (bd[4] + bd[6]) * 0.5) <= bd[10] * 0.5 + reach:
+			return true
+	return false
 
 
 static func pad_height(id: String) -> float:
