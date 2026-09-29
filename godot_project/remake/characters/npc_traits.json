@@ -71,7 +71,7 @@
 
   {"id": "life_stage", "layer": "L0", "group": "identity", "type": "pick",
    "values": ["child", "teen", "young_adult", "adult", "elder"],
-   "choose": {"derive": "'child' if age < 13 else 'teen' if age < 18 else 'young_adult' if age < 30 else 'adult' if age < 65 else 'elder'"},
+   "choose": {"derive": "iff(age < 13, 'child', iff(age < 18, 'teen', iff(age < 30, 'young_adult', iff(age < 65, 'adult', 'elder'))))"},
    "depends_on": ["age"], "affects": ["everything that reads it"]},
 
   {"id": "occupation", "layer": "L0", "group": "role", "type": "pick",
@@ -166,8 +166,8 @@
   {"id": "face_marks", "layer": "L1", "group": "face", "type": "tags",
    "values": ["freckles", "mole", "scar", "crows_feet", "laugh_lines", "sun_weathered", "glasses"],
    "choose": {"each": {"freckles": 0.12, "mole": 0.10, "scar": 0.03, "glasses": 0.18,
-                       "crows_feet": "0.9 if age > 55 else 0.0", "laugh_lines": "0.7 if age > 45 else 0.0",
-                       "sun_weathered": "0.7 if occupation in ['fisher', 'farmer', 'builder', 'dock_worker'] else 0.05"}},
+                       "crows_feet": "iff(age > 55, 0.9, 0.0)", "laugh_lines": "iff(age > 45, 0.7, 0.0)",
+                       "sun_weathered": "iff(occupation in ['fisher', 'farmer', 'builder', 'dock_worker'], 0.7, 0.05)"}},
    "depends_on": ["age", "occupation"], "affects": ["shader:face", "mesh:glasses", "describe"]},
 
   {"id": "style", "layer": "L1", "group": "clothing", "type": "pick",
@@ -195,8 +195,8 @@
 
   {"id": "accessories", "layer": "L1", "group": "clothing", "type": "tags",
    "values": ["hat", "cap", "scarf", "bag", "basket", "watch", "necklace", "earrings", "headscarf", "hairband"],
-   "choose": {"each": {"hat": "0.25 if age > 50 else 0.08", "cap": 0.12, "scarf": 0.10, "bag": 0.25, "basket": 0.04,
-                       "watch": 0.3, "necklace": 0.12, "earrings": "0.35 if sex == 'female' else 0.03", "headscarf": 0.03, "hairband": "0.2 if age < 18 else 0.03"}},
+   "choose": {"each": {"hat": "iff(age > 50, 0.25, 0.08)", "cap": 0.12, "scarf": 0.10, "bag": 0.25, "basket": 0.04,
+                       "watch": 0.3, "necklace": 0.12, "earrings": "iff(sex == 'female', 0.35, 0.03)", "headscarf": 0.03, "hairband": "iff(age < 18, 0.2, 0.03)"}},
    "depends_on": ["age", "sex"], "affects": ["mesh:accessory", "outfit.accent"]},
 
   {"id": "gait", "layer": "L1", "group": "motion", "type": "vec4",

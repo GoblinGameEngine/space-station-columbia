@@ -1,6 +1,6 @@
 # NPC characteristics: what a rich cast needs, and the extensible schema
 
-The characteristics live in **`npc_traits.json`**, a data file. To add one, add an entry;
+The characteristics live in **`godot_project/remake/characters/npc_traits.json`**, a data file the game loads. To add one, add an entry;
 no code changes. Check it with:
 
 ```

@@ -8,13 +8,14 @@
 
 Determinism: each trait draws from its own stream, hash(seed | person id | trait id), so adding
 a trait never changes existing traits of existing people (procedural_npcs.md 2.3).  Expressions
-are the shared subset of Python and GDScript (x if c else y, and/or/not, in [...], dotted dict
-access, min/max/clamp, table(), rand_normal()) so the game can run the same strings with Godot's
-Expression class."""
+are the shared subset of Python and Godot's Expression class (and/or/not, in [...], dotted dict
+access, min/max/clamp/abs, iff(cond, a, b), table(), rand_normal()), so the game runs the same
+strings.  NOT allowed: Python's `x if c else y` (Godot's Expression silently stops parsing at the
+`if` and returns x) and chained comparisons (`a <= b <= c`); the validator rejects both."""
 import argparse, collections, json, math, re, sys
 from pathlib import Path
 
-FILE = Path(__file__).resolve().parents[2] / "research" / "characters" / "npc_traits.json"
+FILE = Path(__file__).resolve().parents[2] / "godot_project" / "remake" / "characters" / "npc_traits.json"
 M64 = (1 << 64) - 1
 CHOOSERS = {"rule", "weights", "bands", "derive", "table", "normal", "uniform", "uniform2", "dirichlet", "beta", "each", "from_lists"}
 MOD_KEYS = {"if", "add", "mul", "weights", "reweight", "bias"}
@@ -94,7 +95,7 @@ class Person:
         return tb[row][tb["_cols"].index(col)]
 
     def env(self, rng, extra=None):
-        e = {"min": min, "max": max, "clamp": clamp, "abs": abs, "table": self.table,
+        e = {"min": min, "max": max, "clamp": clamp, "abs": abs, "iff": lambda c, a, b: a if c else b, "table": self.table,
              "rand_normal": rng.normal}
         e.update({k: (D(v) if isinstance(v, dict) else v) for k, v in self.v.items()})
         e.update(extra or {})
@@ -103,7 +104,7 @@ class Person:
     def ev(self, expr, rng, extra=None):
         if not isinstance(expr, str):
             return expr
-        names = set(re.findall(r"(?<![.\w])[A-Za-z_]\w*", re.sub(r"'[^']*'", "", expr))) - {"if", "else", "and", "or", "not", "in", "row", "True", "False"}
+        names = set(re.findall(r"(?<![.\w])[A-Za-z_]\w*", re.sub(r"'[^']*'", "", expr))) - {"if", "else", "and", "or", "not", "in", "row", "True", "False", "iff"}
         for n in names:                                   # pull in dependencies on demand
             if n in self.defs and n not in self.v:
                 self.get(n)
@@ -193,11 +194,11 @@ class Person:
         if "uniform2" in ch:
             (a, b), (c, d) = ch["uniform2"]
             x = rng.rand() ** ch.get("bias_x", 1.0)
-            return [round(a + (b - a) * x, 3), round(c + (d - c) * rng.rand(), 3)]
+            return [a + (b - a) * x, c + (d - c) * rng.rand()]
         if "dirichlet" in ch:
             al = [a + (bias[i] if bias else 0) for i, a in enumerate(ch["dirichlet"])]
             g = [rng.gamma(a) for a in al]
-            return [round(x / sum(g), 3) for x in g]
+            return [x / sum(g) for x in g]
         if "beta" in ch:
             a, b = ch["beta"]
             x, y = rng.gamma(a), rng.gamma(b)
@@ -258,6 +259,22 @@ def validate(data):
                         errs.append(f"population {pname}: table {tb} has no column {col}")
                 elif key not in rowsd:
                     errs.append(f"population {pname}: table {tb} has no row {key}")
+    def exprs(x):
+        if isinstance(x, str):
+            yield x
+        elif isinstance(x, dict):
+            for k, y in x.items():
+                if k not in ("id", "layer", "group", "type", "note", "unit", "values", "keys", "affects", "depends_on", "inherit", "rule", "table", "weight_col"):
+                    yield from exprs(y)
+        elif isinstance(x, list):
+            for y in x:
+                yield from exprs(y)
+    for t in data["traits"]:
+        for e in exprs({k: t[k] for k in ("choose", "mods") if k in t}):
+            if re.search(r"\bif\b|\belse\b", e):
+                errs.append(f"{t['id']}: `x if c else y` in {e!r}: Godot's Expression can't parse it; use iff(c, x, y)")
+            if re.search(r"(<=?|>=?|==|!=)\s*(?:(?!\band\b|\bor\b)[\w.+\-*/ ])+?\s*(<=?|>=?|==|!=)", re.sub(r"'[^']*'", "''", e)):
+                errs.append(f"{t['id']}: chained comparison in {e!r}: write a <= b and b <= c")
     # cycles
     deps = {t["id"]: [d for d in t.get("depends_on", []) if d in idset] for t in data["traits"]}
     state = {}
@@ -296,6 +313,7 @@ def main():
     ap.add_argument("--layers")
     ap.add_argument("--file", default=str(FILE))
     ap.add_argument("--pop", help="settlement archetype (populations in the trait file)")
+    ap.add_argument("--dump", help="write the people as JSON to this file (for the GDScript parity test)")
     a = ap.parse_args()
     data = json.loads(Path(a.file).read_text())
     errs = validate(data)
@@ -325,6 +343,11 @@ def main():
             print(f"{k:14} " + "  ".join(f"{v} {n * 100 / a.stats:.0f}%" for v, n in cnt.most_common(8)))
         return
     ids = [a.id] if a.id else [f"B{1000 + i}:{i % 3}" for i in range(a.n)]
+    if a.dump:
+        out = [{"id": pid, "v": Person(data, a.seed, pid, layers, a.pop).v} for pid in ids]
+        Path(a.dump).write_text(json.dumps({"seed": a.seed, "pop": a.pop, "layers": sorted(layers) if layers else None, "people": out}))
+        print(f"wrote {len(out)} people to {a.dump}")
+        return
     for pid in ids:
         p = Person(data, a.seed, pid, layers, a.pop)
         print(f"\n{pid}: " + "  ".join(f"{k}={fmt(v)}" for k, v in p.v.items()))
