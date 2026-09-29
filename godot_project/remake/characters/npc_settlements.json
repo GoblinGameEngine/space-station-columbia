@@ -1,0 +1,50 @@
+{
+ "_about": "Who lives where (procedural_npcs.md 2.1; scale_survey.md 2.4): each settlement's demographic archetype (populations in npc_traits.json, from research/demographics/_demographic_archetypes.md) and, per building kind, how many households it holds and what kinds. Households are drawn first and people inside them (household-first synthesis), so families, couples and shared student houses come out right. First-pass assignments from research/coastal_communities (each town's real-world models); edit freely.",
+
+ "settlements": {
+  "Harrow Falls": "lake_resort", "Port Tamsin": "lake_resort", "Victory Bay": "lake_resort", "Brightwater": "lake_resort",
+  "Oceanview": "lake_resort", "Solana Point": "exurban", "Playa Verde": "lake_resort", "Port Carrow": "exurban",
+  "Haven Point": "stable_town", "Tern Harbor": "rust_belt", "Pelican Cove": "rust_belt", "Kessler": "county_seat",
+  "Marlowe": "stable_town", "Fenwick": "stable_town", "Tamarack": "stable_town", "Haskins Corner": "stable_town",
+  "Bellhaven": "college_town", "Cedar Ford": "stable_town", "Loomis Grove": "stable_town", "Pruett": "stable_town",
+  "Dunmore Crossing": "stable_town", "_none": "stable_town"
+ },
+
+ "_household_types": "members: [relation, age range, sex (f/m/any)]; 'couple' ages are drawn together (partners within ~6 years).",
+ "household_types": {
+  "single":        {"members": [["head", [20, 64], "any"]]},
+  "single_elder":  {"members": [["head", [65, 94], "any"]]},
+  "couple":        {"members": [["head", [24, 64], "any"], ["partner", "couple", "any"]]},
+  "elder_couple":  {"members": [["head", [65, 90], "any"], ["partner", "couple", "any"]]},
+  "family":        {"members": [["head", [27, 50], "any"], ["partner", "couple", "any"], ["child", [0, 17], "any"], ["child", [0, 17], "any", 0.6], ["child", [0, 17], "any", 0.25]]},
+  "single_parent": {"members": [["head", [22, 50], "any"], ["child", [0, 17], "any"], ["child", [0, 17], "any", 0.4]]},
+  "three_gen":     {"members": [["head", [35, 55], "any"], ["partner", "couple", "any"], ["child", [0, 17], "any"], ["child", [0, 17], "any", 0.5], ["elder", [66, 92], "any"]]},
+  "sharehouse":    {"members": [["head", [18, 27], "any"], ["mate", [18, 27], "any"], ["mate", [18, 30], "any", 0.7], ["mate", [18, 30], "any", 0.4]]}
+ },
+
+ "_mix": "household type weights per archetype; multiplied by the building kind's own mix below.",
+ "mix": {
+  "stable_town":  {"single": 12, "single_elder": 12, "couple": 20, "elder_couple": 14, "family": 24, "single_parent": 8, "three_gen": 4, "sharehouse": 2},
+  "rust_belt":    {"single": 16, "single_elder": 8, "couple": 14, "elder_couple": 6, "family": 22, "single_parent": 20, "three_gen": 8, "sharehouse": 4},
+  "exurban":      {"single": 8, "single_elder": 8, "couple": 24, "elder_couple": 18, "family": 34, "single_parent": 4, "three_gen": 3, "sharehouse": 1},
+  "county_seat":  {"single": 14, "single_elder": 12, "couple": 20, "elder_couple": 12, "family": 24, "single_parent": 10, "three_gen": 4, "sharehouse": 3},
+  "college_town": {"single": 18, "single_elder": 6, "couple": 14, "elder_couple": 6, "family": 14, "single_parent": 6, "three_gen": 2, "sharehouse": 34},
+  "lake_resort":  {"single": 12, "single_elder": 20, "couple": 18, "elder_couple": 26, "family": 14, "single_parent": 5, "three_gen": 3, "sharehouse": 2}
+ },
+
+ "buildings": {
+  "house":       {"households": 1, "mix": {}},
+  "singlehouse": {"households": 1, "mix": {}},
+  "bungalow":    {"households": 1, "mix": {"elder_couple": 1.5, "single_elder": 1.5, "sharehouse": 0.3}},
+  "cottage":     {"households": 1, "mix": {"single": 1.5, "couple": 1.3, "family": 0.6, "three_gen": 0.3}},
+  "shingle":     {"households": 1, "mix": {}},
+  "beachhouse":  {"households": 1, "mix": {"elder_couple": 1.4, "couple": 1.3, "family": 1.0, "sharehouse": 0.8}},
+  "farm":        {"households": 1, "mix": {"family": 2.0, "three_gen": 3.0, "elder_couple": 1.2, "single": 0.4, "sharehouse": 0.0, "single_parent": 0.5}},
+  "rowhouse":    {"households": 3, "mix": {"single": 1.5, "single_parent": 1.4, "sharehouse": 1.3}},
+  "condo":       {"households": 6, "mix": {"single": 1.8, "single_elder": 1.6, "couple": 1.4, "family": 0.4, "three_gen": 0.1}},
+  "fishhouse":   {"households": 1, "mix": {"single": 1.5, "couple": 1.2}}
+ },
+
+ "_transients": "Visitors: per building kind, how many at a time (a pure function of place, day and slot).",
+ "transients": {"hotel": 10, "motel": 6, "pavilion": 3, "arcade": 3, "ride": 2, "stand": 1, "restaurant": 3, "store": 1}
+}

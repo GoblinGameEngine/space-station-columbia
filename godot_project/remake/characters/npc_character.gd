@@ -29,19 +29,36 @@ var _skin: Skin
 
 
 static func create(v: Dictionary, id := "", seed := 0, p_occasion := "work") -> NpcCharacter:
+	## Build and assemble in one go (tools; the main thread).
+	return from_prepared(prepare(v, id, seed, p_occasion))
+
+
+static func prepare(v: Dictionary, id := "", seed := 0, p_occasion := "work") -> Dictionary:
+	## Everything but nodes and materials: body, outfit, garment and hair geometry as mesh arrays.
+	## Thread-safe -- NpcPopulation runs this on the worker pool (traits must be computed first, on
+	## the main thread: Expression isn't thread-safe).
+	var params := NpcBody.from_traits(v)
+	var built := NpcBody.build(params)
+	var d := {"traits": v, "pid": id, "seed": seed, "occasion": p_occasion, "params": params, "built": built,
+		"body": _arrays(built.parts)}
+	d.merge(_clothes(v, id, seed, p_occasion, built), true)
+	return d
+
+
+static func from_prepared(d: Dictionary) -> NpcCharacter:
 	var n := NpcCharacter.new()
-	n.name = "Npc_" + id.replace(":", "_") if id != "" else "Npc"
-	n.traits = v
-	n.pid = id
-	n.world_seed = seed
-	n.occasion = p_occasion
-	n._build()
+	n.name = "Npc_" + str(d.pid).replace(":", "_") if d.pid != "" else "Npc"
+	n.traits = d.traits
+	n.pid = d.pid
+	n.world_seed = d.seed
+	n.occasion = d.occasion
+	n.params = d.params
+	n.built = d.built
+	n._assemble(d)
 	return n
 
 
-func _build() -> void:
-	params = NpcBody.from_traits(traits)
-	built = NpcBody.build(params)
+func _assemble(d: Dictionary) -> void:
 	var J: Dictionary = built.joints
 	skeleton = Skeleton3D.new()
 	skeleton.name = "Skeleton"
@@ -60,9 +77,9 @@ func _build() -> void:
 	body_mesh = _instance("Body")
 	clothes_mesh = _instance("Clothes")
 	var m := ArrayMesh.new()
-	_add_surface(m, built.parts, _skin_material())
+	_add_arrays(m, d.body, _skin_material())
 	body_mesh.mesh = m
-	dress(occasion)
+	_apply_clothes(d)
 
 
 func _instance(n: String) -> MeshInstance3D:
@@ -75,11 +92,24 @@ func _instance(n: String) -> MeshInstance3D:
 
 
 func dress(p_occasion: String) -> void:
-	## (Re)build clothes and hair for an occasion ("work", "casual" ...).  Cheap: the body mesh and
-	## skeleton stay; only garment surfaces are made.
+	## Change clothes for an occasion ("work", "casual" ...) at any time: only garment and hair
+	## surfaces are rebuilt; the body and skeleton stay.
 	occasion = p_occasion
-	outfit = NpcGarments.outfit(traits, world_seed, pid, occasion)
+	_apply_clothes(_clothes(traits, pid, world_seed, occasion, built))
+
+
+func _apply_clothes(d: Dictionary) -> void:
+	outfit = d.outfit
 	var m := ArrayMesh.new()
+	for s in d.surfaces:
+		_add_arrays(m, s.arrays, _fabric_material(s.g) if s.kind == "fabric" else _hair_material())
+	clothes_mesh.mesh = m
+
+
+static func _clothes(v: Dictionary, id: String, seed: int, p_occasion: String, built: Dictionary) -> Dictionary:
+	## The outfit for an occasion and its geometry (thread-safe): {outfit, surfaces: [{kind, g, arrays}]}.
+	var outfit := NpcGarments.outfit(v, seed, id, p_occasion)
+	var surfaces := []
 	var tucked := outfit.any(func(g): return g.slot == "top" and g.garment in TUCKED)
 	var has_hat := outfit.any(func(g): return g.slot == "head")
 	for g in outfit:
@@ -97,14 +127,13 @@ func dress(p_occasion: String) -> void:
 			"over":
 				extra = 0.01 + 0.005 * float(def.get("layer", 1))
 		var parts := NpcGarments.build(def, built, extra)
-		if parts.is_empty():
-			continue
-		_add_surface(m, parts, _fabric_material(g))
-	var style := str(traits.get("hair_style", "crop"))
-	var hair := NpcHair.build(_under_hat(style) if has_hat else style, built, NpcRng.for_trait(world_seed, pid, "hair"), has_hat)
+		if not parts.is_empty():
+			surfaces.append({"kind": "fabric", "g": g, "arrays": _arrays(parts)})
+	var style := str(v.get("hair_style", "crop"))
+	var hair := NpcHair.build(_under_hat(style) if has_hat else style, built, NpcRng.for_trait(seed, id, "hair"), has_hat)
 	if not hair.is_empty():
-		_add_surface(m, hair, _hair_material())
-	clothes_mesh.mesh = m
+		surfaces.append({"kind": "hair", "g": {}, "arrays": _arrays(hair)})
+	return {"outfit": outfit, "surfaces": surfaces}
 
 
 static func _under_hat(style: String) -> String:
@@ -113,7 +142,8 @@ static func _under_hat(style: String) -> String:
 	return style if style in ["shoulder", "long_loose", "braids", "curly_long", "bald", "balding"] else "crop"
 
 
-func _add_surface(m: ArrayMesh, parts: Array, mat: Material) -> void:
+static func _arrays(parts: Array) -> Array:
+	## Parts -> one surface's mesh arrays (or [] if empty).
 	var verts := PackedVector3Array()
 	var normals := PackedVector3Array()
 	var uvs := PackedVector2Array()
@@ -133,7 +163,7 @@ func _add_surface(m: ArrayMesh, parts: Array, mat: Material) -> void:
 		for t in range(0, pi.size(), 3):                 # built counter-clockwise; Godot's front faces are clockwise
 			idx.append_array([base + pi[t], base + pi[t + 2], base + pi[t + 1]])
 	if verts.is_empty():
-		return
+		return []
 	var arr := []
 	arr.resize(Mesh.ARRAY_MAX)
 	arr[Mesh.ARRAY_VERTEX] = verts
@@ -143,6 +173,12 @@ func _add_surface(m: ArrayMesh, parts: Array, mat: Material) -> void:
 	arr[Mesh.ARRAY_BONES] = bones
 	arr[Mesh.ARRAY_WEIGHTS] = weights
 	arr[Mesh.ARRAY_INDEX] = idx
+	return arr
+
+
+static func _add_arrays(m: ArrayMesh, arr: Array, mat: Material) -> void:
+	if arr.is_empty():
+		return
 	m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
 	m.surface_set_material(m.get_surface_count() - 1, mat)
 

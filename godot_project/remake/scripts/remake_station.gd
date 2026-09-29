@@ -23,6 +23,7 @@ var player: StationPlayer
 var sun: DirectionalLight3D
 var environment: Environment
 var sky_system: DaySkySystem
+var npcs: NpcPopulation
 var shell_mesh: MeshInstance3D
 var terrain: MapTerrainMesh
 var world: Node3D
@@ -122,6 +123,11 @@ func _ready() -> void:
 	_place_aerostats()
 	_place_ground_vehicles()
 	_mark("aerostats (first slice)")
+	# the people: generated round the player as they go, never stored (remake/characters/)
+	npcs = NpcPopulation.new()
+	npcs.player = player
+	add_child(npcs)
+	_mark("people")
 	_watch_load()
 
 

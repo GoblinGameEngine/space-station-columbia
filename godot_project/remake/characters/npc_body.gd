@@ -190,10 +190,13 @@ static func ring(c: Vector3, ax: Vector3, az: Vector3, a: float, b: float, w: Ar
 
 
 static var _trig := {}     # around -> [PackedFloat32Array sin, cos] for t = k / around
+static var _cache_lock := Mutex.new()   # the static caches are shared by generator threads
 
 
 static func _table(around: int) -> Array:
+	_cache_lock.lock()
 	var tb: Array = _trig.get(around, [])
+	_cache_lock.unlock()
 	if tb.is_empty():
 		var sn := PackedFloat32Array()
 		var cs := PackedFloat32Array()
@@ -202,7 +205,9 @@ static func _table(around: int) -> Array:
 			sn.append(sin(ang))
 			cs.append(-cos(ang))
 		tb = [sn, cs]
+		_cache_lock.lock()
 		_trig[around] = tb
+		_cache_lock.unlock()
 	return tb
 
 
@@ -324,7 +329,9 @@ static func weights_of(w: Array) -> Array:
 	## A ring's skin weights normalised to 4 bones: [PackedInt32Array, PackedFloat32Array]; resolved
 	## once per distinct list.
 	var key := str(w)
+	_cache_lock.lock()
 	var c: Array = _wcache.get(key, [])
+	_cache_lock.unlock()
 	if c.is_empty():
 		var bi := PackedInt32Array()
 		var bw := PackedFloat32Array()
@@ -339,7 +346,9 @@ static func weights_of(w: Array) -> Array:
 				bi.append(0)
 				bw.append(0.0)
 		c = [bi, bw]
+		_cache_lock.lock()
 		_wcache[key] = c
+		_cache_lock.unlock()
 	return c
 
 
