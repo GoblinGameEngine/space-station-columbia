@@ -205,6 +205,7 @@ func _physics_process(delta: float) -> void:
 	# a wheel meeting ground more than a kerb above it has met a wall (a porch, a step, a plinth)
 	for g in contacts:
 		if (g - pos).dot(up) > STEP and pos != before:
+			_impact(absf(_speed), (before - pos).normalized(), g)
 			pos = before
 			_speed = 0.0
 			contacts.clear()
@@ -269,6 +270,7 @@ func _sweep(from: Transform3D, motion: Vector3) -> Vector3:
 			break
 		xf.origin += res.get_travel()
 		var head_on := -nrm.dot(along)
+		_impact(absf(_speed) * head_on, nrm, res.get_collision_point())
 		_speed *= clampf(1.0 - head_on, 0.0, 1.0)
 		motion = res.get_remainder().slide(nrm)
 	return xf.origin

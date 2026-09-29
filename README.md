@@ -39,6 +39,11 @@ Ally, Legion Go and similar handhelds.
 | Drive: throttle / brake, reverse / steer | W / S / A, D | RT / LT / left stick |
 | Aerostat: climb / descend | Space / Ctrl | RT or A / LT or B |
 
+**Getting a ride:** open the Communicator's Summon Aerostat app and tap Request. A red aerostat
+comes down from 500 m and lands near you, and the app tracks it on a map as it comes. Crashes
+count: a hit at 10 km/h or more is loud, and from 15 km/h it damages the aerostat. A hard enough
+crash disables it, and it sinks to the ground. Trees are solid.
+
 In the Communicator, a controller moves a stylus: A taps, B goes back, LB and RB change tabs, the
 right stick scrolls and Y opens the System menu. On a Steam Deck the touchscreen works too. Stick
 speed and invert-look are in Control Panel > Controls.

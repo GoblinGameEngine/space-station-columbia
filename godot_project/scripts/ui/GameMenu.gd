@@ -87,6 +87,7 @@ const APPS := [
 	["inventory", "Inventory", "icon_inventory.png"],
 	["quests", "Quests", "icon_quests.png"],
 	["ai", "NPC AI", "icon_ai.png"],
+	["summon", "Summon Aerostat", "icon_summon.png"],
 	["control", "Control Panel", "icon_control.png"],
 	["help", "Help", "icon_help.png"],
 ]
@@ -176,6 +177,8 @@ func _process(delta: float) -> void:
 	_update_backlight()
 	if _current == "map":
 		_map_station.queue_redraw()
+	if _current == "summon":
+		_refresh_ride()
 
 
 # ------------------------------------------------------------------ a controller
@@ -803,6 +806,7 @@ func _build_system() -> void:
 	_apps["inventory"] = _app("Inventory", _inventory_tabs(), "What you carry.  Weapons: tap Equip to arm one.")
 	_apps["quests"] = _app("Quests", _quest_tabs(), "Your tasks.  Tap Track to follow one on the map.")
 	_apps["ai"] = _app("NPC AI", _ai_tabs(), "The station's people talk through an AI service.  Setup: get a free Groq key and paste it in.  Voice: choose the model.  Try it: talk to someone.")
+	_apps["summon"] = _app("Summon Aerostat", _summon_tabs(), "Call an aerostat to you.  Tap Request: the nearest free one (the red one) comes down and lands near you.  Drag the map to look round, + and - to zoom, Center to follow yourself again.")
 	_apps["control"] = _app("Control Panel", _control_tabs(), "Sound, Display and Controls settings.")
 	_apps["help"] = _app("Help", _help_tabs(), "The System Help.")
 	for a in _apps.values():
@@ -1019,6 +1023,9 @@ func _open_app(name: String) -> void:
 		_refresh_map()
 	if name == "ai":
 		_refresh_ai()
+	if name == "summon":
+		_ride_follow = true
+		_refresh_ride()
 
 
 func _close_app() -> void:
@@ -1242,6 +1249,199 @@ func _draw_nearby_marker() -> void:
 	_map_nearby.draw_rect(Rect2(Vector2.ZERO, _map_nearby.size), K, false)
 	_map_nearby.draw_rect(Rect2(2, 2, 12, 15), W)
 	_map_nearby.draw_string(_bold, Vector2(4, 14), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE, K)
+
+
+# ------------------------------------------------------------------ Summon Aerostat
+## A ride-hailing app: a local map (north up, dragged to look round, zoomed with + and -) with you
+## and your aerostat on it, live; a status line; Request / Cancel.  The aerostat flies itself
+## (remake/scripts/vehicles/summoned_aerostat.gd) and keeps flying while the Communicator is open.
+const RIDE_ZOOMS := [1.0, 2.0, 4.0, 8.0]           # metres per LCD pixel
+var _ride_map: Control
+var _ride_status: Label
+var _ride_btn: Button
+var _ride_view := Vector2.ZERO                     # (s, x) at the map's centre
+var _ride_follow := true                           # keep the player centred (until the map is dragged)
+var _ride_zoom_i := 1
+var _ride_msg := ""                                # the last request's answer, while nothing is coming
+
+
+func _summon_tabs() -> TabContainer:
+	var tabs := TabContainer.new()
+	var pg := _tab_page(tabs, "Ride", false)
+	_ride_map = Control.new()
+	_ride_map.custom_minimum_size = Vector2(222, 146)
+	_ride_map.clip_contents = true
+	_ride_map.mouse_filter = Control.MOUSE_FILTER_STOP
+	_ride_map.draw.connect(_draw_ride_map)
+	_ride_map.gui_input.connect(_ride_map_input)
+	pg.add_child(_ride_map)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 3)
+	var c := _button("Center", func(): _ride_follow = true)
+	c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(c)
+	var zin := _button("+", func(): _ride_zoom(-1))
+	zin.custom_minimum_size = Vector2(30, 18)
+	row.add_child(zin)
+	var zout := _button("-", func(): _ride_zoom(1))
+	zout.custom_minimum_size = Vector2(30, 18)
+	row.add_child(zout)
+	pg.add_child(row)
+	_ride_status = _label("")
+	_ride_status.custom_minimum_size = Vector2(200, 36)
+	pg.add_child(_ride_status)
+	_ride_btn = _button("Request Aerostat", _ride_request)
+	_ride_btn.custom_minimum_size = Vector2(0, 22)
+	pg.add_child(_ride_btn)
+	return tabs
+
+
+func _ride() -> RemakeSummonedAerostat:
+	for a in get_tree().get_nodes_in_group("summoned_aerostat"):
+		if not (a as Node).is_queued_for_deletion():
+			return a
+	return null
+
+
+func _ride_request() -> void:
+	var a := _ride()
+	if a and a.phase != "parked" and not a.disabled:
+		a.queue_free()                                 # Cancel
+		a.remove_from_group("summoned_aerostat")
+		_ride_msg = "Ride cancelled."
+	else:
+		var r := RemakeSummonedAerostat.summon(get_tree())
+		_ride_msg = r.message
+	_ride_follow = true
+	_refresh_ride()
+
+
+func _ride_zoom(step: int) -> void:
+	_ride_zoom_i = clampi(_ride_zoom_i + step, 0, RIDE_ZOOMS.size() - 1)
+	_ride_map.queue_redraw()
+
+
+func _ride_map_input(e: InputEvent) -> void:
+	## Drag to look round, the wheel (or a controller's right stick) to zoom.
+	if e is InputEventMouseMotion and (e.button_mask & MOUSE_BUTTON_MASK_LEFT):
+		_ride_follow = false
+		_ride_view -= e.relative * RIDE_ZOOMS[_ride_zoom_i]
+		_ride_view.x = fposmod(_ride_view.x, StationGeo.CIRC)
+		_ride_view.y = clampf(_ride_view.y, -StationGeo.HALF_LEN, StationGeo.HALF_LEN)
+		_ride_map.queue_redraw()
+	elif e is InputEventMouseButton and e.pressed and e.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		_ride_zoom(-1 if e.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
+		_ride_map.accept_event()
+
+
+func _refresh_ride() -> void:
+	if _ride_map == null:
+		return
+	if _map_tex == null:
+		_map_tex = load(PDA + "map_detail.png")
+		_map_overview = load(PDA + "map_overview.png")
+	var p := _player_sx()
+	if _ride_follow:
+		_ride_view = Vector2(p.x, p.y)
+	var a := _ride()
+	var t := ""
+	if a == null:
+		t = (_ride_msg + "\n" if _ride_msg != "" else "") + "Tap Request and an aerostat will come to you."
+		_ride_btn.text = "Request Aerostat"
+	else:
+		var st := a.status()
+		if st.disabled:
+			t = "Your aerostat is disabled."
+			_ride_btn.text = "Request Another"
+		elif st.phase == "dive":
+			t = "Your aerostat is on its way: %d m away, %d m up.  Arriving in %s." % [st.dist, st.alt, _mmss(st.eta)]
+			_ride_btn.text = "Cancel Ride"
+		elif st.phase == "let_down":
+			t = "Arriving now: landing %d m from you.  %s." % [st.dist, _mmss(st.eta)]
+			_ride_btn.text = "Cancel Ride"
+		elif a.pilot:
+			t = "Enjoy your flight."
+			_ride_btn.text = "Request Another"
+		else:
+			t = "Your aerostat is here, %d m away (the red one).  Step aboard." % st.dist
+			_ride_btn.text = "Request Another"
+	if _ride_status.text != t:
+		_ride_status.text = t
+	_ride_map.queue_redraw()
+
+
+func _mmss(sec: float) -> String:
+	var n := maxi(0, ceili(sec))
+	return "%d:%02d" % [n / 60, n % 60]
+
+
+func _ride_to_map(s: float, x: float) -> Vector2:
+	## A place (s, x) on the ride map, in its pixels.
+	var m: float = RIDE_ZOOMS[_ride_zoom_i]
+	return (_ride_map.size * 0.5 + Vector2(StationGeo.wrap_ds(s - _ride_view.x), x - _ride_view.y) / m).floor()
+
+
+func _draw_ride_map() -> void:
+	var sz := _ride_map.size
+	var m: float = RIDE_ZOOMS[_ride_zoom_i]
+	_ride_map.draw_rect(Rect2(Vector2.ZERO, sz), W)
+	if _map_tex:
+		# the map image (4 m / px) under the window, in up to two pieces across the ring's seam
+		var ppm: float = _map_tex.get_width() / StationGeo.FARSIDE_W
+		var tw := float(_map_tex.get_width())
+		var src := Rect2(fposmod(_ride_view.x - sz.x * 0.5 * m, StationGeo.CIRC) * ppm,
+			(_ride_view.y - sz.y * 0.5 * m + StationGeo.FARSIDE_H * 0.5) * ppm, sz.x * m * ppm, sz.y * m * ppm)
+		var first := minf(src.size.x, tw - src.position.x)
+		_ride_map.draw_texture_rect_region(_map_tex, Rect2(0, 0, sz.x * first / src.size.x, sz.y),
+			Rect2(src.position, Vector2(first, src.size.y)))
+		if first < src.size.x:
+			var dx := sz.x * first / src.size.x
+			_ride_map.draw_texture_rect_region(_map_tex, Rect2(dx, 0, sz.x - dx, sz.y),
+				Rect2(0, src.position.y, src.size.x - first, src.size.y))
+	var p := _player_sx()
+	var a := _ride()
+	if a and not a.is_queued_for_deletion():
+		var ap := a.global_position
+		var au := _ride_to_map(StationGeo.s_of(ap), ap.x)
+		if a.phase != "parked":
+			# the route to where it will land, dotted, and the landing mark
+			var pu := _ride_to_map(StationGeo.s_of(a.pad), a.pad.x)
+			var n := int(au.distance_to(pu) / 4.0)
+			for i in n:
+				var q := au.lerp(pu, float(i) / maxf(1, n)).floor()
+				_ride_map.draw_rect(Rect2(q, Vector2(2, 2)), K)
+			_ride_map.draw_line(pu + Vector2(-4, -4), pu + Vector2(5, 5), K, 2.0)
+			_ride_map.draw_line(pu + Vector2(-4, 5), pu + Vector2(5, -4), K, 2.0)
+		var inside := Rect2(Vector2(6, 6), sz - Vector2(12, 12))
+		if inside.has_point(au):
+			# a balloon over its cabin; blinking while it flies
+			var on := a.phase == "parked" or int(Time.get_ticks_msec() / 300) % 2 == 0
+			_ride_map.draw_circle(au + Vector2(0, -3), 5.0, K)
+			_ride_map.draw_circle(au + Vector2(0, -3), 3.0, W if on else D)
+			_ride_map.draw_rect(Rect2(au + Vector2(-2, 3), Vector2(5, 3)), K)
+		else:
+			# off the map: an arrow at the edge pointing its way
+			var c := sz * 0.5
+			var d := (au - c).normalized()
+			var e := c + d * minf(absf((sz.x * 0.5 - 8) / d.x) if absf(d.x) > 1e-3 else 1e9,
+				absf((sz.y * 0.5 - 8) / d.y) if absf(d.y) > 1e-3 else 1e9)
+			var sd := Vector2(-d.y, d.x)
+			_ride_map.draw_colored_polygon(PackedVector2Array([e + d * 6, e - d * 4 + sd * 5, e - d * 4 - sd * 5]), K)
+	# you
+	var c2 := _ride_to_map(p.x, p.y)
+	var d2 := Vector2(cos(p.z), sin(p.z))
+	var side := Vector2(-d2.y, d2.x)
+	_ride_map.draw_colored_polygon(PackedVector2Array([c2 + d2 * 8, c2 - d2 * 5 + side * 5, c2 - d2 * 2, c2 - d2 * 5 - side * 5]), K)
+	_ride_map.draw_polyline(PackedVector2Array([c2 + d2 * 9, c2 - d2 * 6 + side * 6, c2 - d2 * 2, c2 - d2 * 6 - side * 6, c2 + d2 * 9]), W, 1.0)
+	# the frame, north, the scale
+	_ride_map.draw_rect(Rect2(Vector2.ZERO, sz), K, false)
+	_ride_map.draw_rect(Rect2(2, 2, 12, 15), W)
+	_ride_map.draw_string(_bold, Vector2(4, 14), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE, K)
+	var bar_m := 50.0 * m
+	var bw := bar_m / m
+	_ride_map.draw_rect(Rect2(3, sz.y - 18, bw + 36, 15), W)
+	_ride_map.draw_rect(Rect2(5, sz.y - 7, bw, 2), K)
+	_ride_map.draw_string(_font, Vector2(bw + 8, sz.y - 5), "%d m" % bar_m, HORIZONTAL_ALIGNMENT_LEFT, -1, TEXT_SIZE, K)
 
 
 # ------------------------------------------------------------------ Inventory
@@ -1610,6 +1810,8 @@ func _help_tabs() -> TabContainer:
 			["The left stick moves the stylus; A taps, B goes back, LB and RB change tabs, the right stick scrolls, Y opens the System menu.  On a Steam Deck the screen also takes your finger.", false],
 			["Talking to people", true],
 			["Open NPC AI and follow its three steps to give the station's people their voices.", false],
+			["Getting a ride", true],
+			["Open Summon Aerostat and tap Request: a red aerostat comes down and lands near you.  Fly gently -- it takes damage from 15 km/h, and a hard enough crash disables it.", false],
 			["Putting it away", true],
 			["Choose Suspend from the System menu, press the Power key, or press the Communicator key again.", false]]:
 		c.add_child(_label(line[0], line[1]))

@@ -11,6 +11,9 @@ class_name MapTrees
 ##   beyond            the woods' ground tint alone
 ## Placed on worker threads (MapTerrain is read-only once loaded); the main thread only makes the
 ## MultiMesh nodes, BUDGET_USEC a frame.
+## Collision: the trees within COLLIDE_R m of a player (or of anything in the "tree_collide" group,
+## e.g. a summoned aerostat) are solid -- a trunk cylinder and a canopy sphere each, made straight
+## on the physics server (no nodes), one static body per SUB m square, and freed past DROP_R.
 
 const WOODS_STEP := 6.0
 const GROVE_STEP := 5.0
@@ -29,6 +32,19 @@ var _lock := Mutex.new()
 var _made := 0
 var _near_mesh: ArrayMesh
 var _far_mesh: ArrayMesh
+
+const SUB := 50.0                    # collider squares
+const COLLIDE_R := 140.0
+const DROP_R := 200.0
+const TRUNK_H := 5.0                 # the near mesh's trunk and main canopy lobe (unscaled)
+const TRUNK_R := 0.3
+const CANOPY_Y := 6.8
+const CANOPY_R := 3.0                # a little inside the lobe, so a brush past the leaves isn't a crash
+var _bufs := {}                      # cell -> its instance buffer
+var _trees_in := {}                  # cell -> {sub Vector2i: [Transform3D]} (decoded when first needed)
+var _bodies := {}                    # Vector2i(sub s, sub x) -> body RID
+var _shapes := {}                    # quantised size key -> shape RID
+var _next_scan := 0
 
 
 func setup() -> void:
@@ -121,9 +137,16 @@ func _process(_delta: float) -> void:
 			break
 		_make(job[0], job[1])
 		_made += 1
-	if _made >= _cells.size():
+	if _made >= _cells.size() and _task >= 0:
 		_wait()
-		set_process(false)
+	if Time.get_ticks_msec() >= _next_scan:
+		_next_scan = Time.get_ticks_msec() + 250
+		_stream_colliders()
+
+
+func loaded() -> bool:
+	## every cell's trees are drawn (collision streams on after)
+	return _made >= _cells.size()
 
 
 func _wait() -> void:
@@ -138,6 +161,117 @@ func _wait() -> void:
 
 func _exit_tree() -> void:
 	_wait()
+	for k in _bodies:
+		PhysicsServer3D.free_rid(_bodies[k])
+	_bodies.clear()
+	for k in _shapes:
+		PhysicsServer3D.free_rid(_shapes[k])
+	_shapes.clear()
+
+
+# ------------------------------------------------------------------ collision
+func _stream_colliders() -> void:
+	## Solid trees near whoever can hit them; the rest none.
+	var ns := ceili(StationGeo.CIRC / SUB)
+	var want := {}
+	var centres: Array = []
+	for n in get_tree().get_nodes_in_group("player") + get_tree().get_nodes_in_group("tree_collide"):
+		if n is Node3D and (n as Node3D).is_inside_tree():
+			centres.append((n as Node3D).global_position)
+	for p in centres:
+		var s := fposmod(StationGeo.s_of(p), StationGeo.CIRC)
+		var x: float = p.x
+		var r := ceili(DROP_R / SUB)
+		var i0 := floori(s / SUB)
+		var j0 := floori((x + StationGeo.HALF_LEN) / SUB)
+		for di in range(-r, r + 1):
+			for dj in range(-r, r + 1):
+				var j := j0 + dj
+				if j < 0 or j * SUB >= StationGeo.LENGTH:
+					continue
+				var i := posmod(i0 + di, ns)
+				var ds := absf((i0 + di + 0.5) * SUB - s)
+				var dx := absf((j + 0.5) * SUB - (x + StationGeo.HALF_LEN))
+				var d := Vector2(maxf(0.0, ds - SUB * 0.5), maxf(0.0, dx - SUB * 0.5)).length()
+				var k := Vector2i(i, j)
+				if d <= COLLIDE_R:
+					want[k] = true
+				elif d <= DROP_R and _bodies.has(k) and not want.has(k):
+					want[k] = false                  # keep what's there (hysteresis), don't make it
+	for k in _bodies.keys():
+		if not want.has(k):
+			PhysicsServer3D.free_rid(_bodies[k])
+			_bodies.erase(k)
+	var made := 0
+	for k in want:
+		if want[k] and not _bodies.has(k) and made < 6:
+			_bodies[k] = _make_body(k)
+			made += 1
+	if made == 6:
+		_next_scan = 0                               # more to do: again next frame
+
+
+func _make_body(k: Vector2i) -> RID:
+	var body := PhysicsServer3D.body_create()
+	PhysicsServer3D.body_set_mode(body, PhysicsServer3D.BODY_MODE_STATIC)
+	PhysicsServer3D.body_set_space(body, get_world_3d().space)
+	PhysicsServer3D.body_set_collision_layer(body, 1)
+	PhysicsServer3D.body_set_collision_mask(body, 0)
+	# the square's own cell, and across a cell edge the next one (a tree's jitter can take it over)
+	var trees: Array = []
+	var cells := {}
+	for e in [Vector2(-3, -3), Vector2(-3, 3), Vector2(SUB + 3, -3), Vector2(SUB + 3, SUB + 3), Vector2(-3, SUB + 3),
+			Vector2(SUB * 0.5, SUB * 0.5)]:
+		var cs := posmod(floori((k.x * SUB + e.x) / CELL), ceili(StationGeo.CIRC / CELL))
+		var cx := floori((k.y * SUB + e.y) / CELL)
+		cells[Vector2i(cs, cx)] = true
+	for cell in cells:
+		trees.append_array(_sub_trees(cell).get(k, []))
+	for t: Transform3D in trees:
+		var sx := t.basis.x.length()
+		var sy := t.basis.y.length()
+		var b := t.basis.orthonormalized()
+		var trunk := _shape("t", sx, sy)
+		PhysicsServer3D.body_add_shape(body, trunk, Transform3D(b, t.origin + b.y * (TRUNK_H * 0.5 * sy)))
+		var canopy := _shape("c", sx, sy)
+		PhysicsServer3D.body_add_shape(body, canopy, Transform3D(b, t.origin + b.y * (CANOPY_Y * sy)))
+	return body
+
+
+func _sub_trees(cell: Vector2i) -> Dictionary:
+	## A cell's trees sorted into collider squares (decoded from its buffer once).
+	if _trees_in.has(cell):
+		return _trees_in[cell]
+	var out := {}
+	var buf: PackedFloat32Array = _bufs.get(cell, PackedFloat32Array())
+	for o in range(0, buf.size(), 16):
+		var t := Transform3D(Basis(Vector3(buf[o], buf[o + 4], buf[o + 8]), Vector3(buf[o + 1], buf[o + 5], buf[o + 9]),
+			Vector3(buf[o + 2], buf[o + 6], buf[o + 10])), Vector3(buf[o + 3], buf[o + 7], buf[o + 11]))
+		var s := fposmod(StationGeo.s_of(t.origin), StationGeo.CIRC)
+		var k := Vector2i(mini(floori(s / SUB), ceili(StationGeo.CIRC / SUB) - 1), floori((t.origin.x + StationGeo.HALF_LEN) / SUB))
+		if not out.has(k):
+			out[k] = []
+		out[k].append(t)
+	_trees_in[cell] = out
+	return out
+
+
+func _shape(kind: String, sx: float, sy: float) -> RID:
+	## Shared shapes, by size to the nearest 5 %.
+	var qx := roundi(sx * 20.0)
+	var qy := roundi(sy * 20.0)
+	var key := "%s%d_%d" % [kind, qx, qy]
+	if _shapes.has(key):
+		return _shapes[key]
+	var rid: RID
+	if kind == "t":
+		rid = PhysicsServer3D.cylinder_shape_create()
+		PhysicsServer3D.shape_set_data(rid, {"radius": TRUNK_R * qx / 20.0, "height": TRUNK_H * qy / 20.0})
+	else:
+		rid = PhysicsServer3D.sphere_shape_create()
+		PhysicsServer3D.shape_set_data(rid, CANOPY_R * qx / 20.0)
+	_shapes[key] = rid
+	return rid
 
 
 func _place(c: Vector2i) -> Array:
@@ -180,6 +314,7 @@ func _place(c: Vector2i) -> Array:
 func _make(c: Vector2i, buf: PackedFloat32Array) -> void:
 	if buf.is_empty():
 		return
+	_bufs[c] = buf
 	for version in [[_near_mesh, 0.0, NEAR], [_far_mesh, NEAR, FAR]]:
 		var mm := MultiMesh.new()
 		mm.transform_format = MultiMesh.TRANSFORM_3D

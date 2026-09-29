@@ -141,7 +141,7 @@ func _watch_load() -> void:
 	var t0 := Time.get_ticks_msec()
 	var waiting := {
 		"terrain (all tiers)": func() -> bool: return terrain._far_todo.is_empty() and not terrain.busy(),
-		"trees": func() -> bool: return not get_node("Trees").is_processing(),
+		"trees": func() -> bool: return (get_node("Trees") as MapTrees).loaded(),
 		"roads": func() -> bool: return not get_node("Roads").is_processing(),
 		"walks": func() -> bool: return not get_node("Walks").is_processing(),
 		"cliffs": func() -> bool: return (get_node("CliffWalls") as CliffWalls)._todo.is_empty(),
@@ -315,7 +315,7 @@ func _place_structures() -> void:
 		if r.landmark:
 			landmarks[r.root] = true
 	far_side.add_children_of(world, func(n: Node) -> bool: return landmarks.has(n))
-	while get_node("Trees").is_processing() or get_node("Roads").is_processing() or get_node("Walks").is_processing():
+	while not (get_node("Trees") as MapTrees).loaded() or get_node("Roads").is_processing() or get_node("Walks").is_processing():
 		await get_tree().process_frame
 	far_side.add_children_of(get_node("Trees"))
 	far_side.add_children_of(get_node("Roads"))

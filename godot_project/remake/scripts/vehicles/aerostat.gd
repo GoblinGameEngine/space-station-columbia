@@ -22,6 +22,7 @@ func _init() -> void:
 	max_speed = 150.0 / 3.6              # 150 km/h
 	accel = 5.0
 	brake = 7.0
+	crash_physics = true
 
 
 func _build_hull() -> void:

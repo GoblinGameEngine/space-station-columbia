@@ -23,6 +23,14 @@ class_name RemakeAirVehicle
 ## carries its weight).  Flight is kinematic: the hull is
 ## swept against the world each tick (bodies inside the cabin excepted), sliding along what it hits.
 ## Anyone standing in the cabin is carried: the vehicle sets their carrier_velocity each tick.
+##
+## Collisions (research/physics/vehicle_physics.md): a hit whose speed into the surface reaches
+## CRASH_KMH (10 km/h, the RCAR bumper test) plays the crash sound, louder and deeper the harder
+## it is -- for every vehicle.  With crash_physics on (the aerostat) a crash also bounces it off,
+## sets it swinging under its balloon and yawing, costs the pilot control for a moment, and past
+## DAMAGE_KMH (15 km/h, the RCAR structural test) damages it by the energy above that; at no hull
+## left it is disabled: the fans stop and it sinks to the ground.  A touchdown on the casters at up
+## to GEAR_MS (10 ft/s, 14 CFR 23.473) is a landing, not a crash.
 
 @export var max_speed := 15.0        # m/s forward
 @export var reverse_speed := 5.0
@@ -53,6 +61,23 @@ var _riders: Array = []
 var _hud: Label
 var _engine_sounds: Array = []
 var _seat_local := Vector3.ZERO
+
+const CRASH_KMH := 10.0              # the crash sound from here up (RCAR bumper test speed)
+const DAMAGE_KMH := 15.0             # structural damage from here up (RCAR structural test speed)
+const WRECK_KMH := 60.0              # one hit this hard wrecks it (damage goes with the energy, v^2)
+const GEAR_MS := 3.05                # a touchdown this fast on the casters is only a landing
+const RESTITUTION := 0.35            # the rebound: most of the energy goes into the hull and fabric
+const PENDULUM_W := 1.8              # rad/s: the cabin swinging under the balloon, sqrt(g / 3 m)
+const SWING_DAMP := 0.25             # its damping ratio
+@export var crash_physics := false
+@export var com_height := 1.5        # m above the local origin: the centre of mass
+var hull := 100.0                    # % left
+var disabled := false
+var _stun := 0.0                     # s the pilot has lost control for
+var _wob := Vector3.ZERO             # the crash swing: a rotation vector (world), applied over the level attitude
+var _wob_w := Vector3.ZERO
+var _last_crash := -1000
+var _crash_sound: AudioStreamPlayer3D
 
 
 func _ready() -> void:
@@ -221,7 +246,8 @@ func pilot_transform() -> Transform3D:
 # ------------------------------------------------------------------ flight
 func _physics_process(delta: float) -> void:
 	# parked and still, with nobody near: nothing to do (dozens of these stand about the map)
-	if pilot == null and _lv.length_squared() < 1e-6 and absf(_yaw_rate) < 1e-5 and _spin == 0.0 and _riders.is_empty():
+	if pilot == null and _lv.length_squared() < 1e-6 and absf(_yaw_rate) < 1e-5 and _spin == 0.0 and _riders.is_empty() \
+			and _wob_w.length_squared() < 1e-8 and _wob.length_squared() < 1e-8 and not disabled:
 		var near := false
 		for p in get_tree().get_nodes_in_group("player"):
 			if (p as Node3D).global_position.distance_squared_to(global_position) < 900.0:
@@ -231,7 +257,8 @@ func _physics_process(delta: float) -> void:
 	var fwd_in := 0.0
 	var turn_in := 0.0
 	var lift_in := 0.0
-	if pilot:
+	_stun = maxf(0.0, _stun - delta)
+	if pilot and _stun <= 0.0 and not disabled:
 		fwd_in = Input.get_action_strength("move_forward") - Input.get_action_strength("move_back")
 		turn_in = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		lift_in = clampf(Input.get_action_strength("jump") + Input.get_action_strength("accelerate")
@@ -239,15 +266,20 @@ func _physics_process(delta: float) -> void:
 	# stay level with the local floor: the vehicle's up follows the station's
 	var up := StationGeo.up(StationGeo.s_of(global_position))
 	var b := global_transform.basis.orthonormalized()
+	b = _unswung(b)
 	b = Basis(Quaternion(b.y, up)) * b
 	_yaw_rate = move_toward(_yaw_rate, -turn_in * turn_rate, turn_accel * delta)
 	b = b.rotated(up, _yaw_rate * delta).orthonormalized()
 	# the commanded speeds, in the vehicle's frame
-	var target_f := fwd_in * (max_speed if fwd_in > 0.0 else reverse_speed)
+	var fit := 0.4 + 0.6 * hull / 100.0            # a damaged hull flies slower
+	var target_f := fwd_in * (max_speed if fwd_in > 0.0 else reverse_speed) * fit
 	var vf := -_lv.z
 	vf = move_toward(vf, target_f, (accel if absf(fwd_in) > 0.05 else brake) * delta)
 	_lv.z = -vf
-	_lv.y = move_toward(_lv.y, lift_in * climb_speed, climb_accel * delta)
+	var target_up := lift_in * climb_speed
+	if disabled:
+		target_up = -2.0                           # the fans are dead: it sinks, the balloon slowing it
+	_lv.y = move_toward(_lv.y, target_up, climb_accel * delta)
 	_lv.x = move_toward(_lv.x, 0.0, side_damp * delta)
 	var h := StationGeo.h_of(global_position)
 	if h >= ceiling_h and _lv.y > 0.0:
@@ -260,7 +292,7 @@ func _physics_process(delta: float) -> void:
 	if absf(global_position.x) > x_room and signf(vel.x) == signf(global_position.x):
 		_lv -= b.inverse() * Vector3(vel.x, 0, 0)
 		vel.x = 0.0
-	_move(Transform3D(b, global_position), vel * delta)
+	_move(Transform3D(_swung(b, delta), global_position), vel * delta)
 	_animate(fwd_in, turn_in, lift_in, delta)
 	_carry(delta)
 	if pilot:
@@ -281,6 +313,9 @@ func _move(from: Transform3D, motion: Vector3) -> void:
 	if seat:
 		exclude.append((seat as PhysicsBody3D).get_rid())
 	var xf := from
+	var hit_v := 0.0
+	var hit_n := Vector3.ZERO
+	var hit_at := Vector3.ZERO
 	for attempt in 3:
 		if motion.length_squared() < 1e-10:
 			break
@@ -301,11 +336,21 @@ func _move(from: Transform3D, motion: Vector3) -> void:
 		var into := _lv.dot(lv_n)
 		if into < 0.0:
 			_lv -= lv_n * into
+			if -into > hit_v:
+				hit_v = -into
+				hit_n = n
+				hit_at = res.get_collision_point()
 	global_transform = xf
+	if hit_v > 0.0:
+		# a touchdown on the casters (the floor below, ground under it) at up to GEAR_MS is a landing
+		var up := StationGeo.up(StationGeo.s_of(xf.origin))
+		var gear := hit_n.dot(up) > 0.8 and (hit_at - xf.origin).dot(up) < com_height * 0.5
+		if not (gear and hit_v <= GEAR_MS):
+			_impact(hit_v, hit_n, hit_at)
 
 
 func _animate(fwd_in: float, turn_in: float, lift_in: float, delta: float) -> void:
-	var powered := pilot != null
+	var powered := (pilot != null or _flying_self()) and not disabled
 	_spin = move_toward(_spin, (10.0 + 30.0 * clampf(absf(fwd_in) + absf(turn_in) + absf(lift_in), 0.0, 1.0)) if powered else 0.0, 12.0 * delta)
 	for e in engines:
 		var eng: Node3D = e[0]
@@ -325,6 +370,91 @@ func _animate(fwd_in: float, turn_in: float, lift_in: float, delta: float) -> vo
 		var k := clampf(_spin / 40.0, 0.0, 1.0)
 		sp.pitch_scale = 0.55 + 0.75 * k
 		sp.volume_db = linear_to_db(0.15 + 0.85 * k) - 4.0
+
+
+# ------------------------------------------------------------------ crashes
+func _impact(speed: float, normal: Vector3, at: Vector3) -> void:
+	## Something was hit at speed m/s into its surface.
+	var kmh := speed * 3.6
+	if kmh < CRASH_KMH:
+		return
+	var now := Time.get_ticks_msec()
+	if now - _last_crash < 350:                     # one crash, not one per tick of the scrape
+		return
+	_last_crash = now
+	if _crash_sound == null:
+		_crash_sound = AudioStreamPlayer3D.new()
+		_crash_sound.name = "crash_sound"
+		_crash_sound.stream = load("res://remake/audio/crash.wav")
+		_crash_sound.unit_size = 10.0
+		_crash_sound.max_distance = 300.0
+		add_child(_crash_sound)
+	_crash_sound.global_position = at
+	var k := clampf((kmh - CRASH_KMH) / (WRECK_KMH - CRASH_KMH), 0.0, 1.0)
+	_crash_sound.volume_db = linear_to_db(0.35 + 0.65 * k) + 3.0
+	_crash_sound.pitch_scale = lerpf(1.15, 0.75, k) * randf_range(0.95, 1.05)
+	_crash_sound.play()
+	if crash_physics:
+		_crash(speed, normal, at)
+
+
+func _crash(speed: float, normal: Vector3, at: Vector3) -> void:
+	## The aerostat's response to a crash (the velocity into the surface is already gone).
+	var kmh := speed * 3.6
+	var b := global_transform.basis
+	# rebound
+	_lv += b.inverse() * normal * speed * RESTITUTION
+	# the off-centre hit's angular impulse: omega ~ (r x n) v (1 + e) / k^2, k ~ 2 m, and
+	# much of it soaked up by the air the balloon has to push aside
+	var com := global_position + b.y * com_height
+	var w := (at - com).cross(normal) * speed * (1.0 + RESTITUTION) / 4.0 * 0.25
+	var up := b.y
+	_yaw_rate += w.dot(up)
+	_wob_w += w - up * w.dot(up)
+	# the pilot loses it for a moment, the longer the harder
+	_stun = maxf(_stun, clampf((kmh - CRASH_KMH) / 12.0, 0.3, 3.0))
+	if kmh > DAMAGE_KMH:
+		var d := 100.0 * (kmh * kmh - DAMAGE_KMH * DAMAGE_KMH) / (WRECK_KMH * WRECK_KMH - DAMAGE_KMH * DAMAGE_KMH)
+		hull = maxf(0.0, hull - d)
+		if hull <= 0.0 and not disabled:
+			disabled = true
+			_on_disabled()
+
+
+func _on_disabled() -> void:
+	## Wrecked: the balloon slackens a little (the fans stop in _animate).
+	var bal := find_child("balloon", true, false) as Node3D
+	if bal:
+		bal.scale = Vector3(1.0, 0.86, 1.0)
+
+
+func _unswung(b: Basis) -> Basis:
+	## The attitude without the crash swing.
+	if _wob.length_squared() < 1e-12:
+		return b
+	return (Basis(_wob.normalized(), _wob.length()).inverse() * b).orthonormalized()
+
+
+func _swung(level: Basis, delta: float) -> Basis:
+	## Advance the swing (a damped pendulum: the cabin hangs under the balloon) and apply it.
+	if _wob.length_squared() < 1e-10 and _wob_w.length_squared() < 1e-10:
+		_wob = Vector3.ZERO
+		_wob_w = Vector3.ZERO
+		return level
+	var up := level.y
+	_wob_w += (-PENDULUM_W * PENDULUM_W * _wob - 2.0 * SWING_DAMP * PENDULUM_W * _wob_w) * delta
+	_wob_w -= up * _wob_w.dot(up)
+	_wob += _wob_w * delta
+	_wob -= up * _wob.dot(up)
+	if _wob.length() > 0.7:                          # never past 40 degrees
+		_wob = _wob.normalized() * 0.7
+		_wob_w -= _wob.normalized() * maxf(0.0, _wob_w.dot(_wob.normalized()))
+	return (Basis(_wob.normalized(), _wob.length()) * level).orthonormalized() if _wob.length() > 1e-6 else level
+
+
+func _flying_self() -> bool:
+	## Under its own control (a summoned aerostat): the fans run with nobody at them.
+	return false
 
 
 func _carry(delta: float) -> void:
@@ -365,7 +495,12 @@ func _show_hud(on: bool) -> void:
 
 func _update_hud(h: float) -> void:
 	if _hud:
-		_hud.text = "SPEED %3d km/h   ALT %4.0f m (above ground)\n" % [roundi(-_lv.z * 3.6), h] + Controls.hint(
+		var state := "   HULL %d%%" % roundi(hull) if crash_physics else ""
+		if disabled:
+			state = "   DISABLED -- summon another from the Communicator"
+		elif _stun > 0.0:
+			state += "   !! CRASH"
+		_hud.text = "SPEED %3d km/h   ALT %4.0f m (above ground)%s\n" % [roundi(-_lv.z * 3.6), h, state] + Controls.hint(
 			"W/S thrust   A/D turn   Space/Ctrl climb/descend   E leave seat",
 			"%s thrust and turn   %s / %s climb / descend   %s leave seat" % [Controls.button("LS"), Controls.button("RT"),
 				Controls.button("LT"), Controls.button(JOY_BUTTON_X)])
