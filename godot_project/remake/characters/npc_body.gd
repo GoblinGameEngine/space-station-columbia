@@ -28,7 +28,7 @@ const BONES := ["Hips", "Spine", "Chest", "Neck", "Head",
 	"UpperLegR", "LowerLegR", "FootR",
 	"ThumbAL", "ThumbBL", "IndexAL", "IndexBL", "MiddleAL", "MiddleBL", "RingAL", "RingBL", "PinkyAL", "PinkyBL",
 	"ThumbAR", "ThumbBR", "IndexAR", "IndexBR", "MiddleAR", "MiddleBR", "RingAR", "RingBR", "PinkyAR", "PinkyBR",
-	"ToeL", "ToeR"]
+	"ToeL", "ToeR", "HairA", "HairB"]
 const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "Neck": "Chest", "Head": "Neck",
 	"ShoulderL": "Chest", "UpperArmL": "ShoulderL", "LowerArmL": "UpperArmL", "HandL": "LowerArmL",
 	"ShoulderR": "Chest", "UpperArmR": "ShoulderR", "LowerArmR": "UpperArmR", "HandR": "LowerArmR",
@@ -38,13 +38,15 @@ const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "Neck": "Chest",
 	"RingAL": "HandL", "RingBL": "RingAL", "PinkyAL": "HandL", "PinkyBL": "PinkyAL",
 	"ThumbAR": "HandR", "ThumbBR": "ThumbAR", "IndexAR": "HandR", "IndexBR": "IndexAR", "MiddleAR": "HandR", "MiddleBR": "MiddleAR",
 	"RingAR": "HandR", "RingBR": "RingAR", "PinkyAR": "HandR", "PinkyBR": "PinkyAR",
-	"ToeL": "FootL", "ToeR": "FootR"}
+	"ToeL": "FootL", "ToeR": "FootR",
+	"HairA": "Head", "HairB": "HairA"}
 const BALL := 0.55          # the ball of the foot (the toe joint), in foot lengths forward of the ankle
 # the hand's geometry, in hand lengths / palm half-widths: [across the palm (-1 front .. 1 back),
 # knuckle offset along the hand, first segment, second segment] -- relative lengths as in real hands
 const FINGER_DEF := {
-	"Index": [-0.62, 0.0, 0.26, 0.24], "Middle": [-0.2, 0.02, 0.28, 0.26],
-	"Ring": [0.22, 0.0, 0.26, 0.24], "Pinky": [0.62, -0.04, 0.2, 0.19]}
+	"Index": [-0.62, 0.0, 0.2, 0.17], "Middle": [-0.2, 0.02, 0.22, 0.19],
+	"Ring": [0.22, 0.0, 0.21, 0.18], "Pinky": [0.62, -0.04, 0.16, 0.14]}
+const PALM := 0.54          # palm length in hand lengths (fingers ~0.4 of the hand, as in real hands)
 
 
 # -- parameters ---------------------------------------------------------------------------------
@@ -160,6 +162,9 @@ static func skeleton_rest(L: Dictionary) -> Dictionary:
 	j["Chest"] = Vector3(0, L.chest_y, 0)
 	j["Neck"] = Vector3(0, L.neck_base, 0.01 * L.T)
 	j["Head"] = Vector3(0, L.chin + 0.05 * L.H, 0.02 * L.H)
+	# a short chain behind the head for long hair, ponytails and braids to swing on (secondary motion)
+	j["HairA"] = Vector3(0, L.chin + 0.62 * L.H, 0.03 * L.H + float(L.head_d) * 0.9)
+	j["HairB"] = Vector3(0, L.chin - 0.15 * L.H, 0.03 * L.H + float(L.head_d) * 0.95 + 0.05 * L.H)
 	for s in [["L", -1.0], ["R", 1.0]]:
 		var side: String = s[0]
 		var k: float = s[1]
@@ -579,7 +584,7 @@ static func _hand_joints(j: Dictionary, L: Dictionary, side: String, _arm_dir: V
 	var inward: Vector3 = f[3]
 	var hl: float = L.hand_len
 	var pw: float = L.wrist_r * 1.5                                 # palm half-width
-	var palm := hl * 0.46
+	var palm := hl * PALM
 	for fn in FINGER_DEF:
 		var fd: Array = FINGER_DEF[fn]
 		var fan: Vector3 = (d + across * float(fd[0]) * 0.12).normalized()
@@ -590,7 +595,7 @@ static func _hand_joints(j: Dictionary, L: Dictionary, side: String, _arm_dir: V
 	var tb: Vector3 = wr + d * hl * 0.16 - across * pw * 0.78 + inward * pw * 0.3
 	var tdir: Vector3 = (d * 0.92 - across * 0.18 + inward * 0.35).normalized()
 	j["ThumbA" + side] = tb
-	j["ThumbB" + side] = tb + tdir * hl * 0.2
+	j["ThumbB" + side] = tb + tdir * hl * 0.17
 
 
 static func _hand(L: Dictionary, J: Dictionary, side: String) -> Array:
@@ -607,14 +612,14 @@ static func _hand(L: Dictionary, J: Dictionary, side: String) -> Array:
 	var hb := "Hand" + side
 	var out := []
 	var rs := []
-	for r in [[-0.06, 0.66, 0.9], [0.1, 0.86, 0.95], [0.3, 0.98, 0.9], [0.46, 0.94, 0.78]]:
+	for r in [[-0.06, 0.66, 0.9], [0.12, 0.86, 0.95], [0.34, 0.98, 0.9], [PALM, 0.94, 0.78]]:
 		rs.append(ring(wr + d * hl * r[0], across, inward, pw * r[1], th * r[2], [[hb, 1.0]], 2.2))
 	out.append(loft("palm" + side, rs, LIMB, false, true))
-	var fr := pw * 0.24                                             # finger radius
+	var fr := pw * 0.26                                             # finger radius
 	for fn in FINGER_DEF:
 		var fd: Array = FINGER_DEF[fn]
 		out.append(_finger(J, fn, side, float(fd[2]) * hl, float(fd[3]) * hl, fr * (0.85 if fn == "Pinky" else 1.0), across))
-	out.append(_finger(J, "Thumb", side, hl * 0.2, hl * 0.17, fr * 1.2, across))
+	out.append(_finger(J, "Thumb", side, hl * 0.17, hl * 0.14, fr * 1.2, across))
 	# one rounded normal field for the whole hand: the screen-space outline draws a line wherever
 	# normals jump, and at a distance the jumps between fingers filled the hand with ink.  Blended
 	# toward "away from the hand's centre", the fingers still shade and move but don't outline each

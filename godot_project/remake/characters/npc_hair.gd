@@ -126,6 +126,15 @@ static func build(style: String, body: Dictionary, rng: NpcRng, under_hat := fal
 	return out
 
 
+static func _chain_weights(t: float) -> Array:
+	## Along hanging hair (0 at the head .. 1 at the tip): the head, then the hair chain.
+	if t <= 0.0:
+		return [["Head", 1.0]]
+	if t < 0.5:
+		return [["Head", 1.0 - 2.0 * t], ["HairA", 2.0 * t]]
+	return [["HairA", 2.0 - 2.0 * t], ["HairB", 2.0 * t - 1.0]]
+
+
 static func _front_weight(t: float) -> float:
 	return pow(maxf(cos(t * TAU), 0.0), 1.5)
 
@@ -161,8 +170,7 @@ static func _curtain(st: Dictionary, rings: Array, L: Dictionary, thick: float, 
 		var w: float = src.a + thick + t * maxf(0.0, L.shoulder_w * 0.95 - src.a) * smoothstep(0.0, 0.5, t)
 		var d: float = src.b + thick + t * 0.02 * H
 		var c := Vector3(0, y, (src.c as Vector3).z + 0.06 * H * t)
-		var wt := [["Head", 1.0 - t], ["Neck", t * 0.5], ["Chest", t * 0.5]] if t > 0 else [["Head", 1.0]]
-		rs.append(NpcBody.ring(c, Vector3.RIGHT, Vector3.BACK, w, d, wt, 2.0))
+		rs.append(NpcBody.ring(c, Vector3.RIGHT, Vector3.BACK, w, d, _chain_weights(t), 2.0))
 	var p := NpcGarments._front_panel("curtain", rs, 0.62)
 	# rotate the panel to the back: _front_panel spans the front arc, so mirror z about each ring
 	for i in p.verts.size():
@@ -195,6 +203,6 @@ static func _tube(pname: String, rings: Array, L: Dictionary, t_round: float, yf
 		var t := float(i) / steps
 		var c := start + d * length * t + Vector3(0, -0.15 * H * t * t, 0) * (0.0 if pname == "bun" else 1.0)
 		var r := r0 * (1.0 - taper * t) * (0.8 + 0.4 * sin(PI * minf(t * 1.5, 1.0)))
-		var wt := [["Head", 1.0 - 0.5 * t], ["Neck", 0.5 * t]] if pname != "bun" else [["Head", 1.0]]
+		var wt := _chain_weights(t) if pname != "bun" else [["Head", 1.0]]
 		rs.append(NpcBody.ring(c, ax, az, r, r, wt, 2.0))
 	return NpcBody.loft(pname, rs, 10, true, true)

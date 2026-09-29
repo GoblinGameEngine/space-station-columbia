@@ -6,12 +6,17 @@ extends SceneTree
 ## view: front (default), side, back, three (3/4), face (close-up of the first four),
 ##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on),
 ##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored),
-##       stances (one person in each idle stance, three-quarter view)
+##       stances (one person in each idle stance, three-quarter view),
+##       anim (one person -- `first` -- walking past in real time; every frame saved as out_NN.png
+##             for tools/charref/onion.py to composite: the animator's light table)
 ## Opens a window briefly; needs the real renderer (not --headless).
 
 var out := "/tmp/npc_lineup.png"
 var frames := 0
 var walkers: Array = []
+var anim_npc: NpcCharacter
+var anim_an: NpcAnimator
+var anim_frames := 0
 
 
 func _init() -> void:
@@ -28,6 +33,8 @@ func _init() -> void:
 		count = 4
 	if view == "stances":
 		count = NpcAnimator.STANCES.size()
+	if view == "anim":
+		count = 1
 	root.size = Vector2i(1920, 1080)
 	for n in ["Hud", "GameMenu", "DialogBox"]:
 		var node := root.get_node_or_null(n)
@@ -61,12 +68,18 @@ func _init() -> void:
 	var labels := []
 	var tallest := 0.0
 	for i in count:
-		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront", "stances"] else "B%d:0" % first
+		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront", "stances", "anim"] else "B%d:0" % first
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
 		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
 		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0, "walkfront": 0.0, "stances": -30.0}.get(view, 0.0)
 		world.add_child(npc)
+		if view == "anim":
+			anim_npc = npc
+			anim_an = NpcAnimator.attach(npc)
+			anim_an.speed = 1.3
+			npc.position = Vector3(1.2, 0, 0)
+			npc.rotation_degrees.y = 90.0
 		if view == "stances":
 			var sa := NpcAnimator.attach(npc)
 			sa.manual = true
@@ -93,7 +106,9 @@ func _init() -> void:
 	world.add_child(cam)
 	var width := count * spacing
 	cam.fov = 30
-	if view == "hands":
+	if view == "anim":
+		cam.look_at_from_position(Vector3(-0.9, tallest * 0.55, -7.0), Vector3(-0.9, tallest * 0.5, 0))
+	elif view == "hands":
 		var hy: float = tallest * 0.46
 		cam.look_at_from_position(Vector3(0, hy + 0.1, 1.1), Vector3(0, hy, 0))
 	elif view == "face":
@@ -108,6 +123,25 @@ func _init() -> void:
 
 
 func _process(_d: float) -> bool:
+	if anim_npc:
+		for n in ["Hud", "GameMenu", "DialogBox"]:
+			var node := root.get_node_or_null(n)
+			if node:
+				for c in node.get_children():
+					if c is CanvasItem:
+						c.visible = false
+		# fixed 24 fps steps, the NPC moving at its walking speed (-x: it faces -x after the turn)
+		var dt := 1.0 / 24.0
+		anim_an._process(dt)
+		anim_npc.position.x -= anim_an.speed * dt
+		anim_frames += 1
+		if anim_frames > 30 and anim_frames <= 30 + 48:
+			var img0 := root.get_texture().get_image()
+			img0.save_png(out.get_basename() + "_%02d.png" % (anim_frames - 31))
+		if anim_frames > 30 + 48:
+			print("saved frames")
+			quit()
+		return false
 	frames += 1
 	for w in walkers:
 		(w[0] as NpcAnimator).pose(w[1], w[2], 0.0)

@@ -55,6 +55,7 @@ var _blink_at := 3.0
 var _blink_t := -1.0
 var _skin_mat: ShaderMaterial
 var _al1 := {}
+var _head_prev := Vector2.ZERO     # last frame's head (yaw, pitch), for the hair's lag
 var _al2 := {}
 
 ## Idle stances as hand targets relative to the body's own landmarks (so one stance fits every
@@ -269,7 +270,7 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 		var ls := 0.0 if side == "L" else PI
 		var sw := -cos(a + ls)                                         # +1: this arm fully forward
 		var arm_t := arm_amp * sw * walk + deg_to_rad(1.5) * _noise(1.0 + ls, 0.3) * idle
-		var arm := _spring("arm" + side, arm_t, dt, 1.8, 0.45)
+		var arm := _spring("arm" + side, arm_t, dt, 1.8, 0.62)
 		# the arm swings a little across the body on its forward swing (Muybridge)
 		var across := deg_to_rad(5.0) * maxf(0.0, arm / maxf(arm_amp, 0.01)) * walk
 		var elbow := _spring("elbow" + side, deg_to_rad(12.0 + 10.0 * walk) + maxf(0.0, arm) * 0.8 + float(style.elbow), dt, 2.2, 0.5)
@@ -297,6 +298,15 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	var nod := _spring("nod", -lean * 0.7 - bob * 1.5 + float(style.head_down) + deg_to_rad(1.5) * _noise(3.0, 0.2) * idle, dt, 2.5, 0.6)
 	_set_rot("Neck", Quaternion.from_euler(Vector3(nod * 0.6, look * 0.4 - turn * 0.5, list * 0.4)))
 	_set_rot("Head", Quaternion.from_euler(Vector3(nod * 0.4, look * 0.6, list * 0.3)))
+	# hair: hangs back from the head, lags its turns and bounces with the step (loose, underdamped)
+	var head_now := Vector2(look + yaw * 0.5, nod + lean)
+	var hv := (head_now - _head_prev) / maxf(dt, 1e-3) if dt > 0.0 else Vector2.ZERO
+	_head_prev = head_now
+	var hair_pitch := _spring("hair_p", -hv.y * 0.12 + deg_to_rad(5.0) * sin(2.0 * a) * walk * float(style.bounce) - lean * 0.6, dt, 1.3, 0.28)
+	var hair_yaw := _spring("hair_y", -hv.x * 0.15 - yaw * 0.5, dt, 1.1, 0.3)
+	var hair_roll := _spring("hair_r", -list * 1.2, dt, 1.2, 0.3)
+	_set_rot("HairA", Quaternion.from_euler(Vector3(hair_pitch * 0.5, hair_yaw * 0.5, hair_roll * 0.5)))
+	_set_rot("HairB", Quaternion.from_euler(Vector3(hair_pitch, hair_yaw, hair_roll)))
 	_hands(grip + 0.08 * breathe * idle + 0.1 * walk)
 	# the eyes lead: they jump to where the head is going and centre again as it arrives
 	if _skin_mat:
