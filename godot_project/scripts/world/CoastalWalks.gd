@@ -68,7 +68,7 @@ func setup() -> void:
 
 
 const BAKED := "res://remake/baked/walks.res"
-const BAKE_VERSION := 1              # bump when the builder's output changes
+const BAKE_VERSION := 2              # bump when the builder's output changes
 
 
 static func stamp() -> String:
@@ -214,6 +214,19 @@ func _deck_mat(tr: Dictionary) -> String:
 	return "deck_timber"
 
 
+static func _on_road(ca: Vector2, cb: Vector2, sa: Vector2, sb: Vector2, hw: float) -> bool:
+	## Does this stretch of walk (its centre and both edges, each end and the middle) lie on a road's
+	## carriageway?
+	for t: float in [0.0, 0.5, 1.0]:
+		var c := ca.lerp(cb, t)
+		var sd := sa.lerp(sb, t)
+		for k: float in [-1.0, 0.0, 1.0]:
+			var p := c + sd * hw * k
+			if MapTerrain.road_weight(fposmod(p.x, StationGeo.CIRC), p.y) > 0.999:
+				return true
+	return false
+
+
 func _add_line(w: Dictionary) -> void:
 	var tr: Dictionary = w.get("traits", {}) if w.get("traits") != null else {}
 	var kind: String = w.kind
@@ -275,6 +288,14 @@ func _add_line(w: Dictionary) -> void:
 		var za: float = zs[i]
 		var zb: float = zs[i + 1]
 		var seg := ca.distance_to(cb)
+		if _on_road(ca, cb, sa, sb, hw + (4.0 if rubble else 0.0)):      # (a rock mound's sides reach out past its crest)
+			# where the walk meets a road it stops at the kerb (a path crossing a street does so at
+			# grade): no deck, rails or piles standing in the carriageway
+			run += seg
+			next_pile = maxf(next_pile, run)
+			next_lamp = maxf(next_lamp, run)
+			next_bench = maxf(next_bench, run)
+			continue
 		var tile: float = TEX[dmat][1] if not rubble else 3.0
 		var u0 := run / tile
 		var u1 := (run + seg) / tile

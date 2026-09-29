@@ -22,7 +22,9 @@ class_name MapTerrain
 const PATH := "res://remake/terrain.json"
 const CELL := 64.0                   # spatial grid for the polyline/polygon features
 
-const ROAD_BLEND := 5.0             # a road's grade blends back into the terrain over this, past its shoulder
+const ROAD_BLEND := 5.0             # a road's grade blends back into the terrain over this, past its shoulder, at least
+const SIDE_SLOPE := 2.0             # cut and fill slopes: 2 horizontal to 1 vertical (research/roads/grading.md)
+const BLEND_MAX := 14.0             # the widest a cut or fill slope reaches
 const PAD_MARGIN := 1.0             # a lot is levelled this far past the building's bounds...
 const PAD_BLEND := 4.0              # ...then blends back into the terrain over this
 const PLACEMENT := "res://remake/placement.json"
@@ -32,6 +34,7 @@ const RAMP := 40.0                  # roads ramp to a bridge's deck over this, b
 static var _pads: Array = []         # [s, x, cos yaw, sin yaw, min x, min z, max x, max z, height]
 static var _bridges: Array = []      # the same, for crossings: height = the deck
 static var _pad_by_id: Dictionary = {}
+static var _prof_step := 4.0         # m between a road's profile heights (terrain.json "prof_step")
 static var _grid: Dictionary = {}    # Vector2i -> Array of [kind, index]
 static var R := 500.0
 static var C := TAU * 500.0
@@ -86,12 +89,19 @@ static func _load() -> void:
 		var dt: Dictionary = _d.ditches[i]
 		_index(["ditch", i], dt.s0, dt.x, dt.s1, dt.x, dt.hw + 2.0)
 	# the railway is graded like a road (its bed), drawn apart (MapRoads)
-	_d.roads.append({"cls": "rail", "w": 6.0, "pts": _d.rail.pts})
+	_d.roads.append({"cls": "rail", "w": 6.0, "pts": _d.rail.pts, "prof": _d.rail.get("prof", [])})
+	_prof_step = float(_d.get("prof_step", 4.0))
 	for i in _d.roads.size():
 		var rd: Dictionary = _d.roads[i]
 		var rp: Array = rd.pts
+		# arc length at each point, for the graded profile (tools/road_profile.py)
+		var cum := PackedFloat32Array([0.0])
 		for k in rp.size() - 1:
-			_index(["road", i, k], rp[k][0], rp[k][1], rp[k + 1][0], rp[k + 1][1], rd.w * 0.5 + ROAD_BLEND)
+			cum.append(cum[k] + Vector2(_wrap(rp[k + 1][0] - rp[k][0]), rp[k + 1][1] - rp[k][1]).length())
+		rd["cum"] = cum
+		rd["zp"] = PackedFloat32Array(rd.get("prof", []))
+		for k in rp.size() - 1:
+			_index(["road", i, k], rp[k][0], rp[k][1], rp[k + 1][0], rp[k + 1][1], rd.w * 0.5 + 0.5 + BLEND_MAX)
 	for i in _d.areas.size():
 		var ap: Array = _d.areas[i].poly
 		var lo := Vector2(1e9, 1e9)
@@ -144,12 +154,24 @@ static func water_at(s: float, x: float) -> Vector2:
 
 
 static func _index(item: Array, s0: float, x0: float, s1: float, x1: float, grow: float) -> void:
-	for cs in range(floori((minf(s0, s1) - grow) / CELL), floori((maxf(s0, s1) + grow) / CELL) + 1):
+	# the cells a lookup would use (floori(wrapped s / CELL)) -- walked in wrapped s, since the ring's
+	# circumference isn't a whole number of cells: s past C (a road run on over the seam) mapped by
+	# posmod of its unwrapped cell landed up to a cell off
+	var lo := minf(s0, s1) - grow
+	var hi := maxf(s0, s1) + grow
+	var keys := {}
+	var u := lo
+	while true:
+		var cs := floori(fposmod(minf(u, hi), C) / CELL)
 		for cx in range(floori((minf(x0, x1) - grow) / CELL), floori((maxf(x0, x1) + grow) / CELL) + 1):
-			var key := Vector2i(posmod(cs, ceili(C / CELL)), cx)
-			if not _grid.has(key):
-				_grid[key] = []
-			_grid[key].append(item)
+			keys[Vector2i(cs, cx)] = true
+		if u >= hi:
+			break
+		u += CELL * 0.5
+	for key in keys:
+		if not _grid.has(key):
+			_grid[key] = []
+		_grid[key].append(item)
 
 
 static func _wrap(ds: float) -> float:
@@ -304,8 +326,8 @@ static func sample(s: float, x: float) -> Vector2:
 		h -= _small_depth(s, x)
 	if _v2:
 		var w := water_at(s, x)
-		if w.x > -9000.0:
-			h = minf(h, w.x - w.y)
+		if w.x > -9000.0 and not (rg.y >= 0.5 and h > w.x):
+			h = minf(h, w.x - w.y)             # (a road's own bed above the water isn't cut away: a causeway)
 		return Vector2(h, maxf(0.0, base - h))
 	var bp := _body_profile(s, x)
 	if bp > 0.0:
@@ -318,6 +340,8 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 	## and a 0.5 m shoulder at the centreline's height, blending back over ROAD_BLEND.
 	var best_w := 0.0
 	var best_h := base
+	var best_d := INF
+	var on_road := {}                     # road -> [distance, height] of its nearest segment, where it weighs 1
 	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
 		if it[0] != "road":
 			continue
@@ -326,12 +350,45 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 		var bq: Array = rd.pts[it[2] + 1]
 		var pr := _seg_proj(s, x, a[0], a[1], bq[0], bq[1])
 		var hw: float = rd.w * 0.5
-		var w := 1.0 - smoothstep(hw + 0.5, hw + 0.5 + ROAD_BLEND, pr.x)
-		if w > best_w:
+		if pr.x > hw + 0.5 + BLEND_MAX:
+			continue
+		var h: float
+		var zp: PackedFloat32Array = rd.zp
+		if zp.is_empty():
+			h = base_elev(a[0] + _wrap(bq[0] - a[0]) * pr.y, a[1] + (bq[1] - a[1]) * pr.y)
+		else:
+			# the road's graded profile at the nearest point of its centreline
+			var cum: PackedFloat32Array = rd.cum
+			var u: float = lerpf(cum[it[2]], cum[it[2] + 1], pr.y) / _prof_step
+			var k := clampi(floori(u), 0, zp.size() - 1)
+			var k1 := mini(k + 1, zp.size() - 1)
+			if zp[k] < -9000.0 or zp[k1] < -9000.0:
+				continue                                 # over a great river: the great bridge carries it
+			h = lerpf(zp[k], zp[k1], clampf(u - k, 0.0, 1.0))
+		# the cut or fill slope reaches out SIDE_SLOPE m for every metre the road is off the ground
+		var blend := clampf(absf(h - base) * SIDE_SLOPE, ROAD_BLEND, BLEND_MAX)
+		var w := 1.0 - smoothstep(hw + 0.5, hw + 0.5 + blend, pr.x)
+		# the strongest road; between equals (every nearby segment of a road weighs 1 on its
+		# carriageway), the nearest segment -- not one whose clamped end happens to come first
+		if w > best_w + 1e-6 or (w > best_w - 1e-6 and pr.x < best_d):
 			best_w = w
-			best_h = base_elev(a[0] + _wrap(bq[0] - a[0]) * pr.y, a[1] + (bq[1] - a[1]) * pr.y)
-	if best_w > 0.0 and not _bridges.is_empty():
-		best_h = _ramp_to_bridge(s, x, best_h)
+			best_h = h
+			best_d = pr.x
+		# where carriageways overlap (a junction), each road's nearest segment, to blend between
+		if w > 0.999 and pr.x < float(on_road.get(it[1], [INF])[0]):
+			on_road[it[1]] = [pr.x, h]
+	if on_road.size() > 1:
+		# a junction: the roads' heights (one at the junction itself, tools/road_profile.py) blended by
+		# nearness, so the surface doesn't step where one road's carriageway gives way to the next's
+		var sk := 0.0
+		var sh := 0.0
+		for r in on_road.values():
+			var kk := 1.0 / pow(0.5 + float(r[0]), 2.0)
+			sk += kk
+			sh += kk * float(r[1])
+		best_h = sh / sk
+	if best_w > 0.0 and not _bridges.is_empty() and not _d.has("decks"):
+		best_h = _ramp_to_bridge(s, x, best_h)       # (graded roads already ramp to their decks)
 	return Vector2(lerpf(base, best_h, best_w), best_w)
 
 
@@ -417,6 +474,8 @@ static func _load_bridge(e: Dictionary) -> void:
 		var ss: float = s0 + lx * sn - lz * c
 		var xx: float = x0 + lx * c + lz * sn
 		deck = maxf(deck, _road_grade(fposmod(ss, C), xx, base_elev(ss, xx)).x)
+	# the graded deck (tools/road_profile.py pins each crossing level at its higher approach)
+	deck = float(_d.get("decks", {}).get(e.id, deck))
 	_bridges.append([s0, x0, c, sn, e.fmin[0], e.fmin[1], e.fmax[0], e.fmax[1], deck])
 	_pad_by_id[e.id] = deck
 	var reach := Vector2(maxf(absf(e.fmin[0]), absf(e.fmax[0])), maxf(absf(e.fmin[1]), absf(e.fmax[1]))).length()

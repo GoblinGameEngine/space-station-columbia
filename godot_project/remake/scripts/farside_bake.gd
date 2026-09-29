@@ -58,7 +58,7 @@ func _ready() -> void:
 func _bake(roads: MapRoads, trees: MapTrees, walks: CoastalWalks) -> void:
 	var tree := get_tree()
 	await RemakeWorld.build(world, [])
-	while roads.is_processing() or trees.is_processing() or walks.is_processing():
+	while roads.is_processing() or not trees.loaded() or walks.is_processing():
 		await tree.process_frame
 	var vp := SubViewport.new()
 	vp.size = Vector2i(TILE, TILE)

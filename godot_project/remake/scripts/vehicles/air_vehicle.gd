@@ -168,6 +168,27 @@ func _rig() -> void:
 			for o in by_side[side]:
 				if o != d:
 					d.partners.append(o)
+	# each doorway: aim the use key anywhere in it -- the doors open or shut, from inside or out --
+	# to work that side's doors (not only at a leaf, which slides out of reach when open)
+	for side in by_side:
+		var box := AABB()
+		for i in by_side[side].size():
+			var d: RemakeSlideDoor = by_side[side][i]
+			var leaf := d.get_child(0) as MeshInstance3D
+			var bb: AABB = d.transform * leaf.get_aabb()
+			box = bb if i == 0 else box.merge(bb)
+		var leaves: Array = by_side[side]
+		var z := RemakeInteractZone.make(self, "Doorway_" + str(side), Transform3D(Basis(), box.get_center()),
+			box.size + Vector3(0.8, 0.0, 0.0),
+			func(by: Node) -> String: return (leaves[0] as RemakeSlideDoor).interact(by),
+			func() -> String: return (leaves[0] as RemakeSlideDoor).interact_prompt())
+		z.gives_way = true
+	# the controls: the steering wheel (or, with none, the panel ahead of the pilot's seat) takes the
+	# seat as well as the seat itself does
+	var wheel := model.find_child("steering_wheel", true, false) as Node3D
+	var at := Transform3D(Basis(), _local(wheel).origin) if wheel else Transform3D(Basis(), _seat_local + Vector3(0, 0.6, -0.6))
+	if wheel or seat_pilot:
+		RemakeInteractZone.make(self, "Controls", at, Vector3(0.55, 0.45, 0.35), _controls_used, _controls_prompt)
 	if seat_pilot:
 		var seat := RemakeVehicleSeat.new()
 		seat.name = "PilotSeat"
@@ -179,6 +200,17 @@ func _rig() -> void:
 		box.size = Vector3(0.5, 0.5, 0.5)
 		cs.shape = box
 		seat.add_child(cs)
+
+
+func _controls_used(by: Node) -> String:
+	if by is StationPlayer and pilot == null:
+		take_seat(by)
+		return "seated"
+	return ""
+
+
+func _controls_prompt() -> String:
+	return ("Drive" if self is RemakeGroundVehicle else "Take the controls") if pilot == null else ""
 
 
 func _local(n: Node3D) -> Transform3D:

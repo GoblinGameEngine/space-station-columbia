@@ -137,6 +137,10 @@ func recapture_mouse() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_skip_next_mouse_delta = true
 
+const FLOOR_MAX_DEG := 55.0
+const FLOOR_SNAP := 0.5
+
+
 func _ready() -> void:
 	_station = get_tree().get_first_node_in_group("space_station")
 	spawn_transform = global_transform
@@ -149,6 +153,13 @@ func _ready() -> void:
 	WeaponManager.equip("pistol")
 
 	health.died.connect(_on_died)
+	# hillsides: walkable up to FLOOR_MAX_DEG (the terrain's 2 m triangles vary round a hill's
+	# average slope, and at the default 45 degrees the steeper ones read as wall -- the player
+	# dropped off them every few frames and bobbed); held to the ground over crests and dips;
+	# the same speed up a hill as down it
+	floor_max_angle = deg_to_rad(FLOOR_MAX_DEG)
+	floor_snap_length = FLOOR_SNAP
+	floor_constant_speed = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -201,15 +212,35 @@ const INTERACT_RANGE := 3.5
 func _try_interact() -> void:
 	if DialogBox.is_open():
 		return
-	muzzle_ray.force_raycast_update()
-	if not muzzle_ray.is_colliding():
+	# along the aim: solid things, and the use-only zones (RemakeInteractZone: a vehicle's doorway,
+	# its steering wheel); areas that aren't for using (water, cloud) are looked through
+	var from := camera.global_position
+	var to := from - camera.global_transform.basis.z * (INTERACT_RANGE + 0.5)
+	var q := PhysicsRayQueryParameters3D.create(from, to, muzzle_ray.collision_mask | RemakeInteractZone.LAYER)
+	q.collide_with_areas = true               # (not from inside: standing in a doorway, you use what you look at past it)
+	# a doorway gives way to anything usable seen through it (the steering wheel, the far door)
+	var ex: Array[RID] = [get_rid()]
+	var fallback: Object = null
+	for attempt in 8:
+		q.exclude = ex
+		var hit := get_world_3d().direct_space_state.intersect_ray(q)
+		if hit.is_empty():
+			break
+		var target: Object = hit.collider
+		if target is Area3D and not target.has_method("interact"):
+			ex.append((target as Area3D).get_rid())
+			continue
+		if target == null or not target.has_method("interact") or from.distance_to(hit.position) > INTERACT_RANGE:
+			break
+		if target is RemakeInteractZone and (target as RemakeInteractZone).gives_way:
+			if fallback == null:
+				fallback = target
+			ex.append((target as Area3D).get_rid())
+			continue
+		target.interact(self)
 		return
-	var target := muzzle_ray.get_collider()
-	if target == null or not target.has_method("interact"):
-		return
-	if target is Node3D and global_position.distance_to(target.global_position) > INTERACT_RANGE:
-		return
-	target.interact(self)
+	if fallback:
+		fallback.interact(self)
 
 ## Radial vector from the station's central axis to the player, with
 ## the axis-direction component projected out (so this is purely the
@@ -285,6 +316,8 @@ func _physics_process(delta: float) -> void:
 			# lighter as it goes, same as it would get lighter walking
 			# inward through the bands on foot.
 			up_speed -= StationGeo.gravity_at(radial_len) * delta
+		else:
+			up_speed = minf(up_speed, 0.0)       # grounded: no speed left over from the slope to carry off a crest
 
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			up_speed = JUMP_VELOCITY

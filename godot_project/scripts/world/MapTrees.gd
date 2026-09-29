@@ -311,7 +311,43 @@ func _place(c: Vector2i) -> Array:
 	return [xforms, cols]
 
 
+static func under_bridge(p: Vector3) -> bool:
+	## Is p under a great bridge's deck (its approaches climb over woods)?  No tree grows through it.
+	var s := StationGeo.s_of(p)
+	for sp in GreatBridges.decks:
+		var o: Vector2 = sp.o
+		var d: Vector2 = sp.dir
+		var v := Vector2(StationGeo.wrap_ds(s - o.x), p.x - o.y)
+		var u := v.dot(d)
+		if u > -4.0 and u < float(sp.len) + 4.0 and absf(v.x * d.y - v.y * d.x) < float(sp.hw) + 5.0:
+			return true
+	return false
+
+
+func _clear_of_bridges(c: Vector2i, buf: PackedFloat32Array) -> PackedFloat32Array:
+	## The cell's trees less any under a great bridge (only cells a bridge passes near are looked at).
+	var s0 := c.x * CELL
+	var x0 := -StationGeo.HALF_LEN + c.y * CELL
+	var near := false
+	for sp in GreatBridges.decks:
+		var o: Vector2 = sp.o
+		var e: Vector2 = o + (sp.dir as Vector2) * float(sp.len)
+		var lo := Vector2(minf(0.0, StationGeo.wrap_ds(e.x - o.x)), minf(o.y, e.y) - o.y)
+		var ds := StationGeo.wrap_ds(s0 + CELL * 0.5 - o.x)
+		if ds > lo.x - CELL and ds < maxf(0.0, StationGeo.wrap_ds(e.x - o.x)) + CELL \
+				and x0 + CELL > minf(o.y, e.y) - 20.0 and x0 < maxf(o.y, e.y) + 20.0:
+			near = true
+	if not near:
+		return buf
+	var out := PackedFloat32Array()
+	for k in range(0, buf.size(), 16):
+		if not under_bridge(Vector3(buf[k + 3], buf[k + 7], buf[k + 11])):
+			out.append_array(buf.slice(k, k + 16))
+	return out
+
+
 func _make(c: Vector2i, buf: PackedFloat32Array) -> void:
+	buf = _clear_of_bridges(c, buf)
 	if buf.is_empty():
 		return
 	_bufs[c] = buf

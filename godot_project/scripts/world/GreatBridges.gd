@@ -25,9 +25,12 @@ const FOUND := 25.0
 const DECK_D := 2.2
 
 var _mats := {}
+static var decks: Array = []         # every great bridge's line (the spans), for the trees to keep out from under
+var spans := []                      # each bridge's line, for tests: {id, name, o (s, x), dir, len, hw, rail}
 
 
 func setup() -> void:
+	decks.clear()
 	if not FileAccess.file_exists("res://remake/bridges.json"):
 		return
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/bridges.json"))
@@ -127,6 +130,22 @@ func _column(mat: String, u: float, v: float, z0: float, z1: float, hw: float, h
 	_tri_quad(mat, _P(u - hw, v - hd, z1), _P(u + hw, v - hd, z1), _P(u + hw, v + hd, z1), _P(u - hw, v + hd, z1))
 
 
+func _wet(m: Vector2) -> bool:
+	## Is (s, x) under the river / lake / sea (or its carved bed)?
+	var s := fposmod(m.x, StationGeo.CIRC)
+	var wa := MapTerrain.water_at(s, m.y)
+	return wa.x > -9000.0 and wa.x > MapTerrain.elevation(s, m.y) - 0.05
+
+
+func _ground_across(u: float, hw: float) -> float:
+	## The highest ground under the deck's width at u.
+	var h := -INF
+	for v: float in [-hw, -hw * 0.5, 0.0, hw * 0.5, hw]:
+		var m := _o + _dir * u + _side * v
+		h = maxf(h, MapTerrain.elevation(m.x, m.y))
+	return h
+
+
 func _ground(u: float) -> float:
 	var m := _o + _dir * u
 	return MapTerrain.elevation(m.x, m.y)
@@ -159,9 +178,17 @@ func _build(br: Dictionary) -> void:
 	top = maxf(top, lv + 6.0)
 	var ext_a := clampf((top - bank_a) / GRADE - span * 0.5, 0.0, APPROACH_MAX)
 	var ext_b := clampf((top - bank_b) / GRADE - span * 0.5, 0.0, APPROACH_MAX)
+	# each approach starts on dry ground -- the graded road -- never out in the basin: the deck's
+	# first metre then meets the road's surface exactly
+	while ext_a < APPROACH_MAX + 300.0 and _wet(a - _dir * ext_a):
+		ext_a += 4.0
+	while ext_b < APPROACH_MAX + 300.0 and _wet(b + _dir * ext_b):
+		ext_b += 4.0
 	# re-origin at the start of approach A; u runs to L
 	_o = a - _dir * ext_a
 	var L := span + ext_a + ext_b
+	spans.append({"id": br.id, "name": br.get("name", br.id), "o": _o, "dir": _dir, "len": L, "hw": hw, "rail": rail})
+	decks.append(spans[-1])
 	var z0 := _ground(0.0) + 0.05
 	var z1 := _ground(L) + 0.05
 	var n := maxi(2, ceili(L / STEP))
@@ -182,6 +209,14 @@ func _build(br: Dictionary) -> void:
 		zz[i] = acc / cnt
 	zz[0] = z0
 	zz[n] = z1
+	# never below the ground it crosses: where the graded road under an approach climbs faster than
+	# the deck's GRADE, the deck follows it up (else the ground stands through the deck -- a step)
+	# -- across the whole deck: the bridge's straight line needn't follow the road's, and beside the
+	# road the ground may be a cutting's side slope
+	for i in range(1, n):
+		zz[i] = maxf(zz[i], _ground_across(us[i], hw) + 0.05)
+		var gm := _ground_across((us[i - 1] + us[i]) * 0.5, hw) + 0.05
+		zz[i] = maxf(zz[i], gm - (zz[i - 1] - gm))            # the ground between samples, too
 	var deck_mat := "ballast" if rail else "asphalt"
 	var col := Color.html(str(tr.get("color", "#b8b4ac"))) if tr.get("color") is String else Color(0.72, 0.72, 0.7)
 	if tr.get("color") is Dictionary:

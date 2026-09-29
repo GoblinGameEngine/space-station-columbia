@@ -48,4 +48,4 @@ func _build_hull() -> void:
 
 
 func door_slide() -> float:
-	return 0.6
+	return 0.68                        # a leaf (DOOR_HW wide) clear of the doorway, with 6 cm to spare

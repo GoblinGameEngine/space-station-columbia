@@ -65,6 +65,208 @@ def yaw_facing(ds, dx):
     return math.atan2(-dx, ds)
 
 
+def road_heading(s, x, reach=15.0):
+    """(ds, dx) along the road nearest (s, x), from remake/terrain.json -- for a crossing whose ends
+    don't give its road's direction (a culvert, a span of 0: both ends at one point)."""
+    ter = road_heading.ter
+    if ter is None:
+        ter = road_heading.ter = json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))
+    C = 2 * math.pi * ter["R"]
+    wrap = lambda d: (d + C / 2) % C - C / 2
+    best, hd = reach, None
+    for rd in ter["roads"]:
+        pts = rd["pts"]
+        for a, b in zip(pts, pts[1:]):
+            bs, bx = wrap(b[0] - a[0]), b[1] - a[1]
+            ps, px = wrap(s - a[0]), x - a[1]
+            l2 = bs * bs + bx * bx
+            if l2 < 1e-9:
+                continue
+            t = max(0.0, min(1.0, (ps * bs + px * bx) / l2))
+            d = math.hypot(ps - bs * t, px - bx * t)
+            if d < best:
+                best, hd = d, (bs, bx)
+    return hd
+
+
+road_heading.ter = None
+
+
+ROAD_MARGIN = 1.0      # m past a carriageway's edge a building must stand (the shoulder and a little)
+MAX_SHIFT = 30.0
+
+
+def clear_of_roads(out):
+    """A building standing in a road's carriageway (the map's roads and lots come from different
+    passes and sometimes overlap) is moved straight back from that road until it's ROAD_MARGIN
+    clear -- the least change that gets it out of the way.  Crossings are on their roads by design."""
+    ter = json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))
+    C = 2 * math.pi * ter["R"]
+    wrap = lambda d: (d + C / 2) % C - C / 2
+    G = 50.0
+    grid = {}
+    segs = []
+    for rd in ter["roads"]:
+        pts = rd["pts"]
+        for a, b in zip(pts, pts[1:]):
+            ds, dx = wrap(b[0] - a[0]), b[1] - a[1]
+            L = math.hypot(ds, dx)
+            if L < 1e-6:
+                continue
+            k = len(segs)
+            segs.append((a[0] % C, a[1], ds / L, dx / L, L, rd["w"] * 0.5))
+            for t in range(0, int(L // G) + 2):
+                u = min(t * G, L)
+                cs, cx = int(((a[0] + ds / L * u) % C) // G), int((a[1] + dx / L * u) // G)
+                for i in (-1, 0, 1):
+                    for j in (-1, 0, 1):
+                        grid.setdefault(((cs + i) % int(C // G + 1), cx + j), set()).add(k)
+
+    def corners(e):
+        c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
+        return [(e["s"] + lx * sn - lz * c, e["x"] + lx * c + lz * sn)
+                for lx in (e["min"][0], e["max"][0]) for lz in (e["min"][2], e["max"][2])]
+    moved, stuck = 0, []
+    for e in out:
+        if e["kind"] == "crossing" or e.get("over_water"):
+            continue
+        home = (e["s"], e["x"])
+        total = 0.0
+        for it in range(6):
+            cs = corners(e)
+            reach = max(math.hypot(p[0] - e["s"], p[1] - e["x"]) for p in cs)
+            best = None
+            keys = set()
+            for p in cs + [(e["s"], e["x"])]:
+                keys |= grid.get((int((p[0] % C) // G), int(p[1] // G)), set())
+            for k in keys:
+                sa, xa, ts, tx, L, hw = segs[k]
+                ns, nx = -tx, ts
+                us = [wrap(p[0] - sa) * ts + (p[1] - xa) * tx for p in cs]
+                if max(us) < -hw or min(us) > L + hw:
+                    continue                                     # beside the segment, not along it
+                vs = [wrap(p[0] - sa) * ns + (p[1] - xa) * nx for p in cs]
+                lim = hw + ROAD_MARGIN
+                if max(vs) < -lim or min(vs) > lim:
+                    continue
+                vc = wrap(e["s"] - sa) * ns + (e["x"] - xa) * nx
+                shift = (lim - min(vs)) if vc >= 0 else -(max(vs) + lim)
+                if best is None or abs(shift) > abs(best[0]):
+                    best = (shift, ns, nx)
+            if best is None:
+                break
+            shift, ns, nx = best
+            e["s"] = round((e["s"] + ns * shift) % C, 2)
+            e["x"] = round(e["x"] + nx * shift, 2)
+            total += abs(shift)
+            if total > MAX_SHIFT:
+                break
+        if total > MAX_SHIFT:
+            # streets on more than one side of it: no short move clears them all.  It's left out
+            # (a road through it is worse than its absence).
+            e["s"], e["x"] = home
+            stuck.append(e["id"])
+        elif total > 0:
+            moved += 1
+    out[:] = [e for e in out if e["id"] not in stuck]
+    print("buildings moved clear of roads: %d%s" % (moved, ("; standing across streets, left out: " + " ".join(stuck)) if stuck else ""))
+
+
+CAR_CLEAR = 1.25       # m either side of a road's centreline a car needs to get by (half its width and a little)
+RANK = {"hwy": 6, "main": 5, "county": 4, "street": 3, "gravel": 2, "alley": 1, "rail": 0}
+
+
+def drop_overlapping_crossings(out, inv_by_id):
+    """Two crossings whose footprints overlap (two roads meeting over a creek, or one road's crossing
+    listed twice) would stand each in the other's road: keep the one on the greater road (the bigger,
+    between equals); the other's road crosses on a culvert under the graded roadway instead."""
+    C = 2 * math.pi * 3000.0
+    wrap = lambda d: (d + C / 2) % C - C / 2
+
+    def corners(e):
+        c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
+        return [(e["s"] + lx * sn - lz * c, e["x"] + lx * c + lz * sn)
+                for lx in (e["min"][0], e["max"][0]) for lz in (e["min"][2], e["max"][2])]
+
+    def overlap(a, b):
+        ca = corners(a)
+        cb = [(a["s"] + wrap(p[0] - a["s"]), p[1]) for p in corners(b)]
+        for e in (a, b):
+            c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
+            for ax in ((sn, c), (-c, sn)):
+                pa = [p[0] * ax[0] + p[1] * ax[1] for p in ca]
+                pb = [p[0] * ax[0] + p[1] * ax[1] for p in cb]
+                if max(pa) < min(pb) or max(pb) < min(pa):
+                    return False
+        return True
+
+    def weight(e):
+        cr = inv_by_id.get(e["id"], {})
+        area = (e["max"][0] - e["min"][0]) * (e["max"][2] - e["min"][2])
+        return (RANK.get(cr.get("road_class"), 0), area)
+    cross = [e for e in out if e["kind"] == "crossing"]
+    gone = set()
+    for i, a in enumerate(cross):
+        for b in cross[i + 1:]:
+            if a["id"] in gone or b["id"] in gone:
+                continue
+            if abs(wrap(a["s"] - b["s"])) < 100 and abs(a["x"] - b["x"]) < 100 and overlap(a, b):
+                lose = b if weight(a) >= weight(b) else a
+                gone.add(lose["id"])
+                print("crossing %s overlaps %s: %s left out" % (a["id"], b["id"], lose["id"]))
+    # a crossing whose model reaches into another road's middle (where two roads part or meet at a
+    # creek): that road couldn't get past it -- left out, the road it carried crossing on a culvert
+    ter = json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))
+    segs = []
+    for ri, rd in enumerate(ter["roads"]):
+        for p0, p1 in zip(rd["pts"], rd["pts"][1:]):
+            ds, dx = wrap(p1[0] - p0[0]), p1[1] - p0[1]
+            L = math.hypot(ds, dx)
+            if L > 1e-6:
+                segs.append((ri, p0[0], p0[1], ds / L, dx / L, L))
+
+    def seg_d(s_, x_, g):
+        _, sa, xa, ts, tx, L = g
+        u = max(0.0, min(L, wrap(s_ - sa) * ts + (x_ - xa) * tx))
+        return math.hypot(wrap(s_ - sa) - ts * u, (x_ - xa) - tx * u)
+    for e in cross:
+        if e["id"] in gone:
+            continue
+        near = [g for g in segs if abs(wrap(g[1] - e["s"])) < 150 and abs(g[2] - e["x"]) < 150]
+        if not near:
+            continue
+        own = min(near, key=lambda g: seg_d(e["s"], e["x"], g))[0]
+        cs = corners(e)
+        for g in near:
+            if g[0] == own:
+                continue
+            _, sa, xa, ts, tx, L = g
+            us = [wrap(p[0] - sa) * ts + (p[1] - xa) * tx for p in cs]
+            vs = [wrap(p[0] - sa) * -tx + (p[1] - xa) * ts for p in cs]
+            if max(us) < 0 or min(us) > L or max(vs) < -CAR_CLEAR or min(vs) > CAR_CLEAR:
+                continue
+            gone.add(e["id"])
+            print("crossing %s stands in road %d's way: left out" % (e["id"], g[0]))
+            break
+    # a small crossing on a great bridge's line (the inventory can give the bank the same creek's
+    # crossing too): the great bridge carries the road there
+    bpath = os.path.join(ROOT, "godot_project", "remake", "bridges.json")
+    for br in (json.load(open(bpath))["bridges"] if os.path.exists(bpath) else []):
+        (sa, xa), (sb, xb) = br["ends"]
+        ds, dx = wrap(sb - sa), xb - xa
+        L = math.hypot(ds, dx)
+        for e in cross:
+            if e["id"] in gone:
+                continue
+            vs, vx = wrap(e["s"] - sa), e["x"] - xa
+            u = (vs * ds + vx * dx) / L
+            lat = abs(vs * dx - vx * ds) / L
+            if -60.0 < u < L + 60.0 and lat < 25.0:
+                gone.add(e["id"])
+                print("crossing %s is on great bridge %s: left out" % (e["id"], br["id"]))
+    out[:] = [e for e in out if e["id"] not in gone]
+
+
 def main():
     inv = json.load(open(INV))
     out, missing = [], []
@@ -132,12 +334,19 @@ def main():
             add(f"{fm['id']}-{name}", "farm", None, p["s"], p["x"], yaw_facing(ds, dx) if (ds or dx) else 0.0)
 
     for c in inv["crossings"]:
-        (as_, ax), (bs, bx) = c.get("ends") or ((c["s"], c["x"]), (c["s"] + 1, c["x"]))
+        (as_, ax), (bs, bx) = c.get("ends") or ((c["s"], c["x"]), (c["s"], c["x"]))
         if c.get("model", c["id"]) is None:
             missing.append(c["id"] + " (no model yet)")
             continue
-        _add(c["id"], "crossing", None, c["s"], c["x"], yaw_facing(bs - as_, bx - ax), c.get("model"))
+        # the road runs along the model's local forward axis: the ends give it, or (a culvert, a span
+        # of 0 -- both ends at one point) the road it's on
+        hd = (bs - as_, bx - ax)
+        if math.hypot(*hd) < 0.5:
+            hd = road_heading(c["s"], c["x"]) or (1.0, 0.0)
+        _add(c["id"], "crossing", None, c["s"], c["x"], yaw_facing(*hd), c.get("model"))
 
+    drop_overlapping_crossings(out, {c["id"]: c for c in inv["crossings"]})
+    clear_of_roads(out)
     with open(OUT, "w") as f:
         json.dump({"structures": out}, f, indent=0)
     # the walks (boardwalks, piers, docks, wharves, breakwaters, promenades...): CoastalWalks builds

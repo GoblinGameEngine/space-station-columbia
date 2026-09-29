@@ -29,6 +29,7 @@ class_name RemakeGroundVehicle
 @export var motor_sound := "res://remake/audio/car_motor.wav"
 
 const CLEAR := 0.5                   # the hull's box starts this far above the ground (kerbs and slopes pass under it)
+const RAMP_LAYER := 1 << 4           # the boarding ramps: only people collide with it (StationPlayer's mask)
 const HULL_LAYER := 1 << 8           # the swept hull's own layer: vehicles see it, people don't (they're inside it)
 const WADE := 0.45
 const STEP := 0.4                    # the most a wheel climbs in one go (a kerb); more is a wall
@@ -45,6 +46,7 @@ var _vy := 0.0
 var _motor: AudioStreamPlayer3D
 var _ramps: StaticBody3D
 var _cabin: StaticBody3D             # the walls, floor, seats and roof people walk among (not swept)
+var blocked_by := ""                 # what last stopped it (remake/tools/drive_test.gd reads it)
 
 
 func add_box(size: Vector3, at: Vector3, roll := 0.0) -> void:
@@ -103,6 +105,7 @@ func add_ramp(size: Vector3, at: Vector3, roll := 0.0) -> void:
 	if _ramps == null:
 		_ramps = StaticBody3D.new()
 		_ramps.name = "Ramps"
+		_ramps.collision_layer = RAMP_LAYER            # people step on it; cars pass over it
 		add_child(_ramps)
 	var cs := CollisionShape3D.new()
 	var box := BoxShape3D.new()
@@ -176,12 +179,14 @@ func _physics_process(delta: float) -> void:
 	fwd = (fwd - up * fwd.dot(up)).normalized()
 	var pos := global_position
 	var motion := fwd * _speed * delta
-	# no wading: stop at water deeper than WADE ahead of the front axle
+	# no wading: stop at water deeper than WADE ahead of the front axle -- measured down to the ground
+	# it would drive on there (a bridge deck high over a river is dry going)
 	var ahead := pos + fwd * (wheelbase * 0.5 + 1.0) * signf(_speed)
 	var wa := MapTerrain.water_at(fposmod(StationGeo.s_of(ahead), StationGeo.CIRC), ahead.x)
-	if absf(_speed) > 0.01 and wa.x > -9000.0 and wa.x - MapTerrain.elevation(StationGeo.s_of(ahead), ahead.x) > WADE:
+	if absf(_speed) > 0.01 and wa.x > -9000.0 and wa.x - StationGeo.h_of(_ground(ahead, up)) > WADE:
 		motion = Vector3.ZERO
 		_speed = 0.0
+		blocked_by = "water ahead"
 	if absf(ahead.x) > StationGeo.HALF_LEN - 15.0 and signf(ahead.x - pos.x) == signf(ahead.x):
 		motion = Vector3.ZERO
 		_speed = 0.0
@@ -206,6 +211,7 @@ func _physics_process(delta: float) -> void:
 	for g in contacts:
 		if (g - pos).dot(up) > STEP and pos != before:
 			_impact(absf(_speed), (before - pos).normalized(), g)
+			blocked_by = "step: %.2f m" % (g - pos).dot(up)
 			pos = before
 			_speed = 0.0
 			contacts.clear()
@@ -270,6 +276,9 @@ func _sweep(from: Transform3D, motion: Vector3) -> Vector3:
 			break
 		xf.origin += res.get_travel()
 		var head_on := -nrm.dot(along)
+		if head_on > 0.3:
+			var hit := res.get_collider()
+			blocked_by = "hull: %s" % (str((hit as Node).get_path()) if hit is Node else str(res.get_collider_rid()))
 		_impact(absf(_speed) * head_on, nrm, res.get_collision_point())
 		_speed *= clampf(1.0 - head_on, 0.0, 1.0)
 		motion = res.get_remainder().slide(nrm)
@@ -291,7 +300,7 @@ func _depth(xf: Transform3D) -> float:
 
 func _ground(p: Vector3, up: Vector3) -> Vector3:
 	## The ground under p: a ray down through the world (roads, decks, terrain tiles), else the map.
-	var q := PhysicsRayQueryParameters3D.create(p + up * 1.0, p - up * 3.0)
+	var q := PhysicsRayQueryParameters3D.create(p + up * 1.0, p - up * 3.0, 1)     # the world: not a parked van's boarding ramp
 	q.exclude = _excluded()
 	var hit := get_world_3d().direct_space_state.intersect_ray(q)
 	if not hit.is_empty():

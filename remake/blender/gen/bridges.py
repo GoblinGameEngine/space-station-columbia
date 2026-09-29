@@ -204,7 +204,9 @@ def build(rec):
         rise = clamp(span_each / 2, 1.2, 12.0)
         # one barrel per span (arch_barrel builds it centred on y = 0: shift each to its span)
         for k in range(spans):
-            gbr.arch_barrel(b, span_each, 0.0, width + 1.0, bed if rise < -bed else -rise - 0.9,
+            # the barrel's crown stays under the deck (a long span's semicircle is taller than its
+            # rise cap: springing it from the bed drove the crown up through the road)
+            gbr.arch_barrel(b, span_each, 0.0, width + 1.0, min(bed if rise < -bed else -rise - 0.9, -span_each / 2 - 1.3),
                             ring_mat="ashlar" if btype == "stone_arch" else "concrete_old",
                             face_mat="ashlar" if btype == "stone_arch" else "concrete_old", name=f"arch{k}")
             yc = -L / 2 + (k + 0.5) * span_each
@@ -231,6 +233,7 @@ def build(rec):
             # pipe ends face +-x.  (They used to run along y, parallel to the road.)
             cp = b.part("pipe-col")
             r = clamp(cell / 2, 0.5, 1.5)
+            r = min(r, max(0.3, (-0.5 - bed) / 2))      # buried under the pavement, not up through it
             xe = (width + 6.0) / 2
             for c in range(cells):
                 cy = (c - (cells - 1) / 2) * (2 * r + 0.8)

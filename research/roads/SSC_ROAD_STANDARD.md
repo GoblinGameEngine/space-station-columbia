@@ -137,3 +137,37 @@ Applied by `tools/road_network.py`, called from `tools/map_expanded.py`.
 6. **The only dead ends** are turning circles: a town's cul-de-sacs, beach access roads past the
    coast road, and farm roads stopped by a great river's basin. Each gets a DEAD END sign 70 m back
    from the circle.
+
+## 7. Grading
+Applied by `tools/road_profile.py`; the research is in grading.md.
+
+1. **Every road keeps within its class's maximum grade** (AASHTO / TxDOT Table 4-11, rolling
+   terrain):
+   - hwy 5 %, county 7 %, gravel 10 %, main 7 %, street and alley 8 %;
+   - the railway 1.5 %.
+   The profile is the closest fit to the ground that obeys the limit, found over the whole network
+   at once. Where the ground has a bluff or a small cliff, the road is cut into it or built up on
+   fill.
+2. **Vertical curves** round every crest and sag over about 3 × the design speed.
+3. **Junctions** have one height: roads within 3 m of each other are graded together.
+4. **Small bridges are level**, at the higher approach's height, and the road ramps up to them
+   within its grade. The great bridges climb from the graded road on each bank. Each approach
+   starts on dry ground, never out in the river's basin.
+5. **Side slopes** are cut and filled at 2:1 (up to 14 m wide).
+
+## 8. Clearance
+Applied by `remake/tools/placement.py`, `tools/road_profile.py` and `CoastalWalks.gd`.
+
+1. **No building stands in a carriageway.** A building overlapping a road, plus 1 m, is moved
+   straight back from that road until it clears. One with streets on several sides, which no move
+   under 30 m clears, is left out.
+2. **A crossing never stands in another road's way.** Of two crossings that overlap, the one on
+   the greater road stays. A crossing whose model reaches within 1.25 m of another road's
+   centreline is left out, and so is one on a great bridge's line. Their roads cross the creek on a
+   buried culvert.
+3. **Walks stop at the kerb.** A boardwalk, pier or rubble mound doesn't continue across a road's
+   carriageway.
+4. **Nothing grows through a bridge.** There are no trees under a great bridge's deck.
+5. **Parked cars leave the middle clear.** Kerbside parking may narrow a lane, but a car can always
+   pass down the middle. Boarding ramps are solid to people only.
+

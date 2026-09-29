@@ -36,10 +36,10 @@ TAU = math.tau
 
 CFG = {
     "pod": dict(A=0.95, BF=2.0, BR=1.95, H=2.35, N=5.0, BASE=0.26, FLOOR=0.42, WR=0.36, WW=0.24, WY=(1.32, -1.3),
-                TRACK=0.80, WIN=(1.12, 2.08), DOOR_Y=-0.12, DOOR_HW=0.62, DOOR_SLIDE=0.6,
+                TRACK=0.80, WIN=(1.12, 2.08), DOOR_Y=-0.12, DOOR_HW=0.62, DOOR_SLIDE=0.68,
                 SCREEN_Z=(0.9, 2.18), SCREEN_Y=(1.97, 1.18), SEAT_Y=0.72, REAR_Y=(-1.25,), DRIVER_X=-0.42),
     "van": dict(A=1.0, BF=2.6, BR=2.55, H=2.42, N=6.0, BASE=0.3, FLOOR=0.55, WR=0.4, WW=0.26, WY=(1.72, -1.62),
-                TRACK=0.84, WIN=(1.28, 2.1), DOOR_Y=0.72, DOOR_HW=0.55, DOOR_SLIDE=1.05,
+                TRACK=0.84, WIN=(1.28, 2.1), DOOR_Y=0.72, DOOR_HW=0.55, DOOR_SLIDE=1.2,
                 SCREEN_Z=(1.25, 2.1), SCREEN_Y=(2.5, 2.2), SEAT_Y=1.5, REAR_Y=(-0.25, -1.55), DRIVER_X=-0.48),
 }[VARIANT]
 A, BF, BR, H, N = CFG["A"], CFG["BF"], CFG["BR"], CFG["H"], CFG["N"]
@@ -423,8 +423,10 @@ else:
         trim.box((sx * A * 0.93 - 0.05, BF - 0.2, 0.6), (sx * A * 0.93 + 0.05, BF - 0.05, 0.68), "amber")
         trim.box((sx * A * 0.7 - 0.12, -BR - 0.03, 0.62), (sx * A * 0.7 + 0.12, -BR + 0.02, 0.9), "tail")
         # chrome beading round the wood panel, and a mirror on its arm
+        # (broken at the doorway: the sliding door carries its own length of it, and takes it along)
         for z in (0.61, 1.11):
-            trim.box((sx * (A + 0.004) - 0.008, -BR + 0.33, z - 0.012), (sx * (A + 0.004) + 0.008, BF - 1.03, z + 0.012), "chrome")
+            for y0, y1 in ((-BR + 0.33, DOOR_Y - DOOR_HW - 0.01), (DOOR_Y + DOOR_HW + 0.01, BF - 1.03)):
+                trim.box((sx * (A + 0.004) - 0.008, y0, z - 0.012), (sx * (A + 0.004) + 0.008, y1, z + 0.012), "chrome")
         trim.tube((sx * A * 0.95, BF - 0.55, 1.3), (sx * (A + 0.22), BF - 0.45, 1.42), 0.015, "chrome", n=6)
         trim.box((sx * (A + 0.2) - 0.05, BF - 0.5, 1.36), (sx * (A + 0.2) + 0.05, BF - 0.44, 1.52), "chrome")
     for sx in (-1, 1):                                          # wipers
@@ -457,9 +459,14 @@ for right in (True, False):
         w_ = DOOR_HW if VARIANT == "pod" else 2 * DOOR_HW
         lo_y, hi_y = (sorted([0.0, dirn * w_]) if VARIANT == "pod" else (-DOOR_HW, DOOR_HW))
         if VARIANT == "pod":                                     # black framed glass, like the reference
-            leaf.box((-0.025, lo_y, FLOOR), (0.025, hi_y, WIN1 - 0.02), "dark")
-            leaf.face([Vector((sx * 0.03, lo_y + 0.05, FLOOR + 0.1)), Vector((sx * 0.03, hi_y - 0.05, FLOOR + 0.1)),
-                       Vector((sx * 0.03, hi_y - 0.05, WIN1 - 0.08)), Vector((sx * 0.03, lo_y + 0.05, WIN1 - 0.08))], "glass")
+            # the frame: rails top and bottom, a stile each side -- open between them, so the glass
+            # is see-through
+            leaf.box((-0.025, lo_y, FLOOR), (0.025, hi_y, FLOOR + 0.1), "dark")
+            leaf.box((-0.025, lo_y, WIN1 - 0.08), (0.025, hi_y, WIN1 - 0.02), "dark")
+            leaf.box((-0.025, lo_y, FLOOR + 0.1), (0.025, lo_y + 0.05, WIN1 - 0.08), "dark")
+            leaf.box((-0.025, hi_y - 0.05, FLOOR + 0.1), (0.025, hi_y, WIN1 - 0.08), "dark")
+            leaf.face([Vector((0.0, lo_y + 0.05, FLOOR + 0.1)), Vector((0.0, hi_y - 0.05, FLOOR + 0.1)),
+                       Vector((0.0, hi_y - 0.05, WIN1 - 0.08)), Vector((0.0, lo_y + 0.05, WIN1 - 0.08))], "glass")
             hy = (hi_y - 0.08) if dirn > 0 else (lo_y + 0.08)
             leaf.tube(Vector((sx * 0.04, hy, FLOOR + 0.7)), Vector((sx * 0.04, hy, FLOOR + 1.1)), 0.012, "chrome", n=6)
         else:                                                    # painted to match, wood panel, a window
@@ -472,6 +479,8 @@ for right in (True, False):
             leaf.face([Vector((sx * 0.03, lo_y + 0.05, WIN0)), Vector((sx * 0.03, hi_y - 0.05, WIN0)),
                        Vector((sx * 0.03, hi_y - 0.05, WIN1 - 0.03)), Vector((sx * 0.03, lo_y + 0.05, WIN1 - 0.03))], "glass")
             leaf.box((sx * 0.03 - 0.01, hi_y - 0.25, 1.2), (sx * 0.03 + 0.01, hi_y - 0.1, 1.23), "chrome")
+            for z in (0.61, 1.11):                               # its length of the panel's chrome beading
+                leaf.box((sx * 0.034 - 0.008, lo_y, z - 0.012), (sx * 0.034 + 0.008, hi_y, z + 0.012), "chrome")
         ob = leaf.obj(smooth=False)
         ob.location = (sx * LEAF_X, DOOR_Y, 0.0)
 
