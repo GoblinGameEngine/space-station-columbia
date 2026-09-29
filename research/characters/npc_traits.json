@@ -1,0 +1,222 @@
+{
+ "_about": "NPC characteristics, as data. Add a trait by adding an entry; nothing else changes (each trait draws from its own seeded stream: hash(seed, person, trait id)). Schema in npc_traits.md. Validate and preview: python3 tools/charref/traits.py",
+ "schema_version": 1,
+
+ "tables": {
+  "occupations": {
+   "_cols": ["weight", "sector", "income", "hours", "outfit", "age_min", "age_max", "caricature"],
+   "retired":        [14, "none",        "low",  "home",      "retired",   62, 99, 0.35],
+   "preschool":      [ 6, "home",        "none", "home",      "child",      0,  5, 0.05],
+   "student":        [16, "school",      "none", "school",    "school",     6, 18, 0.10],
+   "homemaker":      [ 5, "home",        "none", "home",      "casual",    20, 80, 0.20],
+   "factory_hand":   [ 9, "manufacture", "mid",  "shift",     "workwear",  18, 64, 0.25],
+   "nurse":          [ 5, "health",      "mid",  "shift",     "scrubs",    22, 64, 0.15],
+   "care_aide":      [ 4, "health",      "low",  "shift",     "scrubs",    18, 64, 0.20],
+   "shop_clerk":     [ 6, "retail",      "low",  "day",       "apron",     16, 70, 0.20],
+   "shopkeeper":     [ 3, "retail",      "mid",  "day",       "apron",     28, 80, 0.40],
+   "baker":          [ 1, "food",        "low",  "early",     "baker",     18, 75, 0.35],
+   "cook":           [ 3, "food",        "low",  "evening",   "kitchen",   18, 70, 0.30],
+   "waiter":         [ 3, "food",        "low",  "evening",   "server",    16, 60, 0.15],
+   "fisher":         [ 1, "water",       "low",  "early",     "oilskins",  16, 80, 0.45],
+   "dock_worker":    [ 2, "water",       "mid",  "shift",     "workwear",  18, 64, 0.35],
+   "farmer":         [ 2, "farm",        "mid",  "early",     "farm",      16, 85, 0.40],
+   "mechanic":       [ 2, "trade",       "mid",  "day",       "coveralls", 17, 70, 0.30],
+   "builder":        [ 3, "trade",       "mid",  "early",     "workwear",  17, 65, 0.30],
+   "teacher":        [ 3, "school",      "mid",  "school",    "office",    23, 67, 0.20],
+   "clerk":          [ 4, "office",      "mid",  "day",       "office",    20, 67, 0.15],
+   "police":         [ 1, "public",      "mid",  "shift",     "police",    21, 60, 0.25],
+   "postal_worker":  [ 1, "public",      "mid",  "early",     "postal",    18, 65, 0.25],
+   "driver":         [ 2, "transport",   "mid",  "shift",     "workwear",  21, 70, 0.30],
+   "doctor":         [ 0.5, "health",    "high", "day",       "office",    28, 75, 0.20],
+   "pastor":         [ 0.3, "faith",     "low",  "day",       "clergy",    28, 85, 0.40],
+   "unemployed":     [ 4, "none",        "none", "home",      "casual",    18, 64, 0.25]
+  },
+  "palettes": {
+   "_note": "Named palette families; colours are (hue deg, sat 0-1, value 0-1). Sat mostly 0.15-0.45 per ghibli_style.md 2.2.",
+   "earth":   [[30, 0.35, 0.45], [25, 0.30, 0.60], [40, 0.25, 0.70], [15, 0.40, 0.35], [55, 0.30, 0.55]],
+   "sea":     [[205, 0.35, 0.45], [195, 0.25, 0.65], [215, 0.45, 0.30], [180, 0.20, 0.70], [40, 0.15, 0.80]],
+   "meadow":  [[95, 0.30, 0.50], [70, 0.35, 0.60], [110, 0.25, 0.40], [45, 0.40, 0.70], [20, 0.30, 0.50]],
+   "dusk":    [[260, 0.20, 0.40], [330, 0.25, 0.55], [220, 0.30, 0.35], [20, 0.35, 0.65], [280, 0.15, 0.70]],
+   "work":    [[210, 0.40, 0.35], [30, 0.25, 0.40], [0, 0.0, 0.30], [40, 0.45, 0.55], [200, 0.20, 0.55]],
+   "accent":  [[5, 0.70, 0.70], [48, 0.70, 0.85], [200, 0.60, 0.65], [340, 0.55, 0.75], [120, 0.55, 0.55]]
+  }
+ },
+
+ "traits": [
+  {"id": "sex", "layer": "L0", "group": "identity", "type": "pick",
+   "choose": {"weights": {"female": 51, "male": 49}},
+   "affects": ["body.shape", "face", "hair.style", "outfit", "voice", "name"], "inherit": "none"},
+
+  {"id": "age", "layer": "L0", "group": "identity", "type": "int", "range": [0, 99],
+   "choose": {"bands": [[0, 5, 6], [6, 17, 16], [18, 29, 13], [30, 44, 17], [45, 64, 27], [65, 84, 18], [85, 99, 3]]},
+   "note": "Bands are the Stable Town archetype (_demographic_archetypes.md 1); a town's archetype replaces them.",
+   "affects": ["body", "face.wrinkles", "hair.grey", "posture", "gait", "occupation", "outfit"]},
+
+  {"id": "life_stage", "layer": "L0", "group": "identity", "type": "pick",
+   "values": ["child", "teen", "young_adult", "adult", "elder"],
+   "choose": {"derive": "'child' if age < 13 else 'teen' if age < 18 else 'young_adult' if age < 30 else 'adult' if age < 65 else 'elder'"},
+   "depends_on": ["age"], "affects": ["everything that reads it"]},
+
+  {"id": "occupation", "layer": "L0", "group": "role", "type": "pick",
+   "choose": {"table": "occupations", "weight_col": "weight", "where": "row.age_min <= age and age <= row.age_max"},
+   "depends_on": ["age"], "affects": ["outfit", "props", "idles", "schedule", "income", "posture", "caricature", "dialogue"]},
+
+  {"id": "income", "layer": "L0", "group": "role", "type": "pick", "values": ["none", "low", "mid", "high"],
+   "choose": {"derive": "table('occupations', occupation, 'income')"},
+   "depends_on": ["occupation"], "affects": ["outfit.quality", "outfit.wear", "housing"]},
+
+  {"id": "height", "layer": "L1", "group": "body", "type": "float", "range": [0.8, 2.1], "unit": "m",
+   "choose": {"normal": [1.63, 0.07], "clamp": [1.40, 1.95]},
+   "mods": [{"if": "sex == 'male'", "add": 0.13},
+            {"if": "age < 18", "mul": "0.52 + 0.48 * min(1, age / 17)"},
+            {"if": "age > 70", "add": -0.03}],
+   "depends_on": ["sex", "age"], "affects": ["shape:height", "gait.stride", "describe"],
+   "describe": [[1.55, "short"], [1.80, "average height"], [9, "tall"]], "inherit": "blend"},
+
+  {"id": "build", "layer": "L1", "group": "body", "type": "vec3", "note": "Body triangle: barycentric (thin, muscular, heavy), sums to 1",
+   "choose": {"dirichlet": [3.0, 2.0, 2.2]},
+   "mods": [{"if": "occupation in ['builder', 'dock_worker', 'farmer', 'fisher', 'mechanic']", "bias": [0, 1.5, 0]},
+            {"if": "age > 45", "bias": [0, 0, 1.0]},
+            {"if": "age < 13", "bias": [1.5, 0, 0]}],
+   "depends_on": ["occupation", "age"], "affects": ["shape:thin", "shape:muscular", "shape:heavy", "gait", "outfit.fit"],
+   "inherit": "blend"},
+
+  {"id": "weight", "layer": "L1", "group": "body", "type": "float", "unit": "kg",
+   "choose": {"derive": "22.0 * height * height * (0.85 + 0.15 * build[1] + 0.55 * build[2])"},
+   "depends_on": ["height", "build"], "affects": ["gait.bounce", "describe", "physics.mass"]},
+
+  {"id": "proportions", "layer": "L1", "group": "body", "type": "vec4",
+   "note": "leg length, shoulder width, hip width, head size: each -1..1 around the stylised mean",
+   "choose": {"normal": [0, 0.35], "clamp": [-1, 1]},
+   "depends_on": [], "affects": ["shape:legs", "shape:shoulders", "shape:hips", "shape:head"], "inherit": "blend"},
+
+  {"id": "posture", "layer": "L1", "group": "body", "type": "float", "range": [-1, 1], "note": "-1 stooped .. 1 upright",
+   "choose": {"normal": [0.2, 0.3], "clamp": [-1, 1]},
+   "mods": [{"if": "age > 65", "add": "-0.02 * (age - 65)"}, {"if": "occupation in ['police', 'teacher', 'pastor']", "add": 0.25}],
+   "depends_on": ["age", "occupation"], "affects": ["anim:spine", "gait.lean"]},
+
+  {"id": "mobility_aid", "layer": "L1", "group": "body", "type": "pick", "values": ["none", "cane", "walker", "wheelchair"],
+   "choose": {"weights": {"none": 97, "cane": 2, "walker": 0.5, "wheelchair": 0.5}},
+   "mods": [{"if": "age > 75", "weights": {"none": 70, "cane": 20, "walker": 7, "wheelchair": 3}}],
+   "depends_on": ["age"], "affects": ["props", "gait", "navigation"]},
+
+  {"id": "skin", "layer": "L1", "group": "colour", "type": "color2d",
+   "note": "A point in the skin ramp (x: light-dark, y: cool-warm undertone), as CK3 colour genes. Shade colour derived warm.",
+   "choose": {"uniform2": [[0.0, 1.0], [0.2, 0.8]]},
+   "affects": ["shader:skin", "shader:skin_shade", "shader:blush"], "inherit": "blend"},
+
+  {"id": "hair_colour", "layer": "L1", "group": "colour", "type": "color2d",
+   "note": "x: dark-light, y: ash-red. Mostly dark; greys with age via hair_grey.",
+   "choose": {"uniform2": [[0.0, 1.0], [0.0, 1.0]], "bias_x": 2.2},
+   "affects": ["shader:hair"], "inherit": "blend"},
+
+  {"id": "hair_grey", "layer": "L1", "group": "colour", "type": "float", "range": [0, 1],
+   "choose": {"derive": "clamp((age - 35 + rand_normal(0, 8)) / 35, 0, 1)"},
+   "depends_on": ["age"], "affects": ["shader:hair"]},
+
+  {"id": "eye_colour", "layer": "L1", "group": "colour", "type": "color2d",
+   "choose": {"uniform2": [[0.0, 1.0], [0.0, 1.0]], "bias_x": 1.8}, "affects": ["shader:eyes"], "inherit": "pick"},
+
+  {"id": "hair_style", "layer": "L1", "group": "hair", "type": "pick",
+   "values": ["crop", "short_side_part", "bob", "shoulder", "long_loose", "ponytail", "braids", "bun", "curly_short", "curly_long", "balding", "bald", "tied_scarf"],
+   "choose": {"weights": {"crop": 12, "short_side_part": 12, "bob": 10, "shoulder": 10, "long_loose": 6, "ponytail": 10, "braids": 4, "bun": 8, "curly_short": 8, "curly_long": 5, "balding": 5, "bald": 3, "tied_scarf": 2}},
+   "mods": [{"if": "sex == 'male'", "weights": {"crop": 30, "short_side_part": 30, "curly_short": 12, "ponytail": 2, "shoulder": 3, "balding": 12, "bald": 6}},
+            {"if": "sex == 'male' and age < 25", "reweight": {"balding": 0, "bald": 0.5}},
+            {"if": "sex == 'female' and age > 60", "weights": {"bun": 30, "bob": 25, "curly_short": 20, "short_side_part": 10, "tied_scarf": 5}}],
+   "depends_on": ["sex", "age"], "affects": ["mesh:hair", "silhouette"]},
+
+  {"id": "face", "layer": "L1", "group": "face", "type": "vec8",
+   "note": "face width, jaw, chin, cheek, nose size, eye size, eye spacing, mouth width: each -1..1. Scaled by caricature.",
+   "choose": {"normal": [0, 0.4], "clamp": [-1, 1]}, "affects": ["shape:face_*"], "inherit": "blend"},
+
+  {"id": "brow", "layer": "L1", "group": "face", "type": "pick", "values": ["thin", "straight", "arched", "heavy", "bushy", "sparse"],
+   "choose": {"weights": {"thin": 15, "straight": 25, "arched": 20, "heavy": 20, "bushy": 10, "sparse": 10}},
+   "mods": [{"if": "age > 60 and sex == 'male'", "weights": {"straight": 10, "bushy": 40, "heavy": 30, "sparse": 20}}],
+   "depends_on": ["sex", "age"], "affects": ["shader:face.brow"], "inherit": "pick"},
+
+  {"id": "caricature", "layer": "L1", "group": "face", "type": "float", "range": [0, 1],
+   "note": "How far face and proportions depart from the mean (ghibli_style.md 1.3).",
+   "choose": {"beta": [2.0, 6.0]},
+   "mods": [{"add": "table('occupations', occupation, 'caricature') - 0.25"}, {"if": "age > 60", "add": 0.15}],
+   "depends_on": ["occupation", "age"], "affects": ["shape:face_*", "shape:head"]},
+
+  {"id": "facial_hair", "layer": "L1", "group": "face", "type": "pick",
+   "values": ["none", "stubble", "moustache", "short_beard", "full_beard"],
+   "choose": {"weights": {"none": 1}},
+   "mods": [{"if": "sex == 'male' and age >= 18", "weights": {"none": 45, "stubble": 20, "moustache": 12, "short_beard": 13, "full_beard": 10}}],
+   "depends_on": ["sex", "age"], "affects": ["shader:face", "mesh:beard"]},
+
+  {"id": "face_marks", "layer": "L1", "group": "face", "type": "tags",
+   "values": ["freckles", "mole", "scar", "crows_feet", "laugh_lines", "sun_weathered", "glasses"],
+   "choose": {"each": {"freckles": 0.12, "mole": 0.10, "scar": 0.03, "glasses": 0.18,
+                       "crows_feet": "0.9 if age > 55 else 0.0", "laugh_lines": "0.7 if age > 45 else 0.0",
+                       "sun_weathered": "0.7 if occupation in ['fisher', 'farmer', 'builder', 'dock_worker'] else 0.05"}},
+   "depends_on": ["age", "occupation"], "affects": ["shader:face", "mesh:glasses", "describe"]},
+
+  {"id": "style", "layer": "L1", "group": "clothing", "type": "pick",
+   "values": ["plain", "tidy", "practical", "worn", "old_fashioned", "flamboyant", "sporty"],
+   "choose": {"weights": {"plain": 30, "tidy": 18, "practical": 20, "worn": 12, "old_fashioned": 8, "flamboyant": 4, "sporty": 8}},
+   "mods": [{"if": "age > 65", "weights": {"old_fashioned": 40, "tidy": 25, "plain": 25}},
+            {"if": "income == 'low'", "reweight": {"worn": 25}}],
+   "depends_on": ["age", "income"], "affects": ["outfit.templates", "outfit.fabric", "outfit.wear"]},
+
+  {"id": "palette", "layer": "L1", "group": "clothing", "type": "pick",
+   "choose": {"weights": {"earth": 30, "sea": 20, "meadow": 15, "dusk": 12, "work": 23}},
+   "mods": [{"if": "style == 'flamboyant'", "reweight": {"dusk": 40, "meadow": 30}}],
+   "depends_on": ["style"], "affects": ["outfit.colours"]},
+
+  {"id": "accent_colour", "layer": "L1", "group": "clothing", "type": "int", "range": [-1, 4],
+   "note": "-1: none; else an index into the accent palette, for one item (ghibli_style.md 2.2 rule 1).",
+   "choose": {"weights": {"-1": 60, "0": 8, "1": 8, "2": 8, "3": 8, "4": 8}},
+   "mods": [{"if": "age < 13", "reweight": {"-1": 20}}],
+   "depends_on": ["age"], "affects": ["outfit.accent"]},
+
+  {"id": "wear", "layer": "L1", "group": "clothing", "type": "float", "range": [0, 1],
+   "choose": {"beta": [2, 4]},
+   "mods": [{"if": "income in ['none', 'low']", "add": 0.15}, {"if": "style == 'worn'", "add": 0.3}, {"if": "style == 'tidy'", "add": -0.15}],
+   "depends_on": ["income", "style"], "affects": ["shader:fabric.fade", "shader:fabric.patches"]},
+
+  {"id": "accessories", "layer": "L1", "group": "clothing", "type": "tags",
+   "values": ["hat", "cap", "scarf", "bag", "basket", "watch", "necklace", "earrings", "headscarf", "hairband"],
+   "choose": {"each": {"hat": "0.25 if age > 50 else 0.08", "cap": 0.12, "scarf": 0.10, "bag": 0.25, "basket": 0.04,
+                       "watch": 0.3, "necklace": 0.12, "earrings": "0.35 if sex == 'female' else 0.03", "headscarf": 0.03, "hairband": "0.2 if age < 18 else 0.03"}},
+   "depends_on": ["age", "sex"], "affects": ["mesh:accessory", "outfit.accent"]},
+
+  {"id": "gait", "layer": "L1", "group": "motion", "type": "vec4",
+   "note": "stride scale, cadence scale, bounce, arm swing: each around 1.0",
+   "choose": {"normal": [1.0, 0.08], "clamp": [0.7, 1.3]},
+   "mods": [{"if": "age > 65", "mul": [0.85, 0.9, 0.7, 0.7]}, {"if": "age < 13", "mul": [0.9, 1.25, 1.3, 1.2]}],
+   "depends_on": ["age", "build", "posture"], "affects": ["anim:walk", "anim:run"]},
+
+  {"id": "voice", "layer": "L1", "group": "motion", "type": "vec3", "note": "pitch, rate, roughness (for TTS or barks)",
+   "choose": {"normal": [0, 0.3], "clamp": [-1, 1]}, "depends_on": ["sex", "age"], "affects": ["audio:voice"]},
+
+  {"id": "personality", "layer": "L2", "group": "mind", "type": "map",
+   "keys": ["openness", "conscientiousness", "extraversion", "agreeableness", "neuroticism", "warmth", "humour", "courage", "honesty", "curiosity"],
+   "choose": {"normal": [0.5, 0.17], "clamp": [0, 1]},
+   "note": "Big Five plus facets that matter in dialogue. Mid-weighted, as in Dwarf Fortress: most people ordinary, few extreme.",
+   "affects": ["dialogue", "idles.gesture_amount", "schedule.jitter", "reactions"], "inherit": "blend"},
+
+  {"id": "speech", "layer": "L2", "group": "mind", "type": "map", "keys": ["formality", "verbosity", "dialect"],
+   "choose": {"normal": [0.5, 0.2], "clamp": [0, 1]},
+   "mods": [{"add": {"verbosity": "0.3 * (personality.extraversion - 0.5)"}}],
+   "depends_on": ["personality", "age", "occupation"], "affects": ["dialogue"]},
+
+  {"id": "preferences", "layer": "L2", "group": "mind", "type": "map", "keys": ["food", "colour", "place", "pastime"],
+   "choose": {"from_lists": true}, "note": "Lists come in the literary phase. The favourite colour feeds back into accessory colour by rule, not by dependency.",
+   "affects": ["dialogue", "gifts", "schedule.leisure"]},
+
+  {"id": "backstory", "layer": "L2", "group": "history", "type": "map", "keys": ["childhood", "adulthood"],
+   "choose": {"from_lists": true}, "note": "RimWorld-style bundles (skills, work limits, a forced trait or two), filtered by occupation and age. Written in the literary phase.",
+   "depends_on": ["occupation", "age"], "affects": ["skills", "dialogue", "knowledge"]},
+
+  {"id": "schedule", "layer": "L3", "group": "life", "type": "rule",
+   "choose": {"rule": "schedule_template", "args": ["table:occupations.hours", "personality", "household"]},
+   "note": "A pure function of time: where(person, t). See procedural_npcs.md 2.4.",
+   "depends_on": ["occupation", "personality"], "affects": ["placement"]},
+
+  {"id": "relationships", "layer": "L3", "group": "life", "type": "rule",
+   "choose": {"rule": "relationships", "note": "household members, plus deterministic friends and rivals among nearby residents"},
+   "affects": ["dialogue", "knowledge", "quests"]}
+ ]
+}
