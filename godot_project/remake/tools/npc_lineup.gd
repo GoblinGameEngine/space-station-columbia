@@ -3,11 +3,14 @@ extends SceneTree
 ## Lineup: a row of generated people under a daylight sun, rendered with the game's own outline
 ## pass and saved as a PNG -- the main visual check for the character generator.
 ##   ../godot/godot4 --path . --script res://remake/tools/npc_lineup.gd -- out.png [seed] [count] [first] [pop] [view]
-## view: front (default), side, back, three (3/4), face (close-up of the first four)
+## view: front (default), side, back, three (3/4), face (close-up of the first four),
+##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on),
+##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored)
 ## Opens a window briefly; needs the real renderer (not --headless).
 
 var out := "/tmp/npc_lineup.png"
 var frames := 0
+var walkers: Array = []
 
 
 func _init() -> void:
@@ -20,6 +23,8 @@ func _init() -> void:
 	var view: String = a[5] if a.size() > 5 else "front"
 	if view == "face":
 		count = mini(count, 4)
+	if view == "hands":
+		count = 4
 	root.size = Vector2i(1920, 1080)
 	for n in ["Hud", "GameMenu", "DialogBox"]:
 		var node := root.get_node_or_null(n)
@@ -53,12 +58,24 @@ func _init() -> void:
 	var labels := []
 	var tallest := 0.0
 	for i in count:
-		var pid := "B%d:%d" % [first + i, i % 3]
+		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands"] else "B%d:0" % first
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
 		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
-		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0}.get(view, 0.0)
+		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0}.get(view, 0.0)
 		world.add_child(npc)
+		if view == "hands":
+			npc.position = Vector3((i - 1.5) * 0.35, 0, 0)
+			npc.rotation_degrees.y = -90.0
+			var ha := NpcAnimator.attach(npc)
+			ha.manual = true
+			ha.grip = [0.0, 0.3, 0.6, 1.0][i]
+			walkers.append([ha, 0.0, 0.0])
+		if view == "walk":
+			npc.position.x = (i - (count - 1) / 2.0) * 0.6
+			var an := NpcAnimator.attach(npc)
+			an.manual = true
+			walkers.append([an, float(i) / count])
 		if OS.get_environment("NPC_DEBUG") != "":
 			(npc.body_mesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter("debug_view", int(OS.get_environment("NPC_DEBUG")))
 		tallest = maxf(tallest, float(npc.params.height))
@@ -67,7 +84,10 @@ func _init() -> void:
 	world.add_child(cam)
 	var width := count * spacing
 	cam.fov = 30
-	if view == "face":
+	if view == "hands":
+		var hy: float = tallest * 0.46
+		cam.look_at_from_position(Vector3(0, hy + 0.1, 1.1), Vector3(0, hy, 0))
+	elif view == "face":
 		cam.look_at_from_position(Vector3(0, 1.45, -2.3), Vector3(0, 1.35, 0))
 	else:
 		# the figures face -Z, so the camera stands at -Z looking back at them
@@ -80,6 +100,8 @@ func _init() -> void:
 
 func _process(_d: float) -> bool:
 	frames += 1
+	for w in walkers:
+		(w[0] as NpcAnimator).pose(w[1], w[2] if w.size() > 2 else 1.3, 0.0)
 	for n in ["Hud", "GameMenu", "DialogBox"]:          # the game's autoloaded UI
 		var node := root.get_node_or_null(n)
 		if node and node is CanvasItem:

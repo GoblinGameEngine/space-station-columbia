@@ -136,6 +136,28 @@ static func _clothes(v: Dictionary, id: String, seed: int, p_occasion: String, b
 	return {"outfit": outfit, "surfaces": surfaces}
 
 
+static func signature(v: Dictionary, outfit: Array) -> String:
+	## A person's look as the eye reads it in a crowd (McDonnell et al. 2009: head and upper body
+	## first): hair style and colour band, head covering, top garment and its colour band, skin band,
+	## height band, build, glasses.  Two people with the same signature read as look-alikes; the
+	## spawner keeps them apart (scale_survey.md 2.5).
+	var hc: Array = v.get("hair_colour", [0.0, 0.0])
+	var sk: Array = v.get("skin", [0.0, 0.0])
+	var head := "-"
+	var top := "-"
+	for g in outfit:
+		var c: Color = g.colour
+		var band := "%d%d" % [int(c.h * 8.0) % 8, int(c.v * 3.0)]
+		if g.slot == "head":
+			head = str(g.garment) + band
+		elif g.slot in ["over", "dress"] or (g.slot == "top" and top == "-"):
+			top = str(g.garment) + band + str(g.pattern)
+	var b: Array = v.get("build", [0.4, 0.3, 0.3])
+	var build: String = ["thin", "muscular", "heavy"][b.find(b.max())]
+	return "%s|%d|%d|%s|%s|%d|%d|%s|%s" % [v.get("hair_style", ""), int(float(hc[0]) * 4.0), int(float(v.get("hair_grey", 0.0)) * 3.0),
+		head, top, int(float(sk[0]) * 5.0), int(float(v.get("height", 1.6)) * 10.0), build, "g" if "glasses" in v.get("face_marks", []) else ""]
+
+
 static func _under_hat(style: String) -> String:
 	## Under a hat only what shows below the brim matters: long styles keep their length, short
 	## ones become a close crop so no volume pokes through the crown.

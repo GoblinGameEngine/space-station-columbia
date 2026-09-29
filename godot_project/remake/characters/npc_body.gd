@@ -20,16 +20,28 @@ const RING := 14          # vertices round a torso / leg ring
 const LIMB := 10          # round an arm, the neck
 const HEAD_AROUND := 24
 const CLOTHES_ROOM := 0.026        # (fraction of height) the most any outfit adds round the hips
+const FINGERS := ["Thumb", "Index", "Middle", "Ring", "Pinky"]
 const BONES := ["Hips", "Spine", "Chest", "Neck", "Head",
 	"ShoulderL", "UpperArmL", "LowerArmL", "HandL",
 	"ShoulderR", "UpperArmR", "LowerArmR", "HandR",
 	"UpperLegL", "LowerLegL", "FootL",
-	"UpperLegR", "LowerLegR", "FootR"]
+	"UpperLegR", "LowerLegR", "FootR",
+	"ThumbAL", "ThumbBL", "IndexAL", "IndexBL", "MiddleAL", "MiddleBL", "RingAL", "RingBL", "PinkyAL", "PinkyBL",
+	"ThumbAR", "ThumbBR", "IndexAR", "IndexBR", "MiddleAR", "MiddleBR", "RingAR", "RingBR", "PinkyAR", "PinkyBR"]
 const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "Neck": "Chest", "Head": "Neck",
 	"ShoulderL": "Chest", "UpperArmL": "ShoulderL", "LowerArmL": "UpperArmL", "HandL": "LowerArmL",
 	"ShoulderR": "Chest", "UpperArmR": "ShoulderR", "LowerArmR": "UpperArmR", "HandR": "LowerArmR",
 	"UpperLegL": "Hips", "LowerLegL": "UpperLegL", "FootL": "LowerLegL",
-	"UpperLegR": "Hips", "LowerLegR": "UpperLegR", "FootR": "LowerLegR"}
+	"UpperLegR": "Hips", "LowerLegR": "UpperLegR", "FootR": "LowerLegR",
+	"ThumbAL": "HandL", "ThumbBL": "ThumbAL", "IndexAL": "HandL", "IndexBL": "IndexAL", "MiddleAL": "HandL", "MiddleBL": "MiddleAL",
+	"RingAL": "HandL", "RingBL": "RingAL", "PinkyAL": "HandL", "PinkyBL": "PinkyAL",
+	"ThumbAR": "HandR", "ThumbBR": "ThumbAR", "IndexAR": "HandR", "IndexBR": "IndexAR", "MiddleAR": "HandR", "MiddleBR": "MiddleAR",
+	"RingAR": "HandR", "RingBR": "RingAR", "PinkyAR": "HandR", "PinkyBR": "PinkyAR"}
+# the hand's geometry, in hand lengths / palm half-widths: [across the palm (-1 front .. 1 back),
+# knuckle offset along the hand, first segment, second segment] -- relative lengths as in real hands
+const FINGER_DEF := {
+	"Index": [-0.62, 0.0, 0.26, 0.24], "Middle": [-0.2, 0.02, 0.28, 0.26],
+	"Ring": [0.22, 0.0, 0.26, 0.24], "Pinky": [0.62, -0.04, 0.2, 0.19]}
 
 
 # -- parameters ---------------------------------------------------------------------------------
@@ -160,6 +172,7 @@ static func skeleton_rest(L: Dictionary) -> Dictionary:
 		var el: Vector3 = sh + dir * L.upperarm_len
 		j["LowerArm" + side] = el
 		j["Hand" + side] = el + (dir + Vector3(0, 0, -0.04)).normalized() * L.forearm_len
+		_hand_joints(j, L, side, dir)
 		var hip := Vector3(k * L.leg_sep, L.leg_joint_y, 0)
 		j["UpperLeg" + side] = hip
 		j["LowerLeg" + side] = Vector3(k * L.leg_sep * 0.92, L.knee_y, -0.004 * L.T)
@@ -414,7 +427,8 @@ static func build(p: Dictionary) -> Dictionary:
 	parts.append(_head(L, J, p))
 	for side in ["L", "R"]:
 		parts.append(_arm(L, J, side))
-		parts.append(_hand(L, J, side))
+		for hp in _hand(L, J, side):
+			parts.append(hp)
 		parts.append(_leg(L, J, side))
 		parts.append(_foot(L, J, side))
 	return {"landmarks": L, "joints": J, "parts": parts}
@@ -539,21 +553,92 @@ static func _arm(L: Dictionary, J: Dictionary, side: String) -> Part:
 	return loft("arm" + side, rs, LIMB, true, false)
 
 
-static func _hand(L: Dictionary, J: Dictionary, side: String) -> Part:
-	## A simple mitten (Ghibli hands are drawn simply): palm and fingers as one flattened loft,
-	## thumb suggested by widening toward the body side.
+static func _hand_frame(J: Dictionary, side: String) -> Array:
+	## [wrist, along the hand, across the palm (front: -), palm normal (toward the body)]
 	var wr: Vector3 = J["Hand" + side]
-	var el: Vector3 = J["LowerArm" + side]
-	var dir := (wr - el).normalized()
+	var d := (wr - (J["LowerArm" + side] as Vector3)).normalized()
+	var across := (Vector3.BACK - d * d.dot(Vector3.BACK)).normalized()
+	var inward := d.cross(across).normalized()
+	if inward.x * (1.0 if side == "L" else -1.0) < 0.0:
+		inward = -inward
+	return [wr, d, across, inward]
+
+
+static func _hand_joints(j: Dictionary, L: Dictionary, side: String, _arm_dir: Vector3) -> void:
+	## Finger joints: knuckles along the palm's end, fanned a little; the thumb from the palm's
+	## front edge near the wrist, pointing down and forward.
+	var f := _hand_frame(j, side)
+	var wr: Vector3 = f[0]
+	var d: Vector3 = f[1]
+	var across: Vector3 = f[2]
+	var inward: Vector3 = f[3]
 	var hl: float = L.hand_len
-	var hw: float = L.wrist_r * 1.45
-	var side_ax := Vector3.BACK.cross(dir).normalized()     # across the palm
+	var pw: float = L.wrist_r * 1.5                                 # palm half-width
+	var palm := hl * 0.46
+	for fn in FINGER_DEF:
+		var fd: Array = FINGER_DEF[fn]
+		var fan: Vector3 = (d + across * float(fd[0]) * 0.12).normalized()
+		var base: Vector3 = wr + d * (palm + float(fd[1]) * hl) + across * float(fd[0]) * pw
+		j[fn + "A" + side] = base
+		j[fn + "B" + side] = base + fan * float(fd[2]) * hl
+	# the thumb lies along the palm's front edge, pointing down and a little in toward the palm
+	var tb: Vector3 = wr + d * hl * 0.16 - across * pw * 0.78 + inward * pw * 0.3
+	var tdir: Vector3 = (d * 0.92 - across * 0.18 + inward * 0.35).normalized()
+	j["ThumbA" + side] = tb
+	j["ThumbB" + side] = tb + tdir * hl * 0.2
+
+
+static func _hand(L: Dictionary, J: Dictionary, side: String) -> Array:
+	## Palm, four fingers in two segments and a thumb: simple shapes, as Ghibli draws hands, but
+	## real fingers the animator can curl (fists, holding, pointing, gestures).
+	var f := _hand_frame(J, side)
+	var wr: Vector3 = f[0]
+	var d: Vector3 = f[1]
+	var across: Vector3 = f[2]
+	var inward: Vector3 = f[3]
+	var hl: float = L.hand_len
+	var pw: float = L.wrist_r * 1.5
+	var th: float = L.wrist_r * 0.62                               # palm half-thickness
+	var hb := "Hand" + side
+	var out := []
 	var rs := []
-	var rows := [[-0.05, 0.75, 0.65], [0.12, 1.0, 0.62], [0.35, 1.08, 0.55], [0.58, 1.02, 0.5], [0.8, 0.85, 0.44], [0.95, 0.55, 0.36]]
-	for r in rows:
-		var c: Vector3 = wr + dir * hl * r[0]
-		rs.append(ring(c, Vector3.BACK, side_ax, hw * r[1], hw * r[2], [["Hand" + side, 1.0]], 2.4))
-	return loft("hand" + side, rs, LIMB, false, true)
+	for r in [[-0.06, 0.66, 0.9], [0.1, 0.86, 0.95], [0.3, 0.98, 0.9], [0.46, 0.94, 0.78]]:
+		rs.append(ring(wr + d * hl * r[0], across, inward, pw * r[1], th * r[2], [[hb, 1.0]], 2.2))
+	out.append(loft("palm" + side, rs, LIMB, false, true))
+	var fr := pw * 0.24                                             # finger radius
+	for fn in FINGER_DEF:
+		var fd: Array = FINGER_DEF[fn]
+		out.append(_finger(J, fn, side, float(fd[2]) * hl, float(fd[3]) * hl, fr * (0.85 if fn == "Pinky" else 1.0), across))
+	out.append(_finger(J, "Thumb", side, hl * 0.2, hl * 0.17, fr * 1.2, across))
+	# one rounded normal field for the whole hand: the screen-space outline draws a line wherever
+	# normals jump, and at a distance the jumps between fingers filled the hand with ink.  Blended
+	# toward "away from the hand's centre", the fingers still shade and move but don't outline each
+	# other; the hand's silhouette keeps its line.
+	var centre := wr + d * hl * 0.5
+	for p: Part in out:
+		for i in p.normals.size():
+			var radial := (p.verts[i] - centre)
+			radial = (radial - d * radial.dot(d) * 0.6).normalized()
+			p.normals[i] = (p.normals[i] * 0.3 + radial * 0.7).normalized()
+	return out
+
+
+static func _finger(J: Dictionary, fn: String, side: String, l1: float, l2: float, r: float, across: Vector3) -> Part:
+	var a: Vector3 = J[fn + "A" + side]
+	var b: Vector3 = J[fn + "B" + side]
+	var d1 := (b - a).normalized()
+	var ba := fn + "A" + side
+	var bb := fn + "B" + side
+	var ax := (across - d1 * d1.dot(across)).normalized()
+	var az := d1.cross(ax).normalized()
+	var rs := [
+		ring(a - d1 * r * 1.2, ax, az, r * 1.1, r * 1.0, [["Hand" + side, 0.7], [ba, 0.3]]),
+		ring(a + d1 * l1 * 0.3, ax, az, r, r * 0.92, [[ba, 1.0]]),
+		ring(b, ax, az, r * 0.92, r * 0.86, [[ba, 0.5], [bb, 0.5]]),
+		ring(b + d1 * l2 * 0.6, ax, az, r * 0.85, r * 0.8, [[bb, 1.0]]),
+		ring(b + d1 * l2 * 0.95, ax, az, r * 0.7, r * 0.66, [[bb, 1.0]]),
+	]
+	return loft(fn.to_lower() + side, rs, 6, false, true)
 
 
 static func _leg(L: Dictionary, J: Dictionary, side: String) -> Part:
