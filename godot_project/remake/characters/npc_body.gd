@@ -27,7 +27,8 @@ const BONES := ["Hips", "Spine", "Chest", "Neck", "Head",
 	"UpperLegL", "LowerLegL", "FootL",
 	"UpperLegR", "LowerLegR", "FootR",
 	"ThumbAL", "ThumbBL", "IndexAL", "IndexBL", "MiddleAL", "MiddleBL", "RingAL", "RingBL", "PinkyAL", "PinkyBL",
-	"ThumbAR", "ThumbBR", "IndexAR", "IndexBR", "MiddleAR", "MiddleBR", "RingAR", "RingBR", "PinkyAR", "PinkyBR"]
+	"ThumbAR", "ThumbBR", "IndexAR", "IndexBR", "MiddleAR", "MiddleBR", "RingAR", "RingBR", "PinkyAR", "PinkyBR",
+	"ToeL", "ToeR"]
 const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "Neck": "Chest", "Head": "Neck",
 	"ShoulderL": "Chest", "UpperArmL": "ShoulderL", "LowerArmL": "UpperArmL", "HandL": "LowerArmL",
 	"ShoulderR": "Chest", "UpperArmR": "ShoulderR", "LowerArmR": "UpperArmR", "HandR": "LowerArmR",
@@ -36,7 +37,9 @@ const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "Neck": "Chest",
 	"ThumbAL": "HandL", "ThumbBL": "ThumbAL", "IndexAL": "HandL", "IndexBL": "IndexAL", "MiddleAL": "HandL", "MiddleBL": "MiddleAL",
 	"RingAL": "HandL", "RingBL": "RingAL", "PinkyAL": "HandL", "PinkyBL": "PinkyAL",
 	"ThumbAR": "HandR", "ThumbBR": "ThumbAR", "IndexAR": "HandR", "IndexBR": "IndexAR", "MiddleAR": "HandR", "MiddleBR": "MiddleAR",
-	"RingAR": "HandR", "RingBR": "RingAR", "PinkyAR": "HandR", "PinkyBR": "PinkyAR"}
+	"RingAR": "HandR", "RingBR": "RingAR", "PinkyAR": "HandR", "PinkyBR": "PinkyAR",
+	"ToeL": "FootL", "ToeR": "FootR"}
+const BALL := 0.55          # the ball of the foot (the toe joint), in foot lengths forward of the ankle
 # the hand's geometry, in hand lengths / palm half-widths: [across the palm (-1 front .. 1 back),
 # knuckle offset along the hand, first segment, second segment] -- relative lengths as in real hands
 const FINGER_DEF := {
@@ -177,6 +180,8 @@ static func skeleton_rest(L: Dictionary) -> Dictionary:
 		j["UpperLeg" + side] = hip
 		j["LowerLeg" + side] = Vector3(k * L.leg_sep * 0.92, L.knee_y, -0.004 * L.T)
 		j["Foot" + side] = Vector3(k * L.leg_sep * 0.9, L.ankle_y, 0.004 * L.T)
+		# the ball of the foot: heel-to-toe roll pivots here, and the toes bend at push-off
+		j["Toe" + side] = Vector3(k * L.leg_sep * 0.9, L.ankle_r * 0.5, 0.004 * L.T - BALL * L.foot_len)
 	return j
 
 
@@ -674,5 +679,8 @@ static func _foot(L: Dictionary, J: Dictionary, side: String) -> Part:
 	for r in rows:
 		var zc: float = an.z + r[0] * fl
 		var yc: float = maxf(r[2] * ar * 0.9, an.y * r[3])
-		rs.append(ring(Vector3(an.x, yc, zc), Vector3.RIGHT, Vector3.UP, ar * r[1], ar * r[2], [["Foot" + side, 1.0]], 2.6))
+		# rings past the ball of the foot belong to the toe (blended across the joint)
+		var tw := clampf((-r[0] - (BALL - 0.12)) / 0.24, 0.0, 1.0)
+		var w := [["Foot" + side, 1.0]] if tw <= 0.0 else [["Foot" + side, 1.0 - tw], ["Toe" + side, tw]] if tw < 1.0 else [["Toe" + side, 1.0]]
+		rs.append(ring(Vector3(an.x, yc, zc), Vector3.RIGHT, Vector3.UP, ar * r[1], ar * r[2], w, 2.6))
 	return loft("foot" + side, rs, LIMB, true, true)

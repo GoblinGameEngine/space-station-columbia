@@ -58,11 +58,11 @@ func _init() -> void:
 	var labels := []
 	var tallest := 0.0
 	for i in count:
-		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands"] else "B%d:0" % first
+		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront"] else "B%d:0" % first
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
 		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
-		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0}.get(view, 0.0)
+		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0, "walkfront": 0.0}.get(view, 0.0)
 		world.add_child(npc)
 		if view == "hands":
 			npc.position = Vector3((i - 1.5) * 0.35, 0, 0)
@@ -71,11 +71,12 @@ func _init() -> void:
 			ha.manual = true
 			ha.grip = [0.0, 0.3, 0.6, 1.0][i]
 			walkers.append([ha, 0.0, 0.0])
-		if view == "walk":
+		if view == "walk" or view == "walkfront":
 			npc.position.x = (i - (count - 1) / 2.0) * 0.6
 			var an := NpcAnimator.attach(npc)
 			an.manual = true
-			walkers.append([an, float(i) / count])
+			an.speed = 1.25
+			walkers.append([an, float(i) / count, 1.0])
 		if OS.get_environment("NPC_DEBUG") != "":
 			(npc.body_mesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter("debug_view", int(OS.get_environment("NPC_DEBUG")))
 		tallest = maxf(tallest, float(npc.params.height))
@@ -101,7 +102,7 @@ func _init() -> void:
 func _process(_d: float) -> bool:
 	frames += 1
 	for w in walkers:
-		(w[0] as NpcAnimator).pose(w[1], w[2] if w.size() > 2 else 1.3, 0.0)
+		(w[0] as NpcAnimator).pose(w[1], w[2], 0.0)
 	for n in ["Hud", "GameMenu", "DialogBox"]:          # the game's autoloaded UI
 		var node := root.get_node_or_null(n)
 		if node and node is CanvasItem:

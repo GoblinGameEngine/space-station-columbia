@@ -298,7 +298,35 @@ static func _skirt(top_f: float, hem: float, flare: float, parts: Dictionary, L:
 		var dd := maxf(lerpf(hip.b, L.thigh_r * 1.25 + e, t), hip.b * 0.95) + flare * 0.08 * T * t * t
 		var wts := [["Hips", 1.0 - 0.6 * t], ["UpperLegL", 0.3 * t], ["UpperLegR", 0.3 * t]]
 		rs.append(NpcBody.ring(Vector3(0, y, (hip.c as Vector3).z), Vector3.RIGHT, Vector3.BACK, w, dd, wts, 2.1))
-	return NpcBody.loft(pname, rs, NpcBody.RING + 4, false, false)
+	var part := NpcBody.loft(pname, rs, NpcBody.RING + 4, false, false)
+	_skirt_weights(part, L)
+	return part
+
+
+static func _skirt_weights(p: NpcBody.Part, L: Dictionary) -> void:
+	## Per vertex, not per ring: each side of a skirt is carried by the leg under it, more so toward
+	## the hem, so a stepping thigh pushes the cloth forward instead of passing through it.
+	var top_y := p.verts[0].y
+	var hem_y := p.verts[p.verts.size() - 1].y
+	var hips := NpcBody.BONES.find("Hips")
+	var ll := NpcBody.BONES.find("UpperLegL")
+	var lr := NpcBody.BONES.find("UpperLegR")
+	var w0: float = maxf(float(L.leg_sep), 0.02)
+	for i in p.verts.size():
+		var v := p.verts[i]
+		var t := clampf((top_y - v.y) / maxf(top_y - hem_y, 0.01), 0.0, 1.0)
+		var side := 1.0 / (1.0 + exp(-v.x / (w0 * 0.6)))                 # 0 left .. 1 right
+		var legs := 0.85 * smoothstep(0.0, 0.7, t)
+		var wl := legs * (1.0 - side)
+		var wr := legs * side
+		p.bones[i * 4] = hips
+		p.bones[i * 4 + 1] = ll
+		p.bones[i * 4 + 2] = lr
+		p.bones[i * 4 + 3] = 0
+		p.weights[i * 4] = 1.0 - wl - wr
+		p.weights[i * 4 + 1] = wl
+		p.weights[i * 4 + 2] = wr
+		p.weights[i * 4 + 3] = 0.0
 
 
 static func _apron(def: Dictionary, parts: Dictionary, L: Dictionary, e: float) -> NpcBody.Part:

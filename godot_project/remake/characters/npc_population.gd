@@ -206,7 +206,7 @@ func _walk_speed(v: Dictionary) -> float:
 	var base := 1.25 if age < 60 else lerpf(1.1, 0.7, clampf((age - 60.0) / 30.0, 0.0, 1.0))
 	if str(v.get("mobility_aid", "none")) != "none":
 		base *= 0.6
-	return base * float(g[0]) * float(g[1]) * (0.8 if age < 8 else 1.0)
+	return base * float(g[0]) * float(g[1]) * (0.8 if age < 8 else 1.0) * float(NpcStyle.params(v).speed)
 
 
 # -- where they go ------------------------------------------------------------------------------------
