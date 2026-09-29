@@ -29,6 +29,7 @@ uniform float age_lines = 0.0;       // 0..1
 uniform float glasses = 0.0;         // 0 or 1
 uniform vec2 gaze = vec2(0.0);       // pupils' offset, -1..1 of their travel (the animator's eyes)
 uniform float blink = 0.0;           // 0 open .. 1 closed
+uniform float mouth_open = 0.0;      // 0 closed .. 1 open (speech)
 uniform int debug_view = 0;          // 1: show UV2
 
 // fabric (UV in metres: u round the garment from the front, v along it)
@@ -106,7 +107,11 @@ vec3 face(vec2 p, vec3 base) {
 	float mw = 0.045 * (1.0 + 0.3 * mouth_width);
 	float my = -0.215 + 0.01 * (p.x / mw) * (p.x / mw);
 	float mouth = abs(p.y - my) - 0.0035;
-	col = mix(col, mouth_color, aa(mouth, fw) * step(ax, mw));
+	col = mix(col, mouth_color, aa(mouth, fw) * step(ax, mw) * step(mouth_open, 0.05));
+	if (mouth_open > 0.05) {                                  // speaking: the mouth opens as a soft oval
+		float mo = ellipse(p, vec2(0.0, -0.22), vec2(mw * 0.75, 0.006 + 0.026 * mouth_open));
+		col = mix(col, mouth_color * 0.55, aa((sqrt(mo) - 1.0) * 0.02, fw));
+	}
 	// glasses: round rims
 	if (glasses > 0.5) {
 		float rim = abs(sqrt(ellipse(q, vec2(ex, -0.005), vec2(0.075, 0.07))) - 1.0) * 0.075;

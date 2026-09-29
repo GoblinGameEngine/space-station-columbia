@@ -56,6 +56,26 @@ var _blink_t := -1.0
 var _skin_mat: ShaderMaterial
 var _al1 := {}
 var _head_prev := Vector2.ZERO     # last frame's head (yaw, pitch), for the hair's lag
+var _antic := -1.0                 # time into an anticipation (-1: none)
+var lead_turn := 0.0               # the head turning ahead of the body into a coming turn (rad)
+var _talk_until := -1.0
+var _beat_next := 0.0
+var _beat_t := -1.0
+var _beat_side := "R"
+var _beat_off := Vector3.ZERO
+
+
+func talk(seconds: float) -> void:
+	## Speaking for a while: beat gestures (Kendon: preparation, stroke, hold, retraction; McNeill's
+	## beats mark the rhythm of speech), nods on the beats, the mouth moving.
+	_talk_until = t + seconds
+	_beat_next = t + 0.3
+
+
+func anticipate() -> void:
+	## Called just before a start (the plan knows it's coming): tame -- the weight rocks back and
+	## down -- before the tsume of the first step.
+	_antic = 0.0
 var _al2 := {}
 
 ## Idle stances as hand targets relative to the body's own landmarks (so one stance fits every
@@ -210,7 +230,14 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	var yaw := -cos(a) * deg_to_rad(5.0) * float(style.stride) * amp * walk
 	var hips_rest: Vector3 = _J.Hips
 	var sag := 0.006 * T * idle * absf(stance) + 0.01 * T * (1.0 - float(style.rise)) * 0.5
-	var hip_pos := hips_rest + Vector3(shift, bob - sag, 0)
+	# anticipation: back and down over ~0.4 s, sized by the person's anticipation (Strong: more)
+	var ak := 0.0
+	if _antic >= 0.0:
+		_antic += dt
+		ak = sin(PI * clampf(_antic / 0.4, 0.0, 1.0)) * (0.4 + 1.2 * float(style.anticipation))
+		if _antic >= 0.4:
+			_antic = -1.0
+	var hip_pos := hips_rest + Vector3(shift, bob - sag - 0.012 * T * ak, 0.018 * T * ak)
 	var hq := Quaternion.from_euler(Vector3(deg_to_rad(2.5) * walk, yaw, list))
 	skel.set_bone_pose_position(_bone.Hips, hip_pos)
 	_set_rot("Hips", hq)
@@ -252,7 +279,10 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 		var target := idle_target.lerp(walk_target, walk)
 		_leg_ik(side, target, hip_pos, hb, pitch * walk, toe * walk)
 	# -- spine, chest, arms, head
-	var lean: float = float(style.lean) + deg_to_rad(4.0) * walk * float(style.speed)
+	# the lean into the walk goes through a spring: on stopping it carries on forward and settles
+	# (follow-through), more for Free people (PERFORM overshoot)
+	var lean_t: float = float(style.lean) + deg_to_rad(4.0) * walk * float(style.speed) - deg_to_rad(5.0) * ak
+	var lean := _spring("lean", lean_t, dt, 1.6, clampf(0.9 - float(style.overshoot), 0.25, 0.9))
 	var turn := _spring("chest_turn", -yaw * 0.9 * float(style.torso_turn) / 0.29, dt, 2.2, 0.5)
 	var q_spine := Quaternion.from_euler(Vector3(lean * 0.5, -yaw * 0.4, -list * 0.6))
 	var q_chest := Quaternion.from_euler(Vector3(lean * 0.5 + deg_to_rad(1.6) * breathe * idle * float(style.breath), turn, -list * 0.25))
@@ -262,6 +292,23 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	var t_spine := t_hips * Transform3D(Basis(q_spine), (_J.Spine as Vector3) - (_J.Hips as Vector3))
 	var t_chest := t_spine * Transform3D(Basis(q_chest), (_J.Chest as Vector3) - (_J.Spine as Vector3))
 	var st: Variant = STANCES.get(_stance_pose)
+	# talking: a beat every 0.5-1.4 s (extraverts faster, bigger); a beat is a quick stroke out and
+	# down from a raised hand, a short hold, a slower retraction
+	var talking := time < _talk_until
+	var ext := float((npc.traits.get("personality", {}) as Dictionary).get("extraversion", 0.5))
+	if talking and time > _beat_next:
+		_beat_t = 0.0
+		_beat_side = "R" if _rng.rand() < 0.7 else "L"
+		_beat_off = Vector3((_rng.rand() - 0.5) * 0.03, (_rng.rand() - 0.5) * 0.03, 0)
+		_beat_next = time + lerpf(1.4, 0.5, ext) * (0.7 + 0.6 * _rng.rand())
+	var beat := 0.0
+	if _beat_t >= 0.0:
+		_beat_t += dt
+		var bt := _beat_t / lerpf(0.9, 0.6, ext)
+		beat = smoothstep(0.0, 0.25, bt) * (1.0 - smoothstep(0.55, 1.0, bt))
+		if bt >= 1.0:
+			_beat_t = -1.0
+	var gesture_w := _spring("gesture_w", 1.0 if talking else 0.0, dt, 1.0, 0.8)
 	var stance_w := _spring("stance_w", idle if st != null else 0.0, dt, 1.1, 0.8)
 	var arm_amp := deg_to_rad(17.0) * float(style.arm_swing) * amp * clampf(speed / 1.3 + 0.2, 0.4, 1.0)
 	var spread := deg_to_rad(4.0) * float(style.spread)
@@ -290,12 +337,23 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 				q_up = q_up.slerp(ik[0], w)
 				q_lo = q_lo.slerp(ik[1], w)
 				q_ha = q_ha.slerp(Quaternion.IDENTITY, w)
+		# the gesturing hand: raised in front of the body, stroking out and down on each beat
+		if gesture_w > 0.01 and side == _beat_side:
+			var amp_g := lerpf(0.6, 1.3, ext)
+			var stroke := Vector3(0.02, -0.035, -0.025) * amp_g * beat
+			var local := Vector3(k * 0.07, -0.07, -0.13) + stroke + _beat_off
+			var tgt := t_chest.basis * (local * float(_L.T)) + t_chest.origin
+			var ik := _arm_ik(side, tgt, t_chest, Vector3(k * 0.7, -0.6, 0.3))
+			var w := clampf(gesture_w, 0.0, 1.0)
+			q_up = q_up.slerp(ik[0], w)
+			q_lo = q_lo.slerp(ik[1], w)
+			q_ha = q_ha.slerp(Quaternion.from_euler(Vector3(deg_to_rad(-15.0) * beat, 0, 0)), w)
 		_set_rot("UpperArm" + side, q_up)
 		_set_rot("LowerArm" + side, q_lo)
 		_set_rot("Hand" + side, q_ha)
-	var look := _spring("look", _look_target * (1.0 - 0.6 * walk), dt, 1.2, 0.8)
+	var look := _spring("look", _look_target * (1.0 - 0.6 * walk) + lead_turn, dt, 1.4, 0.8)
 	# the head stays level as the body bobs and leans; sad people look down
-	var nod := _spring("nod", -lean * 0.7 - bob * 1.5 + float(style.head_down) + deg_to_rad(1.5) * _noise(3.0, 0.2) * idle, dt, 2.5, 0.6)
+	var nod := _spring("nod", -lean * 0.7 - bob * 1.5 + float(style.head_down) + deg_to_rad(1.5) * _noise(3.0, 0.2) * idle + deg_to_rad(4.0) * beat, dt, 2.5, 0.6)
 	_set_rot("Neck", Quaternion.from_euler(Vector3(nod * 0.6, look * 0.4 - turn * 0.5, list * 0.4)))
 	_set_rot("Head", Quaternion.from_euler(Vector3(nod * 0.4, look * 0.6, list * 0.3)))
 	# hair: hangs back from the head, lags its turns and bounces with the step (loose, underdamped)
@@ -310,7 +368,7 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	_hands(grip + 0.08 * breathe * idle + 0.1 * walk)
 	# the eyes lead: they jump to where the head is going and centre again as it arrives
 	if _skin_mat:
-		var eye_x := clampf((_look_target * (1.0 - 0.6 * walk) - look) * 2.4, -1.0, 1.0)
+		var eye_x := clampf((_look_target * (1.0 - 0.6 * walk) + lead_turn - look) * 2.4, -1.0, 1.0)
 		var eye_y := clampf(-float(style.head_down) * 1.5, -1.0, 0.0)
 		_skin_mat.set_shader_parameter("gaze", Vector2(eye_x, eye_y))
 		if dt > 0.0:
@@ -324,6 +382,10 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 					_blink_t = -1.0
 					_blink_at = time + 1.5 + _rng.rand() * 4.5              # ~15-20 a minute
 			_skin_mat.set_shader_parameter("blink", bl)
+			var mo := 0.0
+			if talking:                                           # syllables, roughly: open-close at ~5 Hz
+				mo = clampf(0.55 + 0.45 * sin(time * 31.0) * sin(time * 7.3 + 1.0), 0.0, 1.0) * (0.6 + 0.4 * absf(_noise(5.0, 3.0)))
+			_skin_mat.set_shader_parameter("mouth_open", mo)
 
 
 func _arm_ik(side: String, target: Vector3, t_chest: Transform3D, pole: Vector3) -> Array:

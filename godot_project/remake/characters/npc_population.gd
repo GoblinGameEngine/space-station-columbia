@@ -282,7 +282,12 @@ func _move(e: Dictionary, delta: float) -> void:
 	if e.wait > 0.0:
 		e.wait -= delta
 		anim.speed = 0.0
+		if e.wait < 0.4 and not e.get("antic", false):          # the plan knows a start is coming
+			anim.anticipate()
+			e.antic = true
+		_turn_body(e, delta)
 		return
+	e.antic = false
 	if e.i >= plan.size():
 		anim.speed = 0.0
 		return
@@ -305,14 +310,30 @@ func _move(e: Dictionary, delta: float) -> void:
 		e.x += dx / d * step
 		e.yaw = atan2(-dx, ds)
 	anim.speed = e.speed if d > step else 0.0
+	# the head leads into the next turn: near a waypoint, look toward where the path goes next
+	anim.lead_turn = 0.0
+	if d < 1.5 and e.i + 1 < plan.size():
+		var nxt: Variant = plan[e.i + 1]
+		if typeof(nxt) == TYPE_VECTOR2:
+			var ns := StationGeo.wrap_ds((nxt as Vector2).x - to.x)
+			var nx := (nxt as Vector2).y - to.y
+			if absf(ns) + absf(nx) > 0.1:
+				anim.lead_turn = clampf(angle_difference(float(e.get("yaw_body", 0.0)), atan2(-nx, ns)), -1.0, 1.0) * (1.0 - d / 1.5)
+	_turn_body(e, delta)
 	_place(e)
+
+
+func _turn_body(e: Dictionary, delta: float) -> void:
+	## The body turns to its heading over ~half a second (the head has already gone ahead).
+	var target := float(e.get("yaw", 0.0))
+	e.yaw_body = lerp_angle(float(e.get("yaw_body", target)), target, 1.0 - exp(-6.0 * delta))
 
 
 func _place(e: Dictionary) -> void:
 	var s: float = e.s
 	var x: float = e.x
 	var npc: Node3D = e.npc
-	npc.global_transform = Transform3D(StationGeo.basis(s, float(e.get("yaw", 0.0))), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
+	npc.global_transform = Transform3D(StationGeo.basis(s, float(e.get("yaw_body", e.get("yaw", 0.0)))), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
 
 
 # -- contact --------------------------------------------------------------------------------------------
@@ -330,8 +351,8 @@ func _contact(pid: String) -> String:
 		var pp := player.global_position
 		var ds := StationGeo.wrap_ds(StationGeo.s_of(pp) - float(e.s))
 		var dx := pp.x - float(e.x)
-		e.yaw = atan2(-dx, ds)
-		_place(e)
+		e.yaw = atan2(-dx, ds)                                  # (the body turns to it over ~0.5 s)
+		(e.anim as NpcAnimator).talk(4.5)
 	var v: Dictionary = e.persona
 	var who := describe(v)
 	var b: Dictionary = e.b
