@@ -1,0 +1,187 @@
+{
+ "_about": "What generated people wear (research/characters/generator_design_notes.md 5). 'garments': templates the builder (NpcGarments) makes from the body's own rings, so they fit any body. 'outfits': per occupation.outfit key, for each slot a weighted choice of garments (an option may be {\"w\": weight, \"if\": [tags]} with tags female, male, child, teen, adult, elder, style:<style>) and where its colour comes from. Add a garment or an outfit by adding an entry. Picks are deterministic per person (stream 'outfit:<slot>').",
+
+ "colours": {
+  "_about": "Named colour sources. palette = a swatch of the person's palette family (npc_traits tables.palettes); accent = the person's one accent colour if this slot carries it, else palette.",
+  "cream": "#e6dfcc", "white_shirt": "#e9e7dc", "black": "#2b2d38", "navy": "#2c3450", "denim": "#4d6181", "khaki": "#a8976c",
+  "police_blue": "#3b4a6b", "postal_blue": "#4f6e8e", "scrubs_green": "#7fa896", "scrubs_blue": "#7d98b8", "chef_white": "#ebe8df",
+  "oilskin": "#d9b440", "oilskin_green": "#56684a", "grey": "#8b8d8f", "brown_leather": "#6b4a36", "straw": "#d8c38c", "clergy_black": "#25252c"
+ },
+
+ "garments": {
+  "tshirt":        {"build": "top", "torso": [1.6, 9.0], "sleeve": 0.3, "ease": 0.010, "neck": "round", "patterns": {"solid": 6, "stripes": 3, "dots": 0.5}},
+  "shirt":         {"build": "top", "torso": [1.4, 9.0], "sleeve": 0.97, "ease": 0.013, "neck": "collar", "patterns": {"solid": 6, "pinstripe": 1.5, "check": 1.5}},
+  "shirt_short":   {"build": "top", "torso": [1.4, 9.0], "sleeve": 0.33, "ease": 0.013, "neck": "collar", "patterns": {"solid": 6, "check": 1.5, "stripes": 1}},
+  "blouse":        {"build": "top", "torso": [2.2, 9.0], "sleeve": 0.9, "ease": 0.015, "neck": "collar", "patterns": {"solid": 6, "floral": 1.5, "dots": 1}},
+  "blouse_short":  {"build": "top", "torso": [2.2, 9.0], "sleeve": 0.3, "ease": 0.016, "neck": "round", "patterns": {"solid": 5, "floral": 2, "dots": 1}},
+  "sweater":       {"build": "top", "torso": [1.8, 9.0], "sleeve": 1.0, "ease": 0.018, "neck": "round", "patterns": {"solid": 6, "stripes": 2, "knit": 2}},
+  "cardigan":      {"build": "top", "torso": [1.9, 8.8], "sleeve": 1.0, "ease": 0.018, "neck": "v", "layer": 1, "patterns": {"solid": 6, "knit": 2}},
+  "vest":          {"build": "top", "torso": [2.4, 8.4], "sleeve": 0.0, "ease": 0.012, "neck": "v", "layer": 1, "patterns": {"solid": 5, "knit": 2, "check": 1}},
+  "tunic_uniform": {"build": "top", "torso": [1.2, 9.0], "sleeve": 0.97, "ease": 0.016, "neck": "collar", "patterns": {"solid": 1}},
+  "sailor_top":    {"build": "top", "torso": [1.8, 9.0], "sleeve": 0.95, "ease": 0.016, "neck": "sailor", "patterns": {"solid": 1}},
+  "scrub_top":     {"build": "top", "torso": [1.2, 9.0], "sleeve": 0.3, "ease": 0.02, "neck": "v", "patterns": {"solid": 1}},
+  "chef_jacket":   {"build": "top", "torso": [1.0, 9.0], "sleeve": 0.97, "ease": 0.022, "neck": "collar", "patterns": {"solid": 1}},
+
+  "trousers":      {"build": "bottom", "top": 3.4, "legs": 0.97, "ease": 0.012, "patterns": {"solid": 8, "pinstripe": 0.5}},
+  "work_trousers": {"build": "bottom", "top": 3.4, "legs": 0.97, "ease": 0.019, "patterns": {"solid": 6, "denim": 3}},
+  "jeans":         {"build": "bottom", "top": 3.2, "legs": 0.99, "ease": 0.009, "patterns": {"denim": 1}},
+  "shorts":        {"build": "bottom", "top": 3.3, "legs": 0.34, "ease": 0.02, "patterns": {"solid": 6, "check": 1}},
+  "scrub_trousers":{"build": "bottom", "top": 3.4, "legs": 0.97, "ease": 0.022, "patterns": {"solid": 1}},
+
+  "skirt":         {"build": "skirt", "top": 3.6, "hem": 0.5, "flare": 0.35, "patterns": {"solid": 6, "check": 2, "floral": 1, "pleats": 2}},
+  "skirt_long":    {"build": "skirt", "top": 3.6, "hem": 0.82, "flare": 0.45, "patterns": {"solid": 6, "floral": 2, "tartan": 1}},
+  "pleated_skirt": {"build": "skirt", "top": 3.6, "hem": 0.45, "flare": 0.5, "patterns": {"pleats": 1}},
+
+  "dress":         {"build": "dress", "torso": [3.0, 9.0], "sleeve": 0.3, "ease": 0.014, "neck": "round", "hem": 0.55, "flare": 0.4, "patterns": {"solid": 5, "floral": 3, "dots": 2, "check": 1}},
+  "dress_long":    {"build": "dress", "torso": [3.0, 9.0], "sleeve": 0.95, "ease": 0.016, "neck": "collar", "hem": 0.85, "flare": 0.45, "patterns": {"solid": 6, "floral": 2}},
+  "pinafore":      {"build": "dress", "torso": [3.0, 7.6], "sleeve": 0.0, "ease": 0.02, "neck": "square", "hem": 0.5, "flare": 0.45, "layer": 1, "patterns": {"solid": 5, "check": 2}},
+
+  "overalls":      {"build": "overalls", "top": 7.2, "legs": 0.97, "ease": 0.022, "layer": 1, "patterns": {"denim": 3, "solid": 2}},
+  "coveralls":     {"build": "top+bottom", "torso": [0.0, 9.0], "sleeve": 0.97, "legs": 0.97, "ease": 0.026, "neck": "collar", "patterns": {"solid": 1}},
+
+  "apron_bib":     {"build": "apron", "top": 7.3, "hem": 0.55, "layer": 2, "patterns": {"solid": 6, "check": 1, "stripes": 1}},
+  "apron_waist":   {"build": "apron", "top": 3.9, "hem": 0.45, "layer": 2, "patterns": {"solid": 6, "check": 2}},
+
+  "jacket":        {"build": "coat", "torso": [1.2, 9.0], "sleeve": 1.0, "ease": 0.032, "neck": "collar", "hem": 0.0, "layer": 2, "patterns": {"solid": 6, "tartan": 1, "check": 1}},
+  "coat":          {"build": "coat", "torso": [1.2, 9.0], "sleeve": 1.0, "ease": 0.04, "neck": "collar", "hem": 0.55, "flare": 0.25, "layer": 3, "patterns": {"solid": 8, "tartan": 1}},
+  "raincoat":      {"build": "coat", "torso": [1.2, 9.0], "sleeve": 1.0, "ease": 0.045, "neck": "collar", "hem": 0.5, "flare": 0.3, "layer": 3, "patterns": {"solid": 1}},
+  "cassock":       {"build": "coat", "torso": [1.0, 9.0], "sleeve": 1.0, "ease": 0.03, "neck": "collar", "hem": 0.96, "flare": 0.2, "layer": 3, "patterns": {"solid": 1}},
+
+  "shoes":         {"build": "shoes", "height": 0.0, "ease": 0.005, "patterns": {"solid": 1}},
+  "boots":         {"build": "shoes", "height": 0.35, "ease": 0.007, "patterns": {"solid": 1}},
+  "rubber_boots":  {"build": "shoes", "height": 0.6, "ease": 0.012, "patterns": {"solid": 1}},
+  "sandals":       {"build": "shoes", "height": 0.0, "ease": 0.003, "patterns": {"solid": 1}},
+
+  "cap":           {"build": "cap", "visor": 0.5, "patterns": {"solid": 1}},
+  "flat_cap":      {"build": "cap", "visor": 0.3, "flat": true, "patterns": {"solid": 4, "tartan": 1, "herring": 2}},
+  "brim_hat":      {"build": "brim_hat", "crown": 0.45, "brim": 0.28, "patterns": {"solid": 1}},
+  "straw_hat":     {"build": "brim_hat", "crown": 0.35, "brim": 0.45, "patterns": {"weave": 1}},
+  "baker_cap":     {"build": "cap", "visor": 0.0, "tall": 0.35, "patterns": {"solid": 1}},
+  "headscarf":     {"build": "headscarf", "patterns": {"solid": 3, "floral": 2, "dots": 1}},
+  "police_cap":    {"build": "cap", "visor": 0.55, "tall": 0.2, "patterns": {"solid": 1}},
+  "hard_hat":      {"build": "cap", "visor": 0.2, "tall": 0.1, "hard": true, "patterns": {"solid": 1}}
+ },
+
+ "outfits": {
+  "casual": {"slots": {
+     "bottom": {"trousers": 4, "jeans": 3, "shorts": 1, "skirt": {"w": 3, "if": ["female"]}, "skirt_long": {"w": 2, "if": ["female"]}},
+     "top": {"tshirt": 3, "shirt": 3, "shirt_short": 2, "blouse": {"w": 3, "if": ["female"]}, "blouse_short": {"w": 2, "if": ["female"]}, "sweater": 2},
+     "dress": {"none": 6, "dress": {"w": 3, "if": ["female"]}},
+     "over": {"none": 6, "cardigan": 1.5, "vest": 1, "jacket": 1.5},
+     "feet": {"shoes": 6, "boots": 1, "sandals": 1},
+     "head": {"none": 8, "cap": 1, "brim_hat": 0.5, "straw_hat": 0.5}},
+   "colours": {"bottom": "palette_dark", "top": "palette", "dress": "palette", "over": "palette", "feet": "brown_leather", "head": "palette"}},
+
+  "retired": {"slots": {
+     "bottom": {"trousers": 5, "skirt_long": {"w": 4, "if": ["female"]}},
+     "top": {"shirt": 3, "blouse": {"w": 3, "if": ["female"]}, "sweater": 2},
+     "dress": {"none": 5, "dress_long": {"w": 2, "if": ["female"]}},
+     "over": {"none": 3, "cardigan": 4, "vest": 2, "coat": 1},
+     "feet": {"shoes": 5, "boots": 1},
+     "head": {"none": 5, "flat_cap": {"w": 3, "if": ["male"]}, "brim_hat": 1, "headscarf": {"w": 1, "if": ["female"]}}},
+   "colours": {"bottom": "palette_dark", "top": "palette", "dress": "palette", "over": "palette", "feet": "brown_leather", "head": "palette_dark"}},
+
+  "child": {"slots": {
+     "bottom": {"shorts": 4, "trousers": 2, "skirt": {"w": 4, "if": ["female"]}},
+     "top": {"tshirt": 5, "shirt_short": 2, "blouse_short": {"w": 3, "if": ["female"]}},
+     "dress": {"none": 5, "dress": {"w": 3, "if": ["female"]}, "pinafore": {"w": 1, "if": ["female"]}},
+     "over": {"none": 8, "sweater": 1},
+     "feet": {"shoes": 5, "sandals": 2},
+     "head": {"none": 7, "straw_hat": 1, "cap": 1}},
+   "colours": {"bottom": "palette", "top": "accent", "dress": "accent", "over": "palette", "feet": "palette_dark", "head": "straw"}},
+
+  "school": {"slots": {
+     "bottom": {"trousers": 5, "shorts": {"w": 3, "if": ["child"]}, "pleated_skirt": {"w": 6, "if": ["female"]}},
+     "top": {"shirt": 3, "shirt_short": 3, "sailor_top": {"w": 5, "if": ["female", "teen"]}},
+     "over": {"none": 5, "sweater": 1, "vest": 1},
+     "feet": {"shoes": 1},
+     "head": {"none": 10, "cap": 1}},
+   "colours": {"bottom": "navy", "top": "white_shirt", "over": "navy", "feet": "black", "head": "navy"}},
+
+  "workwear": {"slots": {
+     "bottom": {"work_trousers": 5, "jeans": 3},
+     "top": {"shirt": 3, "tshirt": 3, "shirt_short": 2},
+     "over": {"none": 3, "jacket": 2, "vest": 1, "overalls": 2},
+     "feet": {"boots": 5, "shoes": 1},
+     "head": {"none": 4, "cap": 3, "hard_hat": 1}},
+   "colours": {"bottom": "denim", "top": "palette", "over": "palette_dark", "feet": "brown_leather", "head": "palette"}},
+
+  "coveralls": {"slots": {
+     "bottom": {"none": 1}, "top": {"tshirt": 1},
+     "over": {"coveralls": 1},
+     "feet": {"boots": 1},
+     "head": {"none": 3, "cap": 2}},
+   "colours": {"top": "white_shirt", "over": "palette_dark", "feet": "black", "head": "palette_dark"}},
+
+  "farm": {"slots": {
+     "bottom": {"work_trousers": 5, "skirt_long": {"w": 2, "if": ["female"]}},
+     "top": {"shirt": 3, "shirt_short": 3, "blouse": {"w": 2, "if": ["female"]}},
+     "over": {"none": 2, "overalls": 3, "apron_waist": {"w": 1, "if": ["female"]}},
+     "feet": {"rubber_boots": 3, "boots": 3},
+     "head": {"straw_hat": 4, "cap": 2, "headscarf": {"w": 2, "if": ["female"]}, "none": 1}},
+   "colours": {"bottom": "palette_dark", "top": "palette", "over": "denim", "feet": "oilskin_green", "head": "straw"}},
+
+  "oilskins": {"slots": {
+     "bottom": {"work_trousers": 1}, "top": {"sweater": 3, "shirt": 1},
+     "over": {"raincoat": 2, "none": 2, "overalls": 1},
+     "feet": {"rubber_boots": 1},
+     "head": {"none": 2, "cap": 2, "flat_cap": 1}},
+   "colours": {"bottom": "navy", "top": "palette_dark", "over": "oilskin", "feet": "oilskin_green", "head": "navy"}},
+
+  "apron": {"slots": {
+     "bottom": {"trousers": 4, "skirt": {"w": 3, "if": ["female"]}},
+     "top": {"shirt": 3, "shirt_short": 2, "blouse": {"w": 2, "if": ["female"]}},
+     "over": {"apron_bib": 3, "apron_waist": 2},
+     "feet": {"shoes": 1},
+     "head": {"none": 6, "headscarf": {"w": 1, "if": ["female"]}}},
+   "colours": {"bottom": "palette_dark", "top": "palette", "over": "palette", "feet": "black", "head": "palette"}},
+
+  "baker": {"slots": {
+     "bottom": {"trousers": 4, "skirt": {"w": 2, "if": ["female"]}},
+     "top": {"shirt": 3, "shirt_short": 3},
+     "over": {"apron_bib": 1},
+     "feet": {"shoes": 1},
+     "head": {"baker_cap": 2, "headscarf": {"w": 1, "if": ["female"]}, "none": 1}},
+   "colours": {"bottom": "palette_dark", "top": "white_shirt", "over": "cream", "feet": "black", "head": "chef_white"}},
+
+  "kitchen": {"slots": {
+     "bottom": {"trousers": 1}, "top": {"chef_jacket": 3, "shirt_short": 1},
+     "over": {"apron_waist": 2, "none": 1}, "feet": {"shoes": 1}, "head": {"baker_cap": 1, "none": 2}},
+   "colours": {"bottom": "black", "top": "chef_white", "over": "palette", "feet": "black", "head": "chef_white"}},
+
+  "server": {"slots": {
+     "bottom": {"trousers": 3, "skirt": {"w": 3, "if": ["female"]}},
+     "top": {"shirt": 3, "blouse": {"w": 2, "if": ["female"]}},
+     "over": {"apron_waist": 3, "vest": 1}, "feet": {"shoes": 1}, "head": {"none": 1}},
+   "colours": {"bottom": "black", "top": "white_shirt", "over": "palette_dark", "feet": "black", "head": "black"}},
+
+  "scrubs": {"slots": {
+     "bottom": {"scrub_trousers": 1}, "top": {"scrub_top": 1},
+     "over": {"none": 4, "cardigan": 1}, "feet": {"shoes": 1}, "head": {"none": 1}},
+   "colours": {"bottom": "scrubs_blue", "top": "scrubs_blue", "over": "palette", "feet": "white_shirt", "head": "cream"}},
+
+  "office": {"slots": {
+     "bottom": {"trousers": 5, "skirt": {"w": 3, "if": ["female"]}},
+     "top": {"shirt": 5, "blouse": {"w": 3, "if": ["female"]}},
+     "dress": {"none": 6, "dress_long": {"w": 1, "if": ["female"]}},
+     "over": {"none": 2, "jacket": 3, "cardigan": 1, "vest": 1},
+     "feet": {"shoes": 1},
+     "head": {"none": 8, "brim_hat": 1}},
+   "colours": {"bottom": "palette_dark", "top": "white_shirt", "dress": "palette", "over": "palette_dark", "feet": "black", "head": "palette_dark"}},
+
+  "police": {"slots": {
+     "bottom": {"trousers": 1}, "top": {"tunic_uniform": 1}, "over": {"none": 1},
+     "feet": {"boots": 1}, "head": {"police_cap": 1}},
+   "colours": {"bottom": "police_blue", "top": "khaki", "feet": "black", "head": "police_blue"}},
+
+  "postal": {"slots": {
+     "bottom": {"trousers": 1}, "top": {"shirt_short": 2, "shirt": 1}, "over": {"none": 2, "jacket": 1},
+     "feet": {"shoes": 1}, "head": {"cap": 2, "none": 1}},
+   "colours": {"bottom": "navy", "top": "postal_blue", "over": "navy", "feet": "black", "head": "postal_blue"}},
+
+  "clergy": {"slots": {
+     "bottom": {"trousers": 1}, "top": {"shirt": 1}, "over": {"cassock": 1, "jacket": 1},
+     "feet": {"shoes": 1}, "head": {"none": 1}},
+   "colours": {"bottom": "clergy_black", "top": "clergy_black", "over": "clergy_black", "feet": "black", "head": "black"}}
+ }
+}

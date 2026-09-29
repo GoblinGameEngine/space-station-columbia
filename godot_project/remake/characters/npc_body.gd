@@ -19,6 +19,7 @@ class_name NpcBody
 const RING := 14          # vertices round a torso / leg ring
 const LIMB := 10          # round an arm, the neck
 const HEAD_AROUND := 24
+const CLOTHES_ROOM := 0.026        # (fraction of height) the most any outfit adds round the hips
 const BONES := ["Hips", "Spine", "Chest", "Neck", "Head",
 	"ShoulderL", "UpperArmL", "LowerArmL", "HandL",
 	"ShoulderR", "UpperArmR", "LowerArmR", "HandR",
@@ -93,8 +94,8 @@ static func landmarks(p: Dictionary) -> Dictionary:
 	# heights
 	var crotch: float = T * (_age_curve(age, [[1.0, 0.32], [3.0, 0.37], [5.0, 0.40], [10.0, 0.44], [13.0, 0.46], [18.0, 0.47]]) - 0.006 * sexd + 0.02 * p.legs)
 	var chin: float = T - H
-	var neck_base := T - 1.28 * H
-	var shoulder_y := T - 1.42 * H
+	var neck_base := T - 1.23 * H
+	var shoulder_y := T - 1.37 * H
 	var span: float = shoulder_y - crotch
 	var L := {
 		"T": T, "H": H, "heads": n, "pub": pub, "sexd": sexd, "girth": girth, "belly": belly,
@@ -150,8 +151,12 @@ static func skeleton_rest(L: Dictionary) -> Dictionary:
 		j["Shoulder" + side] = Vector3(k * L.neck_r * 1.1, L.shoulder_y + 0.02 * L.T, 0)
 		var sh := Vector3(k * sx, L.shoulder_y, 0.004 * L.T)
 		j["UpperArm" + side] = sh
-		# arms hang slightly out from the body (A-pose ~8 deg) so rest poses never intersect the hips
-		var dir := Vector3(k * sin(deg_to_rad(8.0)), -cos(deg_to_rad(8.0)), 0)
+		# arms hang out from the body just enough that the hand clears the hips and whatever is worn
+		# over them (the corner test found fixed 8 deg failing heavy builds and toddlers)
+		var need: float = L.hip_w + CLOTHES_ROOM * L.T + L.wrist_r * 1.6 - sx
+		var reach: float = L.upperarm_len + L.forearm_len
+		var ang := maxf(deg_to_rad(8.0), asin(clampf(need / reach, 0.0, 0.6)))
+		var dir := Vector3(k * sin(ang), -cos(ang), 0)
 		var el: Vector3 = sh + dir * L.upperarm_len
 		j["LowerArm" + side] = el
 		j["Hand" + side] = el + (dir + Vector3(0, 0, -0.04)).normalized() * L.forearm_len
@@ -184,15 +189,38 @@ static func ring(c: Vector3, ax: Vector3, az: Vector3, a: float, b: float, w: Ar
 	return {"c": c + off, "ax": ax, "az": az, "a": maxf(a, 0.002), "b": maxf(b, 0.002), "w": w, "e": e}
 
 
+static var _trig := {}     # around -> [PackedFloat32Array sin, cos] for t = k / around
+
+
+static func _table(around: int) -> Array:
+	var tb: Array = _trig.get(around, [])
+	if tb.is_empty():
+		var sn := PackedFloat32Array()
+		var cs := PackedFloat32Array()
+		for k in around:
+			var ang := TAU * k / around
+			sn.append(sin(ang))
+			cs.append(-cos(ang))
+		tb = [sn, cs]
+		_trig[around] = tb
+	return tb
+
+
 static func ring_point(r: Dictionary, t: float) -> Vector3:
 	## t in [0,1): 0 = the front (-az), going round through +ax.
 	var ang := TAU * t
-	var cs := -cos(ang)
-	var sn := sin(ang)
+	return _ring_point_sc(r, sin(ang), -cos(ang))
+
+
+static func _ring_point_sc(r: Dictionary, sn: float, cs: float) -> Vector3:
 	var e: float = r.e
-	var px := signf(sn) * pow(absf(sn), 2.0 / e)
-	var pz := signf(cs) * pow(absf(cs), 2.0 / e)
-	return r.c + r.ax * (px * r.a) + r.az * (pz * r.b)
+	var px := sn
+	var pz := cs
+	if absf(e - 2.0) > 0.01:                                 # superellipse; plain ellipses skip the pow
+		var q := 2.0 / e
+		px = signf(sn) * pow(absf(sn), q)
+		pz = signf(cs) * pow(absf(cs), q)
+	return (r.c as Vector3) + (r.ax as Vector3) * (px * float(r.a)) + (r.az as Vector3) * (pz * float(r.b))
 
 
 static func loft(name: String, rings: Array, around: int, cap_start := false, cap_end := false) -> Part:
@@ -206,13 +234,39 @@ static func loft(name: String, rings: Array, around: int, cap_start := false, ca
 		if i > 0:
 			acc += (rings[i].c - rings[i - 1].c).length()
 		vlen.append(acc)
+	# UV in metres: along the loft, and round it at the part's mean perimeter (one scale for the
+	# whole part, so vertical stripes stay vertical), so fabric patterns match on every body
+	var per := 0.0
+	for r in rings:
+		per += _perimeter(r)
+	per /= rings.size()
 	for i in rings.size():
 		var r: Dictionary = rings[i]
+		var tb := _table(around)
+		var sn: PackedFloat32Array = tb[0]
+		var cs: PackedFloat32Array = tb[1]
+		# the ring's fields unpacked once (dictionary reads per vertex were most of the cost)
+		var c: Vector3 = r.c
+		var ax: Vector3 = (r.ax as Vector3) * float(r.a)
+		var az: Vector3 = (r.az as Vector3) * float(r.b)
+		var e: float = r.e
+		var q := 2.0 / e
+		var ellipse := absf(e - 2.0) <= 0.01
+		var wb := weights_of(r.w)
+		var bi: PackedInt32Array = wb[0]
+		var bw: PackedFloat32Array = wb[1]
+		var v: float = vlen[i]
 		for k in around + 1:                                  # +1: the UV seam column
-			p.verts.append(ring_point(r, float(k % around) / around))
-			p.uvs.append(Vector2(float(k) / around, vlen[i] / maxf(acc, 1e-4)))
+			var px: float = sn[k % around]
+			var pz: float = cs[k % around]
+			if not ellipse:
+				px = signf(px) * pow(absf(px), q)
+				pz = signf(pz) * pow(absf(pz), q)
+			p.verts.append(c + ax * px + az * pz)
+			p.uvs.append(Vector2(float(k) / around * per, v))
 			p.uv2s.append(Vector2(-10, -10))
-			_push_weights(p, r.w)
+			p.bones.append_array(bi)
+			p.weights.append_array(bw)
 	var row := around + 1
 	for i in rings.size() - 1:
 		for k in around:
@@ -228,6 +282,13 @@ static func loft(name: String, rings: Array, around: int, cap_start := false, ca
 		_cap(p, (rings.size() - 1) * row, rings[-1], rings[-1].c - rings[-2].c)
 	_smooth_normals(p, rings.size())
 	return p
+
+
+static func _perimeter(r: Dictionary) -> float:
+	## Ramanujan's ellipse perimeter (close enough for superellipses here).
+	var a: float = r.a
+	var b: float = r.b
+	return PI * (3.0 * (a + b) - sqrt((3.0 * a + b) * (a + 3.0 * b)))
 
 
 static func _orient_outward(p: Part, rings: Array, from: int, to: int) -> void:
@@ -250,17 +311,36 @@ static func _orient_outward(p: Part, rings: Array, from: int, to: int) -> void:
 			p.indices[t + 2] = tmp
 
 
+static var _wcache := {}   # weights list (by its text) -> [PackedInt32Array bones, PackedFloat32Array weights]
+
+
 static func _push_weights(p: Part, w: Array) -> void:
-	var tot := 0.0
-	for x in w:
-		tot += float(x[1])
-	for i in 4:
-		if i < w.size():
-			p.bones.append(BONES.find(w[i][0]))
-			p.weights.append(float(w[i][1]) / tot)
-		else:
-			p.bones.append(0)
-			p.weights.append(0.0)
+	var c := weights_of(w)
+	p.bones.append_array(c[0])
+	p.weights.append_array(c[1])
+
+
+static func weights_of(w: Array) -> Array:
+	## A ring's skin weights normalised to 4 bones: [PackedInt32Array, PackedFloat32Array]; resolved
+	## once per distinct list.
+	var key := str(w)
+	var c: Array = _wcache.get(key, [])
+	if c.is_empty():
+		var bi := PackedInt32Array()
+		var bw := PackedFloat32Array()
+		var tot := 0.0
+		for x in w:
+			tot += float(x[1])
+		for i in 4:
+			if i < w.size():
+				bi.append(BONES.find(w[i][0]))
+				bw.append(float(w[i][1]) / tot)
+			else:
+				bi.append(0)
+				bw.append(0.0)
+		c = [bi, bw]
+		_wcache[key] = c
+	return c
 
 
 static func _cap(p: Part, start: int, r: Dictionary, outward: Vector3) -> void:
@@ -285,18 +365,25 @@ static func _cap(p: Part, start: int, r: Dictionary, outward: Vector3) -> void:
 static func _smooth_normals(p: Part, nrings: int) -> void:
 	## Face normals summed per welded position, so the UV seam column never shows as a crease (the
 	## screen-space outline draws a line wherever normals jump).
-	p.normals.resize(p.verts.size())
-	var acc := {}
-	for t in range(0, p.indices.size(), 3):
-		var a := p.indices[t]
-		var b := p.indices[t + 1]
-		var c := p.indices[t + 2]
-		var fn := (p.verts[b] - p.verts[a]).cross(p.verts[c] - p.verts[a])
-		for v in [a, b, c]:
-			var key := _weld(v, p.around, nrings)
-			acc[key] = acc.get(key, Vector3.ZERO) + fn
-	for v in p.verts.size():
-		var n: Vector3 = acc.get(_weld(v, p.around, nrings), Vector3.UP)
+	var nv := p.verts.size()
+	var acc := PackedVector3Array()
+	acc.resize(nv)
+	var row := p.around + 1
+	var ring_end := nrings * row
+	var ix := p.indices
+	var vs := p.verts
+	for t in range(0, ix.size(), 3):
+		var a := ix[t]
+		var b := ix[t + 1]
+		var c := ix[t + 2]
+		var fn := (vs[b] - vs[a]).cross(vs[c] - vs[a])
+		acc[a - p.around if (a < ring_end and a % row == p.around) else a] += fn
+		acc[b - p.around if (b < ring_end and b % row == p.around) else b] += fn
+		acc[c - p.around if (c < ring_end and c % row == p.around) else c] += fn
+	p.normals.resize(nv)
+	for v in nv:
+		var key: int = v - p.around if (v < ring_end and v % row == p.around) else v
+		var n := acc[key]
 		p.normals[v] = n.normalized() if n.length_squared() > 1e-12 else Vector3.UP
 
 
@@ -339,8 +426,8 @@ static func _torso(L: Dictionary, J: Dictionary) -> Part:
 		[L.waist_y, L.waist_w, L.waist_d, -bf, 2.1, [["Spine", 1.0]]],
 		[lerpf(L.waist_y, L.chest_y, 0.5), lerpf(L.waist_w, L.chest_w, 0.55), lerpf(L.waist_d, L.chest_d, 0.6), -bf * 0.5, 2.2, [["Spine", 0.6], ["Chest", 0.4]]],
 		[L.chest_y, L.chest_w, L.chest_d + L.bust * 0.5, -L.bust * 0.5, 2.3, [["Chest", 1.0]]],
-		[lerpf(L.chest_y, L.shoulder_y, 0.6), L.shoulder_w * 0.93, L.chest_d * 0.92, 0.0, 2.5, [["Chest", 1.0]]],
-		[L.shoulder_y + 0.01 * T, L.shoulder_w * 0.86, L.chest_d * 0.72, 0.004 * T, 2.6, [["Chest", 0.8], ["ShoulderL", 0.1], ["ShoulderR", 0.1]]],
+		[lerpf(L.chest_y, L.shoulder_y, 0.6), L.shoulder_w * 0.9, L.chest_d * 0.9, 0.0, 2.25, [["Chest", 1.0]]],
+		[L.shoulder_y + 0.012 * T, L.shoulder_w * 0.82, L.chest_d * 0.7, 0.004 * T, 2.1, [["Chest", 0.8], ["ShoulderL", 0.1], ["ShoulderR", 0.1]]],
 		[L.neck_base - 0.005 * T, L.neck_r * 2.2, L.neck_r * 1.6, 0.008 * T, 2.0, [["Chest", 0.7], ["Neck", 0.3]]],
 	]
 	for r in rows:
@@ -377,9 +464,9 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 	var d: float = L.head_d
 	# y (from chin, in H), half-width, half-depth, forward shift of the ring centre (in H, -z), exponent
 	var rows := [
-		[-0.02, 0.10 * jaw, 0.10, 0.20 + chin, 2.0],
-		[0.04, 0.20 * jaw, 0.20, 0.17 + chin * 0.8, 2.1],
-		[0.12, 0.29 * jaw, 0.30, 0.12 + chin * 0.4, 2.2],
+		[-0.02, 0.13 * jaw, 0.11, 0.20 + chin, 2.0],
+		[0.04, 0.23 * jaw, 0.21, 0.17 + chin * 0.8, 2.1],
+		[0.12, 0.31 * jaw, 0.31, 0.12 + chin * 0.4, 2.2],
 		[0.22, 0.34 * cheek, 0.37, 0.08, 2.2],
 		[0.32, 0.37 * cheek, 0.41, 0.05, 2.15],
 		[0.42, 0.395, 0.43, 0.03, 2.1],
@@ -430,7 +517,7 @@ static func _arm(L: Dictionary, J: Dictionary, side: String) -> Part:
 	var ua: float = L.upperarm_r
 	var rows := [
 		[sh - up * ua * 0.6, ua * 0.55, ua * 0.55, ax1, [["Shoulder" + side, 0.5], ["UpperArm" + side, 0.5]]],
-		[sh + up * ua * 0.2, ua * 1.12, ua * 1.05, ax1, [["UpperArm" + side, 0.8], ["Shoulder" + side, 0.2]]],
+		[sh + up * ua * 0.2, ua * 1.0, ua * 0.98, ax1, [["UpperArm" + side, 0.8], ["Shoulder" + side, 0.2]]],
 		[sh.lerp(el, 0.35), ua * 1.05, ua, ax1, [["UpperArm" + side, 1.0]]],
 		[sh.lerp(el, 0.75), ua * 0.9, ua * 0.88, ax1, [["UpperArm" + side, 1.0]]],
 		[el, L.elbow_r, L.elbow_r, (ax1 + ax2).normalized(), [["UpperArm" + side, 0.5], ["LowerArm" + side, 0.5]]],

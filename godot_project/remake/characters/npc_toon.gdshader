@@ -4,7 +4,7 @@ shader_type spatial;
 // drawn procedurally where the head mesh carries face coordinates in UV2 (x, y in head heights,
 // origin between the eyes; UV2 = -10 elsewhere).  Outlines come from the screen-space outline pass
 // (ScreenOutline), not from this shader.
-render_mode specular_disabled;
+render_mode specular_disabled, cull_disabled;   // garments are open at hems and cuffs: their insides show
 
 uniform vec3 lit_color : source_color = vec3(0.9, 0.78, 0.68);
 uniform vec3 shade_mul = vec3(0.8, 0.75, 0.72);    // shade / lit, linear, per channel
@@ -28,6 +28,12 @@ uniform float freckles = 0.0;        // 0 or 1
 uniform float age_lines = 0.0;       // 0..1
 uniform float glasses = 0.0;         // 0 or 1
 uniform int debug_view = 0;          // 1: show UV2
+
+// fabric (UV in metres: u round the garment from the front, v along it)
+uniform int pattern = 0;   // 0 solid 1 stripes 2 pinstripe 3 check 4 tartan 5 dots 6 floral 7 knit 8 denim 9 pleats 10 weave 11 herring
+uniform vec3 col2 : source_color = vec3(0.9, 0.87, 0.8);
+uniform vec3 col3 : source_color = vec3(0.3, 0.3, 0.35);
+uniform float pat_scale = 1.0;
 
 float ellipse(vec2 p, vec2 c, vec2 r) {
 	vec2 d = (p - c) / r;
@@ -102,12 +108,69 @@ vec3 face(vec2 p, vec3 base) {
 	return col;
 }
 
+float band(float x, float period, float width, float fw) {
+	// 1 inside a band of the given width (fraction of the period), antialiased
+	float f = abs(fract(x / period) - 0.5) * 2.0;           // 0 at band centre .. 1 between
+	return clamp((width - f) / max(fw / period * 2.0, 1e-4) + 0.5, 0.0, 1.0);
+}
+
+vec3 fabric(vec2 uv, vec3 base) {
+	float s = pat_scale;
+	vec2 fw = fwidth(uv);
+	float fwm = max(fw.x, fw.y);
+	if (pattern == 1) {                                     // stripes round the body
+		return mix(base, col2, band(uv.y, 0.045 * s, 0.45, fw.y));
+	} else if (pattern == 2) {                              // pinstripe
+		return mix(base, col2, band(uv.x, 0.022 * s, 0.1, fw.x) * 0.8);
+	} else if (pattern == 3) {                              // gingham check
+		float a = band(uv.x, 0.03 * s, 0.5, fw.x);
+		float b = band(uv.y, 0.03 * s, 0.5, fw.y);
+		return mix(base, col2, (a + b) * 0.45);
+	} else if (pattern == 4) {                              // tartan: wide and narrow sets, both ways
+		float p = 0.09 * s;
+		float w1 = max(band(uv.x, p, 0.35, fw.x), band(uv.y, p, 0.35, fw.y));
+		float w2 = max(band(uv.x + p * 0.5, p, 0.08, fw.x), band(uv.y + p * 0.5, p, 0.08, fw.y));
+		return mix(mix(base, col2, w1 * 0.6), col3, w2 * 0.8);
+	} else if (pattern == 5) {                              // dots
+		vec2 g = uv / (0.035 * s);
+		vec2 q = fract(g + vec2(0.5 * mod(floor(g.y), 2.0), 0.0)) - 0.5;
+		return mix(base, col2, clamp((0.22 - length(q)) / (fwm / (0.035 * s)) + 0.5, 0.0, 1.0));
+	} else if (pattern == 6) {                              // small five-petal flowers
+		vec2 g = uv / (0.05 * s);
+		vec2 id = floor(g);
+		vec2 q = fract(g) - 0.5 + (vec2(hash(id), hash(id + 7.0)) - 0.5) * 0.3;
+		float ang = atan(q.y, q.x) + hash(id) * 6.28;
+		float r = length(q);
+		float petal = 0.2 + 0.08 * cos(ang * 5.0);
+		vec3 c = mix(base, col2, clamp((petal - r) / (fwm / (0.05 * s)) + 0.5, 0.0, 1.0));
+		return mix(c, col3, clamp((0.06 - r) / (fwm / (0.05 * s)) + 0.5, 0.0, 1.0));
+	} else if (pattern == 7) {                              // knit rib: faint vertical ridges
+		return base * (0.94 + 0.06 * band(uv.x, 0.012 * s, 0.5, fw.x));
+	} else if (pattern == 8) {                              // denim twill
+		return base * (0.93 + 0.07 * band(uv.x + uv.y, 0.006, 0.5, fwm));
+	} else if (pattern == 9) {                              // pleats: fold lines
+		return mix(base, base * 0.78, band(uv.x, 0.045 * s, 0.07, fw.x));
+	} else if (pattern == 10) {                             // straw weave
+		float a = band(uv.x + uv.y, 0.012, 0.3, fwm);
+		float b = band(uv.x - uv.y, 0.012, 0.3, fwm);
+		return base * (1.0 - 0.1 * max(a, b));
+	} else if (pattern == 11) {                             // herringbone
+		float col = floor(uv.x / (0.02 * s));
+		float dir = mod(col, 2.0) * 2.0 - 1.0;
+		return base * (0.93 + 0.07 * band(uv.y + dir * uv.x, 0.012, 0.5, fwm));
+	}
+	return base;
+}
+
 void fragment() {
 	vec3 c = lit_color;
+	if (pattern > 0) {
+		c = fabric(UV, lit_color);
+	}
 	if (UV2.x > -5.0) {
 		c = face(UV2, lit_color);
 	}
-	ALBEDO = c;
+	ALBEDO = FRONT_FACING ? c : c * 0.55;                  // the inside of a garment reads darker
 	if (debug_view == 1) {
 		ALBEDO = UV2.x > -5.0 ? vec3(fract(UV2 * 5.0), 0.0) : vec3(0.0, 0.0, 1.0);
 	}
@@ -116,7 +179,7 @@ void fragment() {
 }
 
 void light() {
-	float ndl = dot(NORMAL, LIGHT);
+	float ndl = dot(NORMAL, LIGHT);   // (the insides of garments get the lit-side rule; darkened above)
 	float t = smoothstep(threshold - softness, threshold + softness, ndl) * ATTENUATION;
 	// two flat tones: full light where lit, the paint's shade ratio where not
 	DIFFUSE_LIGHT += LIGHT_COLOR / PI * mix(shade_mul, vec3(1.0), t) * 0.9;

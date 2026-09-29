@@ -55,7 +55,7 @@ func _init() -> void:
 	for i in count:
 		var pid := "B%d:%d" % [first + i, i % 3]
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
-		var npc := NpcCharacter.create(v, pid)
+		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
 		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0}.get(view, 0.0)
 		world.add_child(npc)
