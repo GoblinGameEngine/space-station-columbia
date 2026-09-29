@@ -11,7 +11,7 @@ in-game `DevBridge.gd`) is how the game is built and tested.
 ## Download
 
 The builds are on the [Releases](https://github.com/GoblinGameEngine/space-station-columbia/releases)
-page. The latest is [0.7.0 pre-alpha 15](https://github.com/GoblinGameEngine/space-station-columbia/releases/tag/v0.7.0-prealpha.15):
+page. The latest is [0.7.9 alpha 1](https://github.com/GoblinGameEngine/space-station-columbia/releases/tag/v0.7.9-alpha.1):
 - **Windows (x86_64):** `SpaceStationColumbia-windows.zip`. Unzip it, keep the `.pck` beside the
   `.exe`, and run `SpaceStationColumbia.exe`. It's unsigned, so SmartScreen may warn you: choose
   More info, then Run anyway.
@@ -62,7 +62,7 @@ permissive license is planned once the project reaches a usable state.
 
 ## Version
 
-**Current: `0.8.0-prealpha.16`** — pre-alpha. Tracked in the `VERSION`
+**Current: `0.7.9-alpha.1`** — alpha. Tracked in the `VERSION`
 file at the repo root (single source of truth) and mirrored into
 `godot_project/project.godot`'s `config/version`.
 
@@ -73,8 +73,8 @@ Scheme: `MAJOR.MINOR.PATCH-phase.N`, phase one of `prealpha` / `alpha`
 - `N` is a counter within the current phase, bumped on each tagged push
   during that phase (`prealpha.1`, `prealpha.2`, ...).
 - Advancing phases (e.g. pre-alpha → alpha) resets `N` to `1` and is a
-  deliberate call, not automatic — currently pre-alpha until told
-  otherwise.
+  deliberate call, not automatic. The project moved to alpha at 0.7.9
+  (2026-09-29).
 
 Each versioned push is tagged in git as `v<version>` (e.g. `v0.1.0-prealpha.1`).
 
