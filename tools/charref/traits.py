@@ -78,8 +78,9 @@ def clamp(x, a, b):
 
 
 class Person:
-    def __init__(self, data, seed, pid, layers=None):
+    def __init__(self, data, seed, pid, layers=None, population=None):
         self.data, self.seed, self.pid = data, seed, pid
+        self.pop = data.get("populations", {}).get(population, {}) if population else {}
         self.tables = data["tables"]
         self.defs = {t["id"]: t for t in data["traits"]}
         self.v = {}
@@ -119,7 +120,7 @@ class Person:
             if dep in self.defs:
                 self.get(dep)
         rng = Stream(fnv1a64(f"{self.seed}|{self.pid}|{tid}"))
-        ch = dict(t["choose"])
+        ch = dict(self.pop.get("override", {}).get(tid, t["choose"]))
         adds, muls, bias = [], [], None
         for m in t.get("mods", []):                       # conditions first: they may reshape the chooser
             if "if" in m and not self.ev(m["if"], rng):
@@ -169,7 +170,9 @@ class Person:
                     continue
                 r = D(zip(cols, row))
                 if self.ev(ch.get("where", "True"), rng, {"row": r}):
-                    w[k] = r[ch.get("weight_col", "weight")]
+                    mul = self.pop.get("table_mul", {}).get(ch["table"], {})
+                    w[k] = r[ch.get("weight_col", "weight")] * mul.get(k, 1.0) * \
+                        math.prod(m for key, m in mul.items() if ":" in key and r.get(key.split(":")[0]) == key.split(":")[1])
             return rng.pick(w) if w else None
         if "bands" in ch:
             b = ch["bands"][int(rng.pick({i: b[2] for i, b in enumerate(ch["bands"])}))]
@@ -237,6 +240,24 @@ def validate(data):
                 errs.append(f"{tid} ({t['layer']}) depends on {dep} ({layer[dep]}): a layer may only depend on lower layers")
         if "affects" not in t:
             errs.append(f"{tid}: say what it affects")
+    for pname, pop in data.get("populations", {}).items():
+        if pname.startswith("_"):
+            continue
+        for tid in pop.get("override", {}):
+            if tid not in idset:
+                errs.append(f"population {pname}: override of unknown trait {tid}")
+        for tb, mul in pop.get("table_mul", {}).items():
+            rowsd = data["tables"].get(tb)
+            if rowsd is None:
+                errs.append(f"population {pname}: no table {tb}")
+                continue
+            for key in mul:
+                if ":" in key:
+                    col, val = key.split(":", 1)
+                    if col not in rowsd["_cols"]:
+                        errs.append(f"population {pname}: table {tb} has no column {col}")
+                elif key not in rowsd:
+                    errs.append(f"population {pname}: table {tb} has no row {key}")
     # cycles
     deps = {t["id"]: [d for d in t.get("depends_on", []) if d in idset] for t in data["traits"]}
     state = {}
@@ -274,6 +295,7 @@ def main():
     ap.add_argument("--stats", type=int)
     ap.add_argument("--layers")
     ap.add_argument("--file", default=str(FILE))
+    ap.add_argument("--pop", help="settlement archetype (populations in the trait file)")
     a = ap.parse_args()
     data = json.loads(Path(a.file).read_text())
     errs = validate(data)
@@ -287,7 +309,7 @@ def main():
         c = collections.defaultdict(collections.Counter)
         num = collections.defaultdict(list)
         for i in range(a.stats):
-            p = Person(data, a.seed, f"B{i // 3}:{i % 3}", layers or {"L0", "L1"})
+            p = Person(data, a.seed, f"B{i // 3}:{i % 3}", layers or {"L0", "L1"}, a.pop)
             for k, v in p.v.items():
                 if isinstance(v, str):
                     c[k][v] += 1
@@ -304,7 +326,7 @@ def main():
         return
     ids = [a.id] if a.id else [f"B{1000 + i}:{i % 3}" for i in range(a.n)]
     for pid in ids:
-        p = Person(data, a.seed, pid, layers)
+        p = Person(data, a.seed, pid, layers, a.pop)
         print(f"\n{pid}: " + "  ".join(f"{k}={fmt(v)}" for k, v in p.v.items()))
 
 

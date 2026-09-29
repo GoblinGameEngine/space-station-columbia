@@ -123,9 +123,8 @@ HSV over every pixel, whole frames (characters and backgrounds together):
 1. Garment base colours are drawn from palettes with saturation mostly at 0.15–0.45 and value
    at 0.3–0.8. A character may have **one** accent (sat 0.5–0.8): a bow, scarf, bag or a
    child's shirt.
-2. The shade colour for every material is its own colour: a hue shift toward blue or violet,
-   higher saturation, lower value. It is never a multiply by grey. Skin shade shifts
-   warm (toward red-orange), as in Ghibli and in Guilty Gear Xrd's tint texture.
+2. The shade colour for every material is its own colour, derived from the lit colour by the
+   **measured** rule in §2.3, never a multiply by grey. In daylight the shadows are shallow.
 3. Outlines are a dark tint of the neighbouring colour or of the scene's shadow colour, never
    #000.
 4. White is cream (#e8e0cc-ish), black is dark blue-green or brown.
@@ -135,6 +134,27 @@ HSV over every pixel, whole frames (characters and backgrounds together):
 The per-film k-means palettes (16 clusters, with shares) are in `reference/ghibli/palette.json`
 and the swatch strips in `reference/ghibli/palettes/`; they are data the palette generator can
 load.
+
+### 2.3 Measured: the shadow colour (tools/charref/shade_pairs.py)
+In a box around one material, cel paint is a few flat colours, and the lit and shade tones are
+the two largest clusters of the same paint. There are 29 pairs from 7 films (Kiki, Spirited Away,
+Only Yesterday, Poppy Hill, Totoro and others), all daylight scenes. The data is in
+`data/shade_pairs.csv`. Four contaminated pairs were dropped (a paint picked against a line, glasses
+or hair).
+
+| material | n | value | saturation | hue | ΔL* | Δa* | Δb* |
+|---|---|---|---|---|---|---|---|
+| skin | 10 | ×0.85 | ×1.13 | −4° (toward red) | −13 | +2.0 | −2.8 |
+| light fabric (white, cream) | 7 | ×0.83 | ×1.06 | ~0 | −14 | −0.2 | −1.4 |
+| mid fabric | 10 | ×0.75 | ×1.14 | ~0 | −11 | −3.0 | +1.2 |
+| dark fabric (navy, black) | 2 | ×0.69 | ×1.17 | −7° | −7 | −2.3 | +3.0 |
+
+**The rule (daylight):** shade = lit colour in CIE Lab with **L\* −12 to −14**, chroma slightly up
+(saturation ×1.1–1.15), and the hue kept. Skin additionally moves a little toward red and away
+from yellow (a +2, b −3). Near-white fabrics lose a little yellow and read as a cool light grey.
+Shadows are **shallow**: 15–25% darker in value. My earlier guess of deep blue-violet shadows was
+wrong for daylight. Evening, night and interior light change the whole palette instead (Yasuda's
+per-time-of-day palettes), which is the scene light's job, not the material's.
 
 ---
 
@@ -172,7 +192,7 @@ Everything is procedural, so the "hand-edited" parts become rules:
 - **Threshold map:** generated per garment template, not painted: darker in folds (from the
   template's fold lines), under collars and at the neck, the inner arms and the crotch; lighter
   at the forehead, nose bridge and shoulders.
-- **Shade colour:** computed per material with the rule in §2.2.2. No tint textures are shipped.
+- **Shade colour:** computed per material with the measured rule in §2.3. No tint textures are shipped.
 - **Outlines:** inverted hull in the vertex shader, width by camera distance and vertex weight
   (thin at the fingers and hair tips). No outline past ~60 m; far characters are flat
   silhouettes.
@@ -207,13 +227,29 @@ running and fabric) are the motion reference for these.
 
 ## 5. Proportions
 
-The widely repeated "Ghibli characters are N heads tall" claims have no source we could
-find. From the stills: children ~4.5–5.5 heads, teenagers ~5.5–6.5, adults ~6.5–7.5 (Porco,
-the Kiki and Only Yesterday adults), slightly shorter than realistic (7.5–8), with larger heads,
-hands and feet. Elders and comic figures get very large heads (the caricature axis, §1.3). These
-are eyeball estimates from a small number of full-figure stills. Before the base mesh is
-fixed they should be measured properly (hand-annotated head and height points on 30–50
-full-figure frames); this is a listed follow-up in `README.md`.
+Measured with `tools/charref/measure.py` (head top, chin and feet on standing figures; the
+data is in `data/proportions.csv`). There are 13 figures so far, from Kiki, Spirited Away, Only
+Yesterday and Totoro:
+
+| group | n | heads tall (mean, range) | real people, for comparison |
+|---|---|---|---|
+| adults, main cast | 3 | ~6.0–6.3 (5.7–6.8) | ~7.5 |
+| adults, background | 5 | ~6.5 (5.5–7.3) | ~7.5 |
+| teens (Kiki at 13, middle-schoolers) | 3 | **5.2** (5.0–5.3) | ~7 |
+| children about 10 | 2 | ~5.1–6.2 | ~6 |
+
+**Findings:**
+- Heads are drawn about 1–1.5 heads larger than life at every age, and most of all for teenage
+  and young leads (5.2 heads at 13, against a realistic 7).
+- Background adults run taller (up to 7.3), and the main cast shorter: head size carries appeal
+  and attention.
+- The small background figures are low-precision (a head of about 20 px). Perspective on
+  figures walking toward the camera adds a few tenths either way.
+
+**For the base mesh:** adult ≈ 6.25 heads (a body shape key to 7 for tall and background figures,
+and caricature for pushed ones); teen ≈ 5.3; child 10 ≈ 5.3; child 5 ≈ 4.2 (extrapolated,
+unmeasured); elders ≈ 6 with a stoop. The head scale is a parameter:
+`head_scale = f(age) × (1 + 0.15·caricature)`, set so the ratios above come out.
 
 ---
 

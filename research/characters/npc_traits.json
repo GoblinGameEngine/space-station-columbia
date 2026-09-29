@@ -29,7 +29,8 @@
    "driver":         [ 2, "transport",   "mid",  "shift",     "workwear",  21, 70, 0.30],
    "doctor":         [ 0.5, "health",    "high", "day",       "office",    28, 75, 0.20],
    "pastor":         [ 0.3, "faith",     "low",  "day",       "clergy",    28, 85, 0.40],
-   "unemployed":     [ 4, "none",        "none", "home",      "casual",    18, 64, 0.25]
+   "unemployed":     [ 4, "none",        "none", "home",      "casual",    18, 64, 0.25],
+   "university_student": [0.5, "school",  "none", "school",    "casual",    18, 26, 0.10]
   },
   "palettes": {
    "_note": "Named palette families; colours are (hue deg, sat 0-1, value 0-1). Sat mostly 0.15-0.45 per ghibli_style.md 2.2.",
@@ -40,6 +41,22 @@
    "work":    [[210, 0.40, 0.35], [30, 0.25, 0.40], [0, 0.0, 0.30], [40, 0.45, 0.55], [200, 0.20, 0.55]],
    "accent":  [[5, 0.70, 0.70], [48, 0.70, 0.85], [200, 0.60, 0.65], [340, 0.55, 0.75], [120, 0.55, 0.55]]
   }
+ },
+
+ "populations": {
+  "_about": "Per-settlement context (research/demographics/_demographic_archetypes.md). 'override' replaces a trait's chooser; 'table_mul' multiplies table weights by row name or by 'col:value'. Pass the town's archetype as context; with none, the defaults above apply (they are the Stable Town).",
+  "stable_town": {"override": {"age": {"bands": [[0, 5, 6], [6, 17, 17], [18, 29, 13], [30, 44, 17], [45, 64, 25], [65, 84, 19], [85, 99, 3]]}},
+                  "table_mul": {"occupations": {"sector:manufacture": 1.3, "sector:farm": 1.5, "sector:health": 1.1}}},
+  "rust_belt":   {"override": {"age": {"bands": [[0, 5, 8], [6, 17, 22], [18, 29, 16], [30, 44, 18], [45, 64, 24], [65, 84, 11], [85, 99, 1]]}},
+                  "table_mul": {"occupations": {"sector:health": 1.3, "sector:food": 1.2, "unemployed": 2.5, "sector:office": 0.6}}},
+  "exurban":     {"override": {"age": {"bands": [[0, 5, 5], [6, 17, 20], [18, 29, 9], [30, 44, 18], [45, 64, 31], [65, 84, 15], [85, 99, 2]]}},
+                  "table_mul": {"occupations": {"sector:office": 1.8, "sector:health": 1.3, "doctor": 3.0, "factory_hand": 0.5, "unemployed": 0.4}}},
+  "county_seat": {"override": {"age": {"bands": [[0, 5, 6], [6, 17, 16], [18, 29, 14], [30, 44, 18], [45, 64, 26], [65, 84, 17], [85, 99, 3]]}},
+                  "table_mul": {"occupations": {"sector:public": 2.0, "sector:office": 1.5}}},
+  "college_town": {"override": {"age": {"bands": [[0, 5, 4], [6, 17, 10], [18, 29, 38], [30, 44, 16], [45, 64, 18], [65, 84, 12], [85, 99, 2]]}},
+                  "table_mul": {"occupations": {"university_student": 40, "sector:school": 1.8, "sector:food": 1.4}}},
+  "lake_resort": {"override": {"age": {"bands": [[0, 5, 3], [6, 17, 10], [18, 29, 9], [30, 44, 12], [45, 64, 32], [65, 84, 30], [85, 99, 4]]}},
+                  "table_mul": {"occupations": {"sector:food": 2.0, "sector:retail": 1.5, "fisher": 2.5, "sector:manufacture": 0.4}}}
  },
 
  "traits": [
