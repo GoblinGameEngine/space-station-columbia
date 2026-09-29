@@ -27,6 +27,8 @@ uniform float blush = 0.5;           // 0..1
 uniform float freckles = 0.0;        // 0 or 1
 uniform float age_lines = 0.0;       // 0..1
 uniform float glasses = 0.0;         // 0 or 1
+uniform vec2 gaze = vec2(0.0);       // pupils' offset, -1..1 of their travel (the animator's eyes)
+uniform float blink = 0.0;           // 0 open .. 1 closed
 uniform int debug_view = 0;          // 1: show UV2
 
 // fabric (UV in metres: u round the garment from the front, v along it)
@@ -67,17 +69,24 @@ vec3 face(vec2 p, vec3 base) {
 	vec2 er = vec2(0.056, 0.074) * (1.0 + 0.2 * eye_size);
 	vec2 q = vec2(ax, p.y);
 	float white = ellipse(q, vec2(ex, 0.0), er);
-	float iris = ellipse(q, vec2(ex - 0.004, -0.004), vec2(er.x * 0.72, er.y * 0.84));
-	float pupil = ellipse(q, vec2(ex - 0.004, -0.004), vec2(er.x * 0.36, er.y * 0.44));
-	float hl = ellipse(q, vec2(ex + 0.012 * sign(p.x) * 0.0 + 0.01, 0.022), vec2(er.x * 0.2, er.y * 0.18));
+	// gaze: the iris moves within the eye (x mirrored per side: q uses |x|)
+	vec2 g = vec2(gaze.x * sign(p.x), gaze.y) * er * vec2(0.32, 0.25);
+	float iris = ellipse(q, vec2(ex - 0.004, -0.004) + g, vec2(er.x * 0.72, er.y * 0.84));
+	float pupil = ellipse(q, vec2(ex - 0.004, -0.004) + g, vec2(er.x * 0.36, er.y * 0.44));
+	float hl = ellipse(q, vec2(ex + 0.01, 0.022) + g * 0.6, vec2(er.x * 0.2, er.y * 0.18));
 	col = mix(col, vec3(0.96, 0.94, 0.9), aa((white - 1.0) * er.x, fw));
 	col = mix(col, eye_color, aa((iris - 1.0) * er.x * 0.7, fw) * step(white, 1.0));
 	col = mix(col, eye_color * 0.35, aa((pupil - 1.0) * er.x * 0.35, fw));
 	col = mix(col, vec3(1.0), aa((hl - 1.0) * er.x * 0.2, fw * 0.5));
-	// upper lid: a thick line on the top of the eye
+	// upper lid: a thick line on the top of the eye; a blink brings it down over the eye (skin
+	// above the lid line, the line itself travelling down)
+	float lid_y = er.y * (1.0 - 2.1 * blink);
+	float lidded = step(white, 1.0) * step(lid_y, p.y);
+	col = mix(col, base, lidded * step(0.02, blink));
 	float lid = abs(sqrt(white) - 1.0) * er.x;
 	float top = step(-0.01, p.y - 0.0 + 0.012);
-	col = mix(col, line_color, aa(lid - 0.006, fw) * top * step(white, 1.6));
+	col = mix(col, line_color, aa(lid - 0.006, fw) * top * step(white, 1.6) * step(blink, 0.5));
+	col = mix(col, line_color, aa(abs(p.y - lid_y) - 0.005, fw) * step(white, 1.05) * step(0.02, blink));
 	// brows
 	float by = 0.11 + 0.012 * brow_height;
 	float bx = ax - ex;

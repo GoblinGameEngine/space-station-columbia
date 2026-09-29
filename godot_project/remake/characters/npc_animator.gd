@@ -47,6 +47,26 @@ var _L: Dictionary
 var _l1 := {}
 var _l2 := {}
 var _rest_pole := Vector3(0, 0, -1)
+var _arm_rest_pole := Vector3(0, 0, 1)      # elbows point backward
+var _stance_pose := "loose"
+var _next_stance := 10.0
+var _stance_weights := {}
+var _blink_at := 3.0
+var _blink_t := -1.0
+var _skin_mat: ShaderMaterial
+var _al1 := {}
+var _al2 := {}
+
+## Idle stances as hand targets relative to the body's own landmarks (so one stance fits every
+## body): [which frame ("hips" or "chest"), left wrist offset, right wrist offset, elbow direction]
+## -- offsets in fractions of height from that frame's joint; null = that arm hangs loose.
+const STANCES := {
+	"loose": null,
+	"clasped_front": ["hips", Vector3(-0.022, -0.06, -0.085), Vector3(0.022, -0.06, -0.085), Vector3(0.55, -0.2, 0.8)],
+	"behind_back": ["hips", Vector3(-0.018, 0.0, 0.085), Vector3(0.018, 0.0, 0.085), Vector3(0.75, -0.25, 0.6)],
+	"folded": ["chest", Vector3(0.04, -0.045, -0.085), Vector3(-0.045, -0.03, -0.1), Vector3(0.5, -0.85, 0.1)],
+	"hand_on_hip": ["hips", null, Vector3(0.13, 0.055, 0.0), Vector3(0.9, 0.0, 0.45)],
+}
 
 
 static func attach(p_npc: NpcCharacter) -> NpcAnimator:
@@ -66,8 +86,26 @@ func _ready() -> void:
 	for side in ["L", "R"]:
 		_l1[side] = ((_J["LowerLeg" + side] as Vector3) - (_J["UpperLeg" + side] as Vector3)).length()
 		_l2[side] = ((_J["Foot" + side] as Vector3) - (_J["LowerLeg" + side] as Vector3)).length()
+	for side in ["L", "R"]:
+		_al1[side] = ((_J["LowerArm" + side] as Vector3) - (_J["UpperArm" + side] as Vector3)).length()
+		_al2[side] = ((_J["Hand" + side] as Vector3) - (_J["LowerArm" + side] as Vector3)).length()
 	_rng = NpcRng.for_trait(npc.world_seed, npc.pid, "anim")
 	set_mood(mood)
+	# which stances this person falls into (personality; elders clasp their hands behind them)
+	var p: Dictionary = npc.traits.get("personality", {})
+	var agr := float(p.get("agreeableness", 0.5))
+	var ext := float(p.get("extraversion", 0.5))
+	var con := float(p.get("conscientiousness", 0.5))
+	var old := smoothstep(55.0, 80.0, float(npc.traits.get("age", 30)))
+	_stance_weights = {"loose": 3.0, "clasped_front": 1.0 + 2.0 * agr + (1.0 - ext),
+		"behind_back": 0.5 + 2.0 * con + 3.0 * old, "folded": 0.3 + 2.0 * (1.0 - agr) + (1.0 - ext),
+		"hand_on_hip": 0.2 + 2.0 * ext * (1.0 - 0.5 * agr)}
+	if float(npc.traits.get("age", 30)) < 8.0:
+		_stance_weights = {"loose": 1.0}
+	_next_stance = 3.0 + _rng.rand() * 10.0
+	var m := npc.body_mesh.mesh as ArrayMesh
+	if m and m.get_surface_count() > 0:
+		_skin_mat = m.surface_get_material(0) as ShaderMaterial
 	t = _rng.rand() * 10.0                   # people aren't in step with each other
 	_seed = _rng.rand() * 100.0
 	_next_glance = 1.0 + _rng.rand() * 6.0
@@ -153,6 +191,11 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 		_look_target = 0.0 if absf(_look_target) > 0.1 else (_rng.rand() - 0.5) * 1.1 * float(style.look_far)
 		var hold := 2.5 + _rng.rand() * 7.0
 		_next_glance = time + (hold / float(style.look_often) if _look_target == 0.0 else 0.8 + _rng.rand() * 1.5)
+		if _rng.rand() < 0.6:
+			_blink_t = 0.0                                  # blinks come with gaze shifts (Ruhland 2015)
+	if time > _next_stance:
+		_stance_pose = _rng.pick(_stance_weights)
+		_next_stance = time + 8.0 + _rng.rand() * 25.0
 	if time > _next_shift:
 		_stance = -_stance
 		_next_shift = time + 6.0 + _rng.rand() * 18.0
@@ -210,8 +253,15 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	# -- spine, chest, arms, head
 	var lean: float = float(style.lean) + deg_to_rad(4.0) * walk * float(style.speed)
 	var turn := _spring("chest_turn", -yaw * 0.9 * float(style.torso_turn) / 0.29, dt, 2.2, 0.5)
-	_set_rot("Spine", Quaternion.from_euler(Vector3(lean * 0.5, -yaw * 0.4, -list * 0.6)))
-	_set_rot("Chest", Quaternion.from_euler(Vector3(lean * 0.5 + deg_to_rad(1.6) * breathe * idle * float(style.breath), turn, -list * 0.25)))
+	var q_spine := Quaternion.from_euler(Vector3(lean * 0.5, -yaw * 0.4, -list * 0.6))
+	var q_chest := Quaternion.from_euler(Vector3(lean * 0.5 + deg_to_rad(1.6) * breathe * idle * float(style.breath), turn, -list * 0.25))
+	_set_rot("Spine", q_spine)
+	_set_rot("Chest", q_chest)
+	var t_hips := Transform3D(hb, hip_pos)
+	var t_spine := t_hips * Transform3D(Basis(q_spine), (_J.Spine as Vector3) - (_J.Hips as Vector3))
+	var t_chest := t_spine * Transform3D(Basis(q_chest), (_J.Chest as Vector3) - (_J.Spine as Vector3))
+	var st: Variant = STANCES.get(_stance_pose)
+	var stance_w := _spring("stance_w", idle if st != null else 0.0, dt, 1.1, 0.8)
 	var arm_amp := deg_to_rad(17.0) * float(style.arm_swing) * amp * clampf(speed / 1.3 + 0.2, 0.4, 1.0)
 	var spread := deg_to_rad(4.0) * float(style.spread)
 	for side in ["L", "R"]:
@@ -222,16 +272,72 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 		var arm := _spring("arm" + side, arm_t, dt, 1.8, 0.45)
 		# the arm swings a little across the body on its forward swing (Muybridge)
 		var across := deg_to_rad(5.0) * maxf(0.0, arm / maxf(arm_amp, 0.01)) * walk
-		_set_rot("UpperArm" + side, Quaternion.from_euler(Vector3(arm, -k * across * 0.5, -k * (spread + deg_to_rad(1.5) * idle) + k * across)))
 		var elbow := _spring("elbow" + side, deg_to_rad(12.0 + 10.0 * walk) + maxf(0.0, arm) * 0.8 + float(style.elbow), dt, 2.2, 0.5)
-		_set_rot("LowerArm" + side, Quaternion.from_euler(Vector3(elbow, 0, 0)))
-		_set_rot("Hand" + side, Quaternion.from_euler(Vector3(_spring("wrist" + side, elbow * 0.3, dt, 2.6, 0.4), 0, 0)))
+		var q_up := Quaternion.from_euler(Vector3(arm, -k * across * 0.5, -k * (spread + deg_to_rad(1.5) * idle) + k * across))
+		var q_lo := Quaternion.from_euler(Vector3(elbow, 0, 0))
+		var q_ha := Quaternion.from_euler(Vector3(_spring("wrist" + side, elbow * 0.3, dt, 2.6, 0.4), 0, 0))
+		# an idle stance: the hand goes to its place by arm IK, blended in and out
+		if st != null and stance_w > 0.01:
+			var off: Variant = st[1] if side == "L" else st[2]
+			if off != null:
+				var frame: Transform3D = t_hips if st[0] == "hips" else t_chest
+				var local: Vector3 = (off as Vector3) * float(_L.T)
+				var tgt := frame.basis * local + frame.origin
+				var pole: Vector3 = st[3]
+				var ik := _arm_ik(side, tgt, t_chest, Vector3(-pole.x if side == "L" else pole.x, pole.y, pole.z))
+				var w := clampf(stance_w, 0.0, 1.0)
+				q_up = q_up.slerp(ik[0], w)
+				q_lo = q_lo.slerp(ik[1], w)
+				q_ha = q_ha.slerp(Quaternion.IDENTITY, w)
+		_set_rot("UpperArm" + side, q_up)
+		_set_rot("LowerArm" + side, q_lo)
+		_set_rot("Hand" + side, q_ha)
 	var look := _spring("look", _look_target * (1.0 - 0.6 * walk), dt, 1.2, 0.8)
 	# the head stays level as the body bobs and leans; sad people look down
 	var nod := _spring("nod", -lean * 0.7 - bob * 1.5 + float(style.head_down) + deg_to_rad(1.5) * _noise(3.0, 0.2) * idle, dt, 2.5, 0.6)
 	_set_rot("Neck", Quaternion.from_euler(Vector3(nod * 0.6, look * 0.4 - turn * 0.5, list * 0.4)))
 	_set_rot("Head", Quaternion.from_euler(Vector3(nod * 0.4, look * 0.6, list * 0.3)))
 	_hands(grip + 0.08 * breathe * idle + 0.1 * walk)
+	# the eyes lead: they jump to where the head is going and centre again as it arrives
+	if _skin_mat:
+		var eye_x := clampf((_look_target * (1.0 - 0.6 * walk) - look) * 2.4, -1.0, 1.0)
+		var eye_y := clampf(-float(style.head_down) * 1.5, -1.0, 0.0)
+		_skin_mat.set_shader_parameter("gaze", Vector2(eye_x, eye_y))
+		if dt > 0.0:
+			if _blink_t < 0.0 and time > _blink_at:
+				_blink_t = 0.0
+			var bl := 0.0
+			if _blink_t >= 0.0:
+				_blink_t += dt
+				bl = sin(PI * clampf(_blink_t / 0.16, 0.0, 1.0))
+				if _blink_t >= 0.16:
+					_blink_t = -1.0
+					_blink_at = time + 1.5 + _rng.rand() * 4.5              # ~15-20 a minute
+			_skin_mat.set_shader_parameter("blink", bl)
+
+
+func _arm_ik(side: String, target: Vector3, t_chest: Transform3D, pole: Vector3) -> Array:
+	## Two-bone arm IK -> [UpperArm local, LowerArm local] rotations (the Shoulder bone at rest).
+	var shoulder := t_chest * ((_J["UpperArm" + side] as Vector3) - (_J.Chest as Vector3))
+	var l1: float = _al1[side]
+	var l2: float = _al2[side]
+	var d := target - shoulder
+	var dist := clampf(d.length(), absf(l1 - l2) + 0.01, (l1 + l2) * 0.999)
+	var dn := d.normalized()
+	var pn := pole.normalized()
+	var perp := (pn - dn * pn.dot(dn))
+	if perp.length() < 0.01:
+		perp = Vector3(0, 0, 1) - dn * dn.z
+	perp = perp.normalized()
+	var a1 := acos(clampf((l1 * l1 + dist * dist - l2 * l2) / (2.0 * l1 * dist), -1.0, 1.0))
+	var upper := (dn * cos(a1) + perp * sin(a1)).normalized()
+	var elbow_p := shoulder + upper * l1
+	var fore := (shoulder + dn * dist - elbow_p).normalized()
+	var r1: Vector3 = ((_J["LowerArm" + side] as Vector3) - (_J["UpperArm" + side] as Vector3)).normalized()
+	var r2: Vector3 = ((_J["Hand" + side] as Vector3) - (_J["LowerArm" + side] as Vector3)).normalized()
+	var g_up := _frame(upper, perp) * _frame(r1, _arm_rest_pole).inverse()
+	var g_lo := _frame(fore, perp) * _frame(r2, _arm_rest_pole).inverse()
+	return [(t_chest.basis.inverse() * g_up).get_rotation_quaternion(), (g_up.inverse() * g_lo).get_rotation_quaternion()]
 
 
 static func _rot_x(v: Vector3, ang: float) -> Vector3:

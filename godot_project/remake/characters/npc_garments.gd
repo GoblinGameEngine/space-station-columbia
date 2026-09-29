@@ -445,6 +445,10 @@ static func _headwear(def: Dictionary, parts: Dictionary, L: Dictionary) -> Arra
 				p.indices.append_array([p.indices[t], p.indices[t + 2], p.indices[t + 1]])
 			out.append(p)
 		"headscarf":
-			var crs := _range(rs, 5.0, rs.size() - 1.0, hair_room + 0.008 * H)
+			# above the brow (from ring 5 it covered the eyes), tied a little lower at the back
+			var crs := _range(rs, 7.4, rs.size() - 1.0, hair_room + 0.008 * H)
+			for i in crs.size():
+				var tt := 1.0 - float(i) / (crs.size() - 1)
+				crs[i].c = (crs[i].c as Vector3) + Vector3(0, -0.04 * H * tt, 0.05 * H * tt)
 			out.append(NpcBody.loft("scarf", crs, NpcBody.HEAD_AROUND, false, true))
 	return out

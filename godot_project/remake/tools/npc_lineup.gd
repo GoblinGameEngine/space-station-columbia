@@ -5,7 +5,8 @@ extends SceneTree
 ##   ../godot/godot4 --path . --script res://remake/tools/npc_lineup.gd -- out.png [seed] [count] [first] [pop] [view]
 ## view: front (default), side, back, three (3/4), face (close-up of the first four),
 ##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on),
-##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored)
+##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored),
+##       stances (one person in each idle stance, three-quarter view)
 ## Opens a window briefly; needs the real renderer (not --headless).
 
 var out := "/tmp/npc_lineup.png"
@@ -25,6 +26,8 @@ func _init() -> void:
 		count = mini(count, 4)
 	if view == "hands":
 		count = 4
+	if view == "stances":
+		count = NpcAnimator.STANCES.size()
 	root.size = Vector2i(1920, 1080)
 	for n in ["Hud", "GameMenu", "DialogBox"]:
 		var node := root.get_node_or_null(n)
@@ -58,12 +61,17 @@ func _init() -> void:
 	var labels := []
 	var tallest := 0.0
 	for i in count:
-		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront"] else "B%d:0" % first
+		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront", "stances"] else "B%d:0" % first
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
 		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
-		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0, "walkfront": 0.0}.get(view, 0.0)
+		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0, "walkfront": 0.0, "stances": -30.0}.get(view, 0.0)
 		world.add_child(npc)
+		if view == "stances":
+			var sa := NpcAnimator.attach(npc)
+			sa.manual = true
+			sa._stance_pose = NpcAnimator.STANCES.keys()[i]
+			walkers.append([sa, 0.0, 0.0])
 		if view == "hands":
 			npc.position = Vector3((i - 1.5) * 0.35, 0, 0)
 			npc.rotation_degrees.y = -90.0
