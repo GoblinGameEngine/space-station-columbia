@@ -30,6 +30,8 @@ var _tick := 0.0
 var _clock: Node
 var built_count := 0
 var out_boost := 0.0             # (tests: added to everyone's chance of being out)
+var drawing_rate := 1            # 1 smooth; 2 twos; 3 threes (Ghibli walks are mostly on threes --
+                                 # research/animation/principles.md 4); set_drawing_rate() to try
 var assemble_ms_max := 0.0
 var assemble_ms: Array = []
 
@@ -183,6 +185,7 @@ func _collect() -> void:
 		assemble_ms.append(snappedf(ms, 0.1))
 		built_count += 1
 		var anim := NpcAnimator.attach(npc)
+		anim.drawing_rate = drawing_rate
 		var plan := _plan(job.b, pid)
 		var start := plan[0] as Vector2
 		var e := {"npc": npc, "anim": anim, "plan": plan, "i": 1, "wait": 0.0, "s": start.x, "x": start.y,
@@ -406,6 +409,13 @@ static func _work_line(v: Dictionary) -> String:
 		"homemaker":
 			return "I keep the house. Somebody has to."
 	return "I'm a %s. Have been for a while now." % occ.replace("_", " ")
+
+
+func set_drawing_rate(n: int) -> void:
+	## Hold each pose for n frames of 24 (1, 2 or 3), for everyone out now and everyone after.
+	drawing_rate = clampi(n, 1, 3)
+	for pid in live:
+		(live[pid].anim as NpcAnimator).drawing_rate = drawing_rate
 
 
 func stats() -> Dictionary:

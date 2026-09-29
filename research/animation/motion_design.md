@@ -81,3 +81,26 @@ rates. It is extensible like the trait files: add a stance or a gesture by addin
 4. Timing: the drawing rate; cartoon filter anticipation on starts, stops and turns.
 5. Secondary chains: hair, hems.
 6. Gestures for conversation (with the dialogue system).
+
+## 6. Status (2026-09-29)
+Built (`remake/characters/npc_animator.gd`, `npc_style.gd`; tests in `remake/tools/`):
+- **Rig:** 43 bones, including toes, hands with fingers and the hair chain (HairA, HairB).
+- **Walk:** foot-trajectory IK walk with planted feet, heel-toe roll, a narrow base, and pelvis
+  bob, shift, list and rotation.
+- **Style:** personality → Effort → motion parameters (PERFORM); mood features (Roether); age and
+  body.
+- **Idle:** stances by arm IK chosen by personality; balance shifts; glances with eyes leading;
+  blinks.
+- **Starts, stops and turns:** anticipation on starts, lean follow-through on stops, head-led
+  turns, smooth body turns.
+- **Talking:** beat gestures (Kendon phases), nods and a speaking mouth.
+- **Secondary:** hair swing; skirts carried per vertex by the legs.
+- **Drawing rate:** a switch (`NpcPopulation.set_drawing_rate(3)` for threes), to be judged in
+  game.
+
+Next:
+- hem bones for coats and skirts (springs);
+- iconic and deictic gestures tied to what is said;
+- sitting, carrying, work idles by occupation (the Ghibli "spectacular mundane");
+- per-foot ground height on slopes;
+- the cartoon filter on gesture strokes.
