@@ -1,0 +1,636 @@
+{
+ "factions": [
+  {
+   "id": "charter_league",
+   "kind": "political",
+   "name": "the Charter League",
+   "holds": [
+    "the Balance as it is",
+    "leave the Undercroft closed",
+    "the Quiet Clause kept",
+    "order and thrift"
+   ],
+   "strong_in": {
+    "kessler": 1.5,
+    "marlowe": 1.5,
+    "oceanview": 1.4,
+    "tamarack": 1.4,
+    "countryside": 1.3,
+    "victory_bay": 1.3
+   },
+   "draws": {
+    "age_over": 45,
+    "V.tradition": 1.5,
+    "V.order": 1.5,
+    "faith": [
+     "lakes_union",
+     "catholic",
+     "plain"
+    ]
+   },
+   "share": 0.34,
+   "leaders": [
+    "rosalind_achterberg_nunez"
+   ],
+   "seats_vy496": 52
+  },
+  {
+   "id": "open_hand",
+   "kind": "political",
+   "name": "the Open Hand",
+   "holds": [
+    "freer gifting of shares",
+    "an inquiry into the Undercroft",
+    "petition the Steward",
+    "answer the Notice"
+   ],
+   "strong_in": {
+    "bellhaven": 1.8,
+    "solana_point": 1.4,
+    "port_carrow": 1.2,
+    "cedar_ford": 1.5,
+    "brightwater": 1.2
+   },
+   "draws": {
+    "age_under": 45,
+    "V.freedom": 1.5,
+    "V.truth": 1.5,
+    "faith": [
+     "waymakers",
+     "none"
+    ]
+   },
+   "share": 0.31,
+   "leaders": [
+    "tobias_wainwright_okafor"
+   ],
+   "seats_vy496": 49
+  },
+  {
+   "id": "grange",
+   "kind": "guild",
+   "name": "the Northland Grange",
+   "holds": [
+    "farmers first",
+    "fair prices at the Chutes",
+    "the Northland Fair"
+   ],
+   "strong_in": {
+    "marlowe": 2.0,
+    "loomis_grove": 2.0,
+    "dunmore_crossing": 1.5,
+    "fenwick": 1.2,
+    "countryside": 2.0,
+    "tamarack": 1.5
+   },
+   "draws": {
+    "occupation": [
+     "farmer",
+     "farmhand"
+    ]
+   },
+   "share": 0.05,
+   "leaders": [
+    "gunnar_lindqvist_brandt"
+   ]
+  },
+  {
+   "id": "cannery_union",
+   "kind": "guild",
+   "name": "the Cannery and Dock Workers Union",
+   "holds": [
+    "jobs on the water",
+    "never forget Tern Harbor",
+    "no locked doors"
+   ],
+   "strong_in": {
+    "pelican_cove": 2.5,
+    "tern_harbor": 2.5,
+    "port_carrow": 1.3,
+    "solana_point": 1.1
+   },
+   "draws": {
+    "occupation": [
+     "dock_worker",
+     "fisher",
+     "factory_hand"
+    ]
+   },
+   "share": 0.04,
+   "leaders": [
+    "rosa_pham_moriarty"
+   ]
+  },
+  {
+   "id": "order_of_the_lamp",
+   "kind": "club",
+   "name": "the Order of the Lamp",
+   "holds": [
+    "charity",
+    "the Friday fish fry",
+    "a good Return for every member"
+   ],
+   "strong_in": {
+    "port_carrow": 1.5,
+    "harrow_falls": 1.3,
+    "fenwick": 1.2
+   },
+   "draws": {
+    "age_over": 40,
+    "V.community": 1.5
+   },
+   "share": 0.07,
+   "leaders": [
+    "frankie_wisniewski"
+   ]
+  },
+  {
+   "id": "daughters_of_the_launch",
+   "kind": "club",
+   "name": "the Daughters and Sons of the Launch",
+   "holds": [
+    "founder descent",
+    "the Launch Day rites",
+    "keeping the old stories"
+   ],
+   "strong_in": {
+    "port_carrow": 1.5,
+    "kessler": 1.4,
+    "victory_bay": 1.5
+   },
+   "draws": {
+    "lineage_founder": true,
+    "age_over": 50
+   },
+   "share": 0.02,
+   "leaders": [
+    "beatriz_holloway_anand"
+   ]
+  },
+  {
+   "id": "waymakers_assembly",
+   "kind": "faith",
+   "name": "the Waymakers",
+   "holds": [
+    "the voyage is the pilgrimage",
+    "the Notice is a sign",
+    "ask where we're going"
+   ],
+   "strong_in": {
+    "bellhaven": 1.6,
+    "oceanview": 1.8,
+    "cedar_ford": 1.4,
+    "solana_point": 1.2
+   },
+   "draws": {
+    "faith": [
+     "waymakers"
+    ]
+   },
+   "share": 0.06,
+   "leaders": [
+    "evangeline_mbeki_hart",
+    "tobit_asante_grey"
+   ]
+  },
+  {
+   "id": "wardens_circle",
+   "kind": "society",
+   "name": "the Wardens' Library circle",
+   "holds": [
+    "learn how the station works",
+    "find Imogen",
+    "open the Undercroft"
+   ],
+   "strong_in": {
+    "bellhaven": 3.0,
+    "kessler": 1.2
+   },
+   "draws": {
+    "occupation": [
+     "university_student",
+     "librarian",
+     "teacher",
+     "mechanic"
+    ],
+    "P.openness": 1.5
+   },
+   "share": 0.004,
+   "leaders": [
+    "caspian_holloway"
+   ],
+   "secret": true
+  },
+  {
+   "id": "homeward",
+   "kind": "society",
+   "name": "the Homeward (Returner remnant)",
+   "holds": [
+    "Earth is home",
+    "the Green Message was true",
+    "the Steward stole the vote"
+   ],
+   "strong_in": {
+    "marlowe": 1.5,
+    "countryside": 1.3,
+    "tern_harbor": 1.2
+   },
+   "draws": {
+    "lineage": [
+     "brandvold"
+    ],
+    "V.home": 1.5
+   },
+   "share": 0.002,
+   "leaders": [],
+   "secret": true,
+   "taboo": true
+  },
+  {
+   "id": "aerostat_guild",
+   "kind": "guild",
+   "name": "the Aerostat Pilots' Guild",
+   "holds": [
+    "the air is free",
+    "racing",
+    "safety rules (after VY 438)"
+   ],
+   "strong_in": {
+    "harrow_falls": 3.0,
+    "solana_point": 1.4
+   },
+   "draws": {
+    "occupation": [
+     "mechanic"
+    ],
+    "P.courage": 1.5
+   },
+   "share": 0.006,
+   "leaders": [
+    "kaz_horvath"
+   ]
+  },
+  {
+   "id": "mariners_faithful",
+   "kind": "fans",
+   "name": "the Mariners Faithful",
+   "holds": [
+    "the Port Carrow Mariners"
+   ],
+   "strong_in": {
+    "port_carrow": 4.0,
+    "haven_point": 2.0,
+    "tern_harbor": 2.0,
+    "brightwater": 1.5
+   },
+   "draws": {},
+   "share": 0.15,
+   "leaders": [
+    "ezekiel_brannock"
+   ]
+  },
+  {
+   "id": "suns_nation",
+   "kind": "fans",
+   "name": "Suns Nation",
+   "holds": [
+    "the Solana Point Suns"
+   ],
+   "strong_in": {
+    "solana_point": 4.0,
+    "playa_verde": 2.5,
+    "pelican_cove": 2.0,
+    "oceanview": 1.2
+   },
+   "draws": {},
+   "share": 0.16,
+   "leaders": [
+    "dante_okonkwo_silva"
+   ]
+  },
+  {
+   "id": "heritage_hedwig",
+   "kind": "heritage",
+   "name": "the Hedwig Hill Polish Society",
+   "holds": [
+    "Pączki Day",
+    "Dyngus Day",
+    "polka"
+   ],
+   "strong_in": {
+    "port_carrow": 2.0,
+    "fenwick": 2.0,
+    "harrow_falls": 1.3
+   },
+   "draws": {
+    "heritage": [
+     "polish",
+     "slavic"
+    ]
+   },
+   "share": 0.02,
+   "leaders": [
+    "frankie_wisniewski"
+   ]
+  },
+  {
+   "id": "heritage_cote",
+   "kind": "heritage",
+   "name": "the Côte Society",
+   "holds": [
+    "Carrow French",
+    "Saint-Jean-Baptiste Day",
+    "tourtière"
+   ],
+   "strong_in": {
+    "port_carrow": 3.0,
+    "tern_harbor": 1.5
+   },
+   "draws": {
+    "heritage": [
+     "francophone"
+    ]
+   },
+   "share": 0.015,
+   "leaders": [
+    "colette_marchand"
+   ]
+  },
+  {
+   "id": "heritage_sociedad",
+   "kind": "heritage",
+   "name": "la Sociedad Solano",
+   "holds": [
+    "Lake Spanish",
+    "the Fiesta de Rosario",
+    "Día de Muertos / Return Night"
+   ],
+   "strong_in": {
+    "playa_verde": 3.0,
+    "solana_point": 2.0,
+    "pelican_cove": 1.5
+   },
+   "draws": {
+    "heritage": [
+     "hispanic"
+    ]
+   },
+   "share": 0.05,
+   "leaders": [
+    "itzel_solano_garza"
+   ]
+  },
+  {
+   "id": "marshals",
+   "kind": "institution",
+   "name": "the Marshals Service",
+   "holds": [
+    "order",
+    "rescue",
+    "the Charter"
+   ],
+   "strong_in": {
+    "kessler": 2.0
+   },
+   "draws": {
+    "occupation": [
+     "police",
+     "firefighter"
+    ]
+   },
+   "share": 0.004,
+   "leaders": [
+    "obadiah_kincaid_morales"
+   ]
+  }
+ ],
+ "faction_affinity": [
+  {
+   "a": "charter_league",
+   "b": "open_hand",
+   "value": -0.35
+  },
+  {
+   "a": "charter_league",
+   "b": "waymakers_assembly",
+   "value": -0.2
+  },
+  {
+   "a": "charter_league",
+   "b": "wardens_circle",
+   "value": -0.4
+  },
+  {
+   "a": "charter_league",
+   "b": "homeward",
+   "value": -0.6
+  },
+  {
+   "a": "charter_league",
+   "b": "grange",
+   "value": 0.3
+  },
+  {
+   "a": "charter_league",
+   "b": "daughters_of_the_launch",
+   "value": 0.4
+  },
+  {
+   "a": "charter_league",
+   "b": "marshals",
+   "value": 0.35
+  },
+  {
+   "a": "open_hand",
+   "b": "waymakers_assembly",
+   "value": 0.25
+  },
+  {
+   "a": "open_hand",
+   "b": "wardens_circle",
+   "value": 0.35
+  },
+  {
+   "a": "open_hand",
+   "b": "cannery_union",
+   "value": 0.2
+  },
+  {
+   "a": "open_hand",
+   "b": "marshals",
+   "value": -0.1
+  },
+  {
+   "a": "open_hand",
+   "b": "homeward",
+   "value": -0.3
+  },
+  {
+   "a": "waymakers_assembly",
+   "b": "wardens_circle",
+   "value": 0.15
+  },
+  {
+   "a": "waymakers_assembly",
+   "b": "homeward",
+   "value": -0.4
+  },
+  {
+   "a": "wardens_circle",
+   "b": "marshals",
+   "value": -0.3
+  },
+  {
+   "a": "cannery_union",
+   "b": "grange",
+   "value": 0.15
+  },
+  {
+   "a": "cannery_union",
+   "b": "marshals",
+   "value": -0.15
+  },
+  {
+   "a": "order_of_the_lamp",
+   "b": "daughters_of_the_launch",
+   "value": 0.3
+  },
+  {
+   "a": "order_of_the_lamp",
+   "b": "cannery_union",
+   "value": 0.15
+  },
+  {
+   "a": "mariners_faithful",
+   "b": "suns_nation",
+   "value": -0.45
+  },
+  {
+   "a": "heritage_hedwig",
+   "b": "order_of_the_lamp",
+   "value": 0.3
+  },
+  {
+   "a": "heritage_cote",
+   "b": "heritage_hedwig",
+   "value": 0.2
+  },
+  {
+   "a": "heritage_sociedad",
+   "b": "suns_nation",
+   "value": 0.3
+  },
+  {
+   "a": "heritage_hedwig",
+   "b": "mariners_faithful",
+   "value": 0.3
+  },
+  {
+   "a": "heritage_cote",
+   "b": "mariners_faithful",
+   "value": 0.3
+  },
+  {
+   "a": "aerostat_guild",
+   "b": "marshals",
+   "value": -0.1
+  },
+  {
+   "a": "homeward",
+   "b": "marshals",
+   "value": -0.5
+  }
+ ],
+ "region_affinity": [
+  {
+   "a": "north_shore",
+   "b": "south_shore",
+   "value": -0.15
+  },
+  {
+   "a": "northland",
+   "b": "southland",
+   "value": -0.05
+  },
+  {
+   "a": "kettle_valley",
+   "b": "northland",
+   "value": 0.1
+  },
+  {
+   "a": "kettle_valley",
+   "b": "southland",
+   "value": 0.1
+  },
+  {
+   "a": "north_shore",
+   "b": "northland",
+   "value": 0.05
+  },
+  {
+   "a": "south_shore",
+   "b": "southland",
+   "value": 0.05
+  }
+ ],
+ "settlement_rivalry": -0.3,
+ "settlement_alliance": 0.2,
+ "faith_affinity": [
+  {
+   "a": "catholic",
+   "b": "lakes_union",
+   "value": 0.1
+  },
+  {
+   "a": "catholic",
+   "b": "full_gospel",
+   "value": -0.05
+  },
+  {
+   "a": "full_gospel",
+   "b": "waymakers",
+   "value": -0.35
+  },
+  {
+   "a": "catholic",
+   "b": "waymakers",
+   "value": -0.15
+  },
+  {
+   "a": "lakes_union",
+   "b": "waymakers",
+   "value": -0.1
+  },
+  {
+   "a": "none",
+   "b": "full_gospel",
+   "value": -0.15
+  },
+  {
+   "a": "none",
+   "b": "waymakers",
+   "value": 0.05
+  },
+  {
+   "a": "freedom_baptist",
+   "b": "full_gospel",
+   "value": 0.1
+  },
+  {
+   "a": "plain",
+   "b": "none",
+   "value": -0.1
+  },
+  {
+   "a": "muslim",
+   "b": "jewish",
+   "value": 0.1
+  },
+  {
+   "a": "muslim",
+   "b": "catholic",
+   "value": 0.05
+  }
+ ],
+ "_about": "Columbia game bible: factions. Generated by tools/bible/make_bible.py from tools/bible/canon_*.py; read research/bible/."
+}

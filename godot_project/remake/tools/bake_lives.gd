@@ -63,7 +63,8 @@ func _initialize() -> void:
 				"hh": int(m.household), "role": m.role, "pop": hh.population, "age": int(v.age), "sex": v.sex, "occupation": v.occupation,
 				"car": v.car_access, "commute": v.commute_mode, "mobility": v.mobility_aid, "worship": v.worship, "addictions": v.addictions,
 				"finances": v.finances, "E": snappedf(float(p.extraversion), 0.01), "C": snappedf(float(p.conscientiousness), 0.01),
-				"home_kind": b.kind}
+				"home_kind": b.kind, "given": m.pinned.get("given_name", ""), "surname": m.pinned.get("surname", ""),
+				"lineage": m.pinned.get("lineage", ""), "name_heritage": m.pinned.get("name_heritage", "")}
 			order.append(m.pid)
 	var t1 := Time.get_ticks_msec()
 	# 2. work: in a hashed order, each takes a post by occupation, distance and posts left

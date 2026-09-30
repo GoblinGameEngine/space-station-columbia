@@ -1,0 +1,133 @@
+{
+ "_about": "Field vocabularies of the Columbia game bible (tokens the engine can rely on).",
+ "event.kind": [
+  "founding",
+  "law",
+  "political",
+  "birth",
+  "death",
+  "disaster",
+  "epidemic",
+  "migration",
+  "economy",
+  "sport",
+  "faith",
+  "culture",
+  "science",
+  "construction",
+  "contact",
+  "conflict",
+  "crime",
+  "mystery",
+  "festival",
+  "milestone",
+  "present",
+  "discovery"
+ ],
+ "event.known": [
+  "living",
+  "family",
+  "schooled",
+  "ritual",
+  "place",
+  "legend",
+  "scholar",
+  "lost"
+ ],
+ "event.effects": "prefix:value tokens -- pop:<n> (population change), holiday:<id>, place:<id> (a name given), name:<given>+ (a name's popularity), culture:<axis><+|->, institution:<id>, law:<id>, faith:<id><+>, faction:<id><+>, custom:<id>, tech:<id>, climate:<id>, economy:<id>, migration:<from>_to_<to>, cohort:<id>, mystery:<id>, rivalry:<a>-<b><+>, media:<id>, wildlife:<id>, genetics:<id>, calendar:<id>, politics:<id>",
+ "person.origin": [
+  "earth_side",
+  "founder",
+  "station",
+  "bank"
+ ],
+ "person.marital": [
+  "married",
+  "widowed",
+  "divorced",
+  "never_married",
+  "partnered"
+ ],
+ "person.childless": [
+  "gave_share",
+  "vocation",
+  "chose_not",
+  "infertility",
+  "died_young",
+  "partner_died",
+  "duty",
+  "protest",
+  "share_lapsed",
+  "unknown"
+ ],
+ "person.reputation": [
+  "revered",
+  "hero",
+  "beloved",
+  "respected",
+  "contested",
+  "notorious",
+  "villain",
+  "forgotten",
+  "private"
+ ],
+ "person.traits": "psychology tokens: P.<facet>:<very_low|low|moderate|high|very_high>, V.<value>, D.<dark trait>:<level>, speech:<style>",
+ "lineage.status": [
+  "thriving",
+  "dwindled",
+  "extinct_by_name"
+ ],
+ "faction.kind": [
+  "political",
+  "guild",
+  "club",
+  "faith",
+  "society",
+  "fans",
+  "heritage",
+  "institution"
+ ],
+ "culture.era_axes": [
+  "tight",
+  "individualism",
+  "trust_institutions",
+  "faith",
+  "optimism",
+  "earth_mindedness",
+  "curiosity_about_voyage"
+ ],
+ "names.pool": [
+  "earth_old",
+  "earth_mid",
+  "earth_new",
+  "heritage_<h>",
+  "station",
+  "heroes",
+  "vogue:<decade>"
+ ],
+ "names.heritage": [
+  "anglo",
+  "german",
+  "irish_scots",
+  "italian",
+  "polish",
+  "hungarian",
+  "slavic",
+  "greek",
+  "dutch",
+  "scandinavian",
+  "francophone",
+  "hispanic",
+  "black",
+  "black_anglo",
+  "african",
+  "arab",
+  "south_asian",
+  "east_asian",
+  "se_asian",
+  "indigenous",
+  "multi",
+  "station_coined",
+  "lineage_kept"
+ ]
+}

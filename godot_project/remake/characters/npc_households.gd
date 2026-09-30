@@ -81,8 +81,45 @@ static func of_building(world_seed: int, b: Dictionary) -> Dictionary:
 			n += 1
 			h.members.append(mem)
 			out.members.append(mem)
+		_name_household(world_seed, "%s#%d" % [b.id, hh], b.get("settlement"), h)
 		out.households.append(h)
 	return out
+
+
+static func _name_household(world_seed: int, key: String, town: Variant, h: Dictionary) -> void:
+	## Surnames and given names from the game bible (NpcNames), pinned on each member. Charter art. 9:
+	## a child takes either parent's surname (about 65% the head's, 30% the partner's, 5% both
+	## joined); partners keep their own surname a little under half the time; housemates are
+	## unrelated; an elder in a three-generation home is the head's or the partner's parent.
+	var head := NpcNames.surname(world_seed, key, town)
+	var partner := head
+	var rng := NpcRng.for_trait(world_seed, key, "surname_rule")
+	var mates := 0
+	for m in h.members:
+		var sn := head
+		match str(m.role):
+			"partner":
+				if rng.rand() < 0.45:
+					partner = NpcNames.surname(world_seed, key + "#partner", town)
+				sn = partner
+			"child":
+				var r := rng.rand()
+				if r < 0.65 or partner.surname == head.surname:
+					sn = head
+				elif r < 0.95:
+					sn = partner
+				else:
+					sn = {"surname": "%s-%s" % [head.surname, partner.surname], "heritage": head.heritage, "lineage": head.lineage}
+			"elder":
+				sn = head if rng.rand() < 0.5 else partner
+			"mate":
+				mates += 1
+				sn = NpcNames.surname(world_seed, "%s#mate%d" % [key, mates], town)
+		var pinned: Dictionary = m.pinned
+		pinned["surname"] = sn.surname
+		pinned["lineage"] = sn.lineage
+		pinned["name_heritage"] = sn.heritage
+		pinned["given_name"] = NpcNames.given(world_seed, m.pid, str(pinned.sex), int(pinned.age), str(sn.heritage))
 
 
 static func door(b: Dictionary) -> Vector2:

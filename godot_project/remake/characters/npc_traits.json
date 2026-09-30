@@ -96,6 +96,26 @@
    "note": "Annual income from work, pension or benefits: the occupation's median (approx. BLS OEWS 2024) x lognormal spread x experience. research/lives/02_money.md",
    "depends_on": ["occupation", "age"], "affects": ["outfit.quality", "housing", "spending", "dialogue"]},
 
+  {"id": "given_name", "layer": "L0", "group": "identity", "type": "text",
+   "choose": {"derive": "''"},
+   "note": "From the game bible (NpcNames.given): pinned per person by NpcHouseholds from the birth cohort's name pools and the family's heritage.",
+   "affects": ["dialogue", "name", "lineage"]},
+
+  {"id": "surname", "layer": "L0", "group": "identity", "type": "text",
+   "choose": {"derive": "''"},
+   "note": "From the game bible (NpcNames.surname): the household's surname line, pinned by NpcHouseholds (Charter art. 9: either parent's).",
+   "affects": ["dialogue", "name", "lineage"]},
+
+  {"id": "lineage", "layer": "L0", "group": "identity", "type": "text",
+   "choose": {"derive": "''"},
+   "note": "The great-family lineage of the surname (research/bible/05_lineages.md), '' for most people; pinned by NpcHouseholds.",
+   "affects": ["dialogue", "name", "lineage"]},
+
+  {"id": "name_heritage", "layer": "L0", "group": "identity", "type": "text",
+   "choose": {"derive": "''"},
+   "note": "The surname's heritage label (names.json); shades given names and lineage lore; pinned by NpcHouseholds.",
+   "affects": ["dialogue", "name", "lineage"]},
+
   {"id": "height", "layer": "L1", "group": "body", "type": "float", "range": [0.8, 2.1], "unit": "m",
    "choose": {"normal": [1.63, 0.07], "clamp": [1.4, 1.95]},
    "mods": [{"if": "sex == 'male'", "add": 0.13},

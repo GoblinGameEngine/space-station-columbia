@@ -220,7 +220,8 @@ func _consider(want: Array, pid: String, ps: float, px: float) -> void:
 	var here := Vector2(ps, px)
 	_here = here
 	var b: Dictionary = _home_struct(P)
-	var m := {"pid": pid, "pinned": {"age": int(P.age), "sex": P.sex}}
+	var m := {"pid": pid, "pinned": {"age": int(P.age), "sex": P.sex, "given_name": P.get("given", ""), "surname": P.get("surname", ""),
+		"lineage": P.get("lineage", ""), "name_heritage": P.get("name_heritage", "")}}
 	var s := _life.state(pid, day, h)
 	_next[pid] = _next_event(pid, day, h)
 	if s.kind == "out" and str(_gone_in.get(pid, "")) != _sig(s):
@@ -611,22 +612,28 @@ func _contact(pid: String) -> String:
 		(e.anim as NpcAnimator).greet(e.persona)
 		(e.anim as NpcAnimator).talk(4.5)
 	var v: Dictionary = e.persona
-	var who := describe(v)
+	var who := full_name(v) if full_name(v) != "" else describe(v).capitalize()
 	var b: Dictionary = e.b
 	var tree := {
-		"start": {"speaker": who.capitalize(), "text": _greeting(v), "choices": [
+		"start": {"speaker": who, "text": _greeting(v), "choices": [
 			{"text": "What do you do?", "next": "work"},
 			{"text": "Do you live around here?", "next": "home"},
 			{"text": "Where are you off to?", "next": "going"},
 			{"text": "[Leave]", "next": ""}]},
-		"work": {"speaker": who.capitalize(), "text": _work_line(v, _life, pid), "choices": [{"text": "[Leave]", "next": ""}]},
-		"going": {"speaker": who.capitalize(), "text": _going_line(pid, e.get("seg", {})), "choices": [{"text": "[Leave]", "next": ""}]},
-		"home": {"speaker": who.capitalize(), "text": "Just there -- the %s by the road%s." % [str(b.kind), (" in " + str(b.settlement)) if b.settlement != null else ""], "choices": [{"text": "[Leave]", "next": ""}]},
+		"work": {"speaker": who, "text": _work_line(v, _life, pid), "choices": [{"text": "[Leave]", "next": ""}]},
+		"going": {"speaker": who, "text": _going_line(pid, e.get("seg", {})), "choices": [{"text": "[Leave]", "next": ""}]},
+		"home": {"speaker": who, "text": "Just there -- the %s by the road%s." % [str(b.kind), (" in " + str(b.settlement)) if b.settlement != null else ""], "choices": [{"text": "[Leave]", "next": ""}]},
 	}
 	var dlg := get_node_or_null("/root/DialogBox")
 	if dlg:
 		dlg.start(e.npc, tree)
 	return ""
+
+
+static func full_name(v: Dictionary) -> String:
+	var g := str(v.get("given_name", ""))
+	var s := str(v.get("surname", ""))
+	return ("%s %s" % [g, s]).strip_edges()
 
 
 static func describe(v: Dictionary) -> String:
