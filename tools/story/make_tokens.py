@@ -38,8 +38,7 @@ for k, kind, r, d, s in [
         ("W.relmob", "float", U, "growth and turnover vs a closed interdependent economy", "Thomson, Yuki et al. 2018"),
         ("W.org", "enum", ["hierarchical", "individualistic", "heterogenistic"], "founding record", "NASA SP-413 (1975), chapter 3 appendix A"),
         ("W.legacy", "map", None, "trait-mean shifts from the founding economy", "Obschonka et al. 2018"),
-        ("W.outgroup", "enum", ["administration", "rival_settlement", "newcomers", "none"], "settlement record + stress", "Kanas (Shuttle-Mir); Basner et al. 2014 (Mars-500)"),
-        ("W.role", "list", None, "SLOT: the roles the settlement needs", "roles research (next round)")]:
+        ("W.outgroup", "enum", ["administration", "rival_settlement", "newcomers", "none"], "settlement record + stress", "Kanas (Shuttle-Mir); Basner et al. 2014 (Mars-500)")]:
     t(k, kind, r, d, s, prompt="words")
 
 # personality (01)
@@ -174,6 +173,25 @@ for k, kind, r, d, s_ in [
         ("ST.storyteller", "enum", ["cassandra", "phoebe", "ghibli"], "pacing personality (game setting)", "RimWorld storytellers"),
         ("ST.chronicle", "list", None, "the player's history as finished arcs (stored)", "research/story/04 section 2.9")]:
     t(k, kind, r, d, s_, stored=k in ("ST.chronicle",), prompt="story card")
+
+# roles (research/roles/05_roles_in_the_engine.md section 1)
+for k, kind, r, d, s_ in [
+        ("RL.primary", "enum", None, "main work role (research/roles/roles.json id)", "BLS OEWS 2024; SP-413"),
+        ("RL.household", "list", None, "household and kin roles (parent, caregiver, kinkeeper...)", "households; di Leonardo 1987; AARP 2025"),
+        ("RL.civic", "list", None, "civic/institutional roles held (joiners hold several)", "Gans 1967; Putnam 2000"),
+        ("RL.informal", "list", None, "emergent roles from tokens + network position (clown, broker, gossip, confidant...)", "Johnson et al. 2003; Burt; Katz & Lazarsfeld; Jacobs"),
+        ("RL.status", "enum", ["founder", "born_here", "recent_arrival", "contract_worker", "long_timer"], "arrival status", "SP-413; McMurdo; psychology 03"),
+        ("RL.master", "text", None, "the role others lead with", "Hughes 1945"),
+        ("RL.prestige", "int", [1, 5], "catalogue (NORC/GSS anchors)", "NORC 1989; Hout, Smith & Marsden 2015"),
+        ("RL.prominence", "float", U, "salience multiplier for this person's acts; story-hub pull", "Spoon River analysis (role-holders are hubs)"),
+        ("RL.class", "enum", ["business", "working", "none"], "catalogue", "Lynd & Lynd 1929; McMurdo science/support"),
+        ("RL.knows", "list", None, "privileged knowledge channels (extra witnesses)", "role sets (Merton)"),
+        ("RL.set", "list", None, "the role set: whom the role deals with (adds ties)", "Merton 1957"),
+        ("RL.strain", "float", U, "role overload / conflict, adds to S.stress", "Goode 1960"),
+        ("W.roles", "map", None, "roles the settlement needs and how many", "research/roles/04 x settlement record"),
+        ("W.vacant", "list", None, "critical formal/informal roles vacant or contested", "research/roles/05 section 2-3"),
+        ("W.cohesion", "float", U, "share of critical informal roles filled by consensus", "Johnson, Boster & Palinkas 2003; Palinkas 2000")]:
+    t(k, kind, r, d, s_, prompt="words")
 
 out = {"_about": "Story-engine token catalogue (research/psychology/06_story_engine_framework.md). "
                   "'stored': whether the value is saved (only the stored L0-L2 traits, the event log, and deltas "

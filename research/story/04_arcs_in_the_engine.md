@@ -172,6 +172,7 @@ the psychology framework.
 6. Tests: determinism, admission and quiet slots, fading, and calibration against the prototype.
 
 ## 9. Open questions
+- *Roles are now researched* (`research/roles/`): role hooks, vacancies and contested informal roles feed sifting and casting.
 - **Roles** (next round) will add many role-specific eligibilities and sifting triggers (the
   sheriff pursues, the preacher counsels, the editor spreads the story).
 - **Tone of the default storyteller.** It needs tuning against the Ghibli research: how rare and

@@ -324,7 +324,9 @@ Cached input is half price or less on Groq (see `research/npc_ai/llm_options.md`
 - **Cost:** about 500–900 input tokens (most of them cached) and ~60 output tokens per line. That
   is within the budget in `llm_options.md`.
 
-## 9. Roles (next research round)
+## 9. Roles
+> Filled by the roles research: `research/roles/05_roles_in_the_engine.md` (tokens `RL.`, `W.roles`, `W.vacant`, `W.cohesion`; catalogue `research/roles/roles.json`). The original notes follow.
+
 The framework already reserves slots for roles:
 - `ID.occupation`, which exists;
 - `W.role*`: the roles a settlement needs (keeper of the air plant, doctor, teacher, preacher,
