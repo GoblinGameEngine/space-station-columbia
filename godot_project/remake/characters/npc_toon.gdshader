@@ -112,9 +112,9 @@ vec3 face(vec2 p, vec3 base) {
 	}
 	// nose: the Ghibli single line -- a short soft hook under the tip, to the shade side (longer for
 	// bigger noses); the shape itself is in the mesh
-	float nlen = 0.03 + 0.012 * nose_size;
+	float nlen = 0.042 + 0.016 * nose_size;
 	float nx = p.x + 0.008;
-	float ny = -0.128 + 7.0 * nx * nx;                        // just over halfway from the eyes to the mouth
+	float ny = -0.132 + 6.0 * nx * nx;                        // just over halfway from the eyes to the mouth
 	float nline = abs(p.y - ny) - 0.0042;
 	col = mix(col, mix(base, line_color, 0.85), aa(nline, fw) * step(abs(nx), nlen) * step(nx, nlen * 0.35));
 	// mouth: a short line, slightly curved

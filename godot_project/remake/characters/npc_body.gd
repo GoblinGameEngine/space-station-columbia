@@ -550,7 +550,7 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 	# Face coordinates for the shader come from the undisplaced surface.
 	var eye_y: float = base + 0.46 * H
 	var nose_y: float = base + 0.32 * H                          # the tip
-	var nose: float = 0.07 * H * clampf(1.0 + 0.45 * f[4] * car, 0.55, 1.8)
+	var nose: float = 0.11 * H * clampf(1.0 + 0.45 * f[4] * car, 0.55, 1.8)      # (bigger, 2026-09-30)
 	for i in part.verts.size():
 		var v := part.verts[i]
 		var n := part.normals[i]
@@ -562,7 +562,7 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 				prof = pow(clampf(1.0 - t / 0.16, 0.0, 1.0), 1.6)            # the bridge, from the eye line
 			else:
 				prof = exp(-pow(t / 0.035, 2.0))                           # tucked under the tip
-			var half_w := 0.05 * H * (0.8 + 0.4 * clampf(1.0 - t / 0.16, 0.0, 1.0))  # wider at the tip
+			var half_w := 0.058 * H * (0.8 + 0.4 * clampf(1.0 - t / 0.16, 0.0, 1.0))  # wider at the tip
 			var dx := v.x / half_w
 			part.verts[i] = v + Vector3(0, 0.12 * nose * prof * exp(-dx * dx) * float(t < 0.0), -nose * prof * exp(-dx * dx))
 	return part
