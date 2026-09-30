@@ -77,24 +77,37 @@ static func params(v: Dictionary, mood := "neutral") -> Dictionary:
 		"base": lerpf(1.0, 1.8, maxf(elder, heavy * 0.8)) * lerpf(1.0, 1.4, child),
 		"lean": lerpf(0.0, deg_to_rad(9.0), elder) + deg_to_rad(10.0) * clampf(-float(v.get("posture", 0.2)), 0.0, 1.0),
 		"sway": 1.0 + 0.5 * heavy + (0.35 if v.get("sex", "") == "female" else 0.0),
+		# heavy bodies tip the shoulders with the hips instead of against them (rotoscoped)
+		"waddle": smoothstep(0.42, 0.75, heavy),
+		# upper-body carriage (+ forward, radians): the chest pitched, the neck thrust, the shoulders
+		# slumped forward or hunched up
+		"chest_fwd": 0.0, "jut": 0.0, "slump": 0.0, "shoulders_up": 0.0,
 		# mood (Roether et al. 2009)
 		"head_down": 0.0, "elbow": 0.0, "amp": 1.0,
 	}
 	match mood:
 		"sad":
 			s.head_down = deg_to_rad(18.0)
+			s.chest_fwd = deg_to_rad(5.0)
+			s.slump = deg_to_rad(7.0)
 			s.amp = 0.7
 			s.speed *= 0.8
 		"happy":
 			s.amp = 1.25
+			s.chest_fwd = -deg_to_rad(2.5)                # chest up
+			s.head_down = -deg_to_rad(3.0)
 			s.speed *= 1.1
 			s.bounce *= 1.2
 		"angry":
 			s.amp = 1.25
 			s.elbow = deg_to_rad(25.0)
+			s.chest_fwd = deg_to_rad(7.0)                 # driving forward (angry reference walk)
+			s.jut = deg_to_rad(10.0)
+			s.torso_turn *= 1.4
 			s.speed *= 1.15
 		"afraid":
 			s.amp = 0.75
 			s.elbow = deg_to_rad(20.0)
 			s.head_down = deg_to_rad(6.0)
+			s.shoulders_up = deg_to_rad(8.0)
 	return s

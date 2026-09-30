@@ -4,7 +4,7 @@ extends SceneTree
 ## pass and saved as a PNG -- the main visual check for the character generator.
 ##   ../godot/godot4 --path . --script res://remake/tools/npc_lineup.gd -- out.png [seed] [count] [first] [pop] [view]
 ## view: front (default), side, back, three (3/4), face (close-up of the first four),
-##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on),
+##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on; NPC_MOOD=sad...),
 ##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored),
 ##       stances (one person in each idle stance, three-quarter view),
 ##       clip (one person -- `first` -- playing the clip named by NPC_CLIP, a figure per moment
@@ -107,6 +107,8 @@ func _init() -> void:
 			var an := NpcAnimator.attach(npc)
 			an.manual = true
 			an.speed = 1.25
+			if OS.get_environment("NPC_MOOD") != "":
+				an.set_mood(OS.get_environment("NPC_MOOD"))
 			walkers.append([an, float(i) / count, 1.0])
 		if OS.get_environment("NPC_DEBUG") != "":
 			(npc.body_mesh.mesh.surface_get_material(0) as ShaderMaterial).set_shader_parameter("debug_view", int(OS.get_environment("NPC_DEBUG")))
