@@ -4,10 +4,14 @@ shader_type spatial;
 // drawn procedurally where the head mesh carries face coordinates in UV2 (x, y in head heights,
 // origin between the eyes; UV2 = -10 elsewhere).  Outlines come from the screen-space outline pass
 // (ScreenOutline), not from this shader.
-render_mode specular_disabled, cull_disabled;   // garments are open at hems and cuffs: their insides show
+render_mode specular_disabled, cull_disabled, ambient_light_disabled;   // garments are open at hems and cuffs: their insides show
+// (No scene ambient: the station's strong day ambient (2.3) stacked on the sun pushed every pale
+// paint -- white hair, cream cloth, fair skin -- past 1.0, so its lit and shade tones both clipped
+// to flat white.  Instead the sun alone gives the two tones, normalised to full daylight.)
 
 uniform vec3 lit_color : source_color = vec3(0.9, 0.78, 0.68);
 uniform vec3 shade_mul = vec3(0.8, 0.75, 0.72);    // shade / lit, linear, per channel
+uniform float sun_ref = 1.7;                        // the sun's energy at full daylight (DaySkySystem): lit tone = paint there
 uniform float threshold = 0.05;                     // N.L where the shadow edge sits
 uniform float softness = 0.02;                      // half-width of the edge (cel paint: hard)
 
@@ -20,6 +24,7 @@ uniform vec3 blush_color : source_color = vec3(0.92, 0.55, 0.5);
 uniform float eye_size = 0.0;        // -1..1
 uniform float eye_spacing = 0.0;     // -1..1
 uniform float mouth_width = 0.0;     // -1..1
+uniform float nose_size = 0.0;       // -1..1 (the face's nose trait)
 uniform float brow_thick = 0.5;      // 0..1
 uniform float brow_arch = 0.3;       // 0..1
 uniform float brow_height = 0.0;     // -1..1
@@ -31,6 +36,7 @@ uniform vec2 gaze = vec2(0.0);       // pupils' offset, -1..1 of their travel (t
 uniform float blink = 0.0;           // 0 open .. 1 closed
 uniform float mouth_open = 0.0;      // 0 closed .. 1 open (speech)
 uniform float smile = 0.0;           // -1 frown .. 1 smile (the mouth line's curve)
+uniform bool hair_cut = false;       // hair: cut the hairline where UV2.y (hair present) < 0.5
 uniform int debug_view = 0;          // 1: show UV2
 
 // fabric (UV in metres: u round the garment from the front, v along it)
@@ -104,6 +110,13 @@ vec3 face(vec2 p, vec3 base) {
 		float nl = abs(ax - (0.07 + (-p.y - 0.14) * 0.35)) ;
 		col = mix(col, base * 0.82, age_lines * 0.8 * aa(nl - 0.003, fw) * step(-0.26, p.y) * step(p.y, -0.14));
 	}
+	// nose: the Ghibli single line -- a short soft hook under the tip, to the shade side (longer for
+	// bigger noses); the shape itself is in the mesh
+	float nlen = 0.03 + 0.012 * nose_size;
+	float nx = p.x + 0.008;
+	float ny = -0.128 + 7.0 * nx * nx;                        // just over halfway from the eyes to the mouth
+	float nline = abs(p.y - ny) - 0.0042;
+	col = mix(col, mix(base, line_color, 0.85), aa(nline, fw) * step(abs(nx), nlen) * step(nx, nlen * 0.35));
 	// mouth: a short line, slightly curved
 	float mw = 0.045 * (1.0 + 0.3 * mouth_width);
 	float my = -0.215 + (0.01 + 0.018 * smile) * (p.x / mw) * (p.x / mw);
@@ -178,6 +191,9 @@ vec3 fabric(vec2 uv, vec3 base) {
 }
 
 void fragment() {
+	if (hair_cut && UV2.y > -5.0 && UV2.y < 0.5) {
+		discard;                                         // a clean hairline, not the mesh's stair
+	}
 	vec3 c = lit_color;
 	if (pattern > 0) {
 		c = fabric(UV, lit_color);
@@ -195,7 +211,18 @@ void fragment() {
 
 void light() {
 	float ndl = dot(NORMAL, LIGHT);   // (the insides of garments get the lit-side rule; darkened above)
-	float t = smoothstep(threshold - softness, threshold + softness, ndl) * ATTENUATION;
-	// two flat tones: full light where lit, the paint's shade ratio where not
-	DIFFUSE_LIGHT += LIGHT_COLOR / PI * mix(shade_mul, vec3(1.0), t) * 0.9;
+	float lit = smoothstep(threshold - softness, threshold + softness, ndl);
+	if (LIGHT_IS_DIRECTIONAL) {
+		// the sun: two flat tones -- full light where lit, the paint's shade ratio where not (in
+		// shadow, ATTENUATION is the shadow)
+		// normalised so that at full daylight the lit tone IS the paint and the shade tone the paint's
+		// measured shade; dimmer sun or moon, dimmer both
+		DIFFUSE_LIGHT += LIGHT_COLOR / sun_ref * mix(shade_mul, vec3(1.0), lit * ATTENUATION);
+	} else {
+		// lamps and windows: the same two tones, but only as far as the light reaches.  (ATTENUATION
+		// here is the distance falloff: without it every omni light in a screen tile's cluster added
+		// the shade tone at full strength -- blocky, tile-shaped patches and washed-out faces near
+		// lit windows.)
+		DIFFUSE_LIGHT += LIGHT_COLOR / PI * mix(shade_mul, vec3(1.0), lit) * ATTENUATION * 0.9;
+	}
 }

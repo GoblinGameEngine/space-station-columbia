@@ -82,25 +82,31 @@ static func build(style: String, body: Dictionary, rng: NpcRng, under_hat := fal
 		for k in around + 1:
 			var kk := k % around
 			var t := float(kk) / around
-			var base := rc + rax * sns[kk] + raz * css[kk]         # (head rings are near-ellipses)
+			# the head's true surface: its rings are superellipses (exponent 2.0-2.2, boxier than an
+			# ellipse -- up to ~3.5 mm further out at the cheeks and temples); a plain ellipse here
+			# left the hairless shell poking through the skin there, and a sawtooth hairline
+			var base := NpcBody._ring_point_sc(r, sns[kk], css[kk])
 			var outv := base - rc
 			outv.y = 0.0
 			var dirn := outv.normalized() if outv.length() > 1e-5 else Vector3.UP
 			var line := lines[kk]
-			# 0 below the hairline .. 1 above, over a short band: a clean edge, not a stair of
-			# whole vertices
-			var has := smoothstep(line - 0.018, line + 0.018, yf)
+			# signed distance to the hairline (in head heights, + where there is hair); a bald crown is
+			# a second edge.  The shader cuts at zero (UV2.y = 0.5): interpolated through each
+			# triangle, that is the true hairline -- smooth, not a stair of whole vertices
+			var sd := yf - line
 			if st.has("bald_top") and fronts[kk] > 0.0:
-				has *= 1.0 - smoothstep(float(st.bald_top) - 0.03, float(st.bald_top) + 0.03, yf)
+				sd = minf(sd, float(st.bald_top) - yf)
+			var has := clampf(sd / 0.02 + 1.0, 0.0, 1.0)            # (geometry: full thickness from the edge up)
 			var curl := 0.0
 			if curly:
 				curl = 0.3 * sin(t * TAU * 7.0 + phase * 20.0) * sin(yf * 25.0)
-			var d := lerpf(-0.012 * H, thick * (1.0 + 0.4 * top + curl), has)
+			# everything kept stands clear of the skin; the cut-away part sinks under it
+			var d := lerpf(-0.02 * H, thick * (1.0 + 0.4 * top + curl), has)
 			# the crown closes over the top: push the last rings upward too
 			var v := base + dirn * d + Vector3(0, d * 0.8 * top, 0)
 			p.verts.append(v)
 			p.uvs.append(Vector2(t, yf))
-			p.uv2s.append(Vector2(-10, -10))
+			p.uv2s.append(Vector2(-10, 0.5 + sd * 10.0))
 			p.bones.append_array(wb[0])
 			p.weights.append_array(wb[1])
 	var row := around + 1

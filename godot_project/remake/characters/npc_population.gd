@@ -23,6 +23,8 @@ const TICK := 0.5
 var player: Node3D
 var live := {}                   # pid -> {npc, anim, zone, plan, i, wait, s, x, speed, pop, member}
 var _pending := {}               # pid -> {task, data: {}}
+var _gone_in := {}               # pid -> the half-hour slot they went back indoors in (not out again till the next)
+const PERSONAL := 0.75           # m, centre to centre: people keep at least this far apart (couples leave side by side)
 var _index := {}                 # Vector2i(cell s, cell x) -> [building]
 var _buildings: Array = []
 var _house_cache := {}           # building id -> NpcHouseholds.of_building (tiny; rebuilt freely)
@@ -75,6 +77,7 @@ func _process(delta: float) -> void:
 	_collect()
 	for pid in live:
 		_move(live[pid], delta)
+	_personal_space(delta)
 	_tick -= delta
 	if _tick > 0.0:
 		return
@@ -130,7 +133,7 @@ func _refresh() -> void:
 					hh = NpcHouseholds.of_building(world_seed, b)
 					_house_cache[b.id] = hh
 				for m in hh.members:
-					if out_now(m.pid, m.pinned):
+					if out_now(m.pid, m.pinned) and _gone_in.get(m.pid, -1) != floori(hour() * 2.0):
 						want.append([d, m, b, hh.population])
 	want.sort_custom(func(a, b): return a[0] < b[0])
 	var n := 0
@@ -144,6 +147,12 @@ func _refresh() -> void:
 		if _pending.size() >= MAX_BUILDS:
 			continue
 		_spawn(w[1], w[2], w[3])
+	# home: through the door and indoors (the plan's last step is inside the house) -- gone until
+	# the next half-hour
+	for pid in live.keys():
+		if live[pid].i >= (live[pid].plan as Array).size() and not _pending.has(pid):
+			_gone_in[pid] = floori(hour() * 2.0)
+			_despawn(pid)
 	# those no longer wanted (gone home) leave when out of the player's sight
 	var keep := {}
 	for w in want.slice(0, MAX_LIVE):
@@ -218,7 +227,15 @@ func _plan(b: Dictionary, pid: String) -> Array:
 	## Waypoints (s, x) with pauses: out of the door, to the street, along it and back, home.
 	## Pauses are negative numbers in the list (seconds) -- ma, the long stops.
 	var rng := NpcRng.for_trait(world_seed, pid, "walk:%d" % floori(hour() * 2.0))
-	var door := NpcHouseholds.door(b)
+	var door0 := NpcHouseholds.door(b)
+	# each member of a household has their own spot at the door and the kerb, so a couple goes out
+	# side by side rather than as one body (a fixed per-person offset, the same every walk)
+	var me := NpcRng.for_trait(world_seed, pid, "spot")
+	var yaw: float = b.yaw
+	var front := Vector2(cos(yaw), -sin(yaw))
+	var right := Vector2(sin(yaw), cos(yaw))
+	var door := door0 + right * (me.rand() - 0.5) * 1.4 + front * me.rand() * 0.5
+	var inside := door0 - front * 2.2                                   # through the door, into the house
 	var plan: Array = [door]
 	var road := _near_road(door)
 	if road.is_empty():
@@ -226,8 +243,9 @@ func _plan(b: Dictionary, pid: String) -> Array:
 		plan.append(door + Vector2(rng.rand() * 6.0 - 3.0, rng.rand() * 6.0 - 3.0))
 		plan.append(-(5.0 + rng.rand() * 20.0))
 		plan.append(door)
+		plan.append(inside)
 		return plan
-	var side: Vector2 = road.side
+	var side: Vector2 = road.side + (road.dir as Vector2) * (me.rand() - 0.5) * 2.0
 	var dirn: Vector2 = road.dir * (1.0 if rng.rand() < 0.5 else -1.0)
 	var walk := 12.0 + rng.rand() * 40.0
 	plan.append(side)
@@ -240,6 +258,7 @@ func _plan(b: Dictionary, pid: String) -> Array:
 	plan.append(-(3.0 + rng.rand() * 15.0))
 	plan.append(side)
 	plan.append(door)
+	plan.append(inside)
 	# spawned part-way through (they didn't all just step out as the player arrived): start at a
 	# waypoint a few steps along
 	var skip := int(rng.rand() * 4.0)
@@ -324,6 +343,28 @@ func _move(e: Dictionary, delta: float) -> void:
 				anim.lead_turn = clampf(angle_difference(float(e.get("yaw_body", 0.0)), atan2(-nx, ns)), -1.0, 1.0) * (1.0 - d / 1.5)
 	_turn_body(e, delta)
 	_place(e)
+
+
+func _personal_space(delta: float) -> void:
+	## No two people in one place: anyone closer than PERSONAL to another steps aside (half each), so
+	## crossings, waits at the kerb and chance meetings keep a natural gap.
+	var keys := live.keys()
+	for i in keys.size():
+		var a: Dictionary = live[keys[i]]
+		for j in range(i + 1, keys.size()):
+			var b: Dictionary = live[keys[j]]
+			var d := Vector2(StationGeo.wrap_ds(float(b.s) - float(a.s)), float(b.x) - float(a.x))
+			var l := d.length()
+			if l >= PERSONAL:
+				continue
+			var n := d / l if l > 0.001 else Vector2(0.0, 1.0 if keys[i] < keys[j] else -1.0)
+			var push := minf(PERSONAL - l, 1.5 * delta) * 0.5                 # a step aside, not a jump
+			a.s = fposmod(float(a.s) - n.x * push, StationGeo.CIRC)
+			a.x = float(a.x) - n.y * push
+			b.s = fposmod(float(b.s) + n.x * push, StationGeo.CIRC)
+			b.x = float(b.x) + n.y * push
+			_place(a)
+			_place(b)
 
 
 func _turn_body(e: Dictionary, delta: float) -> void:

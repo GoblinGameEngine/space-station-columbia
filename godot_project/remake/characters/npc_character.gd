@@ -219,6 +219,7 @@ func _skin_material() -> ShaderMaterial:
 	mat.set_shader_parameter("eye_size", f[5])
 	mat.set_shader_parameter("eye_spacing", f[6])
 	mat.set_shader_parameter("mouth_width", f[7])
+	mat.set_shader_parameter("nose_size", f[4])
 	var brow: String = traits.get("brow", "straight")
 	mat.set_shader_parameter("brow_thick", {"thin": 0.1, "sparse": 0.2, "straight": 0.45, "arched": 0.4, "heavy": 0.8, "bushy": 1.0}.get(brow, 0.5))
 	mat.set_shader_parameter("brow_arch", {"arched": 0.9, "straight": 0.1, "thin": 0.5}.get(brow, 0.35))
@@ -246,6 +247,7 @@ func _hair_material() -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = SHADER
 	_set_paint(mat, NpcColor.hair(traits.get("hair_colour", [0.2, 0.5]), float(traits.get("hair_grey", 0.0))), false)
+	mat.set_shader_parameter("hair_cut", true)
 	return mat
 
 

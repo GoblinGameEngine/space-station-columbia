@@ -3,7 +3,7 @@ extends SceneTree
 ## Lineup: a row of generated people under a daylight sun, rendered with the game's own outline
 ## pass and saved as a PNG -- the main visual check for the character generator.
 ##   ../godot/godot4 --path . --script res://remake/tools/npc_lineup.gd -- out.png [seed] [count] [first] [pop] [view]
-## view: front (default), side, back, three (3/4), face (close-up of the first four),
+## view: front (default), side, back, three (3/4), face (close-up of the first four), faceside (the same in profile),
 ##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on; NPC_MOOD=sad...),
 ##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored),
 ##       stances (one person in each idle stance, three-quarter view),
@@ -29,7 +29,7 @@ func _init() -> void:
 	var first := int(a[3]) if a.size() > 3 else 1000
 	var pop: String = a[4] if a.size() > 4 else ""
 	var view: String = a[5] if a.size() > 5 else "front"
-	if view == "face":
+	if view == "face" or view == "faceside":
 		count = mini(count, 4)
 	if view == "hands":
 		count = 4
@@ -57,6 +57,7 @@ func _init() -> void:
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-50, -35, 0)
 	sun.shadow_enabled = true
+	sun.light_energy = 1.7             # the game's full daylight (DaySkySystem), the toon shader's reference
 	world.add_child(sun)
 	var ground := MeshInstance3D.new()
 	var pm := PlaneMesh.new()
@@ -67,7 +68,7 @@ func _init() -> void:
 	ground.material_override = gm
 	world.add_child(ground)
 	var db := NpcTraits.shared()
-	var spacing := 0.75 if view != "face" else 0.5
+	var spacing := 0.75 if not view in ["face", "faceside"] else 0.5
 	var labels := []
 	var tallest := 0.0
 	for i in count:
@@ -75,7 +76,7 @@ func _init() -> void:
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
 		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
-		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "walk": -90.0, "walkfront": 0.0, "stances": -30.0}.get(view, 0.0)
+		npc.rotation_degrees.y = {"front": 0.0, "side": -90.0, "back": 180.0, "three": -35.0, "face": -15.0, "faceside": -75.0, "walk": -90.0, "walkfront": 0.0, "stances": -30.0}.get(view, 0.0)
 		world.add_child(npc)
 		if view == "anim":
 			anim_npc = npc
@@ -123,7 +124,7 @@ func _init() -> void:
 	elif view == "hands":
 		var hy: float = tallest * 0.46
 		cam.look_at_from_position(Vector3(0, hy + 0.1, 1.1), Vector3(0, hy, 0))
-	elif view == "face":
+	elif view == "face" or view == "faceside":
 		cam.look_at_from_position(Vector3(0, 1.45, -2.3), Vector3(0, 1.35, 0))
 	else:
 		# the figures face -Z, so the camera stands at -Z looking back at them

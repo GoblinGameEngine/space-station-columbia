@@ -18,7 +18,7 @@ class_name NpcBody
 
 const RING := 14          # vertices round a torso / leg ring
 const LIMB := 10          # round an arm, the neck
-const HEAD_AROUND := 24
+const HEAD_AROUND := 36        # (fine enough across the face to carry a nose)
 const CLOTHES_ROOM := 0.026        # (fraction of height) the most any outfit adds round the hips
 const FINGERS := ["Thumb", "Index", "Middle", "Ring", "Pinky"]
 const BONES := ["Hips", "Spine", "Chest", "UpperChest", "Neck", "Head", "Jaw",
@@ -514,7 +514,12 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 		[0.04, 0.23 * jaw, 0.21, 0.17 + chin * 0.8, 2.1],
 		[0.12, 0.31 * jaw, 0.31, 0.12 + chin * 0.4, 2.2],
 		[0.22, 0.34 * cheek, 0.37, 0.08, 2.2],
-		[0.32, 0.37 * cheek, 0.41, 0.05, 2.15],
+		# (finer rings through the nose, for the mesh only -- the part's published rings stay the
+		# coarse set that hats and hair index; the trailing true marks these)
+		[0.26, 0.352 * cheek, 0.386, 0.068, 2.18, true],
+		[0.30, 0.364 * cheek, 0.402, 0.056, 2.16, true],
+		[0.34, 0.375 * cheek, 0.414, 0.046, 2.14, true],
+		[0.38, (0.38 * cheek + 0.395) * 0.5, 0.422, 0.038, 2.12, true],
 		[0.42, 0.395, 0.43, 0.03, 2.1],
 		[0.52, 0.40, 0.44, 0.02, 2.05],
 		[0.62, 0.40, 0.445, 0.01, 2.0],
@@ -525,6 +530,7 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 		[0.995, 0.07, 0.09, 0.0, 2.0],
 	]
 	var rs := []
+	var main := []
 	var scale_w := w / (0.40 * H)
 	var scale_d := d / (0.44 * H)
 	for r in rows:
@@ -532,21 +538,33 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 		var c := Vector3(0, y, 0.03 * H - r[3] * H)
 		# the jaw carries the chin and the lower face (and the shader's mouth with it)
 		var wt := [["Head", 1.0]] if r[0] > 0.2 else [["Jaw", 0.9], ["Neck", 0.1]] if r[0] < 0.0 else [["Jaw", 0.75], ["Head", 0.25]] if r[0] < 0.08 else [["Jaw", 0.4], ["Head", 0.6]]
-		rs.append(ring(c, Vector3.RIGHT, Vector3.BACK, r[1] * H * scale_w, r[2] * H * scale_d, wt, r[4]))
+		var rg := ring(c, Vector3.RIGHT, Vector3.BACK, r[1] * H * scale_w, r[2] * H * scale_d, wt, r[4])
+		rs.append(rg)
+		if r.size() < 6:
+			main.append(rg)
 	var part := loft("head", rs, HEAD_AROUND, true, true)
-	# nose: a soft forward bump at the nose line; face coordinates for the shader
+	part.rings = main
+	# the nose (ghibli_style.md 1.5: small, a single line in front view, a clear little shape in
+	# profile): the bridge rises from between the eyes to a slightly upturned tip, then tucks back
+	# under it to the lip; narrow, so it reads in profile and takes a small shade on its far side.
+	# Face coordinates for the shader come from the undisplaced surface.
 	var eye_y: float = base + 0.46 * H
-	var nose_y: float = base + 0.33 * H
-	var nose: float = 0.028 * H * (1.0 + 0.5 * f[4] * car)
+	var nose_y: float = base + 0.32 * H                          # the tip
+	var nose: float = 0.07 * H * clampf(1.0 + 0.45 * f[4] * car, 0.55, 1.8)
 	for i in part.verts.size():
 		var v := part.verts[i]
 		var n := part.normals[i]
-		if n.z < -0.2:                                        # the front half
-			var dx := v.x / (0.10 * H)
-			var dy := (v.y - nose_y) / (0.09 * H)
-			var g := exp(-(dx * dx + dy * dy))
-			part.verts[i] = v + Vector3(0, 0, -nose * g)
 		part.uv2s[i] = Vector2(v.x / H, (v.y - eye_y) / H) if n.z < 0.35 else Vector2(-10, -10)
+		if n.z < -0.2:                                        # the front half
+			var t := (v.y - nose_y) / H                       # 0 at the tip, + up the bridge
+			var prof := 0.0
+			if t >= 0.0:
+				prof = pow(clampf(1.0 - t / 0.16, 0.0, 1.0), 1.6)            # the bridge, from the eye line
+			else:
+				prof = exp(-pow(t / 0.035, 2.0))                           # tucked under the tip
+			var half_w := 0.05 * H * (0.8 + 0.4 * clampf(1.0 - t / 0.16, 0.0, 1.0))  # wider at the tip
+			var dx := v.x / half_w
+			part.verts[i] = v + Vector3(0, 0.12 * nose * prof * exp(-dx * dx) * float(t < 0.0), -nose * prof * exp(-dx * dx))
 	return part
 
 
