@@ -150,6 +150,31 @@ for k, kind, r, d in [
         ("X.opinion", "float", S, "sum of named decaying modifiers, negatives x2.5, complex-contagion gate, balance")]:
     t(k, kind, r, d, "06 section 5", stored=k == "X.opinion", prompt="words")
 
+# story (research/story/04_arcs_in_the_engine.md section 1)
+for k, kind, r, d, s_ in [
+        ("ST.type", "enum", None, "one of the story types in research/story/story_types.json", "catalogue (Polti, Booker, Tobias, Propp, Regis, kishotenketsu)"),
+        ("ST.family", "enum", ["bonds_forming", "bonds_tested", "bonds_broken", "harm_justice", "power_community", "self_change", "quiet"], "catalogue", "research/story/03"),
+        ("ST.role", "text", None, "the role this person is cast in", "Polti's elements; Propp's spheres of action"),
+        ("ST.actant", "enum", ["subject", "object", "sender", "receiver", "helper", "opponent"], "the role's actant", "Greimas"),
+        ("ST.beat", "enum", None, "current beat of the arc's template", "Propp (functions); Regis; kishotenketsu"),
+        ("ST.stage", "enum", ["intro", "exciting", "rise", "climax", "tragic", "fall", "suspense", "resolution"], "beat's stage", "Freytag"),
+        ("ST.tension", "float", U, "beat's tension", "Freytag; Facade drama manager"),
+        ("ST.value", "map", None, "value pair turned by the arc and its current polarity", "McKee"),
+        ("ST.shape", "enum", ["rags_to_riches", "riches_to_rags", "man_in_a_hole", "icarus", "cinderella", "oedipus"], "target valence curve", "Reagan et al. 2016"),
+        ("ST.mythos", "enum", ["comedy", "romance", "tragedy", "irony", "faded"], "outcome family, set at resolution", "Frye"),
+        ("ST.theme", "text", None, "the premise the dialogue may echo, never state", "Egri"),
+        ("ST.deed", "enum", ["done", "undone"], "harmful beat: done or not", "Aristotle, Poetics XIV"),
+        ("ST.aware", "enum", ["knowing", "ignorant"], "harmful beat: knowingly or in ignorance", "Aristotle, Poetics XIV"),
+        ("ST.affect", "enum", ["suspense", "surprise", "curiosity", "none"], "what the beat serves for the player (K asymmetry)", "Brewer & Lichtenstein"),
+        ("ST.promise", "list", None, "planted setups awaiting payoff", "setup/payoff (Chekhov); Propp interdiction/violation"),
+        ("ST.quality", "float", U, "stakes x closeness x causal density x recognition/reversal x fit x payoff x novelty", "research/story/02 section 2.3"),
+        ("ST.featured", "bool", None, "surfaced by the drama manager (vs background)", "Facade; RimWorld storytellers"),
+        ("ST.chorus", "map", None, "{hops, side, source chain} for people outside the arc", "propagation + Heider balance; Spoon River"),
+        ("ST.sequel", "list", None, "follow-on arcs this arc can open", "research/story/04 section 2.8"),
+        ("ST.storyteller", "enum", ["cassandra", "phoebe", "ghibli"], "pacing personality (game setting)", "RimWorld storytellers"),
+        ("ST.chronicle", "list", None, "the player's history as finished arcs (stored)", "research/story/04 section 2.9")]:
+    t(k, kind, r, d, s_, stored=k in ("ST.chronicle",), prompt="story card")
+
 out = {"_about": "Story-engine token catalogue (research/psychology/06_story_engine_framework.md). "
                   "'stored': whether the value is saved (only the stored L0-L2 traits, the event log, and deltas "
                   "for people the player met); everything else is a pure function. 'prompt': how the token renders "

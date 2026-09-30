@@ -272,6 +272,9 @@ Everything else is recomputed identically. This is the same contract as the exis
 body and household generators.
 
 ## 7. Stories and quests
+> The story layer (arcs, roles, beats, drama manager, chronicle) is specified in
+> `research/story/04_arcs_in_the_engine.md`, with the catalogue in `research/story/story_types.json`.
+
 - **Story sifting** (Felt/Winnow-style patterns, 05 §5.6) runs incrementally over the event log.
   Examples:
   - `harm(A,B) … revenge(B or kin(B), A)`;
