@@ -30,6 +30,7 @@ The user's brief (2026-09-30):
 | [02_money.md](02_money.md) | wage, savings, debt, what the debts are, why people have what they have, money style, and the finances band; calibration against the Fed SHED |
 | [03_addiction.md](03_addiction.md) | 13 addictions, from nicotine to social media, gambling and opioids; stage and severity; prevalence targets; how to portray it without stigma |
 | [04_travel.md](04_travel.md) | car access, usual commute, mode for each trip, the walking network |
+| [06_vehicles.md](06_vehicles.md) | **The vehicle contract** (generated): 141 vehicle types in 13 groups, with who uses each, where it lives, size, seats, states, variants, the NPC actions it needs, priority, and how many the present station needs |
 | [05_daily_life_engine.md](05_daily_life_engine.md) | **The engine:** place units and their procedural purposes; anchors (work, school, regular places); the day plan; where someone is at any hour; population in the game; the `[LIFE]` prompt card |
 
 ## Code and data
@@ -38,6 +39,7 @@ The user's brief (2026-09-30):
 | building-types registry | `tools/places/make_places.py` → `godot_project/remake/characters/npc_places.json` |
 | place units (procedural purposes) | `tools/places/bake_places.py` → `npc_place_index.json` |
 | walking network | `tools/places/bake_paths.py` → `npc_paths.json` |
+| vehicle contract | `tools/places/make_vehicles.py` → `npc_vehicles.json` (after bake_lives) |
 | everyone's anchors | `godot_project/remake/tools/bake_lives.gd` → `npc_lives.json` |
 | the day plan, travel, `[LIFE]` card | `godot_project/remake/characters/npc_life.gd` (NpcLife) |
 | places, opening hours, routes | `godot_project/remake/characters/npc_places.gd` (NpcPlaces) |
