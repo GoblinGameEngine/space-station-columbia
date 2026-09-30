@@ -355,6 +355,7 @@ func _contact(pid: String) -> String:
 		var ds := StationGeo.wrap_ds(StationGeo.s_of(pp) - float(e.s))
 		var dx := pp.x - float(e.x)
 		e.yaw = atan2(-dx, ds)                                  # (the body turns to it over ~0.5 s)
+		(e.anim as NpcAnimator).greet(e.persona)
 		(e.anim as NpcAnimator).talk(4.5)
 	var v: Dictionary = e.persona
 	var who := describe(v)

@@ -7,6 +7,8 @@ extends SceneTree
 ##       walk (one person -- `first` -- at `count` phases of the walk cycle, side on),
 ##       hands (one person's hands close up, at grips 0, 0.3, 0.6, 1 -- count ignored),
 ##       stances (one person in each idle stance, three-quarter view),
+##       clip (one person -- `first` -- playing the clip named by NPC_CLIP, a figure per moment
+##             of it, `count` moments from start to end; NPC_CLIP_VIEW sets the yaw, default -30),
 ##       anim (one person -- `first` -- walking past in real time; every frame saved as out_NN.png
 ##             for tools/charref/onion.py to composite: the animator's light table)
 ## Opens a window briefly; needs the real renderer (not --headless).
@@ -35,6 +37,7 @@ func _init() -> void:
 		count = NpcAnimator.STANCES.size()
 	if view == "anim":
 		count = 1
+	var clip_id := OS.get_environment("NPC_CLIP")
 	root.size = Vector2i(1920, 1080)
 	for n in ["Hud", "GameMenu", "DialogBox"]:
 		var node := root.get_node_or_null(n)
@@ -68,7 +71,7 @@ func _init() -> void:
 	var labels := []
 	var tallest := 0.0
 	for i in count:
-		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront", "stances", "anim"] else "B%d:0" % first
+		var pid := "B%d:%d" % [first + i, i % 3] if not view in ["walk", "hands", "walkfront", "stances", "anim", "clip"] else "B%d:0" % first
 		var v := db.person(seed, pid, ["L0", "L1"], pop)
 		var npc := NpcCharacter.create(v, pid, seed)
 		npc.position = Vector3((i - (count - 1) / 2.0) * spacing, 0, 0)
@@ -80,6 +83,13 @@ func _init() -> void:
 			anim_an.speed = 1.3
 			npc.position = Vector3(1.2, 0, 0)
 			npc.rotation_degrees.y = 90.0
+		if view == "clip":
+			npc.position.x = -npc.position.x         # +x is screen left: time runs left to right
+			npc.rotation_degrees.y = float(OS.get_environment("NPC_CLIP_VIEW")) if OS.get_environment("NPC_CLIP_VIEW") != "" else -30.0
+			var ca := NpcAnimator.attach(npc)
+			ca.manual = true
+			walkers.append([ca, -1.0, float(i) / maxf(count - 1, 1)])
+			ca.set_meta("clip", clip_id)
 		if view == "stances":
 			var sa := NpcAnimator.attach(npc)
 			sa.manual = true
@@ -144,6 +154,15 @@ func _process(_d: float) -> bool:
 		return false
 	frames += 1
 	for w in walkers:
+		if float(w[1]) < 0.0:
+			# a clip moment: played from its start in 24 fps steps to that fraction of its length
+			if frames == 1:
+				var ca := w[0] as NpcAnimator
+				var length := ca.play(str(ca.get_meta("clip")))
+				var n := int(round(float(w[2]) * length * 24.0))
+				for f in maxi(n, 1):
+					ca.pose(0.0, 0.0, f / 24.0, 1.0 / 24.0)
+			continue
 		(w[0] as NpcAnimator).pose(w[1], w[2], 0.0)
 	for n in ["Hud", "GameMenu", "DialogBox"]:          # the game's autoloaded UI
 		var node := root.get_node_or_null(n)

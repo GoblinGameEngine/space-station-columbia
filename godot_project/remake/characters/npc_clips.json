@@ -1,0 +1,440 @@
+{
+ "_about": "Authored NPC animation clips (research/animation/npc_animations.md; channels in npc_clips.gd). Positions are fractions of the person's height; hand targets are wrists, in the 'upper' (upper chest), 'hips', 'head' or 'root' frame, +x right, +y up, -z forward. Poles are elbow directions for the right arm (mirrored for the left). Times in seconds at a neutral pace; personality scales them. Keys at w 0 start and end a clip so it eases in and out of the procedural pose. Add a clip by adding an entry.",
+
+ "ambient": {
+  "_about": "Idles a standing person breaks into now and then (NpcAnimator._ambient): base weight, plus 'old' for elders (60+) and 'child' replacing the weight under 13.",
+  "check_watch": {"w": 1.0, "child": 0.0},
+  "stretch": {"w": 0.8, "child": 0.6},
+  "yawn": {"w": 0.8, "child": 0.8},
+  "scratch_head": {"w": 1.0, "child": 1.0},
+  "rub_back": {"w": 0.2, "old": 1.5, "child": 0.0},
+  "wipe_brow": {"w": 0.6, "child": 0.2},
+  "fix_hat": {"w": 0.8, "child": 0.2},
+  "brush_off": {"w": 0.8, "child": 0.6},
+  "rub_hands": {"w": 0.5, "old": 0.5, "child": 0.4},
+  "sneeze": {"w": 0.15, "child": 0.2},
+  "crouch_look": {"w": 0.1, "old": -0.1, "child": 1.2}
+ },
+
+ "clips": {
+
+  "wave": {"group": "social", "length": 2.0, "blend": 0.25, "notes": "forearm up, relaxed palm out, 3 waves from the elbow, drop",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.35, "w": 1, "ease": "tsume", "handR": ["upper", 0.2, 0.13, -0.06], "poleR": [0.9, -0.5, 0.2], "wristR": [0, 0, 70], "gripR": "wave", "head": [-4, 0, -6], "face": {"smile": 0.6, "brow": 0.3}},
+    {"t": 0.6, "handR": ["upper", 0.25, 0.14, -0.05], "ease": "smooth"},
+    {"t": 0.85, "handR": ["upper", 0.16, 0.14, -0.07]},
+    {"t": 1.1, "handR": ["upper", 0.25, 0.14, -0.05]},
+    {"t": 1.35, "handR": ["upper", 0.17, 0.14, -0.07], "face": {"smile": 0.6, "brow": 0.2}},
+    {"t": 1.55, "w": 1, "handR": ["upper", 0.22, 0.12, -0.06]},
+    {"t": 2.0, "w": 0, "ease": "tame"}]},
+
+  "nod": {"group": "social", "length": 1.2, "blend": 0.15, "notes": "2-3 nods, decreasing",
+   "keys": [
+    {"t": 0.0, "w": 0, "head": [0, 0, 0]},
+    {"t": 0.12, "w": 1, "head": [0, 0, 0]},
+    {"t": 0.3, "head": [14, 0, 0], "ease": "tsume"},
+    {"t": 0.5, "head": [-2, 0, 0]},
+    {"t": 0.68, "head": [9, 0, 0], "ease": "tsume"},
+    {"t": 0.86, "head": [0, 0, 0]},
+    {"t": 1.0, "head": [3, 0, 0], "w": 1},
+    {"t": 1.2, "w": 0}]},
+
+  "head_shake": {"group": "social", "length": 1.4, "blend": 0.15, "notes": "no: side to side, the shoulders turning a little",
+   "keys": [
+    {"t": 0.0, "w": 0, "head": [0, 0, 0], "spine": [0, 0, 0]},
+    {"t": 0.15, "w": 1, "head": [4, 0, 0]},
+    {"t": 0.35, "head": [5, 22, 0], "spine": [0, 5, 0]},
+    {"t": 0.6, "head": [5, -20, 0], "spine": [0, -4, 0]},
+    {"t": 0.85, "head": [5, 16, 0], "spine": [0, 3, 0]},
+    {"t": 1.05, "head": [4, -8, 0], "spine": [0, 0, 0]},
+    {"t": 1.4, "w": 0}]},
+
+  "shrug": {"group": "social", "length": 1.8, "blend": 0.2, "notes": "shoulders up, palms up and out, head tilt, brows up; hold; drop",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 1, "ease": "tame", "handR": ["hips", 0.19, 0.02, -0.14], "handL": ["hips", -0.19, 0.02, -0.14], "poleR": [0.3, -0.9, 0.3], "wristR": [0, 0, -80], "wristL": [0, 0, 80], "gripR": "open", "gripL": "open", "spine": [-3, 0, 0], "head": [0, 0, 12], "shoulders": [12, 12], "face": {"brow": 0.9, "smile": -0.2}},
+    {"t": 0.45, "handR": ["hips", 0.21, 0.05, -0.15], "handL": ["hips", -0.21, 0.05, -0.15], "head": [-3, 0, 14], "shoulders": [16, 16], "ease": "tsume"},
+    {"t": 1.25, "handR": ["hips", 0.2, 0.04, -0.14], "handL": ["hips", -0.2, 0.04, -0.14], "head": [-2, 0, 12], "shoulders": [13, 13], "w": 1},
+    {"t": 1.8, "w": 0, "shoulders": [0, 0], "ease": "smooth"}]},
+
+  "point": {"group": "social", "length": 2.2, "blend": 0.2, "notes": "deictic: eyes and head first, then the arm extends, index out",
+   "keys": [
+    {"t": 0.0, "w": 0, "head": [0, 0, 0]},
+    {"t": 0.2, "w": 0.2, "head": [2, -10, 0]},
+    {"t": 0.55, "w": 1, "ease": "tsume", "handR": ["upper", 0.14, 0.04, -0.33], "poleR": [0.8, -0.4, 0.4], "wristR": [0, 0, 20], "gripR": "point", "head": [2, -8, 0], "spine": [3, -6, 0]},
+    {"t": 1.6, "handR": ["upper", 0.14, 0.05, -0.33], "w": 1},
+    {"t": 2.2, "w": 0}]},
+
+  "explain": {"group": "social", "length": 2.4, "blend": 0.25, "notes": "open palm up at the chest, out a little; hold",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.45, "w": 1, "ease": "tame", "handR": ["upper", 0.1, -0.1, -0.16], "poleR": [0.6, -0.8, 0.3], "wristR": [0, 0, -75], "gripR": "open", "head": [3, 0, 5]},
+    {"t": 0.7, "handR": ["upper", 0.14, -0.09, -0.19], "ease": "tsume"},
+    {"t": 1.8, "handR": ["upper", 0.13, -0.1, -0.18], "w": 1, "head": [4, 0, 4]},
+    {"t": 2.4, "w": 0}]},
+
+  "offer": {"group": "social", "length": 2.6, "blend": 0.25, "notes": "the Mayor's sweep: palm up, out to the side; also handing something over",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 1, "ease": "tame", "handR": ["upper", 0.1, -0.15, -0.1], "poleR": [0.7, -0.6, 0.3], "wristR": [0, 0, -70], "gripR": "cup"},
+    {"t": 0.75, "handR": ["upper", 0.2, -0.13, -0.22], "ease": "tsume", "gripR": "open", "spine": [0, -5, 0], "head": [0, 0, 6]},
+    {"t": 1.95, "handR": ["upper", 0.19, -0.12, -0.23], "w": 1},
+    {"t": 2.6, "w": 0}]},
+
+  "hands_up_wait": {"group": "social", "length": 1.8, "blend": 0.15, "notes": "whoa, wait: palms out at the chest, weight back",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.25, "w": 1, "ease": "tsume", "handR": ["upper", 0.1, -0.02, -0.19], "handL": ["upper", -0.1, -0.02, -0.19], "poleR": [0.8, -0.6, 0.2], "wristR": [-60, 0, 0], "wristL": [-60, 0, 0], "gripR": "open", "gripL": "open", "spine": [-5, 0, 0], "hips": [0, 0, 0.015], "face": {"brow": 0.7}},
+    {"t": 1.3, "w": 1},
+    {"t": 1.8, "w": 0}]},
+
+  "beckon": {"group": "social", "length": 1.8, "blend": 0.2, "notes": "come here: palm up, fingers curling in twice",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 1, "handR": ["upper", 0.12, -0.06, -0.2], "poleR": [0.6, -0.8, 0.2], "wristR": [0, 0, -80], "gripR": "open"},
+    {"t": 0.55, "gripR": "cup", "wristR": [20, 0, -80], "ease": "tsume"},
+    {"t": 0.8, "gripR": "open", "wristR": [0, 0, -80]},
+    {"t": 1.05, "gripR": "cup", "wristR": [20, 0, -80], "ease": "tsume"},
+    {"t": 1.3, "gripR": "open", "w": 1},
+    {"t": 1.8, "w": 0}]},
+
+  "hand_on_heart": {"group": "social", "length": 2.2, "blend": 0.25, "notes": "sincere: palm flat on the chest, a small bow of the head",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.45, "w": 1, "ease": "tame", "handR": ["upper", -0.02, -0.02, -0.1], "poleR": [0.9, -0.3, 0.2], "wristR": [0, 0, 60], "gripR": "open", "head": [10, 0, 0]},
+    {"t": 1.6, "w": 1, "head": [12, 0, 3]},
+    {"t": 2.2, "w": 0}]},
+
+  "facepalm": {"group": "social", "length": 2.0, "blend": 0.2, "notes": "exasperated: the hand to the forehead, the head drops into it",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.35, "w": 1, "ease": "tsume", "handR": ["head", 0.03, 0.02, -0.12], "poleR": [0.7, -0.7, 0.2], "wristR": [30, 0, 70], "gripR": "open", "head": [16, 0, 0], "spine": [5, 0, 0], "face": {"eyes": 1.0, "smile": -0.4}},
+    {"t": 1.5, "w": 1, "head": [20, 0, -4]},
+    {"t": 2.0, "w": 0}]},
+
+  "clap": {"group": "social", "length": 1.8, "blend": 0.2, "notes": "4 claps at chest height, then down",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.25, "w": 1, "handR": ["upper", 0.06, -0.08, -0.17], "handL": ["upper", -0.06, -0.08, -0.17], "poleR": [0.8, -0.6, 0.1], "wristR": [0, 0, 70], "wristL": [0, 0, -70], "gripR": "open", "gripL": "open", "face": {"smile": 0.8}},
+    {"t": 0.4, "handR": ["upper", 0.01, -0.08, -0.17], "handL": ["upper", -0.01, -0.08, -0.17], "ease": "tsume"},
+    {"t": 0.55, "handR": ["upper", 0.07, -0.08, -0.17], "handL": ["upper", -0.07, -0.08, -0.17]},
+    {"t": 0.7, "handR": ["upper", 0.01, -0.08, -0.17], "handL": ["upper", -0.01, -0.08, -0.17], "ease": "tsume"},
+    {"t": 0.85, "handR": ["upper", 0.07, -0.08, -0.17], "handL": ["upper", -0.07, -0.08, -0.17]},
+    {"t": 1.0, "handR": ["upper", 0.01, -0.08, -0.17], "handL": ["upper", -0.01, -0.08, -0.17], "ease": "tsume"},
+    {"t": 1.15, "handR": ["upper", 0.07, -0.08, -0.17], "handL": ["upper", -0.07, -0.08, -0.17]},
+    {"t": 1.3, "handR": ["upper", 0.01, -0.08, -0.17], "handL": ["upper", -0.01, -0.08, -0.17], "ease": "tsume", "w": 1},
+    {"t": 1.8, "w": 0}]},
+
+  "bow": {"group": "social", "length": 2.0, "blend": 0.2, "notes": "polite head dip and upper-spine bend, a hold",
+   "keys": [
+    {"t": 0.0, "w": 0, "spine": [0, 0, 0], "head": [0, 0, 0]},
+    {"t": 0.5, "w": 1, "ease": "tame", "spine": [22, 0, 0], "head": [12, 0, 0]},
+    {"t": 1.2, "spine": [22, 0, 0], "head": [12, 0, 0]},
+    {"t": 2.0, "w": 0}]},
+
+  "laugh": {"group": "social", "length": 2.4, "blend": 0.2, "notes": "head back then forward on each ha, shoulders bouncing, a hand to the belly",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.2, "w": 1, "head": [-14, 0, 5], "spine": [-6, 0, 0], "handR": ["hips", 0.04, 0.12, -0.14], "poleR": [0.8, -0.5, 0.3], "gripR": "relaxed", "face": {"smile": 1.0, "mouth": 0.9, "eyes": 0.8}},
+    {"t": 0.4, "head": [6, 0, 3], "spine": [6, 0, 0], "hips": [0, -0.008, 0], "ease": "tsume"},
+    {"t": 0.6, "head": [-10, 0, 4], "spine": [-4, 0, 0], "hips": [0, 0, 0]},
+    {"t": 0.8, "head": [8, 0, 2], "spine": [7, 0, 0], "hips": [0, -0.008, 0], "ease": "tsume"},
+    {"t": 1.0, "head": [-8, 0, 3], "spine": [-3, 0, 0], "hips": [0, 0, 0]},
+    {"t": 1.25, "head": [6, 0, 2], "spine": [6, 0, 0], "hips": [0, -0.006, 0], "ease": "tsume"},
+    {"t": 1.7, "head": [2, 0, 2], "spine": [2, 0, 0], "face": {"smile": 0.8, "mouth": 0.3, "eyes": 0.3}, "w": 1},
+    {"t": 2.4, "w": 0}]},
+
+  "think": {"group": "social", "length": 3.0, "blend": 0.3, "notes": "hand to chin, head tilted, eyes up and aside, a slow nod",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.6, "w": 1, "ease": "tame", "handR": ["head", 0.02, -0.07, -0.1], "poleR": [0.5, -0.9, 0.1], "wristR": [-20, 0, 60], "gripR": "cup", "handL": ["upper", 0.02, -0.14, -0.12], "poleL": [0.6, -0.8, 0.1], "gripL": "relaxed", "head": [-4, 8, 8]},
+    {"t": 1.8, "head": [-2, 10, 10]},
+    {"t": 2.3, "head": [6, 6, 6], "ease": "smooth", "w": 1},
+    {"t": 3.0, "w": 0}]},
+
+  "check_watch": {"group": "idle", "length": 2.4, "blend": 0.25, "notes": "the left wrist up and turned in, the head down to it, a hold",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.4, "w": 1, "ease": "tsume", "handL": ["upper", 0.02, -0.03, -0.21], "poleL": [0.9, -0.5, 0.0], "wristL": [0, 0, 80], "gripL": "relaxed", "head": [22, -6, 0]},
+    {"t": 1.7, "w": 1, "head": [20, -5, 0]},
+    {"t": 2.4, "w": 0}]},
+
+  "stretch": {"group": "idle", "length": 3.2, "blend": 0.3, "notes": "arms up and back (tame), chest lifted, hold, drop and shake out",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.8, "w": 1, "ease": "tame", "handR": ["upper", 0.12, 0.32, 0.02], "handL": ["upper", -0.12, 0.32, 0.02], "poleR": [0.9, 0.0, 0.4], "gripR": "open", "gripL": "open", "spine": [-10, 0, 0], "head": [-15, 0, 0], "face": {"eyes": 0.9, "mouth": 0.4}},
+    {"t": 1.8, "spine": [-12, 0, 0], "head": [-18, 0, 0]},
+    {"t": 2.3, "w": 1, "handR": ["upper", 0.2, -0.2, -0.05], "handL": ["upper", -0.2, -0.2, -0.05], "spine": [0, 0, 0], "head": [2, 0, 0], "ease": "tsume"},
+    {"t": 3.2, "w": 0}]},
+
+  "yawn": {"group": "idle", "length": 2.8, "blend": 0.25, "notes": "hand to mouth, head back, jaw open, eyes shut",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.6, "w": 1, "ease": "tame", "handR": ["head", 0.01, -0.035, -0.12], "poleR": [0.6, -0.8, 0.1], "wristR": [0, 0, 80], "gripR": "cup", "head": [-14, 0, 0], "spine": [-4, 0, 0], "face": {"mouth": 1.0, "eyes": 1.0}},
+    {"t": 1.8, "head": [-16, 0, 3], "face": {"mouth": 0.9, "eyes": 1.0}},
+    {"t": 2.2, "head": [2, 0, 0], "face": {"mouth": 0.0, "eyes": 0.2}, "w": 1},
+    {"t": 2.8, "w": 0}]},
+
+  "scratch_head": {"group": "idle", "length": 2.2, "blend": 0.25, "notes": "hand to the back of the head, a few small strokes, head tilted",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.4, "w": 1, "handR": ["head", 0.06, 0.07, 0.03], "poleR": [0.9, 0.1, -0.2], "gripR": "cup", "head": [6, 0, -10]},
+    {"t": 0.6, "handR": ["head", 0.06, 0.09, 0.04], "ease": "tsume"},
+    {"t": 0.8, "handR": ["head", 0.06, 0.07, 0.03]},
+    {"t": 1.0, "handR": ["head", 0.06, 0.09, 0.04], "ease": "tsume"},
+    {"t": 1.2, "handR": ["head", 0.06, 0.07, 0.03]},
+    {"t": 1.5, "w": 1},
+    {"t": 2.2, "w": 0}]},
+
+  "rub_hands": {"group": "idle", "length": 2.4, "blend": 0.25, "notes": "cold: hands together in front, rubbing, shoulders up",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.35, "w": 1, "handR": ["upper", 0.02, -0.12, -0.16], "handL": ["upper", -0.02, -0.12, -0.16], "poleR": [0.7, -0.7, 0.2], "wristR": [0, 0, 80], "wristL": [0, 0, -80], "gripR": "open", "gripL": "open", "spine": [6, 0, 0], "head": [6, 0, 0], "shoulders": [9, 9]},
+    {"t": 0.55, "handR": ["upper", 0.02, -0.1, -0.17], "handL": ["upper", -0.02, -0.13, -0.16]},
+    {"t": 0.75, "handR": ["upper", 0.02, -0.13, -0.16], "handL": ["upper", -0.02, -0.1, -0.17]},
+    {"t": 0.95, "handR": ["upper", 0.02, -0.1, -0.17], "handL": ["upper", -0.02, -0.13, -0.16]},
+    {"t": 1.15, "handR": ["upper", 0.02, -0.13, -0.16], "handL": ["upper", -0.02, -0.1, -0.17]},
+    {"t": 1.35, "handR": ["upper", 0.02, -0.1, -0.17], "handL": ["upper", -0.02, -0.13, -0.16]},
+    {"t": 1.7, "w": 1},
+    {"t": 2.4, "w": 0}]},
+
+  "rub_back": {"group": "idle", "length": 2.6, "blend": 0.25, "notes": "tired: hand to the lower back, arch back, wince",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.5, "w": 1, "ease": "tame", "handR": ["hips", 0.08, 0.06, 0.1], "poleR": [0.9, 0.0, 0.3], "wristR": [0, 0, 0], "gripR": "open", "spine": [-10, 0, 0], "head": [-6, 0, 4], "face": {"eyes": 0.7, "smile": -0.4}},
+    {"t": 1.7, "spine": [-12, 0, 0], "w": 1},
+    {"t": 2.6, "w": 0}]},
+
+  "wipe_brow": {"group": "idle", "length": 1.8, "blend": 0.2, "notes": "back of the wrist across the forehead, a breath out",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.35, "w": 1, "handR": ["head", 0.07, 0.07, -0.12], "poleR": [0.9, -0.4, 0.1], "wristR": [0, 0, -40], "gripR": "relaxed", "head": [-6, 0, 0]},
+    {"t": 0.8, "handR": ["head", -0.05, 0.08, -0.12], "ease": "smooth"},
+    {"t": 1.2, "w": 1, "head": [-3, 0, 0], "face": {"mouth": 0.3}},
+    {"t": 1.8, "w": 0}]},
+
+  "fix_hat": {"group": "idle", "length": 1.6, "blend": 0.2, "notes": "a hand to the brim or hair, a small adjust",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.35, "w": 1, "ease": "tsume", "handR": ["head", 0.09, 0.14, -0.08], "poleR": [0.9, -0.3, 0.1], "gripR": "pinch", "head": [4, 0, -4]},
+    {"t": 0.6, "handR": ["head", 0.09, 0.15, -0.06], "head": [2, 0, -2]},
+    {"t": 1.0, "w": 1},
+    {"t": 1.6, "w": 0}]},
+
+  "brush_off": {"group": "idle", "length": 1.8, "blend": 0.2, "notes": "two brushes at the thigh, a look down",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 1, "handR": ["hips", 0.12, -0.05, -0.08], "poleR": [0.8, -0.2, 0.4], "wristR": [0, 0, 30], "gripR": "open", "head": [18, 0, 0], "spine": [6, 0, 0]},
+    {"t": 0.5, "handR": ["hips", 0.12, -0.13, -0.06], "ease": "tsume"},
+    {"t": 0.7, "handR": ["hips", 0.12, -0.05, -0.08]},
+    {"t": 0.9, "handR": ["hips", 0.12, -0.13, -0.06], "ease": "tsume"},
+    {"t": 1.2, "w": 1},
+    {"t": 1.8, "w": 0}]},
+
+  "lapels": {"group": "idle", "length": 4.0, "loop": true, "blend": 0.3, "notes": "Mayor Clayton's home pose: thumbs hooked in the lapels, chest out, leaning back",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.06, -0.03, -0.085], "handL": ["upper", -0.06, -0.03, -0.085], "poleR": [0.9, -0.3, 0.2], "wristR": [0, 0, 40], "wristL": [0, 0, -40], "gripR": "fist", "gripL": "fist", "spine": [-6, 0, 0], "head": [-4, 0, 3]},
+    {"t": 2.0, "spine": [-7, 0, 0], "head": [-3, 4, 5]},
+    {"t": 4.0, "spine": [-6, 0, 0], "head": [-4, 0, 3]}]},
+
+  "startle": {"group": "reaction", "length": 1.6, "blend": 0.08, "notes": "flinch: shoulders up, arms in, half step back; settle and stare",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.1, "w": 1, "ease": "tsume", "handR": ["upper", 0.06, -0.08, -0.14], "handL": ["upper", -0.06, -0.06, -0.14], "poleR": [0.5, -0.8, 0.3], "gripR": "fist", "gripL": "fist", "spine": [-8, 0, 0], "head": [-8, 0, 0], "hips": [0, -0.01, 0.025], "shoulders": [14, 14], "face": {"brow": 1.0, "mouth": 0.5}},
+    {"t": 0.6, "w": 0.8, "spine": [-3, 0, 0], "head": [-2, 0, 0], "hips": [0, 0, 0.015], "face": {"brow": 0.6, "mouth": 0.1}},
+    {"t": 1.6, "w": 0}]},
+
+  "surprised": {"group": "reaction", "length": 1.8, "blend": 0.12, "notes": "oh!: brows up, head back, a hand to the chest",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.2, "w": 1, "ease": "tsume", "handR": ["upper", 0.0, -0.03, -0.1], "poleR": [0.9, -0.4, 0.1], "wristR": [0, 0, 60], "gripR": "open", "head": [-8, 0, 0], "spine": [-4, 0, 0], "face": {"brow": 1.0, "mouth": 0.6}},
+    {"t": 1.1, "w": 1, "face": {"brow": 0.6, "mouth": 0.2}},
+    {"t": 1.8, "w": 0}]},
+
+  "cower": {"group": "reaction", "length": 2.5, "blend": 0.1, "notes": "danger: arms over the head, crouch, turned away",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.25, "w": 1, "ease": "tsume", "handR": ["head", 0.08, 0.1, -0.06], "handL": ["head", -0.08, 0.12, -0.04], "poleR": [0.8, -0.2, -0.5], "gripR": "fist", "gripL": "fist", "spine": [25, 18, 0], "head": [20, 10, 0], "hips": [0, -0.08, 0.03], "shoulders": [15, 15], "face": {"eyes": 1.0, "brow": 0.8}},
+    {"t": 1.8, "w": 1},
+    {"t": 2.5, "w": 0}]},
+
+  "shiver": {"group": "reaction", "length": 2.4, "blend": 0.2, "notes": "cold: shoulders up, arms hugged, a quick tremor",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 1, "handR": ["upper", -0.08, -0.07, -0.08], "handL": ["upper", 0.08, -0.05, -0.08], "poleR": [0.9, -0.4, 0.0], "gripR": "cup", "gripL": "cup", "spine": [8, 0, 0], "head": [8, 0, 0], "shoulders": [12, 12]},
+    {"t": 0.4, "spine": [8, 3, 2]}, {"t": 0.5, "spine": [8, -3, -2]}, {"t": 0.6, "spine": [8, 3, 2]},
+    {"t": 0.7, "spine": [8, -3, -2]}, {"t": 0.8, "spine": [8, 2, 1]}, {"t": 0.9, "spine": [8, -2, -1]},
+    {"t": 1.6, "w": 1, "spine": [8, 0, 0]},
+    {"t": 2.4, "w": 0}]},
+
+  "rain_hunch": {"group": "reaction", "length": 3.0, "loop": true, "blend": 0.3, "notes": "rain: shoulders up, head down, a hand held over the head",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["head", 0.02, 0.16, -0.02], "poleR": [0.9, 0.2, 0.0], "wristR": [0, 0, 80], "gripR": "open", "spine": [10, 0, 0], "head": [14, 0, 0], "shoulders": [10, 10]},
+    {"t": 3.0, "w": 1, "handR": ["head", 0.02, 0.16, -0.02], "spine": [10, 0, 0], "head": [14, 0, 0]}]},
+
+  "sneeze": {"group": "reaction", "length": 1.8, "blend": 0.1, "notes": "tame build (inhale, head back), sudden snap forward, a hand to the mouth",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.6, "w": 1, "ease": "tame", "handR": ["head", 0.01, -0.03, -0.13], "poleR": [0.6, -0.8, 0.1], "gripR": "cup", "head": [-14, 0, 0], "spine": [-6, 0, 0], "face": {"eyes": 0.8, "mouth": 0.4, "brow": 0.6}},
+    {"t": 0.72, "head": [18, 0, 0], "spine": [12, 0, 0], "ease": "tsume", "face": {"eyes": 1.0, "mouth": 0.2}},
+    {"t": 1.2, "head": [4, 0, 0], "spine": [2, 0, 0], "w": 1},
+    {"t": 1.8, "w": 0}]},
+
+  "salute": {"group": "work", "length": 1.8, "blend": 0.12, "notes": "crisp: the hand to the brow (tsume), a hold, cut down",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.25, "w": 1, "ease": "tsume", "handR": ["head", 0.08, 0.12, -0.09], "poleR": [1.0, 0.0, 0.0], "wristR": [0, 0, -30], "gripR": "open", "spine": [-2, 0, 0], "head": [-2, 0, 0]},
+    {"t": 1.2, "w": 1},
+    {"t": 1.4, "w": 0, "ease": "tsume"},
+    {"t": 1.8, "w": 0}]},
+
+  "drink": {"group": "prop", "length": 3.0, "blend": 0.25, "props": {"R": "cup"}, "notes": "the cup up in an arc, the head tilts back, a hold, down; a breath",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.4, "w": 1, "handR": ["upper", 0.08, -0.14, -0.15], "poleR": [0.8, -0.6, 0.2], "gripR": "hold"},
+    {"t": 0.9, "handR": ["head", 0.02, -0.04, -0.12], "ease": "smooth", "wristR": [-30, 0, 0]},
+    {"t": 1.1, "head": [-18, 0, 0], "wristR": [-55, 0, 0]},
+    {"t": 1.9, "head": [-20, 0, 0], "w": 1},
+    {"t": 2.3, "handR": ["upper", 0.08, -0.14, -0.15], "head": [2, 0, 0], "wristR": [0, 0, 0], "face": {"mouth": 0.3}},
+    {"t": 3.0, "w": 0}]},
+
+  "eat": {"group": "prop", "length": 3.0, "blend": 0.25, "props": {"R": "apple"}, "notes": "a bite: the head forward to meet the hand, chewing on the jaw",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.5, "w": 1, "handR": ["head", 0.01, -0.04, -0.14], "poleR": [0.7, -0.7, 0.2], "gripR": "hold", "head": [8, 0, 0]},
+    {"t": 0.7, "head": [10, 0, 0], "face": {"mouth": 0.8}, "ease": "tsume"},
+    {"t": 0.9, "handR": ["upper", 0.08, -0.12, -0.16], "head": [0, 0, 0], "face": {"mouth": 0.0}},
+    {"t": 1.2, "face": {"mouth": 0.4}}, {"t": 1.4, "face": {"mouth": 0.0}}, {"t": 1.6, "face": {"mouth": 0.4}},
+    {"t": 1.8, "face": {"mouth": 0.0}}, {"t": 2.0, "face": {"mouth": 0.3}},
+    {"t": 2.3, "w": 1, "face": {"mouth": 0.0}},
+    {"t": 3.0, "w": 0}]},
+
+  "read_paper": {"group": "prop", "length": 6.0, "loop": true, "blend": 0.35, "props": {"R": "paper"}, "notes": "both hands out, head down; a page turn",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.12, -0.1, -0.2], "handL": ["upper", -0.12, -0.1, -0.2], "poleR": [0.8, -0.6, 0.1], "gripR": "hold", "gripL": "hold", "head": [22, 0, 0], "wristR": [-20, 0, 0], "wristL": [-20, 0, 0]},
+    {"t": 3.5, "head": [22, 4, 0]},
+    {"t": 4.0, "handL": ["upper", 0.0, -0.08, -0.22], "ease": "tsume"},
+    {"t": 4.4, "handL": ["upper", -0.12, -0.1, -0.2]},
+    {"t": 6.0, "head": [22, 0, 0]}]},
+
+  "use_pda": {"group": "prop", "length": 5.0, "loop": true, "blend": 0.3, "props": {"R": "pda"}, "notes": "held in both hands at the chest, head down, thumbs tapping",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.04, -0.12, -0.17], "handL": ["upper", -0.04, -0.12, -0.17], "poleR": [0.7, -0.7, 0.1], "gripR": "hold", "gripL": "cup", "head": [26, 0, 0], "wristR": [-30, 0, 20], "wristL": [-30, 0, -20]},
+    {"t": 1.0, "gripL": "pinch"}, {"t": 1.3, "gripL": "cup"}, {"t": 2.2, "gripL": "pinch"}, {"t": 2.5, "gripL": "cup"},
+    {"t": 3.5, "head": [24, 5, 0]},
+    {"t": 5.0, "head": [26, 0, 0]}]},
+
+  "knock": {"group": "prop", "length": 2.0, "blend": 0.2, "notes": "2-3 knocks from the wrist, a step back, wait",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 1, "handR": ["upper", 0.08, 0.02, -0.28], "poleR": [0.8, -0.6, 0.1], "gripR": "fist", "wristR": [20, 0, 0]},
+    {"t": 0.45, "wristR": [-20, 0, 0], "ease": "tsume"}, {"t": 0.6, "wristR": [20, 0, 0]},
+    {"t": 0.75, "wristR": [-20, 0, 0], "ease": "tsume"}, {"t": 0.9, "wristR": [20, 0, 0]},
+    {"t": 1.05, "wristR": [-20, 0, 0], "ease": "tsume"},
+    {"t": 1.4, "w": 1, "handR": ["upper", 0.1, -0.2, -0.1], "hips": [0, 0, 0.02]},
+    {"t": 2.0, "w": 0}]},
+
+  "sweep": {"group": "work", "length": 2.4, "loop": true, "blend": 0.35, "props": {"R": "broom"}, "notes": "arcs from the hips, stepping back; both hands on the handle",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.06, -0.16, -0.18], "handL": ["upper", 0.02, -0.02, -0.14], "poleR": [0.8, -0.5, 0.3], "gripR": "hold", "gripL": "hold", "spine": [16, -14, 0], "head": [12, 6, 0], "hips": [0, -0.01, 0]},
+    {"t": 1.1, "handR": ["upper", -0.1, -0.16, -0.16], "handL": ["upper", -0.1, -0.02, -0.12], "spine": [16, 16, 0], "head": [12, -4, 0], "ease": "smooth"},
+    {"t": 2.4, "handR": ["upper", 0.06, -0.16, -0.18], "handL": ["upper", 0.02, -0.02, -0.14], "spine": [16, -14, 0], "head": [12, 6, 0], "ease": "smooth"}]},
+
+  "hammer": {"group": "work", "length": 1.4, "loop": true, "blend": 0.3, "props": {"R": "hammer"}, "notes": "raise (tame), strike (tsume), a small rebound, a look",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.1, 0.1, -0.1], "poleR": [0.8, -0.3, 0.5], "gripR": "fist", "wristR": [-40, 0, 0], "handL": ["hips", 0.02, 0.06, -0.24], "gripL": "hold", "spine": [18, 0, 0], "head": [22, 0, 0]},
+    {"t": 0.45, "handR": ["upper", 0.1, 0.14, -0.06], "wristR": [-60, 0, 0], "ease": "tame"},
+    {"t": 0.6, "handR": ["hips", 0.08, 0.1, -0.26], "wristR": [20, 0, 0], "ease": "tsume", "spine": [22, 0, 0]},
+    {"t": 0.72, "handR": ["hips", 0.08, 0.13, -0.25], "wristR": [0, 0, 0]},
+    {"t": 1.4, "handR": ["upper", 0.1, 0.1, -0.1], "wristR": [-40, 0, 0], "spine": [18, 0, 0]}]},
+
+  "hoe": {"group": "work", "length": 2.2, "loop": true, "blend": 0.35, "props": {"R": "hoe"}, "notes": "the hoe raised, weight into the downstroke",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.04, 0.06, -0.14], "handL": ["upper", 0.02, -0.12, -0.16], "poleR": [0.8, -0.4, 0.4], "gripR": "hold", "gripL": "hold", "spine": [8, 0, 0], "head": [16, 0, 0]},
+    {"t": 0.8, "handR": ["upper", 0.04, 0.12, -0.1], "handL": ["upper", 0.02, -0.02, -0.14], "spine": [2, 0, 0], "ease": "tame"},
+    {"t": 1.05, "handR": ["hips", 0.04, 0.08, -0.3], "handL": ["hips", 0.02, -0.02, -0.32], "spine": [28, 0, 0], "head": [22, 0, 0], "hips": [0, -0.02, 0.01], "ease": "tsume"},
+    {"t": 1.6, "handR": ["hips", 0.04, 0.12, -0.26], "handL": ["hips", 0.02, 0.02, -0.28], "spine": [24, 0, 0]},
+    {"t": 2.2, "handR": ["upper", 0.04, 0.06, -0.14], "handL": ["upper", 0.02, -0.12, -0.16], "spine": [8, 0, 0], "hips": [0, 0, 0]}]},
+
+  "knead": {"group": "work", "length": 1.6, "loop": true, "blend": 0.3, "notes": "a rocking push from the hips, the heels of both hands",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["hips", 0.05, 0.1, -0.24], "handL": ["hips", -0.05, 0.1, -0.24], "poleR": [0.8, -0.2, 0.4], "wristR": [-50, 0, 0], "wristL": [-50, 0, 0], "gripR": "cup", "gripL": "cup", "spine": [22, 0, 0], "head": [18, 0, 0]},
+    {"t": 0.6, "handR": ["hips", 0.05, 0.06, -0.32], "handL": ["hips", -0.05, 0.06, -0.32], "spine": [30, 0, 0], "hips": [0, 0, -0.012], "ease": "tsume"},
+    {"t": 1.6, "handR": ["hips", 0.05, 0.1, -0.24], "handL": ["hips", -0.05, 0.1, -0.24], "spine": [22, 0, 0], "hips": [0, 0, 0]}]},
+
+  "stir": {"group": "work", "length": 1.6, "loop": true, "blend": 0.3, "props": {"R": "spoon"}, "notes": "circles over a pot, the other hand steadying",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["hips", 0.1, 0.16, -0.24], "handL": ["hips", -0.1, 0.12, -0.22], "poleR": [0.8, -0.5, 0.3], "gripR": "hold", "gripL": "hold", "spine": [14, 0, 0], "head": [22, 0, 0]},
+    {"t": 0.4, "handR": ["hips", 0.14, 0.16, -0.28]},
+    {"t": 0.8, "handR": ["hips", 0.1, 0.16, -0.32]},
+    {"t": 1.2, "handR": ["hips", 0.06, 0.16, -0.28]},
+    {"t": 1.6, "handR": ["hips", 0.1, 0.16, -0.24]}]},
+
+  "haul_rope": {"group": "work", "length": 1.6, "loop": true, "blend": 0.3, "notes": "hand over hand with the whole back, legs braced",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["upper", 0.03, -0.02, -0.3], "handL": ["upper", 0.0, -0.12, -0.16], "poleR": [0.8, -0.5, 0.2], "gripR": "fist", "gripL": "fist", "spine": [-8, 0, 0], "hips": [0, -0.03, 0.03]},
+    {"t": 0.8, "handR": ["upper", 0.03, -0.14, -0.14], "handL": ["upper", 0.0, -0.02, -0.3], "spine": [-12, 0, 0], "ease": "tsume"},
+    {"t": 1.6, "handR": ["upper", 0.03, -0.02, -0.3], "handL": ["upper", 0.0, -0.12, -0.16], "spine": [-8, 0, 0], "ease": "tsume"}]},
+
+  "wipe_counter": {"group": "work", "length": 2.0, "loop": true, "blend": 0.3, "notes": "circles from the shoulder, the head down",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["hips", 0.1, 0.12, -0.28], "poleR": [0.8, -0.4, 0.4], "wristR": [-60, 0, 0], "gripR": "cup", "handL": ["hips", -0.12, 0.12, -0.22], "gripL": "open", "wristL": [-60, 0, 0], "spine": [22, 0, 0], "head": [16, 0, 0]},
+    {"t": 0.5, "handR": ["hips", 0.18, 0.12, -0.32]},
+    {"t": 1.0, "handR": ["hips", 0.1, 0.12, -0.36]},
+    {"t": 1.5, "handR": ["hips", 0.04, 0.12, -0.32]},
+    {"t": 2.0, "handR": ["hips", 0.1, 0.12, -0.28]}]},
+
+  "lean_counter": {"group": "station", "length": 5.0, "loop": true, "blend": 0.4, "notes": "Coffer: forearms braced on a counter, shoulders hunched, weight on one leg",
+   "keys": [
+    {"t": 0.0, "w": 1, "handR": ["root", 0.1, 0.58, -0.25], "handL": ["root", -0.12, 0.58, -0.24], "poleR": [0.9, -0.2, 0.4], "wristR": [-60, 0, 0], "wristL": [-60, 0, 0], "gripR": "relaxed", "gripL": "relaxed", "spine": [26, 0, 0], "head": [-14, 0, 4], "shoulders": [8, 8]},
+    {"t": 2.5, "spine": [27, 3, 0], "head": [-12, 6, 6]},
+    {"t": 5.0, "spine": [26, 0, 0], "head": [-14, 0, 4]}]},
+
+  "sit_down": {"group": "station", "length": 1.8, "blend": 0.2, "seat": 0.27, "notes": "look back at the seat, a hand toward it, hips back and down, settle",
+   "keys": [
+    {"t": 0.0, "w": 0, "hips": [0, 0, 0], "head": [0, 0, 0]},
+    {"t": 0.35, "w": 1, "head": [14, 0, 0], "spine": [10, 0, 0], "handR": ["hips", 0.16, -0.06, 0.02], "poleR": [0.8, 0.0, 0.5], "gripR": "open"},
+    {"t": 1.2, "hips": [0, -0.215, 0.07], "footL": [-0.055, 0.042, -0.15, 0], "footR": [0.055, 0.042, -0.15, 0], "spine": [16, 0, 0], "head": [6, 0, 0], "ease": "smooth"},
+    {"t": 1.5, "hips": [0, -0.225, 0.075], "spine": [18, 0, 0], "ease": "tsume", "handR": ["hips", 0.09, -0.04, -0.16], "handL": ["hips", -0.09, -0.04, -0.16], "poleL": [0.8, -0.4, 0.4], "gripL": "relaxed"},
+    {"t": 1.8, "hips": [0, -0.22, 0.075], "spine": [16, 0, 0], "head": [-4, 0, 0], "w": 1}]},
+
+  "sit_idle": {"group": "station", "length": 6.0, "loop": true, "blend": 0.2, "seat": 0.27, "notes": "Ginny: leaning forward, forearms on the thighs; acting by the head and one hand",
+   "keys": [
+    {"t": 0.0, "w": 1, "hips": [0, -0.22, 0.075], "footL": [-0.06, 0.042, -0.15, 0], "footR": [0.06, 0.042, -0.14, 0], "spine": [22, 0, 0], "handR": ["hips", 0.07, -0.04, -0.17], "handL": ["hips", -0.07, -0.04, -0.17], "poleR": [0.8, -0.4, 0.4], "gripR": "relaxed", "gripL": "relaxed", "head": [-10, 0, 0]},
+    {"t": 2.0, "head": [-10, 10, 6]},
+    {"t": 3.0, "handR": ["hips", 0.1, 0.0, -0.2], "wristR": [0, 0, -60], "ease": "tame"},
+    {"t": 3.8, "handR": ["hips", 0.07, -0.04, -0.17], "wristR": [0, 0, 0]},
+    {"t": 6.0, "head": [-6, 0, 0], "spine": [22, 0, 0]}]},
+
+  "stand_up": {"group": "station", "length": 1.6, "blend": 0.15, "seat": 0.27, "notes": "lean forward (nose over toes), hands push on the knees, rise",
+   "keys": [
+    {"t": 0.0, "w": 1, "hips": [0, -0.22, 0.075], "footL": [-0.06, 0.042, -0.15, 0], "footR": [0.06, 0.042, -0.14, 0], "spine": [18, 0, 0], "handR": ["hips", 0.08, -0.04, -0.16], "handL": ["hips", -0.08, -0.04, -0.16], "poleR": [0.8, -0.4, 0.4]},
+    {"t": 0.45, "spine": [34, 0, 0], "head": [-16, 0, 0], "hips": [0, -0.21, 0.05], "ease": "tame", "handR": ["hips", 0.08, -0.08, -0.22], "handL": ["hips", -0.08, -0.08, -0.22]},
+    {"t": 1.1, "hips": [0, -0.02, 0.0], "spine": [10, 0, 0], "head": [0, 0, 0], "footL": [-0.06, 0.042, -0.05, 0], "footR": [0.06, 0.042, -0.05, 0], "ease": "smooth"},
+    {"t": 1.6, "w": 0, "hips": [0, 0, 0], "spine": [0, 0, 0]}]},
+
+  "crouch_look": {"group": "idle", "length": 4.0, "blend": 0.3, "notes": "squat, knees apart, forearms on the knees, looking at something on the ground",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.8, "w": 1, "ease": "smooth", "hips": [0, -0.26, 0.02], "footL": [-0.08, 0.042, -0.02, 0], "footR": [0.08, 0.042, 0.0, 0], "spine": [30, 0, 0], "head": [14, 0, 0], "handR": ["hips", 0.1, -0.05, -0.16], "handL": ["hips", -0.1, -0.05, -0.16], "poleR": [0.8, -0.3, 0.3], "gripR": "relaxed", "gripL": "relaxed"},
+    {"t": 3.0, "w": 1, "head": [16, 8, 4]},
+    {"t": 4.0, "w": 0}]},
+
+  "pick_up": {"group": "prop", "length": 2.4, "blend": 0.2, "notes": "a look first; squat (not bend) and reach; stand with it",
+   "keys": [
+    {"t": 0.0, "w": 0},
+    {"t": 0.3, "w": 0.4, "head": [20, 0, 0]},
+    {"t": 1.0, "w": 1, "ease": "smooth", "hips": [0, -0.22, 0.02], "footL": [-0.07, 0.042, 0.01, 0], "footR": [0.07, 0.042, -0.03, 0], "spine": [34, 0, 0], "head": [18, 0, 0], "handR": ["root", 0.06, 0.05, -0.2], "poleR": [0.8, -0.2, 0.4], "gripR": "open"},
+    {"t": 1.25, "gripR": "hold", "ease": "tsume"},
+    {"t": 1.9, "hips": [0, -0.01, 0], "spine": [4, 0, 0], "head": [4, 0, 0], "handR": ["upper", 0.1, -0.2, -0.12], "ease": "smooth"},
+    {"t": 2.4, "w": 0}]},
+
+  "doze": {"group": "idle", "length": 6.0, "loop": true, "blend": 0.5, "notes": "the head nodding off, then jerking up",
+   "keys": [
+    {"t": 0.0, "w": 1, "head": [4, 0, 0], "face": {"eyes": 0.6}},
+    {"t": 3.5, "head": [26, 0, 6], "face": {"eyes": 1.0}, "ease": "tame"},
+    {"t": 3.7, "head": [2, 0, 0], "face": {"eyes": 0.2, "brow": 0.6}, "ease": "tsume"},
+    {"t": 6.0, "head": [4, 0, 0], "face": {"eyes": 0.6}}]}
+ }
+}

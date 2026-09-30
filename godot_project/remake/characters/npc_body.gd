@@ -21,31 +21,40 @@ const LIMB := 10          # round an arm, the neck
 const HEAD_AROUND := 24
 const CLOTHES_ROOM := 0.026        # (fraction of height) the most any outfit adds round the hips
 const FINGERS := ["Thumb", "Index", "Middle", "Ring", "Pinky"]
-const BONES := ["Hips", "Spine", "Chest", "Neck", "Head",
-	"ShoulderL", "UpperArmL", "LowerArmL", "HandL",
-	"ShoulderR", "UpperArmR", "LowerArmR", "HandR",
-	"UpperLegL", "LowerLegL", "FootL",
-	"UpperLegR", "LowerLegR", "FootR",
-	"ThumbAL", "ThumbBL", "IndexAL", "IndexBL", "MiddleAL", "MiddleBL", "RingAL", "RingBL", "PinkyAL", "PinkyBL",
-	"ThumbAR", "ThumbBR", "IndexAR", "IndexBR", "MiddleAR", "MiddleBR", "RingAR", "RingBR", "PinkyAR", "PinkyBR",
-	"ToeL", "ToeR", "HairA", "HairB"]
-const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "Neck": "Chest", "Head": "Neck",
-	"ShoulderL": "Chest", "UpperArmL": "ShoulderL", "LowerArmL": "UpperArmL", "HandL": "LowerArmL",
-	"ShoulderR": "Chest", "UpperArmR": "ShoulderR", "LowerArmR": "UpperArmR", "HandR": "LowerArmR",
-	"UpperLegL": "Hips", "LowerLegL": "UpperLegL", "FootL": "LowerLegL",
-	"UpperLegR": "Hips", "LowerLegR": "UpperLegR", "FootR": "LowerLegR",
-	"ThumbAL": "HandL", "ThumbBL": "ThumbAL", "IndexAL": "HandL", "IndexBL": "IndexAL", "MiddleAL": "HandL", "MiddleBL": "MiddleAL",
-	"RingAL": "HandL", "RingBL": "RingAL", "PinkyAL": "HandL", "PinkyBL": "PinkyAL",
-	"ThumbAR": "HandR", "ThumbBR": "ThumbAR", "IndexAR": "HandR", "IndexBR": "IndexAR", "MiddleAR": "HandR", "MiddleBR": "MiddleAR",
-	"RingAR": "HandR", "RingBR": "RingAR", "PinkyAR": "HandR", "PinkyBR": "PinkyAR",
-	"ToeL": "FootL", "ToeR": "FootR",
-	"HairA": "Head", "HairB": "HairA"}
+const BONES := ["Hips", "Spine", "Chest", "UpperChest", "Neck", "Head", "Jaw",
+	"ShoulderL", "UpperArmL", "UpperArmTwistL", "LowerArmL", "LowerArmTwistL", "HandL", "PropL",
+	"ShoulderR", "UpperArmR", "UpperArmTwistR", "LowerArmR", "LowerArmTwistR", "HandR", "PropR",
+	"UpperLegL", "LowerLegL", "FootL", "ToeL",
+	"UpperLegR", "LowerLegR", "FootR", "ToeR",
+	"ThumbAL", "ThumbBL", "ThumbCL", "IndexAL", "IndexBL", "IndexCL", "MiddleAL", "MiddleBL", "MiddleCL",
+	"RingAL", "RingBL", "RingCL", "PinkyAL", "PinkyBL", "PinkyCL",
+	"ThumbAR", "ThumbBR", "ThumbCR", "IndexAR", "IndexBR", "IndexCR", "MiddleAR", "MiddleBR", "MiddleCR",
+	"RingAR", "RingBR", "RingCR", "PinkyAR", "PinkyBR", "PinkyCR",
+	"HairA", "HairB"]
+## 61 bones, the layout of the standard game humanoids (research/animation/npc_animations.md 1): a
+## three-part spine, a jaw, clavicles, twist bones in the upper arm and forearm (so a turning wrist
+## doesn't collapse the forearm -- the "candy wrapper" of linear skinning), three segments on every
+## finger and the thumb, toes, a prop socket in each palm, and a hair chain for secondary motion.
+const PARENT := {"Hips": "", "Spine": "Hips", "Chest": "Spine", "UpperChest": "Chest", "Neck": "UpperChest",
+	"Head": "Neck", "Jaw": "Head", "HairA": "Head", "HairB": "HairA",
+	"ShoulderL": "UpperChest", "UpperArmL": "ShoulderL", "UpperArmTwistL": "UpperArmL", "LowerArmL": "UpperArmL",
+	"LowerArmTwistL": "LowerArmL", "HandL": "LowerArmL", "PropL": "HandL",
+	"ShoulderR": "UpperChest", "UpperArmR": "ShoulderR", "UpperArmTwistR": "UpperArmR", "LowerArmR": "UpperArmR",
+	"LowerArmTwistR": "LowerArmR", "HandR": "LowerArmR", "PropR": "HandR",
+	"UpperLegL": "Hips", "LowerLegL": "UpperLegL", "FootL": "LowerLegL", "ToeL": "FootL",
+	"UpperLegR": "Hips", "LowerLegR": "UpperLegR", "FootR": "LowerLegR", "ToeR": "FootR",
+	"ThumbAL": "HandL", "ThumbBL": "ThumbAL", "ThumbCL": "ThumbBL", "IndexAL": "HandL", "IndexBL": "IndexAL", "IndexCL": "IndexBL",
+	"MiddleAL": "HandL", "MiddleBL": "MiddleAL", "MiddleCL": "MiddleBL", "RingAL": "HandL", "RingBL": "RingAL", "RingCL": "RingBL",
+	"PinkyAL": "HandL", "PinkyBL": "PinkyAL", "PinkyCL": "PinkyBL",
+	"ThumbAR": "HandR", "ThumbBR": "ThumbAR", "ThumbCR": "ThumbBR", "IndexAR": "HandR", "IndexBR": "IndexAR", "IndexCR": "IndexBR",
+	"MiddleAR": "HandR", "MiddleBR": "MiddleAR", "MiddleCR": "MiddleBR", "RingAR": "HandR", "RingBR": "RingAR", "RingCR": "RingBR",
+	"PinkyAR": "HandR", "PinkyBR": "PinkyAR", "PinkyCR": "PinkyBR"}
 const BALL := 0.55          # the ball of the foot (the toe joint), in foot lengths forward of the ankle
 # the hand's geometry, in hand lengths / palm half-widths: [across the palm (-1 front .. 1 back),
-# knuckle offset along the hand, first segment, second segment] -- relative lengths as in real hands
+# knuckle offset along the hand, proximal, intermediate, distal segments] -- relative lengths as in real hands
 const FINGER_DEF := {
-	"Index": [-0.62, 0.0, 0.2, 0.17], "Middle": [-0.2, 0.02, 0.22, 0.19],
-	"Ring": [0.22, 0.0, 0.21, 0.18], "Pinky": [0.62, -0.04, 0.16, 0.14]}
+	"Index": [-0.62, 0.0, 0.2, 0.1, 0.08], "Middle": [-0.2, 0.02, 0.22, 0.11, 0.09],
+	"Ring": [0.22, 0.0, 0.21, 0.105, 0.085], "Pinky": [0.62, -0.04, 0.16, 0.08, 0.065]}
 const PALM := 0.54          # palm length in hand lengths (fingers ~0.4 of the hand, as in real hands)
 
 
@@ -160,8 +169,10 @@ static func skeleton_rest(L: Dictionary) -> Dictionary:
 	j["Hips"] = Vector3(0, L.hip_y, 0)
 	j["Spine"] = Vector3(0, L.waist_y, 0)
 	j["Chest"] = Vector3(0, L.chest_y, 0)
+	j["UpperChest"] = Vector3(0, lerpf(L.chest_y, L.shoulder_y, 0.55), 0.004 * L.T)
 	j["Neck"] = Vector3(0, L.neck_base, 0.01 * L.T)
 	j["Head"] = Vector3(0, L.chin + 0.05 * L.H, 0.02 * L.H)
+	j["Jaw"] = Vector3(0, L.chin + 0.3 * L.H, 0.03 * L.H + float(L.head_d) * 0.3)      # the hinge, in front of the ear
 	# a short chain behind the head for long hair, ponytails and braids to swing on (secondary motion)
 	j["HairA"] = Vector3(0, L.chin + 0.62 * L.H, 0.03 * L.H + float(L.head_d) * 0.9)
 	j["HairB"] = Vector3(0, L.chin - 0.15 * L.H, 0.03 * L.H + float(L.head_d) * 0.95 + 0.05 * L.H)
@@ -180,6 +191,8 @@ static func skeleton_rest(L: Dictionary) -> Dictionary:
 		var el: Vector3 = sh + dir * L.upperarm_len
 		j["LowerArm" + side] = el
 		j["Hand" + side] = el + (dir + Vector3(0, 0, -0.04)).normalized() * L.forearm_len
+		j["UpperArmTwist" + side] = sh.lerp(el, 0.5)
+		j["LowerArmTwist" + side] = el.lerp(j["Hand" + side], 0.75)
 		_hand_joints(j, L, side, dir)
 		var hip := Vector3(k * L.leg_sep, L.leg_joint_y, 0)
 		j["UpperLeg" + side] = hip
@@ -459,9 +472,9 @@ static func _torso(L: Dictionary, J: Dictionary) -> Part:
 		[L.waist_y, L.waist_w, L.waist_d, -bf, 2.1, [["Spine", 1.0]]],
 		[lerpf(L.waist_y, L.chest_y, 0.5), lerpf(L.waist_w, L.chest_w, 0.55), lerpf(L.waist_d, L.chest_d, 0.6), -bf * 0.5, 2.2, [["Spine", 0.6], ["Chest", 0.4]]],
 		[L.chest_y, L.chest_w, L.chest_d + L.bust * 0.5, -L.bust * 0.5, 2.3, [["Chest", 1.0]]],
-		[lerpf(L.chest_y, L.shoulder_y, 0.6), L.shoulder_w * 0.9, L.chest_d * 0.9, 0.0, 2.25, [["Chest", 1.0]]],
-		[L.shoulder_y + 0.012 * T, L.shoulder_w * 0.82, L.chest_d * 0.7, 0.004 * T, 2.1, [["Chest", 0.8], ["ShoulderL", 0.1], ["ShoulderR", 0.1]]],
-		[L.neck_base - 0.005 * T, L.neck_r * 2.2, L.neck_r * 1.6, 0.008 * T, 2.0, [["Chest", 0.7], ["Neck", 0.3]]],
+		[lerpf(L.chest_y, L.shoulder_y, 0.6), L.shoulder_w * 0.9, L.chest_d * 0.9, 0.0, 2.25, [["Chest", 0.35], ["UpperChest", 0.65]]],
+		[L.shoulder_y + 0.012 * T, L.shoulder_w * 0.82, L.chest_d * 0.7, 0.004 * T, 2.1, [["UpperChest", 0.8], ["ShoulderL", 0.1], ["ShoulderR", 0.1]]],
+		[L.neck_base - 0.005 * T, L.neck_r * 2.2, L.neck_r * 1.6, 0.008 * T, 2.0, [["UpperChest", 0.7], ["Neck", 0.3]]],
 	]
 	for r in rows:
 		rs.append(ring(Vector3(0, r[0], r[3]), x, z, r[1], r[2], r[5], r[4]))
@@ -476,7 +489,7 @@ static func _neck(L: Dictionary, J: Dictionary) -> Part:
 	for i in 5:
 		var t := i / 4.0
 		var c := base.lerp(top, t) - Vector3(0, 0.02 * L.T, 0) * (1.0 - t)
-		rs.append(ring(c, Vector3.RIGHT, Vector3.BACK, nr * (1.08 - 0.08 * t), nr * (1.0 - 0.05 * t), [["Neck", 1.0 - 0.6 * t], ["Head", 0.6 * t]] if t > 0 else [["Neck", 0.7], ["Chest", 0.3]]))
+		rs.append(ring(c, Vector3.RIGHT, Vector3.BACK, nr * (1.08 - 0.08 * t), nr * (1.0 - 0.05 * t), [["Neck", 1.0 - 0.6 * t], ["Head", 0.6 * t]] if t > 0 else [["Neck", 0.7], ["UpperChest", 0.3]]))
 	return loft("neck", rs, LIMB)
 
 
@@ -517,7 +530,8 @@ static func _head(L: Dictionary, J: Dictionary, p: Dictionary) -> Part:
 	for r in rows:
 		var y: float = base + r[0] * H
 		var c := Vector3(0, y, 0.03 * H - r[3] * H)
-		var wt := [["Head", 1.0]] if r[0] > 0.1 else [["Head", 0.85], ["Neck", 0.15]]
+		# the jaw carries the chin and the lower face (and the shader's mouth with it)
+		var wt := [["Head", 1.0]] if r[0] > 0.2 else [["Jaw", 0.9], ["Neck", 0.1]] if r[0] < 0.0 else [["Jaw", 0.75], ["Head", 0.25]] if r[0] < 0.08 else [["Jaw", 0.4], ["Head", 0.6]]
 		rs.append(ring(c, Vector3.RIGHT, Vector3.BACK, r[1] * H * scale_w, r[2] * H * scale_d, wt, r[4]))
 	var part := loft("head", rs, HEAD_AROUND, true, true)
 	# nose: a soft forward bump at the nose line; face coordinates for the shader
@@ -551,12 +565,12 @@ static func _arm(L: Dictionary, J: Dictionary, side: String) -> Part:
 	var rows := [
 		[sh - up * ua * 0.6, ua * 0.55, ua * 0.55, ax1, [["Shoulder" + side, 0.5], ["UpperArm" + side, 0.5]]],
 		[sh + up * ua * 0.2, ua * 1.0, ua * 0.98, ax1, [["UpperArm" + side, 0.8], ["Shoulder" + side, 0.2]]],
-		[sh.lerp(el, 0.35), ua * 1.05, ua, ax1, [["UpperArm" + side, 1.0]]],
-		[sh.lerp(el, 0.75), ua * 0.9, ua * 0.88, ax1, [["UpperArm" + side, 1.0]]],
+		[sh.lerp(el, 0.35), ua * 1.05, ua, ax1, [["UpperArm" + side, 0.7], ["UpperArmTwist" + side, 0.3]]],
+		[sh.lerp(el, 0.75), ua * 0.9, ua * 0.88, ax1, [["UpperArmTwist" + side, 0.6], ["UpperArm" + side, 0.4]]],
 		[el, L.elbow_r, L.elbow_r, (ax1 + ax2).normalized(), [["UpperArm" + side, 0.5], ["LowerArm" + side, 0.5]]],
 		[el.lerp(wr, 0.25), L.forearm_r * 1.05, L.forearm_r * 0.95, ax2, [["LowerArm" + side, 1.0]]],
-		[el.lerp(wr, 0.7), L.forearm_r * 0.82, L.forearm_r * 0.7, ax2, [["LowerArm" + side, 1.0]]],
-		[wr, L.wrist_r * 1.05, L.wrist_r * 0.8, ax2, [["LowerArm" + side, 0.6], ["Hand" + side, 0.4]]],
+		[el.lerp(wr, 0.7), L.forearm_r * 0.82, L.forearm_r * 0.7, ax2, [["LowerArm" + side, 0.35], ["LowerArmTwist" + side, 0.65]]],
+		[wr, L.wrist_r * 1.05, L.wrist_r * 0.8, ax2, [["LowerArmTwist" + side, 0.6], ["Hand" + side, 0.4]]],
 	]
 	for r in rows:
 		rs.append(ring(r[0], r[3], fwd, r[1], r[2], r[4]))
@@ -591,11 +605,15 @@ static func _hand_joints(j: Dictionary, L: Dictionary, side: String, _arm_dir: V
 		var base: Vector3 = wr + d * (palm + float(fd[1]) * hl) + across * float(fd[0]) * pw
 		j[fn + "A" + side] = base
 		j[fn + "B" + side] = base + fan * float(fd[2]) * hl
+		j[fn + "C" + side] = base + fan * (float(fd[2]) + float(fd[3])) * hl
 	# the thumb lies along the palm's front edge, pointing down and a little in toward the palm
 	var tb: Vector3 = wr + d * hl * 0.16 - across * pw * 0.78 + inward * pw * 0.3
 	var tdir: Vector3 = (d * 0.92 - across * 0.18 + inward * 0.35).normalized()
 	j["ThumbA" + side] = tb
 	j["ThumbB" + side] = tb + tdir * hl * 0.17
+	j["ThumbC" + side] = tb + tdir * hl * 0.25
+	# the prop socket: the middle of the palm, a little in front of it (cups, handles, tools)
+	j["Prop" + side] = wr + d * hl * 0.45 + inward * pw * 0.9
 
 
 static func _hand(L: Dictionary, J: Dictionary, side: String) -> Array:
@@ -618,8 +636,8 @@ static func _hand(L: Dictionary, J: Dictionary, side: String) -> Array:
 	var fr := pw * 0.26                                             # finger radius
 	for fn in FINGER_DEF:
 		var fd: Array = FINGER_DEF[fn]
-		out.append(_finger(J, fn, side, float(fd[2]) * hl, float(fd[3]) * hl, fr * (0.85 if fn == "Pinky" else 1.0), across))
-	out.append(_finger(J, "Thumb", side, hl * 0.17, hl * 0.14, fr * 1.2, across))
+		out.append(_finger(J, fn, side, float(fd[2]) * hl, float(fd[3]) * hl, fr * (0.85 if fn == "Pinky" else 1.0), across, float(fd[4]) * hl))
+	out.append(_finger(J, "Thumb", side, hl * 0.17, hl * 0.08, fr * 1.2, across, hl * 0.07))
 	# one rounded normal field for the whole hand: the screen-space outline draws a line wherever
 	# normals jump, and at a distance the jumps between fingers filled the hand with ink.  Blended
 	# toward "away from the hand's centre", the fingers still shade and move but don't outline each
@@ -633,20 +651,27 @@ static func _hand(L: Dictionary, J: Dictionary, side: String) -> Array:
 	return out
 
 
-static func _finger(J: Dictionary, fn: String, side: String, l1: float, l2: float, r: float, across: Vector3) -> Part:
+static func _finger(J: Dictionary, fn: String, side: String, l1: float, l2: float, r: float, across: Vector3, l3 := 0.0) -> Part:
+	## A finger in three segments (proximal, intermediate, distal), each ring weighted to its bone
+	## and blended across the joints.
 	var a: Vector3 = J[fn + "A" + side]
 	var b: Vector3 = J[fn + "B" + side]
+	var c: Vector3 = J[fn + "C" + side]
 	var d1 := (b - a).normalized()
 	var ba := fn + "A" + side
 	var bb := fn + "B" + side
+	var bc := fn + "C" + side
+	if l3 <= 0.0:
+		l3 = l2 * 0.45
 	var ax := (across - d1 * d1.dot(across)).normalized()
 	var az := d1.cross(ax).normalized()
 	var rs := [
 		ring(a - d1 * r * 1.2, ax, az, r * 1.1, r * 1.0, [["Hand" + side, 0.7], [ba, 0.3]]),
 		ring(a + d1 * l1 * 0.3, ax, az, r, r * 0.92, [[ba, 1.0]]),
 		ring(b, ax, az, r * 0.92, r * 0.86, [[ba, 0.5], [bb, 0.5]]),
-		ring(b + d1 * l2 * 0.6, ax, az, r * 0.85, r * 0.8, [[bb, 1.0]]),
-		ring(b + d1 * l2 * 0.95, ax, az, r * 0.7, r * 0.66, [[bb, 1.0]]),
+		ring(b + (c - b) * 0.5, ax, az, r * 0.88, r * 0.82, [[bb, 1.0]]),
+		ring(c, ax, az, r * 0.82, r * 0.77, [[bb, 0.5], [bc, 0.5]]),
+		ring(c + d1 * l3 * 0.9, ax, az, r * 0.68, r * 0.64, [[bc, 1.0]]),
 	]
 	return loft(fn.to_lower() + side, rs, 6, false, true)
 
