@@ -29,13 +29,20 @@ static func is_residential(kind: String) -> bool:
 	return data().buildings.has(kind)
 
 
+static func is_home(b: Dictionary) -> bool:
+	## A building people live in: a residential kind, but of a farm only its house (the barn, silo
+	## and shed are where the work is).
+	var id := str(b.id)
+	return is_residential(str(b.kind)) and not (b.kind == "farm" and id.begins_with("FARM-") and not id.ends_with("-house"))
+
+
 static func of_building(world_seed: int, b: Dictionary) -> Dictionary:
 	## -> {population, households: [{type, members: [{pid, role, pinned}]}], members: [...all]}
 	var d := data()
 	var pop := population_of(b.get("settlement"))
 	var out := {"population": pop, "households": [], "members": []}
 	var kind: String = b.kind
-	if not d.buildings.has(kind):
+	if not is_home(b):
 		return out
 	var bdef: Dictionary = d.buildings[kind]
 	var mix: Dictionary = (d.mix.get(pop, d.mix.stable_town) as Dictionary).duplicate()

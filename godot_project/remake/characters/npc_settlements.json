@@ -1,5 +1,5 @@
 {
- "_about": "Who lives where (procedural_npcs.md 2.1; scale_survey.md 2.4): each settlement's demographic archetype (populations in npc_traits.json, from research/demographics/_demographic_archetypes.md) and, per building kind, how many households it holds and what kinds. Households are drawn first and people inside them (household-first synthesis), so families, couples and shared student houses come out right. First-pass assignments from research/coastal_communities (each town's real-world models); edit freely.",
+ "_about": "Who lives where (procedural_npcs.md 2.1; scale_survey.md 2.4): each settlement's demographic archetype (populations in npc_traits.json, from research/demographics/_demographic_archetypes.md) and, per building kind, how many households it holds and what kinds. Households are drawn first and people inside them (household-first synthesis), so families, couples and shared student houses come out right. First-pass assignments from research/coastal_communities (each town's real-world models); edit freely. 'flat': one flat over a shop (npc_place_index.json residence units; NpcPlaces.flats()).",
 
  "settlements": {
   "Harrow Falls": "lake_resort", "Port Tamsin": "lake_resort", "Victory Bay": "lake_resort", "Brightwater": "lake_resort",
@@ -42,7 +42,8 @@
   "farm":        {"households": 1, "mix": {"family": 2.0, "three_gen": 3.0, "elder_couple": 1.2, "single": 0.4, "sharehouse": 0.0, "single_parent": 0.5}},
   "rowhouse":    {"households": 3, "mix": {"single": 1.5, "single_parent": 1.4, "sharehouse": 1.3}},
   "condo":       {"households": 6, "mix": {"single": 1.8, "single_elder": 1.6, "couple": 1.4, "family": 0.4, "three_gen": 0.1}},
-  "fishhouse":   {"households": 1, "mix": {"single": 1.5, "couple": 1.2}}
+  "fishhouse":   {"households": 1, "mix": {"single": 1.5, "couple": 1.2}},
+  "flat":        {"households": 1, "mix": {"single": 2.0, "single_elder": 1.3, "couple": 1.2, "family": 0.4, "single_parent": 1.2, "sharehouse": 1.2, "three_gen": 0.1}}
  },
 
  "_transients": "Visitors: per building kind, how many at a time (a pure function of place, day and slot).",

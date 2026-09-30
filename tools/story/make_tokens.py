@@ -193,6 +193,28 @@ for k, kind, r, d, s_ in [
         ("W.cohesion", "float", U, "share of critical informal roles filled by consensus", "Johnson, Boster & Palinkas 2003; Palinkas 2000")]:
     t(k, kind, r, d, s_, prompt="words")
 
+# daily life: places, money, addiction, travel (research/lives/)
+for k, kind, r, d, s_, stored in [
+        ("LIFE.home", "text", None, "home building or flat over a shop (NpcHouseholds, NpcPlaces.flats)", "households; research/lives/05", False),
+        ("LIFE.work", "text", None, "workplace unit (bake_lives: occupation x distance x posts left)", "research/lives/01, 05", True),
+        ("LIFE.school", "text", None, "school, college or childcare unit", "research/lives/05", True),
+        ("LIFE.regulars", "map", None, "purpose -> the regular place (Huff gravity; same-town bonus)", "Huff 1963; research/lives/05", True),
+        ("LIFE.today", "list", None, "the day's stays: work, school, worship, errands, leisure, strolls (pure of pid, day)", "research/lives/05", False),
+        ("LIFE.now", "text", None, "where they are and what they're doing this hour; on the way where, and how", "NpcLife.state", False),
+        ("LIFE.commute", "enum", ["drive", "carpool", "transit", "walk", "bike", "remote", "school_bus", "none", "driven"], "trait commute_mode", "ACS 2023", True),
+        ("LIFE.car", "enum", ["own_car", "shared_car", "none"], "trait car_access", "ACS 2023 (~8% of households have no vehicle)", True),
+        ("MONEY.wage", "float", None, "trait wage (occupation median x age x lognormal)", "BLS OEWS 2024", True),
+        ("MONEY.savings", "float", None, "trait savings", "Fed SHED 2023; SCF", True),
+        ("MONEY.debt", "float", None, "trait debt, with debts tags", "Fed SHED 2023; NY Fed HHDC", True),
+        ("MONEY.finances", "enum", ["dependent", "wealthy", "comfortable", "getting_by", "struggling", "in_debt"], "trait finances", "Fed SHED 2023 (72% at least okay)", True),
+        ("MONEY.style", "enum", ["saver", "careful", "spender", "generous", "tight", "anxious"], "trait money_style", "research/lives/02", True),
+        ("MONEY.reasons", "list", None, "why they have what they have (inherited, laid_off, two_jobs...)", "research/lives/02", True),
+        ("ADDICT.list", "list", None, "trait addictions (13 kinds)", "NSDUH 2023; research/lives/03", True),
+        ("ADDICT.stage", "enum", ["none", "at_risk", "active", "recovering", "relapsed"], "trait addiction_stage", "transtheoretical / recovery literature", True),
+        ("ADDICT.severity", "float", U, "trait addiction_severity", "DSM-5 severity (mild/moderate/severe)", True),
+        ("FAITH.worship", "enum", ["weekly", "monthly", "seldom", "never"], "trait worship", "Gallup 2021-23", True)]:
+    t(k, kind, r, d, s_, stored=stored, prompt="life card")
+
 out = {"_about": "Story-engine token catalogue (research/psychology/06_story_engine_framework.md). "
                   "'stored': whether the value is saved (only the stored L0-L2 traits, the event log, and deltas "
                   "for people the player met); everything else is a pure function. 'prompt': how the token renders "

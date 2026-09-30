@@ -46,6 +46,8 @@ const COLOR_KEYFRAMES := [
 ]
 
 var time_of_day: float = 0.27  # start mid-morning, already light out
+## Days since the game began; day 0 is a Monday (NpcLife schedules: weekdays, weekends, errands).
+var day: int = 0
 var ceiling_material: StandardMaterial3D
 var sun: DirectionalLight3D
 ## Optional: returns the frame (right, up, back) the sun's angles are taken in. A
@@ -155,7 +157,9 @@ static func _sun_moon_state(t: float) -> Dictionary:
 	}
 
 func _process(delta: float) -> void:
-	time_of_day = fposmod(time_of_day + delta / DAY_LENGTH_SECONDS, 1.0)
+	var t := time_of_day + delta / DAY_LENGTH_SECONDS
+	day += int(floor(t))
+	time_of_day = fposmod(t, 1.0)
 	_apply(delta)
 
 func _apply(_delta: float) -> void:

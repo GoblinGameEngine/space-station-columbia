@@ -2,12 +2,15 @@ extends Node3D
 class_name NpcPopulation
 
 ## The people of the station, near the player (procedural_npcs.md 2): nobody is stored.  Around the
-## player, the residential buildings' households (NpcHouseholds, a pure function of the building)
-## give who lives here; who of them is out of doors is a pure function of the person and the
-## half-hour; those people are generated (traits on the main thread, bodies and clothes on the
-## worker pool), walk from their door to the street and along it, pause, look about, and go home.
-## Leave and come back and the same people are there, doing the same kind of thing.  Using one of
-## them (the interact key) is "contact": their persona (L2) is made then, not before.
+## player, the homes' households (NpcHouseholds, a pure function of the building, and the flats over
+## shops) give who lives here, and the places' staff and regulars (NpcLife) who works and shops
+## here.  Where each of them is now is their day's plan (NpcLife.state, a pure function of person,
+## day and hour): leaving home for work, walking the streets to the grocery, arriving by car at the
+## kerb, out for a stroll, lingering at the bandstand.  Those people are generated (traits on the
+## main thread, bodies and clothes on the worker pool) and play that part of their day.  Leave and
+## come back and the same people are there, doing what their day says.  Using one of them (the
+## interact key) is "contact": their persona (L2) is made then, not before.  Without a lives bake
+## (remake/tools/bake_lives.gd) residents just step out for random walks.
 ##
 ##   var pop := NpcPopulation.new(); pop.player = player; add_child(pop)
 ##   DevBridge: root.get_node("RemakeStation/NpcPopulation").stats()
@@ -26,7 +29,13 @@ var _pending := {}               # pid -> {task, data: {}}
 var _gone_in := {}               # pid -> the half-hour slot they went back indoors in (not out again till the next)
 const PERSONAL := 0.75           # m, centre to centre: people keep at least this far apart (couples leave side by side)
 var _index := {}                 # Vector2i(cell s, cell x) -> [building]
+var _unit_index := {}            # Vector2i(cell s, cell x) -> [place unit id]
+var _by_id := {}                 # building id -> structure
 var _buildings: Array = []
+var _here := Vector2.ZERO        # the player (s, x), for _trip_pos
+var _next := {}                  # pid -> day * 24 + hour before which there's nothing of theirs to see
+var _life: NpcLife               # everyone's days (null without a lives bake: the old random walks)
+const OUTDOORS := ["park_pavilion", "food_stand", "amusement"]      # places whose visitors stay in view
 var _house_cache := {}           # building id -> NpcHouseholds.of_building (tiny; rebuilt freely)
 var _tick := 0.0
 var _clock: Node
@@ -47,13 +56,26 @@ func _ready() -> void:
 	for n in [9, 10, NpcBody.RING, NpcBody.RING + 4, NpcBody.HEAD_AROUND, 40]:
 		NpcBody._table(n)
 	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
+	var homes: Array = []
 	for b in st.structures:
-		if NpcHouseholds.is_residential(str(b.kind)):
-			_buildings.append(b)
-			var k := _cell(float(b.s), float(b.x))
-			if not _index.has(k):
-				_index[k] = []
-			_index[k].append(b)
+		_by_id[b.id] = b
+		if NpcHouseholds.is_home(b):
+			homes.append(b)
+	if FileAccess.file_exists(NpcLife.PATH):
+		_life = NpcLife.shared()
+		homes.append_array(NpcPlaces.flats(st.structures))
+		for uid in NpcPlaces.units():
+			var u: Dictionary = NpcPlaces.unit(uid)
+			var k := _cell(float(u.door[0]), float(u.door[1]))
+			if not _unit_index.has(k):
+				_unit_index[k] = []
+			_unit_index[k].append(uid)
+	for b in homes:
+		_buildings.append(b)
+		var k := _cell(float(b.s), float(b.x))
+		if not _index.has(k):
+			_index[k] = []
+		_index[k].append(b)
 	_clock = get_tree().current_scene.get_node_or_null("DaySkySystem")
 	# one hidden person during loading: the character shader's pipelines compile now, not as the
 	# first resident steps out (that first assembly cost ~25 ms; the rest ~1 ms)
@@ -69,6 +91,10 @@ static func _cell(s: float, x: float) -> Vector2i:
 
 func hour() -> float:
 	return (float(_clock.time_of_day) if _clock else 0.4) * 24.0
+
+
+func today() -> int:
+	return int(_clock.get("day")) if _clock and _clock.get("day") != null else 0
 
 
 func _process(delta: float) -> void:
@@ -133,8 +159,21 @@ func _refresh() -> void:
 					hh = NpcHouseholds.of_building(world_seed, b)
 					_house_cache[b.id] = hh
 				for m in hh.members:
-					if out_now(m.pid, m.pinned) and _gone_in.get(m.pid, -1) != floori(hour() * 2.0):
-						want.append([d, m, b, hh.population])
+					if _life and _life.people.has(m.pid):
+						_consider(want, m.pid, ps, px)
+					elif out_now(m.pid, m.pinned) and str(_gone_in.get(m.pid, "")) != str(floori(hour() * 2.0)):
+						want.append([d, m, b, hh.population, {}])
+			if _life:                                          # the places: who works or shops here
+				for uid in _unit_index.get(Vector2i(posmod(c.x + i, ceili(StationGeo.CIRC / CELL)), c.y + j), []):
+					for pid in _life.by_unit.get(uid, []):
+						_consider(want, pid, ps, px)
+	var seen := {}
+	var uniq := []
+	for w in want:
+		if not seen.has(w[1].pid):
+			seen[w[1].pid] = true
+			uniq.append(w)
+	want = uniq
 	want.sort_custom(func(a, b): return a[0] < b[0])
 	var n := 0
 	for w in want:
@@ -146,12 +185,12 @@ func _refresh() -> void:
 			continue
 		if _pending.size() >= MAX_BUILDS:
 			continue
-		_spawn(w[1], w[2], w[3])
+		_spawn(w[1], w[2], w[3], w[4])
 	# home: through the door and indoors (the plan's last step is inside the house) -- gone until
 	# the next half-hour
 	for pid in live.keys():
 		if live[pid].i >= (live[pid].plan as Array).size() and not _pending.has(pid):
-			_gone_in[pid] = floori(hour() * 2.0)
+			_gone_in[pid] = str(live[pid].get("sig", floori(hour() * 2.0)))
 			_despawn(pid)
 	# those no longer wanted (gone home) leave when out of the player's sight
 	var keep := {}
@@ -162,15 +201,182 @@ func _refresh() -> void:
 			_despawn(pid)
 
 
+# -- their days (NpcLife) ------------------------------------------------------------------------------
+
+func _sig(seg: Dictionary) -> String:
+	return "%d|%s|%.3f" % [int(seg.get("day", today())), str(seg.kind), float(seg.t0)]
+
+
+func _consider(want: Array, pid: String, ps: float, px: float) -> void:
+	## If this part of their day happens near the player, they're wanted: [distance, member,
+	## building, population, segment].  Time runs 30x faster than walking does (an hour is two
+	## minutes), so a trip on foot is on the street for as long as it takes to walk in real time,
+	## from its start by the clock -- the schedule says when they set off, their legs how long it takes.
+	var day := today()
+	var h := hour()
+	if float(_next.get(pid, -1.0)) > day * 24.0 + h:
+		return                                                          # indoors till later
+	var P := _life.person(pid)
+	var here := Vector2(ps, px)
+	_here = here
+	var b: Dictionary = _home_struct(P)
+	var m := {"pid": pid, "pinned": {"age": int(P.age), "sex": P.sex}}
+	var s := _life.state(pid, day, h)
+	_next[pid] = _next_event(pid, day, h)
+	if s.kind == "out" and str(_gone_in.get(pid, "")) != _sig(s):
+		var d := NpcPlaces.dist(here, _life.door(P, ""))
+		if d < SPAWN_R:
+			want.append([d, m, b, P.pop, s])
+		return
+	if s.kind == "at" and str(NpcPlaces.unit(s.uid).get("type", "")) in OUTDOORS and str(_gone_in.get(pid, "")) != _sig(s):
+		var d2 := NpcPlaces.dist(here, _life.door(P, s.uid))
+		if d2 < SPAWN_R:
+			want.append([d2, m, b, P.pop, s])
+		return
+	for dd in [day, day - 1]:
+		var hh := h + (24.0 if dd == day - 1 else 0.0)
+		for seg in _life.timeline(pid, dd):
+			if seg.kind != "trip" or float(seg.t0) > hh or float(seg.t0) < hh - 4.0:
+				continue
+			var sg: Dictionary = seg.duplicate()
+			sg.day = dd
+			if str(_gone_in.get(pid, "")) == _sig(sg):
+				continue
+			var p := _trip_pos(P, sg, hh)
+			if p == Vector2.INF:
+				continue
+			var d3 := NpcPlaces.dist(here, p)
+			if d3 < SPAWN_R:
+				want.append([d3, m, b, P.pop, sg])
+				return
+
+
+func _next_event(pid: String, day: int, h: float) -> float:
+	## When (day * 24 + hour) they might next be seen: now if something is under way (a walk takes
+	## real time, so it's looked at again every refresh or so), else the start of the next trip or
+	## stroll.
+	for dd in [day - 1, day]:
+		var hh := h + (24.0 if dd == day - 1 else 0.0)
+		for seg in _life.timeline(pid, dd):
+			if seg.kind == "home" or float(seg.t0) > hh:
+				continue
+			var outdoors: bool = seg.kind == "out" or seg.kind == "at" and str(NpcPlaces.unit(seg.uid).get("type", "")) in OUTDOORS
+			if seg.kind == "trip" and hh - float(seg.t0) < 4.0 or outdoors and hh < float(seg.t1):
+				return day * 24.0 + h + 0.03
+	for dd in [day, day + 1]:
+		for seg in _life.timeline(pid, dd):
+			var t0 := float(seg.t0) + (24.0 if dd == day + 1 else 0.0)
+			if (seg.kind == "trip" or seg.kind == "out" or seg.kind == "at") and t0 > h:
+				return day * 24.0 + t0
+	return day * 24.0 + 48.0
+
+
+func _home_struct(P: Dictionary) -> Dictionary:
+	var id: String = P.home
+	if _by_id.has(id):
+		return _by_id[id]
+	var b: Dictionary = (_by_id.get(id.split("/")[0], {}) as Dictionary).duplicate()
+	b.id = id
+	b.kind = "flat"
+	return b
+
+
+func _trip_pos(P: Dictionary, s: Dictionary, hh: float) -> Vector2:
+	## Where on the trip they are at hour `hh` (of the trip's day), if on foot within sight of it
+	## (and sets s.frac): walkers (and, for now, cyclists) along their route at walking pace;
+	## drivers and riders only for the door-to-kerb walk at either end.
+	var game_h_per_s := 24.0 / DaySkySystem.DAY_LENGTH_SECONDS
+	if s.mode == "walk" or s.mode == "bike":
+		# (a cheap look first: could the way between the two doors come near the player at all?)
+		var a := _life.door(P, s.from)
+		var b := _life.door(P, s.to)
+		var ab := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
+		var ap := Vector2(StationGeo.wrap_ds(_here.x - a.x), _here.y - a.y)
+		var t := clampf(ap.dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
+		if (ap - ab * t).length() > SPAWN_R + 0.35 * ab.length():
+			return Vector2.INF
+		var r := NpcPlaces.route(_life.place_of(P, s.from), _life.place_of(P, s.to))
+		var L := NpcPlaces.route_length(r)
+		var dur := L / 1.3 * game_h_per_s
+		if hh - float(s.t0) >= dur:
+			return Vector2.INF
+		s.frac = (hh - float(s.t0)) / maxf(dur, 1e-6)
+		return _pos_along(r, float(s.frac) * L)
+	var walk := 40.0 * game_h_per_s                                  # ~40 s between door and kerb
+	if hh - float(s.t0) < walk:
+		s.frac = 0.0
+		return _life.door(P, s.from)
+	if hh >= float(s.t1) and hh - float(s.t1) < walk:
+		s.frac = 1.0
+		return _life.door(P, s.to)
+	return Vector2.INF
+
+
+static func _pos_along(r: PackedVector2Array, at: float) -> Vector2:
+	var left := at
+	for i in r.size() - 1:
+		var l := NpcPlaces.dist(r[i], r[i + 1])
+		if left <= l:
+			var t := left / maxf(l, 1e-6)
+			return Vector2(fposmod(r[i].x + StationGeo.wrap_ds(r[i + 1].x - r[i].x) * t, StationGeo.CIRC), r[i].y + (r[i + 1].y - r[i].y) * t)
+		left -= l
+	return r[r.size() - 1]
+
+
+func _inside(building: String, door: Vector2) -> Vector2:
+	## Two steps through the door (a flat's is its shop's street door).
+	var b: Dictionary = _by_id.get(building.split("/")[0], {})
+	if b.is_empty():
+		return door
+	var yaw: float = b.yaw
+	return door - Vector2(cos(yaw), -sin(yaw)) * 2.2
+
+
+func _day_plan(pid: String, s: Dictionary) -> Array:
+	## The waypoints for this part of their day (pauses as negative seconds, as in _plan).
+	var P := _life.person(pid)
+	var rng := NpcRng.for_trait(world_seed, pid, "plan:" + _sig(s))
+	if s.kind == "at":                                                     # lingering out of doors
+		var d := _life.door(P, s.uid)
+		var secs := (float(s.t1) - hour()) / 24.0 * DaySkySystem.DAY_LENGTH_SECONDS
+		var plan: Array = []
+		while secs > 0.0 and plan.size() < 16:
+			plan.append(d + Vector2(rng.rand() * 8.0 - 4.0, rng.rand() * 8.0 - 4.0))
+			var w := 15.0 + rng.rand() * 45.0
+			plan.append(-w)
+			secs -= w + 5.0
+		return plan
+	var to_b := _life.place_of(P, s.to)
+	var d0 := _life.door(P, s.from)
+	var d1 := _life.door(P, s.to)
+	if s.mode == "walk" or s.mode == "bike":
+		var r := NpcPlaces.route(_life.place_of(P, s.from), to_b)
+		var at := float(s.frac) * NpcPlaces.route_length(r)
+		var plan2: Array = [_pos_along(r, at)]
+		var run := 0.0
+		for i in r.size() - 1:
+			run += NpcPlaces.dist(r[i], r[i + 1])
+			if run > at:
+				plan2.append(r[i + 1])
+		plan2.append(_inside(to_b, d1))
+		return plan2
+	# by car, tram or bus: the walk between the door and the kerb
+	if float(s.frac) < 0.5:
+		var k0: Dictionary = _near_road(d0)
+		return [d0, k0.side if not k0.is_empty() else d0, -(2.0 + rng.rand() * 4.0)]        # and away
+	var k1: Dictionary = _near_road(d1)
+	return [k1.side if not k1.is_empty() else d1, -(1.0 + rng.rand() * 2.0), d1, _inside(to_b, d1)]
+
+
 func _dist(s0: float, x0: float, s1: float, x1: float) -> float:
 	return Vector2(StationGeo.wrap_ds(s1 - s0), x1 - x0).length()
 
 
 # -- making people ------------------------------------------------------------------------------------
 
-func _spawn(m: Dictionary, b: Dictionary, pop: String) -> void:
+func _spawn(m: Dictionary, b: Dictionary, pop: String, seg := {}) -> void:
 	var v := NpcTraits.shared().person(world_seed, m.pid, ["L0", "L1"], pop, m.pinned)
-	var job := {"v": v, "pid": m.pid, "b": b, "m": m, "pop": pop, "data": {}}
+	var job := {"v": v, "pid": m.pid, "b": b, "m": m, "pop": pop, "data": {}, "seg": seg}
 	job.task = WorkerThreadPool.add_task(func(): job.data = NpcCharacter.prepare(v, m.pid, world_seed, "work"), false, "npc " + m.pid)
 	_pending[m.pid] = job
 
@@ -195,10 +401,16 @@ func _collect() -> void:
 		built_count += 1
 		var anim := NpcAnimator.attach(npc)
 		anim.drawing_rate = drawing_rate
-		var plan := _plan(job.b, pid)
+		var seg: Dictionary = job.seg
+		var plan := _plan(job.b, pid) if seg.is_empty() or seg.kind == "out" else _day_plan(pid, seg)
+		if plan.is_empty():
+			npc.queue_free()
+			return
 		var start := plan[0] as Vector2
 		var e := {"npc": npc, "anim": anim, "plan": plan, "i": 1, "wait": 0.0, "s": start.x, "x": start.y,
 			"speed": _walk_speed(job.v), "pop": job.pop, "member": job.m, "b": job.b, "persona": {}}
+		e.sig = _sig(seg) if not seg.is_empty() else str(floori(hour() * 2.0))
+		e.seg = seg
 		live[pid] = e
 		e.zone = RemakeInteractZone.make(npc, "Talk", Transform3D(Basis(), Vector3(0, float(npc.params.height) * 0.55, 0)),
 			Vector3(0.7, float(npc.params.height), 0.7), func(_by): return _contact(pid), func(): return "Talk")
@@ -405,8 +617,10 @@ func _contact(pid: String) -> String:
 		"start": {"speaker": who.capitalize(), "text": _greeting(v), "choices": [
 			{"text": "What do you do?", "next": "work"},
 			{"text": "Do you live around here?", "next": "home"},
+			{"text": "Where are you off to?", "next": "going"},
 			{"text": "[Leave]", "next": ""}]},
-		"work": {"speaker": who.capitalize(), "text": _work_line(v), "choices": [{"text": "[Leave]", "next": ""}]},
+		"work": {"speaker": who.capitalize(), "text": _work_line(v, _life, pid), "choices": [{"text": "[Leave]", "next": ""}]},
+		"going": {"speaker": who.capitalize(), "text": _going_line(pid, e.get("seg", {})), "choices": [{"text": "[Leave]", "next": ""}]},
 		"home": {"speaker": who.capitalize(), "text": "Just there -- the %s by the road%s." % [str(b.kind), (" in " + str(b.settlement)) if b.settlement != null else ""], "choices": [{"text": "[Leave]", "next": ""}]},
 	}
 	var dlg := get_node_or_null("/root/DialogBox")
@@ -437,8 +651,23 @@ static func _greeting(v: Dictionary) -> String:
 	return "Afternoon."
 
 
-static func _work_line(v: Dictionary) -> String:
+func _going_line(pid: String, seg: Dictionary) -> String:
+	if _life == null or seg.is_empty():
+		return "Nowhere in particular. Just out for some air."
+	match str(seg.kind):
+		"trip":
+			if seg.to == "":
+				return "Home, at last."
+			return "Off to %s -- %s." % [_life.place_words(seg.to), str(seg.what).replace("_", " ")]
+		"at":
+			return "Just enjoying %s." % _life.place_words(seg.uid)
+	return "Nowhere in particular. Just out for a walk."
+
+
+static func _work_line(v: Dictionary, life: NpcLife = null, pid := "") -> String:
 	var occ := str(v.get("occupation", ""))
+	if life and life.person(pid).has("work") and not (occ in ["retired", "student", "university_student", "preschool", "unemployed", "homemaker"]):
+		return "I'm a %s, at %s." % [occ.replace("_", " "), life.place_words(life.person(pid).work)]
 	match occ:
 		"retired":
 			return "Oh, I'm retired now. Keeps me busier than work ever did."

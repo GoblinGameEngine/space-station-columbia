@@ -9,7 +9,7 @@
 Determinism: each trait draws from its own stream, hash(seed | person id | trait id), so adding
 a trait never changes existing traits of existing people (procedural_npcs.md 2.3).  Expressions
 are the shared subset of Python and Godot's Expression class (and/or/not, in [...], dotted dict
-access, min/max/clamp/abs, iff(cond, a, b), table(), rand_normal()), so the game runs the same
+access, min/max/clamp/abs/exp/log, iff(cond, a, b), table(), rand_normal()), so the game runs the same
 strings.  NOT allowed: Python's `x if c else y` (Godot's Expression silently stops parsing at the
 `if` and returns x) and chained comparisons (`a <= b <= c`); the validator rejects both."""
 import argparse, collections, json, math, re, sys
@@ -95,7 +95,7 @@ class Person:
         return tb[row][tb["_cols"].index(col)]
 
     def env(self, rng, extra=None):
-        e = {"min": min, "max": max, "clamp": clamp, "abs": abs, "iff": lambda c, a, b: a if c else b, "table": self.table,
+        e = {"min": min, "max": max, "clamp": clamp, "abs": abs, "exp": math.exp, "log": math.log, "iff": lambda c, a, b: a if c else b, "table": self.table,
              "rand_normal": rng.normal}
         e.update({k: (D(v) if isinstance(v, dict) else v) for k, v in self.v.items()})
         e.update(extra or {})
@@ -104,7 +104,7 @@ class Person:
     def ev(self, expr, rng, extra=None):
         if not isinstance(expr, str):
             return expr
-        names = set(re.findall(r"(?<![.\w])[A-Za-z_]\w*", re.sub(r"'[^']*'", "", expr))) - {"if", "else", "and", "or", "not", "in", "row", "True", "False", "iff"}
+        names = set(re.findall(r"(?<![.\w])[A-Za-z_]\w*", re.sub(r"'[^']*'", "", expr))) - {"if", "else", "and", "or", "not", "in", "row", "True", "False", "iff", "exp", "log", "min", "max", "clamp", "abs"}
         for n in names:                                   # pull in dependencies on demand
             if n in self.defs and n not in self.v:
                 self.get(n)
@@ -271,6 +271,8 @@ def validate(data):
                 yield from exprs(y)
     for t in data["traits"]:
         for e in exprs({k: t[k] for k in ("choose", "mods") if k in t}):
+            if " not in " in e:
+                errs.append(f"{tid}: `x not in [...]` fails silently in Godot's Expression -- write `not (x in [...])`: {e}")
             if re.search(r"\bif\b|\belse\b", e):
                 errs.append(f"{t['id']}: `x if c else y` in {e!r}: Godot's Expression can't parse it; use iff(c, x, y)")
             if re.search(r"(<=?|>=?|==|!=)\s*(?:(?!\band\b|\bor\b)[\w.+\-*/ ])+?\s*(<=?|>=?|==|!=)", re.sub(r"'[^']*'", "''", e)):

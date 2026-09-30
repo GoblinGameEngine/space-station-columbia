@@ -22,7 +22,7 @@ class_name NpcTraits
 
 const PATH := "res://remake/characters/npc_traits.json"
 const KEYWORDS := ["if", "else", "and", "or", "not", "in", "true", "false", "True", "False", "null",
-	"min", "max", "clamp", "abs", "iff", "table", "rand_normal", "row"]
+	"min", "max", "clamp", "abs", "exp", "log", "iff", "table", "rand_normal", "row"]
 
 static var _shared: NpcTraits
 
@@ -59,6 +59,15 @@ func person(world_seed: int, pid: String, layers: Array = [], population := "", 
 	for tid in order:
 		if layers.is_empty() or defs[tid].layer in layers:
 			ev.get_trait(tid)
+	return ev.v
+
+
+func some(world_seed: int, pid: String, ids: Array, population := "", pinned := {}) -> Dictionary:
+	## Only the traits named (and what they depend on): the same values person() gives them, since
+	## every trait draws from its own stream.
+	var ev := _Eval.new(self, world_seed, pid, populations.get(population, {}) if population != "" else {}, pinned)
+	for tid in ids:
+		ev.get_trait(tid)
 	return ev.v
 
 

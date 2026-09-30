@@ -299,6 +299,9 @@ Cached input is half price or less on Groq (see `research/npc_ai/llm_options.md`
              values: <V.top> · cares about: <M top 2> · way with people: <P.style, P.att words>
              <D.facets as behaviour words, if any> · <C words: "came for the work, misses Earth">
              speech: <speech tokens: formality, verbosity, dialect>
+[LIFE]       home, work and hours, how they get about, money band, regular places, private
+             struggles (named only at high trust), today's plan, right now (NpcLife.card;
+             research/lives/05)
 [MOOD]       <E band words> · <F emotions ≥ threshold with intensity words> · stress: <S band>
 [YOU AND THE STRANGER]  opinion: <O band> because <top 2 modifiers as short reasons>
              grievance: <R.grievance summary, if any> · promises: <open promises>
