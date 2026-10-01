@@ -9,7 +9,8 @@ class_name RemakeBicycle
 ##   E (interact) on the bike: ride;  W/S pedal / brake;  A/D steer;  Space brake;  E get off.
 ## The player rides it in person: their body (a generated character, the same for the whole game)
 ## sits on the saddle with feet on the pedals and hands on the grips (NpcAnimator.ride, as NPC
-## cyclists do), and the view is from that body's eyes, so looking down you see yourself pedal.
+## cyclists do), and the view is from that body's eyes, so looking down you see yourself pedal. It has
+## no head: nobody but the player ever sees it.
 
 const MODEL := "res://remake/vehicles/bicycle.glb"
 const GEAR := 2.2
@@ -97,6 +98,7 @@ func _animate_car(delta: float) -> void:
 	model.transform.basis = Basis(Vector3.FORWARD, _lean)
 	if _rider_an:
 		_rider_an.ride = _rider_pose()
+		_headless()
 
 
 # ------------------------------------------------------------------ the player in person
@@ -115,6 +117,17 @@ func take_seat(p: StationPlayer) -> void:
 	_rider_an = NpcAnimator.attach(_rider)
 	_rider_an.ambient = false
 	_rider_an.ride = _rider_pose()
+	_headless()
+
+
+func _headless() -> void:
+	## The player never sees their own head (a single-player game: the body exists only for them):
+	## the Head bone is collapsed, and the hair, eyes and hat skinned to it with it.
+	var sk := _rider.find_child("Skeleton*", true, false) as Skeleton3D if _rider else null
+	if sk:
+		var hi := sk.find_bone("Head")
+		if hi >= 0:
+			sk.set_bone_pose_scale(hi, Vector3.ONE * 0.001)
 
 
 func leave_seat() -> void:
@@ -141,8 +154,8 @@ func _rider_pose() -> Dictionary:
 
 
 func pilot_transform() -> Transform3D:
-	## The view from the rider's own eyes: the player's body is placed so its camera sits at the
-	## generated body's head, a little forward of its centre (inside the head nothing is drawn).
+	## The view from the rider's own eyes: the player's body is placed so its camera sits where the
+	## generated body's eyes would be (its head is collapsed, _headless()).
 	if _rider == null or pilot == null:
 		return super()
 	var sk := _rider.find_child("Skeleton*", true, false) as Skeleton3D
@@ -153,7 +166,7 @@ func pilot_transform() -> Transform3D:
 		return super()
 	var b := global_transform.basis
 	var hx := sk.global_transform * sk.get_bone_global_pose(hi)
-	var eye := hx * Vector3(0, 0.12, -0.2)             # just in front of the face (characters face -Z)
+	var eye := hx.origin + hx.basis.orthonormalized() * Vector3(0, 0.1, -0.08)    # where the eyes were (the head is gone)
 	var off := pilot.global_transform.affine_inverse() * pilot.camera.global_position
 	return Transform3D(b, eye - b * off)
 
