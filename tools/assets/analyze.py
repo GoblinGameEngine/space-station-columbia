@@ -147,14 +147,35 @@ def wheels(img, m, bb, length_px):
     return out
 
 
-def windows(img, m, bb, s, sz, bg, L, Hh):
+def main_line(ws, Hh):
+    """The windows along the main window line (as kit.cabin uses them): bottoms near the median, in the
+    upper body, big enough."""
+    ws = [w for w in ws if w[1] - w[0] > 0.15 and w[3] - w[2] > 0.12 and w[2] > Hh * 0.3]
+    if not ws:
+        return []
+    z0s = sorted(w[2] for w in ws)
+    med = z0s[len(z0s) // 2]
+    return [w for w in ws if abs(w[2] - med) < 0.35]
+
+
+def car_windows(img, m, bb, s, sz, bg, L, Hh):
+    """Cars, trucks and cabs: of several glass tests, the set with the most glass along the main line."""
+    sets = [windows(img, m, bb, s, sz, bg, L, Hh, t, long_) for t in (18, 12) for long_ in (False, True)]
+    sets.append(windows(img, m, bb, s, sz, bg, L, Hh))
+    return max(sets, key=lambda ws: sum((w[1] - w[0]) * (w[3] - w[2]) for w in main_line(ws, Hh)))
+
+
+def windows(img, m, bb, s, sz, bg, L, Hh, tight=0, long_=False):
     """Glazing on a side view (transit): pale, low-chroma regions inside the silhouette, close to the
     background tone, in the upper body -- rectangles in metres (y0, y1, z0, z1)."""
     x0, y0, x1, y1 = bb
     lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB).astype(float)
     bg_lab = cv2.cvtColor(np.array(bg, np.uint8).reshape(1, 1, 3), cv2.COLOR_BGR2LAB).astype(float)[0, 0]
     chroma = np.hypot(lab[..., 1] - 128, lab[..., 2] - 128)
-    glass = ((np.linalg.norm(lab - bg_lab, axis=2) < 32) & (chroma < 14) & (lab[..., 0] > 120)).astype(np.uint8)
+    if tight:       # (cars and trucks: white or cream paint is as pale as glass; glass keeps the background's tone)
+        glass = ((np.abs(lab[..., 0] - bg_lab[0]) < tight) & (chroma < 12)).astype(np.uint8)
+    else:
+        glass = ((np.linalg.norm(lab - bg_lab, axis=2) < 32) & (chroma < 14) & (lab[..., 0] > 120)).astype(np.uint8)
     inner = cv2.erode(m, np.ones((5, 5), np.uint8))
     glass &= inner
     hgt = y1 - y0
@@ -170,7 +191,7 @@ def windows(img, m, bb, s, sz, bg, L, Hh):
         if a < area_min or w < 6 or h < 6 or a < 0.55 * w * h:
             continue
         cx = (x0 + x1) / 2
-        if w * s > 0.3 * L or h * sz > 0.45 * Hh:         # pale paint, not glass
+        if w * s > (0.6 if long_ else 0.3) * L or h * sz > 0.45 * Hh:    # pale paint, not glass (a car's glass can run long)
             continue
         out.append([(x - cx) * s, (x + w - cx) * s, (y1 - (y + h)) * sz, (y1 - y) * sz])
     out.sort()
@@ -208,7 +229,8 @@ def analyse(aid, debug=False):
     d = os.path.join(REF, aid)
     L, W, Hh = SIZE_OVERRIDE.get(aid, VEH[aid]["size_m"])
     family = catalog.ASSETS[aid][0]
-    res = {"id": aid, "size_m": [L, W, Hh], "family": family, "views": {}}
+    res = {"id": aid, "size_m": [L, W, Hh], "family": family, "views": {},
+           "seats": int(VEH[aid].get("seats", 0) or 0), "category": VEH[aid].get("category", "")}
     imgs = {}
     for v in VIEWS:
         p = os.path.join(d, v + ".jpg")
@@ -255,6 +277,8 @@ def analyse(aid, debug=False):
             info["drawn_height_m"] = hpx * s
             if family == "transit":
                 info["windows_m"] = windows(img, m, bb, s, sz, bg, L, Hh)
+            elif family == "hull":
+                info["windows_m"] = car_windows(img, m, bb, s, sz, bg, L, Hh)
         elif v in ("front", "rear"):
             s = W / wpx
             side_h = res["views"].get("side", {}).get("height_m", Hh)

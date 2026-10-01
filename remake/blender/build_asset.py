@@ -2,8 +2,8 @@
 
   flatpak run org.blender.Blender -b --factory-startup --python <abs build_asset.py> -- <id> <analysis.json> <out.glb> [render_prefix]
 
-Dispatch by family (tools/assets/catalog.py): hull and transit shells -> kit.hull (transit interiors
-are added by kit.transit when present); frame -> remake/blender/assets/<id>.py (a build(an, out, render)
+Dispatch by family (tools/assets/catalog.py): transit -> kit.transit (interiors from Grok's views);
+hull with seats -> kit.cabin (an interior extrapolated from the exterior); other hulls -> kit.hull; frame -> remake/blender/assets/<id>.py (a build(an, out, render)
 function).
 """
 import importlib
@@ -30,6 +30,9 @@ if family == "frame":
 elif family == "transit":
     from kit import transit
     transit.build(an, out, render)
+elif an.get("seats", 0) > 0:
+    from kit import cabin                     # an extrapolated interior (no Grok interior views)
+    cabin.build(an, out, render)
 else:
     from kit import hull
     hull.build(an, out, render)

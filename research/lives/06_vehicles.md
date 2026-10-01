@@ -219,6 +219,7 @@ As with the buildings, these are **types and roles, not designs**. The station's
 
 ## Models (2026-09-30)
 - **Every type above has a model**: `godot_project/remake/vehicles/<id>.glb`, built from Grok's 2D reference images by the `ssc-asset` skill (`tools/assets`, `remake/blender/kit`): solid hulls with rigged wheels, open frames as cut-out panels, and the five people ride inside (tram, transit bus, school bus, train car, sightseeing trolley) hollow with interiors fitted from Grok's cutaway, plan and aisle views, at least 2.2 m floor to ceiling. The bicycle is hand-built (`remake/blender/vehicles/bicycle.py`).
+- **Interiors:** the other enclosed vehicles have interiors **extrapolated** from their exteriors (`remake/blender/kit/cabin.py`: glazed windows, seats to the seat count, dash, wheel on the left, a 1970s colour scheme); `tools/assets/INTERIORS.md` lists how each was made and which go back to Grok if we don't like them.
 - **In use:** NPC cyclists (NpcBike, NpcAnimator.ride) and parked bicycles the player rides in person (RemakeBicycle); trams on three road lines and the Ring Line train (`remake/scripts/transit`) with seated and standing passengers, which the player can board. The tram is articulated in seven bodies with bellows and colliders, turning round on paved trolley loops at the ends of its lines.
 
 ## What the engine still needs to use them
