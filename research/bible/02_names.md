@@ -56,9 +56,9 @@ Surname heritage is the *name's* origin, not a person's ancestry: after 500 year
 
 ## Heroes (named after the voyage's people)
 
-F: Ada, Rosalind, Tamsin, Evangeline, Estrella, Imogen, Marisol, Colette, Margit, Honor, Esperanza, Linnet, Anh, Juniper, Beatriz, Wilhelmina, Rosario, Gwendolyn, Josephine, Graciela, Dorothea, Harriet, Cordelia, Winifred, Consuelo, Ifeoma, Dolores, Margaret, Henrietta, Rosa, Priya, Magdalena, Rukmini, Nadia, Itzel, Siobhan, Philippa, Anjali, Mildred
+F: Ada, Rosalind, Tamsin, Evangeline, Estrella, Imogen, Marisol, Colette, Margit, Honor, Esperanza, Linnet, Anh, Juniper, Beatriz, Wilhelmina, Rosario, Gwendolyn, Josephine, Pilar, Graciela, Dorothea, Harriet, Cordelia, Winifred, Consuelo, Ifeoma, Della, Octavia, Dolores, Margaret, Henrietta, Rosa, Priya, Magdalena, Rukmini, Augusta, Theodora, Inés, Nadia, Itzel, Siobhan, Philippa, Anjali, Mildred
 
-M: Dante, Barnaby, Tobias, Ezekiel, Harlan, Luis, Silas, Yusuf, Thaddeus, Caspian, Obadiah, Teodoro, Frankie, Marcus, Otis, Declan, Leopold, Héctor, Stanisław, Clay, Chidi, Tomás, Ignatius, Vincenzo, Jerome, Walter, Wilhelm, Augustin, Tobit, Tomasz, Clarence, Solomon, Rafael, Horace, Theodore, Gerald, Frederick, Thanh
+M: Dante, Rafael, Barnaby, Tobias, Ezekiel, Harlan, Luis, Silas, Yusuf, Thaddeus, Caspian, Obadiah, Teodoro, Frankie, Marcus, Otis, Declan, Leopold, Héctor, Stanisław, Clay, Chidi, Tomás, Ignatius, Vincenzo, Jerome, Walter, Absalom, Wilhelm, Augustin, Tobit, Tomasz, Clarence, Solomon, Horace, Theodore, Gerald, Bartholomew, Ignacio, Frederick, Thanh
 
 ## Heritage given names
 

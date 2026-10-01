@@ -13,24 +13,26 @@
 
 ## Counts
 
-- events_past: 112
+- events_past: 129
 - events_future: 17
-- eras: 16
-- people: 116
-- people_living: 70
+- eras: 17
+- people: 129
+- people_living: 74
 - lineages_major: 50
-- lineages_minor: 71
+- lineages_minor: 76
 - factions: 16
 - settlements: 22
+- vehicle_companies: 3
+- boards: 4
 - holidays: 30
 - foods: 46
-- lexicon: 53
+- lexicon: 61
 - beliefs: 20
 - moderators: 99
 - spin_cups: 299
-- surnames_2752: 8172
+- surnames_2752: 8173
 - extinct_surnames_listed: 4000
-- given_names: 10094
+- given_names: 10103
 
 ## Rebuild
 

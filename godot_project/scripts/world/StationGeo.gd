@@ -6,8 +6,8 @@ class_name StationGeo
 ## (-HALF_LEN..HALF_LEN, 0 midway between the end caps).  Height h is measured up from the nominal
 ## floor, toward the axis.  Pure leaf: calls no other class_name script.
 ##
-##   radius 3 km (the floor), length 8 km wall to wall, central shaft radius 50 m (the
-##   "ceiling", 2,950 m above the floor); the far side of the floor is 6 km overhead.
+##   radius 3 km (the floor), length 8 km wall to wall, central shaft (the Spindle) radius 100 m
+##   (the "ceiling", 2,900 m above the floor); the far side of the floor is 6 km overhead.
 ##
 ## Conventions (the same as the earlier RingCoords, so yaws and the player's gravity carry over):
 ## point(s, x, 0) = (x, R cos th, R sin th) with th = s / R; up points at the axis; forward is +s;
@@ -16,7 +16,7 @@ class_name StationGeo
 const R := 3000.0
 const LENGTH := 8000.0
 const HALF_LEN := 4000.0
-const SHAFT_R := 50.0
+const SHAFT_R := 100.0                 # the Spindle: the great factories (the bible, canon_industry)
 const CIRC := TAU * R
 
 

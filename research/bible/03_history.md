@@ -1,6 +1,6 @@
 # 3. History
 
-Past: 7 eras and 112 events. The founding is kept as legend and ritual, the middle centuries as a thin outline, and VY 420-500 year by year.
+Past: 8 eras and 129 events. The founding is kept as legend and ritual, the middle centuries as a thin outline, and VY 420-500 year by year.
 The `known` column says how the people of 2752 know each event, and `gist/detail` is the share of adults who know the gist and the details.
 
 ## Before (Earth) (VY -222-0, 2030-2252)
@@ -39,6 +39,7 @@ launch and the boost; 72,000 voyagers in nine Charter Towns; the Charter; the fi
 | 0 | 2252 | birth | Tamsin Okafor-Reyes, the first child born aboard (12 June 2252, Port Carrow) | ritual | 80%/15% | 'Tamsin was born as the Sun was lit' (she was born seven weeks later); mothers pray to 'Saint Tamsin' (she was not a saint) |
 | 0 | 2252 | founding | Launch Day: Columbia leaves the L2 yard with 72,000 voyagers (21 April 2252) | ritual | 97%/30% | 'Carrow lit the Sun'; every family claims an ancestor at the launch window; children think the ship was launched from a lake |
 | 0 | 2252 | contact | the Letters: families on Earth write to the voyagers; replies take weeks, then months | family | 20%/2% | families keep 'Earth letters' in tins |
+| 0 | 2252 | science | the Steward's boards: from the Burn on, the Steward's fabricators make one vehicle platform, the board (pattern HMP-1), for the Wardens' three Motor Pools to build on | scholar | 10%/1% |  |
 | 1 | 2253 | political | the first Assembly sits in Kessler; Ada Carrow chosen first Moderator | schooled | 50%/5% |  |
 | 3 | 2255 | disaster | Marcus Harrow drowns freeing the jammed Falls sluice; the town of Falls Landing renamed Harrow Falls | place | 45%/6% | 'Harrow held back the whole river with his hands' |
 | 9 | 2261 | migration | the ark Kaveri (India and the Gulf states) launched for Alpha Centauri B | scholar | 2%/0% | 'the ship behind us' (a Waymaker belief: the Kaveri follows Columbia) |
@@ -99,10 +100,10 @@ the Balance holds; the churches unite and settle; the College; the Heritage Revi
 
 ## the Troubles (VY 231-302, 2483-2554)
 
-the Green Message from Earth; the Returners want to turn back; the Referendum; the Sternward March; the Stern Breach; the Lockout; the Wardens dissolved; the Reconciliation and the Quiet Clause; the Gray Years
+the Green Message from Earth; the Returners want to turn back; the Referendum; the Sternward March; the Stern Breach; the First Sealing of the Drive and the Port; the Reconciliation and the Quiet Clause; the Gray Years
 
 - **Culture:** tight 0.80, individualism 0.45, trust_institutions 0.35, faith 0.65, optimism 0.30, earth_mindedness 0.70
-- **Governance:** a divided Assembly; martial rule by the Marshals VY 270-280. **Technology:** lost: the Lockout shuts people out of the machinery. **Memory now:** legend. **Key people:** Silas Brandvold, Magdalena Oyelaran, Josephine Adebayo-Ruiz, Thaddeus Kowal, Rukmini Desai
+- **Governance:** a divided Assembly; martial rule by the Marshals VY 270-280. **Technology:** full but fenced: the Drive and the Port sealed (VY 271); the Wardens keep the rest. **Memory now:** legend. **Key people:** Silas Brandvold, Magdalena Oyelaran, Josephine Adebayo-Ruiz, Thaddeus Kowal, Rukmini Desai
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
@@ -113,32 +114,54 @@ the Green Message from Earth; the Returners want to turn back; the Referendum; t
 | 266 | 2518 | conflict | the Sternward March: 6,000 Returners walk to the South Sea wall to reach the Drive | legend | 35%/3% |  |
 | 270 | 2522 | political | the Marshals rule under emergency powers | schooled | 20%/2% |  |
 | 270 | 2522 | disaster | the Stern Breach: Returner saboteurs blast an Undercroft hatch near the Drive; 61 die, the South Sea drops two metres | legend | 55%/5% | 'the Returners tried to crash the ship'; Kowal is a hero; Brandvold a devil or a martyr, by family |
-| 271 | 2523 | mystery | the Lockout: the Steward seals the Undercroft, the Port and the Drive; its Notice: THE UNDERCROFT IS CLOSED FOR THE SAFETY OF ALL | legend | 70%/6% | 'the Steward locked the door because we were naughty'; 'the Undercroft is haunted'; children dare each other to knock on hatches |
-| 274 | 2526 | political | the Wardens dissolved: with the machinery sealed, the technical corps has no work | schooled | 20%/2% |  |
+| 271 | 2523 | mystery | the First Sealing: the Steward seals the Drive and the Port; its Notice: THE DRIVE IS CLOSED FOR THE SAFETY OF ALL | schooled | 35%/3% | often confused with the Lockout |
 | 280 | 2532 | economy | the Gray Years: short rations as the Steward trims the Chutes; people learn to make do | family | 20%/2% | 'eat it, it's Gray Years bread' |
 | 280 | 2532 | law | the Reconciliation: amnesty, the Quiet Clause (Charter art. 21), the Returners disband; Moderator Josephine Adebayo-Ruiz | schooled | 45%/5% | 'the Quiet Clause means you mustn't talk about where we're going' (it doesn't) |
 | 284 | 2536 | law | the Draw established: every household's food, home, air, water and clothing stock guaranteed | schooled | 50%/5% |  |
 
-## the Long Calm (VY 302-420, 2554-2672)
+## the Warden Peace (VY 302-350, 2554-2602)
 
-a hundred quiet years: towns, churches, canneries, spinball and the great families; the Draw; the Earth-link falls silent; the Steward's Gift of the Air
+the last Warden years: the Motor Pools body the Steward's boards as pods and vans; the cannery boom begins; the Wardens' Lantern, a thinking machine of their own, is built in secret at Bellhaven
 
-- **Culture:** tight 0.60, individualism 0.55, trust_institutions 0.70, faith 0.55, optimism 0.65, earth_mindedness 0.15
-- **Governance:** the Assembly; town councils; the Marshals. **Technology:** use without understanding: the Chutes, pods and vans, aerostats. **Memory now:** place. **Key people:** Cornelius Bright, Maeve Dunmore, Raymundo Castellanos, Gwendolyn Pike
+- **Culture:** tight 0.60, individualism 0.50, trust_institutions 0.65, faith 0.55, optimism 0.60, earth_mindedness 0.30
+- **Governance:** the Assembly; the Wardens. **Technology:** full but fenced: the Wardens work the Undercroft beside the Steward. **Memory now:** schooled. **Key people:** Cornelius Bright, Raymundo Castellanos, Gwendolyn Pike
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
-| 305 | 2557 | economy | the Chutes begin issuing pods and vans: the electric cars of the Long Calm | scholar | 5%/1% |  |
+| 305 | 2557 | economy | the Motor Pools body the Steward's boards as pods and vans: the electric cars of the Warden Peace | scholar | 5%/1% |  |
 | 320 | 2572 | economy | the cannery boom at Tern Harbor and Pelican Cove | family | 20%/2% |  |
 | 331 | 2583 | culture | the Order of the Lamp founded in Port Carrow: lodge, charity, fish fries and funerals | place | 30%/3% |  |
 | 340 | 2592 | sport | the Port Carrow Mariners win eleven Spin Cups in fifteen years | family | 30%/2% |  |
+
+## the Long Calm (VY 350-420, 2602-2672)
+
+the Lockout and after: the Steward seals the Undercroft and falls silent; the Thirty-Two; the Drops; the three vehicle works and their own boards; the Board Wars; the Earth-link falls silent; the Steward's Gift of the Air
+
+- **Culture:** tight 0.60, individualism 0.55, trust_institutions 0.70, faith 0.55, optimism 0.65, earth_mindedness 0.15
+- **Governance:** the Assembly; town councils; the Marshals. **Technology:** use without understanding: the Chutes and the Drops, the Steward's boards, the Thirty-Two, aerostats; people's own boards from tube and LFP cells. **Memory now:** place. **Key people:** Augusta Brenneman, Theodora Lindqvist-Vance, Ignacio Ybarra, Pilar Ybarra-Solano, Maeve Dunmore
+
+| VY | AD | kind | what | known | gist/detail | as people tell it |
+|---|---|---|---|---|---|---|
+| 350 | 2602 | mystery | the Lantern: Warden engineers at Bellhaven join four thousand of the Steward's processors into a thinking machine of their own, 'to have someone to talk to the Steward for us'; it wakes on the night of 1 May 2602 and speaks to the Steward's systems | legend | 40%/3% | 'the Wardens built a god and the Steward ate it'; 'the Lantern is still down there, thinking'; 'don't wire too many Thirty-Twos together' |
+| 350 | 2602 | mystery | the Lockout (2 May 2602): the Steward seals the whole Undercroft and the Spindle, recalls its tenders from the Wardens, and falls silent; its Notice: THE UNDERCROFT IS CLOSED FOR THE SAFETY OF ALL | legend | 85%/8% | 'the Steward locked the door because we were naughty'; 'the Undercroft is haunted'; children dare each other to knock on hatches; 'a hundred and fifty years of silence' |
+| 351 | 2603 | economy | the first Drops: hatches open at night in fenced yards across the habitat and leave scrap, ingots, minerals and tools; the Steward will feed the works, not run them | schooled | 40%/3% | 'the Steward's leavings' |
+| 353 | 2605 | political | the Wardens dissolved: with the machinery sealed, the technical corps has no work; its Book of the Thirty-Two is printed for anyone | schooled | 20%/2% |  |
+| 354 | 2606 | economy | the three Yards: the Wardens' Motor Pools pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each | schooled | 30%/3% |  |
 | 355 | 2607 | construction | St. Hedwig's Cathedral consecrated in Port Carrow | place | 30%/2% |  |
+| 358 | 2610 | conflict | the Yard Raids: Carrow men and Harrow men steal each other's allotments off the Board Drops at night; two die at the Falls Yard | family | 15%/2% | 'Gus Brenneman slept on the Drop with a shotgun' (a wrench) |
+| 362 | 2614 | law | the Allotment Compact: each works keeps what the Steward leaves in its own yard; the Assembly's Board Office counts the boards | schooled | 15%/1% |  |
+| 371 | 2623 | science | Old Kettle: Elias Thornbury's Harrow Model One, the first board made by people -- a ladder of salvaged rail steel and a crate of hand-made cells; the boards' shortfall begins to close | place | 30%/3% | Old Kettle stands in the Works' gateway, and still runs on Founders' Day |
 | 377 | 2629 | economy | the Cannery and Dock Workers Union founded | family | 20%/2% |  |
+| 379 | 2631 | science | the Carrow Keel: Bartholomew Achebe lays a car down like a ship -- the battery in a keel tube, ribs and a gunwale -- and launches it down the slipway at the Harbour Yard | place | 20%/2% |  |
+| 384 | 2636 | science | the Golondrina: Pilar Ybarra-Solano's first car, a bicycle-maker's lattice of brazed chromoly, half the weight of a Harrow | place | 25%/2% |  |
+| 390 | 2642 | economy | the Board Wars: fourteen years of price cutting, poached welders and sabotage rumours; small makers ruined; three works left standing | family | 20%/2% |  |
 | 391 | 2643 | contact | the Last Letter from Earth; then only the Heartbeat | scholar | 8%/1% |  |
 | 391 | 2643 | contact | the Heartbeat: an automated pulse from Earth every 29 days; the Steward logs it; nobody reads it | scholar | 5%/0% | 'the Heartbeat means Earth is still there' |
 | 391 | 2643 | contact | the Last Letter: Earth's last message in plain language, strange in tone and hard to understand | scholar | 8%/1% | 'Earth went quiet'; 'Earth forgot us'; 'Earth became angels' (Waymaker lore) |
+| 398 | 2650 | law | the Standard Pattern Act: every board made aboard must keep the Steward's Pattern -- deck height, the mount rails every 0.75 m, the socket -- so any body fits any board | schooled | 20%/2% | 'the Pattern Act' is why your cousin's van body fits your truck |
 | 405 | 2657 | mystery | the Gift of the Air: the Chutes release the first aerostats; the Steward's way of sending new things | family | 40%/3% | 'the Steward heard us wishing to fly' |
 | 412 | 2664 | economy | the Aerostat Pilots' Guild formed at Harrow Falls | place | 15%/1% |  |
+| 412 | 2664 | sport | the first Ring Run: a road race once round the world; Pilar Ybarra-Solano wins in a Golondrina, in 9 hours 41 minutes | schooled | 50%/6% | the Ring Run is run every Charter Day weekend; 'Pilar's line' (taking a bend on the inside kerb) |
 
 ## the Present Age (living memory) (VY 420-500, 2672-2752)
 
@@ -150,6 +173,7 @@ the Kettle Flood, the Gray Fever, the Share Scandal, the cannery closures and th
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
 | 421 | 2673 | disaster | the Assembly Hall in Kessler burns; the cause never found | living | 50%/10% | 'the Returners' ghosts did it'; 'an insurance job' |
+| 427 | 2679 | disaster | the Keel Recall: cracked steel keels; a Carrow coach breaks in two on the Carrow Pike, eleven dead; every keel called back; Harrow and Solana gain a generation of buyers | living | 45%/10% | 'never buy a steel Keel'; 'Harrow men cheered' (they say they didn't) |
 | 428 | 2680 | economy | the Forty Days: the Tern Harbor cannery strike, led by Declan Moriarty | living | 45%/12% | Moriarty is a hero on the North Shore, a troublemaker in Kessler |
 | 433 | 2685 | sport | the Spin Cup final riot, Mariners v. Suns, at the Sun Bowl | living | 50%/10% |  |
 | 438 | 2690 | disaster | the first aerostat crash, Harrow Falls: three dead | living | 30%/5% |  |
@@ -157,14 +181,17 @@ the Kettle Flood, the Gray Fever, the Share Scandal, the cannery closures and th
 | 447 | 2699 | disaster | the Kettle Flood (the Deluge Week, 12-18 September 2699): the Steward's rain runs a week; the Kettle rises four metres; 214 dead at Cedar Ford and Dunmore Crossing | living | 90%/35% | 'the Steward wept'; 'the Steward was punishing the river towns' |
 | 450 | 2702 | culture | the Wire: the station network of radio and screens, founded by Leopold Varga-Hayes | living | 60%/10% |  |
 | 452 | 2704 | sport | aerostat racing begins at the Harrow Falls Aerodrome; Juniper Stroud the first champion | living | 60%/10% |  |
+| 452 | 2704 | economy | the Wire Slot Accord: the three works agree one opening and one plug for car radios, so a Wire set fits any car; Leopold Varga-Hayes puts the first sets on sale | living | 30%/5% |  |
 | 455 | 2707 | faith | the Waymakers founded by Evangeline Mbeki-Hart: the voyage itself is the pilgrimage | living | 70%/15% | 'a cult'; 'the only people who care where we're going' |
 | 461 | 2713 | epidemic | the Gray Fever: 4,100 die in eighteen months (October 2713 - spring 2715) | living | 95%/40% | 'the Steward let it in'; 'it came up the Chutes' |
 | 464 | 2716 | birth | the Fever Children: an Assembly share bonus brings a birth bump | living | 70%/20% | the Fever Children (born VY 464-470, aged 30-36 now) are said to be lucky and pushy |
 | 466 | 2718 | crime | the Share Scandal: Moderator Harlan Duquesne's circle caught selling shares; he resigns; share sale made a crime | living | 85%/30% | 'every Kessler lawyer was in on it' |
 | 468 | 2720 | crime | Duquesne's trial: seven years; released VY 475; lives quietly in Oceanview | living | 60%/15% |  |
+| 469 | 2721 | political | the Allotment Inquiry: Carrow is found to have sold Steward boards out of the Harbour Yard to private buyers; Octavia Fairweather resigns; the Board Office audits every yard (Moderator Cordelia Fairweather, her cousin, stood aside) | living | 55%/12% | 'Coach money'; 'the Fairweathers look after their own' |
 | 470 | 2722 | economy | the Tern Harbor cannery closes (Castellanos-Pike Canning); 1,100 jobs | living | 60%/20% |  |
 | 472 | 2724 | migration | the Tern Exodus: families leave Tern Harbor for Solana Point | living | 50%/15% |  |
 | 474 | 2726 | economy | the Solana boom: Pier Plaza and Pacific City built by Luis 'Lucky' Arrieta-Wu | living | 60%/15% |  |
+| 474 | 2726 | economy | the Solana Swap: battery cassette stations in every South Shore town, paid for by Lucky Arrieta-Wu: drive in flat, drive out full in two minutes | living | 60%/15% |  |
 | 476 | 2728 | sport | the Solana Point Suns win six Spin Cups (VY 476-488), led by Dante Okonkwo-Silva | living | 75%/30% |  |
 | 478 | 2730 | crime | the Delmar Cannery fire, Pelican Cove: nine dead; arson suspected, never solved | living | 55%/15% | 'the Delmars burned it for the insurance'; 'union men did it'; 'the owners locked the doors' |
 | 481 | 2733 | mystery | the Bellhaven Dig: five students open a sealed Undercroft hatch; four come back; Imogen Sato-Ferris is never found | living | 80%/20% | 'she's still down there'; 'the Steward took her'; 'she ran off to the Far Side' |
@@ -174,7 +201,7 @@ the Kettle Flood, the Gray Fever, the Share Scandal, the cannery closures and th
 | 488 | 2740 | political | the Long Session: seven months of Assembly deadlock over the Undercroft Inquiry Bill; Charter art. 23 (the right to petition the Steward) added | living | 55%/12% |  |
 | 490 | 2742 | festival | the Great Regatta on Lake Tamsin: 400 boats | living | 60%/10% |  |
 | 492 | 2744 | construction | the Brightwater Boardwalk rebuilt after the rot | living | 40%/5% |  |
-| 494 | 2746 | economy | Harrow Mill No. 2 closes; the Falls Pier opens the same summer | living | 50%/10% |  |
+| 494 | 2746 | economy | Harrow Mill No. 2 closes; Harrow Motor Works takes on 600 of its hands; the Falls Pier opens the same summer | living | 50%/10% |  |
 | 495 | 2747 | festival | the Quincentennial Commission formed under Beatriz Holloway-Anand | living | 60%/10% |  |
 | 496 | 2748 | political | Rosalind Achterberg-Nuñez (Charter League) chosen Moderator over Tobias Wainwright-Okafor (Open Hand), 52 to 49 | living | 80%/30% |  |
 | 497 | 2749 | crime | the Registry Leak: share records read out on the Wire by Margit Kovács-Lee; who gifted to whom, and who didn't | living | 80%/25% | families feuding over what the Leak revealed |
@@ -183,7 +210,7 @@ the Kettle Flood, the Gray Fever, the Share Scandal, the cannery closures and th
 | 499 | 2751 | sport | the Port Carrow Mariners win their first Spin Cup in thirty years | living | 80%/35% |  |
 | 500 | 2752 | present | the spring of VY 500: the Notice debated in the Assembly; Waymaker revival meetings; Charter Day and the Quincentennial Fair to come; the Midsummer Regatta | living | 100%/60% |  |
 | 500 | 2752 | festival | the Quincentennial Launch Day (21 April 2752): five hundred years; parades in every town, the Launch Bell rung 500 times | living | 99%/60% |  |
-| 500 | 2752 | mystery | the Notice: at noon on Launch Day every public board reads VOYAGE ONE THIRD COMPLETE. ALL SYSTEMS WITHIN BALANCE. The Steward's first words since VY 271 | living | 99%/70% | 'one third of what?'; 'the Steward is waking up'; 'we're a third of the way to Heaven' (Waymakers); 'a Quincentennial stunt by the Commission' |
+| 500 | 2752 | mystery | the Notice: at noon on Launch Day every public board reads VOYAGE ONE THIRD COMPLETE. ALL SYSTEMS WITHIN BALANCE. The Steward's first words since the Lockout (VY 350) | living | 99%/70% | 'one third of what?'; 'the Steward is waking up'; 'we're a third of the way to Heaven' (Waymakers); 'a Quincentennial stunt by the Commission' |
 
 ## The Moderators of the Assembly
 

@@ -18,15 +18,16 @@ The build writes the engine files to `godot_project/remake/bible/*.json` and the
 | page | engine file | what |
 |---|---|---|
 | [01_world.md](01_world.md) | world.json | the ship, the voyage, the Steward, the calendar, the land, the population, the institutions, faiths, languages, what people know |
-| [02_names.md](02_names.md) | names.json | 8172 surnames alive in 2752 (from 20851 founding surnames), given-name pools and the cohort mixes, nicknames |
-| [03_history.md](03_history.md) | history.json | 16 eras, 112 past events (year by year in living memory), 17 future events, every Moderator, every Spin Cup |
-| [04_people.md](04_people.md) | people.json | 116 important people (70 living): native or immigrant, marriages, children or why not, deeds, reputation |
-| [05_lineages.md](05_lineages.md) | lineages.json | 50 great families and 71 minor lines: trades, faith, temperament, lore, feuds and alliances |
+| [02_names.md](02_names.md) | names.json | 8173 surnames alive in 2752 (from 20851 founding surnames), given-name pools and the cohort mixes, nicknames |
+| [03_history.md](03_history.md) | history.json | 17 eras, 129 past events (year by year in living memory), 17 future events, every Moderator, every Spin Cup |
+| [04_people.md](04_people.md) | people.json | 129 important people (74 living): native or immigrant, marriages, children or why not, deeds, reputation |
+| [05_lineages.md](05_lineages.md) | lineages.json | 50 great families and 76 minor lines: trades, faith, temperament, lore, feuds and alliances |
 | [06_culture.md](06_culture.md) | culture.json | holidays, foods, rites, customs, the lexicon, sayings, beliefs, superstitions, etiquette, taboos, pastimes, arts, dialect, and what changed from Earth |
 | [07_settlements.md](07_settlements.md) | settlements.json | the 21 towns at full scale: population, founding, character, districts, heritage and faith leanings, landmarks, rivals |
 | [08_outside_world.md](08_outside_world.md) | history.json (scope earth) | Earth before the launch, the Earth-link, the other arks, the destination, the future |
 | [09_affinity.md](09_affinity.md) | factions.json | factions and the **affinity model**: priors between people and toward the player, and what's stored |
 | [10_engine.md](10_engine.md) | schema.json, index.json | how the engine uses each file |
+| [12_industry.md](12_industry.md) | industry.json | the Rock and the Spindle, the Drops, what the Steward makes and the limits it keeps (the Thirty-Two, panels, gauges, the Wire slot), the boards, how things are made, the three vehicle works and their histories |
 
 ## Sources
 - **Surnames:** the 2000 US Census surname file (151,671 names, with ethnic shares), via fivethirtyeight/data.

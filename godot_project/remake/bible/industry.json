@@ -1,0 +1,534 @@
+{
+ "steward_works": {
+  "the_rock": {
+   "name": "the Rock",
+   "what": "the asteroid the station was built inside: a metal-rich rubble body hollowed in the L2 yard (2214-2251) to take the habitat cylinder, which turns inside it on its bearings; the Rock does not turn",
+   "size": "about 7.6 km across and 9.4 km long; 200-500 m of rock between the cavity and space",
+   "role": [
+    "shield: radiation and dust",
+    "quarry: the voyage's store of metals, minerals, water and volatiles",
+    "mount: the Drive and the Port are set in its stern and bow"
+   ],
+   "mining": "the Steward's diggers (tenders' big kin) work its outer face, never the cavity side: cutting, crushing and sorting in vacuum; the spoil is packed back as shield",
+   "known": "scholar",
+   "popular": [
+    "'the station is inside a mountain' (half the children believe it)",
+    "'the Rock' is also slang for anything you can't change"
+   ]
+  },
+  "the_spindle": {
+   "name": "the Spindle",
+   "what": "the central cylinder on the axis, 200 m across and running cap to cap (8 km); it does not turn with the land; its skin carries the Sunline",
+   "inside": [
+    "the great refineries: vacuum smelting, electrolysis, zone refining",
+    "foundries and wire-arc printers",
+    "powder-bed printers (the boards' lattices)",
+    "the chip line: one fixed process, the Thirty-Two (see TECH_LIMITS)",
+    "the panel line (LCD panels, few)",
+    "cell works: the boards' sealed cells",
+    "the tool line: hand tools, bearings, fasteners, motors' laminations"
+   ],
+   "fed_by": "the end-cap hubs: ore and ice come in from the Rock through the bow and stern hubs, along the axis, in near-zero gravity",
+   "people": "no one has been inside since the Lockout; before it, Wardens worked the hub galleries in pressure suits",
+   "known": "schooled",
+   "popular": [
+    "'the factories in the Sun'",
+    "'the Sunline is the furnaces showing through' (it isn't)"
+   ]
+  },
+  "makes_for_people": [
+   [
+    "raw_materials",
+    "raw materials at the Drops (see DROPS)",
+    "weekly"
+   ],
+   [
+    "basic_tools",
+    "hand tools, fasteners, bearings, blades, wire, pipe fittings: plain, unbranded, the same design for 500 years",
+    "weekly at the Drops"
+   ],
+   [
+    "boards",
+    "the board (pattern HMP-1): an allotment to each of the three vehicle works",
+    "a fixed number a year since VY 350"
+   ],
+   [
+    "board_pods",
+    "replacement corner pods for the boards: leave a worn pod at a Board Drop, a new one is there within the week",
+    "on exchange"
+   ],
+   [
+    "thirty_twos",
+    "the Thirty-Two processor boards (see TECH_LIMITS)",
+    "monthly, plentiful"
+   ],
+   [
+    "panels",
+    "LCD panels, rationed by the Assembly's Panel Board",
+    "a few hundred a year"
+   ],
+   [
+    "goods_stock",
+    "food stock, cloth, medicines, soap, paper: through the Chutes (the Draw)",
+    "daily"
+   ],
+   [
+    "aerostats",
+    "aerostats, since the Gift of the Air (VY 405), at the aerodromes",
+    "a few a year"
+   ]
+  ]
+ },
+ "drops": {
+  "_about": "Placeholder until the Drops are defined in detail (the user, 2026-10-01: 'we will define those Drops later').",
+  "what": "designated places throughout the habitat where the Steward's machines deposit raw materials for people: hatches in the floor that open at night, a fenced yard round each; towns grew works and smelters beside them",
+  "kinds": [
+   [
+    "scrap",
+    "scrap metal: offcuts, worn parts, mixed steel and aluminium -- the works' main feed"
+   ],
+   [
+    "alloy",
+    "alloy ingots and billets: steel, aluminium, copper, brass, some nickel and chromium"
+   ],
+   [
+    "minerals",
+    "deposits of minerals people refine themselves: sulfur, iron ore, copper ore, bauxite, phosphate rock, lithium salts, graphite, silica sand, limestone, salt, clay"
+   ],
+   [
+    "tools",
+    "the basic-tools line"
+   ],
+   [
+    "boards",
+    "the Board Drops: the three vehicle works' yards (Harrow Falls, Port Carrow, Solana Point), where the year's boards and exchange pods arrive"
+   ],
+   [
+    "parts",
+    "the Parts Drops: Thirty-Twos and panels, at the Registry's depots in Kessler and the big towns"
+   ]
+  ],
+  "versus_chutes": "the Chutes hand out finished goods stock (the Draw); the Drops leave materials to be worked",
+  "words": [
+   "'a Drop night' (the nights a Drop opens; scrappers wait at the fence)",
+   "'drop-grade' (raw, unfinished)",
+   "'scrapper' (one who picks a Drop for a living)"
+  ]
+ },
+ "tech_limits": {
+  "processors": {
+   "name": "the Thirty-Two",
+   "what": "the one processor board the Steward makes for people since the Lockout: a 32-bit chip of early-2000s power (about 400 MHz, 64 MB of memory, a flash store, serial and network ports) on a standard card",
+   "supply": "plentiful: tens of thousands a year; they never wear out and are reused for generations",
+   "use": [
+    "vehicle controllers (motor, pack and brakes)",
+    "the Wire (radio and the network)",
+    "the Registry's ledgers",
+    "factory machines and lathes",
+    "telephones and tills",
+    "hospital instruments"
+   ],
+   "know_how": "people know how to integrate them -- the Wardens' Book of the Thirty-Two, copied by hand and press since VY 352, and the College's courses",
+   "the_cap": "however many are joined, they never add up to a mind: the Steward makes no other kind, the network's links are slow, and every attempt to gang thousands together has failed or been found and stopped (the Lantern, VY 350, was the last that got far)",
+   "known": "family",
+   "popular": [
+    "'a Thirty-Two is a Thirty-Two' (all machines are as smart as each other)",
+    "'the Steward counts them' (rumour)"
+   ]
+  },
+  "panels": {
+   "name": "panels (LCD screens)",
+   "what": "the Steward's panel line makes a few hundred a year; the Assembly's Panel Board rations them",
+   "priority": [
+    "hospitals and clinics",
+    "the Boards (public notice screens)",
+    "the Wire's studios and screens",
+    "the Registry",
+    "schools",
+    "aerodromes",
+    "works' machines"
+   ],
+   "vehicles": "passenger vehicles get none: gauges (needle dials, warning lamps, a mechanical odometer). Some heavy vehicles on Steward boards have the board's own small status panel, sealed into the deck",
+   "known": "living"
+  },
+  "gauges": {
+   "what": "every car and van has electromechanical gauges: speed, pack charge, motor temperature, an ammeter; warning lamps; driven from the controller's Thirty-Two",
+   "makers": "instrument makers, many of them clock and watch families (Fenwick's are the best known)"
+  },
+  "radio": {
+   "name": "the Wire set and the Wire slot",
+   "what": "every car has a radio, but it is its own unit: a Wire set slides into a standard opening in the dashboard (the Wire slot) and plugs into a standard socket (power, aerial, speakers, the dimmer line)",
+   "slot": {
+    "w_mm": 180,
+    "h_mm": 50,
+    "depth_mm": 160,
+    "connector": "the 12-pin Wire plug"
+   },
+   "origin": "the slot is the old Earth single-DIN size, taken from the Wardens' manuals; made the standard by the Wire Slot Accord (VY 452) when the Wire went on the air",
+   "culture": "sets are bought, swapped, stolen and handed down; a good set outlives three cars; 'pulling your set' when you park in Solana Point"
+  },
+  "why": "the Steward has never said. The College teaches that it caps people's machines so nothing aboard can overrule it (after the Lantern); Waymakers say it is keeping them humble; most people never think about it -- the Thirty-Two is simply what a computer is"
+ },
+ "platforms": {
+  "_about": "The boards. Engineering numbers (dimensions, modules, masses, power) in tools/vehicles/platforms.py and godot_project/remake/vehicles/chassis/platforms.json.",
+  "pattern": {
+   "name": "the Pattern (the Steward Pattern)",
+   "what": "the board's body interface: the deck top 0.50 m above the ground; body mounts every 0.75 m along both side rails; power and control at the pattern socket behind the front axle. Every board, the Steward's or people's, keeps it: any body fits any board of its width",
+   "law": "the Standard Pattern Act (VY 398) made it the law for people's boards"
+  },
+  "boards": [
+   {
+    "id": "steward_board",
+    "name": "the Steward board (pattern HMP-1)",
+    "folk": [
+     "a true board",
+     "a Steward",
+     "a pattern board"
+    ],
+    "maker": "steward",
+    "since_vy": 0,
+    "unchanged": true,
+    "used_for": [
+     "trams",
+     "refuse trucks",
+     "haulers",
+     "farm machines",
+     "fire and rescue",
+     "the Long Calm's pods and vans (old stock)"
+    ],
+    "build": "one piece per span: a printed lattice of Spindle alloy, bone-like, the sealed cells set in it; four or more corner pods (motor, steering, brake, suspension and controller in one), bolted on; everything by wire",
+    "look": "sleek and organic, pale and smooth like bone; very little metal; nothing to see but the deck and the pods",
+    "sizes": [
+     "narrow (1.5 m track)",
+     "broad (2.0 m track)",
+     "heavy (2.45 m track, up to 4 axles; trams ride on coupled heavy boards)"
+    ]
+   },
+   {
+    "id": "harrow_ladder",
+    "name": "the Harrow Ladder",
+    "folk": [
+     "a Harrow",
+     "a ladder board"
+    ],
+    "maker": "harrow_motor_works",
+    "since_vy": 371,
+    "unchanged": false,
+    "used_for": [
+     "pickups",
+     "farm runabouts",
+     "delivery vans",
+     "taxis",
+     "the family car of the Northland"
+    ],
+    "build": "two boxed rails of rolled-and-welded steel tube with crossmembers; the battery in four steel crates between the rails; one motor in the middle driving the back wheels through a differential and a De Dion tube on leaf springs; drum brakes",
+    "look": "heavy, square, rivets and welds, red oxide primer and black paint; you can see everything and fix most of it with a welder",
+    "sizes": [
+     "H-24",
+     "H-27",
+     "H-30 (wheelbase in decimetres)"
+    ]
+   },
+   {
+    "id": "carrow_keel",
+    "name": "the Carrow Keel",
+    "folk": [
+     "a Carrow",
+     "a keel board",
+     "a Coach"
+    ],
+    "maker": "carrow_coach_company",
+    "since_vy": 379,
+    "unchanged": false,
+    "used_for": [
+     "sedans",
+     "coaches (minibuses)",
+     "the Kessler cab",
+     "hearses",
+     "the better sort of car"
+    ],
+    "build": "a ship's keel: a big central tube holding the battery as a string of cartridges, loaded from a hatch at the back; a perimeter hoop (the gunwale) and outrigger ribs; a motor at each axle, inboard, with half-shafts; coil springs and wishbones all round",
+    "look": "rounded, careful, navy and bronze, the keel tube polished; a shipwright's work",
+    "sizes": [
+     "K-25",
+     "K-28",
+     "K-31"
+    ]
+   },
+   {
+    "id": "solana_lattice",
+    "name": "the Solana Lattice",
+    "folk": [
+     "a Solana",
+     "a lattice board",
+     "a Sunny"
+    ],
+    "maker": "solana_cycle_and_motor",
+    "since_vy": 384,
+    "unchanged": false,
+    "used_for": [
+     "small cars",
+     "runabouts",
+     "racers",
+     "scooters' big cousins",
+     "the South Shore's cheap cars"
+    ],
+    "build": "a bicycle maker's space frame: thin chromoly tubes triangulated and brazed into lugs; the battery as side-loading cassettes you can swap in two minutes; motors in the back wheel hubs; light springs",
+    "look": "airy, all triangles and bright lugs, sun yellow and cream; light and quick, and it shows a crash",
+    "sizes": [
+     "L-23",
+     "L-25"
+    ]
+   }
+  ]
+ },
+ "manufacturing": {
+  "steward": [
+   [
+    "mining",
+    "diggers on the Rock's outer face cut, crush and sort ore in vacuum; ice and volatiles are baked out"
+   ],
+   [
+    "refining",
+    "in the Spindle: vacuum and electric smelting, molten-salt electrolysis for aluminium and titanium, zone refining for silicon; slag back to the Rock"
+   ],
+   [
+    "printing",
+    "powder-bed fusion for fine parts (the boards' lattices, the pods' housings) and wire-arc deposition for big ones; designs topology-optimised: material only where the loads go, so the parts look grown"
+   ],
+   [
+    "chips_and_panels",
+    "one fixed chip process (the Thirty-Two) and one small panel line; deliberately never improved"
+   ],
+   [
+    "cells",
+    "sealed solid cells for the boards; never given out loose"
+   ],
+   [
+    "delivery",
+    "carts through the Undercroft's galleries to the Drops, the Chutes and the Board Drops, at night"
+   ]
+  ],
+  "people": [
+   [
+    "remelting",
+    "electric arc and induction furnaces turn Drop scrap into steel and aluminium again; every works and most towns have one"
+   ],
+   [
+    "rolling_and_tube",
+    "rolling mills make strip and plate (the Falls Rolling Mill at Harrow Falls is the biggest); tube is rolled from strip and seam-welded, or drawn (Solana's chromoly)"
+   ],
+   [
+    "welding_and_brazing",
+    "arc and gas welding for frames; brazing into lugs for light tube (Solana)"
+   ],
+   [
+    "casting",
+    "sand casting of aluminium and iron: brackets, hubs, motor housings"
+   ],
+   [
+    "machining",
+    "lathes and mills, some run by Thirty-Two controllers (the 'smart lathes' of Kessler and Harrow)"
+   ],
+   [
+    "motors",
+    "induction motors, copper wound by hand and machine in winding shops; ferrite magnets (no rare earths come from the Drops) for small hub motors"
+   ],
+   [
+    "cells",
+    "LFP cells from Drop iron, phosphate rock, lithium salts and graphite: prismatic cells in steel cans, built into packs, crates and cassettes by hand; heavier than the Steward's and long-lived"
+   ],
+   [
+    "rubber",
+    "tyres from farmed rubber (Russian dandelion and guayule, grown in the Southland), vulcanised with Drop sulfur, filled with carbon black from the waste kilns"
+   ],
+   [
+    "glass",
+    "float and pressed glass from Drop silica sand at Port Carrow and Marlowe"
+   ],
+   [
+    "electronics",
+    "boards built round the Thirty-Two; hand-wound relays and switches; gauge works"
+   ],
+   [
+    "paint",
+    "lead-free enamels and red oxide primer; colours are a works' signature"
+   ]
+  ]
+ },
+ "companies": [
+  {
+   "id": "harrow_motor_works",
+   "name": "Harrow Motor Works",
+   "short": "Harrow",
+   "folk": [
+    "the Works",
+    "HMW",
+    "Old Kettle's people"
+   ],
+   "seat": "harrow_falls",
+   "yard": "the Falls Yard (once the Wardens' Motor Pool No. 2), on the river below the Falls",
+   "founded_vy": 354,
+   "founders": [
+    "augusta_brenneman"
+   ],
+   "board": "harrow_ladder",
+   "ethos": "build it heavy, build it once; if it breaks, a welder fixes it",
+   "colours": [
+    "red oxide",
+    "black"
+   ],
+   "strong_in": [
+    "harrow_falls",
+    "marlowe",
+    "fenwick",
+    "dunmore_crossing",
+    "cedar_ford",
+    "tamarack",
+    "countryside"
+   ],
+   "buyers": "farmers, tradespeople, the Northland and the Kettle Valley; the Marshals' patrol trucks",
+   "allotment": "the largest share of Steward boards (it builds the farm machines and the haulers)",
+   "people": [
+    "augusta_brenneman",
+    "elias_thornbury",
+    "hiram_okonkwo_brenneman",
+    "della_brenneman_szabo"
+   ],
+   "events": [
+    "three_yards",
+    "yard_raids",
+    "allotment_compact",
+    "old_kettle",
+    "board_wars",
+    "standard_pattern_act",
+    "keel_recall",
+    "harrow_mill_closure"
+   ],
+   "reputation": "loved and mocked: 'a Harrow will outlive you, and you'll feel every bump of it'",
+   "now": "about 46% of people's boards; the Ladder little changed in a century; president Della Brenneman-Szabo hired 600 of the Mill No. 2 hands in VY 494"
+  },
+  {
+   "id": "carrow_coach_company",
+   "name": "Carrow Coach Company",
+   "short": "Carrow",
+   "folk": [
+    "Coach",
+    "the Coachworks",
+    "the Keel-yard"
+   ],
+   "seat": "port_carrow",
+   "yard": "the Harbour Yard (once the Wardens' Motor Pool No. 1), in the shipyard",
+   "founded_vy": 354,
+   "founders": [
+    "theodora_lindqvist_vance"
+   ],
+   "board": "carrow_keel",
+   "ethos": "a car is a vessel: build it like a ship, ride like a boat",
+   "colours": [
+    "navy",
+    "bronze",
+    "cream"
+   ],
+   "strong_in": [
+    "port_carrow",
+    "kessler",
+    "brightwater",
+    "haven_point",
+    "tern_harbor",
+    "bellhaven"
+   ],
+   "buyers": "Kessler's lawyers and officials, the North Shore, cab firms, undertakers; the better sort",
+   "allotment": "the road trams and coaches: every tram on the roads rides on Carrow-bodied Steward boards",
+   "people": [
+    "theodora_lindqvist_vance",
+    "bartholomew_achebe",
+    "octavia_fairweather",
+    "lionel_vance_okafor"
+   ],
+   "events": [
+    "three_yards",
+    "yard_raids",
+    "allotment_compact",
+    "carrow_keel_launched",
+    "board_wars",
+    "standard_pattern_act",
+    "keel_recall",
+    "allotment_inquiry"
+   ],
+   "reputation": "respected, a little resented: 'Coach money'; the Keel Recall still hurts",
+   "now": "about 31% of people's boards; aluminium keels since VY 431; president Lionel Vance-Okafor"
+  },
+  {
+   "id": "solana_cycle_and_motor",
+   "name": "Solana Cycle & Motor",
+   "short": "Solana",
+   "folk": [
+    "Sunny",
+    "the Cycle Works",
+    "Ybarra's"
+   ],
+   "seat": "solana_point",
+   "yard": "the South Yard (once the Wardens' Motor Pool No. 3), joined to the Ybarra Cycle Works",
+   "founded_vy": 356,
+   "founders": [
+    "ignacio_ybarra"
+   ],
+   "board": "solana_lattice",
+   "ethos": "light is fast, fast is fun, and you can carry the battery home",
+   "colours": [
+    "sun yellow",
+    "cream",
+    "teal"
+   ],
+   "strong_in": [
+    "solana_point",
+    "playa_verde",
+    "oceanview",
+    "pelican_cove",
+    "victory_bay"
+   ],
+   "buyers": "the young, the South Shore, couriers, racers; anyone who wants the cheapest car going",
+   "allotment": "the smallest share: refuse trucks and the South Shore's farm machines",
+   "people": [
+    "ignacio_ybarra",
+    "pilar_ybarra_solano",
+    "rafael_quintero",
+    "luis_arrieta_wu",
+    "ines_ybarra_moreno"
+   ],
+   "events": [
+    "three_yards",
+    "golondrina",
+    "board_wars",
+    "standard_pattern_act",
+    "first_ring_run",
+    "wire_slot_accord",
+    "solana_swap"
+   ],
+   "reputation": "the fun one and the fragile one: 'a Solana is a bicycle that got ideas'",
+   "now": "about 23% of people's boards and rising; the Solana Swap's cassette stations in every South Shore town; president Inés Ybarra-Moreno"
+  }
+ ],
+ "rivalries": [
+  {
+   "a": "harrow_motor_works",
+   "b": "carrow_coach_company",
+   "value": -0.5,
+   "why": "the old feud: work truck against carriage, Kettle Valley against North Shore; the Keel Recall (VY 427), which Harrow's men were accused of gloating over"
+  },
+  {
+   "a": "carrow_coach_company",
+   "b": "solana_cycle_and_motor",
+   "value": -0.6,
+   "why": "the Port Carrow - Solana Point rivalry of the Spin Cup carried onto the road; the Ring Run"
+  },
+  {
+   "a": "harrow_motor_works",
+   "b": "solana_cycle_and_motor",
+   "value": -0.2,
+   "why": "mostly contempt both ways ('bicycles' / 'tractors'), and an alliance against Carrow in the Allotment Inquiry"
+  }
+ ],
+ "_about": "Columbia game bible: industry. Generated by tools/bible/make_bible.py from tools/bible/canon_*.py; read research/bible/."
+}

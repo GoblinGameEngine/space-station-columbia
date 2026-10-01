@@ -413,13 +413,14 @@ A lineage is a surname line and the lore that travels with it. The engine gives 
 |---|---|---|---|---|
 | Aaltonen | lineage_kept |  | Henrik Aaltonen, Liisa Aaltonen | 25 |
 | Abernathy | anglo | kessler | Hope Abernathy, Ruth Abernathy-Chen | 14 |
-| Achebe | lineage_kept | port_carrow | Honor Achebe, Solomon Achebe-Hart | 25 |
+| Achebe | lineage_kept | port_carrow | Bartholomew Achebe, Honor Achebe, Solomon Achebe-Hart | 25 |
 | Adler | anglo | kessler | Miriam Adler-Castro | 4 |
 | Anand | south_asian | kessler | Beatriz Holloway-Anand | 40 |
 | Asante | lineage_kept | bellhaven | Tobit Asante-Grey | 25 |
 | Bhatt | south_asian | kessler | Ignatius Bhatt | 4 |
 | Blythe | anglo | tern_harbor | Horace Blythe | 0 |
 | Brandt | german | marlowe | Gunnar Lindqvist-Brandt | 19 |
+| Brenneman | anglo | harrow_falls | Augusta Brenneman, Hiram Okonkwo-Brenneman, Della Brenneman-Szabo | 0 |
 | Bright | anglo | port_carrow | Cornelius Bright | 14 |
 | Castellano | italian | cedar_ford | Wren Castellano | 15 |
 | Castro | hispanic | kessler | Miriam Adler-Castro | 224 |
@@ -427,7 +428,7 @@ A lineage is a surname line and the lore that travels with it. The engine gives 
 | Cole | anglo | bellhaven | Anjali Raghunathan-Cole | 182 |
 | Delacroix | lineage_kept | pelican_cove | Anh Tran-Delacroix | 25 |
 | Doyle | irish_scots | pruett | Ruth Ann Pruett-Doyle | 106 |
-| Fairweather | lineage_kept | loomis_grove | Cordelia Fairweather | 25 |
+| Fairweather | lineage_kept | port_carrow | Octavia Fairweather, Cordelia Fairweather | 25 |
 | Ferreira | anglo | port_carrow | Stanisław Wojcik-Ferreira | 28 |
 | Ferris | anglo | bellhaven | Imogen Sato-Ferris | 15 |
 | Freeman | anglo | victory_bay | Mabel Freeman-Ortiz | 173 |
@@ -445,12 +446,13 @@ A lineage is a surname line and the lore that travels with it. The engine gives 
 | Kiss | anglo | harrow_falls | Dolores Kiss-Mahoney | 0 |
 | Kovacs | anglo | kessler | Margit Kovacs-Lee | 0 |
 | Lee | anglo | kessler | Margit Kovacs-Lee | 1010 |
-| Lindqvist | lineage_kept | kessler | Harriet Osei-Lindqvist, Gunnar Lindqvist-Brandt | 25 |
+| Lindqvist | lineage_kept | kessler | Harriet Osei-Lindqvist, Theodora Lindqvist-Vance, Gunnar Lindqvist-Brandt | 25 |
 | Mahoney | anglo | harrow_falls | Dolores Kiss-Mahoney | 60 |
 | Marchand | lineage_kept | port_carrow | Colette Marchand | 25 |
 | Marsh | anglo | bellhaven | Rafael Iturbide-Marsh | 50 |
 | Montoya | hispanic | solana_point | Graciela Montoya-Park | 54 |
 | Morales | hispanic | kessler | Obadiah Kincaid-Morales | 506 |
+| Moreno | hispanic | solana_point | Inés Ybarra-Moreno | 342 |
 | Nakamura | east_asian | solana_point | Estrella Vance-Nakamura | 16 |
 | Nuñez | anglo | kessler | Rosalind Achterberg-Nuñez | 0 |
 | Nwosu | lineage_kept |  | Amara Nwosu | 25 |
@@ -464,6 +466,7 @@ A lineage is a surname line and the lore that travels with it. The engine gives 
 | Pembrook | lineage_kept | oceanview | Leonard Pembrook | 25 |
 | Petrie | anglo | loomis_grove | Harold Loomis-Petrie | 25 |
 | Quinn | irish_scots | cedar_ford | Marisol Ybarra-Quinn | 21 |
+| Quintero | hispanic | solana_point | Rafael Quintero | 10 |
 | Quist | lineage_kept | kessler | Barnaby Quist | 25 |
 | Ramos | hispanic | port_carrow | Teodoro Nowicki-Ramos | 396 |
 | Ruiz | hispanic | kessler | Josephine Adebayo-Ruiz | 371 |
@@ -471,14 +474,16 @@ A lineage is a surname line and the lore that travels with it. The engine gives 
 | Silva | hispanic | solana_point | Dante Okonkwo-Silva | 190 |
 | Stoltz | lineage_kept | tamarack | Amos Yoder-Stoltz | 25 |
 | Strand | anglo | kessler | Philippa Strand-Ochoa | 1 |
+| Thornbury | lineage_kept | harrow_falls | Elias Thornbury | 25 |
+| Thorne | anglo | bellhaven | Absalom Thorne | 5 |
 | Tillotson | lineage_kept | haven_point | Agnes Tillotson | 25 |
 | Tran | se_asian | pelican_cove | Anh Tran-Delacroix | 499 |
 | Tuttle | anglo | haskins_corner | Clay Tuttle | 0 |
-| Vance | anglo | solana_point | Estrella Vance-Nakamura | 0 |
+| Vance | anglo | port_carrow | Theodora Lindqvist-Vance, Lionel Vance-Okafor, Estrella Vance-Nakamura | 0 |
 | VanderMolen | lineage_kept | port_tamsin | Pieter VanderMolen | 25 |
 | Varga | anglo | kessler | Leopold Varga-Hayes | 0 |
 | Voss | german | kessler | Margaret Achterberg-Voss | 3 |
 | Wieczorek | lineage_kept | fenwick | Tomasz Wieczorek | 25 |
 | Wojcik | lineage_kept | port_carrow | Stanisław Wojcik-Ferreira | 25 |
 | Wu | east_asian | solana_point | Luis Arrieta-Wu | 83 |
-| Ybarra | hispanic | cedar_ford | Marisol Ybarra-Quinn | 41 |
+| Ybarra | hispanic | solana_point | Ignacio Ybarra, Pilar Ybarra-Solano, Inés Ybarra-Moreno, Marisol Ybarra-Quinn | 41 |

@@ -49,6 +49,7 @@ def write(D, world, settlements, history, peo, lin, fac, cul, names, counts, nam
         "| [08_outside_world.md](08_outside_world.md) | history.json (scope earth) | Earth before the launch, the Earth-link, the other arks, the destination, the future |",
         "| [09_affinity.md](09_affinity.md) | factions.json | factions and the **affinity model**: priors between people and toward the player, and what's stored |",
         "| [10_engine.md](10_engine.md) | schema.json, index.json | how the engine uses each file |",
+        "| [12_industry.md](12_industry.md) | industry.json | the Rock and the Spindle, the Drops, what the Steward makes and the limits it keeps (the Thirty-Two, panels, gauges, the Wire slot), the boards, how things are made, the three vehicle works and their histories |",
         "",
         "## Sources",
         "- **Surnames:** the 2000 US Census surname file (151,671 names, with ethnic shares), via fivethirtyeight/data.",
@@ -303,3 +304,57 @@ def write(D, world, settlements, history, peo, lin, fac, cul, names, counts, nam
          "", "## Counts", ""] + ["- %s: %s" % kv for kv in counts.items()]
     L += ["", "## Rebuild", "", "`python3 tools/bible/make_bible.py`: names, canon, checks, JSON and these pages, in about 15 s. It fails on any broken reference."]
     w(os.path.join(D, "10_engine.md"), L)
+
+
+def write_industry(D, ind, peo, history):
+    people = {p["id"]: p for p in peo["people"]}
+    nm = lambda pid: "%s %s" % (people[pid]["given"], people[pid]["surname"]) if pid in people else pid
+    evs = {e["id"]: e for e in history["events"]}
+    sw = ind["steward_works"]
+    L = ["# 12. Industry: the Steward's works, the boards and the vehicle works", "",
+         "Canon from the user (2026-10-01), detailed here. Engineering numbers for the boards are in `tools/vehicles/platforms.py`",
+         "(`godot_project/remake/vehicles/chassis/platforms.json`); the chassis models are built from them (`remake/blender/chassis/chassis.py`).", "",
+         "## The Rock", ""]
+    for k in ("what", "size", "mining"):
+        L.append("- **%s:** %s" % (k, sw["the_rock"][k]))
+    L += ["- **role:** " + "; ".join(sw["the_rock"]["role"]), "", "## The Spindle", ""]
+    for k in ("what", "fed_by", "people"):
+        L.append("- **%s:** %s" % (k, sw["the_spindle"][k]))
+    L += ["- **inside:** " + "; ".join(sw["the_spindle"]["inside"]), "", "## What the Steward makes for people", ""]
+    L += md_table([(a, b, c) for a, b, c in sw["makes_for_people"]], ["id", "what", "how often"])
+    d = ind["drops"]
+    L += ["", "## The Drops", "", d["what"] + ".", "", "_" + d["_about"] + "_", ""] + ["- **%s:** %s" % kv for kv in d["kinds"]]
+    L += ["", "- **versus the Chutes:** " + d["versus_chutes"], "- **words:** " + "; ".join(d["words"]), "", "## The limits the Steward keeps", ""]
+    t = ind["tech_limits"]
+    L += ["### %s" % t["processors"]["name"], "", t["processors"]["what"] + ".", "",
+          "- **supply:** " + t["processors"]["supply"], "- **used in:** " + "; ".join(t["processors"]["use"]),
+          "- **know-how:** " + t["processors"]["know_how"], "- **the cap:** " + t["processors"]["the_cap"], "",
+          "### Panels", "", t["panels"]["what"] + ".", "", "- **priority:** " + " > ".join(t["panels"]["priority"]), "- **vehicles:** " + t["panels"]["vehicles"], "",
+          "### Gauges", "", t["gauges"]["what"] + "; made by " + t["gauges"]["makers"] + ".", "",
+          "### The Wire slot", "", t["radio"]["what"] + ".", "",
+          "- **slot:** %(w_mm)d x %(h_mm)d mm, %(depth_mm)d mm deep; %(connector)s" % t["radio"]["slot"], "- **origin:** " + t["radio"]["origin"], "- **culture:** " + t["radio"]["culture"], "",
+          "**Why:** " + t["why"], "", "## The boards", "", "**%s:** %s %s" % (ind["platforms"]["pattern"]["name"], ind["platforms"]["pattern"]["what"], ind["platforms"]["pattern"]["law"]) + ".", ""]
+    for b in ind["platforms"]["boards"]:
+        L += ["### %s" % b["name"], "", "- **maker:** %s, since VY %d%s" % (b["maker"], b["since_vy"], " (never changed)" if b["unchanged"] else ""),
+              "- **called:** " + ", ".join(b["folk"]), "- **build:** " + b["build"], "- **look:** " + b["look"], "- **sizes:** " + ", ".join(b["sizes"]),
+              "- **used for:** " + ", ".join(b["used_for"]), ""]
+    L += ["## How things are made", "", "### The Steward", ""] + ["- **%s:** %s" % kv for kv in ind["manufacturing"]["steward"]]
+    L += ["", "### People", ""] + ["- **%s:** %s" % kv for kv in ind["manufacturing"]["people"]]
+    L += ["", "## The vehicle works", ""]
+    for c in ind["companies"]:
+        L += ["### %s (%s)" % (c["name"], c["short"]), "",
+              "- **seat:** %s; %s" % (c["seat"], c["yard"]), "- **founded:** VY %d by %s" % (c["founded_vy"], ", ".join(nm(p) for p in c["founders"])),
+              "- **board:** %s" % c["board"], "- **ethos:** " + c["ethos"], "- **colours:** " + ", ".join(c["colours"]),
+              "- **buyers:** " + c["buyers"], "- **strong in:** " + ", ".join(c["strong_in"]), "- **Steward allotment:** " + c["allotment"],
+              "- **reputation:** " + c["reputation"], "- **now (VY 500):** " + c["now"], "", "**People:**", ""]
+        for pid in c["people"]:
+            p = people[pid]
+            life = "b. VY %d" % p["born_vy"] if p["alive"] else "VY %d-%s" % (p["born_vy"], p["died_vy"])
+            L.append("- **%s** (%s): %s. %s" % (nm(pid), life, p["title"], " ".join(p["notes"])))
+        L += ["", "**History:**", ""]
+        for eid in sorted(c["events"], key=lambda e: evs[e]["vy"]):
+            e = evs[eid]
+            L.append("- VY %d%s: %s" % (e["vy"], "-%d" % e["end_vy"] if e.get("end_vy") else "", e["summary"]))
+        L.append("")
+    L += ["## Rivalries", ""] + ["- %s / %s (%+.1f): %s" % (r["a"], r["b"], r["value"], r["why"]) for r in ind["rivalries"]]
+    w(os.path.join(D, "12_industry.md"), L)

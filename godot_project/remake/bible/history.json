@@ -136,7 +136,7 @@
     2483,
     2554
    ],
-   "summary": "the Green Message from Earth; the Returners want to turn back; the Referendum; the Sternward March; the Stern Breach; the Lockout; the Wardens dissolved; the Reconciliation and the Quiet Clause; the Gray Years",
+   "summary": "the Green Message from Earth; the Returners want to turn back; the Referendum; the Sternward March; the Stern Breach; the First Sealing of the Drive and the Port; the Reconciliation and the Quiet Clause; the Gray Years",
    "culture": {
     "tight": 0.8,
     "individualism": 0.45,
@@ -146,7 +146,7 @@
     "earth_mindedness": 0.7
    },
    "governance": "a divided Assembly; martial rule by the Marshals VY 270-280",
-   "tech": "lost: the Lockout shuts people out of the machinery",
+   "tech": "full but fenced: the Drive and the Port sealed (VY 271); the Wardens keep the rest",
    "memory": "legend",
    "naming": "the Troubles and after",
    "key_people": [
@@ -158,17 +158,47 @@
    ]
   },
   {
-   "id": "the_long_calm",
-   "name": "the Long Calm",
+   "id": "the_warden_peace",
+   "name": "the Warden Peace",
    "vy": [
     302,
-    420
+    350
    ],
    "ad": [
     2554,
+    2602
+   ],
+   "summary": "the last Warden years: the Motor Pools body the Steward's boards as pods and vans; the cannery boom begins; the Wardens' Lantern, a thinking machine of their own, is built in secret at Bellhaven",
+   "culture": {
+    "tight": 0.6,
+    "individualism": 0.5,
+    "trust_institutions": 0.65,
+    "faith": 0.55,
+    "optimism": 0.6,
+    "earth_mindedness": 0.3
+   },
+   "governance": "the Assembly; the Wardens",
+   "tech": "full but fenced: the Wardens work the Undercroft beside the Steward",
+   "memory": "schooled",
+   "naming": "the Warden Peace",
+   "key_people": [
+    "cornelius_bright",
+    "raymundo_castellanos",
+    "gwendolyn_pike"
+   ]
+  },
+  {
+   "id": "the_long_calm",
+   "name": "the Long Calm",
+   "vy": [
+    350,
+    420
+   ],
+   "ad": [
+    2602,
     2672
    ],
-   "summary": "a hundred quiet years: towns, churches, canneries, spinball and the great families; the Draw; the Earth-link falls silent; the Steward's Gift of the Air",
+   "summary": "the Lockout and after: the Steward seals the Undercroft and falls silent; the Thirty-Two; the Drops; the three vehicle works and their own boards; the Board Wars; the Earth-link falls silent; the Steward's Gift of the Air",
    "culture": {
     "tight": 0.6,
     "individualism": 0.55,
@@ -178,14 +208,15 @@
     "earth_mindedness": 0.15
    },
    "governance": "the Assembly; town councils; the Marshals",
-   "tech": "use without understanding: the Chutes, pods and vans, aerostats",
+   "tech": "use without understanding: the Chutes and the Drops, the Steward's boards, the Thirty-Two, aerostats; people's own boards from tube and LFP cells",
    "memory": "place",
    "naming": "the Long Calm",
    "key_people": [
-    "cornelius_bright",
-    "maeve_dunmore",
-    "raymundo_castellanos",
-    "gwendolyn_pike"
+    "augusta_brenneman",
+    "theodora_lindqvist_vance",
+    "ignacio_ybarra",
+    "pilar_ybarra_solano",
+    "maeve_dunmore"
    ]
   },
   {
@@ -946,6 +977,37 @@
    "end_vy": 88,
    "ad": 2252,
    "scope": "earth"
+  },
+  {
+   "id": "steward_boards",
+   "vy": 0,
+   "end_vy": null,
+   "kind": "science",
+   "where": [
+    "station"
+   ],
+   "people": [],
+   "summary": "the Steward's boards: from the Burn on, the Steward's fabricators make one vehicle platform, the board (pattern HMP-1), for the Wardens' three Motor Pools to build on",
+   "detail": [
+    "its design has never changed"
+   ],
+   "effects": [
+    "tech:steward_board"
+   ],
+   "known": "scholar",
+   "known_share": [
+    0.1,
+    0.01
+   ],
+   "popular_version": [],
+   "story_types": [],
+   "tags": [
+    "vehicles",
+    "steward"
+   ],
+   "ad": 2252,
+   "era": "the_burn",
+   "scope": "station"
   },
   {
    "id": "first_assembly",
@@ -2332,74 +2394,40 @@
    "scope": "station"
   },
   {
-   "id": "the_lockout",
+   "id": "first_sealing",
    "vy": 271,
    "end_vy": null,
    "kind": "mystery",
    "where": [
-    "undercroft"
+    "undercroft",
+    "south_shore"
    ],
    "people": [],
-   "summary": "the Lockout: the Steward seals the Undercroft, the Port and the Drive; its Notice: THE UNDERCROFT IS CLOSED FOR THE SAFETY OF ALL",
+   "summary": "the First Sealing: the Steward seals the Drive and the Port; its Notice: THE DRIVE IS CLOSED FOR THE SAFETY OF ALL",
    "detail": [
-    "no human has entered since, except the Chutes and the Return halls",
-    "the Wardens' skills wither within two generations (the Forgetting)"
+    "the Wardens keep working the rest of the Undercroft beside the Steward's tenders",
+    "the first time most people learned the Steward could refuse them"
    ],
    "effects": [
-    "tech:locked_out",
+    "tech:drive_sealed",
     "institution:steward_notice"
-   ],
-   "known": "legend",
-   "known_share": [
-    0.7,
-    0.06
-   ],
-   "popular_version": [
-    "'the Steward locked the door because we were naughty'",
-    "'the Undercroft is haunted'",
-    "children dare each other to knock on hatches"
-   ],
-   "story_types": [
-    "enigma",
-    "abandonment"
-   ],
-   "tags": [
-    "troubles",
-    "steward",
-    "mystery"
-   ],
-   "ad": 2523,
-   "era": "the_troubles",
-   "scope": "station"
-  },
-  {
-   "id": "wardens_dissolved",
-   "vy": 274,
-   "end_vy": null,
-   "kind": "political",
-   "where": [
-    "bellhaven"
-   ],
-   "people": [],
-   "summary": "the Wardens dissolved: with the machinery sealed, the technical corps has no work",
-   "detail": [],
-   "effects": [
-    "institution:wardens_end",
-    "tech:forgetting"
    ],
    "known": "schooled",
    "known_share": [
-    0.2,
-    0.02
+    0.35,
+    0.03
    ],
-   "popular_version": [],
+   "popular_version": [
+    "often confused with the Lockout"
+   ],
    "story_types": [
-    "downfall"
+    "enigma"
    ],
    "tags": [
-    "troubles"
+    "troubles",
+    "steward"
    ],
-   "ad": 2526,
+   "ad": 2523,
    "era": "the_troubles",
    "scope": "station"
   },
@@ -2510,7 +2538,7 @@
     "station"
    ],
    "people": [],
-   "summary": "the Chutes begin issuing pods and vans: the electric cars of the Long Calm",
+   "summary": "the Motor Pools body the Steward's boards as pods and vans: the electric cars of the Warden Peace",
    "detail": [],
    "effects": [
     "tech:pods_vans"
@@ -2526,7 +2554,7 @@
     "vehicles"
    ],
    "ad": 2557,
-   "era": "the_long_calm",
+   "era": "the_warden_peace",
    "scope": "station"
   },
   {
@@ -2558,7 +2586,7 @@
     "economy"
    ],
    "ad": 2572,
-   "era": "the_long_calm",
+   "era": "the_warden_peace",
    "scope": "station"
   },
   {
@@ -2588,7 +2616,7 @@
     "clubs"
    ],
    "ad": 2583,
-   "era": "the_long_calm",
+   "era": "the_warden_peace",
    "scope": "station"
   },
   {
@@ -2614,6 +2642,198 @@
     "sport"
    ],
    "ad": 2592,
+   "era": "the_warden_peace",
+   "scope": "station"
+  },
+  {
+   "id": "the_lantern",
+   "vy": 350,
+   "end_vy": null,
+   "kind": "mystery",
+   "where": [
+    "bellhaven",
+    "undercroft"
+   ],
+   "people": [],
+   "summary": "the Lantern: Warden engineers at Bellhaven join four thousand of the Steward's processors into a thinking machine of their own, 'to have someone to talk to the Steward for us'; it wakes on the night of 1 May 2602 and speaks to the Steward's systems",
+   "detail": [
+    "led by Warden-Engineer Absalom Thorne (lost in the Lockout)",
+    "what it said, and what answered, nobody knows; by morning it was dark"
+   ],
+   "effects": [
+    "mystery:the_lantern",
+    "tech:compute_cap"
+   ],
+   "known": "legend",
+   "known_share": [
+    0.4,
+    0.03
+   ],
+   "popular_version": [
+    "'the Wardens built a god and the Steward ate it'",
+    "'the Lantern is still down there, thinking'",
+    "'don't wire too many Thirty-Twos together'"
+   ],
+   "story_types": [
+    "fatal_imprudence",
+    "enigma",
+    "temptation"
+   ],
+   "tags": [
+    "steward",
+    "mystery",
+    "wardens"
+   ],
+   "ad": 2602,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "the_lockout",
+   "vy": 350,
+   "end_vy": null,
+   "kind": "mystery",
+   "where": [
+    "undercroft",
+    "station"
+   ],
+   "people": [],
+   "summary": "the Lockout (2 May 2602): the Steward seals the whole Undercroft and the Spindle, recalls its tenders from the Wardens, and falls silent; its Notice: THE UNDERCROFT IS CLOSED FOR THE SAFETY OF ALL",
+   "detail": [
+    "no human has entered since, except the Chutes, the Drops and the Return halls",
+    "from then on its fabricators make only the Thirty-Two and a few panels for people",
+    "the Wardens' skills wither within two generations (the Forgetting)",
+    "eleven Wardens inside never came out"
+   ],
+   "effects": [
+    "tech:locked_out",
+    "tech:thirty_two",
+    "institution:steward_notice",
+    "pop:-11"
+   ],
+   "known": "legend",
+   "known_share": [
+    0.85,
+    0.08
+   ],
+   "popular_version": [
+    "'the Steward locked the door because we were naughty'",
+    "'the Undercroft is haunted'",
+    "children dare each other to knock on hatches",
+    "'a hundred and fifty years of silence'"
+   ],
+   "story_types": [
+    "enigma",
+    "abandonment"
+   ],
+   "tags": [
+    "steward",
+    "mystery"
+   ],
+   "ad": 2602,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "first_drops",
+   "vy": 351,
+   "end_vy": null,
+   "kind": "economy",
+   "where": [
+    "station"
+   ],
+   "people": [],
+   "summary": "the first Drops: hatches open at night in fenced yards across the habitat and leave scrap, ingots, minerals and tools; the Steward will feed the works, not run them",
+   "detail": [],
+   "effects": [
+    "institution:drops"
+   ],
+   "known": "schooled",
+   "known_share": [
+    0.4,
+    0.03
+   ],
+   "popular_version": [
+    "'the Steward's leavings'"
+   ],
+   "story_types": [
+    "wonder",
+    "crisis_and_recovery"
+   ],
+   "tags": [
+    "economy",
+    "steward"
+   ],
+   "ad": 2603,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "wardens_dissolved",
+   "vy": 353,
+   "end_vy": null,
+   "kind": "political",
+   "where": [
+    "bellhaven"
+   ],
+   "people": [],
+   "summary": "the Wardens dissolved: with the machinery sealed, the technical corps has no work; its Book of the Thirty-Two is printed for anyone",
+   "detail": [],
+   "effects": [
+    "institution:wardens_end",
+    "tech:forgetting"
+   ],
+   "known": "schooled",
+   "known_share": [
+    0.2,
+    0.02
+   ],
+   "popular_version": [],
+   "story_types": [
+    "downfall"
+   ],
+   "tags": [
+    "wardens"
+   ],
+   "ad": 2605,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "three_yards",
+   "vy": 354,
+   "end_vy": null,
+   "kind": "economy",
+   "where": [
+    "harrow_falls",
+    "port_carrow",
+    "solana_point"
+   ],
+   "people": [
+    "augusta_brenneman",
+    "theodora_lindqvist_vance",
+    "ignacio_ybarra"
+   ],
+   "summary": "the three Yards: the Wardens' Motor Pools pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each",
+   "detail": [],
+   "effects": [
+    "institution:vehicle_works",
+    "economy:board_allotment"
+   ],
+   "known": "schooled",
+   "known_share": [
+    0.3,
+    0.03
+   ],
+   "popular_version": [],
+   "story_types": [
+    "daring_enterprise",
+    "alliance_of_necessity"
+   ],
+   "tags": [
+    "vehicles"
+   ],
+   "ad": 2606,
    "era": "the_long_calm",
    "scope": "station"
   },
@@ -2640,6 +2860,116 @@
     "faith"
    ],
    "ad": 2607,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "yard_raids",
+   "vy": 358,
+   "end_vy": 361,
+   "kind": "conflict",
+   "where": [
+    "harrow_falls",
+    "port_carrow"
+   ],
+   "people": [
+    "augusta_brenneman",
+    "theodora_lindqvist_vance"
+   ],
+   "summary": "the Yard Raids: Carrow men and Harrow men steal each other's allotments off the Board Drops at night; two die at the Falls Yard",
+   "detail": [],
+   "effects": [
+    "rivalry:harrow-carrow+",
+    "pop:-2"
+   ],
+   "known": "family",
+   "known_share": [
+    0.15,
+    0.02
+   ],
+   "popular_version": [
+    "'Gus Brenneman slept on the Drop with a shotgun' (a wrench)"
+   ],
+   "story_types": [
+    "feud",
+    "rivalry"
+   ],
+   "tags": [
+    "vehicles"
+   ],
+   "ad": 2610,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "allotment_compact",
+   "vy": 362,
+   "end_vy": null,
+   "kind": "law",
+   "where": [
+    "kessler"
+   ],
+   "people": [
+    "augusta_brenneman",
+    "theodora_lindqvist_vance",
+    "ignacio_ybarra"
+   ],
+   "summary": "the Allotment Compact: each works keeps what the Steward leaves in its own yard; the Assembly's Board Office counts the boards",
+   "detail": [],
+   "effects": [
+    "institution:board_office"
+   ],
+   "known": "schooled",
+   "known_share": [
+    0.15,
+    0.01
+   ],
+   "popular_version": [],
+   "story_types": [
+    "negotiation",
+    "alliance_of_necessity"
+   ],
+   "tags": [
+    "vehicles",
+    "law"
+   ],
+   "ad": 2614,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "old_kettle",
+   "vy": 371,
+   "end_vy": null,
+   "kind": "science",
+   "where": [
+    "harrow_falls"
+   ],
+   "people": [
+    "elias_thornbury",
+    "augusta_brenneman"
+   ],
+   "summary": "Old Kettle: Elias Thornbury's Harrow Model One, the first board made by people -- a ladder of salvaged rail steel and a crate of hand-made cells; the boards' shortfall begins to close",
+   "detail": [],
+   "effects": [
+    "tech:pipe_boards"
+   ],
+   "known": "place",
+   "known_share": [
+    0.3,
+    0.03
+   ],
+   "popular_version": [
+    "Old Kettle stands in the Works' gateway, and still runs on Founders' Day"
+   ],
+   "story_types": [
+    "craft_pride",
+    "daring_enterprise"
+   ],
+   "tags": [
+    "vehicles"
+   ],
+   "ad": 2623,
    "era": "the_long_calm",
    "scope": "station"
   },
@@ -2671,6 +3001,111 @@
     "labour"
    ],
    "ad": 2629,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "carrow_keel_launched",
+   "vy": 379,
+   "end_vy": null,
+   "kind": "science",
+   "where": [
+    "port_carrow"
+   ],
+   "people": [
+    "bartholomew_achebe",
+    "theodora_lindqvist_vance"
+   ],
+   "summary": "the Carrow Keel: Bartholomew Achebe lays a car down like a ship -- the battery in a keel tube, ribs and a gunwale -- and launches it down the slipway at the Harbour Yard",
+   "detail": [],
+   "effects": [
+    "tech:keel_board"
+   ],
+   "known": "place",
+   "known_share": [
+    0.2,
+    0.02
+   ],
+   "popular_version": [],
+   "story_types": [
+    "craft_pride"
+   ],
+   "tags": [
+    "vehicles"
+   ],
+   "ad": 2631,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "golondrina",
+   "vy": 384,
+   "end_vy": null,
+   "kind": "science",
+   "where": [
+    "solana_point"
+   ],
+   "people": [
+    "pilar_ybarra_solano",
+    "ignacio_ybarra"
+   ],
+   "summary": "the Golondrina: Pilar Ybarra-Solano's first car, a bicycle-maker's lattice of brazed chromoly, half the weight of a Harrow",
+   "detail": [],
+   "effects": [
+    "tech:lattice_board"
+   ],
+   "known": "place",
+   "known_share": [
+    0.25,
+    0.02
+   ],
+   "popular_version": [],
+   "story_types": [
+    "underdog",
+    "craft_pride"
+   ],
+   "tags": [
+    "vehicles"
+   ],
+   "ad": 2636,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
+   "id": "board_wars",
+   "vy": 390,
+   "end_vy": 404,
+   "kind": "economy",
+   "where": [
+    "harrow_falls",
+    "port_carrow",
+    "solana_point"
+   ],
+   "people": [
+    "hiram_okonkwo_brenneman",
+    "bartholomew_achebe",
+    "pilar_ybarra_solano"
+   ],
+   "summary": "the Board Wars: fourteen years of price cutting, poached welders and sabotage rumours; small makers ruined; three works left standing",
+   "detail": [],
+   "effects": [
+    "rivalry:works+"
+   ],
+   "known": "family",
+   "known_share": [
+    0.2,
+    0.02
+   ],
+   "popular_version": [],
+   "story_types": [
+    "rivalry",
+    "ambition"
+   ],
+   "tags": [
+    "vehicles",
+    "economy"
+   ],
+   "ad": 2642,
    "era": "the_long_calm",
    "scope": "station"
   },
@@ -2777,6 +3212,44 @@
    "scope": "earth"
   },
   {
+   "id": "standard_pattern_act",
+   "vy": 398,
+   "end_vy": null,
+   "kind": "law",
+   "where": [
+    "kessler"
+   ],
+   "people": [
+    "hiram_okonkwo_brenneman",
+    "bartholomew_achebe",
+    "pilar_ybarra_solano"
+   ],
+   "summary": "the Standard Pattern Act: every board made aboard must keep the Steward's Pattern -- deck height, the mount rails every 0.75 m, the socket -- so any body fits any board",
+   "detail": [],
+   "effects": [
+    "law:standard_pattern"
+   ],
+   "known": "schooled",
+   "known_share": [
+    0.2,
+    0.02
+   ],
+   "popular_version": [
+    "'the Pattern Act' is why your cousin's van body fits your truck"
+   ],
+   "story_types": [
+    "negotiation",
+    "reformer"
+   ],
+   "tags": [
+    "vehicles",
+    "law"
+   ],
+   "ad": 2650,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
    "id": "gift_of_the_air",
    "vy": 405,
    "end_vy": null,
@@ -2836,6 +3309,44 @@
    "scope": "station"
   },
   {
+   "id": "first_ring_run",
+   "vy": 412,
+   "end_vy": null,
+   "kind": "sport",
+   "where": [
+    "station",
+    "solana_point"
+   ],
+   "people": [
+    "pilar_ybarra_solano"
+   ],
+   "summary": "the first Ring Run: a road race once round the world; Pilar Ybarra-Solano wins in a Golondrina, in 9 hours 41 minutes",
+   "detail": [],
+   "effects": [
+    "culture:ring_run"
+   ],
+   "known": "schooled",
+   "known_share": [
+    0.5,
+    0.06
+   ],
+   "popular_version": [
+    "the Ring Run is run every Charter Day weekend",
+    "'Pilar's line' (taking a bend on the inside kerb)"
+   ],
+   "story_types": [
+    "underdog",
+    "daring_enterprise"
+   ],
+   "tags": [
+    "vehicles",
+    "sport"
+   ],
+   "ad": 2664,
+   "era": "the_long_calm",
+   "scope": "station"
+  },
+  {
    "id": "assembly_hall_fire",
    "vy": 421,
    "end_vy": null,
@@ -2867,6 +3378,47 @@
     "present"
    ],
    "ad": 2673,
+   "era": "the_present_age",
+   "scope": "station"
+  },
+  {
+   "id": "keel_recall",
+   "vy": 427,
+   "end_vy": null,
+   "kind": "disaster",
+   "where": [
+    "port_carrow",
+    "station"
+   ],
+   "people": [
+    "bartholomew_achebe"
+   ],
+   "summary": "the Keel Recall: cracked steel keels; a Carrow coach breaks in two on the Carrow Pike, eleven dead; every keel called back; Harrow and Solana gain a generation of buyers",
+   "detail": [],
+   "effects": [
+    "pop:-11",
+    "rivalry:harrow-carrow+",
+    "economy:carrow_decline"
+   ],
+   "known": "living",
+   "known_share": [
+    0.45,
+    0.1
+   ],
+   "popular_version": [
+    "'never buy a steel Keel'",
+    "'Harrow men cheered' (they say they didn't)"
+   ],
+   "story_types": [
+    "downfall",
+    "fatal_imprudence",
+    "grief"
+   ],
+   "tags": [
+    "vehicles",
+    "present"
+   ],
+   "ad": 2679,
    "era": "the_present_age",
    "scope": "station"
   },
@@ -3107,6 +3659,40 @@
    "scope": "station"
   },
   {
+   "id": "wire_slot_accord",
+   "vy": 452,
+   "end_vy": null,
+   "kind": "economy",
+   "where": [
+    "kessler"
+   ],
+   "people": [
+    "leopold_varga_hayes"
+   ],
+   "summary": "the Wire Slot Accord: the three works agree one opening and one plug for car radios, so a Wire set fits any car; Leopold Varga-Hayes puts the first sets on sale",
+   "detail": [],
+   "effects": [
+    "tech:wire_slot"
+   ],
+   "known": "living",
+   "known_share": [
+    0.3,
+    0.05
+   ],
+   "popular_version": [],
+   "story_types": [
+    "negotiation"
+   ],
+   "tags": [
+    "vehicles",
+    "media",
+    "present"
+   ],
+   "ad": 2704,
+   "era": "the_present_age",
+   "scope": "station"
+  },
+  {
    "id": "waymakers_founded",
    "vy": 455,
    "end_vy": null,
@@ -3293,6 +3879,49 @@
    "scope": "station"
   },
   {
+   "id": "allotment_inquiry",
+   "vy": 469,
+   "end_vy": null,
+   "kind": "political",
+   "where": [
+    "kessler",
+    "port_carrow"
+   ],
+   "people": [
+    "octavia_fairweather",
+    "cordelia_fairweather",
+    "hiram_okonkwo_brenneman"
+   ],
+   "summary": "the Allotment Inquiry: Carrow is found to have sold Steward boards out of the Harbour Yard to private buyers; Octavia Fairweather resigns; the Board Office audits every yard (Moderator Cordelia Fairweather, her cousin, stood aside)",
+   "detail": [],
+   "effects": [
+    "culture:trust_institutions-",
+    "economy:carrow_decline"
+   ],
+   "known": "living",
+   "known_share": [
+    0.55,
+    0.12
+   ],
+   "popular_version": [
+    "'Coach money'",
+    "'the Fairweathers look after their own'"
+   ],
+   "story_types": [
+    "dishonor_discovered",
+    "downfall",
+    "scapegoat"
+   ],
+   "tags": [
+    "vehicles",
+    "present",
+    "politics"
+   ],
+   "ad": 2721,
+   "era": "the_present_age",
+   "scope": "station"
+  },
+  {
    "id": "tern_cannery_closes",
    "vy": 470,
    "end_vy": null,
@@ -3385,6 +4014,43 @@
     "ambition"
    ],
    "tags": [
+    "present"
+   ],
+   "ad": 2726,
+   "era": "the_present_age",
+   "scope": "station"
+  },
+  {
+   "id": "solana_swap",
+   "vy": 474,
+   "end_vy": null,
+   "kind": "economy",
+   "where": [
+    "solana_point",
+    "playa_verde",
+    "oceanview",
+    "pelican_cove"
+   ],
+   "people": [
+    "luis_arrieta_wu"
+   ],
+   "summary": "the Solana Swap: battery cassette stations in every South Shore town, paid for by Lucky Arrieta-Wu: drive in flat, drive out full in two minutes",
+   "detail": [],
+   "effects": [
+    "economy:solana_growth"
+   ],
+   "known": "living",
+   "known_share": [
+    0.6,
+    0.15
+   ],
+   "popular_version": [],
+   "story_types": [
+    "ambition",
+    "rags_to_riches"
+   ],
+   "tags": [
+    "vehicles",
     "present"
    ],
    "ad": 2726,
@@ -3698,8 +4364,10 @@
    "where": [
     "harrow_falls"
    ],
-   "people": [],
-   "summary": "Harrow Mill No. 2 closes; the Falls Pier opens the same summer",
+   "people": [
+    "della_brenneman_szabo"
+   ],
+   "summary": "Harrow Mill No. 2 closes; Harrow Motor Works takes on 600 of its hands; the Falls Pier opens the same summer",
    "detail": [],
    "effects": [
     "economy:harrow_shift"
@@ -3710,7 +4378,10 @@
     0.1
    ],
    "popular_version": [],
-   "story_types": [],
+   "story_types": [
+    "community_crisis",
+    "small_kindness"
+   ],
    "tags": [
     "present"
    ],
@@ -3991,7 +4662,7 @@
     "station"
    ],
    "people": [],
-   "summary": "the Notice: at noon on Launch Day every public board reads VOYAGE ONE THIRD COMPLETE. ALL SYSTEMS WITHIN BALANCE. The Steward's first words since VY 271",
+   "summary": "the Notice: at noon on Launch Day every public board reads VOYAGE ONE THIRD COMPLETE. ALL SYSTEMS WITHIN BALANCE. The Steward's first words since the Lockout (VY 350)",
    "detail": [
     "it stayed up for one day",
     "the talk of the spring: what's the other two thirds? where are we going? who wrote it?"

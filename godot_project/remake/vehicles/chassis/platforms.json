@@ -1,0 +1,2849 @@
+{
+ "_about": "The boards (vehicle platforms): tools/vehicles/platforms.py; canon in tools/bible/canon_industry.py; research/vehicles/skateboard_chassis.md",
+ "version": 1,
+ "pattern": {
+  "deck_top_m": 0.5,
+  "mount_pitch_m": 0.75,
+  "mount_x_m": {
+   "narrow": 0.5,
+   "standard": 0.6,
+   "broad": 0.7,
+   "heavy": 0.8
+  },
+  "socket": "behind the front axle on the centre line: power (the pack's bus) and control (the drive command, by wire)"
+ },
+ "boards": [
+  {
+   "id": "steward_narrow",
+   "name": "Steward board, pattern HMP-1, narrow, 5 spans",
+   "maker": "steward",
+   "family": "steward",
+   "board": "steward_board",
+   "cls": "narrow",
+   "length_m": 4.45,
+   "deck_width_m": 1.2,
+   "width_m": 1.8,
+   "mount_x_m": 0.5,
+   "track_m": 1.5,
+   "wheel_r": 0.31,
+   "wheelbase_m": 2.25,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.125,
+     "steer": true,
+     "driven": true
+    },
+    {
+     "tag": "B",
+     "y": -1.125,
+     "steer": true,
+     "driven": true
+    }
+   ],
+   "drive": "every wheel (a motor in each pod)",
+   "steering": "by wire; 2 of 2 axles",
+   "pack_kwh": 40.0,
+   "power_kw": 160,
+   "modules": [
+    {
+     "id": "cap_front",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      2.05,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.35,
+      0.15
+     ],
+     "mass_kg": 8.0,
+     "hp": 450,
+     "attach": "span_0",
+     "end": "front"
+    },
+    {
+     "id": "span_0",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.5,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.75,
+      0.15
+     ],
+     "mass_kg": 40.0,
+     "hp": 900,
+     "attach": null,
+     "kwh": 8.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_1",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.75,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.75,
+      0.15
+     ],
+     "mass_kg": 40.0,
+     "hp": 900,
+     "attach": "span_0",
+     "kwh": 8.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_2",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.0,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.75,
+      0.15
+     ],
+     "mass_kg": 40.0,
+     "hp": 900,
+     "attach": "span_1",
+     "kwh": 8.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_3",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -0.75,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.75,
+      0.15
+     ],
+     "mass_kg": 40.0,
+     "hp": 900,
+     "attach": "span_2",
+     "kwh": 8.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_4",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.5,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.75,
+      0.15
+     ],
+     "mass_kg": 40.0,
+     "hp": 900,
+     "attach": "span_3",
+     "kwh": 8.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "cap_rear",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      -2.05,
+      0.425
+     ],
+     "size": [
+      1.2,
+      0.35,
+      0.15
+     ],
+     "mass_kg": 8.0,
+     "hp": 450,
+     "attach": "span_4",
+     "end": "rear"
+    },
+    {
+     "id": "pod_FL",
+     "kind": "steward_pod",
+     "pos": [
+      -0.75,
+      1.125,
+      0.31
+     ],
+     "size": [
+      0.606,
+      0.713,
+      0.682
+     ],
+     "mass_kg": 45.0,
+     "hp": 700,
+     "attach": "span_0",
+     "side": "L",
+     "wheel": "wheel_FL",
+     "wheel_r": 0.31,
+     "steer": true,
+     "motor": "axial-flux, 40 kW, 900 Nm at the wheel",
+     "kw": 40.0,
+     "nm": 900.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_FR",
+     "kind": "steward_pod",
+     "pos": [
+      0.75,
+      1.125,
+      0.31
+     ],
+     "size": [
+      0.606,
+      0.713,
+      0.682
+     ],
+     "mass_kg": 45.0,
+     "hp": 700,
+     "attach": "span_0",
+     "side": "R",
+     "wheel": "wheel_FR",
+     "wheel_r": 0.31,
+     "steer": true,
+     "motor": "axial-flux, 40 kW, 900 Nm at the wheel",
+     "kw": 40.0,
+     "nm": 900.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BL",
+     "kind": "steward_pod",
+     "pos": [
+      -0.75,
+      -1.125,
+      0.31
+     ],
+     "size": [
+      0.606,
+      0.713,
+      0.682
+     ],
+     "mass_kg": 45.0,
+     "hp": 700,
+     "attach": "span_3",
+     "side": "L",
+     "wheel": "wheel_BL",
+     "wheel_r": 0.31,
+     "steer": true,
+     "motor": "axial-flux, 40 kW, 900 Nm at the wheel",
+     "kw": 40.0,
+     "nm": 900.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BR",
+     "kind": "steward_pod",
+     "pos": [
+      0.75,
+      -1.125,
+      0.31
+     ],
+     "size": [
+      0.606,
+      0.713,
+      0.682
+     ],
+     "mass_kg": 45.0,
+     "hp": 700,
+     "attach": "span_3",
+     "side": "R",
+     "wheel": "wheel_BR",
+     "wheel_r": 0.31,
+     "steer": true,
+     "motor": "axial-flux, 40 kW, 900 Nm at the wheel",
+     "kw": 40.0,
+     "nm": 900.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "socket",
+     "kind": "pattern_socket",
+     "pos": [
+      0,
+      0.725,
+      0.5
+     ],
+     "size": [
+      0.24,
+      0.16,
+      0.03
+     ],
+     "mass_kg": 1.5,
+     "hp": 200,
+     "attach": "span_0"
+    }
+   ],
+   "mass_kg": 397.5
+  },
+  {
+   "id": "steward_broad",
+   "name": "Steward board, pattern HMP-1, broad, 7 spans",
+   "maker": "steward",
+   "family": "steward",
+   "board": "steward_board",
+   "cls": "broad",
+   "length_m": 5.95,
+   "deck_width_m": 1.6,
+   "width_m": 2.33,
+   "mount_x_m": 0.7,
+   "track_m": 1.95,
+   "wheel_r": 0.4,
+   "wheelbase_m": 3.75,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.875,
+     "steer": true,
+     "driven": true
+    },
+    {
+     "tag": "B",
+     "y": -1.875,
+     "steer": false,
+     "driven": true
+    }
+   ],
+   "drive": "every wheel (a motor in each pod)",
+   "steering": "by wire; 1 of 2 axles",
+   "pack_kwh": 84.0,
+   "power_kw": 360,
+   "modules": [
+    {
+     "id": "cap_front",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      2.8,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.35,
+      0.19
+     ],
+     "mass_kg": 12.4,
+     "hp": 650,
+     "attach": "span_0",
+     "end": "front"
+    },
+    {
+     "id": "span_0",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      2.25,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": null,
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_1",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.5,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_0",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_2",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.75,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_1",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_3",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.0,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_2",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_4",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -0.75,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_3",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_5",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.5,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_4",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_6",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -2.25,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_5",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "cap_rear",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      -2.8,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.35,
+      0.19
+     ],
+     "mass_kg": 12.4,
+     "hp": 650,
+     "attach": "span_6",
+     "end": "rear"
+    },
+    {
+     "id": "pod_FL",
+     "kind": "steward_pod",
+     "pos": [
+      -0.975,
+      1.875,
+      0.4
+     ],
+     "size": [
+      0.6599999999999999,
+      0.9199999999999999,
+      0.8800000000000001
+     ],
+     "mass_kg": 80.0,
+     "hp": 1000,
+     "attach": "span_0",
+     "side": "L",
+     "wheel": "wheel_FL",
+     "wheel_r": 0.4,
+     "steer": true,
+     "motor": "axial-flux, 90 kW, 2200 Nm at the wheel",
+     "kw": 90.0,
+     "nm": 2200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_FR",
+     "kind": "steward_pod",
+     "pos": [
+      0.975,
+      1.875,
+      0.4
+     ],
+     "size": [
+      0.6599999999999999,
+      0.9199999999999999,
+      0.8800000000000001
+     ],
+     "mass_kg": 80.0,
+     "hp": 1000,
+     "attach": "span_0",
+     "side": "R",
+     "wheel": "wheel_FR",
+     "wheel_r": 0.4,
+     "steer": true,
+     "motor": "axial-flux, 90 kW, 2200 Nm at the wheel",
+     "kw": 90.0,
+     "nm": 2200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BL",
+     "kind": "steward_pod",
+     "pos": [
+      -0.975,
+      -1.875,
+      0.4
+     ],
+     "size": [
+      0.6599999999999999,
+      0.9199999999999999,
+      0.8800000000000001
+     ],
+     "mass_kg": 80.0,
+     "hp": 1000,
+     "attach": "span_5",
+     "side": "L",
+     "wheel": "wheel_BL",
+     "wheel_r": 0.4,
+     "steer": false,
+     "motor": "axial-flux, 90 kW, 2200 Nm at the wheel",
+     "kw": 90.0,
+     "nm": 2200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BR",
+     "kind": "steward_pod",
+     "pos": [
+      0.975,
+      -1.875,
+      0.4
+     ],
+     "size": [
+      0.6599999999999999,
+      0.9199999999999999,
+      0.8800000000000001
+     ],
+     "mass_kg": 80.0,
+     "hp": 1000,
+     "attach": "span_5",
+     "side": "R",
+     "wheel": "wheel_BR",
+     "wheel_r": 0.4,
+     "steer": false,
+     "motor": "axial-flux, 90 kW, 2200 Nm at the wheel",
+     "kw": 90.0,
+     "nm": 2200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "socket",
+     "kind": "pattern_socket",
+     "pos": [
+      0,
+      1.475,
+      0.5
+     ],
+     "size": [
+      0.24,
+      0.16,
+      0.03
+     ],
+     "mass_kg": 1.5,
+     "hp": 200,
+     "attach": "span_0"
+    }
+   ],
+   "mass_kg": 780.3
+  },
+  {
+   "id": "steward_heavy",
+   "name": "Steward board, pattern HMP-1, heavy, 10 spans",
+   "maker": "steward",
+   "family": "steward",
+   "board": "steward_board",
+   "cls": "heavy",
+   "length_m": 8.2,
+   "deck_width_m": 1.8,
+   "width_m": 2.58,
+   "mount_x_m": 0.8,
+   "track_m": 2.2,
+   "wheel_r": 0.48,
+   "wheelbase_m": 6.0,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 3.0,
+     "steer": true,
+     "driven": true
+    },
+    {
+     "tag": "M1",
+     "y": -0.75,
+     "steer": false,
+     "driven": true
+    },
+    {
+     "tag": "B",
+     "y": -3.0,
+     "steer": true,
+     "driven": true
+    }
+   ],
+   "drive": "every wheel (a motor in each pod)",
+   "steering": "by wire; 2 of 3 axles",
+   "pack_kwh": 180.0,
+   "power_kw": 960,
+   "modules": [
+    {
+     "id": "cap_front",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      3.9249999999999994,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.35,
+      0.23
+     ],
+     "mass_kg": 19.0,
+     "hp": 1000,
+     "attach": "span_0",
+     "end": "front"
+    },
+    {
+     "id": "span_0",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      3.375,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": null,
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_1",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      2.625,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_0",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_2",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.875,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_1",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_3",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.125,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_2",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_4",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.375,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_3",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_5",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -0.375,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_4",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_6",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.125,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_5",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_7",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.875,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_6",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_8",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -2.625,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_7",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_9",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -3.375,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_8",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "cap_rear",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      -3.9249999999999994,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.35,
+      0.23
+     ],
+     "mass_kg": 19.0,
+     "hp": 1000,
+     "attach": "span_9",
+     "end": "rear"
+    },
+    {
+     "id": "pod_FL",
+     "kind": "steward_pod",
+     "pos": [
+      -1.1,
+      3.0,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_0",
+     "side": "L",
+     "wheel": "wheel_FL",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_FR",
+     "kind": "steward_pod",
+     "pos": [
+      1.1,
+      3.0,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_0",
+     "side": "R",
+     "wheel": "wheel_FR",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_M1L",
+     "kind": "steward_pod",
+     "pos": [
+      -1.1,
+      -0.75,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_5",
+     "side": "L",
+     "wheel": "wheel_M1L",
+     "wheel_r": 0.48,
+     "steer": false,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_M1R",
+     "kind": "steward_pod",
+     "pos": [
+      1.1,
+      -0.75,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_5",
+     "side": "R",
+     "wheel": "wheel_M1R",
+     "wheel_r": 0.48,
+     "steer": false,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BL",
+     "kind": "steward_pod",
+     "pos": [
+      -1.1,
+      -3.0,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_8",
+     "side": "L",
+     "wheel": "wheel_BL",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BR",
+     "kind": "steward_pod",
+     "pos": [
+      1.1,
+      -3.0,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_8",
+     "side": "R",
+     "wheel": "wheel_BR",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "socket",
+     "kind": "pattern_socket",
+     "pos": [
+      0,
+      2.6,
+      0.5
+     ],
+     "size": [
+      0.24,
+      0.16,
+      0.03
+     ],
+     "mass_kg": 1.5,
+     "hp": 200,
+     "attach": "span_0"
+    }
+   ],
+   "mass_kg": 1769.5
+  },
+  {
+   "id": "harrow_h27",
+   "name": "Harrow Ladder H-27",
+   "deck_width_m": 1.3,
+   "mount_x_m": 0.6,
+   "maker": "harrow_motor_works",
+   "family": "harrow",
+   "board": "harrow_ladder",
+   "cls": "standard",
+   "length_m": 4.25,
+   "width_m": 1.8,
+   "track_m": 1.55,
+   "wheel_r": 0.32,
+   "wheelbase_m": 2.7,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.35,
+     "steer": true,
+     "driven": false
+    },
+    {
+     "tag": "B",
+     "y": -1.35,
+     "steer": false,
+     "driven": true
+    }
+   ],
+   "drive": "rear (one motor, a differential, a De Dion tube)",
+   "steering": "rack and pinion, mechanical",
+   "pack_kwh": 30.0,
+   "power_kw": 60.0,
+   "modules": [
+    {
+     "id": "rail_L",
+     "kind": "harrow_rail",
+     "pos": [
+      -0.52,
+      0,
+      0.36
+     ],
+     "size": [
+      0.075,
+      4.15,
+      0.15
+     ],
+     "mass_kg": 61.6,
+     "hp": 900,
+     "attach": null,
+     "tube": "150 x 75 x 4 mm boxed steel, rolled and seam-welded"
+    },
+    {
+     "id": "rail_R",
+     "kind": "harrow_rail",
+     "pos": [
+      0.52,
+      0,
+      0.36
+     ],
+     "size": [
+      0.075,
+      4.15,
+      0.15
+     ],
+     "mass_kg": 61.6,
+     "hp": 900,
+     "attach": "cross_0",
+     "tube": "150 x 75 x 4 mm boxed steel, rolled and seam-welded"
+    },
+    {
+     "id": "cross_0",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      1.9,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_1",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      0.95,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_2",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      0.0,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_3",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      -0.95,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_4",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      -1.9,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_0L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      1.65,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_0R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      1.65,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_1L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      0.99,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_1R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      0.99,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_2L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      0.33,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_2R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      0.33,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_3L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      -0.33,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_3R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      -0.33,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_4L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      -0.99,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_4R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      -0.99,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_5L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      -1.65,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_5R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      -1.65,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "mount_rail_L",
+     "kind": "mount_rail",
+     "pos": [
+      -0.6,
+      0,
+      0.48
+     ],
+     "size": [
+      0.06,
+      3.95,
+      0.04
+     ],
+     "mass_kg": 4.8,
+     "hp": 300,
+     "attach": null,
+     "holes_every_m": 0.75
+    },
+    {
+     "id": "mount_rail_R",
+     "kind": "mount_rail",
+     "pos": [
+      0.6,
+      0,
+      0.48
+     ],
+     "size": [
+      0.06,
+      3.95,
+      0.04
+     ],
+     "mass_kg": 4.8,
+     "hp": 300,
+     "attach": null,
+     "holes_every_m": 0.75
+    },
+    {
+     "id": "crate_0",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      0.8,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "crate_1",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      0.3,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "crate_2",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      -0.2,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "crate_3",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      -0.7,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "motor",
+     "kind": "harrow_motor",
+     "pos": [
+      0,
+      -0.73,
+      0.33
+     ],
+     "size": [
+      0.34,
+      0.42,
+      0.34
+     ],
+     "mass_kg": 85.0,
+     "hp": 500,
+     "attach": "cross_3",
+     "motor": "wound-rotor induction, 60 kW, 240 Nm, single reduction 9:1",
+     "kw": 60.0,
+     "nm": 240.0
+    },
+    {
+     "id": "diff",
+     "kind": "harrow_diff",
+     "pos": [
+      0,
+      -1.17,
+      0.32
+     ],
+     "size": [
+      0.36,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 32.0,
+     "hp": 450,
+     "attach": "cross_4"
+    },
+    {
+     "id": "dedion",
+     "kind": "harrow_dedion",
+     "pos": [
+      0,
+      -1.43,
+      0.32
+     ],
+     "size": [
+      1.4000000000000001,
+      0.1,
+      0.1
+     ],
+     "mass_kg": 23.0,
+     "hp": 500,
+     "attach": "leaf_L"
+    },
+    {
+     "id": "controller",
+     "kind": "controller",
+     "pos": [
+      0,
+      1.03,
+      0.4
+     ],
+     "size": [
+      0.36,
+      0.22,
+      0.14
+     ],
+     "mass_kg": 12.0,
+     "hp": 120,
+     "attach": "cross_1",
+     "brains": "two Thirty-Twos; contactors; a fan",
+     "heat": "finned steel box"
+    },
+    {
+     "id": "leaf_L",
+     "kind": "harrow_leaf",
+     "pos": [
+      -0.52,
+      -1.35,
+      0.27
+     ],
+     "size": [
+      0.07,
+      1.2,
+      0.12
+     ],
+     "mass_kg": 18.0,
+     "hp": 400,
+     "attach": "rail_L",
+     "spring": "semi-elliptic, 7 leaves"
+    },
+    {
+     "id": "corner_FL",
+     "kind": "harrow_front_corner",
+     "pos": [
+      -0.575,
+      1.35,
+      0.32
+     ],
+     "size": [
+      0.42,
+      0.36,
+      0.4
+     ],
+     "mass_kg": 22.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "suspension": "double wishbones, coil spring, lever damper; drum brake"
+    },
+    {
+     "id": "corner_BL",
+     "kind": "harrow_hub",
+     "pos": [
+      -0.655,
+      -1.35,
+      0.32
+     ],
+     "size": [
+      0.16,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 9.0,
+     "hp": 300,
+     "attach": "dedion",
+     "suspension": "De Dion tube, drum brake"
+    },
+    {
+     "id": "leaf_R",
+     "kind": "harrow_leaf",
+     "pos": [
+      0.52,
+      -1.35,
+      0.27
+     ],
+     "size": [
+      0.07,
+      1.2,
+      0.12
+     ],
+     "mass_kg": 18.0,
+     "hp": 400,
+     "attach": "rail_R",
+     "spring": "semi-elliptic, 7 leaves"
+    },
+    {
+     "id": "corner_FR",
+     "kind": "harrow_front_corner",
+     "pos": [
+      0.575,
+      1.35,
+      0.32
+     ],
+     "size": [
+      0.42,
+      0.36,
+      0.4
+     ],
+     "mass_kg": 22.0,
+     "hp": 350,
+     "attach": "rail_R",
+     "suspension": "double wishbones, coil spring, lever damper; drum brake"
+    },
+    {
+     "id": "corner_BR",
+     "kind": "harrow_hub",
+     "pos": [
+      0.655,
+      -1.35,
+      0.32
+     ],
+     "size": [
+      0.16,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 9.0,
+     "hp": 300,
+     "attach": "dedion",
+     "suspension": "De Dion tube, drum brake"
+    },
+    {
+     "id": "wheel_FL",
+     "kind": "wheel",
+     "pos": [
+      -0.775,
+      1.35,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_FL",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_FR",
+     "kind": "wheel",
+     "pos": [
+      0.775,
+      1.35,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_FR",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BL",
+     "kind": "wheel",
+     "pos": [
+      -0.775,
+      -1.35,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_BL",
+     "steer": false,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BR",
+     "kind": "wheel",
+     "pos": [
+      0.775,
+      -1.35,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_BR",
+     "steer": false,
+     "wheel_r": 0.32
+    }
+   ],
+   "mass_kg": 777.8
+  },
+  {
+   "id": "carrow_k28",
+   "name": "Carrow Keel K-28",
+   "deck_width_m": 1.3,
+   "mount_x_m": 0.6,
+   "maker": "carrow_coach_company",
+   "family": "carrow",
+   "board": "carrow_keel",
+   "cls": "standard",
+   "length_m": 4.4,
+   "width_m": 1.8,
+   "track_m": 1.56,
+   "wheel_r": 0.32,
+   "wheelbase_m": 2.8,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.4,
+     "steer": true,
+     "driven": true
+    },
+    {
+     "tag": "B",
+     "y": -1.4,
+     "steer": false,
+     "driven": true
+    }
+   ],
+   "drive": "both axles (a motor at each, inboard, with half-shafts)",
+   "steering": "rack and pinion, mechanical",
+   "pack_kwh": 36.0,
+   "power_kw": 90.0,
+   "modules": [
+    {
+     "id": "keel",
+     "kind": "carrow_keel",
+     "pos": [
+      0,
+      0,
+      0.33
+     ],
+     "size": [
+      0.34,
+      2.3,
+      0.34
+     ],
+     "mass_kg": 350,
+     "hp": 1400,
+     "attach": null,
+     "tube": "340 mm rolled steel tube, 3 mm (aluminium since VY 431)",
+     "kwh": 36.0,
+     "cells": "LFP cartridges, a string of 12, loaded from the hatch at the back"
+    },
+    {
+     "id": "keel_hatch",
+     "kind": "carrow_hatch",
+     "pos": [
+      0,
+      -1.19,
+      0.33
+     ],
+     "size": [
+      0.36,
+      0.08,
+      0.36
+     ],
+     "mass_kg": 4.0,
+     "hp": 150,
+     "attach": "keel"
+    },
+    {
+     "id": "gunwale",
+     "kind": "carrow_gunwale",
+     "pos": [
+      0,
+      0,
+      0.47
+     ],
+     "size": [
+      1.2,
+      4.28,
+      0.06
+     ],
+     "mass_kg": 30.0,
+     "hp": 700,
+     "attach": "keel",
+     "tube": "60 mm round steel tube, bent in one piece; it is the Pattern's mount rail"
+    },
+    {
+     "id": "rib_0L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      1.0,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_0R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      1.0,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_1L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      0.333,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_1R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      0.333,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_2L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      -0.333,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_2R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      -0.333,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_3L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      -1.0,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_3R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      -1.0,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "bulkhead_F",
+     "kind": "carrow_bulkhead",
+     "pos": [
+      0,
+      1.7,
+      0.42
+     ],
+     "size": [
+      1.2,
+      0.06,
+      0.2
+     ],
+     "mass_kg": 7.0,
+     "hp": 500,
+     "attach": "keel",
+     "note": "a cross tube from gunwale to gunwale, tied back to the keel's end: carries the motor and the suspension"
+    },
+    {
+     "id": "motor_F",
+     "kind": "carrow_motor",
+     "pos": [
+      0,
+      1.4,
+      0.34
+     ],
+     "size": [
+      0.3,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 55.0,
+     "hp": 450,
+     "attach": "bulkhead_F",
+     "motor": "induction, 45 kW, 190 Nm, 8.5:1 with a differential",
+     "kw": 45.0,
+     "nm": 190.0
+    },
+    {
+     "id": "corner_FL",
+     "kind": "carrow_corner",
+     "pos": [
+      -0.56,
+      1.4,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_F",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "corner_FR",
+     "kind": "carrow_corner",
+     "pos": [
+      0.56,
+      1.4,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_F",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "bulkhead_B",
+     "kind": "carrow_bulkhead",
+     "pos": [
+      0,
+      -1.7,
+      0.42
+     ],
+     "size": [
+      1.2,
+      0.06,
+      0.2
+     ],
+     "mass_kg": 7.0,
+     "hp": 500,
+     "attach": "keel",
+     "note": "a cross tube from gunwale to gunwale, tied back to the keel's end: carries the motor and the suspension"
+    },
+    {
+     "id": "motor_B",
+     "kind": "carrow_motor",
+     "pos": [
+      0,
+      -1.4,
+      0.34
+     ],
+     "size": [
+      0.3,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 55.0,
+     "hp": 450,
+     "attach": "bulkhead_B",
+     "motor": "induction, 45 kW, 190 Nm, 8.5:1 with a differential",
+     "kw": 45.0,
+     "nm": 190.0
+    },
+    {
+     "id": "corner_BL",
+     "kind": "carrow_corner",
+     "pos": [
+      -0.56,
+      -1.4,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_B",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "corner_BR",
+     "kind": "carrow_corner",
+     "pos": [
+      0.56,
+      -1.4,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_B",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "controller",
+     "kind": "controller",
+     "pos": [
+      0,
+      0.8,
+      0.53
+     ],
+     "size": [
+      0.32,
+      0.24,
+      0.1
+     ],
+     "mass_kg": 12.0,
+     "hp": 120,
+     "attach": "keel",
+     "brains": "three Thirty-Twos: one per motor, one for the pack",
+     "heat": "on the keel, cooled by it"
+    },
+    {
+     "id": "wheel_FL",
+     "kind": "wheel",
+     "pos": [
+      -0.78,
+      1.4,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_FL",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_FR",
+     "kind": "wheel",
+     "pos": [
+      0.78,
+      1.4,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_FR",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BL",
+     "kind": "wheel",
+     "pos": [
+      -0.78,
+      -1.4,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_BL",
+     "steer": false,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BR",
+     "kind": "wheel",
+     "pos": [
+      0.78,
+      -1.4,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_BR",
+     "steer": false,
+     "wheel_r": 0.32
+    }
+   ],
+   "mass_kg": 692.0
+  },
+  {
+   "id": "solana_l25",
+   "name": "Solana Lattice L-25",
+   "deck_width_m": 1.3,
+   "mount_x_m": 0.6,
+   "maker": "solana_cycle_and_motor",
+   "family": "solana",
+   "board": "solana_lattice",
+   "cls": "standard",
+   "length_m": 3.9,
+   "width_m": 1.76,
+   "track_m": 1.5,
+   "wheel_r": 0.3,
+   "wheelbase_m": 2.5,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.25,
+     "steer": true,
+     "driven": false
+    },
+    {
+     "tag": "B",
+     "y": -1.25,
+     "steer": false,
+     "driven": true
+    }
+   ],
+   "drive": "rear (a motor in each rear hub)",
+   "steering": "rack and pinion, mechanical",
+   "pack_kwh": 24.0,
+   "power_kw": 50.0,
+   "modules": [
+    {
+     "id": "truss_L",
+     "kind": "solana_truss",
+     "pos": [
+      -0.6,
+      0,
+      0.36
+     ],
+     "size": [
+      0.14,
+      3.6999999999999997,
+      0.28
+     ],
+     "mass_kg": 22.0,
+     "hp": 450,
+     "attach": null,
+     "tube": "32 and 25 mm drawn chromoly, brazed into lugs",
+     "panels": 8
+    },
+    {
+     "id": "truss_R",
+     "kind": "solana_truss",
+     "pos": [
+      0.6,
+      0,
+      0.36
+     ],
+     "size": [
+      0.14,
+      3.6999999999999997,
+      0.28
+     ],
+     "mass_kg": 22.0,
+     "hp": 450,
+     "attach": "cross_0",
+     "tube": "32 and 25 mm drawn chromoly, brazed into lugs",
+     "panels": 8
+    },
+    {
+     "id": "cross_0",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      1.8,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": true
+    },
+    {
+     "id": "cross_1",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      1.2,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": false
+    },
+    {
+     "id": "cross_2",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      0.6,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": false
+    },
+    {
+     "id": "cross_3",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      0.0,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": false
+    },
+    {
+     "id": "cross_4",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      -0.6,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": false
+    },
+    {
+     "id": "cross_5",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      -1.2,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": false
+    },
+    {
+     "id": "cross_6",
+     "kind": "solana_cross",
+     "pos": [
+      0,
+      -1.8,
+      0.36
+     ],
+     "size": [
+      1.0999999999999999,
+      0.04,
+      0.26
+     ],
+     "mass_kg": 2.2,
+     "hp": 160,
+     "attach": "truss_L",
+     "end": true
+    },
+    {
+     "id": "cassette_0L",
+     "kind": "solana_cassette",
+     "pos": [
+      -0.36,
+      0.38,
+      0.33
+     ],
+     "size": [
+      0.66,
+      0.62,
+      0.17
+     ],
+     "mass_kg": 46.0,
+     "hp": 220,
+     "attach": "truss_L",
+     "kwh": 6.0,
+     "cells": "LFP pouch, in a slide-in aluminium cassette with a handle",
+     "swap": "2 minutes at a Solana Swap"
+    },
+    {
+     "id": "cassette_1L",
+     "kind": "solana_cassette",
+     "pos": [
+      -0.36,
+      -0.38,
+      0.33
+     ],
+     "size": [
+      0.66,
+      0.62,
+      0.17
+     ],
+     "mass_kg": 46.0,
+     "hp": 220,
+     "attach": "truss_L",
+     "kwh": 6.0,
+     "cells": "LFP pouch, in a slide-in aluminium cassette with a handle",
+     "swap": "2 minutes at a Solana Swap"
+    },
+    {
+     "id": "cassette_0R",
+     "kind": "solana_cassette",
+     "pos": [
+      0.36,
+      0.38,
+      0.33
+     ],
+     "size": [
+      0.66,
+      0.62,
+      0.17
+     ],
+     "mass_kg": 46.0,
+     "hp": 220,
+     "attach": "truss_R",
+     "kwh": 6.0,
+     "cells": "LFP pouch, in a slide-in aluminium cassette with a handle",
+     "swap": "2 minutes at a Solana Swap"
+    },
+    {
+     "id": "cassette_1R",
+     "kind": "solana_cassette",
+     "pos": [
+      0.36,
+      -0.38,
+      0.33
+     ],
+     "size": [
+      0.66,
+      0.62,
+      0.17
+     ],
+     "mass_kg": 46.0,
+     "hp": 220,
+     "attach": "truss_R",
+     "kwh": 6.0,
+     "cells": "LFP pouch, in a slide-in aluminium cassette with a handle",
+     "swap": "2 minutes at a Solana Swap"
+    },
+    {
+     "id": "corner_FL",
+     "kind": "solana_front_corner",
+     "pos": [
+      -0.5700000000000001,
+      1.25,
+      0.3
+     ],
+     "size": [
+      0.36,
+      0.3,
+      0.36
+     ],
+     "mass_kg": 8.0,
+     "hp": 220,
+     "attach": "truss_L",
+     "suspension": "double wishbones of tube, coil spring; disc brake"
+    },
+    {
+     "id": "corner_BL",
+     "kind": "solana_rear_corner",
+     "pos": [
+      -0.5,
+      -1.0,
+      0.3
+     ],
+     "size": [
+      0.12,
+      0.62,
+      0.2
+     ],
+     "mass_kg": 7.0,
+     "hp": 220,
+     "attach": "truss_L",
+     "suspension": "trailing arm, coil spring"
+    },
+    {
+     "id": "corner_FR",
+     "kind": "solana_front_corner",
+     "pos": [
+      0.5700000000000001,
+      1.25,
+      0.3
+     ],
+     "size": [
+      0.36,
+      0.3,
+      0.36
+     ],
+     "mass_kg": 8.0,
+     "hp": 220,
+     "attach": "truss_R",
+     "suspension": "double wishbones of tube, coil spring; disc brake"
+    },
+    {
+     "id": "corner_BR",
+     "kind": "solana_rear_corner",
+     "pos": [
+      0.5,
+      -1.0,
+      0.3
+     ],
+     "size": [
+      0.12,
+      0.62,
+      0.2
+     ],
+     "mass_kg": 7.0,
+     "hp": 220,
+     "attach": "truss_R",
+     "suspension": "trailing arm, coil spring"
+    },
+    {
+     "id": "controller",
+     "kind": "controller",
+     "pos": [
+      0,
+      0.85,
+      0.42
+     ],
+     "size": [
+      0.28,
+      0.2,
+      0.1
+     ],
+     "mass_kg": 8.0,
+     "hp": 100,
+     "attach": "cross_1",
+     "brains": "two Thirty-Twos",
+     "heat": "open fins"
+    },
+    {
+     "id": "mount_rail_L",
+     "kind": "mount_rail",
+     "pos": [
+      -0.6,
+      0,
+      0.48
+     ],
+     "size": [
+      0.06,
+      3.6,
+      0.04
+     ],
+     "mass_kg": 4.4,
+     "hp": 300,
+     "attach": null,
+     "holes_every_m": 0.75
+    },
+    {
+     "id": "mount_rail_R",
+     "kind": "mount_rail",
+     "pos": [
+      0.6,
+      0,
+      0.48
+     ],
+     "size": [
+      0.06,
+      3.6,
+      0.04
+     ],
+     "mass_kg": 4.4,
+     "hp": 300,
+     "attach": null,
+     "holes_every_m": 0.75
+    },
+    {
+     "id": "wheel_FL",
+     "kind": "wheel",
+     "pos": [
+      -0.75,
+      1.25,
+      0.3
+     ],
+     "size": [
+      0.2,
+      0.6,
+      0.6
+     ],
+     "mass_kg": 12.0,
+     "hp": 250,
+     "attach": "corner_FL",
+     "steer": true,
+     "wheel_r": 0.3
+    },
+    {
+     "id": "wheel_FR",
+     "kind": "wheel",
+     "pos": [
+      0.75,
+      1.25,
+      0.3
+     ],
+     "size": [
+      0.2,
+      0.6,
+      0.6
+     ],
+     "mass_kg": 12.0,
+     "hp": 250,
+     "attach": "corner_FR",
+     "steer": true,
+     "wheel_r": 0.3
+    },
+    {
+     "id": "wheel_BL",
+     "kind": "wheel_hub_motor",
+     "pos": [
+      -0.75,
+      -1.25,
+      0.3
+     ],
+     "size": [
+      0.2,
+      0.6,
+      0.6
+     ],
+     "mass_kg": 36.0,
+     "hp": 250,
+     "attach": "corner_BL",
+     "steer": false,
+     "wheel_r": 0.3,
+     "motor": "outer-rotor hub motor, ferrite magnets, 25 kW, 420 Nm",
+     "kw": 25.0,
+     "nm": 420.0
+    },
+    {
+     "id": "wheel_BR",
+     "kind": "wheel_hub_motor",
+     "pos": [
+      0.75,
+      -1.25,
+      0.3
+     ],
+     "size": [
+      0.2,
+      0.6,
+      0.6
+     ],
+     "mass_kg": 36.0,
+     "hp": 250,
+     "attach": "corner_BR",
+     "steer": false,
+     "wheel_r": 0.3,
+     "motor": "outer-rotor hub motor, ferrite magnets, 25 kW, 420 Nm",
+     "kw": 25.0,
+     "nm": 420.0
+    }
+   ],
+   "mass_kg": 386.2
+  }
+ ]
+}

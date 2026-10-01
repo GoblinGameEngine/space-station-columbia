@@ -60,11 +60,20 @@ Childless reasons use the share system's vocabulary: *gave_share* means they gif
 | Josephine Adebayo-Ruiz | F | 2492-2570 |  | the Reconciler; Moderator VY 276-285 | kessler | station (moved) | married, Daniel Ruiz-Takahashi | 3 | catholic | revered | 0.45 |  |
 | Cornelius Bright | M | 2542-2614 |  | founder of the Order of the Lamp | port_carrow | station | married, Eunice Bright | 4 | freedom_baptist | respected | 0.15 |  |
 | Raymundo Castellanos | M | 2552-2624 |  | cannery founder | pelican_cove | station | married, Gwendolyn Pike | 5 | catholic | contested | 0.20 | 'share-rich': gathered gifted shares for five children |
+| Absalom Thorne | M | 2553-missing |  | Warden-Engineer; builder of the Lantern | bellhaven | station | never_married,  | 0: vocation | none | contested | 0.30 | went down to the Lantern's vault the night it woke; was inside when the Steward sealed the Undercroft; a saint to the Wardens' Library circle; a fool to most |
 | Gwendolyn Pike | F | 2557-2632 |  | co-founder of Castellanos-Pike Canning | pelican_cove | station (moved) | married, Raymundo Castellanos | 5 | lakes_union | respected | 0.15 |  |
+| Theodora Lindqvist-Vance | F | 2567-2644 |  | 'the Captain'; shipwright; founder of Carrow Coach Company | port_carrow | station | widowed, Erling Vance | 2 | lakes_union | revered | 0.30 |  |
+| Augusta Brenneman | F | 2570-2649 |  | 'Gus'; forewoman of the Falls Yard; founder of Harrow Motor Works | harrow_falls | station | married, Otto Brenneman | 3 | lakes_union | hero | 0.30 | held the Falls Yard the week the Wardens dissolved: 'the boards keep coming, so we keep building'; 'slept on the Drop with a shotgun' (it was a wrench) |
+| Ignacio Ybarra | M | 2574-2653 |  | 'Nacho'; bicycle builder; founder of Solana Cycle & Motor | solana_point | station | married, Rosa Ybarra | 4 | catholic | beloved | 0.25 | took over the South Yard with his cycle works in VY 356, because nobody else wanted it |
+| Elias Thornbury | M | 2593-2671 |  | engineer of Old Kettle, the first people-made board | harrow_falls | station (moved) | married, Ada Thornbury | 2 | lakes_union | respected | 0.20 | a Ring Line rail fitter; built the first ladder from salvaged rail steel |
 | Maeve Dunmore | F | 2602-2682 |  | founder of the Cannery and Dock Workers Union | pelican_cove | station (moved) | married, Sean Pham | 2 | catholic | hero | 0.20 |  |
+| Bartholomew Achebe | M | 2602-2683 |  | naval architect; designer of the Carrow Keel | port_carrow | station | married, Constance Achebe | 3 | catholic | contested | 0.25 | his steel keels cracked forty years on; he lived to see the Recall and never designed again |
+| Pilar Ybarra-Solano | F | 2610-2698 |  | designer of the Solana Lattice and the Golondrina; winner of the first Ring Run | solana_point | station | married, Teodoro Solano | 2 | catholic | hero | 0.45 | won the first Ring Run at 54, in a car she designed at 26 |
+| Hiram Okonkwo-Brenneman | M | 2624-2703 |  | president of Harrow Motor Works VY 401-445 | harrow_falls | station | married, Lydia Okonkwo-Brenneman | 4 | lakes_union | contested | 0.20 | Gus Brenneman's grandson by marriage; won the Board Wars by outlasting everyone; accused of cheering the Keel Recall |
 | Ruth Abernathy-Chen | F | 2642-2723 |  | architect of the new Assembly Hall | kessler | station | married, Paul Chen | 1 | lakes_union | respected | 0.10 |  |
 | Ignatius Bhatt | M | 2647-2722 |  | Moderator VY 436-445; the Gifting Act | kessler | station (moved) | married, Lorraine Bhatt | 2 | catholic | respected | 0.35 |  |
 | Declan Moriarty | M | 2652-2728 |  | leader of the Forty Days strike | tern_harbor | station | married, Nora Moriarty | 3 | catholic | hero | 0.45 |  |
+| Octavia Fairweather | F | 2657-2740 |  | 'the Coach Queen'; president of Carrow Coach Company VY 445-469 | port_carrow | station (moved) | divorced, once | 1 | lakes_union | notorious | 0.35 | Moderator Cordelia Fairweather's cousin; sold Steward boards out of the Harbour Yard; resigned VY 469 |
 | Leopold Varga-Hayes | M | 2662-2740 |  | founder of the Wire | kessler | station (moved) | divorced, twice | 2 | none | respected | 0.40 |  |
 | Augustin Leclerc | M | 2672-2749 |  | Moderator VY 476-485 | port_carrow | station | married, Simone Leclerc | 2 | catholic | respected | 0.30 |  |
 | Wilhelm Ostrowski | M | 2677-2742 |  | editor of the Kessler Courier; broke the Share Scandal | kessler | station (moved) | married, Dolores Ostrowski | 1 | catholic | respected | 0.30 |  |
@@ -114,6 +123,7 @@ Childless reasons use the share system's vocabulary: *gave_share* means they gif
 | Pieter VanderMolen | M | 2698- | 54 | Mayor of Port Tamsin; runs the marina | port_tamsin | station | married, Els VanderMolen | 2 | lakes_union | respected | 0.15 |  |
 | Rosalind Achterberg-Nuñez | F | 2699- | 53 | Moderator of the Assembly (Charter League) | kessler | station | married, Martín Achterberg-Nuñez (a Kessler bookbinder) | 2 | lakes_union | respected | 0.90 | cautious; wants the Notice studied quietly; descended from Wendell Achterberg |
 | Kasimir Horvath | M | 2699- | 53 | Master of the Aerostat Pilots' Guild | harrow_falls | station | married, Edie Horvath | 2 | catholic | respected | 0.20 |  |
+| Della Brenneman-Szabo | F | 2700- | 52 | president of Harrow Motor Works since VY 489 | harrow_falls | station | married, Gerald Szabo | 2 | lakes_union | beloved | 0.35 | took on 600 of the Mill No. 2 hands in VY 494; wants a new Ladder and the Works' old men won't hear of it |
 | Margit Kovacs-Lee | F | 2700- | 52 | Wire journalist; read the Registry Leak on air | kessler | station (moved) | divorced, Jun Lee (div. VY 489) | 1 | none | contested | 0.65 | won't name her source |
 | Lamar Haskins | M | 2700- | 52 | Mayor of Haskins Corner; owns the Corner Diner | haskins_corner | station | married, Debra Haskins | 2 | full_gospel | respected | 0.20 |  |
 | Dolores Kiss-Mahoney | F | 2701- | 51 | Mayor of Harrow Falls | harrow_falls | station | married, Brian Mahoney | 2 | catholic | respected | 0.35 |  |
@@ -121,11 +131,13 @@ Childless reasons use the share system's vocabulary: *gave_share* means they gif
 | Yusuf Haddad-Bazzi | M | 2702- | 50 | Imam of the Carrow Masjid | port_carrow | station | married, Layla Haddad-Bazzi | 3 | muslim | respected | 0.30 |  |
 | Ezra Yoder | M | 2702- | 50 | cheesemaker (Tamarack Blue) | tamarack | station | married, Leah Yoder | 7 | plain | respected | 0.15 |  |
 | Stanisław Wojcik-Ferreira | M | 2703- | 49 | Mayor of Port Carrow | port_carrow | station | married, Lena Wojcik-Ferreira | 2 | catholic | respected | 0.40 |  |
+| Lionel Vance-Okafor | M | 2704- | 48 | president of Carrow Coach Company since VY 486 | port_carrow | station | married, Miriam Vance-Okafor | 1 | lakes_union | respected | 0.15 | the Captain's great-great-grandson; an engineer, not a salesman; rebuilding Carrow's name after the Inquiry |
 | Tobias Wainwright-Okafor | M | 2704- | 48 | leader of the Open Hand; Assembly member for Bellhaven | bellhaven | station | married, Ines Wainwright-Okafor (a nurse) | 0: gave_share | waymakers | contested | 0.75 | wants the Undercroft opened and the Notice answered; he and Ines gave both their shares to his sister's family |
 | Rosa Pham-Moriarty | F | 2704- | 48 | President of the Cannery and Dock Workers Union | pelican_cove | station | married, Kevin Pham | 2 | catholic | respected | 0.35 |  |
 | Thanh Nguyen-Castellanos | M | 2705- | 47 | Mayor of Pelican Cove | pelican_cove | station | married, Lupe Nguyen-Castellanos | 2 | dharmic | respected | 0.25 |  |
 | Dante Okonkwo-Silva | M | 2707- | 45 | spinball legend (six Spin Cups); coach of the Suns | solana_point | station | married, Ximena Okonkwo-Silva | 2 | catholic | beloved | 0.85 |  |
 | Graciela Montoya-Park | F | 2707- | 45 | Mayor of Solana Point | solana_point | station | married, David Park | 2 | catholic | respected | 0.45 |  |
+| Inés Ybarra-Moreno | F | 2709- | 43 | president of Solana Cycle & Motor since VY 491 | solana_point | station | married, Marco Moreno | 2 | catholic | respected | 0.30 | Nacho Ybarra's great-granddaughter; means to sell a Solana in Harrow Falls |
 | Ingrid Halvorsen | F | 2709- | 43 | Mayor of Haven Point | haven_point | station | partnered, Tove Ask | 1 | lakes_union | respected | 0.15 |  |
 | Vincenzo DeCarlo | M | 2710- | 42 | Mayor of Brightwater; owns DeCarlo's Arcade | brightwater | station | divorced, twice | 3 | catholic | respected | 0.35 |  |
 | Miriam Adler-Castro | F | 2710- | 42 | Rabbi of Temple Beth Columbia | kessler | station | married, Eli Adler-Castro | 2 | jewish | respected | 0.20 |  |
@@ -133,6 +145,7 @@ Childless reasons use the share system's vocabulary: *gave_share* means they gif
 | Nadia Haddad | F | 2712- | 40 | physician; one of the Bellhaven Five | port_carrow | station (moved) | married, Omar Bazzi | 2 | muslim | private | 0.30 | never speaks of the Dig |
 | Yusuf Okonjo | M | 2712- | 40 | teacher; one of the Bellhaven Five | kessler | station | married, Grace Okonjo | 3 | muslim | private | 0.30 |  |
 | Itzel Solano-Garza | F | 2712- | 40 | Alcaldesa (Mayor) of Playa Verde | playa_verde | station | married, Rubén Garza | 2 | catholic | respected | 0.30 |  |
+| Rafael Quintero | M | 2713- | 39 | 'Rafa'; Solana's racing driver; seven-time Ring Run winner | solana_point | station (moved) | partnered, Lena Haddad | 0: chose_not | catholic | beloved | 0.50 | won the Ring Run in VY 487, 489, 491, 493, 495, 496 and 498; Port Carrow boos him |
 | Tomasz Wieczorek | M | 2713- | 39 | machinist; one of the Bellhaven Five | fenwick | station (moved) | married, Hana Wieczorek | 1 | catholic | private | 0.30 | drinks; says the hatch 'hummed' |
 | Clay Tuttle | M | 2713- | 39 | Full Gospel revival preacher ('Brother Clay') | haskins_corner | station | married, Lacey Tuttle | 5 | full_gospel | contested | 0.40 | preaches that the Notice is the first trumpet |
 | Siobhan Moriarty | F | 2714- | 38 | Mayor of Tern Harbor; Declan Moriarty's granddaughter | tern_harbor | station | never_married,  | 0: gave_share | catholic | respected | 0.30 | gave her share to keep a Tern family from leaving |
@@ -147,6 +160,12 @@ Childless reasons use the share system's vocabulary: *gave_share* means they gif
 
 ## Kin among them
 
+- Della Brenneman-Szabo is descendant of Augusta Brenneman
+- Hiram Okonkwo-Brenneman is grandchild of Augusta Brenneman
+- Lionel Vance-Okafor is descendant of Theodora Lindqvist-Vance
+- Octavia Fairweather is cousin Cordelia Fairweather
+- Pilar Ybarra-Solano is child of Ignacio Ybarra
+- Inés Ybarra-Moreno is descendant of Ignacio Ybarra
 - Ada Carrow is spouse Joseph Carrow
 - Chinedu Okafor is spouse Lucía Reyes
 - Tamsin Okafor-Reyes is child of Chinedu Okafor
