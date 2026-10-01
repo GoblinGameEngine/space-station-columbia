@@ -5,7 +5,7 @@ vehicle companies. Canon from the user (2026-10-01); the details are mine within
   - the Steward's machines mine the Rock (the hollowed asteroid the station turns inside), refine it in
     the great factories of the Spindle (the central cylinder), and leave raw materials and basic tools
     for people at the Drops;
-  - since the Lockout (VY 350, 150 years ago) the Steward has made one vehicle platform for people, the
+  - the Steward has always made one vehicle platform for people, the
     board (a skateboard chassis), and its design has never changed; it gives each of the three vehicle
     works an allotment, and they build the heavy vehicles on them (farm machines, refuse trucks,
     haulers, trams);
@@ -36,7 +36,7 @@ STEWARD_WORKS = {
                    "the chip line: one fixed process, the Thirty-Two (see TECH_LIMITS)", "the panel line (LCD panels, few)", "cell works: the boards' sealed cells",
                    "the tool line: hand tools, bearings, fasteners, motors' laminations"],
         "fed_by": "the end-cap hubs: ore and ice come in from the Rock through the bow and stern hubs, along the axis, in near-zero gravity",
-        "people": "no one has been inside since the Lockout; before it, Wardens worked the hub galleries in pressure suits",
+        "people": "no one has been inside since the Second Lockdown (VY 178); before it, Wardens worked the hub galleries in pressure suits",
         "known": "schooled", "popular": ["'the factories in the Sun'", "'the Sunline is the furnaces showing through' (it isn't)"],
     },
     "makes_for_people": [
@@ -69,11 +69,11 @@ DROPS = {
 TECH_LIMITS = {
     "processors": {
         "name": "the Thirty-Two",
-        "what": "the one processor board the Steward makes for people since the Lockout: a 32-bit chip of early-2000s power (about 400 MHz, 64 MB of memory, a flash store, serial and network ports) on a standard card",
+        "what": "the one processor board the Steward makes for people since the Fourth Lockdown set the Floor (VY 350): a 32-bit chip of early-2000s power (about 400 MHz, 64 MB of memory, a flash store, serial and network ports) on a standard card",
         "supply": "plentiful: tens of thousands a year; they never wear out and are reused for generations",
         "use": ["vehicle controllers (motor, pack and brakes)", "the Wire (radio and the network)", "the Registry's ledgers", "factory machines and lathes",
                 "telephones and tills", "hospital instruments"],
-        "know_how": "people know how to integrate them -- the Wardens' Book of the Thirty-Two, copied by hand and press since VY 352, and the College's courses",
+        "know_how": "people know how to integrate them -- the College's Book of the Thirty-Two, written from the Wardens' manuals in the Floor's first years and printed for anyone, and the College's courses",
         "the_cap": "however many are joined, they never add up to a mind: the Steward makes no other kind, the network's links are slow, and every attempt to gang thousands together has failed or been found and stopped (the Lantern, VY 350, was the last that got far)",
         "known": "family", "popular": ["'a Thirty-Two is a Thirty-Two' (all machines are as smart as each other)", "'the Steward counts them' (rumour)"],
     },
@@ -95,7 +95,7 @@ TECH_LIMITS = {
         "origin": "the slot is the old Earth single-DIN size, taken from the Wardens' manuals; made the standard by the Wire Slot Accord (VY 452) when the Wire went on the air",
         "culture": "sets are bought, swapped, stolen and handed down; a good set outlives three cars; 'pulling your set' when you park in Solana Point",
     },
-    "why": "the Steward has never said. The College teaches that it caps people's machines so nothing aboard can overrule it (after the Lantern); Waymakers say it is keeping them humble; most people never think about it -- the Thirty-Two is simply what a computer is",
+    "why": "the Floor (the Fourth Lockdown, VY 350). The Third Lockdown (VY 271) had already pulled people's goods back to the late 21st century; when people built the Lantern out of exactly those machines, the Steward judged that a further regression would one day be needed unless it set a level people could live on for the rest of the voyage and never threaten the ship from -- and it would rather set it once, gently, than regress again. The College teaches this; Waymakers say it is keeping them humble; most people never think about it -- the Thirty-Two is simply what a computer is",
 }
 
 PLATFORMS = {
@@ -156,7 +156,7 @@ MANUFACTURING = {
 # ------------------------------------------------------------------ the three vehicle works
 COMPANIES = [
     dict(id="harrow_motor_works", name="Harrow Motor Works", short="Harrow", folk=["the Works", "HMW", "Old Kettle's people"],
-         seat="harrow_falls", yard="the Falls Yard (once the Wardens' Motor Pool No. 2), on the river below the Falls",
+         seat="harrow_falls", yard="the Falls Yard (the Wardens' Motor Pool No. 2, the Assembly's from VY 274), on the river below the Falls",
          founded_vy=354, founders=["augusta_brenneman"], board="harrow_ladder",
          ethos="build it heavy, build it once; if it breaks, a welder fixes it", colours=["red oxide", "black"],
          strong_in=["harrow_falls", "marlowe", "fenwick", "dunmore_crossing", "cedar_ford", "tamarack", "countryside"],
@@ -167,7 +167,7 @@ COMPANIES = [
          reputation="loved and mocked: 'a Harrow will outlive you, and you'll feel every bump of it'",
          now="about 46% of people's boards; the Ladder little changed in a century; president Della Brenneman-Szabo hired 600 of the Mill No. 2 hands in VY 494"),
     dict(id="carrow_coach_company", name="Carrow Coach Company", short="Carrow", folk=["Coach", "the Coachworks", "the Keel-yard"],
-         seat="port_carrow", yard="the Harbour Yard (once the Wardens' Motor Pool No. 1), in the shipyard",
+         seat="port_carrow", yard="the Harbour Yard (the Wardens' Motor Pool No. 1, the Assembly's from VY 274), in the shipyard",
          founded_vy=354, founders=["theodora_lindqvist_vance"], board="carrow_keel",
          ethos="a car is a vessel: build it like a ship, ride like a boat", colours=["navy", "bronze", "cream"],
          strong_in=["port_carrow", "kessler", "brightwater", "haven_point", "tern_harbor", "bellhaven"],
@@ -178,7 +178,7 @@ COMPANIES = [
          reputation="respected, a little resented: 'Coach money'; the Keel Recall still hurts",
          now="about 31% of people's boards; aluminium keels since VY 431; president Lionel Vance-Okafor"),
     dict(id="solana_cycle_and_motor", name="Solana Cycle & Motor", short="Solana", folk=["Sunny", "the Cycle Works", "Ybarra's"],
-         seat="solana_point", yard="the South Yard (once the Wardens' Motor Pool No. 3), joined to the Ybarra Cycle Works",
+         seat="solana_point", yard="the South Yard (the Wardens' Motor Pool No. 3, the Assembly's from VY 274), joined to the Ybarra Cycle Works",
          founded_vy=356, founders=["ignacio_ybarra"], board="solana_lattice",
          ethos="light is fast, fast is fun, and you can carry the battery home", colours=["sun yellow", "cream", "teal"],
          strong_in=["solana_point", "playa_verde", "oceanview", "pelican_cove", "victory_bay"],

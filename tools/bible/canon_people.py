@@ -152,10 +152,10 @@ PEOPLE = [
     P("maeve_dunmore", "Maeve", "Dunmore", "F", 350, 430, "dunmore_crossing", "station", "pelican_cove", "dock_worker", "founder of the Cannery and Dock Workers Union", ["dunmore"],
       "married", "Sean Pham", 2, faith="catholic", traits=["P.courage:high", "V.fairness"], reputation="hero", fame=0.2, deeds=["cannery_union"], moved_to=["pelican_cove"],
       roles=["union_steward"]),
-    # ------------------------------------------------------------------ the Lockout and the three vehicle works (bible industry)
-    P("absalom_thorne", "Absalom", "Thorne", "M", 301, "missing", "bellhaven", "station", "bellhaven", None, "Warden-Engineer; builder of the Lantern", ["thorne"],
+    # ------------------------------------------------------------------ the Fourth Lockdown and the three vehicle works (bible industry)
+    P("absalom_thorne", "Absalom", "Thorne", "M", 301, "missing", "bellhaven", "station", "bellhaven", None, "College engineer of an old Warden line; builder of the Lantern", ["thorne"],
       "never_married", None, 0, childless="vocation", faith="none", traits=["P.openness:very_high", "P.conscientiousness:high", "V.truth"], reputation="contested", fame=0.3,
-      deeds=["the_lantern", "the_lockout"], notes=["went down to the Lantern's vault the night it woke; was inside when the Steward sealed the Undercroft", "a saint to the Wardens' Library circle; a fool to most"]),
+      deeds=["the_lantern", "the_lockout"], notes=["went down into the Chute galleries the night the Lantern woke; was there when the Steward closed them", "a saint to the Wardens' Library circle; a fool to most"]),
     P("augusta_brenneman", "Augusta", "Brenneman", "F", 318, 397, "harrow_falls", "station", "harrow_falls", "mechanic", "'Gus'; forewoman of the Falls Yard; founder of Harrow Motor Works", ["brenneman"],
       "married", "Otto Brenneman", 3, faith="lakes_union", traits=["P.conscientiousness:very_high", "P.agreeableness:low", "P.courage:high", "V.duty"], reputation="hero", fame=0.3,
       deeds=["three_yards", "yard_raids", "allotment_compact", "old_kettle"], memorials=["the Brenneman Gate at the Falls Yard"], roles=["founder", "leader_task"],

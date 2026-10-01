@@ -14,7 +14,7 @@ Canon from the user (2026-10-01), detailed here. Engineering numbers for the boa
 
 - **what:** the central cylinder on the axis, 200 m across and running cap to cap (8 km); it does not turn with the land; its skin carries the Sunline
 - **fed_by:** the end-cap hubs: ore and ice come in from the Rock through the bow and stern hubs, along the axis, in near-zero gravity
-- **people:** no one has been inside since the Lockout; before it, Wardens worked the hub galleries in pressure suits
+- **people:** no one has been inside since the Second Lockdown (VY 178); before it, Wardens worked the hub galleries in pressure suits
 - **inside:** the great refineries: vacuum smelting, electrolysis, zone refining; foundries and wire-arc printers; powder-bed printers (the boards' lattices); the chip line: one fixed process, the Thirty-Two (see TECH_LIMITS); the panel line (LCD panels, few); cell works: the boards' sealed cells; the tool line: hand tools, bearings, fasteners, motors' laminations
 
 ## What the Steward makes for people
@@ -50,11 +50,11 @@ _Placeholder until the Drops are defined in detail (the user, 2026-10-01: 'we wi
 
 ### the Thirty-Two
 
-the one processor board the Steward makes for people since the Lockout: a 32-bit chip of early-2000s power (about 400 MHz, 64 MB of memory, a flash store, serial and network ports) on a standard card.
+the one processor board the Steward makes for people since the Fourth Lockdown set the Floor (VY 350): a 32-bit chip of early-2000s power (about 400 MHz, 64 MB of memory, a flash store, serial and network ports) on a standard card.
 
 - **supply:** plentiful: tens of thousands a year; they never wear out and are reused for generations
 - **used in:** vehicle controllers (motor, pack and brakes); the Wire (radio and the network); the Registry's ledgers; factory machines and lathes; telephones and tills; hospital instruments
-- **know-how:** people know how to integrate them -- the Wardens' Book of the Thirty-Two, copied by hand and press since VY 352, and the College's courses
+- **know-how:** people know how to integrate them -- the College's Book of the Thirty-Two, written from the Wardens' manuals in the Floor's first years and printed for anyone, and the College's courses
 - **the cap:** however many are joined, they never add up to a mind: the Steward makes no other kind, the network's links are slow, and every attempt to gang thousands together has failed or been found and stopped (the Lantern, VY 350, was the last that got far)
 
 ### Panels
@@ -76,7 +76,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 - **origin:** the slot is the old Earth single-DIN size, taken from the Wardens' manuals; made the standard by the Wire Slot Accord (VY 452) when the Wire went on the air
 - **culture:** sets are bought, swapped, stolen and handed down; a good set outlives three cars; 'pulling your set' when you park in Solana Point
 
-**Why:** the Steward has never said. The College teaches that it caps people's machines so nothing aboard can overrule it (after the Lantern); Waymakers say it is keeping them humble; most people never think about it -- the Thirty-Two is simply what a computer is
+**Why:** the Floor (the Fourth Lockdown, VY 350). The Third Lockdown (VY 271) had already pulled people's goods back to the late 21st century; when people built the Lantern out of exactly those machines, the Steward judged that a further regression would one day be needed unless it set a level people could live on for the rest of the voyage and never threaten the ship from -- and it would rather set it once, gently, than regress again. The College teaches this; Waymakers say it is keeping them humble; most people never think about it -- the Thirty-Two is simply what a computer is
 
 ## The boards
 
@@ -147,7 +147,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 
 ### Harrow Motor Works (Harrow)
 
-- **seat:** harrow_falls; the Falls Yard (once the Wardens' Motor Pool No. 2), on the river below the Falls
+- **seat:** harrow_falls; the Falls Yard (the Wardens' Motor Pool No. 2, the Assembly's from VY 274), on the river below the Falls
 - **founded:** VY 354 by Augusta Brenneman
 - **board:** harrow_ladder
 - **ethos:** build it heavy, build it once; if it breaks, a welder fixes it
@@ -167,7 +167,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 
 **History:**
 
-- VY 354: the three Yards: the Wardens' Motor Pools pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each
+- VY 354: the three Yards: the Assembly, its late-21st-century tooling failing under the Floor, lets its three Motor Pools (the Wardens' until VY 274) pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each
 - VY 358-361: the Yard Raids: Carrow men and Harrow men steal each other's allotments off the Board Drops at night; two die at the Falls Yard
 - VY 362: the Allotment Compact: each works keeps what the Steward leaves in its own yard; the Assembly's Board Office counts the boards
 - VY 371: Old Kettle: Elias Thornbury's Harrow Model One, the first board made by people -- a ladder of salvaged rail steel and a crate of hand-made cells; the boards' shortfall begins to close
@@ -178,7 +178,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 
 ### Carrow Coach Company (Carrow)
 
-- **seat:** port_carrow; the Harbour Yard (once the Wardens' Motor Pool No. 1), in the shipyard
+- **seat:** port_carrow; the Harbour Yard (the Wardens' Motor Pool No. 1, the Assembly's from VY 274), in the shipyard
 - **founded:** VY 354 by Theodora Lindqvist-Vance
 - **board:** carrow_keel
 - **ethos:** a car is a vessel: build it like a ship, ride like a boat
@@ -198,7 +198,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 
 **History:**
 
-- VY 354: the three Yards: the Wardens' Motor Pools pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each
+- VY 354: the three Yards: the Assembly, its late-21st-century tooling failing under the Floor, lets its three Motor Pools (the Wardens' until VY 274) pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each
 - VY 358-361: the Yard Raids: Carrow men and Harrow men steal each other's allotments off the Board Drops at night; two die at the Falls Yard
 - VY 362: the Allotment Compact: each works keeps what the Steward leaves in its own yard; the Assembly's Board Office counts the boards
 - VY 379: the Carrow Keel: Bartholomew Achebe lays a car down like a ship -- the battery in a keel tube, ribs and a gunwale -- and launches it down the slipway at the Harbour Yard
@@ -209,7 +209,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 
 ### Solana Cycle & Motor (Solana)
 
-- **seat:** solana_point; the South Yard (once the Wardens' Motor Pool No. 3), joined to the Ybarra Cycle Works
+- **seat:** solana_point; the South Yard (the Wardens' Motor Pool No. 3, the Assembly's from VY 274), joined to the Ybarra Cycle Works
 - **founded:** VY 356 by Ignacio Ybarra
 - **board:** solana_lattice
 - **ethos:** light is fast, fast is fun, and you can carry the battery home
@@ -230,7 +230,7 @@ every car has a radio, but it is its own unit: a Wire set slides into a standard
 
 **History:**
 
-- VY 354: the three Yards: the Wardens' Motor Pools pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each
+- VY 354: the three Yards: the Assembly, its late-21st-century tooling failing under the Floor, lets its three Motor Pools (the Wardens' until VY 274) pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each
 - VY 384: the Golondrina: Pilar Ybarra-Solano's first car, a bicycle-maker's lattice of brazed chromoly, half the weight of a Harrow
 - VY 390-404: the Board Wars: fourteen years of price cutting, poached welders and sabotage rumours; small makers ruined; three works left standing
 - VY 398: the Standard Pattern Act: every board made aboard must keep the Steward's Pattern -- deck height, the mount rails every 0.75 m, the socket -- so any body fits any board

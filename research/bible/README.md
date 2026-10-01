@@ -19,7 +19,7 @@ The build writes the engine files to `godot_project/remake/bible/*.json` and the
 |---|---|---|
 | [01_world.md](01_world.md) | world.json | the ship, the voyage, the Steward, the calendar, the land, the population, the institutions, faiths, languages, what people know |
 | [02_names.md](02_names.md) | names.json | 8173 surnames alive in 2752 (from 20851 founding surnames), given-name pools and the cohort mixes, nicknames |
-| [03_history.md](03_history.md) | history.json | 17 eras, 129 past events (year by year in living memory), 17 future events, every Moderator, every Spin Cup |
+| [03_history.md](03_history.md) | history.json | 17 eras, 133 past events (year by year in living memory), 17 future events, every Moderator, every Spin Cup |
 | [04_people.md](04_people.md) | people.json | 129 important people (74 living): native or immigrant, marriages, children or why not, deeds, reputation |
 | [05_lineages.md](05_lineages.md) | lineages.json | 50 great families and 76 minor lines: trades, faith, temperament, lore, feuds and alliances |
 | [06_culture.md](06_culture.md) | culture.json | holidays, foods, rites, customs, the lexicon, sayings, beliefs, superstitions, etiquette, taboos, pastimes, arts, dialect, and what changed from Earth |

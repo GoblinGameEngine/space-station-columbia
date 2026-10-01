@@ -178,7 +178,10 @@ The founders' Great Lakes ways and what 500 years aboard made of them. `origin` 
 | Bank-born | descended from the Ark Bank's embryos | station | everyone |  |
 | the Troubles | VY 231-302 | station | everyone |  |
 | a Returner | someone who wants to go back; an old insult for a malcontent | station | everyone | 'Don't be such a Returner.' |
-| the Lockout | VY 350; also: being shut out of anything | station | everyone | 'I'm on Lockout from my own kitchen.' |
+| the Lockout | the Fourth Lockdown (VY 350), when the Steward fell silent; also: being shut out of anything | station | everyone | 'I'm on Lockout from my own kitchen.' |
+| the Lockdowns | the Steward's four closings (VY 92, 178, 271, 350), each a generation apart | station | everyone | 'Every generation gets a lockdown, my gran said. We're overdue.' |
+| the Regression | the Third Lockdown's taking-back of goods (VY 271) and the hard years after | station | the old, the schooled | 'That's a Regression recipe: no sugar, no salt.' |
+| the Floor | what the Steward still makes for people since VY 350; also: the least you'll accept | station | everyone | 'That's my floor -- nothing more will be taken.' |
 | a true board | a Steward board (the station's own vehicle platform); also: anything well made that you couldn't make yourself | vehicles | everyone | 'That's a true board under that tram.' |
 | a pipe board | a board made by people (tube frame): a Harrow, a Carrow or a Solana | vehicles | everyone | 'It's only a pipe board, but it's paid for.' |
 | a Harrow / a Carrow / a Solana | a car by its works (also 'a Coach', 'a Sunny') | vehicles | everyone | 'She drives a Carrow, so she thinks she's Kessler.' |

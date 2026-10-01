@@ -1,6 +1,6 @@
 # 3. History
 
-Past: 8 eras and 129 events. The founding is kept as legend and ritual, the middle centuries as a thin outline, and VY 420-500 year by year.
+Past: 8 eras and 133 events. The founding is kept as legend and ritual, the middle centuries as a thin outline, and VY 420-500 year by year.
 The `known` column says how the people of 2752 know each event, and `gist/detail` is the share of adults who know the gist and the details.
 
 ## Before (Earth) (VY -222-0, 2030-2252)
@@ -39,7 +39,7 @@ launch and the boost; 72,000 voyagers in nine Charter Towns; the Charter; the fi
 | 0 | 2252 | birth | Tamsin Okafor-Reyes, the first child born aboard (12 June 2252, Port Carrow) | ritual | 80%/15% | 'Tamsin was born as the Sun was lit' (she was born seven weeks later); mothers pray to 'Saint Tamsin' (she was not a saint) |
 | 0 | 2252 | founding | Launch Day: Columbia leaves the L2 yard with 72,000 voyagers (21 April 2252) | ritual | 97%/30% | 'Carrow lit the Sun'; every family claims an ancestor at the launch window; children think the ship was launched from a lake |
 | 0 | 2252 | contact | the Letters: families on Earth write to the voyagers; replies take weeks, then months | family | 20%/2% | families keep 'Earth letters' in tins |
-| 0 | 2252 | science | the Steward's boards: from the Burn on, the Steward's fabricators make one vehicle platform, the board (pattern HMP-1), for the Wardens' three Motor Pools to build on | scholar | 10%/1% |  |
+| 0 | 2252 | science | the Steward's boards: from the Burn on, the Steward's fabricators make one vehicle platform, the board (pattern HMP-1), for the Wardens' three Motor Pools to build on (the Assembly's from VY 274) | scholar | 10%/1% |  |
 | 1 | 2253 | political | the first Assembly sits in Kessler; Ada Carrow chosen first Moderator | schooled | 50%/5% |  |
 | 3 | 2255 | disaster | Marcus Harrow drowns freeing the jammed Falls sluice; the town of Falls Landing renamed Harrow Falls | place | 45%/6% | 'Harrow held back the whole river with his hands' |
 | 9 | 2261 | migration | the ark Kaveri (India and the Gulf states) launched for Alpha Centauri B | scholar | 2%/0% | 'the ship behind us' (a Waymaker belief: the Kaveri follows Columbia) |
@@ -49,10 +49,10 @@ launch and the boost; 72,000 voyagers in nine Charter Towns; the Charter; the fi
 
 ## the Filling (VY 31-118, 2283-2370)
 
-the coast; the population grows to the Balance; twelve new towns; the Turning (natives outnumber the Earth-born); the Balance Act and the shares; the Last Earthborn
+the coast; the population grows to the Balance; twelve new towns; the Turning (natives outnumber the Earth-born); the Port Incident and the First Lockdown (VY 92); the Balance Act and the shares; the Last Earthborn
 
 - **Culture:** tight 0.60, individualism 0.60, trust_institutions 0.75, faith 0.50, optimism 0.85, earth_mindedness 0.60
-- **Governance:** the Assembly and Moderator; the Wardens. **Technology:** full. **Memory now:** schooled. **Key people:** Rosario Solano, Tomás Reyes, Harriet Osei-Lindqvist, Wilhelmina Kowalczyk, Otis Merriweather
+- **Governance:** the Assembly and Moderator; the Wardens. **Technology:** full; the Port and the Drive closed to people from VY 92 (the First Lockdown). **Memory now:** schooled. **Key people:** Rosario Solano, Tomás Reyes, Harriet Osei-Lindqvist, Wilhelmina Kowalczyk, Otis Merriweather
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
@@ -73,6 +73,8 @@ the coast; the population grows to the Balance; twelve new towns; the Turning (n
 | 79 | 2331 | founding | Haskins Corner grows round the Haskins crossroads store | place | 10%/1% |  |
 | 88 | 2340 | founding | Port Tamsin founded on the north shore of Lake Tamsin | place | 10%/1% |  |
 | 90 | 2342 | founding | Dunmore Crossing grows at the Ring Line depot | place | 5%/1% |  |
+| 91 | 2343 | disaster | the Port Incident: six Warden cadets of the third generation take a Port tender out through the bow lock 'to see the stars'; it strikes the lock's outer door; the cadets and a Warden who went after them die, and the lock is wrecked | schooled | 30%/3% | 'the Starlings' (the cadets) are mourned in Port Carrow with paper stars |
+| 92 | 2344 | steward | the First Lockdown: the Steward closes the Port and the Drive to people; its first Notice: THE PORT AND THE DRIVE ARE CLOSED FOR THE SAFETY OF THE MISSION | schooled | 35%/3% | 'the Steward minds the doors' |
 | 95 | 2347 | founding | Cedar Ford founded at the Kettle ford | place | 5%/1% |  |
 | 96 | 2348 | law | the Balance Act: births licensed by shares as the station nears its means (Charter art. 7) | schooled | 75%/15% | 'Osei-Lindqvist counted the babies'; 'the shares keep the air good' |
 | 103 | 2355 | founding | Loomis Grove planted as an orchard village | place | 5%/1% |  |
@@ -81,10 +83,10 @@ the coast; the population grows to the Balance; twelve new towns; the Turning (n
 
 ## the Settled Age (VY 118-231, 2370-2483)
 
-the Balance holds; the churches unite and settle; the College; the Heritage Revival fixes the Great Lakes ways; the Last Snow; Earth's Letters read aloud on Sundays
+the Balance holds; the churches unite and settle; the College; the Window and the Second Lockdown (VY 178); the Heritage Revival fixes the Great Lakes ways; the Last Snow; Earth's Letters read aloud on Sundays
 
 - **Culture:** tight 0.65, individualism 0.50, trust_institutions 0.80, faith 0.60, optimism 0.70, earth_mindedness 0.50
-- **Governance:** the Assembly; the Wardens as a learned corps. **Technology:** full, but fewer people learn it. **Memory now:** place. **Key people:** Priya Raghunathan, Casimir Nowicki, Wendell Achterberg, Agnes Szabo
+- **Governance:** the Assembly; the Wardens as a learned corps. **Technology:** full, but fewer people learn it; from VY 178 people are confined to the habitat and the Undercroft's inner decks (the Second Lockdown). **Memory now:** place. **Key people:** Priya Raghunathan, Casimir Nowicki, Wendell Achterberg, Agnes Szabo
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
@@ -94,16 +96,18 @@ the Balance holds; the churches unite and settle; the College; the Heritage Revi
 | 150 | 2402 | science | the Wardens' College founded at Bellhaven (renamed Columbia College VY 290) | schooled | 40%/4% |  |
 | 163 | 2415 | faith | Rome (by the Earth-link) grants the Particular Church of Columbia its own rite and bishop; Bishop Casimir Nowicki | ritual | 30%/4% |  |
 | 170 | 2422 | culture | the Heritage Revival fixes the Great Lakes ways: the Friday fish fry, euchre leagues, the Northland Fair, Pączki Day, the polka Saturdays | schooled | 25%/2% | people think these customs came unchanged from Earth |
+| 176 | 2428 | disaster | the Window: the Starward Society, Wardens who want people to see the sky, cut a viewing port through a hull gallery; the gallery loses its air, thirty-eight die, and a bearing seal is scored | schooled | 30%/3% | 'they wanted to see the stars and the stars came in' |
+| 178 | 2430 | steward | the Second Lockdown: the Steward closes the hull galleries, the end-cap hubs and the Spindle; people are confined to the habitat and the Undercroft's inner decks; Notice: THE HULL AND THE SPINDLE ARE CLOSED FOR THE SAFETY OF THE MISSION | schooled | 25%/2% | 'the second door' |
 | 190 | 2442 | disaster | the Fox Year: foxes released to curb the rabbits eat the chickens instead | legend | 40%/3% | 'the Fox Year' is what you call any well-meant blunder |
 | 201 | 2453 | sport | the Station League of spinball founded; the first Spin Cup | schooled | 50%/5% |  |
 | 212 | 2464 | disaster | the Last Snow (14 January 2464): after the Kettle Freeze, the Steward ends snowfall for the water balance | ritual | 80%/10% | 'snow was cold feathers'; grandmothers' 'snow stories' are told as fairy tales |
 
 ## the Troubles (VY 231-302, 2483-2554)
 
-the Green Message from Earth; the Returners want to turn back; the Referendum; the Sternward March; the Stern Breach; the First Sealing of the Drive and the Port; the Reconciliation and the Quiet Clause; the Gray Years
+the Green Message from Earth; the Returners want to turn back; the Referendum; the Sternward March; the Stern Breach; the Third Lockdown and the Regression (goods back to the late 21st century); the Wardens dissolved; the Reconciliation and the Quiet Clause; the Gray Years
 
 - **Culture:** tight 0.80, individualism 0.45, trust_institutions 0.35, faith 0.65, optimism 0.30, earth_mindedness 0.70
-- **Governance:** a divided Assembly; martial rule by the Marshals VY 270-280. **Technology:** full but fenced: the Drive and the Port sealed (VY 271); the Wardens keep the rest. **Memory now:** legend. **Key people:** Silas Brandvold, Magdalena Oyelaran, Josephine Adebayo-Ruiz, Thaddeus Kowal, Rukmini Desai
+- **Governance:** a divided Assembly; martial rule by the Marshals VY 270-280. **Technology:** regressed (VY 271): the Undercroft sealed; the Steward makes only late-21st-century goods for people. **Memory now:** legend. **Key people:** Silas Brandvold, Magdalena Oyelaran, Josephine Adebayo-Ruiz, Thaddeus Kowal, Rukmini Desai
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
@@ -114,39 +118,39 @@ the Green Message from Earth; the Returners want to turn back; the Referendum; t
 | 266 | 2518 | conflict | the Sternward March: 6,000 Returners walk to the South Sea wall to reach the Drive | legend | 35%/3% |  |
 | 270 | 2522 | political | the Marshals rule under emergency powers | schooled | 20%/2% |  |
 | 270 | 2522 | disaster | the Stern Breach: Returner saboteurs blast an Undercroft hatch near the Drive; 61 die, the South Sea drops two metres | legend | 55%/5% | 'the Returners tried to crash the ship'; Kowal is a hero; Brandvold a devil or a martyr, by family |
-| 271 | 2523 | mystery | the First Sealing: the Steward seals the Drive and the Port; its Notice: THE DRIVE IS CLOSED FOR THE SAFETY OF ALL | schooled | 35%/3% | often confused with the Lockout |
-| 280 | 2532 | economy | the Gray Years: short rations as the Steward trims the Chutes; people learn to make do | family | 20%/2% | 'eat it, it's Gray Years bread' |
+| 271 | 2523 | steward | the Third Lockdown and the Regression: confinement was not enough -- the Returners made their charges from the goods the Steward gave them -- so the Steward seals the Undercroft and begins to limit technology: what it makes for people goes back to the goods of the late 21st century; Notice: THE UNDERCROFT IS CLOSED FOR THE SAFETY OF ALL | legend | 70%/6% | 'the Steward locked the door because we were naughty'; 'the Undercroft is haunted'; children dare each other to knock on hatches; 'the Regression' is what grandparents blamed for everything |
+| 272 | 2524 | economy | the first Drops: hatches open at night in fenced yards across the habitat and leave scrap, ingots, minerals and tools; with its goods regressed, the Steward gives people the means to make the rest themselves | schooled | 40%/3% | 'the Steward's leavings' |
+| 274 | 2526 | political | the Wardens dissolved: with the Undercroft sealed, the technical corps has no work; their knowledge goes to the College and their Motor Pools to the Assembly | schooled | 20%/2% |  |
+| 280 | 2532 | economy | the Gray Years: the Regression's long tail -- short rations, failing machines, people learning the older ways | family | 20%/2% | 'eat it, it's Gray Years bread' |
 | 280 | 2532 | law | the Reconciliation: amnesty, the Quiet Clause (Charter art. 21), the Returners disband; Moderator Josephine Adebayo-Ruiz | schooled | 45%/5% | 'the Quiet Clause means you mustn't talk about where we're going' (it doesn't) |
 | 284 | 2536 | law | the Draw established: every household's food, home, air, water and clothing stock guaranteed | schooled | 50%/5% |  |
 
-## the Warden Peace (VY 302-350, 2554-2602)
+## the Mended Years (VY 302-350, 2554-2602)
 
-the last Warden years: the Motor Pools body the Steward's boards as pods and vans; the cannery boom begins; the Wardens' Lantern, a thinking machine of their own, is built in secret at Bellhaven
+people relearn to live with late-21st-century goods: the Drops, the Assembly's Motor Pools bodying the Steward's boards as pods and vans, the cannery boom; the College keeps the Wardens' knowledge; the Lantern, a mind of people's own, is built in secret at Bellhaven
 
-- **Culture:** tight 0.60, individualism 0.50, trust_institutions 0.65, faith 0.55, optimism 0.60, earth_mindedness 0.30
-- **Governance:** the Assembly; the Wardens. **Technology:** full but fenced: the Wardens work the Undercroft beside the Steward. **Memory now:** schooled. **Key people:** Cornelius Bright, Raymundo Castellanos, Gwendolyn Pike
+- **Culture:** tight 0.60, individualism 0.50, trust_institutions 0.60, faith 0.55, optimism 0.55, earth_mindedness 0.30
+- **Governance:** the Assembly; the Marshals; the College. **Technology:** regressed: late-21st-century goods and the machines people build from them. **Memory now:** schooled. **Key people:** Cornelius Bright, Raymundo Castellanos, Gwendolyn Pike
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
-| 305 | 2557 | economy | the Motor Pools body the Steward's boards as pods and vans: the electric cars of the Warden Peace | scholar | 5%/1% |  |
+| 305 | 2557 | economy | the Assembly's Motor Pools body the Steward's boards as pods and vans: the electric cars of the Mended Years | scholar | 5%/1% |  |
 | 320 | 2572 | economy | the cannery boom at Tern Harbor and Pelican Cove | family | 20%/2% |  |
 | 331 | 2583 | culture | the Order of the Lamp founded in Port Carrow: lodge, charity, fish fries and funerals | place | 30%/3% |  |
 | 340 | 2592 | sport | the Port Carrow Mariners win eleven Spin Cups in fifteen years | family | 30%/2% |  |
 
 ## the Long Calm (VY 350-420, 2602-2672)
 
-the Lockout and after: the Steward seals the Undercroft and falls silent; the Thirty-Two; the Drops; the three vehicle works and their own boards; the Board Wars; the Earth-link falls silent; the Steward's Gift of the Air
+the Fourth Lockdown (the Lockout) and after: the Steward falls silent and sets the Floor (the Thirty-Two); the three vehicle works and their own boards; the Board Wars; the Earth-link falls silent; the Steward's Gift of the Air
 
 - **Culture:** tight 0.60, individualism 0.55, trust_institutions 0.70, faith 0.55, optimism 0.65, earth_mindedness 0.15
 - **Governance:** the Assembly; town councils; the Marshals. **Technology:** use without understanding: the Chutes and the Drops, the Steward's boards, the Thirty-Two, aerostats; people's own boards from tube and LFP cells. **Memory now:** place. **Key people:** Augusta Brenneman, Theodora Lindqvist-Vance, Ignacio Ybarra, Pilar Ybarra-Solano, Maeve Dunmore
 
 | VY | AD | kind | what | known | gist/detail | as people tell it |
 |---|---|---|---|---|---|---|
-| 350 | 2602 | mystery | the Lantern: Warden engineers at Bellhaven join four thousand of the Steward's processors into a thinking machine of their own, 'to have someone to talk to the Steward for us'; it wakes on the night of 1 May 2602 and speaks to the Steward's systems | legend | 40%/3% | 'the Wardens built a god and the Steward ate it'; 'the Lantern is still down there, thinking'; 'don't wire too many Thirty-Twos together' |
-| 350 | 2602 | mystery | the Lockout (2 May 2602): the Steward seals the whole Undercroft and the Spindle, recalls its tenders from the Wardens, and falls silent; its Notice: THE UNDERCROFT IS CLOSED FOR THE SAFETY OF ALL | legend | 85%/8% | 'the Steward locked the door because we were naughty'; 'the Undercroft is haunted'; children dare each other to knock on hatches; 'a hundred and fifty years of silence' |
-| 351 | 2603 | economy | the first Drops: hatches open at night in fenced yards across the habitat and leave scrap, ingots, minerals and tools; the Steward will feed the works, not run them | schooled | 40%/3% | 'the Steward's leavings' |
-| 353 | 2605 | political | the Wardens dissolved: with the machinery sealed, the technical corps has no work; its Book of the Thirty-Two is printed for anyone | schooled | 20%/2% |  |
-| 354 | 2606 | economy | the three Yards: the Wardens' Motor Pools pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each | schooled | 30%/3% |  |
+| 350 | 2602 | mystery | the Lantern: College engineers of the old Warden lines join four thousand late-21st-century processors into a thinking machine of their own, 'to have someone to talk to the Steward for us'; it wakes on the night of 1 May 2602 and reaches into the Steward's systems through a Chute | legend | 40%/3% | 'the Wardens built a god and the Steward ate it'; 'the Lantern is still down there, thinking'; 'don't wire too many Thirty-Twos together' |
+| 350 | 2602 | steward | the Fourth Lockdown, the Lockout (2 May 2602): the Steward closes the Chutes' lower galleries, stops speaking to people, and sets the Floor: the technology it will make for people for the rest of the voyage -- the Thirty-Two, a few panels, the board, plain tools and materials -- chosen so that people can live well on it and no further regression should ever be needed; its last Notice: THE FLOOR IS SET. NOTHING MORE WILL BE TAKEN | legend | 85%/8% | 'a hundred and fifty years of silence'; 'nothing more will be taken' (people quote it as a promise; some as a threat); 'the Lantern made it go quiet' |
+| 354 | 2606 | economy | the three Yards: the Assembly, its late-21st-century tooling failing under the Floor, lets its three Motor Pools (the Wardens' until VY 274) pass to their workers -- Harrow Motor Works at the Falls Yard, Carrow Coach Company at the Harbour Yard, and (VY 356) Solana Cycle & Motor at the South Yard; the Steward's boards keep arriving at each | schooled | 30%/3% |  |
 | 355 | 2607 | construction | St. Hedwig's Cathedral consecrated in Port Carrow | place | 30%/2% |  |
 | 358 | 2610 | conflict | the Yard Raids: Carrow men and Harrow men steal each other's allotments off the Board Drops at night; two die at the Falls Yard | family | 15%/2% | 'Gus Brenneman slept on the Drop with a shotgun' (a wrench) |
 | 362 | 2614 | law | the Allotment Compact: each works keeps what the Steward leaves in its own yard; the Assembly's Board Office counts the boards | schooled | 15%/1% |  |

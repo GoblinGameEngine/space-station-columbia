@@ -82,7 +82,11 @@ def write(D, world, settlements, history, peo, lin, fac, cul, names, counts, nam
     L += ["", "**Destination:** " + "; ".join("%s: %s" % kv for kv in v["destination_facts"].items())]
     L += ["", "**Phases:** " + ", ".join("%s VY %d-%d" % (p["id"], p["vy"][0], p["vy"][1]) for p in v["phases"])]
     L += ["", "## The Steward", "", "- **What it does:** " + ", ".join(world["steward"]["does"]), "- **Tenders:** " + world["steward"]["tenders"],
-          "- **Speaking:** " + world["steward"]["speaks"], "- **What people think:** " + "; ".join(world["steward"]["people_think"])]
+          "- **Speaking:** " + world["steward"]["speaks"], "- **What people think:** " + "; ".join(world["steward"]["people_think"]),
+          "- **Its duty:** " + world["steward"]["duty"], "- **Limits:** " + world["steward"]["limits"], "",
+          "**The lockdowns** (a generation or more apart; never punishment; each a last resort):", ""] + \
+         ["%d. VY %d (%s, after %s): %s" % (l["n"], l["vy"], l["kind"], l["after"], l["what"]) for l in world["steward"]["lockdowns"]] + \
+         ["", "What people make of them: " + "; ".join(world["steward"]["people_think_of_lockdowns"])]
     L += ["", "## The calendar", ""] + ["- **%s:** %s" % (k, v2 if not isinstance(v2, dict) else "; ".join("%s %s" % kv for kv in v2.items())) for k, v2 in world["calendar"].items()]
     g = world["geography"]
     L += ["", "## The land", "", "**Directions:** " + "; ".join("%s = %s" % kv for kv in g["directions"].items()), "",
