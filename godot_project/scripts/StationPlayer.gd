@@ -101,12 +101,33 @@ func sit_in(vehicle: Node) -> void:
 	head.rotation.y = 0.0
 
 func stand_up(at: Vector3, basis_: Basis) -> void:
+	## Off a seat: on our feet on whatever floor is under `at` (the ground, a deck, a cabin floor),
+	## found with a ray -- our origin is at the eyes, the feet are _feet_depth() below it. (Callers
+	## passed ground points, or guesses at the eye height; a ground point put the body underground.)
 	_vehicle = null
-	global_transform = Transform3D(basis_, at)
+	var up := StationGeo.up(StationGeo.s_of(at))
+	var q := PhysicsRayQueryParameters3D.create(at + up * 0.6, at - up * 2.5, collision_mask)   # (from just above: not onto a cabin roof)
+	q.exclude = [get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(q)
+	var feet: Vector3 = hit.position if not hit.is_empty() else at
+	if hit.is_empty():
+		var s := StationGeo.s_of(at)
+		var g := StationGeo.point(s, at.x, MapTerrain.elevation(s, at.x))
+		if (at - g).dot(up) < 0.0:
+			feet = g                                 # never under the ground
+	global_transform = Transform3D(basis_, feet + up * (_feet_depth() + 0.03))
 	$CollisionShape3D.disabled = false
 	weapon_mount.visible = true
 	head.rotation.y = 0.0
 	velocity = Vector3.ZERO
+
+func _feet_depth() -> float:
+	## From our origin down to the bottom of the capsule.
+	var cs := $CollisionShape3D as CollisionShape3D
+	var h := 1.8
+	if cs.shape is CapsuleShape3D:
+		h = (cs.shape as CapsuleShape3D).height
+	return -cs.position.y + h * 0.5
 
 func is_seated() -> bool:
 	return _vehicle != null

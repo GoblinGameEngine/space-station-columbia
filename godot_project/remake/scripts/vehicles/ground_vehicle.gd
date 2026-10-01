@@ -116,6 +116,11 @@ func _ready() -> void:
 	freeze = false
 	for ch in find_children("*", "PhysicsBody3D", true, false):
 		add_collision_exception_with(ch)               # its own doors, seat, cabin walls and ramps
+	# people walk through the hull (they collide with the cabin walls and doors): without this the
+	# car -- dynamic, its mask on layer 1 like the player -- was shoved aside by anyone walking up to it
+	for p in get_tree().get_nodes_in_group("player"):
+		if p is PhysicsBody3D:
+			add_collision_exception_with(p)
 	var snd: AudioStreamWAV = load(motor_sound)
 	snd.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	snd.loop_end = snd.data.size() / 2
