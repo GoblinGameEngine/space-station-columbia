@@ -53,6 +53,7 @@ func _ready() -> void:
 	if not FileAccess.file_exists(FLEET) or not FileAccess.file_exists(NpcLife.PATH):
 		return
 	_life = NpcLife.shared()
+	TrafficSigns.load_all()
 	world_seed = _life.seed
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FLEET))
 	vehicles = d.vehicles
@@ -116,6 +117,10 @@ func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 	var gh := _game_h_per_s()
 	var a := _life.door(P, str(last.from))
 	var b := _life.door(P, str(last.to))
+	var dest := b if str(last.to) != "" else home
+	var trip := "%s|%d|%.4f" % [pid, day, float(last.t0)]
+	if (v.get("done", {}) as Dictionary).has(trip):
+		return _parked(dest, v)                                    # driven already (in the traffic, slower than the timetable)
 	var start := float(last.t0) + WALK_S * gh
 	if h < start:
 		return _parked(a if str(last.from) != "" else home, v)
@@ -128,10 +133,14 @@ func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 			var L := NpcPlaces.route_length(r)
 			var t := (h - start) / gh * CAR_SPEED
 			if t < L:
-				return _on_route(r, t, CAR_SPEED)
+				var w := _on_route(r, t, CAR_SPEED)
+				w.trip = trip
+				w.dest = dest
+				w.length = L
+				return w
 		elif h < start + straight / CAR_SPEED * gh:
 			return {}                                              # driving, far away
-	return _parked(b if str(last.to) != "" else home, v)
+	return _parked(dest, v)
 
 
 func _round(v: Dictionary, now: Array) -> Dictionary:
@@ -171,13 +180,20 @@ func _round(v: Dictionary, now: Array) -> Dictionary:
 		var m0: float = marks2[i]
 		var m1: float = marks2[i + 1] if i + 1 < marks2.size() else L
 		if t < DWELL_S:
-			return _on_route(pts2, m0, 0.0)
+			return _round_at(pts2, m0, L, marks2)
 		t -= DWELL_S
 		var run := (m1 - m0) / CAR_SPEED
 		if t < run:
-			return _on_route(pts2, m0 + t * CAR_SPEED, CAR_SPEED)
+			return _round_at(pts2, m0 + t * CAR_SPEED, L, marks2)
 		t -= run
-	return _on_route(pts2, L, 0.0)
+	return _round_at(pts2, L, L, marks2)
+
+
+func _round_at(pts: PackedVector2Array, t: float, L: float, marks: Array) -> Dictionary:
+	var w := _on_route(pts, t, CAR_SPEED)
+	w.loop = L
+	w.marks = marks
+	return w
 
 
 func _near_line(a: Vector2, b: Vector2) -> bool:
@@ -204,7 +220,7 @@ func _on_route(r: PackedVector2Array, t: float, speed: float) -> Dictionary:
 	var dir := Vector2(StationGeo.wrap_ds(q.x - o.x), q.y - o.y)
 	if dir.length() < 0.01:
 		dir = Vector2(1, 0)
-	return {"pos": p, "yaw": atan2(-dir.y, dir.x), "driving": speed > 0.0, "speed": speed, "moving": true}
+	return {"pos": p, "yaw": atan2(-dir.y, dir.x), "driving": speed > 0.0, "speed": speed, "moving": true, "route": r, "t": t}
 
 
 static func _pos_along(r: PackedVector2Array, t: float) -> Vector2:
@@ -308,25 +324,185 @@ func _in_building(q: Vector2, margin: float) -> bool:
 func _process(delta: float) -> void:
 	if player == null or vehicles.is_empty():
 		return
+	var t_us := Time.get_ticks_usec()
 	_here = Vector2(StationGeo.s_of(player.global_position), player.global_position.x)
 	var now := _now()
+	_sense_world()
 	# a slice of the fleet each frame: where each is, and whether it's near
 	for k in mini(SLICE, vehicles.size()):
 		var v: Dictionary = vehicles[_i]
 		_i = (_i + 1) % vehicles.size()
-		if live.has(v.id) and bool(live[v.id].moving):
-			continue                                               # the moving ones are placed every frame below
+		if live.has(v.id) and live[v.id].sim != null:
+			continue                                               # being driven: RoadDriver places it
 		v.where = _locate(v, now)
 		_show(v)
 	for id in live.keys():
 		var e: Dictionary = live[id]
-		if bool(e.moving):
-			var v2: Dictionary = e.v
-			v2.where = _locate(v2, now)
-			_show(v2)
+		if e.sim != null:
+			_drive(e, delta, now)
 		if live.has(id):
 			_animate(live[id], delta)
 	_collect()
+	frame_ms = lerpf(frame_ms, (Time.get_ticks_usec() - t_us) / 1000.0, 0.1)
+
+
+# -- the road users a driver sees ------------------------------------------------------------------
+
+var frame_ms := 0.0                  # how long this takes a frame (smoothed)
+var agents: Array = []               # [{id, p, dir, v, len, kind}] -- moving vehicles, trams, trains, the player
+var peds: Array = []                 # [{id, p}] -- people out of doors near the player
+
+
+static func _flat(xf: Transform3D) -> Array:
+	## A world transform as (s, x) position and heading.
+	var o := xf.origin
+	var s := StationGeo.s_of(o)
+	var f := -xf.basis.z
+	var dir := Vector2(f.dot(StationGeo.forward(s)), f.x)
+	return [Vector2(s, o.x), dir.normalized() if dir.length() > 0.01 else Vector2(1, 0)]
+
+
+func _sense_world() -> void:
+	agents.clear()
+	peds.clear()
+	for id in live:
+		var e: Dictionary = live[id]
+		if e.sim == null:
+			continue                                               # parked: off the carriageway
+		var f := _flat((e.node as Node3D).global_transform)
+		agents.append({"id": id, "p": f[0], "dir": f[1], "v": (e.sim as RoadDriver).v, "len": float(e.len), "kind": "car"})
+	var st := get_tree().current_scene
+	var tr = st.get("transit")
+	if tr != null:
+		for key in tr.live:
+			var tv = tr.live[key]
+			var kind := "tram" if str(tv.line.kind) == "tram" else "train"
+			var sp: float = tv.drv.v if tv.get("drv") != null else 9.0
+			for k in (tv.parts as Array).size():
+				var pt: Array = tv.parts[k]
+				var f := _flat((pt[0] as Node3D).global_transform)
+				var mid := (float(pt[1]) + float(pt[2])) * 0.5
+				agents.append({"id": "%s#%d" % [key, k], "p": (f[0] as Vector2) + (f[1] as Vector2) * mid, "dir": f[1], "v": sp,
+					"len": absf(float(pt[1]) - float(pt[2])) + 0.5, "kind": kind})
+	if player != null:
+		var f := _flat(player.global_transform)
+		var pv := 0.0
+		if player is CharacterBody3D:
+			pv = (player as CharacterBody3D).velocity.length()
+		agents.append({"id": "player", "p": f[0], "dir": f[1], "v": pv, "len": 1.0, "kind": "player"})
+	var pop = st.get("npcs")
+	if pop != null:
+		for pid in pop.live:
+			var n = pop.live[pid].get("npc")
+			if n is Node3D:
+				var o := (n as Node3D).global_position
+				peds.append({"id": pid, "p": Vector2(StationGeo.s_of(o), o.x)})
+
+
+# -- driving ----------------------------------------------------------------------------------------
+
+func _make_sim(v: Dictionary, e: Dictionary, w: Dictionary) -> void:
+	var r: PackedVector2Array = w.route
+	var person: Dictionary = e.get("person", {})
+	if person.is_empty():
+		person = _person(v)
+		e.person = person
+	var s := RoadDriver.new()
+	s.id = v.id
+	if w.has("loop"):
+		var L: float = w.loop
+		var rp := RoadDriver.Path.new(r)
+		s.setup(func(dd): return rp.at(fposmod(dd, L)), float(e.len), person, hash(str(v.id)))
+		e.loop = L
+		e.marks = w.marks
+		e.next_mark = _next_mark(float(w.t), L, w.marks)
+	else:
+		var rp2 := RoadDriver.Path.new(r)
+		s.setup(func(dd): return rp2.at(dd), float(e.len), person, hash(str(v.id)))
+		s.path_len = float(w.get("length", NpcPlaces.route_length(r)))
+		e.trip = w.get("trip", "")
+		e.dest = w.get("dest", Vector2.ZERO)
+		e.loop = 0.0
+	s.t = float(w.t)
+	s.v = CAR_SPEED * 0.8 if float(w.t) > 1.0 else 0.0
+	e.sim = s
+	e.hold = 0.0
+
+
+static func _next_mark(t: float, L: float, marks: Array) -> float:
+	var lap := floorf(t / L) * L
+	for m in marks:
+		if lap + float(m) > t + 0.5:
+			return lap + float(m)
+	return lap + L + (float(marks[0]) if not marks.is_empty() else 0.0)
+
+
+func _drive(e: Dictionary, dt: float, now: Array) -> void:
+	var s: RoadDriver = e.sim
+	var v: Dictionary = e.v
+	# a round's stop at each place, for a while (the timetable's dwell)
+	if float(e.loop) > 0.0:
+		var hours: Array = v.hours
+		var h: float = now[1]
+		if hours.size() == 2 and (h < float(hours[0]) or h >= float(hours[1])):
+			_end_drive(e)
+			return
+		if float(e.hold) > 0.0:
+			e.hold = float(e.hold) - dt
+			s.v_cap = 0.0 if absf(s.lat) > 2.2 else 2.0               # in to the kerb, then stand
+			s.pull_over(float(e.hold) > 0.0)
+		elif s.t >= float(e.next_mark) - 0.5:
+			e.hold = DWELL_S
+			e.next_mark = _next_mark(s.t + 1.0, float(e.loop), e.marks)
+		else:
+			s.v_cap = INF if absf(s.lat) < 0.3 else 3.0              # back out into the lane first
+			s.pull_over(false)
+	s.step(dt, agents, peds, now[2])
+	if float(e.loop) <= 0.0 and s.t >= s.path_len - 0.5:
+		var done: Dictionary = v.get("done", {})
+		done[e.trip] = true
+		v.done = done
+		_end_drive(e)
+		return
+	var p := s.pos_at(s.t)
+	var d := s.dir_at(s.t)
+	var q := p + Vector2(-d.y, d.x) * s.lat
+	if NpcPlaces.dist(q, _here) > RANGE + 30.0:
+		(e.node as Node).queue_free()
+		live.erase(v.id)
+		return
+	(e.node as Node3D).global_transform = Transform3D(StationGeo.basis(q.x, atan2(-d.y, d.x)), StationGeo.point(q.x, q.y, MapTerrain.elevation(q.x, q.y)))
+	e.speed = s.v
+
+
+func _end_drive(e: Dictionary) -> void:
+	e.sim = null
+	e.moving = false
+	e.speed = 0.0
+	if e.driver != null:
+		(e.driver as Node).queue_free()
+		e.driver = null
+	var v: Dictionary = e.v
+	v.where = _locate(v, _now())
+	_show(v)
+
+
+func _person(v: Dictionary) -> Dictionary:
+	## The driver as the generator makes them, to the layer their driving traits live on (L2).
+	var pid := str(v.driver)
+	var pinned := {}
+	var pop := ""
+	if pid != "":
+		var P := _life.person(pid)
+		pinned = {"age": int(P.age), "sex": P.sex, "given_name": P.get("given", ""), "surname": P.get("surname", ""),
+			"lineage": P.get("lineage", ""), "name_heritage": P.get("name_heritage", "")}
+		pop = str(P.get("pop", ""))
+	else:
+		pid = "driver:" + str(v.id)
+		pinned = {"age": 25 + int(abs(hash(pid)) % 35)}
+	var person := NpcTraits.shared().person(world_seed, pid, ["L0", "L1", "L2"], pop, pinned)
+	person["_pid"] = pid
+	return person
 
 
 func _show(v: Dictionary) -> void:
@@ -348,6 +524,8 @@ func _show(v: Dictionary) -> void:
 	node.global_transform = Transform3D(StationGeo.basis(p.x, float(w.yaw)), StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y)))
 	e.speed = float(w.get("speed", 0.0))
 	e.moving = bool(w.get("moving", false))
+	if bool(w.get("moving", false)) and e.sim == null and w.has("route"):
+		_make_sim(v, e, w)
 	var wants_driver := bool(w.get("moving", false))
 	if wants_driver and e.driver == null and e.pending.is_empty():
 		_hire(v, e)
@@ -398,7 +576,9 @@ func _build(v: Dictionary) -> Dictionary:
 		root.add_child(body)
 	for g in m.find_children("*", "GeometryInstance3D", true, false):
 		(g as GeometryInstance3D).visibility_range_end = RANGE + 30.0
-	return {"node": root, "v": v, "wheels": wheels, "seat": seat, "driver": null, "pending": {}, "speed": 0.0, "moving": false, "spin": 0.0}
+	var vlen := box.size.z if not first else 4.8
+	return {"node": root, "v": v, "wheels": wheels, "seat": seat, "driver": null, "pending": {}, "speed": 0.0, "moving": false, "spin": 0.0,
+		"sim": null, "len": vlen, "loop": 0.0, "hold": 0.0}
 
 
 func _animate(e: Dictionary, delta: float) -> void:
@@ -428,7 +608,10 @@ func _hire(v: Dictionary, e: Dictionary) -> void:
 	else:
 		pid = "driver:" + str(v.id)
 		pinned = {"age": 25 + int(abs(hash(pid)) % 35)}
-	var person := NpcTraits.shared().person(world_seed, pid, ["L0", "L1"], pop, pinned)
+	var person: Dictionary = e.get("person", {})
+	if person.is_empty():
+		person = NpcTraits.shared().person(world_seed, pid, ["L0", "L1"], pop, pinned)
+	pid = str(person.get("_pid", pid))
 	var job := {"pid": pid, "data": {}}
 	job.task = WorkerThreadPool.add_task(func(): job.data = NpcCharacter.prepare(person, pid, world_seed, "work"), false, "driver " + pid)
 	e.pending = job
@@ -463,4 +646,4 @@ func stats() -> Dictionary:
 			moving += 1
 		if live[id].driver != null:
 			drivers += 1
-	return {"live": live.size(), "moving": moving, "drivers": drivers}
+	return {"live": live.size(), "moving": moving, "drivers": drivers, "violations": RoadDriver.tally.duplicate()}

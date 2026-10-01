@@ -33,6 +33,7 @@ var _pending: Array = []             # [task, job]
 var _player: StationPlayer
 var _player_seat: Node3D
 var world_seed := 1
+var drv: RoadDriver                  # the operator (trams)
 
 
 static func _scene(path: String) -> PackedScene:
@@ -187,13 +188,40 @@ func _back_along(a: Vector2, s0: float, length: float) -> float:
 	return s
 
 
+func _operate(p_d: float, p_dwelling: bool) -> float:
+	## A tram is driven by its operator under the same rules of the road as everyone (RoadDriver,
+	## professional: they keep every rule), along its line toward the timetable's position p_d --
+	## catching up when held up, never running ahead of it, stopping at its stops. A train keeps to
+	## its timetable on the rails (the road traffic yields to it at the crossings).
+	if str(line.kind) != "tram":
+		return p_d
+	if drv == null:
+		drv = RoadDriver.new()
+		drv.setup(func(dd): return TransitNet.point_at(line, dd), 24.0, {}, hash(name), true)
+		drv.id = "%s#%d" % [line.id, index]
+		drv.t = p_d
+	var sp := float(line.speed)
+	if p_dwelling:
+		drv.v_cap = clampf((p_d - drv.t) * 0.8, 0.0, sp)
+	else:
+		drv.v_cap = clampf(sp + (p_d - drv.t - 2.0) * 0.6, 0.0, sp * 1.3)
+	var tr = get_tree().current_scene.get("traffic")
+	var clock: float = get_parent().clock_seconds() if get_parent().has_method("clock_seconds") else Time.get_ticks_msec() / 1000.0
+	drv.step(get_process_delta_time(), tr.agents if tr != null else [], tr.peds if tr != null else [], clock)
+	return drv.t
+
+
+func stopped() -> bool:
+	return drv == null or drv.v < 0.3
+
+
 func place(p_d: float, p_dwelling: bool, p_stop: int) -> void:
 	## The bodies follow one another like a train of trailers: the front body's lead pivot is on the
 	## line at d; each trail pivot is the point on the line a body length behind its lead, and the next
 	## body leads from there. No joint bends past MAX_BEND, so the bodies never cut into each other.
-	d = p_d
 	dwelling = p_dwelling
 	stop = p_stop
+	d = _operate(p_d, p_dwelling)
 	var a := TransitNet.point_at(line, d)
 	var s_a := d
 	var prev_dir := Vector2.ZERO
@@ -251,11 +279,11 @@ func _process(_delta: float) -> void:
 func _prompt() -> String:
 	if _player:
 		return ""
-	return ("Board the %s" % line.name) if dwelling else ""
+	return ("Board the %s" % line.name) if dwelling and stopped() else ""
 
 
 func _use(by: Node) -> String:
-	if not (by is StationPlayer) or _player or not dwelling:
+	if not (by is StationPlayer) or _player or not dwelling or not stopped():
 		return ""
 	var taken := {}
 	for r in riders:
@@ -275,7 +303,7 @@ func leave_seat() -> void:
 	## Off at a stop; between stops the doors stay shut.
 	if _player == null:
 		return
-	if not dwelling:
+	if not dwelling or not stopped():
 		var hud := get_tree().root.get_node_or_null("Hud")
 		if hud and hud.has_method("toast"):
 			hud.toast("The doors open at the next stop.")

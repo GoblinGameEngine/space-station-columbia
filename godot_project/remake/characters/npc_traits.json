@@ -367,6 +367,67 @@
 
   {"id": "relationships", "layer": "L3", "group": "life", "type": "rule",
    "choose": {"rule": "relationships", "note": "household members, plus deterministic friends and rivals among nearby residents"},
-   "affects": ["dialogue", "knowledge", "quests"]}
+   "affects": ["dialogue", "knowledge", "quests"]},
+
+  {"id": "self_control", "layer": "L2", "group": "conduct", "type": "float",
+   "choose": {"derive": "clamp(0.12 + 0.5 * personality.conscientiousness + 0.15 * personality.agreeableness + 0.15 * (1.0 - personality.neuroticism) + 0.004 * min(40.0, max(0.0, age - 16.0)) + iff(sex == 'male', -0.05, 0.0) + rand_normal(0.0, 0.08), 0.0, 1.0)"},
+   "note": "Gottfredson & Hirschi's self-control: mostly conscientiousness, with agreeableness and calm; it grows through the twenties and thirties; men a little lower (research/traffic/03).",
+   "depends_on": ["personality", "age", "sex"], "affects": ["deviance", "dialogue", "reactions"]},
+
+  {"id": "sensation_seeking", "layer": "L2", "group": "conduct", "type": "float",
+   "choose": {"derive": "clamp(0.5 + 0.3 * (personality.openness - 0.5) + 0.25 * (personality.extraversion - 0.5) + iff(sex == 'male', 0.08, -0.06) - 0.009 * (min(80.0, max(14.0, age)) - 30.0) + rand_normal(0.0, 0.12), 0.0, 1.0)"},
+   "note": "Zuckerman's sensation seeking: higher in men, declining steeply with age (Ball et al. 1984); r = 0.30-0.40 with risky driving (Jonah 1997).",
+   "depends_on": ["personality", "age", "sex"], "affects": ["deviance", "driving", "preferences"]},
+
+  {"id": "driving_anger", "layer": "L2", "group": "conduct", "type": "float",
+   "choose": {"derive": "clamp(0.35 + 0.35 * (personality.neuroticism - 0.5) - 0.3 * (personality.agreeableness - 0.5) - 0.004 * (min(80.0, max(16.0, age)) - 30.0) + rand_normal(0.0, 0.1), 0.0, 1.0)"},
+   "note": "Deffenbacher's driving anger: neuroticism and low agreeableness; among men it falls with age (Lajunen & Parker 2001).",
+   "depends_on": ["personality", "age"], "affects": ["deviance", "driving", "reactions"]},
+
+  {"id": "deviance", "layer": "L2", "group": "conduct", "type": "float",
+   "choose": {"derive": "clamp(0.62 * (1.0 - self_control) + 0.25 * sensation_seeking + 0.15 * driving_anger + 0.12 * (0.5 - personality.honesty) - 0.2 + rand_normal(0.0, 0.05), 0.0, 1.0)"},
+   "note": "The common factor behind risky driving and crime (Junger, West & Timman 2001): low self-control, sensation seeking, anger, low honesty. Drives every drive_* trait and the record.",
+   "depends_on": ["self_control", "sensation_seeking", "driving_anger", "personality"], "affects": ["drive_*", "record", "dialogue"]},
+
+  {"id": "drive_speeding", "layer": "L2", "group": "driving", "type": "float",
+   "choose": {"derive": "clamp(0.83 * (0.065 + 0.3 * (deviance - 0.17) + 0.1 * (sensation_seeking - 0.45)) + rand_normal(0.0, 0.065), -0.06, 0.4)"},
+   "note": "Habitual speed above the posted limit (fraction). Calibrated so ~25% are speeders (>= +10%), ~40% sometime (+3..10%), ~35% at or under (NHTSA 2011: 30/40/30, x 0.83 for Ohio, NHTSA 2022); half of 16-20s are speeders, 15% of 65+.",
+   "depends_on": ["deviance", "sensation_seeking"], "affects": ["NpcTraffic"]},
+
+  {"id": "drive_full_stop", "layer": "L2", "group": "driving", "type": "float",
+   "choose": {"derive": "clamp(0.27 - 1.3 * (deviance - 0.17) + rand_normal(0.0, 0.18), 0.02, 0.98)"},
+   "note": "Chance of a complete stop at a stop sign with nobody about; ~0.27 on average (22.8 per 100 vehicles, DeVeauuse et al. 1999). People present raise it (53 per 100 with pedestrians).",
+   "depends_on": ["deviance"], "affects": ["NpcTraffic"]},
+
+  {"id": "drive_headway", "layer": "L2", "group": "driving", "type": "float", "unit": "s",
+   "choose": {"derive": "clamp(1.45 - 0.9 * (driving_anger - 0.35) - 0.6 * (sensation_seeking - 0.45) + rand_normal(0.0, 0.38), 0.6, 3.0)"},
+   "note": "Time gap kept to the vehicle ahead (ORC 4511.34); under 1 s is tailgating (~10%; estimate, research/traffic/02).",
+   "depends_on": ["driving_anger", "sensation_seeking"], "affects": ["NpcTraffic"]},
+
+  {"id": "drive_pass_right", "layer": "L2", "group": "driving", "type": "float",
+   "choose": {"derive": "clamp(0.06 + 0.6 * max(0.0, deviance - 0.15) + 0.25 * max(0.0, driving_anger - 0.45) + rand_normal(0.0, 0.03), 0.0, 0.8)"},
+   "note": "Chance, when held up behind a stopped vehicle, of passing it on the right where ORC 4511.28 forbids it (estimate: ~10% of chances).",
+   "depends_on": ["deviance", "driving_anger"], "affects": ["NpcTraffic"]},
+
+  {"id": "drive_red_light", "layer": "L2", "group": "driving", "type": "float",
+   "choose": {"derive": "clamp(0.02 + 0.3 * max(0.0, deviance - 0.2) + 0.1 * max(0.0, sensation_seeking - 0.55) + rand_normal(0.0, 0.015), 0.0, 0.6)"},
+   "note": "Chance of going on through a yellow it could stop for, or a fresh red (red-light runners: young, male, prior violations; Retting et al. 1999).",
+   "depends_on": ["deviance", "sensation_seeking"], "affects": ["NpcTraffic"]},
+
+  {"id": "drive_yield_peds", "layer": "L2", "group": "driving", "type": "float",
+   "choose": {"derive": "clamp(0.53 - 1.0 * (deviance - 0.17) + rand_normal(0.0, 0.18), 0.05, 1.0)"},
+   "note": "Chance of stopping for a person about to cross (ORC 4511.46); ~0.53 on average (53 per 100 vehicles stopped for pedestrians present, DeVeauuse et al. 1999). Nobody drives into a person in the road.",
+   "depends_on": ["deviance"], "affects": ["NpcTraffic"]},
+
+  {"id": "drive_cross_solid", "layer": "L2", "group": "driving", "type": "float",
+   "choose": {"derive": "clamp(0.01 + 0.35 * max(0.0, deviance - 0.25) + 0.2 * max(0.0, driving_anger - 0.5) + rand_normal(0.0, 0.01), 0.0, 0.6)"},
+   "note": "Chance of overtaking a slow vehicle across a double yellow line (ORC 4511.31) when held up.",
+   "depends_on": ["deviance", "driving_anger"], "affects": ["NpcTraffic"]},
+
+  {"id": "record", "layer": "L2", "group": "conduct", "type": "tags",
+   "values": ["traffic_tickets", "felony", "violent", "property", "vandalism", "drug", "dui"],
+   "choose": {"each": {"traffic_tickets": "iff(age > 16, min(0.9, 0.11 * exp(6.2 * (deviance - 0.17))), 0.0)", "felony": "iff(age > 17, min(0.9, 0.084 * exp(4.0 * (deviance - 0.17)) * min(1.0, (age - 17.0) / 15.0)), 0.0)", "violent": "iff(age > 15, min(0.8, 0.0258 * exp(4.3 * (deviance - 0.17)) * iff(sex == 'male', 1.6, 0.4)), 0.0)", "property": "iff(age > 13, min(0.8, 0.0487 * exp(1.85 * (deviance - 0.17))), 0.0)", "vandalism": "iff(age > 12, min(0.8, 0.0217 * exp(4.2 * (deviance - 0.17))), 0.0)", "drug": "iff(age > 15, min(0.8, 0.0351 * exp(4.0 * (deviance - 0.17)) * iff('cannabis' in addictions or 'opioids' in addictions or 'stimulants' in addictions, 2.5, 1.0)), 0.0)", "dui": "iff(age > 17, min(0.8, 0.0263 * exp(4.0 * (deviance - 0.17)) * iff('alcohol' in addictions, 3.0, 1.0)), 0.0)"}},
+   "note": "What's on file. Base rates: felony 8% of adults (Shannon, Uggen & Schnittker 2017); traffic tickets in recent years ~17% (NHTSA 2011: 9% stopped a year, 68% ticketed). The others are estimates. Deviance scales the odds as Junger et al. (2001) found for risky drivers: traffic x5.3, violent x2.6, vandalism x2.5, property x1.5 (research/traffic/03).",
+   "depends_on": ["deviance", "age", "sex", "addictions"], "affects": ["dialogue", "reactions", "story"]}
  ]
 }
