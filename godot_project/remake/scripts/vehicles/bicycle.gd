@@ -10,7 +10,7 @@ class_name RemakeBicycle
 ## The player rides it in person: their body (a generated character, the same for the whole game)
 ## sits on the saddle with feet on the pedals and hands on the grips (NpcAnimator.ride, as NPC
 ## cyclists do), and the view is from that body's eyes, so looking down you see yourself pedal. It has
-## no head: nobody but the player ever sees it.
+## no head or neck: nobody but the player ever sees it.
 
 const MODEL := "res://remake/vehicles/bicycle.glb"
 const GEAR := 2.2
@@ -121,13 +121,13 @@ func take_seat(p: StationPlayer) -> void:
 
 
 func _headless() -> void:
-	## The player never sees their own head (a single-player game: the body exists only for them):
-	## the Head bone is collapsed, and the hair, eyes and hat skinned to it with it.
+	## The player never sees their own head or neck (a single-player game: the body exists only for
+	## them): the Neck bone is collapsed, and the head, hair, eyes, hat and collar skinned to it with it.
 	var sk := _rider.find_child("Skeleton*", true, false) as Skeleton3D if _rider else null
 	if sk:
-		var hi := sk.find_bone("Head")
-		if hi >= 0:
-			sk.set_bone_pose_scale(hi, Vector3.ONE * 0.001)
+		var ni := sk.find_bone("Neck")
+		if ni >= 0:
+			sk.set_bone_pose_scale(ni, Vector3.ONE * 0.001)
 
 
 func leave_seat() -> void:
@@ -155,18 +155,20 @@ func _rider_pose() -> Dictionary:
 
 func pilot_transform() -> Transform3D:
 	## The view from the rider's own eyes: the player's body is placed so its camera sits where the
-	## generated body's eyes would be (its head is collapsed, _headless()).
+	## generated body's eyes would be (its neck and head are collapsed, _headless()).
 	if _rider == null or pilot == null:
 		return super()
 	var sk := _rider.find_child("Skeleton*", true, false) as Skeleton3D
 	if sk == null:
 		return super()
+	var ni := sk.find_bone("Neck")
 	var hi := sk.find_bone("Head")
-	if hi < 0:
+	if ni < 0 or hi < 0:
 		return super()
 	var b := global_transform.basis
-	var hx := sk.global_transform * sk.get_bone_global_pose(hi)
-	var eye := hx.origin + hx.basis.orthonormalized() * Vector3(0, 0.1, -0.08)    # where the eyes were (the head is gone)
+	# where the eyes would be: up the (collapsed) neck to the head, then to the eyes, a little forward
+	var nx := sk.global_transform * sk.get_bone_global_pose(ni)
+	var eye := nx.origin + nx.basis.orthonormalized() * (sk.get_bone_rest(hi).origin + Vector3(0, 0.1, -0.12))
 	var off := pilot.global_transform.affine_inverse() * pilot.camera.global_position
 	return Transform3D(b, eye - b * off)
 
