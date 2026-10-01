@@ -133,6 +133,10 @@ func _ready() -> void:
 	transit.player = player
 	add_child(transit)
 	_mark("transit")
+	traffic = NpcTraffic.new()
+	traffic.player = player
+	add_child(traffic)
+	_mark("traffic")
 	_watch_load()
 
 
@@ -263,6 +267,7 @@ func _place_ground_vehicles() -> void:
 
 var _cars_done := false
 var transit: TransitSystem
+var traffic: NpcTraffic
 
 
 func _place_bicycles() -> void:

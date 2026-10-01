@@ -244,17 +244,18 @@ static var _routes := {}         # "from>to" -> route (the same trips recur ever
 const BIKE_EDGE := -0.9          # cyclists ride inside the road, this far from its edge
 
 
-static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_door := Vector2.INF, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF) -> PackedVector2Array:
+static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_door := Vector2.INF, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF, lane := -1.0) -> PackedVector2Array:
 	## Door to door along the streets, on the right-hand side: the pavement (edge = PAVEMENT beyond the
 	## road's edge) or, for cyclists, the road itself (edge = BIKE_EDGE). Straight across if either
 	## door has no street within reach, or the network doesn't join them. classes: joined at the nearest
 	## road of these terrain classes and kept to them and the `via_cls` classes (trams: stops on streets,
 	## along gravel roads too, never alleys).
 	## ahead_of: set off away from this point (a vehicle that doesn't turn round where it stands).
-	var key := "%s>%s>%.1f>%s>%s>%s" % [from_b, to_b, edge, ",".join(classes), ",".join(via_cls), str(ahead_of)]
+	## lane >= 0: keep this far right of the centre line on every road (drivers) instead of `edge`.
+	var key := "%s>%s>%.1f>%s>%s>%s>%.1f" % [from_b, to_b, edge, ",".join(classes), ",".join(via_cls), str(ahead_of), lane]
 	if from_door == Vector2.INF and to_door == Vector2.INF and _routes.has(key):
 		return _routes[key]
-	var r := _route(from_b, to_b, from_door, to_door, edge, classes, via_cls, ahead_of)
+	var r := _route(from_b, to_b, from_door, to_door, edge, classes, via_cls, ahead_of, lane)
 	if from_door == Vector2.INF and to_door == Vector2.INF:
 		if _routes.size() > 512:
 			_routes.clear()
@@ -298,7 +299,7 @@ static func _attach_on(p: Vector2, classes: Array) -> Array:
 	return out
 
 
-static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Vector2, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF) -> PackedVector2Array:
+static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Vector2, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF, lane := -1.0) -> PackedVector2Array:
 	load_all()
 	var d0 := from_door if from_door != Vector2.INF else door_of(from_b)
 	var d1 := to_door if to_door != Vector2.INF else door_of(to_b)
@@ -403,7 +404,7 @@ static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Ve
 			centre.append(tail[i])
 	# the pavement: offset to the right of the way of travel by half the road and a step
 	var out := PackedVector2Array([d0])
-	var w0 := float(_road(int(e0[2])).w) * 0.5 + edge
+	var w0 := lane if lane >= 0.0 else float(_road(int(e0[2])).w) * 0.5 + edge
 	for i in centre.size():
 		var a := centre[maxi(i - 1, 0)]
 		var b := centre[mini(i + 1, centre.size() - 1)]
