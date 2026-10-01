@@ -31,7 +31,12 @@ static var decks: Array = []         # every great bridge's line (the spans), fo
 var spans := []                      # each bridge's line, for tests: {id, name, o (s, x), dir, len, hw, rail}
 
 
-func setup() -> void:
+const NEAR_R := 1500.0
+
+
+func setup(near := Vector3.INF) -> void:
+	## Builds the bridges within NEAR_R of `near` now, the rest one a frame from the next frame on
+	## (a bridge is ~0.3 s of building: eleven of them at once held up the load).
 	decks.clear()
 	if not FileAccess.file_exists("res://remake/bridges.json"):
 		return
@@ -44,8 +49,23 @@ func setup() -> void:
 	_mats["ballast"] = _tex_mat("lib/gravel", 1.0)
 	_mats["rail"] = _solid(Color(0.35, 0.3, 0.28))
 	_mats["glass"] = _solid(Color(0.55, 0.75, 0.95), true)
+	var later: Array = []
 	for br in d.bridges:
-		_build(br)
+		var e: Array = br.ends
+		var c := StationGeo.point(float(e[0][0]), float(e[0][1]), 0.0)
+		if near == Vector3.INF or c.distance_to(near) < NEAR_R:
+			_build(br)
+		else:
+			later.append(br)
+	if not later.is_empty():
+		_build_later(later)
+
+
+func _build_later(list: Array) -> void:
+	for br in list:
+		await get_tree().process_frame
+		if is_inside_tree():
+			_build(br)
 
 
 func _tex_mat(path: String, _t: float) -> StandardMaterial3D:

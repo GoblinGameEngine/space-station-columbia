@@ -13,6 +13,7 @@ const DOOR_HW := 0.62
 
 
 func _init() -> void:
+	spec = "city_car"
 	max_speed = 75.0 / 3.6               # 75 km/h
 	reverse_speed = 4.0
 	accel = 3.0

@@ -298,6 +298,79 @@ func _signal(sig: Dictionary) -> void:
 			_face(at, head + up * (0.3 - 0.3 * k) - b.z * 0.15, b, Vector2(0.22, 0.22), LAMP_OFF)
 
 
+# ------------------------------------------------------------------ knocked down
+var _removed := {}                   # sign indices no longer standing
+
+
+func _cell_of(s: float, x: float) -> Vector2i:
+	return Vector2i(floori(fposmod(s, StationGeo.CIRC) / CELL), floori(x / CELL))
+
+
+func remove_sign(i: int) -> void:
+	## A sign knocked down: its cell's meshes are built again without it.
+	var signs: Array = _d.get("signs", [])
+	if i < 0 or i >= signs.size() or _removed.has(i):
+		return
+	_removed[i] = true
+	var cell := _cell_of(float(signs[i].s), float(signs[i].x))
+	_cells.clear()
+	for k in signs.size():
+		if not _removed.has(k) and _cell_of(float(signs[k].s), float(signs[k].x)) == cell:
+			_sign(signs[k])
+	for xg in _d.get("xings", []):
+		if _cell_of(float(xg.s), float(xg.x)) == cell:
+			_xing(xg)
+	for sig in _d.get("signals", []):
+		if _cell_of(float(sig.s), float(sig.x)) == cell:
+			_signal(sig)
+	for mat in ["post", "atlas"]:
+		var old := get_node_or_null("furniture_%d_%d_%s" % [cell.x, cell.y, mat])
+		if old:
+			old.free()
+	var built: Dictionary = _cells.duplicate()
+	_cells.clear()
+	for key in built:
+		if (key as Array)[0] != cell:
+			continue
+		var arr := (built[key] as SurfaceTool).commit_to_arrays()
+		if arr[Mesh.ARRAY_VERTEX] != null and (arr[Mesh.ARRAY_VERTEX] as PackedVector3Array).size() > 0:
+			_out.append([key, arr])
+	var labels := _labels
+	_labels = []
+	_commit()
+	_labels = labels
+
+
+func sign_mesh(i: int) -> Array:
+	## [ArrayMesh in the sign's own frame, its base transform]: the sign alone, to put on a body.
+	var signs: Array = _d.get("signs", [])
+	var sg: Dictionary = signs[i]
+	var s: float = sg.s
+	var x: float = sg.x
+	var xf := Transform3D(StationGeo.basis(s, float(sg.yaw)), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
+	var inv := xf.affine_inverse()
+	_cells.clear()
+	_sign(sg)
+	var mesh := ArrayMesh.new()
+	for key in _cells:
+		var arr := (_cells[key] as SurfaceTool).commit_to_arrays()
+		var vs: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		if vs == null or vs.size() == 0:
+			continue
+		var ns: PackedVector3Array = arr[Mesh.ARRAY_NORMAL]
+		for k in vs.size():
+			vs[k] = inv * vs[k]
+			if ns != null and k < ns.size():
+				ns[k] = inv.basis * ns[k]
+		arr[Mesh.ARRAY_VERTEX] = vs
+		if ns != null:
+			arr[Mesh.ARRAY_NORMAL] = ns
+		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+		mesh.surface_set_material(mesh.get_surface_count() - 1, _mats[(key as Array)[1]])
+	_cells.clear()
+	return [mesh, xf]
+
+
 func _commit() -> void:
 	for job in _out:
 		var key: Array = job[0]

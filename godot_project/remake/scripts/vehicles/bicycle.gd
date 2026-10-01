@@ -29,6 +29,10 @@ var _grips := {}
 
 
 func _init() -> void:
+	spec = "bicycle"
+	self_balance = true
+	ride_hz = 2.5
+	travel = 0.05
 	max_speed = 25.0 / 3.6
 	reverse_speed = 0.8               # walking it backwards
 	accel = 1.3

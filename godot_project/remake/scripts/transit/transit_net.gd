@@ -33,9 +33,27 @@ static var loops: Array = []          # the trolley lanes: each turning loop's p
 static var _sites: Array = []         # buildings as [centre (s, x), radius] for placing the loops
 
 
+const CACHE := "user://transit_lines.bin"
+const CACHE_VERSION := 3
+
+
 static func lines() -> Array:
+	## Built once and kept (user://): the routes are a pure function of the map and places data, so
+	## a launch reads them back unless that data has changed (the stamp).
 	if _lines.is_empty():
+		var stamp := BakedMeshes.fingerprint(["res://remake/characters/npc_paths.json", "res://remake/characters/npc_place_index.json",
+			"res://remake/terrain.json", "res://remake/placement.json", "res://remake/scripts/transit/transit_net.gd"], CACHE_VERSION)
+		if FileAccess.file_exists(CACHE):
+			var f := FileAccess.open(CACHE, FileAccess.READ)
+			var d = f.get_var()
+			if d is Dictionary and d.get("stamp", "") == stamp:
+				_lines = d.lines
+				loops = d.loops
+				return _lines
 		_build()
+		var w := FileAccess.open(CACHE, FileAccess.WRITE)
+		if w:
+			w.store_var({"stamp": stamp, "lines": _lines, "loops": loops})
 	return _lines
 
 

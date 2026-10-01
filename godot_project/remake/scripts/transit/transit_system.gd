@@ -88,7 +88,7 @@ func hour() -> float:
 
 
 func _process(delta: float) -> void:
-	if player == null:
+	if player == null or StationGeo.loading:
 		return
 	var T := clock_seconds()
 	var h := hour()

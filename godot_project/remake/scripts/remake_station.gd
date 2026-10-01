@@ -14,6 +14,7 @@ class_name RemakeStation
 
 const STATION_PLAYER_SCENE := preload("res://scenes/StationPlayer.tscn")
 const WALL_TILE := 6.0
+const AEROSTAT_BALLOON_Y := 5.47        # the balloon centre above an aerostat's base (aerostat.py: H + 0.62 + BALLOON_R)
 
 static var SETTLEMENTS: Array = []            # [] = the whole map
 static var SPAWN_S := 2370.0                  # Harrow Falls, Main Street (the expanded map)
@@ -81,7 +82,7 @@ func _ready() -> void:
 	var bridges := GreatBridges.new()
 	bridges.name = "GreatBridges"
 	add_child(bridges)
-	bridges.setup()
+	bridges.setup(player.global_position if player else Vector3.INF)
 	_mark("great bridges")
 	var cliffs := CliffWalls.new()
 	cliffs.name = "CliffWalls"
@@ -137,6 +138,14 @@ func _ready() -> void:
 	traffic.player = player
 	add_child(traffic)
 	_mark("traffic")
+	var grav := StationGravity.new()
+	grav.player = player
+	add_child(grav)
+	var signs := SignPhysics.new()
+	signs.name = "SignPhysics"
+	signs.player = player
+	signs.furniture = furniture
+	add_child(signs)
 	_watch_load()
 
 
@@ -243,25 +252,22 @@ func _hide_splash() -> void:
 func _place_ground_vehicles() -> void:
 	## The pods and vans, parked where remake/tools/place_ground_vehicles.gd put them
 	## (remake/groundcars.json): kerbside in every town, a van at every farm without an aerostat.
+	## Records only; a VehicleStreamer builds the ones near the player.
 	if not FileAccess.file_exists("res://remake/groundcars.json"):
 		_cars_done = true
 		return
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json"))
-	var root := Node3D.new()
+	var root := VehicleStreamer.new()
 	root.name = "GroundVehicles"
+	root.player = player
 	add_child(root)
-	var t0 := Time.get_ticks_usec()
 	for a in d.groundcars:
 		var s: float = a.s
 		var x: float = a.x
-		var v: RemakeGroundVehicle = RemakeVan.new() if a.kind == "van" else RemakePod.new()
-		v.name = a.id
-		root.add_child(v)
-		v.global_transform = Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
-		if Time.get_ticks_usec() - t0 > 4000:
-			await get_tree().process_frame
-			t0 = Time.get_ticks_usec()
-	print("RemakeStation: %d ground vehicles parked" % d.groundcars.size())
+		var mk := (func(): return RemakeVan.new()) if a.kind == "van" else (func(): return RemakePod.new())
+		root.add(str(a.id), mk, Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x))))
+	root.build_near(player.global_position)
+	print("RemakeStation: %d ground vehicles parked (%d built near the player)" % [d.groundcars.size(), root.live_count()])
 	_cars_done = true
 
 
@@ -281,8 +287,11 @@ func _place_bicycles() -> void:
 	var by_id := {}
 	for b in st.structures:
 		by_id[b.id] = b
-	var root := Node3D.new()
+	var root := VehicleStreamer.new()
 	root.name = "Bicycles"
+	root.player = player
+	root.near = 120.0
+	root.far = 160.0
 	add_child(root)
 	var n := 0
 	var t0 := Time.get_ticks_usec()
@@ -304,38 +313,47 @@ func _place_bicycles() -> void:
 		var right := Vector2(sin(yaw), cos(yaw))
 		var side := 1.0 if NpcRng.for_trait(life.seed, str(home), "bike_side").rand() < 0.5 else -1.0
 		var p := door + right * side * 1.3 - front * 0.45
-		var bike := RemakeBicycle.new()
-		bike.name = "Bike_%s" % str(home).replace("/", "_")
-		root.add_child(bike)
 		# parallel to the facade, leaning on its kickstand
 		var heading := atan2(-right.y * side, right.x * side)
-		bike.global_transform = Transform3D(StationGeo.basis(p.x, heading), StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y)))
+		root.add("Bike_%s" % str(home).replace("/", "_"), func(): return RemakeBicycle.new(),
+			Transform3D(StationGeo.basis(p.x, heading), StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y))))
 		n += 1
 		if Time.get_ticks_usec() - t0 > 4000:
 			await get_tree().process_frame
 			t0 = Time.get_ticks_usec()
-	print("RemakeStation: %d bicycles parked" % n)
+	root.build_near(player.global_position)
+	print("RemakeStation: %d bicycles parked (%d built near the player)" % [n, root.live_count()])
 
 
 func _place_aerostats() -> void:
 	## The aerostats, where remake/tools/place_aerostats.gd parked them (remake/aerostats.json):
-	## some in every town by its size, one at every other farmstead.  One per frame.
+	## some in every town by its size, one at every other farmstead. Records; built within 700 m of
+	## the player, and further off (across the ring, overhead) only their balloons, as impostors.
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/aerostats.json"))
-	var root := Node3D.new()
+	var root := VehicleStreamer.new()
 	root.name = "Aerostats"
+	root.player = player
+	root.near = 700.0
+	root.far = 800.0
+	root.slice = 20
+	var bal := SphereMesh.new()
+	bal.radius = 2.4
+	bal.height = 4.8
+	bal.radial_segments = 16
+	bal.rings = 8
+	var fab := StandardMaterial3D.new()
+	fab.albedo_color = Color(0.93, 0.92, 0.88)
+	fab.roughness = 0.8
+	bal.material = fab
+	root.impostor = bal
+	root.impostor_lift = Vector3(0, AEROSTAT_BALLOON_Y, 0)
 	add_child(root)
-	var t0 := Time.get_ticks_usec()
 	for a in d.aerostats:
 		var s: float = a.s
 		var x: float = a.x
-		var v := RemakeAerostat.new()
-		v.name = a.id
-		root.add_child(v)
-		v.global_transform = Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
-		if Time.get_ticks_usec() - t0 > 4000:
-			await get_tree().process_frame
-			t0 = Time.get_ticks_usec()
-	print("RemakeStation: %d aerostats parked" % d.aerostats.size())
+		root.add(str(a.id), func(): return RemakeAerostat.new(), Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x))))
+	root.build_near(player.global_position)
+	print("RemakeStation: %d aerostats parked (%d built near the player)" % [d.aerostats.size(), root.live_count()])
 	_aero_done = true
 
 

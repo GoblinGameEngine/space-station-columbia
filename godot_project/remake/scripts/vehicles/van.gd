@@ -13,6 +13,7 @@ const DOOR_HW := 0.55
 
 
 func _init() -> void:
+	spec = "minivan"
 	max_speed = 100.0 / 3.6              # 100 km/h
 	reverse_speed = 4.0
 	accel = 3.0

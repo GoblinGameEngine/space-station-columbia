@@ -13,12 +13,15 @@ class_name RemakeGroundVehicle
 ##   move_left / move_right     steer (less lock the faster it goes)
 ##   jump                       the brake        interact   leave the driver's seat
 ##
-## Driving is kinematic, on the station's curved floor: each tick it turns by the bicycle model
-## (yaw rate = speed x tan(steer) / wheelbase), sweeps its hull along the ground's tangent (lifted
-## CLEAR m so kerbs and slopes don't snag it; buildings and walls stop it), then finds the ground
-## under each wheel -- a ray down (roads, bridge decks, the terrain near the player), MapTerrain
-## where no collision is built yet -- and sits on it: the four contacts set its height, pitch and
-## roll; over a drop it falls.  It won't drive into water deeper than WADE m.
+## Driving is physical (research/physics/vehicle_dynamics.md): a rigid body of the vehicle type's mass
+## (npc_vehicles.json "phys": mass, motor power and torque, gear, drive, drag), under the station's
+## gravity, carried on a spring-damper at each wheel (a ray to the ground, plus the surface's ISO 8608
+## bumps), gripping by its tyres (a simplified Pacejka curve within the friction circle, the surface's
+## mu and rolling resistance), driven by an electric motor (peak torque up to its base speed, then
+## peak power), slowed by drag. Collisions are the physics engine's, mass against mass; their
+## delta-V makes the crash sound and the damage (RCAR thresholds). On top, for play (GTA's balance,
+## not a simulator's): extra grip, yaw stability, anti-roll, traction control, a handbrake that lets
+## the back step out, a little air control, and it rights itself when left on its roof.
 
 @export var wheelbase := 2.6
 @export var track := 1.6
@@ -27,12 +30,21 @@ class_name RemakeGroundVehicle
 @export var steer_rate := 1.6        # rad/s
 @export var coast := 0.8             # m/s^2 rolling to a stop
 @export var motor_sound := "res://remake/audio/car_motor.wav"
+@export var spec := "city_car"       # the vehicle type (npc_vehicles.json) whose mass, motor and drag it has
+@export var ride_hz := 1.4           # the suspension's natural frequency (cars 1.2-1.6, trucks ~2)
+@export var ride_damping := 0.38     # damping ratio
+@export var travel := 0.16           # m of bump travel from the resting ride height
+@export var self_balance := false    # two wheels: it holds itself up (a rider balancing) until a hard crash
 
 const CLEAR := 0.5                   # the hull's box starts this far above the ground (kerbs and slopes pass under it)
 const RAMP_LAYER := 1 << 4           # the boarding ramps: only people collide with it (StationPlayer's mask)
 const HULL_LAYER := 1 << 8           # the swept hull's own layer: vehicles see it, people don't (they're inside it)
 const WADE := 0.45
-const STEP := 0.4                    # the most a wheel climbs in one go (a kerb); more is a wall
+const STEP := 0.4                    # (old kinematic drive) the most a wheel climbs in one go
+const GRIP := 1.15                   # play: a little more grip than real tyres
+const RAY_UP := 0.45                 # the suspension ray starts this far above the hub
+const PED_LAYER := 1 << 9            # people's bodies (vehicles collide with them)
+static var _specs := {}
 
 @export var hull_size := Vector3(1.9, 1.9, 4.0)   # the one box swept against the world (its bottom at CLEAR)
 
@@ -47,6 +59,16 @@ var _motor: AudioStreamPlayer3D
 var _ramps: StaticBody3D
 var _cabin: StaticBody3D             # the walls, floor, seats and roof people walk among (not swept)
 var blocked_by := ""                 # what last stopped it (remake/tools/drive_test.gd reads it)
+var phys := {}                       # mass_kg, power_kw, torque_nm, gear, wheel_r, top_kmh, drive, cda
+var damage := 0.0                    # 0..1: structural damage (RCAR thresholds, energy-scaled)
+var surface := "street"              # under the front wheels
+var _comp: Array = []                # each wheel's last suspension compression
+var _grounded := 0
+var _v_prev := Vector3.ZERO
+var _f_sum := Vector3.ZERO           # the forces this vehicle applied itself last tick (for delta-V)
+var _flip_t := 0.0
+var _handbrake := false
+var drive_input := {}                # {throttle -1..1, steer -1..1, handbrake}: overrides the pilot's controls
 
 
 func add_box(size: Vector3, at: Vector3, roll := 0.0) -> void:
@@ -75,7 +97,23 @@ func _ready() -> void:
 	hull.position = Vector3(0, CLEAR + hull_size.y * 0.5, 0)
 	add_child(hull)
 	collision_layer = HULL_LAYER
-	collision_mask = 1 | HULL_LAYER
+	collision_mask = 1 | HULL_LAYER | PED_LAYER
+	_load_spec()
+	mass = float(phys.mass_kg)
+	gravity_scale = 0.0                                # the station's gravity, applied by hand
+	center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	center_of_mass = Vector3(0, CLEAR * 0.6, 0)        # low, for play (a GTA car keeps its feet)
+	contact_monitor = true
+	max_contacts_reported = 6
+	continuous_cd = true
+	can_sleep = true
+	linear_damp_mode = RigidBody3D.DAMP_MODE_REPLACE
+	linear_damp = 0.0
+	angular_damp_mode = RigidBody3D.DAMP_MODE_REPLACE
+	angular_damp = 0.3
+	freeze = false
+	for ch in find_children("*", "PhysicsBody3D", true, false):
+		add_collision_exception_with(ch)               # its own doors, seat, cabin walls and ramps
 	var snd: AudioStreamWAV = load(motor_sound)
 	snd.loop_mode = AudioStreamWAV.LOOP_FORWARD
 	snd.loop_end = snd.data.size() / 2
@@ -135,8 +173,40 @@ func _excluded() -> Array[RID]:
 
 
 # ------------------------------------------------------------------ driving
+func take_seat(p: StationPlayer) -> void:
+	super(p)
+	if pilot:
+		mass = float(phys.get("mass_kg", 1500)) + 80.0   # the driver's weight
+		sleeping = false
+
+
+func leave_seat() -> void:
+	super()
+	mass = float(phys.get("mass_kg", 1500))
+
+
+func knock(by: Node, v_by: Vector3, m_by: float) -> void:
+	## Hit by another moving body: it's already dynamic, the physics engine shares the momentum.
+	sleeping = false
+
+
+func _load_spec() -> void:
+	if _specs.is_empty():
+		var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/characters/npc_vehicles.json"))
+		for k in d.vehicles:
+			_specs[k] = d.vehicles[k].get("phys", {})
+	phys = (_specs.get(spec, {}) as Dictionary).duplicate()
+	if phys.is_empty():
+		phys = {"mass_kg": 1500, "power_kw": 120, "torque_nm": 300, "gear": 10.0, "wheel_r": wheel_r, "top_kmh": 160, "drive": "RWD", "cda": 0.6}
+
+
 func _physics_process(delta: float) -> void:
-	if pilot == null and absf(_speed) < 0.01 and _riders.is_empty() and _vy == 0.0:
+	var b := global_transform.basis
+	var s := StationGeo.s_of(global_position)
+	var up := StationGeo.up(s)
+	var v := linear_velocity
+	# parked, still and nobody about: let it sleep
+	if pilot == null and _riders.is_empty() and v.length_squared() < 0.01 and _grounded == wheels.size() and wheels.size() > 0:
 		var near := false
 		for p in get_tree().get_nodes_in_group("player"):
 			if (p as Node3D).global_position.distance_squared_to(global_position) < 900.0:
@@ -144,112 +214,188 @@ func _physics_process(delta: float) -> void:
 		if not near:
 			if _motor.playing:
 				_motor.stop()
+			sleeping = true
 			return
+	# what this tick's collisions did: the velocity change the vehicle's own forces don't explain
+	var dv := (v - _v_prev) - _f_sum / mass * delta
+	_f_sum = Vector3.ZERO
+	if dv.length() > 2.0 and _v_prev.length() > 1.0:
+		_hit(dv)
+	_v_prev = v
+	_shove_others()
+	# the controls
 	var thr := 0.0
 	var steer_in := 0.0
-	var brake_in := false
-	if pilot:
-		# the keys or the left stick; or a controller's triggers (RT accelerate, LT brake and reverse)
+	_handbrake = false
+	if not drive_input.is_empty() and not disabled:   # a tool or an AI at the wheel
+		thr = float(drive_input.get("throttle", 0.0))
+		steer_in = float(drive_input.get("steer", 0.0))
+		_handbrake = bool(drive_input.get("handbrake", false))
+	elif pilot and not disabled:
 		thr = clampf(Input.get_action_strength("move_forward") + Input.get_action_strength("accelerate")
 			- Input.get_action_strength("move_back") - Input.get_action_strength("brake_reverse"), -1.0, 1.0)
 		steer_in = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		brake_in = Input.is_action_pressed("jump")
-	# speed: drive, brake against the motion, reverse from a stop, coast
-	if brake_in:
-		_speed = move_toward(_speed, 0.0, brake * 1.5 * delta)
-	elif thr > 0.05:
-		_speed = move_toward(_speed, max_speed * thr, (accel if _speed >= 0.0 else brake) * delta)
-	elif thr < -0.05:
-		_speed = move_toward(_speed, -reverse_speed * -thr, (accel if _speed <= 0.0 else brake) * delta)
-	else:
-		_speed = move_toward(_speed, 0.0, coast * delta)
-	_steer = move_toward(_steer, -steer_in * max_steer / (1.0 + absf(_speed) / 12.0), steer_rate * delta)
-	var s := StationGeo.s_of(global_position)
-	var up := StationGeo.up(s)
-	var b := global_transform.basis.orthonormalized()
-	_yaw_rate = _speed * tan(_steer) / wheelbase
-	var turned := b.rotated(b.y, _yaw_rate * delta).orthonormalized()
-	# a turn that swings a corner into something (a parked car, a wall) doesn't happen
-	if absf(_yaw_rate) > 1e-5 and _depth(Transform3D(turned, global_position)) > _depth(Transform3D(b, global_position)) + 0.005:
-		_yaw_rate = 0.0
-	else:
-		b = turned
-	# along the ground's tangent, the hull swept a little above it
+		_handbrake = Input.is_action_pressed("jump")
+	if absf(thr) > 0.02 or absf(steer_in) > 0.02:
+		sleeping = false                               # a sleeping body ignores forces
 	var fwd := -b.z
-	fwd = (fwd - up * fwd.dot(up)).normalized()
-	var pos := global_position
-	var motion := fwd * _speed * delta
-	# no wading: stop at water deeper than WADE ahead of the front axle -- measured down to the ground
-	# it would drive on there (a bridge deck high over a river is dry going)
-	var ahead := pos + fwd * (wheelbase * 0.5 + 1.0) * signf(_speed)
-	var wa := MapTerrain.water_at(fposmod(StationGeo.s_of(ahead), StationGeo.CIRC), ahead.x)
-	if absf(_speed) > 0.01 and wa.x > -9000.0 and wa.x - StationGeo.h_of(_ground(ahead, up)) > WADE:
-		motion = Vector3.ZERO
-		_speed = 0.0
-		blocked_by = "water ahead"
-	if absf(ahead.x) > StationGeo.HALF_LEN - 15.0 and signf(ahead.x - pos.x) == signf(ahead.x):
-		motion = Vector3.ZERO
-		_speed = 0.0
-	var before := pos
-	pos = _sweep(Transform3D(b, pos), motion)
-	# the ground under each wheel
-	s = StationGeo.s_of(pos)
-	up = StationGeo.up(s)
-	var contacts := []
-	var hsum := 0.0
+	var vf := v.dot(fwd)
+	_speed = vf
+	_steer = move_toward(_steer, -steer_in * max_steer / (1.0 + absf(vf) / 12.0), steer_rate * delta)
+	# the station's gravity
+	var g_here := StationGeo.gravity_at(Vector2(global_position.y, global_position.z).length())
+	_apply(-up * g_here * mass, Vector3.ZERO)
+	# wheels: suspension, then tyres
+	var n_w := maxi(1, wheels.size())
+	var m_corner := mass / n_w
+	var k := m_corner * pow(TAU * ride_hz, 2.0)
+	var c := 2.0 * ride_damping * sqrt(k * m_corner)
+	var x0 := m_corner * 9.81 / k                      # the static compression
+	var r: float = float(phys.get("wheel_r", wheel_r))
+	var drive: String = phys.get("drive", "RWD")
+	var driven := 0
 	for w in wheels:
-		var lp: Vector3 = _local(w[0]).origin
-		var wp := pos + b * Vector3(lp.x, 0.0, lp.z)
-		var g := _ground(wp, up)
-		contacts.append(g)
-		hsum += (g - pos).dot(up)
-	if wheels.is_empty():
-		var g0 := _ground(pos, up)
-		contacts.append(g0)
-		hsum = (g0 - pos).dot(up)
-	# a wheel meeting ground more than a kerb above it has met a wall (a porch, a step, a plinth)
-	for g in contacts:
-		if (g - pos).dot(up) > STEP and pos != before:
-			_impact(absf(_speed), (before - pos).normalized(), g)
-			blocked_by = "step: %.2f m" % (g - pos).dot(up)
-			pos = before
-			_speed = 0.0
-			contacts.clear()
-			hsum = 0.0
-			for w in wheels:
-				var lp2: Vector3 = _local(w[0]).origin
-				var g2 := _ground(pos + b * Vector3(lp2.x, 0.0, lp2.z), up)
-				contacts.append(g2)
-				hsum += (g2 - pos).dot(up)
-			break
-	var target := hsum / maxf(1.0, contacts.size())
-	# sit on the ground; over a drop, fall
-	if target < -0.03:
-		_vy -= 9.8 * delta
-		pos += up * maxf(_vy * delta, target)
+		if drive == "AWD" or (drive == "FWD" and w[2]) or (drive == "RWD" and not w[2]):
+			driven += 1
+	var top := float(phys.get("top_kmh", 160.0)) / 3.6
+	var p_max := float(phys.get("power_kw", 100.0)) * 1000.0 * (1.0 - 0.6 * damage)
+	var f_max := float(phys.get("torque_nm", 300.0)) * float(phys.get("gear", 10.0)) / r
+	var f_motor := 0.0
+	if absf(thr) > 0.02:
+		var forward_cmd := thr > 0.0
+		var reversing := not forward_cmd and vf < 0.5
+		if forward_cmd and vf > -0.5 or reversing:
+			f_motor = thr * minf(f_max, p_max / maxf(absf(vf), 0.5))
+			if (forward_cmd and vf > top) or (reversing and vf < -reverse_speed):
+				f_motor = 0.0
+	var braking := (thr > 0.02 and vf < -0.5) or (thr < -0.02 and vf > 0.5)
+	if _comp.size() != wheels.size():
+		_comp.resize(wheels.size())
+		_comp.fill(x0)
+	_grounded = 0
+	var front_surface := ""
+	for i in wheels.size():
+		var w: Array = wheels[i]
+		var hub: Vector3 = global_transform * Vector3(w[3], _local(w[0]).origin.y, _local(w[0]).origin.z)
+		var from := hub + b.y * RAY_UP
+		var q := PhysicsRayQueryParameters3D.create(from, from - b.y * (RAY_UP + r + travel + x0 + 0.3), 1)
+		q.exclude = _excluded()
+		var hit := get_world_3d().direct_space_state.intersect_ray(q)
+		var gp: Vector3
+		var gn: Vector3 = up
+		if hit.is_empty():
+			var ps := StationGeo.s_of(hub)
+			gp = StationGeo.point(ps, hub.x, MapTerrain.elevation(ps, hub.x))
+			if (from - gp).dot(b.y) > RAY_UP + r + travel + x0 + 0.3:
+				_comp[i] = 0.0
+				continue
+		else:
+			gp = hit.position
+			gn = hit.normal
+		var flat := Vector2(StationGeo.s_of(gp), gp.x)
+		var surf := RoadSurface.at(flat) if i % 2 == 0 or front_surface == "" else front_surface
+		if w[2] and front_surface == "":
+			front_surface = surf
+		var sp := RoadSurface.props(surf)
+		var dist := (from - gp).dot(b.y) - RoadSurface.bump(flat, surf)
+		var comp := clampf(RAY_UP + r + x0 - dist, 0.0, x0 + travel + 0.2)
+		if comp <= 0.0:
+			_comp[i] = 0.0
+			continue
+		_grounded += 1
+		var dcomp := (comp - float(_comp[i])) / delta
+		_comp[i] = comp
+		var fz := maxf(0.0, k * comp + c * dcomp)
+		if comp > x0 + travel:                         # the bump stop
+			fz += k * 8.0 * (comp - x0 - travel)
+		var contact := gp
+		_apply(gn * fz, contact - global_position)
+		# the tyre, in the contact plane
+		var steer: float = _steer if w[2] else 0.0
+		var wf := (-b.z).rotated(b.y, steer)
+		wf = (wf - gn * wf.dot(gn)).normalized()
+		var ws := gn.cross(wf).normalized()
+		var vc := v + angular_velocity.cross(contact - (global_transform * center_of_mass))
+		var vl := vc.dot(wf)
+		var vs := vc.dot(ws)
+		var mu: float = float(sp[0]) * GRIP * (1.0 - 0.3 * damage)
+		var lat_mu := mu * (0.35 if _handbrake and not w[2] else 1.0)
+		var alpha := atan2(vs, maxf(absf(vl), 1.5))
+		var fy := -lat_mu * fz * sin(1.4 * atan(9.0 * alpha))
+		if absf(vl) < 1.5:                             # at a crawl: no sideways creep
+			fy = clampf(-vs * m_corner * 6.0, -lat_mu * fz, lat_mu * fz)
+		var fx := 0.0
+		if (drive == "AWD" or (drive == "FWD" and w[2]) or (drive == "RWD" and not w[2])) and driven > 0:
+			fx += f_motor / driven
+		fx -= float(sp[1]) * fz * signf(vl)            # rolling resistance
+		if braking or (_handbrake and not w[2]):
+			fx = -signf(vl) * mu * fz * 0.9 if absf(vl) > 0.3 else -vl * m_corner * 4.0
+		elif absf(thr) < 0.02 and absf(vl) < 0.3 and pilot != null:
+			fx = -vl * m_corner * 4.0                  # holding still
+		# traction control and the friction circle
+		var lim := mu * fz
+		fx = clampf(fx, -lim, lim)
+		var tot := Vector2(fx, fy)
+		if tot.length() > lim:
+			tot = tot.normalized() * lim
+		_apply(wf * tot.x + ws * tot.y, contact - global_position)
+	if front_surface != "":
+		surface = front_surface
+	# drag
+	_apply(-v * v.length() * 0.5 * 1.2 * float(phys.get("cda", 0.6)), Vector3.ZERO)
+	# play: stability, anti-roll, air control, righting itself
+	var wv := angular_velocity
+	if _grounded > 0:
+		if absf(steer_in) < 0.1 and not _handbrake:
+			apply_torque(-b.y * wv.dot(b.y) * mass * 0.8)
+		apply_torque(-fwd * wv.dot(fwd) * mass * 1.5)
 	else:
-		_vy = 0.0
-		pos += up * target
-	# lean to the contacts (pitch and roll), always near the local up
-	var n := up
-	if contacts.size() == 4:
-		var byname := {}
-		for i in wheels.size():
-			byname[str(wheels[i][0].name).substr(6)] = contacts[i]
-		if byname.size() == 4:
-			n = (byname["FR"] - byname["BL"]).cross(byname["FL"] - byname["BR"]).normalized()
-			if n.dot(up) < 0.0:
-				n = -n
-			if n.dot(up) < 0.9:
-				n = up
-	b = Basis(Quaternion(b.y, b.y.slerp(n, clampf(delta * 8.0, 0.0, 1.0)).normalized())) * b
-	global_transform = Transform3D(b.orthonormalized(), pos)
-	_lv = Vector3(0.0, 0.0, -_speed)
+		apply_torque(-b.y * steer_in * mass * 0.6 + b.x * thr * mass * 0.4)
+	if self_balance and not disabled:
+		var lean_target := up.rotated(fwd, clampf(-vf * _yaw_rate / 9.81, -0.5, 0.5))
+		var err := b.y.cross(lean_target)
+		apply_torque((err * 30.0 - wv * 4.0) * mass)
+	if b.y.dot(up) < 0.3 and v.length() < 2.0:
+		_flip_t += delta
+		if _flip_t > 2.0:
+			_flip_t = 0.0
+			var lev := Basis(Quaternion(b.y, up)) * b
+			global_transform = Transform3D(lev.orthonormalized(), global_position + up * 1.2)
+			linear_velocity = Vector3.ZERO
+			angular_velocity = Vector3.ZERO
+	else:
+		_flip_t = 0.0
+	# the old readouts and riders
+	_yaw_rate = wv.dot(b.y)
+	_lv = b.inverse() * v
 	_animate_car(delta)
 	_carry(delta)
 	if pilot:
 		pilot.global_transform = Transform3D(global_transform.basis, pilot_transform().origin)
 		_update_hud(0.0)
+
+
+func _apply(f: Vector3, at: Vector3) -> void:
+	apply_force(f, at)
+	_f_sum += f
+
+
+func _hit(dv: Vector3) -> void:
+	## A collision's delta-V: the crash sound from 10 km/h, damage from 15 (RCAR), energy-scaled.
+	var kmh := dv.length() * 3.6
+	_impact(dv.length(), -dv.normalized(), global_position)
+	if kmh > DAMAGE_KMH:
+		damage = clampf(damage + (kmh * kmh - DAMAGE_KMH * DAMAGE_KMH) / (WRECK_KMH * WRECK_KMH - DAMAGE_KMH * DAMAGE_KMH), 0.0, 1.0)
+		if damage >= 1.0:
+			disabled = true
+
+
+func _shove_others() -> void:
+	## Whatever it's touching that is held still by its own logic (a driven car, a person, a sign)
+	## gets the hit: it lets go to the physics with its share of the momentum (Physics.knock).
+	for o in get_colliding_bodies():
+		if o is Node and (o as Node).has_method("knock"):
+			o.knock(self, _v_prev, mass)
 
 
 func _sweep(from: Transform3D, motion: Vector3) -> Vector3:

@@ -21,7 +21,7 @@ class_name NpcTraffic
 
 const FLEET := "res://remake/characters/npc_fleet.json"
 const RANGE := 160.0
-const SLICE := 90                    # vehicles placed per frame (the whole fleet in ~20 frames)
+const SLICE := 50                    # vehicles placed per frame (the far ones are a distance check)
 const CAR_SPEED := 11.0              # m/s on town streets (40 km/h)
 const LANE := 1.8                    # the driving lane: this far right of the centre line
 const PARK_LANE := 10.0              # roads this wide have a parking lane at each kerb
@@ -43,6 +43,9 @@ var _scenes := {}
 var _spot_cache := {}
 var _route_cache := {}
 var _here := Vector2.ZERO
+var _types := {}                     # vehicle type -> npc_vehicles.json entry (size_m, phys)
+var _built_this_frame := 0
+var _spots_this_frame := 0
 var _taken: Array = []               # parking places handed out
 var _sites := {}                     # 40 m cell -> buildings (placement.json), for parking clear of them
 
@@ -57,6 +60,7 @@ func _ready() -> void:
 	world_seed = _life.seed
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FLEET))
 	vehicles = d.vehicles
+	_types = (JSON.parse_string(FileAccess.get_file_as_string("res://remake/characters/npc_vehicles.json")) as Dictionary).vehicles
 	if FileAccess.file_exists("res://remake/groundcars.json"):              # the player's pods and vans: their places are taken
 		for g in (JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json")) as Dictionary).groundcars:
 			_taken.append(Vector2(float(g.s), float(g.x)))
@@ -240,8 +244,13 @@ func _parked(door: Vector2, v: Dictionary) -> Dictionary:
 	## Off the road by this door: beyond the pavement on the door's side of the nearest road
 	## (VERGE), parallel to it and facing with the traffic on that side, clear of buildings and of
 	## the other parked vehicles -- the nearest free place along the road.
+	if NpcPlaces.dist(door, _here) > RANGE + 100.0:
+		return {"away": true}                                      # (its place is never this far from its door)
 	var key := "%.1f,%.1f#%d" % [door.x, door.y, int(v.slot)]
 	if not _spot_cache.has(key):
+		if _spots_this_frame >= 2:
+			return {}                                              # (found in a frame or two)
+		_spots_this_frame += 1
 		_spot_cache[key] = _find_spot(door)
 	var sp: Dictionary = _spot_cache[key]
 	if sp.is_empty():
@@ -322,33 +331,60 @@ func _in_building(q: Vector2, margin: float) -> bool:
 # -- the frame --------------------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
-	if player == null or vehicles.is_empty():
-		return
+	if player == null or vehicles.is_empty() or StationGeo.loading:
+		return                                                     # nothing drives till the world is in
 	var t_us := Time.get_ticks_usec()
 	_here = Vector2(StationGeo.s_of(player.global_position), player.global_position.x)
 	var now := _now()
+	var ts0 := Time.get_ticks_usec()
+	_spots_this_frame = 0
 	_sense_world()
+	var t_sense := Time.get_ticks_usec() - ts0
+	var t_loc := 0
+	var t_show := 0
 	# a slice of the fleet each frame: where each is, and whether it's near
 	for k in mini(SLICE, vehicles.size()):
 		var v: Dictionary = vehicles[_i]
 		_i = (_i + 1) % vehicles.size()
 		if live.has(v.id) and live[v.id].sim != null:
 			continue                                               # being driven: RoadDriver places it
+		if live.has(v.id) and live[v.id].get("crashed", false):
+			var wn := live[v.id].node as Node3D                    # a wreck: the physics has it till it's left behind
+			if NpcPlaces.dist(Vector2(StationGeo.s_of(wn.global_position), wn.global_position.x), _here) > RANGE + 20.0:
+				wn.queue_free()
+				live.erase(v.id)
+			continue
+		var tl := Time.get_ticks_usec()
 		v.where = _locate(v, now)
+		var tm := Time.get_ticks_usec()
 		_show(v)
+		t_loc += tm - tl
+		t_show += Time.get_ticks_usec() - tm
+	var t_slice := Time.get_ticks_usec() - t_us
+	_built_this_frame = 0
+	var cam := get_viewport().get_camera_3d()
+	var t_d := 0
+	var t_v := 0
 	for id in live.keys():
 		var e: Dictionary = live[id]
+		var t1 := Time.get_ticks_usec()
 		if e.sim != null:
 			_drive(e, delta, now)
+		var t2 := Time.get_ticks_usec()
 		if live.has(id):
+			_visual(live[id], delta, cam)
 			_animate(live[id], delta)
+		t_d += t2 - t1
+		t_v += Time.get_ticks_usec() - t2
+	prof = {"sense_ms": t_sense / 1000.0, "locate_ms": t_loc / 1000.0, "show_ms": t_show / 1000.0, "slice_ms": t_slice / 1000.0, "drive_ms": t_d / 1000.0, "visual_ms": t_v / 1000.0}
 	_collect()
 	frame_ms = lerpf(frame_ms, (Time.get_ticks_usec() - t_us) / 1000.0, 0.1)
 
 
 # -- the road users a driver sees ------------------------------------------------------------------
 
-var frame_ms := 0.0                  # how long this takes a frame (smoothed)
+var frame_ms := 0.0
+var prof := {}                  # how long this takes a frame (smoothed)
 var agents: Array = []               # [{id, p, dir, v, len, kind}] -- moving vehicles, trams, trains, the player
 var peds: Array = []                 # [{id, p}] -- people out of doors near the player
 
@@ -473,6 +509,7 @@ func _drive(e: Dictionary, dt: float, now: Array) -> void:
 		return
 	(e.node as Node3D).global_transform = Transform3D(StationGeo.basis(q.x, atan2(-d.y, d.x)), StationGeo.point(q.x, q.y, MapTerrain.elevation(q.x, q.y)))
 	e.speed = s.v
+	(e.node as NpcCarBody).v_now = -(e.node as Node3D).global_transform.basis.z * s.v
 
 
 func _end_drive(e: Dictionary) -> void:
@@ -535,50 +572,97 @@ func _show(v: Dictionary) -> void:
 
 
 func _build(v: Dictionary) -> Dictionary:
-	var t := str(MODEL.get(str(v.type), str(v.type)))
-	var path := "res://remake/vehicles/%s.glb" % t
-	if not _scenes.has(path):
-		_scenes[path] = load(path) if ResourceLoader.exists(path) else null
-	var sc: PackedScene = _scenes[path]
-	if sc == null:
-		return {}
-	var root := Node3D.new()
-	root.name = str(v.id)
-	add_child(root)
-	var m := sc.instantiate() as Node3D
-	root.add_child(m)
-	var wheels: Array = []
-	for n in m.find_children("wheel_*", "Node3D", true, false):
-		wheels.append([n, (n as Node3D).transform.basis])
-	var seat := m.find_child("seat_driver", true, false) as Node3D
-	if seat == null:
-		seat = m.find_child("seat_pilot", true, false) as Node3D
-	# a collider from its meshes, so people and cars bump into it
-	var box := AABB()
-	var first := true
-	for mi in m.find_children("*", "MeshInstance3D", true, false):
-		if str(mi.name).begins_with("wheel_"):
-			continue
-		var bb: AABB = (root.global_transform.affine_inverse() * (mi as MeshInstance3D).global_transform) * (mi as MeshInstance3D).get_aabb()
-		box = bb if first else box.merge(bb)
-		first = false
-	if not first:
-		var body := AnimatableBody3D.new()
-		body.sync_to_physics = false
-		body.collision_layer = 1 | RemakeGroundVehicle.HULL_LAYER
-		body.collision_mask = 0
-		var cs := CollisionShape3D.new()
-		var sh := BoxShape3D.new()
-		sh.size = box.size * Vector3(0.96, 0.9, 0.98)
-		cs.shape = sh
-		cs.position = box.get_center()
-		body.add_child(cs)
-		root.add_child(body)
-	for g in m.find_children("*", "GeometryInstance3D", true, false):
-		(g as GeometryInstance3D).visibility_range_end = RANGE + 30.0
-	var vlen := box.size.z if not first else 4.8
-	return {"node": root, "v": v, "wheels": wheels, "seat": seat, "driver": null, "pending": {}, "speed": 0.0, "moving": false, "spin": 0.0,
-		"sim": null, "len": vlen, "loop": 0.0, "hold": 0.0}
+	## Its body only: a box of its type's size and mass (it collides and is placed whether or not
+	## it's seen). The model comes when it's on screen (_visual).
+	var spec: Dictionary = _types.get(str(v.type), {})
+	var size: Array = spec.get("size_m", [4.8, 1.9, 1.5])
+	var phys: Dictionary = spec.get("phys", {})
+	var body := NpcCarBody.new()
+	body.name = str(v.id)
+	body.traffic = self
+	body.entry_id = str(v.id)
+	body.mass = float(phys.get("mass_kg", 1500.0))
+	body.center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
+	body.center_of_mass = Vector3(0, float(size[2]) * 0.35, 0)     # low: batteries in the floor
+	body.collision_layer = 1 | RemakeGroundVehicle.HULL_LAYER
+	body.collision_mask = 1 | RemakeGroundVehicle.HULL_LAYER
+	var cs := CollisionShape3D.new()
+	var sh := BoxShape3D.new()
+	sh.size = Vector3(float(size[1]), float(size[2]) * 0.85, float(size[0])) * 0.96
+	cs.shape = sh
+	cs.position = Vector3(0, float(size[2]) * 0.85 * 0.5 + float(size[2]) * 0.1, 0)
+	body.add_child(cs)
+	add_child(body)
+	return {"node": body, "v": v, "wheels": [], "seat": null, "driver": null, "pending": {}, "speed": 0.0, "moving": false, "spin": 0.0,
+		"sim": null, "len": float(size[0]), "loop": 0.0, "hold": 0.0, "model": null, "unseen": 0.0, "radius": float(size[0]) * 0.6}
+
+
+func _model_path(v: Dictionary) -> String:
+	return "res://remake/vehicles/%s.glb" % str(MODEL.get(str(v.type), str(v.type)))
+
+
+func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
+	## The model only while it can be seen (on screen, or close by): asked for on a loader thread,
+	## put in when it's ready, taken away after a few seconds out of sight.
+	var node := e.node as Node3D
+	var p := node.global_position
+	var seen := p.distance_to(cam.global_position) < 25.0 if cam else true
+	if cam and not seen:
+		var r: float = e.radius
+		var b := node.global_transform.basis
+		for q in [p, p + b.z * r, p - b.z * r, p + b.y * 2.0]:
+			if cam.is_position_in_frustum(q):
+				seen = true
+				break
+	if seen:
+		e.unseen = 0.0
+		if e.model == null:
+			var path := _model_path(e.v)
+			if not _scenes.has(path):
+				if not ResourceLoader.exists(path):
+					_scenes[path] = null
+				elif ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+					ResourceLoader.load_threaded_request(path)
+				elif ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_LOADED:
+					_scenes[path] = ResourceLoader.load_threaded_get(path)
+			var sc = _scenes.get(path)
+			if sc is PackedScene and _built_this_frame < 2:
+				_built_this_frame += 1
+				var m := (sc as PackedScene).instantiate() as Node3D
+				node.add_child(m)
+				e.model = m
+				var wheels: Array = []
+				for n in m.find_children("wheel_*", "Node3D", true, false):
+					wheels.append([n, (n as Node3D).transform.basis])
+				e.wheels = wheels
+				var seat := m.find_child("seat_driver", true, false) as Node3D
+				if seat == null:
+					seat = m.find_child("seat_pilot", true, false) as Node3D
+				e.seat = seat
+				for g in m.find_children("*", "GeometryInstance3D", true, false):
+					(g as GeometryInstance3D).visibility_range_end = RANGE + 30.0
+	elif e.model != null:
+		e.unseen = float(e.unseen) + delta
+		if float(e.unseen) > 3.0 and p.distance_to(cam.global_position) > 30.0:
+			if e.driver != null:
+				(e.driver as Node).queue_free()
+				e.driver = null
+			(e.model as Node).queue_free()
+			e.model = null
+			e.wheels = []
+			e.seat = null
+
+
+func on_crash(id: String) -> void:
+	## Hit: no longer driven -- the physics has it now (a wreck, with its driver sat in it).
+	var e: Dictionary = live.get(id, {})
+	if e.is_empty():
+		return
+	e.sim = null
+	e.moving = false
+	e.crashed = true
+	e.speed = 0.0
+	RoadDriver.tally["crashes"] = int(RoadDriver.tally.get("crashes", 0)) + 1
 
 
 func _animate(e: Dictionary, delta: float) -> void:

@@ -13,7 +13,6 @@ const SPEED := 12.0                  # m/s (43 km/h)
 const LOOK := 9.0                    # m ahead the driver aims
 const STUCK_S := 3.0                 # no headway for this long: stuck
 const FINISH := 6.0
-const TURN := 2.5                    # rad/s the driver turns the car at, at most
 
 var routes: Array = []
 var results: Array = []              # {name, ok, reason, at (s, x), progress, length}
@@ -48,7 +47,7 @@ func _nearest_car() -> RemakeGroundVehicle:
 	var p := get_tree().get_first_node_in_group("player") as Node3D
 	var best: RemakeGroundVehicle = null
 	var bd := INF
-	for v in get_tree().current_scene.find_children("*", "AnimatableBody3D", true, false):
+	for v in get_tree().current_scene.find_children("*", "RigidBody3D", true, false):
 		if v is RemakeGroundVehicle and not v is RemakeVan:
 			var d := (v as Node3D).global_position.distance_to(p.global_position)
 			if d < bd:
@@ -61,6 +60,7 @@ func _next() -> void:
 	_i += 1
 	if _i >= routes.size():
 		done = true
+		car.drive_input = {}
 		set_physics_process(false)
 		return
 	var r: Dictionary = routes[_i]
@@ -78,8 +78,11 @@ func _next() -> void:
 	var at := a + Vector2(-dir.y, dir.x) * _lane
 	var g := _ground(at)
 	car.global_transform = Transform3D(Basis(up.cross(-f), up, -f).orthonormalized(), g + up * 0.3)
-	car._speed = 0.0
-	car._vy = 0.0
+	car.linear_velocity = Vector3.ZERO
+	car.angular_velocity = Vector3.ZERO
+	car._v_prev = Vector3.ZERO                    # not an impact
+	car.sleeping = false
+	car.drive_input = {"throttle": 0.0, "handbrake": true}
 	car.blocked_by = ""
 	_best = 0.0
 	_best_t = 0.0
@@ -129,7 +132,6 @@ func _physics_process(delta: float) -> void:
 		return
 	if _settle > 0:
 		_settle -= 1
-		car._speed = 0.0
 		return
 	_t += delta
 	var pos := car.global_position
@@ -163,10 +165,8 @@ func _physics_process(delta: float) -> void:
 	var b := car.global_transform.basis
 	var fwd := -b.z
 	fwd = (fwd - up * fwd.dot(up)).normalized()
-	var ang := fwd.signed_angle_to(want, up)
-	var turn := clampf(ang, -TURN * delta, TURN * delta)
-	car.global_transform.basis = b.rotated(up, turn).orthonormalized()
-	car._speed = SPEED
+	var ang := fwd.signed_angle_to(want, up)            # + : the target is to the left
+	car.drive_input = {"throttle": clampf((SPEED - car._speed) * 0.4, -1.0, 1.0), "steer": clampf(-ang * 2.5, -1.0, 1.0)}
 
 
 static func bridge_routes(tree: SceneTree) -> Array:

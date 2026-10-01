@@ -103,6 +103,9 @@ func _process(delta: float) -> void:
 		return
 	_collect()
 	for pid in live:
+		var rg = live[pid].get("rag")
+		if rg != null and (rg as NpcRagdoll).down:
+			continue                                               # on the ground: the physics has them
 		_move(live[pid], delta)
 	_personal_space(delta)
 	_tick -= delta
@@ -434,6 +437,19 @@ func _collect() -> void:
 			e.speed = BIKE_SPEED * (0.85 + 0.3 * NpcRng.for_trait(world_seed, pid, "bike_pace").rand())
 			e.yaw_prev = 0.0
 		live[pid] = e
+		# knockable: a vehicle through them and they go down as a ragdoll, then get up and go on
+		var rag := NpcRagdoll.attach(npc, float(job.v.get("weight", 70.0)))
+		e.rag = rag
+		rag.got_up.connect(func(at: Vector3):
+			if live.has(pid):
+				var ee: Dictionary = live[pid]
+				ee.s = fposmod(StationGeo.s_of(at), StationGeo.CIRC)
+				ee.x = at.x
+				if ee.has("bike"):
+					(ee.bike as Node).queue_free()             # the bike stays where it fell: they walk on
+					ee.erase("bike")
+					ee.speed = _walk_speed(job.v)
+				_place(ee))
 		e.zone = RemakeInteractZone.make(npc, "Talk", Transform3D(Basis(), Vector3(0, float(npc.params.height) * 0.55, 0)),
 			Vector3(0.7, float(npc.params.height), 0.7), func(_by): return _contact(pid), func(): return "Talk")
 		_place(e)
@@ -604,11 +620,11 @@ func _personal_space(delta: float) -> void:
 	var keys := live.keys()
 	for i in keys.size():
 		var a: Dictionary = live[keys[i]]
-		if a.has("bike"):
+		if a.has("bike") or (a.get("rag") != null and (a.rag as NpcRagdoll).down):
 			continue
 		for j in range(i + 1, keys.size()):
 			var b: Dictionary = live[keys[j]]
-			if b.has("bike"):
+			if b.has("bike") or (b.get("rag") != null and (b.rag as NpcRagdoll).down):
 				continue
 			var d := Vector2(StationGeo.wrap_ds(float(b.s) - float(a.s)), float(b.x) - float(a.x))
 			var l := d.length()

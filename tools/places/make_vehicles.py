@@ -520,6 +520,81 @@ def household_fleet(people, settle):
     return n, len(hh)
 
 
+# -- physics: mass, motor and drag for every type (research/physics/vehicle_dynamics.md) -----------------
+# Every vehicle is electric or pedal-powered (canon). A motor gives its peak torque up to its base
+# speed and its peak power above (EV: constant torque, then constant power); a single reduction gear
+# to the wheels. Anchors are approximate published specs of real electric vehicles of the kind
+# ("as"), the rest scale by category from the vehicle's size: mass from its envelope (kg per m^3 of
+# L x W x H), power from a power-to-weight ratio, top speed from the kind of vehicle.
+PHYS_CAT = {   # kg/m^3 of envelope, W/kg, top km/h, drive, drag coefficient
+    "household": (125, 95, 170, "RWD", 0.32), "commercial": (100, 60, 120, "RWD", 0.45), "transit": (130, 25, 90, "RWD", 0.6),
+    "rail": (180, 15, 120, "AWD", 0.7), "farm": (200, 25, 40, "AWD", 0.9), "industry": (190, 25, 60, "AWD", 0.8),
+    "emergency": (120, 90, 160, "AWD", 0.45), "civic": (120, 30, 90, "RWD", 0.7), "station": (60, 40, 60, "AWD", 0.6),
+    "amusement": (90, 20, 30, "RWD", 0.6), "mobility": (110, 8, 12, "RWD", 0.8), "cart": (60, 0, 6, "none", 0.9), "water": (60, 30, 40, "none", 0.5)}
+PHYS_AS = {    # id: (mass kg, power kW, torque Nm, top km/h, drive, CdA m^2, "like")
+    "city_car": (1250, 80, 250, 130, "FWD", 0.62, "a small electric hatchback"),
+    "sedan": (1650, 150, 360, 175, "RWD", 0.55, "a mid-size electric sedan"),
+    "station_wagon": (1800, 160, 380, 170, "FWD", 0.62, "an electric estate"),
+    "crossover_suv": (1950, 200, 450, 180, "AWD", 0.75, "an electric crossover"),
+    "full_size_suv": (2700, 320, 800, 180, "AWD", 1.0, "a large electric SUV"),
+    "minivan": (2150, 150, 400, 160, "FWD", 0.85, "an electric people carrier"),
+    "pickup_truck": (2900, 340, 1000, 170, "AWD", 1.15, "a full-size electric pickup"),
+    "sports_car": (1600, 380, 650, 250, "RWD", 0.5, "an electric sports coupe"),
+    "convertible": (1750, 220, 450, 220, "RWD", 0.65, "an electric roadster"),
+    "luxury_sedan": (2300, 300, 650, 220, "AWD", 0.55, "a large electric luxury sedan"),
+    "motorcycle": (250, 78, 116, 180, "RWD", 0.45, "a full-size electric motorcycle"),
+    "scooter_moped": (100, 3, 150, 45, "RWD", 0.4, "an electric moped"),
+    "bicycle": (15, 0.2, 60, 35, "RWD", 0.5, "a city bicycle; the rider's sustained 200 W"),
+    "child_bicycle": (9, 0.08, 25, 20, "RWD", 0.35, "a child's bicycle and rider"),
+    "golf_cart": (450, 4, 120, 25, "RWD", 1.0, "an electric golf cart"),
+    "atv": (350, 30, 120, 90, "AWD", 0.8, "an electric quad"),
+    "utv": (800, 50, 300, 80, "AWD", 1.2, "an electric side-by-side"),
+    "delivery_van": (2900, 198, 430, 130, "RWD", 1.8, "a large electric panel van"),
+    "parcel_van": (4500, 200, 600, 110, "RWD", 2.4, "an electric step van"),
+    "box_truck": (8000, 220, 1200, 105, "RWD", 4.5, "a medium electric box truck"),
+    "semi_truck": (10000, 400, 2500, 105, "RWD", 5.5, "an electric semi tractor"),
+    "garbage_truck": (20000, 300, 3000, 90, "RWD", 6.0, "an electric refuse truck"),
+    "transit_bus": (13000, 300, 2500, 100, "RWD", 6.0, "a 12 m battery-electric bus"),
+    "school_bus": (12000, 240, 2000, 100, "RWD", 6.0, "an electric school bus"),
+    "tram": (40000, 360, 6000, 70, "AWD", 7.0, "a 24 m articulated tram (4 x 90 kW)"),
+    "passenger_train": (45000, 600, 10000, 120, "AWD", 9.0, "an electric multiple-unit car"),
+    "freight_locomotive": (120000, 4000, 60000, 120, "AWD", 10.0, "an electric freight locomotive"),
+    "fire_engine": (18000, 350, 3000, 120, "RWD", 6.5, "an electric fire engine"),
+    "ambulance": (4500, 200, 500, 140, "RWD", 2.6, "an electric ambulance"),
+    "police_car": (2000, 250, 450, 200, "AWD", 0.6, "an electric police sedan"),
+    "police_suv": (2400, 300, 600, 190, "AWD", 0.85, "an electric police SUV"),
+    "row_crop_tractor": (7000, 150, 4000, 40, "AWD", 3.0, "a 200 hp electric farm tractor"),
+    "utility_tractor": (2500, 50, 1200, 35, "AWD", 2.0, "a compact electric tractor"),
+    "combine_harvester": (15000, 350, 6000, 30, "AWD", 6.0, "an electric combine"),
+    "forklift": (4000, 20, 300, 18, "FWD", 2.0, "an electric forklift with its counterweight"),
+    "riding_mower": (250, 8, 60, 12, "RWD", 1.0, "a ride-on mower"),
+    "taxi": (1800, 150, 380, 175, "RWD", 0.58, "a taxi sedan"),
+    "excavator": (14000, 120, 8000, 6, "AWD", 6.0, "a tracked excavator"),
+}
+
+
+def phys(k, x):
+    L, W, H = x["size_m"]
+    if k in PHYS_AS:
+        m, kw, nm, top, drive, cda, like = PHYS_AS[k]
+        src = "approx. specs of " + like
+    else:
+        dens, wkg, top, drive, cd = PHYS_CAT.get(x["category"], (110, 40, 100, "RWD", 0.5))
+        m = max(5.0, dens * L * W * H)
+        kw = wkg * m / 1000.0
+        nm = max(5.0, kw * 1000.0 / (0.35 * top / 3.6 / 0.34) * 0.34 / 9.0)      # peak torque at the motor (a 9:1 gear)
+        cda = cd * W * H * 0.85
+        src = "scaled from size and category (%s)" % x["category"]
+    r = 0.34 if m > 400 else (0.33 if m > 50 else 0.3)
+    if m > 6000:
+        r = 0.5
+    # the gear: the motor's top speed (~15,000 rpm for cars, less for heavy motors) reaches the top speed
+    rpm_max = 15000.0 if m < 5000 else 6000.0
+    gear = max(1.0, rpm_max * 2 * 3.14159 / 60.0 * r / max(1.0, top / 3.6)) if kw > 0.5 else 1.0
+    return {"mass_kg": round(m), "power_kw": round(kw, 2), "torque_nm": round(nm), "gear": round(gear, 2), "wheel_r": r,
+            "top_kmh": top, "drive": drive, "cda": round(cda, 2), "source": src}
+
+
 def main():
     places = json.load(open(os.path.join(CH, "npc_places.json")))["types"]
     units = json.load(open(os.path.join(CH, "npc_place_index.json")))["units"]
@@ -541,6 +616,8 @@ def main():
                              "NpcTraffic reads it.", "vehicles": FLEET}, f)
     towns = {u["settlement"] for u in units}
     resort_towns = sum(1 for t in towns if settle.get(t) == "lake_resort")
+    for k, x in V.items():
+        x["phys"] = phys(k, x)
     for k, x in V.items():
         n = sum(by_type.get(p, 0) * c for p, c in x["per_place"].items()) + x["per_town"] * len(towns)
         n += hhn.get(k, 0)

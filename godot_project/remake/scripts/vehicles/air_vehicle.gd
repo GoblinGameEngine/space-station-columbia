@@ -1,4 +1,4 @@
-extends AnimatableBody3D
+extends RigidBody3D
 class_name RemakeAirVehicle
 
 ## A flyable air vehicle -- the template every vehicle of this kind follows.  A subclass gives the
@@ -81,7 +81,10 @@ var _crash_sound: AudioStreamPlayer3D
 
 
 func _ready() -> void:
-	sync_to_physics = false
+	# a rigid body: the air vehicles stay frozen and are moved by their own flight code (as an
+	# AnimatableBody would be); ground vehicles unfreeze and drive by forces (RemakeGroundVehicle)
+	freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
+	freeze = true
 	process_physics_priority = -10                     # before the players it carries
 	_build_hull()
 	_rig()
