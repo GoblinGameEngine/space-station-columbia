@@ -26,6 +26,9 @@ func _perform() -> void:
 		var collider = hit.collider
 		if collider == user:
 			continue
+		if collider.has_method("take_hit"):
+			collider.take_hit(float(data.get("damage", 10)), from + forward * range_m * 0.65, user)
+			break
 		if collider.get_node_or_null("Health") != null:
 			CombatSystem.apply_damage(user, collider, float(data.get("damage", 10)))
 			break

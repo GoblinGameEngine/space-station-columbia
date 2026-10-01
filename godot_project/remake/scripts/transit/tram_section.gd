@@ -1,0 +1,508 @@
+extends Node3D
+class_name TramSection
+
+## One section of a road tram: a Carrow Coach Company body (remake/vehicles/tram/carrow_tram_*.glb,
+## built by remake/blender/tram/carrow_tram.py) bolted onto a Steward tram board (remake/vehicles/
+## chassis/steward_tram.glb). TransitVehicle places it every physics tick; it does the rest:
+##   - its body is modules (carrow_tram.json): each panel, pane, door leaf, seat and roof bay has its
+##     own collision boxes and hit points; a hit (a vehicle's knock, a shot) damages the modules
+##     near it, and a module at 0 hp shatters (glass) or comes off as a loose piece with its mass;
+##   - the doors: double plug doors on both sides; the curbside ones open by themselves when the
+##     tram stands at a stop (open_curbside), the others only by hand (E) and only when it stands;
+##     an open door's ramp folds out (a slope people walk up);
+##   - the glass is transparent; the lamps light (headlights, tail and brake lights, the cabin);
+##   - both axles steer (steer()), the wheels turn with the distance run;
+##   - anyone standing inside is carried (StationPlayer.carrier_velocity), and sheltered.
+## Frame: the board's -- y up, -z forward, the origin on the ground midway between the axles.
+
+const SPEC := "res://remake/vehicles/tram/carrow_tram.json"
+const BOARD := "res://remake/vehicles/chassis/steward_tram.glb"
+const DOOR_TIME := 1.0
+const RAMP_LAYER := 1 << 4
+static var _spec: Dictionary
+static var _scenes := {}
+static var _glass: StandardMaterial3D
+
+var kind := "mid"
+var spec: Dictionary
+var body: Node3D
+var board: Node3D
+var hull: AnimatableBody3D
+var hp := {}                          # module -> hp left
+var shapes := {}                      # module -> [CollisionShape3D]
+var meshes := {}                      # module -> MeshInstance3D
+var doors: Array = []                 # {spec, open (target), t (0..1), leaves: [[nodes, shapes, closed xfs, offset]], ramp, ramp_body}
+var wheels := {}                      # "F"/"B" -> [Node3D wheel, ...]
+var lamps := {}                       # "head" / "tail" / "cabin" / "brake" -> [Light3D]
+var lamp_mats := {}                   # "lamp_head" ... -> [StandardMaterial3D] (this section's copies)
+var vehicle: Node                     # the TransitVehicle
+var _spin := 0.0
+var _prev := Transform3D()
+var _have_prev := false
+var _riders: Array = []
+var _debris: Array = []
+
+
+static func load_spec() -> Dictionary:
+	if _spec.is_empty():
+		_spec = JSON.parse_string(FileAccess.get_file_as_string(SPEC))
+	return _spec
+
+
+static func _scene(path: String) -> PackedScene:
+	if not _scenes.has(path):
+		_scenes[path] = load(path)
+	return _scenes[path]
+
+
+static func length_front(k: String) -> float:
+	return float(load_spec().sections[k].length_front)
+
+
+static func length_back(k: String) -> float:
+	return float(load_spec().sections[k].length_back)
+
+
+func setup(p_kind: String, p_vehicle: Node) -> void:
+	kind = p_kind
+	vehicle = p_vehicle
+	spec = load_spec().sections[kind]
+	name = "Section_" + kind
+	board = _scene(BOARD).instantiate()
+	add_child(board)
+	body = _scene(spec.glb).instantiate()
+	add_child(body)
+	for tag in ["F", "B"]:
+		wheels[tag] = []
+		for s in ["L", "R"]:
+			var w := board.find_child("wheel_%s%s" % [tag, s], true, false) as Node3D
+			if w:
+				wheels[tag].append([w, w.transform])
+	hull = TramHull.new()
+	hull.name = "Hull"
+	hull.section = self
+	hull.sync_to_physics = true
+	hull.top_level = true                # a synced body doesn't follow its parent: sync_bodies() moves it
+	hull.collision_layer = 1 | RemakeGroundVehicle.HULL_LAYER
+	hull.collision_mask = 0
+	add_child(hull)
+	var mods: Dictionary = spec.modules
+	for mid in mods:
+		var m: Dictionary = mods[mid]
+		hp[mid] = float(m.hp)
+		var mi := body.find_child(mid, true, false)
+		if mi:
+			meshes[mid] = mi
+		var list: Array = []
+		for b in m.boxes:
+			var cs := CollisionShape3D.new()
+			var sh := BoxShape3D.new()
+			sh.size = Vector3(b[3], b[4], b[5]).max(Vector3.ONE * 0.02)
+			cs.shape = sh
+			cs.position = Vector3(b[0], b[1], b[2])
+			hull.add_child(cs)
+			list.append(cs)
+		shapes[mid] = list
+		if str(m.kind) == "ramp" and mi:
+			(mi as Node3D).visible = false
+			for cs in list:
+				(cs as CollisionShape3D).disabled = true
+	_materials()
+	_doors()
+	_lights()
+	_cheap()
+
+
+# -- looks ------------------------------------------------------------------------------------------
+
+func _materials() -> void:
+	## Glass made transparent; the lamps' materials copied per section (so each can light on its own).
+	if _glass == null:
+		_glass = StandardMaterial3D.new()
+		_glass.albedo_color = Color(0.72, 0.84, 0.86, 0.22)
+		_glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		_glass.cull_mode = BaseMaterial3D.CULL_DISABLED
+		_glass.roughness = 0.05
+		_glass.metallic_specular = 0.9
+	for mi in body.find_children("*", "MeshInstance3D", true, false):
+		var m := mi as MeshInstance3D
+		for i in m.mesh.get_surface_count():
+			var mat := m.mesh.surface_get_material(i)
+			if mat == null:
+				continue
+			var nm := str(mat.resource_name)
+			if nm.begins_with("glass"):
+				m.set_surface_override_material(i, _glass)
+			elif nm.begins_with("lamp_") or nm == "dest":
+				var c := (mat as BaseMaterial3D).duplicate() as BaseMaterial3D
+				m.set_surface_override_material(i, c)
+				if not lamp_mats.has(nm):
+					lamp_mats[nm] = []
+				lamp_mats[nm].append(c)
+
+
+func _cheap() -> void:
+	## Inside fittings cast no shadows and aren't drawn from far off; nor is the glass a shadow.
+	const INSIDE := ["seat", "stanchion", "fittings", "podium", "cab", "floor"]
+	for mid in meshes:
+		var k := str(spec.modules[mid].kind)
+		var mi := meshes[mid] as GeometryInstance3D
+		if mi == null:
+			continue
+		if k in INSIDE or k == "glass":
+			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		if k in INSIDE:
+			mi.visibility_range_end = 45.0
+	for mi in board.find_children("*", "GeometryInstance3D", true, false):
+		(mi as GeometryInstance3D).visibility_range_end = 120.0
+
+
+func _lights() -> void:
+	for mk in body.find_children("light_*", "Node3D", true, false):
+		var n := str(mk.name)
+		var l: Light3D
+		var group := ""
+		if n.begins_with("light_head"):
+			var sp := SpotLight3D.new()
+			sp.spot_range = 45.0
+			sp.spot_angle = 26.0
+			sp.light_color = Color(1.0, 0.96, 0.86)
+			l = sp
+			group = "head"
+		elif n.begins_with("light_tail") or n == "light_brake":
+			var om := OmniLight3D.new()
+			om.omni_range = 3.5 if n != "light_brake" else 5.0
+			om.light_color = Color(1.0, 0.12, 0.08)
+			l = om
+			group = "brake" if n == "light_brake" else "tail"
+		elif n.begins_with("light_cabin"):
+			var om2 := OmniLight3D.new()
+			om2.omni_range = 6.5
+			om2.light_color = Color(1.0, 0.97, 0.9)
+			l = om2
+			group = "cabin"
+		else:
+			continue
+		l.shadow_enabled = false
+		mk.add_child(l)
+		if not lamps.has(group):
+			lamps[group] = []
+		lamps[group].append(l)
+
+
+func set_lights(night: float, braking: bool) -> void:
+	## night 0 (day) .. 1 (night)
+	# real lights only when they show (dusk to dawn; the brake lamp when braking): by day the
+	# lamps' glowing lenses are enough
+	var dark := night > 0.05
+	for l in lamps.get("head", []):
+		(l as Light3D).visible = dark
+		(l as Light3D).light_energy = lerpf(0.4, 3.0, night)
+	for l in lamps.get("tail", []):
+		(l as Light3D).visible = dark
+		(l as Light3D).light_energy = lerpf(0.2, 1.0, night) * (2.0 if braking else 1.0)
+	for l in lamps.get("brake", []):
+		(l as Light3D).visible = braking and dark
+		(l as Light3D).light_energy = 1.5
+	for l in lamps.get("cabin", []):
+		(l as Light3D).visible = dark
+		(l as Light3D).light_energy = lerpf(0.15, 0.9, night)
+	for m in lamp_mats.get("lamp_ceiling", []):
+		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(0.4, 1.6, night)
+	for m in lamp_mats.get("lamp_tail", []):
+		(m as BaseMaterial3D).emission_energy_multiplier = (4.0 if braking else 1.8)
+	for m in lamp_mats.get("lamp_head", []):
+		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(1.5, 4.0, night)
+
+
+# -- doors --------------------------------------------------------------------------------------------
+
+func _doors() -> void:
+	for d in spec.doors:
+		var leaves: Array = []
+		for lf in d.leaves:
+			var nodes: Array = []
+			var shp: Array = []
+			var base: String = str(lf.node)
+			var did: String = base.substr(5)                     # "R0_a"
+			for mid in [base, "glass_%s_9" % did, "glass_%s_16" % did]:
+				if meshes.has(mid):
+					nodes.append(meshes[mid])
+				shp.append_array(shapes.get(mid, []))
+			var closed: Array = []
+			for n in nodes:
+				closed.append((n as Node3D).position)
+			var sclosed: Array = []
+			for s in shp:
+				sclosed.append((s as Node3D).position)
+			leaves.append({"nodes": nodes, "shapes": shp, "closed": closed, "sclosed": sclosed, "open": Vector3(lf.open[0], lf.open[1], lf.open[2])})
+		var ramp_mi: Node3D = meshes.get(str(d.ramp))
+		var rb := AnimatableBody3D.new()
+		rb.name = "Ramp_" + str(d.id)
+		rb.sync_to_physics = true
+		rb.top_level = true
+		rb.collision_layer = RAMP_LAYER | 1
+		rb.collision_mask = 0
+		var rbox: Dictionary = d.ramp_box
+		var a := Vector2(rbox.from[0], rbox.from[1])
+		var b := Vector2(rbox.to[0], rbox.to[1])
+		var cs := CollisionShape3D.new()
+		var sh := BoxShape3D.new()
+		sh.size = Vector3((b - a).length(), 0.05, float(rbox.width))
+		cs.shape = sh
+		cs.position = Vector3((a.x + b.x) / 2, (a.y + b.y) / 2 - 0.025, float(rbox.z))
+		cs.rotation.z = atan2(b.y - a.y, b.x - a.x)
+		cs.disabled = true
+		rb.add_child(cs)
+		add_child(rb)
+		var zone := RemakeInteractZone.make(self, "Door_" + str(d.id), Transform3D(Basis(), Vector3(signf(float(rbox.from[0])) * 1.1, 1.5, float(d.z))),
+			Vector3(0.6, 2.0, float(d.width)), _door_use.bind(doors.size()), _door_prompt.bind(doors.size()))
+		zone.gives_way = true
+		doors.append({"spec": d, "open": false, "t": 0.0, "leaves": leaves, "ramp": ramp_mi, "ramp_shape": cs, "ramp_body": rb})
+
+
+func _door_prompt(i: int) -> String:
+	var d: Dictionary = doors[i]
+	if not vehicle or not vehicle.stopped():
+		return ""
+	return "Close the doors" if d.open else "Open the doors"
+
+
+func _door_use(_by: Node, i: int) -> String:
+	if not vehicle or not vehicle.stopped():
+		return ""
+	doors[i].open = not doors[i].open
+	return "doors"
+
+
+func open_curbside(on: bool) -> void:
+	for d in doors:
+		if bool(d.spec.curbside):
+			d.open = on
+
+
+func close_all() -> void:
+	for d in doors:
+		d.open = false
+
+
+func doors_settled(open: bool) -> bool:
+	for d in doors:
+		if bool(d.spec.curbside) and (float(d.t) < 1.0 if open else float(d.t) > 0.0):
+			return false
+	return true
+
+
+func curbside_doors() -> Array:
+	var out: Array = []
+	for d in doors:
+		if bool(d.spec.curbside):
+			out.append(d)
+	return out
+
+
+func _animate_doors(delta: float) -> void:
+	for d in doors:
+		var target := 1.0 if d.open else 0.0
+		if is_equal_approx(float(d.t), target):
+			continue
+		d.t = move_toward(float(d.t), target, delta / DOOR_TIME)
+		var e := smoothstep(0.0, 1.0, float(d.t))
+		# the plug door: out first, then along
+		var out_k := clampf(e * 4.0, 0.0, 1.0)
+		var along_k := clampf((e - 0.15) / 0.85, 0.0, 1.0)
+		for lf in d.leaves:
+			var off: Vector3 = lf.open
+			var v := Vector3(off.x * out_k, 0.0, off.z * along_k)
+			for k in lf.nodes.size():
+				if is_instance_valid(lf.nodes[k]):
+					(lf.nodes[k] as Node3D).position = lf.closed[k] + v
+			for k in lf.shapes.size():
+				(lf.shapes[k] as Node3D).position = lf.sclosed[k] + v
+		var deployed := float(d.t) > 0.85
+		if d.ramp:
+			(d.ramp as Node3D).visible = float(d.t) > 0.5
+		(d.ramp_shape as CollisionShape3D).disabled = not deployed
+
+
+# -- motion -----------------------------------------------------------------------------------------
+
+func sync_bodies() -> void:
+	## After the section is placed (each physics tick): its collision bodies to it, so they move
+	## kinematically -- with a velocity people standing on them feel.
+	hull.global_transform = global_transform
+	for d in doors:
+		(d.ramp_body as Node3D).global_transform = global_transform
+
+
+func steer(front: float, back: float, run: float, wheel_r: float) -> void:
+	## Both axles steer (the angles in radians, + to the left); the wheels turn with the distance run.
+	_spin = fposmod(_spin + run / wheel_r, TAU)
+	for tag in wheels:
+		var a := front if tag == "F" else back
+		for w in wheels[tag]:
+			var n := w[0] as Node3D
+			n.transform = (w[1] as Transform3D) * Transform3D(Basis(Vector3.UP, a) * Basis(Vector3.RIGHT, -_spin), Vector3.ZERO)
+
+
+func _physics_process(delta: float) -> void:
+	_animate_doors(delta)
+	_carry(delta)
+	_have_prev = true
+	_prev = global_transform
+	for d in _debris.duplicate():
+		if not is_instance_valid(d):
+			_debris.erase(d)
+
+
+func _carry(delta: float) -> void:
+	## Everyone standing inside moves with the section (its own motion at their point).
+	if not _have_prev or delta <= 0.0:
+		return
+	var now: Array = []
+	var zf := float(spec.length_front) + 0.4
+	var zb := float(spec.length_back) + 0.4
+	for p in get_tree().get_nodes_in_group("player"):
+		if not p is StationPlayer or (p as StationPlayer).is_seated():
+			continue
+		var pos := (p as Node3D).global_position
+		var lp := _prev.affine_inverse() * pos
+		if absf(lp.x) < 1.3 and lp.y > 0.2 and lp.y < 3.0 and lp.z > -zf and lp.z < zb:
+			now.append(p)
+			(p as StationPlayer).carrier_velocity = (global_transform * lp - pos) / delta
+			(p as StationPlayer).sheltered = true
+	for p in _riders:
+		if not now.has(p) and is_instance_valid(p):
+			(p as StationPlayer).carrier_velocity = Vector3.ZERO
+			(p as StationPlayer).sheltered = false
+	_riders = now
+
+
+func carries(p: Node) -> bool:
+	return _riders.has(p)
+
+
+# -- damage -------------------------------------------------------------------------------------------
+
+func hit_at(local_point: Vector3, amount: float) -> void:
+	## Damage spread over the modules near a point (section frame): most to the nearest.
+	var near: Array = []
+	for mid in shapes:
+		if hp.get(mid, 0.0) <= 0.0 or str(spec.modules[mid].breaks) == "none":
+			continue
+		var best := INF
+		for cs in shapes[mid]:
+			var c := cs as CollisionShape3D
+			var half := (c.shape as BoxShape3D).size * 0.5
+			var q := (local_point - c.position).abs() - half
+			best = minf(best, Vector3(maxf(q.x, 0.0), maxf(q.y, 0.0), maxf(q.z, 0.0)).length())
+		if best < 1.6:
+			near.append([best, mid])
+	near.sort_custom(func(a, b): return a[0] < b[0])
+	var share := 1.0
+	for e in near.slice(0, 6):
+		var w := share * (0.6 if e[0] > 0.05 else 0.75)
+		damage(e[1], amount * w)
+		share -= w * 0.8
+		if share < 0.05:
+			break
+
+
+func knock_from(by: Node3D, v_by: Vector3, m_by: float) -> void:
+	## A vehicle ran into the section: the energy above a slow nudge goes into the panels it hit.
+	var rel := v_by - (global_transform.origin - _prev.origin) / maxf(get_physics_process_delta_time(), 1e-3)
+	var kmh := rel.length() * 3.6
+	if kmh < 8.0:
+		return
+	var amount := pow(kmh - 8.0, 2.0) * (m_by / 1500.0) * 0.6
+	hit_at(global_transform.affine_inverse() * by.global_position, amount)
+
+
+func damage(mid: String, amount: float) -> void:
+	if not hp.has(mid) or hp[mid] <= 0.0:
+		return
+	hp[mid] -= amount
+	if hp[mid] > 0.0:
+		return
+	var m: Dictionary = spec.modules[mid]
+	for cs in shapes[mid]:
+		(cs as CollisionShape3D).disabled = true
+	var mi: Node3D = meshes.get(mid)
+	if mi == null:
+		return
+	if str(m.breaks) == "shatter":
+		_shatter(mi)
+	else:
+		_detach(mid, mi, float(m.mass_kg))
+	RoadDriver.tally["tram_parts_broken"] = int(RoadDriver.tally.get("tram_parts_broken", 0)) + 1
+
+
+func _shatter(mi: Node3D) -> void:
+	var at := mi.global_transform
+	var bb := (mi as MeshInstance3D).get_aabb() if mi is MeshInstance3D else AABB(Vector3.ZERO, Vector3.ONE * 0.3)
+	mi.visible = false
+	var snd := AudioStreamPlayer3D.new()
+	snd.stream = load("res://remake/audio/crash.wav")
+	snd.pitch_scale = 1.8
+	snd.volume_db = -4.0
+	get_tree().current_scene.add_child(snd)
+	snd.global_position = at * bb.get_center()
+	snd.play()
+	snd.finished.connect(snd.queue_free)
+	for k in 5:                                    # a few shards fall away
+		var rb := RigidBody3D.new()
+		rb.mass = 0.4
+		rb.collision_layer = 1 << 10
+		rb.collision_mask = 1
+		var cs := CollisionShape3D.new()
+		var sh := BoxShape3D.new()
+		sh.size = Vector3(0.12, 0.12, 0.01)
+		cs.shape = sh
+		rb.add_child(cs)
+		var vis := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		bm.size = sh.size
+		vis.mesh = bm
+		vis.material_override = _glass
+		rb.add_child(vis)
+		get_tree().current_scene.add_child(rb)
+		var p := bb.position + Vector3(randf(), randf(), randf()) * bb.size
+		rb.global_position = at * p
+		rb.linear_velocity = Vector3(randf_range(-1, 1), randf_range(0, 1.5), randf_range(-1, 1))
+		_debris.append(rb)
+		get_tree().create_timer(8.0).timeout.connect(rb.queue_free)
+
+
+func _detach(mid: String, mi: Node3D, mass: float) -> void:
+	## The module comes off: its mesh on a rigid body of its own, with its mass, under the station's gravity.
+	var at := mi.global_transform
+	var rb := RigidBody3D.new()
+	rb.name = "Debris_" + mid
+	rb.mass = maxf(1.0, mass)
+	rb.collision_layer = 1 << 10
+	rb.collision_mask = 1
+	var bb := AABB()
+	var first := true
+	for cs in shapes[mid]:
+		var c := cs as CollisionShape3D
+		var box := AABB(c.position - (c.shape as BoxShape3D).size / 2, (c.shape as BoxShape3D).size)
+		bb = box if first else bb.merge(box)
+		first = false
+	if first:
+		bb = (mi as MeshInstance3D).get_aabb() if mi is MeshInstance3D else AABB(Vector3.ZERO, Vector3.ONE * 0.3)
+	var cs2 := CollisionShape3D.new()
+	var sh := BoxShape3D.new()
+	sh.size = bb.size.max(Vector3.ONE * 0.04)
+	cs2.shape = sh
+	cs2.position = bb.get_center()
+	rb.add_child(cs2)
+	get_tree().current_scene.add_child(rb)
+	rb.global_transform = global_transform
+	mi.get_parent().remove_child(mi)
+	rb.add_child(mi)
+	mi.global_transform = at
+	var out := (global_transform.basis * bb.get_center()).normalized()
+	rb.linear_velocity = (global_transform.origin - _prev.origin) / maxf(get_physics_process_delta_time(), 1e-3) + out * 2.0
+	rb.angular_velocity = Vector3(randf_range(-2, 2), randf_range(-2, 2), randf_range(-2, 2))
+	_debris.append(rb)
+	get_tree().create_timer(60.0).timeout.connect(func(): if is_instance_valid(rb): rb.queue_free())

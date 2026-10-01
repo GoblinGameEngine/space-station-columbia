@@ -1153,6 +1153,375 @@
    "mass_kg": 1769.5
   },
   {
+   "id": "steward_tram",
+   "name": "Steward board, pattern HMP-1, heavy, 8 spans",
+   "maker": "steward",
+   "family": "steward",
+   "board": "steward_board",
+   "cls": "heavy",
+   "length_m": 6.7,
+   "deck_width_m": 1.8,
+   "width_m": 2.58,
+   "mount_x_m": 0.8,
+   "track_m": 2.2,
+   "wheel_r": 0.48,
+   "wheelbase_m": 4.5,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 2.25,
+     "steer": true,
+     "driven": true
+    },
+    {
+     "tag": "B",
+     "y": -2.25,
+     "steer": true,
+     "driven": true
+    }
+   ],
+   "drive": "every wheel (a motor in each pod)",
+   "steering": "by wire; 2 of 2 axles",
+   "pack_kwh": 144.0,
+   "power_kw": 640,
+   "modules": [
+    {
+     "id": "cap_front",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      3.175,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.35,
+      0.23
+     ],
+     "mass_kg": 19.0,
+     "hp": 1000,
+     "attach": "span_0",
+     "end": "front"
+    },
+    {
+     "id": "span_0",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      2.625,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": null,
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_1",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.875,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_0",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_2",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.125,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_1",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_3",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.375,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_2",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_4",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -0.375,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_3",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_5",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.125,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_4",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_6",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.875,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_5",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_7",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -2.625,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.75,
+      0.23
+     ],
+     "mass_kg": 95.0,
+     "hp": 2000,
+     "attach": "span_6",
+     "kwh": 18.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "cap_rear",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      -3.175,
+      0.385
+     ],
+     "size": [
+      1.8,
+      0.35,
+      0.23
+     ],
+     "mass_kg": 19.0,
+     "hp": 1000,
+     "attach": "span_7",
+     "end": "rear"
+    },
+    {
+     "id": "pod_FL",
+     "kind": "steward_pod",
+     "pos": [
+      -1.1,
+      2.25,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_0",
+     "side": "L",
+     "wheel": "wheel_FL",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_FR",
+     "kind": "steward_pod",
+     "pos": [
+      1.1,
+      2.25,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_0",
+     "side": "R",
+     "wheel": "wheel_FR",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BL",
+     "kind": "steward_pod",
+     "pos": [
+      -1.1,
+      -2.25,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_6",
+     "side": "L",
+     "wheel": "wheel_BL",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "pod_BR",
+     "kind": "steward_pod",
+     "pos": [
+      1.1,
+      -2.25,
+      0.48
+     ],
+     "size": [
+      0.708,
+      1.1039999999999999,
+      1.056
+     ],
+     "mass_kg": 130.0,
+     "hp": 1500,
+     "attach": "span_6",
+     "side": "R",
+     "wheel": "wheel_BR",
+     "wheel_r": 0.48,
+     "steer": true,
+     "motor": "axial-flux, 160 kW, 5200 Nm at the wheel",
+     "kw": 160.0,
+     "nm": 5200.0,
+     "has": [
+      "motor",
+      "reduction",
+      "steer-by-wire (+-35 deg)",
+      "brake-by-wire",
+      "active suspension",
+      "the pod's own controller"
+     ]
+    },
+    {
+     "id": "socket",
+     "kind": "pattern_socket",
+     "pos": [
+      0,
+      1.85,
+      0.5
+     ],
+     "size": [
+      0.24,
+      0.16,
+      0.03
+     ],
+     "mass_kg": 1.5,
+     "hp": 200,
+     "attach": "span_0"
+    }
+   ],
+   "mass_kg": 1319.5
+  },
+  {
    "id": "harrow_h27",
    "name": "Harrow Ladder H-27",
    "deck_width_m": 1.3,

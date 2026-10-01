@@ -93,7 +93,8 @@ func hour() -> float:
 	return (float(_clock.time_of_day) if _clock else 0.4) * 24.0
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	## (on the physics tick: people stand and walk in the trams, which carry them)
 	if player == null or StationGeo.loading:
 		return
 	var T := clock_seconds()
