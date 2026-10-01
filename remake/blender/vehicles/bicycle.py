@@ -20,7 +20,8 @@ The rig (names are the contract with the game):
   cranks               pivot at the bottom bracket, spin about local X; children pedal_L, pedal_R
                        (counter-rotate them to keep the pedals level)
   kickstand            pivot at its mount; folds up about local X (down = parked)
-  seat_rider           where the rider's hips go (on the saddle), facing +Y
+  seat_rider           where the rider's hips go (on the saddle), facing +Y; seat_pilot the same point
+                       (the vehicle controller's name for the player's seat)
   grip_L, grip_R       hand targets;  foot targets are the pedals
 """
 import math
@@ -470,6 +471,7 @@ attach(kick, frame_ob)
 
 # ------------------------------------------------------------------ rider targets
 empty("seat_rider", SADDLE + Vector((0, -0.03, 0.02)), frame_ob)
+empty("seat_pilot", SADDLE + Vector((0, -0.03, 0.02)), frame_ob)         # the player's seat (RemakeAirVehicle's name)
 empty("grip_L", STEM_TOP + Vector((-0.28, -0.125, -0.01)), steer_ob)
 empty("grip_R", STEM_TOP + Vector((0.28, -0.125, -0.01)), steer_ob)
 

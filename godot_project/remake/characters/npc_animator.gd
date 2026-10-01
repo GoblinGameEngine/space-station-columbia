@@ -71,6 +71,15 @@ var ambient := true                # break into idles (check a watch, stretch...
 var _next_idle := 0.0
 var _idle_weights := {}
 var _brow0 := 0.0                  # the face's own brow height (the clip's brow adds to it)
+## Riding (a bicycle, a tram seat, a strap): pose overrides in the character's own frame (metres;
+## -Z forward, Y up), set each frame by whoever carries the rider (NpcBike, NpcPopulation's
+## transit riders). Keys, all optional:
+##   hips   the hip joint's position (seated: on the saddle or the seat)
+##   pitch  the trunk's forward lean (rad) on top of the person's own
+##   footL, footR   ankle targets (on the pedals; on the floor ahead of a seat)
+##   handL, handR   wrist targets (the grips; a strap; the lap)
+##   grip   how closed the hands are (0..1);  w  the blend in (0..1)
+var ride := {}
 
 
 func play(id: String, loop := false) -> float:
@@ -425,7 +434,12 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 		var hh: Array = _cs.hips
 		hip_pos += Vector3(float(hh[0]), float(hh[1]), float(hh[2])) * T * cw
 	# (pitches here are + forward; the rig's +x rotation tips a bone back, hence the minus signs)
+	var rw := float(ride.get("w", 1.0)) if not ride.is_empty() else 0.0
+	if rw > 0.0 and ride.has("hips"):
+		hip_pos = hip_pos.lerp(ride.hips, rw)
 	var hq := Quaternion.from_euler(Vector3(-deg_to_rad(2.5) * walk, yaw, list) + _clip_euler("hipsRot"))
+	if rw > 0.0 and ride.has("hips"):
+		hq = hq.slerp(Quaternion.from_euler(Vector3(-float(ride.get("pitch", 0.0)) * 0.6, 0.0, 0.0)), rw)
 	skel.set_bone_pose_position(_bone.Hips, hip_pos)
 	_set_rot("Hips", hq)
 	var hb := Basis(hq)
@@ -469,6 +483,9 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 			var ft: Array = _cs["foot" + side]
 			target = target.lerp(Vector3(float(ft[0]), float(ft[1]), float(ft[2])) * T, cw)
 			fpitch = lerpf(fpitch, deg_to_rad(float(ft[3]) if ft.size() > 3 else 0.0), cw)
+		if rw > 0.0 and ride.has("foot" + side):
+			target = target.lerp(ride["foot" + side], rw)
+			fpitch = lerpf(fpitch, 0.0, rw)
 		_leg_ik(side, target, hip_pos, hb, fpitch, toe * walk)
 	# -- spine, chest, arms, head
 	# the lean into the walk goes through a spring: on stopping it carries on forward and settles
@@ -480,7 +497,7 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	#   over that leg dips -- the counter-tilt to the hips; heavy bodies instead tip the shoulders
 	#   with the hips (a waddle)
 	var osc := deg_to_rad(PITCH_OSC) * cos(2.0 * TAU * (ph - PITCH_PH)) * amp * walk
-	var lean_t: float = float(style.lean) + float(style.get("chest_fwd", 0.0)) + deg_to_rad(4.0) * walk * float(style.speed) + osc - deg_to_rad(5.0) * ak
+	var lean_t: float = float(style.lean) + float(style.get("chest_fwd", 0.0)) + deg_to_rad(4.0) * walk * float(style.speed) + osc - deg_to_rad(5.0) * ak + float(ride.get("pitch", 0.0)) * 0.4 * rw
 	var lean := _spring("lean", lean_t, dt, 1.6, clampf(0.9 - float(style.overshoot), 0.25, 0.9))
 	var twist_w := -yaw * 1.6 * float(style.torso_turn) / 0.29                # the chest's turn in the world
 	var turn := _spring("chest_turn", twist_w - yaw * 0.6, dt, 2.2, 0.5)       # relative to the spine
@@ -580,6 +597,12 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 			q_up = q_up.slerp(ik[0], cw)
 			q_lo = q_lo.slerp(ik[1], cw)
 			q_ha = q_ha.slerp(Quaternion.from_euler(_clip_euler("wrist" + side) / maxf(cw, 1e-3)), cw)
+		if rw > 0.0 and ride.has("hand" + side):
+			var pole: Vector3 = ride.get("pole", Vector3(0.6, -0.4, 0.5))
+			var ikr := _arm_ik(side, ride["hand" + side], t_sh, Vector3(pole.x * k, pole.y, pole.z))
+			q_up = q_up.slerp(ikr[0], rw)
+			q_lo = q_lo.slerp(ikr[1], rw)
+			q_ha = q_ha.slerp(Quaternion.IDENTITY, rw)
 		_set_rot("UpperArm" + side, q_up)
 		_set_rot("LowerArm" + side, q_lo)
 		_set_rot("Hand" + side, q_ha)
@@ -606,6 +629,8 @@ func pose(ph: float, walk: float, time: float, dt := 0.0) -> void:
 	_set_rot("HairA", Quaternion.from_euler(Vector3(-hair_pitch * 0.5, hair_yaw * 0.5, hair_roll * 0.5)))
 	_set_rot("HairB", Quaternion.from_euler(Vector3(-hair_pitch, hair_yaw, hair_roll)))
 	var g0 := grip + 0.08 * breathe * idle + 0.1 * walk
+	if rw > 0.0 and ride.has("grip"):
+		g0 = lerpf(g0, float(ride.grip), rw)
 	var base_curls := NpcClips.grip_curls(g0)
 	var curls := {"L": base_curls, "R": base_curls}
 	for side in ["L", "R"]:

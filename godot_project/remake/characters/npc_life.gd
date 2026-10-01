@@ -109,6 +109,12 @@ func mode(pid: String, P: Dictionary, metres: float, purpose: String, day: int) 
 				return "bike" if metres < 9000.0 else "transit"
 			"walk":
 				return "walk" if metres < 2500.0 else "transit"
+	# a bicycle for the short trips: about a third of people keep one (research/lives/06), and in
+	# these small towns they use it, car or no car
+	var age := int(P.age)
+	if age >= 10 and age <= 75 and P.mobility == "none" and _r(pid, "owns_bike").rand() < 0.35 and metres < 4000.0:
+		if _r(pid, "bike:%d:%d" % [day, int(metres)]).rand() < (0.6 if car == "none" else 0.2):
+			return "bike"
 	if car == "own_car" or (car == "shared_car" and _r(pid, "car:%d" % day).rand() < 0.6):
 		return "car" if metres > 900.0 or int(P.age) >= 70 else "walk"
 	if int(P.age) < 12:

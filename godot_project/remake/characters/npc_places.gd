@@ -23,6 +23,8 @@ static var _units: Dictionary    # uid -> unit
 static var _of_type: Dictionary  # type -> [uid]
 static var _doors: Dictionary    # building id -> Vector2 door (buildings with units, and flats)
 static var _paths: Dictionary
+static var _attach_cache := {}
+static var _edge_cls := PackedStringArray()   # each path edge's road class ("" for a bridge deck)
 static var _adj: Array           # node -> [[edge, other node, length]]
 
 
@@ -46,6 +48,11 @@ static func load_all() -> void:
 		var e: Array = edges[ei]
 		_adj[int(e[0])].append([ei, int(e[1]), float(e[5])])
 		_adj[int(e[1])].append([ei, int(e[0]), float(e[5])])
+	MapTerrain._load()
+	_edge_cls.resize(edges.size())
+	for ei in edges.size():
+		var ri := int((edges[ei] as Array)[2])
+		_edge_cls[ei] = str(MapTerrain._d.roads[ri].cls) if ri >= 0 else ""
 
 
 static func types() -> Dictionary:
@@ -234,13 +241,20 @@ static func _heap_pop(h: Array) -> Array:
 static var _routes := {}         # "from>to" -> route (the same trips recur every day)
 
 
-static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_door := Vector2.INF) -> PackedVector2Array:
-	## Door to door along the streets, on the right-hand pavement. Straight across if either door
-	## has no street within reach, or the network doesn't join them.
-	var key := "%s>%s" % [from_b, to_b]
+const BIKE_EDGE := -0.9          # cyclists ride inside the road, this far from its edge
+
+
+static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_door := Vector2.INF, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF) -> PackedVector2Array:
+	## Door to door along the streets, on the right-hand side: the pavement (edge = PAVEMENT beyond the
+	## road's edge) or, for cyclists, the road itself (edge = BIKE_EDGE). Straight across if either
+	## door has no street within reach, or the network doesn't join them. classes: joined at the nearest
+	## road of these terrain classes and kept to them and the `via_cls` classes (trams: stops on streets,
+	## along gravel roads too, never alleys).
+	## ahead_of: set off away from this point (a vehicle that doesn't turn round where it stands).
+	var key := "%s>%s>%.1f>%s>%s>%s" % [from_b, to_b, edge, ",".join(classes), ",".join(via_cls), str(ahead_of)]
 	if from_door == Vector2.INF and to_door == Vector2.INF and _routes.has(key):
 		return _routes[key]
-	var r := _route(from_b, to_b, from_door, to_door)
+	var r := _route(from_b, to_b, from_door, to_door, edge, classes, via_cls, ahead_of)
 	if from_door == Vector2.INF and to_door == Vector2.INF:
 		if _routes.size() > 512:
 			_routes.clear()
@@ -248,18 +262,64 @@ static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_doo
 	return r
 
 
-static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Vector2) -> PackedVector2Array:
+static func _attach_on(p: Vector2, classes: Array) -> Array:
+	## [edge, u] of the nearest point to p on a road of one of these classes.
+	var key := "%.1f,%.1f>%s" % [p.x, p.y, ",".join(classes)]
+	if _attach_cache.has(key):
+		return _attach_cache[key]
+	var best := INF
+	var out: Array = []
+	var edges: Array = _paths.edges
+	for ei in edges.size():
+		var e: Array = edges[ei]
+		var ri := int(e[2])
+		if ri < 0 or not classes.has(_edge_cls[ei]):
+			continue
+		var n0: Array = _paths.nodes[int(e[0])]
+		if dist(p, Vector2(float(n0[0]), float(n0[1]))) - float(e[5]) > best:
+			continue                                # no point of this edge can be nearer
+		var u0 := float(e[3])
+		var u1 := float(e[4])
+		var k := floori(u0)
+		while float(k) < u1:
+			var ua := maxf(u0, float(k))
+			var ub := minf(u1, float(k + 1))
+			var a := _at(ri, ua)
+			var b := _at(ri, ub)
+			var ab := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
+			var ap := Vector2(StationGeo.wrap_ds(p.x - a.x), p.y - a.y)
+			var t := clampf(ap.dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
+			var dd := (ap - ab * t).length()
+			if dd < best:
+				best = dd
+				out = [ei, ua + (ub - ua) * t]
+			k += 1
+	_attach_cache[key] = out
+	return out
+
+
+static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Vector2, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF) -> PackedVector2Array:
 	load_all()
 	var d0 := from_door if from_door != Vector2.INF else door_of(from_b)
 	var d1 := to_door if to_door != Vector2.INF else door_of(to_b)
 	var a0: Array = _paths.attach.get(from_b.split("/")[0], [])
 	var a1: Array = _paths.attach.get(to_b.split("/")[0], [])
+	if not classes.is_empty() and d0 != Vector2.INF and d1 != Vector2.INF:
+		a0 = _attach_on(d0, classes)
+		a1 = _attach_on(d1, classes)
 	if a0.is_empty() or a1.is_empty() or d0 == Vector2.INF or d1 == Vector2.INF:
 		return PackedVector2Array([d0, d1])
 	var e0: Array = _paths.edges[int(a0[0])]
 	var e1: Array = _paths.edges[int(a1[0])]
 	var centre := PackedVector2Array()
-	if int(a0[0]) == int(a1[0]):
+	var same := int(a0[0]) == int(a1[0])
+	if same and ahead_of != Vector2.INF and int(e0[2]) >= 0:
+		# a vehicle only takes the direct stretch if it lies ahead; behind it, it goes round
+		var here := _at(int(e0[2]), float(a0[1]))
+		var there := _at(int(e0[2]), float(a1[1]))
+		var fwd := Vector2(StationGeo.wrap_ds(here.x - ahead_of.x), here.y - ahead_of.y)
+		same = Vector2(StationGeo.wrap_ds(there.x - here.x), there.y - here.y).dot(fwd) >= 0.0
+	if same:
 		centre = _stretch(int(e0[2]), float(a0[1]), float(a1[1]))
 	else:
 		# Dijkstra from both ends of the start edge (costs: along the edge to each end)
@@ -274,31 +334,58 @@ static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Ve
 		via.resize(n)
 		via.fill(-1)
 		var h := []
-		for end in [0, 1]:
-			var node := int(e0[end])
-			var c := _stretch_len(int(e0[2]), float(a0[1]), float(e0[3 + end]))
-			if c < best[node]:
-				best[node] = c
-				_heap_push(h, [c, node])
-		var goal := {int(e1[0]): _stretch_len(int(e1[2]), float(e1[3]), float(a1[1])), int(e1[1]): _stretch_len(int(e1[2]), float(e1[4]), float(a1[1]))}
 		var found := -1
-		var found_cost := INF
-		while not h.is_empty():
-			var top := _heap_pop(h)
-			var c: float = top[0]
-			var node: int = top[1]
-			if c > best[node] or c >= found_cost:
-				continue
-			if goal.has(node) and c + float(goal[node]) < found_cost:
-				found_cost = c + float(goal[node])
-				found = node
-			for adj in _adj[node]:
-				var nc: float = c + float(adj[2])
-				if nc < best[int(adj[1])]:
-					best[int(adj[1])] = nc
-					prev[int(adj[1])] = node
-					via[int(adj[1])] = int(adj[0])
-					_heap_push(h, [nc, int(adj[1])])
+		# a vehicle (ahead_of set) first looks for a way that never doubles back at a junction; only a
+		# dead end makes it turn there
+		for no_u in ([true, false] if ahead_of != Vector2.INF else [false]):
+			best.fill(INF)
+			prev.fill(-1)
+			via.fill(-1)
+			h.clear()
+			var ends := [0, 1]
+			if ahead_of != Vector2.INF and int(e0[2]) >= 0:     # only the end of the start edge ahead
+				var here := _at(int(e0[2]), float(a0[1]))
+				var t0 := _at(int(e0[2]), float(e0[3]))
+				var t1 := _at(int(e0[2]), float(e0[4]))
+				var fwd := Vector2(StationGeo.wrap_ds(here.x - ahead_of.x), here.y - ahead_of.y)
+				var g0 := Vector2(StationGeo.wrap_ds(t0.x - here.x), t0.y - here.y)
+				var g1 := Vector2(StationGeo.wrap_ds(t1.x - here.x), t1.y - here.y)
+				ends = [0] if g0.dot(fwd) > g1.dot(fwd) else [1]
+			for end in ends:
+				var node := int(e0[end])
+				var c := _stretch_len(int(e0[2]), float(a0[1]), float(e0[3 + end]))
+				if c < best[node]:
+					best[node] = c
+					via[node] = int(a0[0])              # arrived along the start edge
+					_heap_push(h, [c, node])
+			var goal := {int(e1[0]): _stretch_len(int(e1[2]), float(e1[3]), float(a1[1])), int(e1[1]): _stretch_len(int(e1[2]), float(e1[4]), float(a1[1]))}
+			found = -1
+			var found_cost := INF
+			while not h.is_empty():
+				var top := _heap_pop(h)
+				var c: float = top[0]
+				var node: int = top[1]
+				if c > best[node] or c >= found_cost:
+					continue
+				# (not having come along the goal's own edge: that would double back to reach it)
+				if goal.has(node) and c + float(goal[node]) < found_cost and not (no_u and via[node] == int(a1[0])):
+					found_cost = c + float(goal[node])
+					found = node
+				for adj in _adj[node]:
+					if no_u and int(adj[0]) == via[node]:  # no turning back the way it came
+						continue
+					if not classes.is_empty():
+						var ec := _edge_cls[int(adj[0])]
+						if ec != "" and not classes.has(ec) and not via_cls.has(ec):
+							continue
+					var nc: float = c + float(adj[2])
+					if nc < best[int(adj[1])]:
+						best[int(adj[1])] = nc
+						prev[int(adj[1])] = node
+						via[int(adj[1])] = int(adj[0])
+						_heap_push(h, [nc, int(adj[1])])
+			if found >= 0:
+				break
 		if found < 0:
 			return PackedVector2Array([d0, d1])
 		var chain: Array = []                                    # [edge, from node] back to the start
@@ -316,7 +403,7 @@ static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Ve
 			centre.append(tail[i])
 	# the pavement: offset to the right of the way of travel by half the road and a step
 	var out := PackedVector2Array([d0])
-	var w0 := float(_road(int(e0[2])).w) * 0.5 + PAVEMENT
+	var w0 := float(_road(int(e0[2])).w) * 0.5 + edge
 	for i in centre.size():
 		var a := centre[maxi(i - 1, 0)]
 		var b := centre[mini(i + 1, centre.size() - 1)]

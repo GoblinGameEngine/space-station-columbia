@@ -122,12 +122,17 @@ func _ready() -> void:
 	_mark("structures (first slice)")
 	_place_aerostats()
 	_place_ground_vehicles()
+	_place_bicycles()
 	_mark("aerostats (first slice)")
 	# the people: generated round the player as they go, never stored (remake/characters/)
 	npcs = NpcPopulation.new()
 	npcs.player = player
 	add_child(npcs)
 	_mark("people")
+	transit = TransitSystem.new()
+	transit.player = player
+	add_child(transit)
+	_mark("transit")
 	_watch_load()
 
 
@@ -257,6 +262,54 @@ func _place_ground_vehicles() -> void:
 
 
 var _cars_done := false
+var transit: TransitSystem
+
+
+func _place_bicycles() -> void:
+	## Bicycles leaning by the front doors of the homes where someone keeps one (NpcLife's residents:
+	## about a third of people from 10 to 75 own a bike; one parked bike per such home, two homes in
+	## three), along the facade beside the door. Every one can be ridden (RemakeBicycle).
+	if not FileAccess.file_exists(NpcLife.PATH):
+		return
+	var life := NpcLife.shared()
+	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
+	var by_id := {}
+	for b in st.structures:
+		by_id[b.id] = b
+	var root := Node3D.new()
+	root.name = "Bicycles"
+	add_child(root)
+	var n := 0
+	var t0 := Time.get_ticks_usec()
+	for home in life.by_home:
+		var owner := false
+		for pid in life.by_home[home]:
+			var P: Dictionary = life.person(pid)
+			if int(P.age) >= 10 and int(P.age) <= 75 and NpcRng.for_trait(life.seed, pid, "owns_bike").rand() < 0.35:
+				owner = true
+				break
+		if not owner or NpcRng.for_trait(life.seed, str(home), "bike_parked").rand() > 0.66:
+			continue
+		var b: Dictionary = by_id.get(str(home).split("/")[0], {})
+		if b.is_empty():
+			continue
+		var door := NpcHouseholds.door(b)
+		var yaw: float = b.yaw
+		var front := Vector2(cos(yaw), -sin(yaw))
+		var right := Vector2(sin(yaw), cos(yaw))
+		var side := 1.0 if NpcRng.for_trait(life.seed, str(home), "bike_side").rand() < 0.5 else -1.0
+		var p := door + right * side * 1.3 - front * 0.45
+		var bike := RemakeBicycle.new()
+		bike.name = "Bike_%s" % str(home).replace("/", "_")
+		root.add_child(bike)
+		# parallel to the facade, leaning on its kickstand
+		var heading := atan2(-right.y * side, right.x * side)
+		bike.global_transform = Transform3D(StationGeo.basis(p.x, heading), StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y)))
+		n += 1
+		if Time.get_ticks_usec() - t0 > 4000:
+			await get_tree().process_frame
+			t0 = Time.get_ticks_usec()
+	print("RemakeStation: %d bicycles parked" % n)
 
 
 func _place_aerostats() -> void:

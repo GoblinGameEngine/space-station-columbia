@@ -36,6 +36,7 @@ var _here := Vector2.ZERO        # the player (s, x), for _trip_pos
 var _next := {}                  # pid -> day * 24 + hour before which there's nothing of theirs to see
 var _life: NpcLife               # everyone's days (null without a lives bake: the old random walks)
 const OUTDOORS := ["park_pavilion", "food_stand", "amusement"]      # places whose visitors stay in view
+const BIKE_SPEED := 4.2          # m/s, a town cyclist
 var _house_cache := {}           # building id -> NpcHouseholds.of_building (tiny; rebuilt freely)
 var _tick := 0.0
 var _clock: Node
@@ -288,6 +289,7 @@ func _trip_pos(P: Dictionary, s: Dictionary, hh: float) -> Vector2:
 	## drivers and riders only for the door-to-kerb walk at either end.
 	var game_h_per_s := 24.0 / DaySkySystem.DAY_LENGTH_SECONDS
 	if s.mode == "walk" or s.mode == "bike":
+		var bike: bool = s.mode == "bike"
 		# (a cheap look first: could the way between the two doors come near the player at all?)
 		var a := _life.door(P, s.from)
 		var b := _life.door(P, s.to)
@@ -296,9 +298,9 @@ func _trip_pos(P: Dictionary, s: Dictionary, hh: float) -> Vector2:
 		var t := clampf(ap.dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
 		if (ap - ab * t).length() > SPAWN_R + 0.35 * ab.length():
 			return Vector2.INF
-		var r := NpcPlaces.route(_life.place_of(P, s.from), _life.place_of(P, s.to))
+		var r := NpcPlaces.route(_life.place_of(P, s.from), _life.place_of(P, s.to), Vector2.INF, Vector2.INF, NpcPlaces.BIKE_EDGE if bike else NpcPlaces.PAVEMENT)
 		var L := NpcPlaces.route_length(r)
-		var dur := L / 1.3 * game_h_per_s
+		var dur := L / (BIKE_SPEED if bike else 1.3) * game_h_per_s
 		if hh - float(s.t0) >= dur:
 			return Vector2.INF
 		s.frac = (hh - float(s.t0)) / maxf(dur, 1e-6)
@@ -350,7 +352,20 @@ func _day_plan(pid: String, s: Dictionary) -> Array:
 	var to_b := _life.place_of(P, s.to)
 	var d0 := _life.door(P, s.from)
 	var d1 := _life.door(P, s.to)
-	if s.mode == "walk" or s.mode == "bike":
+	if s.mode == "bike":
+		# the road from kerb to kerb, at cycling pace; they wheel the bike in at the far end
+		var rb := NpcPlaces.route(_life.place_of(P, s.from), to_b, Vector2.INF, Vector2.INF, NpcPlaces.BIKE_EDGE)
+		var atb := float(s.frac) * NpcPlaces.route_length(rb)
+		var planb: Array = [_pos_along(rb, atb)]
+		var runb := 0.0
+		for i in range(1, rb.size() - 2):
+			runb += NpcPlaces.dist(rb[i - 1], rb[i])
+			if runb > atb:
+				planb.append(rb[i])
+		if rb.size() >= 2:
+			planb.append(rb[rb.size() - 2])
+		return planb
+	if s.mode == "walk":
 		var r := NpcPlaces.route(_life.place_of(P, s.from), to_b)
 		var at := float(s.frac) * NpcPlaces.route_length(r)
 		var plan2: Array = [_pos_along(r, at)]
@@ -412,6 +427,12 @@ func _collect() -> void:
 			"speed": _walk_speed(job.v), "pop": job.pop, "member": job.m, "b": job.b, "persona": {}}
 		e.sig = _sig(seg) if not seg.is_empty() else str(floori(hour() * 2.0))
 		e.seg = seg
+		if not seg.is_empty() and seg.get("kind", "") == "trip" and seg.get("mode", "") == "bike" and int(job.v.get("age", 30)) >= 10:
+			var bike := NpcBike.make()
+			add_child(bike)
+			e.bike = bike
+			e.speed = BIKE_SPEED * (0.85 + 0.3 * NpcRng.for_trait(world_seed, pid, "bike_pace").rand())
+			e.yaw_prev = 0.0
 		live[pid] = e
 		e.zone = RemakeInteractZone.make(npc, "Talk", Transform3D(Basis(), Vector3(0, float(npc.params.height) * 0.55, 0)),
 			Vector3(0.7, float(npc.params.height), 0.7), func(_by): return _contact(pid), func(): return "Talk")
@@ -422,6 +443,8 @@ func _collect() -> void:
 func _despawn(pid: String) -> void:
 	var e: Dictionary = live[pid]
 	(e.npc as Node).queue_free()
+	if e.has("bike"):
+		(e.bike as Node).queue_free()
 	live.erase(pid)
 
 
@@ -555,7 +578,24 @@ func _move(e: Dictionary, delta: float) -> void:
 			if absf(ns) + absf(nx) > 0.1:
 				anim.lead_turn = clampf(angle_difference(float(e.get("yaw_body", 0.0)), atan2(-nx, ns)), -1.0, 1.0) * (1.0 - d / 1.5)
 	_turn_body(e, delta)
+	if e.has("bike"):
+		_ride(e, delta, d > step)
+		return
 	_place(e)
+
+
+func _ride(e: Dictionary, delta: float, moving: bool) -> void:
+	## A cyclist: the bike steers, leans and turns its cranks by the motion; the rider sits on it.
+	var bike: NpcBike = e.bike
+	var anim: NpcAnimator = e.anim
+	var yb := float(e.get("yaw_body", 0.0))
+	var rate := angle_difference(float(e.get("yaw_prev", yb)), yb) / maxf(delta, 1e-3)
+	e.yaw_prev = yb
+	anim.speed = 0.0
+	anim.lead_turn = 0.0
+	bike.update(delta, e.speed if moving else 0.0, rate)
+	_place(e)
+	anim.ride = bike.rider_pose()
 
 
 func _personal_space(delta: float) -> void:
@@ -564,8 +604,12 @@ func _personal_space(delta: float) -> void:
 	var keys := live.keys()
 	for i in keys.size():
 		var a: Dictionary = live[keys[i]]
+		if a.has("bike"):
+			continue
 		for j in range(i + 1, keys.size()):
 			var b: Dictionary = live[keys[j]]
+			if b.has("bike"):
+				continue
 			var d := Vector2(StationGeo.wrap_ds(float(b.s) - float(a.s)), float(b.x) - float(a.x))
 			var l := d.length()
 			if l >= PERSONAL:
@@ -590,7 +634,13 @@ func _place(e: Dictionary) -> void:
 	var s: float = e.s
 	var x: float = e.x
 	var npc: Node3D = e.npc
-	npc.global_transform = Transform3D(StationGeo.basis(s, float(e.get("yaw_body", e.get("yaw", 0.0)))), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
+	var xf := Transform3D(StationGeo.basis(s, float(e.get("yaw_body", e.get("yaw", 0.0)))), StationGeo.point(s, x, MapTerrain.elevation(s, x)))
+	if e.has("bike"):
+		var bike: NpcBike = e.bike
+		bike.global_transform = xf
+		npc.global_transform = bike.rider_frame()
+		return
+	npc.global_transform = xf
 
 
 # -- contact --------------------------------------------------------------------------------------------

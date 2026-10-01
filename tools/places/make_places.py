@@ -101,8 +101,8 @@ pt("furniture", "Furniture / appliance store", "retail", SF + ["big_box"], {"sho
    fixtures=["showroom_floor"], stock=["furniture", "appliances"], hints=["furniture", "appliance_repair"])
 pt("sporting_goods", "Sporting goods / outfitter", "retail", SF + ["kiosk"], {"shop_clerk": 2}, ["09:00", "18:00", WK], [("gear", 0.04, "age >= 10", 20)], price=2, per1000=0.08,
    fixtures=["racks", "counter", "gun_case_optional"], stock=["sports_gear", "fishing_tackle", "bikes"], hints=["sporting_goods", "bike_rental", "surf_shop", "bait"])
-pt("gas_station", "Gas station / convenience", "retail", ["kiosk", "strip_unit", "storefront"], {"shop_clerk": 2}, ["05:00", "23:00", ALL], [("fuel", 0.4, "car_access != 'none'", 8)], price=1, per1000=0.4,
-   fixtures=["pumps", "counter", "cooler", "snack_racks"], stock=["fuel", "snacks", "cigarettes", "lottery_tickets", "energy_drinks"], hints=["gas_station"], addictions=["nicotine", "gambling", "caffeine"])
+pt("charge_stop", "Charging stop / convenience", "retail", ["kiosk", "strip_unit", "storefront"], {"shop_clerk": 2}, ["05:00", "23:00", ALL], [("charge", 0.25, "car_access != 'none'", 20)], price=1, per1000=0.4,
+   fixtures=["fast_chargers", "counter", "cooler", "snack_racks", "air_and_water"], stock=["charging", "snacks", "cigarettes", "lottery_tickets", "energy_drinks"], hints=["gas_station"], addictions=["nicotine", "gambling", "caffeine"])
 pt("newsagent", "Newsstand / tobacconist", "retail", ["kiosk", "storefront"], {"shop_clerk": 1}, ["06:00", "18:00", ALL], [("papers", 0.4, ADULT, 4)], price=0, per1000=0.1,
    fixtures=["counter", "news_racks"], stock=["newspapers", "magazines", "tobacco", "lottery_tickets"], hints=["kiosk"], addictions=["nicotine", "gambling"])
 # -- services

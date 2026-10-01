@@ -31,10 +31,10 @@ def v(id, name, cat, medium, size, seats, who, per_place=None, occupations=(), r
                  variants=list(variants), npc_actions=list(actions), note=note, household=household)
 
 
-CAR_STATES = ["parked", "moving", "doors_open", "boot_open", "headlights", "brake_lights", "indicators", "occupied"]
+CAR_STATES = ["parked", "charging", "moving", "doors_open", "boot_open", "headlights", "brake_lights", "indicators", "occupied"]
 CAR_VARIANTS = ["colour", "condition: new / kept / worn / beater / derelict (from finances)", "age of model"]
 CAR_ACTS = ["get_in_driver", "get_in_passenger", "get_out", "open_boot_load", "buckle_child"]
-WORK = ["parked", "moving", "doors_open", "rear_open", "working_lights", "occupied"]
+WORK = ["parked", "charging", "moving", "doors_open", "rear_open", "working_lights", "occupied"]
 
 # -- 1. household: people's own (car_access, commute_mode, household, finances) ---------------------------
 v("city_car", "City car / small hatchback", "household", "road", [3.6, 1.7, 1.5], 4,
@@ -67,7 +67,7 @@ v("scooter_moped", "Scooter / moped", "household", "road", [1.8, 0.7, 1.15], 2, 
 v("bicycle", "Bicycle (adult)", "household", "road_or_path", [1.8, 0.6, 1.1], 1, "commute_mode bike; leisure riders; bike rentals",
   priority=1, states=["parked_in_rack", "leaning", "moving"], variants=["city / road / mountain / beach cruiser", "basket", "colour", "rental livery"],
   actions=["mount", "dismount", "pedal", "push_walking", "lock_to_rack"], household="bicycle",
-  note="Cyclists currently walk (research/lives/04); the first vehicle the population engine will use.")
+  note="NPC cyclists ride it (NpcBike); parked ones by their owners' doors are the player's to ride.")
 v("child_bicycle", "Child's bicycle", "household", "path", [1.3, 0.5, 0.8], 1, "children 4-12", priority=2,
   states=["lying_on_lawn", "moving"], variants=["training wheels", "colour"], actions=["pedal", "fall_off"], household="child_bike")
 v("cargo_bike", "Cargo bike / e-bike", "household", "road_or_path", [2.4, 0.7, 1.1], 3, "carless parents, shop deliveries", priority=3,
@@ -135,9 +135,9 @@ v("transit_bus", "Transit bus", "transit", "road", [12.0, 2.55, 3.1], 70, "commu
   per_place={}, occupations=["driver"], priority=1, states=["moving", "at_stop", "doors_open", "kneeling", "destination_sign"],
   actions=["wait_at_stop", "board_bus", "alight_bus", "drive_bus"], household="transit_riders",
   note="NpcLife calls transit 'the tram'. The game bible chooses bus, tram or both; stops are a street-furniture contract.")
-v("tram", "Tram / streetcar", "transit", "rail", [20.0, 2.65, 3.6], 150, "transit riders; station transit_station", per_place={"transit_station": 2},
-  occupations=["driver"], priority=1, states=["moving", "at_stop", "doors_open", "pantograph_up"], actions=["board", "alight", "stand_holding_strap"],
-  note="The station's own transit (transit_station, research/roles/03).")
+v("tram", "Road tram (articulated, rubber-tyred)", "transit", "road", [24.0, 2.65, 3.5], 150, "transit riders; station transit_station", per_place={"transit_station": 2},
+  occupations=["driver"], priority=1, states=["moving", "at_stop", "doors_open", "kneeling", "charging_at_stop", "destination_sign"], actions=["board", "alight", "stand_holding_strap"],
+  note="Canon: trams run on roads (a guided, articulated electric vehicle in its own lane, charging at stops). The station's transit (transit_station).")
 v("paratransit_van", "Paratransit / patient transport van", "transit", "road", [6.0, 2.0, 2.6], 8, "wheelchair users, elders, clinic trips",
   per_place={"hospital": 2, "care_home": 1}, occupations=["driver", "care_aide"], priority=2, states=WORK + ["wheelchair_lift_down"], actions=["ride_lift", "strap_wheelchair"])
 v("hotel_shuttle", "Hotel / resort shuttle", "transit", "road", [6.5, 2.0, 2.6], 12, "hotel guests, the ferry, the college",
@@ -152,13 +152,13 @@ v("passenger_train", "Passenger train (locomotive + coaches, or a multiple unit)
   "long trips between towns; the depot", per_place={"warehouse": 0}, occupations=["driver"], priority=1,
   states=["moving", "at_platform", "doors_open", "horn", "headlights"], actions=["board_train", "alight_train", "wait_on_platform"],
   household="rail", note="There is one rail line on the map; its level crossings already exist.")
-v("freight_locomotive", "Freight locomotive", "rail", "rail", [22.0, 3.1, 4.6], 2, "freight to the grain elevator, mills, works, cannery",
-  occupations=["driver"], priority=2, states=["moving", "idling", "horn", "headlights"], household="rail")
+v("freight_locomotive", "Electric freight locomotive", "rail", "rail", [22.0, 3.1, 4.6], 2, "freight to the grain elevator, mills, works, cannery",
+  occupations=["driver"], priority=2, states=["moving", "standing", "horn", "headlights"], household="rail")
 v("boxcar", "Boxcar", "rail", "rail", [15.5, 3.2, 4.6], 0, "general freight: works, mills, warehouse", priority=2,
   states=["coupled", "on_siding", "door_open"], variants=["livery", "weathering"], household="rail")
 v("covered_hopper", "Covered hopper (grain)", "rail", "rail", [18.0, 3.2, 4.4], 0, "the grain elevator and the flour mill", priority=2,
   per_place={"grain_elevator": 3, "mill": 2}, states=["coupled", "on_siding", "loading"], household="rail")
-v("tank_car", "Tank car", "rail", "rail", [18.0, 3.2, 4.6], 0, "fuel and chemicals for the gas stations and works", priority=3,
+v("tank_car", "Tank car", "rail", "rail", [18.0, 3.2, 4.6], 0, "liquids for the works: water, oils, process chemicals, milk in bulk", priority=3,
   states=["coupled", "on_siding"], household="rail")
 v("flatcar", "Flatcar (lumber, machinery)", "rail", "rail", [18.0, 3.0, 1.3], 0, "builders' yards, machine works", priority=3,
   states=["coupled", "on_siding", "loaded"], variants=["load"], household="rail")
@@ -185,13 +185,11 @@ v("refrigerated_truck", "Refrigerated truck", "commercial", "road", [8.5, 2.5, 3
   per_place={"cannery": 1, "fish_house": 0.5, "ice_plant": 1, "fish_market": 0.5}, occupations=["driver"], priority=3, states=WORK + ["reefer_running"])
 v("semi_truck", "Semi tractor-unit", "commercial", "road", [7.0, 2.5, 4.0], 2, "freight in and out of the works, mill, warehouse, cannery",
   per_place={"factory": 1, "machine_works": 0.5, "mill": 0.5, "warehouse": 1, "cannery": 1}, occupations=["driver"], roles=["truck_driver"], priority=2,
-  states=["parked", "moving", "hitched", "idling"], variants=["day cab / sleeper", "colour"], actions=["climb_into_cab", "hitch_trailer"])
+  states=["parked", "moving", "hitched", "charging"], variants=["day cab / sleeper", "colour"], actions=["climb_into_cab", "hitch_trailer"])
 v("semi_trailer_dry", "Semi trailer (dry van)", "commercial", "road", [16.2, 2.6, 4.1], 0, "at loading docks", per_place={"factory": 2, "warehouse": 3, "machine_works": 1},
   priority=2, states=["at_dock", "hitched", "doors_open"], variants=["livery"])
 v("semi_trailer_reefer", "Semi trailer (refrigerated)", "commercial", "road", [16.2, 2.6, 4.1], 0, "cannery, ice plant, fish houses",
   per_place={"cannery": 2, "ice_plant": 0.5}, priority=3, states=["at_dock", "hitched", "reefer_running"])
-v("fuel_tanker", "Fuel tanker truck", "commercial", "road", [11.0, 2.5, 3.5], 2, "gas station and farm fuel deliveries",
-  per_place={"gas_station": 0.2}, occupations=["driver"], priority=3, states=WORK + ["hose_connected"], actions=["connect_hose"])
 v("milk_tanker", "Milk tanker truck", "commercial", "road", [11.0, 2.5, 3.5], 2, "collecting from dairy farms", per_place={"farm": 0.05},
   occupations=["driver"], priority=3, states=WORK + ["hose_connected"])
 v("grain_truck", "Grain truck", "commercial", "road_or_field", [9.0, 2.5, 3.3], 2, "harvest: fields to the elevator",
@@ -322,7 +320,7 @@ v("ferry", "Passenger / car ferry", "water", "water", [45.0, 12.0, 10.0], 250, "
   occupations=["dock_worker"], priority=2, states=["docked_ramp_down", "underway", "horn"], actions=["board_ferry", "lean_on_rail"])
 v("workboat_tug", "Workboat / harbour tug", "water", "water", [15.0, 5.0, 6.0], 4, "the harbour, the boatyard, barges", per_place={"boatyard": 0.5, "harbormaster": 0.3},
   occupations=["dock_worker"], priority=3, states=["moored", "pushing", "towing"])
-v("barge", "Barge", "water", "water", [40.0, 11.0, 3.0], 0, "gravel, grain, fuel on the lake", per_place={"grain_elevator": 0.3}, priority=3,
+v("barge", "Barge", "water", "water", [40.0, 11.0, 3.0], 0, "gravel, grain and bulk goods on the lake", per_place={"grain_elevator": 0.3}, priority=3,
   states=["moored", "under_tow", "loaded"])
 v("pedal_boat", "Pedal boat / swan boat", "amusement", "water", [2.5, 1.5, 1.2], 2, "park ponds, resort rentals", per_place={"amusement": 2},
   priority=3, states=["tied_up", "pedalled"], actions=["pedal_seated"])
@@ -343,7 +341,7 @@ v("cargo_aerostat", "Cargo / heavy-lift aerostat", "station", "air", [20.0, 12.0
   roles=["shuttle_pilot", "cargo_handler"], priority=3, states=["parked", "flying", "sling_load"], note="For the game bible: how much freight flies instead of rolling.")
 v("rescue_aerostat", "Rescue / medical aerostat", "station", "air", [9.0, 8.0, 5.5], 4, "air ambulance, search and rescue", per_place={"hospital": 0.5},
   roles=["emt"], priority=3, states=["parked", "flying", "beacon_on"])
-v("tram_maintenance_car", "Tram maintenance car", "station", "rail", [10.0, 2.6, 3.5], 3, "keeping the transit line", per_place={"transit_station": 0.5},
+v("tram_maintenance_car", "Tram maintenance truck", "station", "road", [10.0, 2.6, 3.5], 3, "keeping the transit line", per_place={"transit_station": 0.5},
   occupations=["mechanic"], roles=["maintenance_worker"], priority=3, states=["parked", "working"])
 v("spoke_elevator_car", "Spoke elevator car (floor to axis)", "station", "vertical", [6.0, 6.0, 3.0], 30, "reaching the axis, the port, zero-g",
   per_place={"port": 2, "arrival_center": 1}, roles=["arrival_coordinator"], priority=2, states=["at_floor", "climbing", "at_axis"], actions=["hold_rail_in_low_g"],
@@ -552,13 +550,18 @@ def main():
         tot, len(V), sum(hhn[k] for k in ("city_car", "sedan", "station_wagon", "crossover_suv", "full_size_suv", "minivan", "pickup_truck", "sports_car", "convertible", "luxury_sedan")),
         households, sum(hhn[k] for k in ("city_car", "sedan", "station_wagon", "crossover_suv", "full_size_suv", "minivan", "pickup_truck", "sports_car", "convertible", "luxury_sedan")) / max(1, households),
         hhn["bicycle"], hhn["child_bicycle"]), "",
+        "## Models (2026-09-30)",
+        "- **Every type above has a model**: `godot_project/remake/vehicles/<id>.glb`, built from Grok's 2D reference images by the `ssc-asset` skill (`tools/assets`, `remake/blender/kit`): solid hulls with rigged wheels, open frames as cut-out panels, and the five people ride inside (tram, transit bus, school bus, train car, sightseeing trolley) hollow with interiors fitted from Grok's cutaway, plan and aisle views, at least 2.2 m floor to ceiling. The bicycle is hand-built (`remake/blender/vehicles/bicycle.py`).",
+        "- **In use:** NPC cyclists (NpcBike, NpcAnimator.ride) and parked bicycles the player rides in person (RemakeBicycle); trams on three road lines and the Ring Line train (`remake/scripts/transit`) with seated and standing passengers, which the player can board. The tram is articulated in seven bodies with bellows and colliders, turning round on paved trolley loops at the ends of its lines.",
+        "",
         "## What the engine still needs to use them",
         "- **Parking:** `groundcars.json` parks pods and vans kerbside. Household cars belong in driveways, garages and kerbs by their homes; work vehicles belong in yards, bays and docks. That's a parking-slot contract on the building shells.",
         "- **Stops and stations:** bus and tram stops, the platform, the ferry terminal, bike racks, taxi ranks: street-furniture contracts.",
         "- **Clips:** getting in and out, riding (bike, scooter, motorcycle, mower), pushing (stroller, cart, wheelchair, gurney), boarding. `npc_actions` lists them per vehicle.",
         "- **Liveries** are procedural like shop signs: the business name from the place unit, the town's seal, the carrier's colours.",
         "- **Condition** follows the owner's `finances` (new, kept, worn, beater), and a few derelicts sit in yards (`money_reasons` laid_off, `finances` struggling).",
-        "- **Not listed, on purpose:** snowplows and snowmobiles (the station's climate is controlled); aircraft (aerostats fly instead); horses and carriages (the game bible may add them).",
+        "- **Canon: every vehicle is electric or pedal-powered**; nothing burns fuel. Road vehicles charge at home, at charging stops (`charge_stop`, which replaces the gas station), at depots and yards; trams charge at their stops. Trams run on roads.",
+        "- **Not listed, on purpose:** fuel tankers; snowplows and snowmobiles (the station's climate is controlled); aircraft (aerostats fly instead); horses and carriages (the game bible may add them).",
         "- **A gap in the places:** the registry's police/fire type matched only one civic building on the whole station, so emergency and public-works vehicles are also counted **per town** (%d towns; small American towns each keep a fire company, mostly volunteer). The places bake should give every town a fire station and a public-works yard." % len(towns),
         "- **Station facilities** (port, transit station, air plant...) have no buildings on the map yet, so their vehicles count 0 today; the list is ready for them.",
         "- **Game-bible decisions:** bus, tram or both; how people reach the axis and the port (the spoke elevator); how much freight flies by aerostat; whether a car dealership exists (there is no place type for one yet)."]

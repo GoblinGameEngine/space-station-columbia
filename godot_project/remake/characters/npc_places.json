@@ -1053,8 +1053,8 @@
    "station": false,
    "note": ""
   },
-  "gas_station": {
-   "name": "Gas station / convenience",
+  "charge_stop": {
+   "name": "Charging stop / convenience",
    "category": "retail",
    "shells": [
     "kiosk",
@@ -1071,10 +1071,10 @@
    },
    "visits": [
     {
-     "purpose": "fuel",
-     "per_week": 0.4,
+     "purpose": "charge",
+     "per_week": 0.25,
      "who": "car_access != 'none'",
-     "dwell_min": 8
+     "dwell_min": 20
     }
    ],
    "third_place": false,
@@ -1082,13 +1082,14 @@
    "per1000": 0.4,
    "contents": {
     "fixtures": [
-     "pumps",
+     "fast_chargers",
      "counter",
      "cooler",
-     "snack_racks"
+     "snack_racks",
+     "air_and_water"
     ],
     "stock": [
-     "fuel",
+     "charging",
      "snacks",
      "cigarettes",
      "lottery_tickets",
