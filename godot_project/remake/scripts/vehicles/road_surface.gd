@@ -117,3 +117,26 @@ static func bump(p: Vector2, name: String) -> float:
 		var amp := sqrt(2.0 * gd * pow(n / N0, -2.0) * float(w[3]) / 3.0)
 		h += amp * cos(TAU * n * (w[1] as Vector2).dot(p) + float(w[2]))
 	return h
+
+
+static func stand_h(space: PhysicsDirectSpaceState3D, p: Vector2, was := -INF, exclude: Array[RID] = []) -> float:
+	## The height a vehicle stands at, at (s, x): a great bridge's deck (GreatBridges.deck_h, its
+	## approaches too); else the ground -- or, where the ground is a river or lake bed, a smaller
+	## bridge's deck over it: a ray down from just above where it was (was: its last
+	## height, so the ray starts under any arch or truss overhead). With no deck there (not built
+	## yet), the water's surface: never along the bottom.
+	var known := was > -1000.0 and was < 1000.0          # (-INF, or a new body still at the origin: unknown)
+	var deck := GreatBridges.deck_h(p.x, p.y)
+	if deck > -INF and (not known or absf(deck - was) < 2.5):   # on it -- not on a road passing under it
+		return deck
+	var g := MapTerrain.elevation(p.x, p.y)
+	var wa := MapTerrain.water_at(p.x, p.y)
+	if wa.x < -9000.0 or wa.x <= g + 0.05:
+		return g
+	var from_h := was + 2.5 if known and was > g + 0.1 and was < wa.x + 20.0 else wa.x + 25.0
+	var q := PhysicsRayQueryParameters3D.create(StationGeo.point(p.x, p.y, from_h), StationGeo.point(p.x, p.y, g - 0.5), 1)
+	q.exclude = exclude
+	var hit := space.intersect_ray(q)
+	if hit.is_empty() or StationGeo.h_of(hit.position) < wa.x:
+		return wa.x
+	return StationGeo.h_of(hit.position)

@@ -245,7 +245,8 @@ func place(p_d: float, p_dwelling: bool, p_stop: int) -> void:
 		var o := a - fwd * yl
 		var yaw := atan2(-fwd.y, fwd.x)
 		var mid := (a + b) * 0.5
-		var elev := MapTerrain.elevation(mid.x, mid.y)
+		var elev := RoadSurface.stand_h(node.get_world_3d().direct_space_state, mid, StationGeo.h_of(node.global_position)) \
+			if node.is_inside_tree() else MapTerrain.elevation(mid.x, mid.y)
 		node.global_transform = Transform3D(StationGeo.basis(o.x, yaw), StationGeo.point(o.x, o.y, elev))
 		frames.append(node.global_transform)
 		a = b

@@ -23,6 +23,7 @@ func _init() -> void:
 	accel = 5.0
 	brake = 7.0
 	crash_physics = true
+	floats = true
 
 
 func _build_hull() -> void:

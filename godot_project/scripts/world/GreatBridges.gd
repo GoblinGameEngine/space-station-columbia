@@ -196,6 +196,38 @@ static func off_line(sp: Dictionary, s: float, x: float) -> float:
 	return best
 
 
+static func deck_h(s: float, x: float) -> float:
+	## The deck's surface height at (s, x) if a great bridge (built) carries traffic there -- its
+	## approaches over dry ground included -- else -INF.
+	var best := -INF
+	for sp in decks:
+		if not sp.has("zz"):
+			continue
+		var mid: Vector2 = sp.mid
+		if Vector2(StationGeo.wrap_ds(s - mid.x), x - mid.y).length() > float(sp.len) * 0.5 + float(sp.hw) + 5.0:
+			continue
+		var line: PackedVector2Array = sp.line
+		var hw: float = float(sp.hw) + 0.3
+		for k in line.size() - 1:
+			var a := line[k]
+			var d := Vector2(StationGeo.wrap_ds(line[k + 1].x - a.x), line[k + 1].y - a.y)
+			var L2 := d.length_squared()
+			if L2 < 1e-9:
+				continue
+			var v := Vector2(StationGeo.wrap_ds(s - a.x), x - a.y)
+			var t := v.dot(d) / L2
+			if t < 0.0 or t > 1.0 or (v - d * t).length() > hw:
+				continue
+			var u := minf(k * 5.0 + t * sqrt(L2), float(sp.len))
+			var us: PackedFloat32Array = sp.us
+			var zz: PackedFloat32Array = sp.zz
+			var i := clampi(us.bsearch(u) - 1, 0, us.size() - 2)
+			var f := clampf((u - us[i]) / maxf(us[i + 1] - us[i], 1e-3), 0.0, 1.0)
+			best = maxf(best, lerpf(zz[i], zz[i + 1], f))
+			break
+	return best
+
+
 func _smooth_line() -> void:
 	## The line resampled every 2 m and rounded (a running mean over SMOOTH_R m either side, shrinking
 	## to nothing at the two ends, which stay on the road): the bend where an approach that follows
@@ -412,6 +444,10 @@ func _build(br: Dictionary) -> void:
 		zz[i] = maxf(zz[i], _ground_across(us[i], hw) + 0.05)
 		var gm := _ground_across((us[i - 1] + us[i]) * 0.5, hw) + 0.05
 		zz[i] = maxf(zz[i], gm - (zz[i - 1] - gm))            # the ground between samples, too
+	# what the traffic stands on (deck_h): the deck's profile along the line
+	spans[-1]["us"] = PackedFloat32Array(us)
+	spans[-1]["zz"] = PackedFloat32Array(zz)
+	spans[-1]["mid"] = _at(L * 0.5)
 	var deck_mat := "ballast" if rail else "asphalt"
 	var col := Color.html(str(tr.get("color", "#b8b4ac"))) if tr.get("color") is String else Color(0.72, 0.72, 0.7)
 	if tr.get("color") is Dictionary:

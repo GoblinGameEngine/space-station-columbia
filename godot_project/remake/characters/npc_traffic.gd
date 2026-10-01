@@ -507,9 +507,16 @@ func _drive(e: Dictionary, dt: float, now: Array) -> void:
 		(e.node as Node).queue_free()
 		live.erase(v.id)
 		return
-	(e.node as Node3D).global_transform = Transform3D(StationGeo.basis(q.x, atan2(-d.y, d.x)), StationGeo.point(q.x, q.y, MapTerrain.elevation(q.x, q.y)))
+	(e.node as Node3D).global_transform = Transform3D(StationGeo.basis(q.x, atan2(-d.y, d.x)), StationGeo.point(q.x, q.y, _road_h(q, e.node)))
 	e.speed = s.v
 	(e.node as NpcCarBody).v_now = -(e.node as Node3D).global_transform.basis.z * s.v
+
+
+func _road_h(p: Vector2, node: Node3D) -> float:
+	var ex: Array[RID] = []
+	if node is CollisionObject3D:
+		ex.append((node as CollisionObject3D).get_rid())
+	return RoadSurface.stand_h(node.get_world_3d().direct_space_state, p, StationGeo.h_of(node.global_position), ex)
 
 
 func _end_drive(e: Dictionary) -> void:
@@ -558,7 +565,7 @@ func _show(v: Dictionary) -> void:
 		live[v.id] = e
 	var node := e.node as Node3D
 	var p: Vector2 = w.pos
-	node.global_transform = Transform3D(StationGeo.basis(p.x, float(w.yaw)), StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y)))
+	node.global_transform = Transform3D(StationGeo.basis(p.x, float(w.yaw)), StationGeo.point(p.x, p.y, _road_h(p, node)))
 	e.speed = float(w.get("speed", 0.0))
 	e.moving = bool(w.get("moving", false))
 	if bool(w.get("moving", false)) and e.sim == null and w.has("route"):

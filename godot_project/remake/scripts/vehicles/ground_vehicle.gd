@@ -62,6 +62,8 @@ var blocked_by := ""                 # what last stopped it (remake/tools/drive_
 var phys := {}                       # mass_kg, power_kw, torque_nm, gear, wheel_r, top_kmh, drive, cda
 var damage := 0.0                    # 0..1: structural damage (RCAR thresholds, energy-scaled)
 var surface := "street"              # under the front wheels
+var drowned := false                 # the water reached the tops of its wheels: it's dead (disabled)
+var immersion := 0.0                 # m of water over the bottom of its wheels
 var _comp: Array = []                # each wheel's last suspension compression
 var _grounded := 0
 var _v_prev := Vector3.ZERO
@@ -318,7 +320,7 @@ func _physics_process(delta: float) -> void:
 		var vc := v + angular_velocity.cross(contact - (global_transform * center_of_mass))
 		var vl := vc.dot(wf)
 		var vs := vc.dot(ws)
-		var mu: float = float(sp[0]) * GRIP * (1.0 - 0.3 * damage)
+		var mu: float = float(sp[0]) * GRIP * (1.0 - 0.3 * damage) * (0.6 if immersion > 0.05 else 1.0)   # a wet, soft bed
 		var lat_mu := mu * (0.35 if _handbrake and not w[2] else 1.0)
 		var alpha := atan2(vs, maxf(absf(vl), 1.5))
 		var fy := -lat_mu * fz * sin(1.4 * atan(9.0 * alpha))
@@ -343,6 +345,7 @@ func _physics_process(delta: float) -> void:
 		surface = front_surface
 	# drag
 	_apply(-v * v.length() * 0.5 * 1.2 * float(phys.get("cda", 0.6)), Vector3.ZERO)
+	_water(v, up, r, delta)
 	# play: stability, anti-roll, air control, righting itself
 	var wv := angular_velocity
 	if _grounded > 0:
@@ -378,6 +381,37 @@ func _physics_process(delta: float) -> void:
 func _apply(f: Vector3, at: Vector3) -> void:
 	apply_force(f, at)
 	_f_sum += f
+
+
+func _water(v: Vector3, up: Vector3, r: float, delta: float) -> void:
+	## The rivers, lake and seas. Wading slows it (the water's drag on what's under the surface, and
+	## a soft bed); once the water is up to the tops of its wheels it is drowned -- dead, like a real
+	## EV whose motors and pack are under -- unless it is built for the water (phys.amphibious:
+	## boats, submersibles, amphibians). A drowned vehicle sinks and stays.
+	var p := global_position
+	var s := StationGeo.s_of(p)
+	var wa := MapTerrain.water_at(s, p.x)
+	var was := immersion
+	immersion = maxf(0.0, wa.x - StationGeo.h_of(p)) if wa.x > -9000.0 else 0.0
+	if immersion <= 0.0:
+		return
+	if was <= 0.0 and -v.dot(up) > 3.0:
+		_impact(-v.dot(up), up, p)                     # the splash of going in hard
+	var amphibious := bool(phys.get("amphibious", false))
+	# the drag of the water on the submerged frontal area: Cd ~1 over the width, to the waterline
+	var deep := minf(immersion, float(phys.get("height_m", 1.5)))
+	var vh := v - up * v.dot(up)
+	_apply(-vh * vh.length() * 0.5 * 1000.0 * float(phys.get("width_m", 1.8)) * deep, Vector3.ZERO)
+	if amphibious:
+		return
+	if immersion >= 2.0 * r and not drowned:
+		drowned = true
+		disabled = true
+		_handbrake = false
+		if _motor.playing:
+			_motor.stop()
+	if drowned:
+		linear_velocity = linear_velocity.move_toward(Vector3.ZERO, 3.0 * delta)
 
 
 func _hit(dv: Vector3) -> void:
@@ -475,7 +509,14 @@ func _animate_car(delta: float) -> void:
 
 func _update_hud(_h: float) -> void:
 	if _hud:
-		_hud.text = "SPEED %3d km/h\n" % roundi(absf(_speed) * 3.6) + Controls.hint(
+		var state := ""
+		if drowned:
+			state = "   DROWNED -- the water reached the tops of the wheels"
+		elif disabled:
+			state = "   WRECKED"
+		elif immersion > 0.05:
+			state = "   WADING %.1f m" % immersion
+		_hud.text = "SPEED %3d km/h%s\n" % [roundi(absf(_speed) * 3.6), state] + Controls.hint(
 			"W/S drive / brake / reverse   A/D steer   Space handbrake   E leave seat",
 			"%s drive   %s brake / reverse   %s steer   %s handbrake   %s leave seat" % [Controls.button("RT"),
 				Controls.button("LT"), Controls.button("LS"), Controls.button(JOY_BUTTON_A), Controls.button(JOY_BUTTON_X)])

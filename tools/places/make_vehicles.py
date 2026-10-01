@@ -591,8 +591,12 @@ def phys(k, x):
     # the gear: the motor's top speed (~15,000 rpm for cars, less for heavy motors) reaches the top speed
     rpm_max = 15000.0 if m < 5000 else 6000.0
     gear = max(1.0, rpm_max * 2 * 3.14159 / 60.0 * r / max(1.0, top / 3.6)) if kw > 0.5 else 1.0
+    # built for the water (boats; any amphibian or submersible added later): water up to the tops of
+    # its wheels doesn't drown it
+    amphibious = x["category"] == "water" or any(w in k for w in ("amphib", "submersible", "hovercraft"))
     return {"mass_kg": round(m), "power_kw": round(kw, 2), "torque_nm": round(nm), "gear": round(gear, 2), "wheel_r": r,
-            "top_kmh": top, "drive": drive, "cda": round(cda, 2), "source": src}
+            "top_kmh": top, "drive": drive, "cda": round(cda, 2), "width_m": W, "height_m": H, "amphibious": amphibious,
+            "source": src}
 
 
 def main():

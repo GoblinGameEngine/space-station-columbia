@@ -51,10 +51,16 @@ func _pave_loops() -> void:
 				continue
 			var side := Vector2(-t.y, t.x).normalized() * LANE_W * 0.5
 			var q: Array = []
+			var wet := false
 			for p in [a - side, a + side, b + side, b - side]:
 				var s2 := fposmod((p as Vector2).x, StationGeo.CIRC)
-				q.append(StationGeo.point(s2, (p as Vector2).y, MapTerrain.elevation(s2, (p as Vector2).y) + 0.07))
+				var g := MapTerrain.elevation(s2, (p as Vector2).y)
+				wet = wet or MapTerrain.water_at(s2, (p as Vector2).y).x > g + 0.05
+				q.append(StationGeo.point(s2, (p as Vector2).y, g + 0.07))
 			var r2 := run + t.length()
+			if wet:                                      # over a river or the lake: the bridge carries it, unpainted
+				run = r2
+				continue
 			var uv := [Vector2(0, run), Vector2(1, run), Vector2(1, r2), Vector2(0, r2)]
 			for k in [0, 1, 2, 0, 2, 3]:
 				st.set_uv(uv[k] / 4.0)

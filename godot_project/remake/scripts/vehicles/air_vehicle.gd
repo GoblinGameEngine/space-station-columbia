@@ -70,6 +70,13 @@ const RESTITUTION := 0.35            # the rebound: most of the energy goes into
 const PENDULUM_W := 1.8              # rad/s: the cabin swinging under the balloon, sqrt(g / 3 m)
 const SWING_DAMP := 0.25             # its damping ratio
 @export var crash_physics := false
+@export var floats := false          # it rides on water (the aerostat's gondola is a hull); else water is no floor
+@export var float_draft := 0.3       # m it sits in the water at rest
+const SPLASH_DOWN_MS := 3.05         # a touchdown on water up to this sink rate (as on the casters) ...
+const SPLASH_FWD_MS := 8.0           # ... and this forward speed is a landing; faster is a crash: disabled
+var afloat := false
+var swamped := false                 # the water came over the engines: disabled
+var _engine_h := INF                 # m above the origin: the top of the lowest engine (water past it swamps them)
 @export var com_height := 1.5        # m above the local origin: the centre of mass
 var hull := 100.0                    # % left
 var disabled := false
@@ -317,6 +324,8 @@ func _physics_process(delta: float) -> void:
 	_lv.y = move_toward(_lv.y, target_up, climb_accel * delta)
 	_lv.x = move_toward(_lv.x, 0.0, side_damp * delta)
 	var h := StationGeo.h_of(global_position)
+	if floats:
+		_on_water(h, lift_in, delta)
 	if h >= ceiling_h and _lv.y > 0.0:
 		_lv.y = 0.0
 	if h > ceiling_h + 1.0:
@@ -333,6 +342,50 @@ func _physics_process(delta: float) -> void:
 	if pilot:
 		pilot.global_transform = Transform3D(global_transform.basis, pilot_transform().origin)
 		_update_hud(h - MapTerrain.elevation(StationGeo.s_of(global_position), global_position.x))
+
+
+func _on_water(h: float, lift_in: float, delta: float) -> void:
+	## The rivers, lake and seas as a floor it floats on. Settling onto the water gently is a landing
+	## (it taxis, slowly); hitting it hard is a crash that disables it; pushed down (the fans driving
+	## it under) until the water is over its engines, it is swamped and disabled. Disabled, it still
+	## floats: the balloon and the gondola's hull hold it up.
+	var p := global_position
+	var wa := MapTerrain.water_at(StationGeo.s_of(p), p.x)
+	var d := wa.x - h if wa.x > -9000.0 else -1.0       # m of the hull under the surface
+	var was := afloat
+	afloat = d > 0.0
+	if not afloat:
+		return
+	if not was:
+		var sink := -_lv.y
+		var fwd := Vector2(_lv.x, _lv.z).length()
+		if sink > SPLASH_DOWN_MS or fwd > SPLASH_FWD_MS:
+			_impact(maxf(sink, fwd), StationGeo.up(StationGeo.s_of(p)), p)
+			if not disabled:
+				hull = minf(hull, 10.0)
+				disabled = true
+				_on_disabled()
+	if _engine_h == INF:
+		var inv := global_transform.affine_inverse()
+		for e in engines:                              # the lowest engine's top: past it, they're all under
+			var top := -INF
+			for mi in (e[0] as Node3D).find_children("*", "MeshInstance3D", true, false):
+				top = maxf(top, ((inv * (mi as MeshInstance3D).global_transform) * (mi as MeshInstance3D).get_aabb()).end.y)
+			if top > -INF:
+				_engine_h = minf(_engine_h, top)
+		if _engine_h == INF:
+			_engine_h = 1.5
+	# where it settles: its draft, deeper as the fans push it down
+	var settle := float_draft + maxf(0.0, -lift_in) * (_engine_h + 0.4) * (0.0 if disabled else 1.0)
+	if lift_in <= 0.0 or disabled:
+		_lv.y = move_toward(_lv.y, clampf((d - settle) * 1.5, -0.2, 2.0), climb_accel * 2.0 * delta)
+	# taxiing: the hull ploughs the water
+	_lv.z = move_toward(_lv.z, clampf(_lv.z, -max_speed * 0.35, reverse_speed * 0.5), accel * 2.0 * delta)
+	if d > _engine_h and not swamped:
+		swamped = true
+		if not disabled:
+			disabled = true
+			_on_disabled()
 
 
 func _move(from: Transform3D, motion: Vector3) -> void:
@@ -531,8 +584,12 @@ func _show_hud(on: bool) -> void:
 func _update_hud(h: float) -> void:
 	if _hud:
 		var state := "   HULL %d%%" % roundi(hull) if crash_physics else ""
-		if disabled:
+		if swamped:
+			state = "   SWAMPED (engines under water) -- summon another from the Communicator"
+		elif disabled:
 			state = "   DISABLED -- summon another from the Communicator"
+		elif afloat:
+			state += "   AFLOAT"
 		elif _stun > 0.0:
 			state += "   !! CRASH"
 		_hud.text = "SPEED %3d km/h   ALT %4.0f m (above ground)%s\n" % [roundi(-_lv.z * 3.6), h, state] + Controls.hint(
