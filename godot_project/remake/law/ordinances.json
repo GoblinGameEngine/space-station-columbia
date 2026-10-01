@@ -1,0 +1,1203 @@
+{
+ "_about": "The station's street ordinances (tools/law/canon_law.py; research/law/). Each city's rules are the station's own law modelled on its basis city; the state baselines quote the Ohio Revised Code.",
+ "state": {
+  "ohio": {
+   "name": "the Ohio Revised Code (as carried aboard: the Charter's Code of the Road, art. 30)",
+   "speed": {
+    "school_zone_mph": 20,
+    "business_district_mph": 25,
+    "urban_district_mph": 25,
+    "alley_mph": 15,
+    "state_route_in_town_mph": 35,
+    "source": "ORC 4511.21",
+    "basis": "fetched"
+   },
+   "no_parking": [
+    [
+     "sidewalk",
+     null
+    ],
+    [
+     "in_front_of_driveway",
+     null
+    ],
+    [
+     "within_intersection",
+     null
+    ],
+    [
+     "from_hydrant",
+     3.05
+    ],
+    [
+     "on_crosswalk",
+     null
+    ],
+    [
+     "from_crosswalk_at_intersection",
+     6.1
+    ],
+    [
+     "before_stop_yield_or_signal",
+     9.14
+    ],
+    [
+     "opposite_safety_zone_ends",
+     9.14
+    ],
+    [
+     "from_rail_crossing",
+     15.24
+    ],
+    [
+     "from_fire_station_driveway",
+     6.1
+    ],
+    [
+     "opposite_fire_station",
+     22.86
+    ],
+    [
+     "beside_excavation",
+     null
+    ],
+    [
+     "double_parking",
+     null
+    ],
+    [
+     "bridge_or_tunnel",
+     null
+    ],
+    [
+     "where_signed",
+     null
+    ],
+    [
+     "from_parked_vehicle",
+     0.3
+    ],
+    [
+     "freeway_roadway",
+     null
+    ],
+    [
+     "bicycle_lane",
+     null
+    ]
+   ],
+   "no_parking_source": "ORC 4511.68 (fetched)",
+   "parking_position": {
+    "max_from_curb_m": 0.3,
+    "side": "right, with the flow",
+    "one_way_left_by_ordinance": true,
+    "angle_by_ordinance_only": true,
+    "angle_min_clear_roadway_m": 7.62,
+    "disability_extra_hours": 2,
+    "disability_fine_usd": [
+     250,
+     500
+    ],
+    "source": "ORC 4511.69 (fetched)"
+   },
+   "sidewalks": {
+    "duty": "the abutting owner builds and repairs sidewalks, curbs and gutters; the city may order it and, if not done, do it and assess the cost on the lot",
+    "source": "ORC 729.01 (fetched)"
+   },
+   "subdivision": {
+    "approval_outside_towns": "the county commissioners (here: the Regional Planning Board of the governing city)",
+    "decision_days": 30,
+    "deemed_approved_if_late": true,
+    "min_lot_sqft_floor": 4800,
+    "appeal_days": 60,
+    "rules_may_cover": [
+     "street arrangement and coordination",
+     "open spaces for traffic, utilities, fire access, recreation, light and air",
+     "avoiding congestion",
+     "health board review",
+     "sewage rules"
+    ],
+    "source": "ORC 711.05, 711.10 (fetched)"
+   },
+   "building": {
+    "state_code": "the Ohio Building Code (OAC 4101:1; the International Building Code as amended)",
+    "residential_code": "the Residential Code of Ohio (OAC 4101:8; the International Residential Code as amended)",
+    "local_additions": "a city may add regulations that don't conflict; the Board of Building Standards may void a conflicting one not needed for health or safety (ORC 3781.01, fetched)"
+   }
+  },
+  "indiana": {
+   "name": "the Indiana Code (as carried aboard: the Oceanview Compact's Indiana charter, a founders' inheritance)",
+   "speed": {
+    "urban_district_mph": 30,
+    "alley_mph": 15,
+    "school_zone_mph": 20,
+    "source": "IC 9-21-5-2 (knowledge)",
+    "basis": "knowledge"
+   },
+   "no_parking": [
+    [
+     "sidewalk",
+     null
+    ],
+    [
+     "in_front_of_driveway",
+     null
+    ],
+    [
+     "within_intersection",
+     null
+    ],
+    [
+     "from_hydrant",
+     4.57
+    ],
+    [
+     "on_crosswalk",
+     null
+    ],
+    [
+     "from_crosswalk_at_intersection",
+     6.1
+    ],
+    [
+     "before_stop_yield_or_signal",
+     9.14
+    ],
+    [
+     "from_rail_crossing",
+     15.24
+    ],
+    [
+     "from_fire_station_driveway",
+     6.1
+    ],
+    [
+     "opposite_fire_station",
+     22.86
+    ],
+    [
+     "double_parking",
+     null
+    ],
+    [
+     "bridge_or_tunnel",
+     null
+    ],
+    [
+     "where_signed",
+     null
+    ]
+   ],
+   "no_parking_source": "IC 9-21-16-5 (knowledge)",
+   "parking_position": {
+    "max_from_curb_m": 0.3,
+    "side": "right, with the flow",
+    "source": "IC 9-21-16-3 (knowledge)"
+   },
+   "sidewalks": {
+    "duty": "the abutting owner keeps the sidewalk; the city may build and assess (IC 36-9 (knowledge))"
+   },
+   "subdivision": {
+    "approval": "the plan commission under the subdivision control ordinance (IC 36-7-4-700, knowledge)"
+   },
+   "building": {
+    "state_code": "the Indiana Building Code (675 IAC 13; the IBC as amended)",
+    "residential_code": "the Indiana Residential Code (675 IAC 14; the IRC as amended)"
+   }
+  }
+ },
+ "cities": [
+  {
+   "id": "port_carrow",
+   "name": "Port Carrow",
+   "basis_city": "Cleveland, Ohio",
+   "state": "ohio",
+   "code": "Port Carrow Codified Ordinances (PCCO)",
+   "character": "the harbour capital of the North Shore: dense grid, lake winds, a downtown of brick blocks",
+   "transit": {
+    "authority": "Port Carrow Lakeshore Transit (PCLT)",
+    "stop_flag": "navy rectangle, white tram symbol in a white ring, a bronze stripe at the foot; route numbers in white boxes",
+    "colours": [
+     "#1d2b4f",
+     "#ffffff",
+     "#9a6b34"
+    ],
+    "shape": "rectangle 450 x 600 mm on its own post"
+   },
+   "parking": {
+    "downtown": {
+     "meters": true,
+     "hours": "8 AM - 6 PM Mon-Sat",
+     "limit_h": 2,
+     "pay": "pay stations by the block",
+     "sign": "R7-108 + R7-20"
+    },
+    "residential": {
+     "both_sides_min_m": 9.14,
+     "one_side_min_m": 7.32,
+     "none_below_m": 7.32,
+     "overnight": true,
+     "max_hours": 48,
+     "sweeping": "one weekday morning a month, R7-2 'NO PARKING 8 AM - 11 AM 2ND TUE'"
+    },
+    "special": [
+     "Emergency Routes (R7-203): no parking when the Marshals declare an emergency; tow-away",
+     "Harbour loading zones 6 AM - 10 AM on the dock streets",
+     "Regatta Week: the Lakeshore Road kerbs closed (temporary R7-1 hoods)"
+    ],
+    "angle_parking": false,
+    "permit_zones": [
+     "Côte quarter residential permit (R7-108 'EXCEPT BY PERMIT')"
+    ],
+    "code_section": "PCCO 451"
+   },
+   "sidewalks": {
+    "core_min_m": 3.66,
+    "residential_walk_m": 1.52,
+    "tree_lawn_m": 1.83,
+    "required": "both sides of every street in the city; on one side at least of county roads within the limits",
+    "snow": "(no snow aboard) the owner clears leaves and storm debris within 24 h",
+    "code_section": "PCCO 511"
+   },
+   "streets": {
+    "local_curb_to_curb_m": 9.14,
+    "local_row_m": 15.24,
+    "collector_curb_to_curb_m": 10.97,
+    "main_curb_to_curb_m": 12.19
+   },
+   "speed": {
+    "residential_kmh": 40,
+    "business_kmh": 40,
+    "school_kmh": 30,
+    "alley_kmh": 25
+   },
+   "cross_sections": {
+    "main/core": {
+     "w": 12.19,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.66,
+     "angle": false,
+     "travel_lane": 3.69
+    },
+    "main/town": {
+     "w": 12.19,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 3.69
+    },
+    "street/core": {
+     "w": 10.6,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 2.9
+    },
+    "street/town": {
+     "w": 9.14,
+     "park": 1,
+     "lawn": 1.83,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 3.37
+    },
+    "street/subdivision": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.2,
+     "walk": 1.5,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "county/town": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 1.83,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "county/core": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "hwy/town": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 1.83,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "hwy/core": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "alley": {
+     "w": 3.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false,
+     "travel_lane": 1.5
+    },
+    "rural": {
+     "w": null,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false
+    }
+   }
+  },
+  {
+   "id": "kessler",
+   "name": "Kessler",
+   "basis_city": "Columbus, Ohio",
+   "state": "ohio",
+   "code": "Kessler City Code (KCC)",
+   "character": "the capital: the Assembly Hall district, government offices, a planned grid",
+   "transit": {
+    "authority": "Capital Area Tramways (CAT)",
+    "stop_flag": "red roundel on a white disc, a white tram symbol on the bar, the stop name below in a white panel",
+    "colours": [
+     "#b31b1b",
+     "#ffffff",
+     "#222222"
+    ],
+    "shape": "round 600 mm disc over a 300 x 450 mm name panel"
+   },
+   "parking": {
+    "downtown": {
+     "meters": true,
+     "hours": "8 AM - 10 PM Mon-Sat",
+     "limit_h": 3,
+     "pay": "pay stations; the Assembly District 1-hour on session days",
+     "sign": "R7-108 + R7-20"
+    },
+    "residential": {
+     "both_sides_min_m": 8.53,
+     "one_side_min_m": 6.71,
+     "none_below_m": 6.71,
+     "overnight": true,
+     "max_hours": 72,
+     "sweeping": "none (the city sweeps by schedule, signed street by street)"
+    },
+    "special": [
+     "the 72-hour rule: no vehicle may stay on a public street longer than 72 hours (the station's rule, after Columbus's practice)",
+     "Assembly District permit parking for residents (R7-108 'EXCEPT BY PERMIT')",
+     "Charter Day: the parade route closed from 6 AM (temporary R7-1)"
+    ],
+    "angle_parking": false,
+    "permit_zones": [
+     "Assembly District",
+     "Old Kessler"
+    ],
+    "code_section": "KCC 2105"
+   },
+   "sidewalks": {
+    "core_min_m": 4.27,
+    "residential_walk_m": 1.52,
+    "tree_lawn_m": 1.52,
+    "required": "both sides of every street; new subdivisions build them with the street (Complete Streets policy)",
+    "code_section": "KCC 4123"
+   },
+   "streets": {
+    "local_curb_to_curb_m": 8.53,
+    "local_row_m": 15.24,
+    "collector_curb_to_curb_m": 10.97,
+    "main_curb_to_curb_m": 13.41
+   },
+   "speed": {
+    "residential_kmh": 40,
+    "business_kmh": 40,
+    "school_kmh": 30,
+    "alley_kmh": 25
+   },
+   "cross_sections": {
+    "main/core": {
+     "w": 13.41,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 4.27,
+     "angle": false,
+     "travel_lane": 4.3
+    },
+    "main/town": {
+     "w": 13.41,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.42,
+     "angle": false,
+     "travel_lane": 4.3
+    },
+    "street/core": {
+     "w": 10.6,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.42,
+     "angle": false,
+     "travel_lane": 2.9
+    },
+    "street/town": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.52,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "street/subdivision": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.2,
+     "walk": 1.5,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "county/town": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 1.52,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "county/core": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 3.42,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "hwy/town": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 1.52,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "hwy/core": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 3.42,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "alley": {
+     "w": 3.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false,
+     "travel_lane": 1.5
+    },
+    "rural": {
+     "w": null,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false
+    }
+   }
+  },
+  {
+   "id": "solana_point",
+   "name": "Solana Point",
+   "basis_city": "Cincinnati, Ohio",
+   "state": "ohio",
+   "code": "Solana Point Municipal Code (SPMC)",
+   "character": "the South Shore's boom city: hills down to the sea, stairs between streets, crowded kerbs",
+   "transit": {
+    "authority": "Solana Metro Tranvía (SMT)",
+    "stop_flag": "sun-yellow pennant shape, black tram symbol, the stop name in Spanish and English",
+    "colours": [
+     "#ecb928",
+     "#111111",
+     "#1e8080"
+    ],
+    "shape": "pennant 450 x 650 mm"
+   },
+   "parking": {
+    "downtown": {
+     "meters": true,
+     "hours": "9 AM - 9 PM Mon-Sat, 1 PM - 9 PM Sun on Pier Plaza",
+     "limit_h": 2,
+     "pay": "pay stations",
+     "sign": "R7-108 + R7-20"
+    },
+    "residential": {
+     "both_sides_min_m": 9.75,
+     "one_side_min_m": 7.92,
+     "none_below_m": 7.92,
+     "overnight": true,
+     "max_hours": 48,
+     "sweeping": "none; on hill streets narrower than 26 ft, parking on the downhill side only"
+    },
+    "special": [
+     "Rush-hour arterials: NO PARKING 7 - 9 AM / 4 - 6 PM toward downtown (R7-2 + R7-201P TOW-AWAY ZONE)",
+     "Hill streets: wheels turned to the kerb on grades over 5 %",
+     "Suns game days: the Sun Bowl streets by permit"
+    ],
+    "angle_parking": false,
+    "permit_zones": [
+     "Pier Plaza residents",
+     "the Sun Bowl blocks on game days"
+    ],
+    "code_section": "SPMC 507"
+   },
+   "sidewalks": {
+    "core_min_m": 3.66,
+    "residential_walk_m": 1.52,
+    "tree_lawn_m": 1.22,
+    "required": "both sides; public stairs where streets are too steep to join (steps 7 in max, handrails both sides)",
+    "code_section": "SPMC 721"
+   },
+   "streets": {
+    "local_curb_to_curb_m": 7.92,
+    "local_row_m": 12.19,
+    "collector_curb_to_curb_m": 10.36,
+    "main_curb_to_curb_m": 12.19
+   },
+   "speed": {
+    "residential_kmh": 40,
+    "business_kmh": 40,
+    "school_kmh": 30,
+    "alley_kmh": 25
+   },
+   "cross_sections": {
+    "main/core": {
+     "w": 12.19,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.66,
+     "angle": false,
+     "travel_lane": 3.69
+    },
+    "main/town": {
+     "w": 12.19,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 3.69
+    },
+    "street/core": {
+     "w": 10.6,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 2.9
+    },
+    "street/town": {
+     "w": 7.92,
+     "park": 1,
+     "lawn": 1.22,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 2.76
+    },
+    "street/subdivision": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.2,
+     "walk": 1.5,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "county/town": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 1.22,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "county/core": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "hwy/town": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 1.22,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "hwy/core": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "alley": {
+     "w": 3.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false,
+     "travel_lane": 1.5
+    },
+    "rural": {
+     "w": null,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false
+    }
+   }
+  },
+  {
+   "id": "harrow_falls",
+   "name": "Harrow Falls",
+   "basis_city": "Dayton, Ohio",
+   "state": "ohio",
+   "code": "Harrow Falls Revised Code of General Ordinances (HFRCGO)",
+   "character": "the mill town at the Falls: the Works, the river, workers' terraces, the bluff",
+   "transit": {
+    "authority": "Kettle Valley Transit (KVT)",
+    "stop_flag": "green shield (the old mill-town crest), white tram symbol, a white band with the stop name",
+    "colours": [
+     "#2f6b3a",
+     "#ffffff",
+     "#7a2c1e"
+    ],
+    "shape": "shield 500 x 650 mm"
+   },
+   "parking": {
+    "downtown": {
+     "meters": true,
+     "hours": "8 AM - 6 PM Mon-Fri",
+     "limit_h": 2,
+     "pay": "coin and card meters on posts",
+     "sign": "R7-108"
+    },
+    "residential": {
+     "both_sides_min_m": 10.97,
+     "one_side_min_m": 8.53,
+     "none_below_m": 8.53,
+     "overnight": true,
+     "max_hours": 72,
+     "sweeping": "none"
+    },
+    "special": [
+     "Flood Routes (R7-203, aboard: FLOOD ROUTE): no parking when the Kettle runs high; tow-away (after the Kettle Flood, VY 447)",
+     "Works shift change: the Falls Yard streets NO PARKING 5:30 - 7 AM and 2:30 - 4 PM",
+     "Trucks over 4.5 t: not on residential streets overnight"
+    ],
+    "angle_parking": true,
+    "permit_zones": [],
+    "code_section": "HFRCGO 76"
+   },
+   "sidewalks": {
+    "core_min_m": 3.05,
+    "residential_walk_m": 1.22,
+    "tree_lawn_m": 1.22,
+    "required": "both sides in the city; one side on the bluff roads",
+    "code_section": "HFRCGO 92"
+   },
+   "streets": {
+    "local_curb_to_curb_m": 9.14,
+    "local_row_m": 15.24,
+    "collector_curb_to_curb_m": 10.97,
+    "main_curb_to_curb_m": 14.63
+   },
+   "speed": {
+    "residential_kmh": 40,
+    "business_kmh": 40,
+    "school_kmh": 30,
+    "alley_kmh": 25
+   },
+   "cross_sections": {
+    "main/core": {
+     "w": 14.63,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.05,
+     "angle": true,
+     "travel_lane": 4.92
+    },
+    "main/town": {
+     "w": 14.63,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 4.92
+    },
+    "street/core": {
+     "w": 10.6,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 2.9
+    },
+    "street/town": {
+     "w": 9.14,
+     "park": 1,
+     "lawn": 1.22,
+     "walk": 1.22,
+     "angle": false,
+     "travel_lane": 3.37
+    },
+    "street/subdivision": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.2,
+     "walk": 1.5,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "county/town": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 1.22,
+     "walk": 1.22,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "county/core": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "hwy/town": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 1.22,
+     "walk": 1.22,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "hwy/core": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "alley": {
+     "w": 3.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false,
+     "travel_lane": 1.5
+    },
+    "rural": {
+     "w": null,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false
+    }
+   }
+  },
+  {
+   "id": "brightwater",
+   "name": "Brightwater",
+   "basis_city": "Toledo, Ohio",
+   "state": "ohio",
+   "code": "Brightwater Municipal Code (BMC)",
+   "character": "the pleasure town of the North Shore: the boardwalk, the arcades, summer crowds",
+   "transit": {
+    "authority": "Brightwater Boardwalk Trams (BBT)",
+    "stop_flag": "teal lollipop disc with a cream rim, white tram symbol, the stop name on a cream bar",
+    "colours": [
+     "#1f8a8a",
+     "#f2e6c8",
+     "#c0392b"
+    ],
+    "shape": "disc 550 mm over a bar 600 x 150 mm"
+   },
+   "parking": {
+    "downtown": {
+     "meters": true,
+     "hours": "10 AM - 10 PM, Memorial Day to Labor Day (the summer season)",
+     "limit_h": 3,
+     "pay": "seasonal pay stations",
+     "sign": "R7-108 + R7-20 + season plaque"
+    },
+    "residential": {
+     "both_sides_min_m": 9.14,
+     "one_side_min_m": 7.32,
+     "none_below_m": 7.32,
+     "overnight": true,
+     "max_hours": 48,
+     "sweeping": "none"
+    },
+    "special": [
+     "Angle parking on the Boardwalk approaches (back-in angle, 45 degrees)",
+     "Summer-season beach permit lots",
+     "Emergency Routes (R7-203) on the Coast Highway"
+    ],
+    "angle_parking": true,
+    "permit_zones": [
+     "Beach blocks (summer)"
+    ],
+    "code_section": "BMC 335"
+   },
+   "sidewalks": {
+    "core_min_m": 3.66,
+    "residential_walk_m": 1.52,
+    "tree_lawn_m": 1.22,
+    "required": "both sides; the Boardwalk counts as the sidewalk of the streets that end at it",
+    "code_section": "BMC 521"
+   },
+   "streets": {
+    "local_curb_to_curb_m": 9.14,
+    "local_row_m": 15.24,
+    "collector_curb_to_curb_m": 10.97,
+    "main_curb_to_curb_m": 13.41
+   },
+   "speed": {
+    "residential_kmh": 40,
+    "business_kmh": 30,
+    "school_kmh": 30,
+    "alley_kmh": 25
+   },
+   "cross_sections": {
+    "main/core": {
+     "w": 13.41,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.66,
+     "angle": true,
+     "travel_lane": 4.3
+    },
+    "main/town": {
+     "w": 13.41,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 4.3
+    },
+    "street/core": {
+     "w": 10.6,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 2.9
+    },
+    "street/town": {
+     "w": 9.14,
+     "park": 1,
+     "lawn": 1.22,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 3.37
+    },
+    "street/subdivision": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.2,
+     "walk": 1.5,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "county/town": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 1.22,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "county/core": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "hwy/town": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 1.22,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "hwy/core": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.93,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "alley": {
+     "w": 3.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false,
+     "travel_lane": 1.5
+    },
+    "rural": {
+     "w": null,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false
+    }
+   }
+  },
+  {
+   "id": "oceanview",
+   "name": "Oceanview",
+   "basis_city": "Fort Wayne, Indiana",
+   "state": "indiana",
+   "code": "Oceanview Code of Ordinances (OCO)",
+   "character": "the resort city of the South Shore, settled by Indiana families who kept their own code",
+   "transit": {
+    "authority": "Oceanview Citilink Trams (OCT)",
+    "stop_flag": "orange square, white tram symbol, a white route strip; the stop name on a blue plate",
+    "colours": [
+     "#e2711d",
+     "#ffffff",
+     "#1f4e8c"
+    ],
+    "shape": "square 500 mm over a plate 500 x 150 mm"
+   },
+   "parking": {
+    "downtown": {
+     "meters": true,
+     "hours": "9 AM - 6 PM Mon-Fri",
+     "limit_h": 2,
+     "pay": "pay stations",
+     "sign": "R7-108 + R7-20"
+    },
+    "residential": {
+     "both_sides_min_m": 9.14,
+     "one_side_min_m": 6.71,
+     "none_below_m": 6.71,
+     "overnight": true,
+     "max_hours": 48,
+     "sweeping": "none"
+    },
+    "special": [
+     "No parking 2 - 6 AM on the Ocean Road strip (R7-2)",
+     "Emergency Routes (R7-203)"
+    ],
+    "angle_parking": false,
+    "permit_zones": [],
+    "code_section": "OCO 72"
+   },
+   "sidewalks": {
+    "core_min_m": 3.05,
+    "residential_walk_m": 1.52,
+    "tree_lawn_m": 1.52,
+    "required": "both sides; plan commission may waive one side on rural-edge streets",
+    "code_section": "OCO 97"
+   },
+   "streets": {
+    "local_curb_to_curb_m": 8.53,
+    "local_row_m": 15.24,
+    "collector_curb_to_curb_m": 10.97,
+    "main_curb_to_curb_m": 13.41
+   },
+   "speed": {
+    "residential_kmh": 50,
+    "business_kmh": 50,
+    "school_kmh": 30,
+    "alley_kmh": 25
+   },
+   "cross_sections": {
+    "main/core": {
+     "w": 13.41,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 3.05,
+     "angle": false,
+     "travel_lane": 4.3
+    },
+    "main/town": {
+     "w": 13.41,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 4.3
+    },
+    "street/core": {
+     "w": 10.6,
+     "park": 2,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 2.9
+    },
+    "street/town": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.52,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "street/subdivision": {
+     "w": 8.53,
+     "park": 1,
+     "lawn": 1.2,
+     "walk": 1.5,
+     "angle": false,
+     "travel_lane": 3.06
+    },
+    "county/town": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 1.52,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "county/core": {
+     "w": 8.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 4.0
+    },
+    "hwy/town": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 1.52,
+     "walk": 1.52,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "hwy/core": {
+     "w": 12.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 2.44,
+     "angle": false,
+     "travel_lane": 6.0
+    },
+    "alley": {
+     "w": 3.0,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false,
+     "travel_lane": 1.5
+    },
+    "rural": {
+     "w": null,
+     "park": 0,
+     "lawn": 0.0,
+     "walk": 0.0,
+     "angle": false
+    }
+   }
+  }
+ ],
+ "subdivision": {
+  "_about": "Subdivision rules the station's Regional Planning Boards apply (ORC 711.10 lets the board make them; Indiana's plan commissions likewise). Values are the station's, in the range Ohio and Indiana county regulations use (from knowledge; the county regulations themselves were not fetched). Each city may override a value (CITY_SUBDIVISION).",
+  "local_street": {
+   "row_m": 15.24,
+   "pavement_back_to_back_m": 8.53,
+   "parking": "one side",
+   "sidewalks": "both sides, 5 ft, 4 ft tree lawn",
+   "curb_radius_m": 7.62,
+   "speed_kmh": 40
+  },
+  "collector": {
+   "row_m": 18.29,
+   "pavement_back_to_back_m": 10.97,
+   "parking": "both sides or none",
+   "sidewalks": "both sides, 5 ft"
+  },
+  "cul_de_sac": {
+   "max_length_m": 182.88,
+   "max_lots": 20,
+   "turnaround_pavement_radius_m": 12.19,
+   "turnaround_row_radius_m": 15.24,
+   "sign": "W14-2 NO OUTLET at its mouth"
+  },
+  "loop_street": {
+   "max_length_m": 731.52,
+   "sign": "W14-2 NO OUTLET where its only way out is one entrance"
+  },
+  "blocks": {
+   "max_length_m": 402.34,
+   "min_length_m": 121.92,
+   "mid_block_walk_when_longer_than_m": 274.32
+  },
+  "intersections": {
+   "min_angle_deg": 75,
+   "min_offset_m": 38.1,
+   "max_legs": 4,
+   "stop_control": "STOP (R1-1) on the subdivision street where it meets a collector or arterial; no all-way stops in the subdivision"
+  },
+  "access": {
+   "min_entrances_over_lots": [
+    [
+     30,
+     2
+    ]
+   ],
+   "stub_to_adjoining_land": true
+  },
+  "lots": {
+   "min_frontage_m": 18.29,
+   "min_area_m2": 446,
+   "corner_lot_extra_width_m": 3.05
+  },
+  "signs": {
+   "street_name": "D3-1 at every intersection, both streets",
+   "speed_limit": "R2-1 at each entrance (40 km/h = 25 mph)",
+   "no_outlet": "W14-2 at a cul-de-sac's or one-entrance loop's mouth",
+   "stop": "R1-1 on the minor leg",
+   "school": "S1-1 where a school fronts"
+  },
+  "required_improvements": [
+   "paved streets with curb and gutter",
+   "sidewalks both sides",
+   "street trees every 40 ft in the tree lawn",
+   "street lights at intersections and every 200 ft",
+   "storm sewers",
+   "monuments at block corners"
+  ]
+ },
+ "park_lane_m": 2.4,
+ "tram_stop_zone": {
+  "half_length_m": 45.72,
+  "both_kerbs": true,
+  "sign": "R7-107 NO PARKING (tram symbol) at both ends of the zone, arrows pointing into it",
+  "paint": "no parking lane line through the zone",
+  "basis": "the station's own rule (TCRP Report 19 bus zones, knowledge)"
+ }
+}

@@ -187,3 +187,35 @@ Checked by `remake/tools/bridge_ends.gd`: at every end, the road's centreline mu
    road across.
 4. **Markings match.** A great bridge's deck has the road's double yellow centre line.
 
+
+
+## 10. Sidewalks, parking, names and lots (2026-10-01)
+Each road's cross-section is the law of the city its settlement follows. That law is in `research/law/02_cities.md` and is applied by `tools/street_rules.py`.
+
+**Parking lanes**
+- A parking lane is 2.4 m wide and widens its own side. The road's line runs down the middle of the travel lanes; each side is described by `hl` / `hr` and `park` [left, right].
+- Parking is allowed where the city's ordinance allows it, and never where a travel lane would be left under 2.9 m. Our drivers keep to their own lanes, so there are no yield streets.
+- On residential streets parking is on one side, the side with more doors. Downtown streets have parking on both sides.
+- No parking within 9.2 m (30 ft) of a junction (ORC 4511.68). The parking-lane line stops there.
+- No parking within 45.7 m (150 ft) either side of a tram stop, on both kerbs (the station's own rule; research/law 02_cities.md). No parking-lane line through the zone; R7-107 (NO PARKING, tram symbol) where each parked kerb meets it. Parked cars (place_ground_vehicles.gd) and NPC drivers (npc_traffic.gd) keep out of it through `TramStopZones`.
+
+**Sidewalks**
+- Sidewalks run behind the kerb on every town street.
+- Downtown, the sidewalk runs from the kerb to the building face (3 m or more).
+- On residential streets, a 1.2–1.5 m walk sits behind a 1.2–1.8 m tree lawn.
+- Buildings clear the back of the walk (`placement.py`, measured by their footprint, not their awnings).
+
+**Signs (research/law/04_signs.md)**
+- Downtown: timed parking and a pay station every 60 m.
+- NO PARKING every 60 m on unparked sides of town streets.
+- EMERGENCY ROUTE or FLOOD ROUTE where the city has them.
+- NO OUTLET and 40 km/h at each subdivision's mouth.
+- A street-name blade at every town junction. `tools/street_names.py` names every town street: Main St, numbered streets, trees and families, and Drives and Courts in subdivisions.
+
+**Lots (`tools/parking_lots.py`)**
+- Each large city has a downtown lot behind the street wall, never at a corner.
+- Each city and town of the two largest tiers has a park-and-ride lot at its park-and-ride tram stop (TransitNet).
+- Stalls are 2.75 x 5.5 m with 7.3 m aisles; 1 accessible stall per 25.
+- P at the entrance; PARK & RIDE 100 m out on the street.
+
+**Pipeline (after map_expanded.py):** street_rules, placement, road_profile, road_profile again, town_grade (always after the last road_profile: it fits the town ground to the final profiles), the places bakes (make_places, bake_places, bake_paths, bake_lives), bake_transit.gd, street_rules, street_names, parking_lots, road_furniture, then place_ground_vehicles and place_aerostats. Then the world bakes.

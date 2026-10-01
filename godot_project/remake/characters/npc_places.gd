@@ -16,7 +16,8 @@ const PLACES := "res://remake/characters/npc_places.json"
 const INDEX := "res://remake/characters/npc_place_index.json"
 const PATHS := "res://remake/characters/npc_paths.json"
 const DAYS := {"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
-const PAVEMENT := 1.2            # m beyond the road's edge
+const PAVEMENT := 1.2            # m beyond the road's edge (where it has no sidewalk)
+const PARK_LANE_W := 2.4         # a parking lane (remake/law ordinances park_lane_m)
 
 static var _types: Dictionary
 static var _units: Dictionary    # uid -> unit
@@ -320,8 +321,10 @@ static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Ve
 		var there := _at(int(e0[2]), float(a1[1]))
 		var fwd := Vector2(StationGeo.wrap_ds(here.x - ahead_of.x), here.y - ahead_of.y)
 		same = Vector2(StationGeo.wrap_ds(there.x - here.x), there.y - here.y).dot(fwd) >= 0.0
+	var offs: Array = []                                         # each centre point's right-hand offset
 	if same:
 		centre = _stretch(int(e0[2]), float(a0[1]), float(a1[1]))
+		_offs_for(offs, centre.size(), int(e0[2]), float(a1[1]) >= float(a0[1]), edge, lane)
 	else:
 		# Dijkstra from both ends of the start edge (costs: along the edge to each end)
 		var n := _adj.size()
@@ -394,18 +397,35 @@ static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Ve
 		while prev[at] >= 0:
 			chain.push_front([via[at], prev[at]])
 			at = prev[at]
-		centre = _stretch(int(e0[2]), float(a0[1]), float(e0[3] if at == int(e0[0]) else e0[4]))
+		var u_end := float(e0[3] if at == int(e0[0]) else e0[4])
+		centre = _stretch(int(e0[2]), float(a0[1]), u_end)
+		_offs_for(offs, centre.size(), int(e0[2]), u_end >= float(a0[1]), edge, lane)
 		for step in chain:
 			var pts := _edge_pts(int(step[0]), int(step[1]))
+			var se: Array = _paths.edges[int(step[0])]
+			var fwd := int(se[0]) == int(step[1])
+			var ua := float(se[3] if fwd else se[4])
+			var ub := float(se[4] if fwd else se[3])
 			for i in range(1, pts.size()):
 				centre.append(pts[i])
-		var tail := _stretch(int(e1[2]), float(e1[3] if found == int(e1[0]) else e1[4]), float(a1[1]))
+			_offs_for(offs, pts.size() - 1, int(se[2]), ub >= ua, edge, lane)
+		var u_tail := float(e1[3] if found == int(e1[0]) else e1[4])
+		var tail := _stretch(int(e1[2]), u_tail, float(a1[1]))
 		for i in range(1, tail.size()):
 			centre.append(tail[i])
-	# the pavement: offset to the right of the way of travel by half the road and a step
+		_offs_for(offs, tail.size() - 1, int(e1[2]), float(a1[1]) >= u_tail, edge, lane)
+	# the pavement (or lane): offset to the right of the way of travel, each road by its own cross-section
+	for i in offs.size():                                        # (a bridge deck takes its neighbours')
+		if is_nan(float(offs[i])):
+			offs[i] = offs[i - 1] if i > 0 else NAN
+	for i in range(offs.size() - 1, -1, -1):
+		if is_nan(float(offs[i])):
+			offs[i] = offs[i + 1] if i + 1 < offs.size() else edge
+	if offs.is_empty():
+		offs.append(lane if lane >= 0.0 else edge)
 	var out := PackedVector2Array([d0])
-	var w0 := lane if lane >= 0.0 else float(_road(int(e0[2])).w) * 0.5 + edge
 	for i in centre.size():
+		var w0: float = offs[i] if i < offs.size() else float(offs[-1])
 		var a := centre[maxi(i - 1, 0)]
 		var b := centre[mini(i + 1, centre.size() - 1)]
 		var t := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
@@ -419,6 +439,35 @@ static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Ve
 		out.append(Vector2(fposmod(p.x, StationGeo.CIRC), p.y))
 	out.append(d1)
 	return out
+
+
+static func side_offset(ri: int, along: bool, edge: float, lane := -1.0) -> float:
+	## How far right of a road's line someone keeps, travelling along its points (along) or against:
+	##   lane >= 0   that far (drivers' lanes)
+	##   edge >= 0   on foot: the middle of the sidewalk behind the kerb and tree lawn (tools/street_rules.py),
+	##               or edge beyond the kerb where there's none
+	##   edge < 0    in the road (cyclists, trams): |edge| inside the travel lane's outer edge -- never in a
+	##               parking lane, nor over the kerb onto the sidewalk (signs stand there)
+	if lane >= 0.0:
+		return lane
+	if ri < 0:
+		return NAN
+	var rd := _road(ri)
+	var kerb := float(rd.get("hr" if along else "hl", float(rd.w) * 0.5))
+	if edge >= 0.0:
+		var walk := float(rd.get("walk", 0.0))
+		if walk > 0.0:
+			return kerb + 0.2 + float(rd.get("lawn", 0.0)) + walk * 0.5
+		return kerb + edge
+	var park: Array = rd.get("park", [0, 0])
+	var inner := kerb - (PARK_LANE_W if int(park[1 if along else 0]) == 1 else 0.0)
+	return maxf(inner + edge, 0.5)
+
+
+static func _offs_for(offs: Array, n: int, ri: int, along: bool, edge: float, lane: float) -> void:
+	var o := side_offset(ri, along, edge, lane)
+	for i in n:
+		offs.append(o)
 
 
 static func route_length(pts: PackedVector2Array) -> float:

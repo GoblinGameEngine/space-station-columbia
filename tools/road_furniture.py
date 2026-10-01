@@ -37,7 +37,7 @@ RANK = {"alley": 0, "gravel": 1, "street": 2, "county": 3, "main": 4, "hwy": 5}
 PAVED = ("street", "county", "main", "hwy")
 LIMIT = {"hwy": (60, 90), "county": (50, 70), "main": (40, 40), "street": (40, 60), "gravel": (60, 60), "alley": (15, 15)}
 
-# the sign atlas: 8 x 4 cells of 256 px.  name -> (cell, width m, height m, back cell)
+# the sign atlas: 8 x 8 cells of 256 px (tools/sign_atlas.py).  name -> (cell, width m, height m, back cell)
 CELL_PX = 256
 SIGNS = {}
 
@@ -339,9 +339,27 @@ def sign(kind, p, face, ctx, text=None, h=None, plate=None):
                       **({"plate": plate} if plate else {})})
 
 
+def side_half(p, travel, half_w):
+    """The half width to the right-hand kerb for traffic along `travel` at p: a road with a parking
+    lane on one side is wider on that side (tools/street_rules.py hl / hr)."""
+    nr = near_roads(p, max(half_w, 3.0) + 2.0)
+    if not nr:
+        return half_w
+    d, ri, k, _ = nr[0]
+    rd = ROADS[ri]
+    if "hr" not in rd:
+        return half_w
+    h = heading(ri, min(k, len(rd["pts"]) - 2))
+    along = h[0] * travel[0] + h[1] * travel[1] >= 0.0
+    return float(rd["hr"] if along else rd["hl"])
+
+
 def verge_point(p, travel, half_w, ctx, back=0.0):
-    """Where a sign for traffic travelling along `travel` stands: on its right-hand verge."""
-    off = half_w + (0.9 if ctx != "r" else 2.2)
+    """Where a sign for traffic travelling along `travel` stands: on its right-hand verge -- 0.6 m
+    behind the kerb in town (in the tree lawn or on the kerb side of the sidewalk, MUTCD 2A.19), 2.2 m
+    off a rural road's edge."""
+    hw = side_half(p, travel, half_w)
+    off = hw + (0.6 if ctx != "r" else 2.2)
     return add(add(p, right_of(travel), off), travel, -back)
 
 
@@ -494,6 +512,55 @@ def runs(flags):
     return out
 
 
+PARK_W = 2.4
+NO_PARK_JN = 9.2        # m: no parking within 30 ft of the stop sign / signal at a junction (ORC 4511.68)
+# tram stop zones (research/law 02_cities.md): no parking on either kerb within the zone of a stop
+_TP = os.path.join(GD, "transit.json")
+TRAM_STOPS = [(sp["s"], sp["x"]) for l in (json.load(open(_TP))["lines"] if os.path.exists(_TP) else []) for sp in l["stops"]]
+_LAWJ = json.load(open(os.path.join(GD, "law", "ordinances.json")))
+STOP_ZONE = float(_LAWJ.get("tram_stop_zone", {}).get("half_length_m", 45.72))
+
+
+def in_stop_zone(p, margin=0.0):
+    return any(dist(p, q) < STOP_ZONE + margin for q in TRAM_STOPS)
+
+
+N_STOPZ = {"zones_signed": 0}
+for ri, rd in enumerate(ROADS):
+    park = rd.get("park", [0, 0])
+    if not any(park) or rd["cls"] in ("alley", "gravel"):
+        continue
+    pts = rd["pts"]
+    near_j = []
+    for k, p in enumerate(pts):
+        nj = JN[ri][k] == "1" or DUP[ri][k] == "1"
+        if not nj:
+            for jdist in (NO_PARK_JN,):
+                a_, _ = point_along(ri, k, 1, jdist)
+                b_, _ = point_along(ri, k, -1, jdist)
+                if JN[ri][a_] == "1" or JN[ri][b_] == "1":
+                    nj = True
+        near_j.append("-" if nj else ("Z" if in_stop_zone(p) else "P"))
+    # the zone's ends: R7-107 (NO PARKING, tram symbol) on each parked kerb, facing the traffic
+    # on that kerb, where a parking run meets the zone
+    for k in range(1, len(pts)):
+        a_, b_ = near_j[k - 1], near_j[k]
+        if (a_ == "Z") == (b_ == "Z") or "-" in (a_, b_):
+            continue
+        kz = k if b_ == "Z" else k - 1
+        h = heading(ri, min(kz, len(pts) - 2))
+        for side, travel in ((1, h), (0, (-h[0], -h[1]))):     # the right kerb for traffic along the points, the left against
+            if not park[side]:
+                continue
+            sign("no_parking_tram", verge_point(pts[kz], travel, rd["w"] * 0.5, CTX[ri][kz]), (-travel[0], -travel[1]), CTX[ri][kz])
+            N_STOPZ["zones_signed"] += 1
+    for v, k0, k1 in runs(near_j):
+        if v != "P" or k1 - k0 < 1:
+            continue
+        if park[1]:
+            LINES.append({"r": ri, "a": k0, "b": k1, "off": round(rd["hr"] - PARK_W, 2), "c": "w", "w": 0.1})
+        if park[0]:
+            LINES.append({"r": ri, "a": k0, "b": k1, "off": round(-(rd["hl"] - PARK_W), 2), "c": "w", "w": 0.1})
 for ri, rd in enumerate(ROADS):
     cls, pts, ctx = rd["cls"], rd["pts"], CTX[ri]
     if cls not in ("hwy", "county", "main"):
@@ -519,7 +586,7 @@ for ri, rd in enumerate(ROADS):
     # edges: rural hwy / county solid white; main streets the parking lines
     edge = []
     for k in range(len(pts)):
-        edge.append("-" if (JN[ri][k] == "1" or DUP[ri][k] == "1") else ("E" if (ctx[k] == "r" and cls != "main") else ("P" if cls == "main" else "-")))
+        edge.append("-" if (JN[ri][k] == "1" or DUP[ri][k] == "1") else ("E" if (ctx[k] == "r" and cls != "main") else "-"))
     for v, k0, k1 in runs(edge):
         if v == "-" or k1 - k0 < 1:
             continue
@@ -641,6 +708,119 @@ for t in T.get("turns", []):
                 travel = unit(p, pts[end])
                 ctx = CTX[ri][j]
                 sign("dead_end", verge_point(p, travel, rd["w"] * 0.5, ctx), (-travel[0], -travel[1]), ctx)
+
+# parking, routes and subdivision entrances (research/law: each city's ordinances) ------------------
+LAWP = os.path.join(GD, "law", "ordinances.json")
+LAW = {c["id"]: c for c in json.load(open(LAWP))["cities"]} if os.path.exists(LAWP) else {}
+N_PARK = {"timed": 0, "pay": 0, "no_parking": 0, "route": 0, "no_outlet": 0, "subdiv_speed": 0}
+SIGN_EVERY = 60.0
+for ri, rd in enumerate(ROADS):
+    city = LAW.get(rd.get("city") or "")
+    if not city or rd["cls"] in ("alley", "gravel") or rd.get("xs") in (None, "rural"):
+        continue
+    pts, ctx = rd["pts"], CTX[ri]
+    park = rd.get("park", [0, 0])
+    core = rd.get("xs", "").endswith("core")
+    limit_h = int(city["parking"]["downtown"]["limit_h"])
+    for direction, side in ((1, 1), (-1, 0)):         # traffic along the points parks on the right (hr); against them, hl
+        rng = range(len(pts)) if direction == 1 else range(len(pts) - 1, -1, -1)
+        run_m, last = 0.0, -1e9
+        prev = None
+        for k in rng:
+            p = pts[k]
+            if prev is not None:
+                run_m += dist(prev, p)
+            prev = p
+            if JN[ri][k] == "1" or DUP[ri][k] == "1" or run_m - last < SIGN_EVERY:
+                continue
+            j = min(len(pts) - 1, max(0, k + direction))
+            if j == k:
+                continue
+            travel = unit(p, pts[j])
+            face = (-travel[0], -travel[1])
+            if park[side] and in_stop_zone(p):
+                continue                                  # the tram stop zone has its own R7-107s
+            if park[side]:
+                if core:
+                    sign("parking_%dh" % min(3, max(2, limit_h)), verge_point(p, travel, rd["w"] * 0.5, ctx[k]), face, ctx[k])
+                    N_PARK["timed"] += 1
+                    if city["parking"]["downtown"]["meters"]:
+                        sign("pay_station", verge_point(p, travel, rd["w"] * 0.5, ctx[k], back=-4.0), face, ctx[k], h=1.3)
+                        N_PARK["pay"] += 1
+                else:
+                    continue                              # residential: parking unsigned (unrestricted)
+            elif rd["cls"] in ("street", "main"):
+                sign("no_parking", verge_point(p, travel, rd["w"] * 0.5, ctx[k]), face, ctx[k])
+                N_PARK["no_parking"] += 1
+            last = run_m
+    # emergency / flood routes: the city's through roads, at their first town stretch each way
+    sp_ = " ".join(city["parking"]["special"]).lower()
+    route = "flood_route" if "flood route" in sp_ else ("emergency_route" if "emergency route" in sp_ else None)
+    if route and rd["cls"] in ("hwy", "county", "main") and rd.get("ctx") in ("t", "c"):
+        for k in (min(4, len(pts) - 2), max(1, len(pts) - 5)):
+            travel = unit(pts[k], pts[k + 1]) if k == min(4, len(pts) - 2) else unit(pts[k], pts[k - 1])
+            sign(route, verge_point(pts[k], travel, rd["w"] * 0.5, ctx[k], back=-8.0), (-travel[0], -travel[1]), ctx[k])
+            N_PARK["route"] += 1
+# a subdivision's mouth: NO OUTLET (W14-2) and its speed limit, facing traffic turning in
+for ri, rd in enumerate(ROADS):
+    if rd.get("xs") != "street/subdivision":
+        continue
+    pts = rd["pts"]
+    for end, step in ((0, 1), (len(pts) - 1, -1)):
+        if JN[ri][end] != "1":
+            continue
+        other = [r for d_, r, _, _ in near_roads(pts[end], 12.0) if r != ri and ROADS[r].get("xs") != "street/subdivision"]
+        if not other:
+            continue
+        j, run = point_along(ri, end, step, 18.0)
+        travel = unit(pts[end], pts[j])
+        sign("no_outlet", verge_point(pts[j], travel, rd["w"] * 0.5, "t"), (-travel[0], -travel[1]), "t")
+        j2, _ = point_along(ri, end, step, 40.0)
+        sign("speed_40", verge_point(pts[j2], travel, rd["w"] * 0.5, "t"), (-travel[0], -travel[1]), "t")
+        N_PARK["no_outlet"] += 1
+        N_PARK["subdiv_speed"] += 1
+# parking lots (tools/parking_lots.py): stall lines, the P at the entrance, PARK & RIDE on the
+# street before a park-and-ride, the accessible stalls' signs
+N_LOT = {"lots": 0, "stall_lines": 0, "park_ride": 0}
+for A in T["areas"]:
+    lt = A.get("lot")
+    if not lt:
+        continue
+    N_LOT["lots"] += 1
+    c, u = lt["centre"], lt["dir"]
+    n = (-u[1], u[0])
+    at = lambda a_, b_: (c[0] + u[0] * a_ + n[0] * b_, c[1] + u[1] * a_ + n[1] * b_)
+    acc_left = int(lt["accessible"])
+    for ri_, row in enumerate(lt["rows"]):
+        u0, u1, v0, depth, facing = row
+        k = 0
+        a_ = u0
+        while a_ <= u1 + 1e-6:
+            q = [at(a_ - 0.05, v0), at(a_ + 0.05, v0), at(a_ + 0.05, v0 + depth), at(a_ - 0.05, v0 + depth)]
+            BARS.append({"c": "w", "q": [[round(x[0] % C, 2), round(x[1], 2)] for x in q]})
+            N_LOT["stall_lines"] += 1
+            if ri_ == 0 and acc_left > 0 and a_ + 2.75 <= u1 + 1e-6:
+                mid = at(a_ + 1.375, v0 + 0.3)
+                sign("accessible", mid, (n[0] * -1, n[1] * -1), "t", h=1.5)
+                acc_left -= 1
+            a_ += 2.75
+            k += 1
+    ac = lt["access"]
+    sign("parking_guide", (ac[0], ac[1]), (-n[0], -n[1]), "t", h=2.1)
+    if lt["type"] == "park_and_ride":
+        nr = near_roads((ac[0], ac[1]), 40.0)
+        if nr:
+            d_, ri_, k_, _ = nr[0]
+            for step_ in (1, -1):
+                j_, run_ = point_along(ri_, k_, step_, 100.0)
+                if run_ < 40.0:
+                    continue
+                travel = unit(ROADS[ri_]["pts"][j_], ROADS[ri_]["pts"][k_])
+                sign("park_ride", verge_point(ROADS[ri_]["pts"][j_], travel, ROADS[ri_]["w"] * 0.5, "t"), (-travel[0], -travel[1]), "t", h=2.1)
+                N_LOT["park_ride"] += 1
+print("parking and subdivision signs:", N_PARK)
+print("parking lots:", N_LOT)
+print("tram stop zones:", N_STOPZ)
 
 out = {
     "ctx": CTX,

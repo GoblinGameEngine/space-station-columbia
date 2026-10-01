@@ -1,0 +1,112 @@
+{
+ "_about": "Zoning districts (each city's zoning code; the station's values, in the range the basis cities use, from knowledge). Setbacks in metres; heights in metres; parking per unit / per 100 m2.",
+ "districts": {
+  "R-1": {
+   "use": "single-family",
+   "min_lot_m2": 650,
+   "min_frontage_m": 18.29,
+   "front_m": 7.62,
+   "side_m": 1.83,
+   "rear_m": 9.14,
+   "max_height_m": 10.67,
+   "max_coverage": 0.35,
+   "parking": {
+    "per_unit": 2
+   }
+  },
+  "R-2": {
+   "use": "one- and two-family",
+   "min_lot_m2": 465,
+   "min_frontage_m": 15.24,
+   "front_m": 6.1,
+   "side_m": 1.52,
+   "rear_m": 7.62,
+   "max_height_m": 10.67,
+   "max_coverage": 0.4,
+   "parking": {
+    "per_unit": 2
+   }
+  },
+  "R-3": {
+   "use": "townhouses and small apartments",
+   "min_lot_m2": 280,
+   "min_frontage_m": 7.62,
+   "front_m": 4.57,
+   "side_m": 0.0,
+   "rear_m": 6.1,
+   "max_height_m": 13.72,
+   "max_coverage": 0.55,
+   "parking": {
+    "per_unit": 1.5
+   }
+  },
+  "C-1": {
+   "use": "neighbourhood commercial",
+   "front_m": 0.0,
+   "front_max_m": 3.05,
+   "side_m": 0.0,
+   "rear_m": 4.57,
+   "max_height_m": 13.72,
+   "max_coverage": 0.8,
+   "parking": {
+    "per_100m2": 2.7
+   }
+  },
+  "C-2": {
+   "use": "downtown core (form-based: build to the back of the sidewalk)",
+   "front_m": 0.0,
+   "front_max_m": 0.0,
+   "side_m": 0.0,
+   "rear_m": 3.05,
+   "max_height_m": 25.91,
+   "max_coverage": 1.0,
+   "parking": {
+    "per_100m2": 0.0,
+    "note": "none required downtown; public lots and garages serve it"
+   }
+  },
+  "M-1": {
+   "use": "light industry, the Works",
+   "front_m": 9.14,
+   "side_m": 4.57,
+   "rear_m": 6.1,
+   "max_height_m": 18.29,
+   "max_coverage": 0.6,
+   "parking": {
+    "per_100m2": 1.0
+   }
+  },
+  "P": {
+   "use": "parks, schools, civic",
+   "front_m": 9.14,
+   "side_m": 6.1,
+   "rear_m": 6.1,
+   "max_height_m": 13.72
+  },
+  "A": {
+   "use": "agriculture",
+   "min_lot_m2": 20000,
+   "front_m": 15.24,
+   "side_m": 7.62,
+   "rear_m": 15.24,
+   "max_height_m": 10.67
+  }
+ },
+ "building_kind_district": {
+  "house": "R-1",
+  "cottage": "R-2",
+  "bungalow": "R-2",
+  "singlehouse": "R-1",
+  "shingle": "R-2",
+  "beachhouse": "R-2",
+  "condo": "R-3",
+  "store": "C-2",
+  "hotel": "C-2",
+  "motel": "C-1",
+  "civic": "P",
+  "church": "P",
+  "school": "P",
+  "industrial": "M-1",
+  "farm": "A"
+ }
+}

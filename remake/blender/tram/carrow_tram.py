@@ -88,6 +88,8 @@ def mats():
         "lamp_tail": mat("lamp_tail", lin((200, 20, 16)), emit=lin((255, 30, 20)), emit_strength=2.0),
         "lamp_amber": mat("lamp_amber", lin((240, 140, 20)), emit=lin((255, 150, 20)), emit_strength=1.2),
         "dest": mat("dest", lin((40, 30, 10)), emit=lin((255, 170, 40)), emit_strength=1.4),
+        "glass_dark": mat("glass_dark", lin((60, 78, 84)), rough=0.15, metal=0.3),
+        "tyre": mat("tyre", lin((30, 30, 32)), rough=0.85),
     })
     g = M["glass"]
     g.node_tree.nodes["Principled BSDF"].inputs["Alpha"].default_value = 0.22
@@ -592,6 +594,60 @@ def build(kind):
     return root, mods, markers
 
 
+def build_lod(kind):
+    """The section seen from afar (past TramSection.LOD_NEAR): one mesh, body and running gear
+    together (the user: the chassis integrated, no separate model): the outer shell as a lofted
+    profile with the teal window band and dark glass, the roof, the rounded ends with their lamps,
+    and the four wheels -- a few hundred faces."""
+    core.reset()
+    mats()
+    root = core.empty("carrow_tram_%s_lod" % kind, (0, 0, 0))
+    me = Mesh("lod", M)
+    y0 = -HL - (NOSE if kind == "rear" else 0.0)
+    y1 = HL + (NOSE if kind == "front" else 0.0)
+    prof = [(WO, SKIRT), (WO, BELT), (WO, WIN0), (WO, WIN1), (WO - 0.05, CANT), (0.9, CANT + 0.32), (0.0, CANT + 0.40)]
+    full = prof + [(-x, z) for x, z in reversed(prof[:-1])]
+    # the sides and roof, end to end, coloured by band
+    ends_in = 0.55
+    for i in range(len(full) - 1):
+        (xa, za), (xb, zb) = full[i], full[i + 1]
+        zm = (za + zb) / 2
+        m = "glass_dark" if WIN0 <= zm <= WIN1 and abs(xa) > 1.0 else ("teal" if BELT <= zm <= CANT and abs(xa) > 1.0 else "cream")
+        ya = y0 + (ends_in if kind == "rear" else 0.0)
+        yb = y1 - (ends_in if kind == "front" else 0.0)
+        q = [(xa, ya, za), (xa, yb, za), (xb, yb, zb), (xb, ya, zb)]
+        me.face(q if xa >= 0 or xb > 0 else q, m)
+    # the ends: a portal end is a flat cap; the nose / tail tapers in and carries the glass and lamps
+    for end, sy in ((y1, 1), (y0, -1)):
+        tip = (kind == "front" and sy > 0) or (kind == "rear" and sy < 0)
+        yi = end - sy * (ends_in if tip else 0.0)
+        ring_in = [(x, yi, z) for x, z in full]
+        if tip:
+            ring_out = [(x * 0.82, end, SKIRT + 0.1 + (z - SKIRT) * 0.93) for x, z in full]
+            me.quad_strip([ring_in, ring_out], "cream")
+            cap = list(reversed(ring_out)) if sy > 0 else ring_out
+            me.face(cap, "cream")
+            me.face([(-0.8, end + sy * 0.01, 1.3 if sy > 0 else 1.4), (0.8, end + sy * 0.01, 1.3 if sy > 0 else 1.4),
+                     (0.8, end + sy * 0.01, 2.35), (-0.8, end + sy * 0.01, 2.35)][::sy], "glass_dark")
+            lamp = "lamp_head" if kind == "front" else "lamp_tail"
+            for lx in (-0.75, 0.75):
+                me.face([(lx - 0.1, end + sy * 0.015, 0.78), (lx + 0.1, end + sy * 0.015, 0.78), (lx + 0.1, end + sy * 0.015, 0.94),
+                         (lx - 0.1, end + sy * 0.015, 0.94)][::sy], lamp)
+            me.face([(-0.5, end + sy * 0.015, 2.45), (0.5, end + sy * 0.015, 2.45), (0.5, end + sy * 0.015, 2.6),
+                     (-0.5, end + sy * 0.015, 2.6)][::sy], "dest")
+        else:
+            me.face(list(reversed(ring_in)) if sy > 0 else ring_in, "rubber")
+    # the bottom, and the wheels (simple 12-sided discs, from the board: radius 0.48, track 2.2)
+    me.face([(-WO, y0, SKIRT), (WO, y0, SKIRT), (WO, y1, SKIRT), (-WO, y1, SKIRT)], "rubber")
+    for ay in AXLES:
+        for sx in (-1, 1):
+            me.lathe([(-0.16, 0.0001), (-0.16, 0.48), (0.16, 0.48), (0.16, 0.0001)], "tyre", n=12,
+                     xf=Matrix.Translation((sx * 1.1, ay, 0.48)) @ Matrix.Rotation(-math.pi / 2, 4, "Z"))
+    ob = me.obj(origin=Vector((0, 0, 0)), smooth=False, parent=root)
+    ob.name = "lod"
+    return ob
+
+
 def export(path):
     bpy.ops.export_scene.gltf(filepath=path, export_format="GLB", export_apply=True, export_yup=True, export_extras=True)
 
@@ -636,6 +692,9 @@ def main():
         core.render_persp(pre + "_34l.png", cam, (0, 0, 1.5), (-9.5, -10.5, 4.0), 1400, 900, lens=40)
         core.render_ortho(pre + "_side.png", cam, "side", (0, 0, 1.6), 11.0, 1400, 600)
         core.render_persp(pre + "_inside.png", cam, (0.2, 4.0 if kind != "front" else 4.6, 1.5), (0.2, -3.8, 1.65), 1400, 900, lens=24)
+        build_lod(kind)
+        export(os.path.join(OUT_DIR, "carrow_tram_%s_lod.glb" % kind))
+        spec["sections"][kind]["lod_glb"] = "res://remake/vehicles/tram/carrow_tram_%s_lod.glb" % kind
         print("TRAM built", kind, len(mods), "modules", spec["sections"][kind]["seats"], "seats")
     with open(os.path.join(OUT_DIR, "carrow_tram.json"), "w") as f:
         json.dump(spec, f, indent=1)

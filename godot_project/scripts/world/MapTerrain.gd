@@ -26,11 +26,14 @@ const ROAD_BLEND := 5.0             # a road's grade blends back into the terrai
 const SIDE_SLOPE := 2.0             # cut and fill slopes: 2 horizontal to 1 vertical (research/roads/grading.md)
 const BLEND_MAX := 14.0             # the widest a cut or fill slope reaches
 const PAD_MARGIN := 1.0             # a lot is levelled this far past the building's bounds...
-const PAD_BLEND := 4.0              # ...then blends back into the terrain over this
+const PAD_BLEND := 4.0              # ...then blends back into the terrain over at least this...
+const PAD_SLOPE := 6.0              # ...at 1 in this on average (the smoothstep peaks at 1.5x: about 1 in 4)
+const PAD_BLEND_MAX := 18.0
 const PLACEMENT := "res://remake/placement.json"
 
 static var _d: Dictionary = {}
 const RAMP := 40.0                  # roads ramp to a bridge's deck over this, before its abutments
+const CURB_RISE := 0.15             # behind a kerb with a sidewalk the ground stands at the kerb's top (MapRoads CURB_H)
 static var _pads: Array = []         # [s, x, cos yaw, sin yaw, min x, min z, max x, max z, height]
 static var _bridges: Array = []      # the same, for crossings: height = the deck
 static var _pad_by_id: Dictionary = {}
@@ -341,6 +344,8 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 	var best_w := 0.0
 	var best_h := base
 	var best_d := INF
+	var best_rise := 0.0
+	var on_carriageway := false
 	var on_road := {}                     # road -> [distance, height] of its nearest segment, where it weighs 1
 	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
 		if it[0] != "road":
@@ -349,9 +354,18 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 		var a: Array = rd.pts[it[2]]
 		var bq: Array = rd.pts[it[2] + 1]
 		var pr := _seg_proj(s, x, a[0], a[1], bq[0], bq[1])
-		var hw: float = rd.w * 0.5
+		# the right of way: each side's kerb (a parking lane widens its side), then the tree lawn and
+		# the sidewalk (tools/street_rules.py) -- all of it graded flat with the road
+		var kr: float = rd.get("hr", rd.w * 0.5)
+		var kl: float = rd.get("hl", rd.w * 0.5)
+		var verge: float = float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0))
+		var hw: float = maxf(kr, kl) + verge
 		if pr.x > hw + 0.5 + BLEND_MAX:
 			continue
+		var right_side: bool = (_wrap(bq[0] - a[0]) * (x - a[1]) - (bq[1] - a[1]) * _wrap(s - a[0])) > 0.0   # (right of the way along the points: (-dx, ds))
+		var kerb: float = kr if right_side else kl
+		if pr.x <= kerb:
+			on_carriageway = true
 		var h: float
 		var zp: PackedFloat32Array = rd.zp
 		if zp.is_empty():
@@ -374,6 +388,7 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 			best_w = w
 			best_h = h
 			best_d = pr.x
+			best_rise = CURB_RISE * clampf((pr.x - kerb) / 0.25, 0.0, 1.0) if verge > 0.0 else 0.0
 		# where carriageways overlap (a junction), each road's nearest segment, to blend between
 		if w > 0.999 and pr.x < float(on_road.get(it[1], [INF])[0]):
 			on_road[it[1]] = [pr.x, h]
@@ -389,6 +404,8 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 		best_h = sh / sk
 	if best_w > 0.0 and not _bridges.is_empty() and not _d.has("decks"):
 		best_h = _ramp_to_bridge(s, x, best_h)       # (graded roads already ramp to their decks)
+	if not on_carriageway:
+		best_h += best_rise                          # the lawn and the sidewalk, at the kerb's top
 	return Vector2(lerpf(base, best_h, best_w), best_w)
 
 
@@ -424,7 +441,7 @@ static func _pad_grade(s: float, x: float, h: float) -> float:
 		var lz: float = dx * pd[3] - ds * pd[2]
 		var ox := maxf(0.0, maxf(pd[4] - PAD_MARGIN - lx, lx - pd[6] - PAD_MARGIN))
 		var oz := maxf(0.0, maxf(pd[5] - PAD_MARGIN - lz, lz - pd[7] - PAD_MARGIN))
-		var w := 1.0 - smoothstep(0.0, PAD_BLEND, Vector2(ox, oz).length())
+		var w := 1.0 - smoothstep(0.0, float(pd[9]), Vector2(ox, oz).length())
 		if w > best_w:
 			best_w = w
 			best_h = pd[8]
@@ -454,11 +471,19 @@ static func _load_pads() -> void:
 		var ss: float = s0 + lx * sn - lz * c
 		var xx: float = x0 + lx * c + lz * sn
 		var hpad := _road_grade(fposmod(ss, C), xx, base_elev(ss, xx)).x
-		var pd := [s0, x0, c, sn, e.min[0], e.min[2], e.max[0], e.max[2], hpad]
+		# how far the lot must blend back: 1 in PAD_SLOPE from the pad to the ground at its corners
+		var diff := 0.0
+		for cx in [e.min[0], e.max[0]]:
+			for cz in [e.min[2], e.max[2]]:
+				var cs_: float = s0 + float(cx) * sn - float(cz) * c
+				var cx_: float = x0 + float(cx) * c + float(cz) * sn
+				diff = maxf(diff, absf(hpad - _road_grade(fposmod(cs_, C), cx_, base_elev(cs_, cx_)).x))
+		var blend := clampf(diff * PAD_SLOPE, PAD_BLEND, PAD_BLEND_MAX)
+		var pd := [s0, x0, c, sn, e.min[0], e.min[2], e.max[0], e.max[2], hpad, blend]
 		_pad_by_id[e.id] = hpad
 		_pads.append(pd)
 		var reach := Vector2(maxf(absf(e.min[0]), absf(e.max[0])), maxf(absf(e.min[2]), absf(e.max[2]))).length()
-		_index(["pad", _pads.size() - 1], s0 - reach, x0 - reach, s0 + reach, x0 + reach, PAD_MARGIN + PAD_BLEND)
+		_index(["pad", _pads.size() - 1], s0 - reach, x0 - reach, s0 + reach, x0 + reach, PAD_MARGIN + blend)
 
 
 static func _load_bridge(e: Dictionary) -> void:

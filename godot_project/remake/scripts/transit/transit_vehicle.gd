@@ -37,6 +37,7 @@ var joints: Array = []               # TramJoint
 var seats: Array = []                # seat marker nodes
 var stands: Array = []               # [stand marker, strap marker]
 var riders: Array = []               # [npc, animator, marker]
+var _aboard := {}                    # player -> [section index, their place in its frame] (_keep_aboard)
 var walkers: Array = []              # {npc, an, sec, pts, i, mode ("on"/"off"), seat}
 var driver_npc: Node3D
 var _pending: Array = []             # jobs
@@ -467,6 +468,7 @@ func place(p_d: float, p_dwelling: bool, p_stop: int) -> void:
 	d = _operate(p_d, p_dwelling)
 	if str(line.kind) == "tram":
 		_place_tram()
+		_keep_aboard()
 	else:
 		_place_train()
 	if _player:
@@ -633,6 +635,62 @@ func leave_seat() -> void:
 	var at: Transform3D = exit_n.global_transform if exit_n else (parts[0][0] as Node3D).global_transform
 	p.stand_up(at.origin + at.basis.y * 0.9, at.basis)
 	_player_seat = null
+
+
+func _keep_aboard() -> void:
+	## Everyone standing in the tram moves with it, and stays in it: out only through an open door
+	## (walked or pushed). Crossing a joint is just walking from one section into the next. Anyone
+	## who'd leave otherwise -- squeezed through a wall by a crowd or an obstacle, dropped through the
+	## floor -- is put back where they stood last tick. A jump of metres in a tick is a teleport (fast
+	## travel, a respawn): it lets them go.
+	var dt := get_physics_process_delta_time()
+	if dt <= 0.0:
+		return
+	var carried := {}
+	for p in get_tree().get_nodes_in_group("player"):
+		if not p is StationPlayer:
+			continue
+		var pl := p as StationPlayer
+		if pl.is_seated():
+			continue
+		var pos := pl.global_position
+		var at := -1
+		var lp := Vector3.ZERO
+		for i in sections.size():
+			var sec := sections[i] as TramSection
+			var q := sec.prev_xf().affine_inverse() * pos
+			if sec.holds(q):
+				at = i
+				lp = q
+				break
+		var last: Array = _aboard.get(pl, [])
+		if at < 0 and not last.is_empty():
+			var sec0 := sections[mini(int(last[0]), sections.size() - 1)] as TramSection
+			var q0 := sec0.prev_xf().affine_inverse() * pos
+			var jump := q0.distance_to(last[1]) > 3.0
+			if not jump and not sec0.door_exit(q0):
+				pl.global_position = sec0.prev_xf() * (last[1] as Vector3)   # (carried on below)
+				pl.velocity = Vector3.ZERO
+				at = int(last[0])
+				lp = last[1]
+		if at < 0:
+			if not last.is_empty():
+				_aboard.erase(pl)
+				pl.carrier_velocity = Vector3.ZERO
+				pl.sheltered = false
+			continue
+		_aboard[pl] = [at, lp]
+		(sections[at] as TramSection).carry_at(pl, lp, dt)
+		carried[at] = carried.get(at, []) + [pl]
+	for i in sections.size():
+		(sections[i] as TramSection).set_riders(carried.get(i, []))
+
+
+func distance_to_player(at: Vector3) -> float:
+	var best := INF
+	for sec in sections:
+		best = minf(best, (sec as Node3D).global_position.distance_to(at))
+	return best
 
 
 func carrying_player() -> bool:

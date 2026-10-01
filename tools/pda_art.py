@@ -5,6 +5,7 @@
   system_logo_32.png   32 x 32  the same, for the About page and the System menu's banner
   icon_ai.png          32 x 32  the NPC AI app: a speech balloon with a spark
   icon_summon.png      32 x 32  the Summon Aerostat app: an aerostat over its landing marks
+  icon_nav.png         32 x 32  the Navigation app: a folded map under a compass needle
     python3 tools/pda_art.py
 """
 import os
@@ -144,6 +145,43 @@ ICON_SUMMON = """
 """
 
 
+# a folded map (three panels, a road and a dashed tram line across it) with a compass needle over it
+ICON_NAV = """
+................................
+................................
+..............KK................
+.............KWWK...............
+.............KWWK...............
+............KWWWWK..............
+............KWWWWK..............
+...........KWWWWWWK.............
+..KKKKKKKKKKKKKKKKKKKKKKKKKKKK..
+..KWWWWWWWWKLLLLLLLLLKWWWWWWWK..
+..KWWWWWWWWKLLLLLLLLLKWWWWWWWK..
+..KWWKKWWWWKLLLLLKLLLKWWWWWKWK..
+..KWWWWKKWWKLLLLKLLLLKWWWWKWWK..
+..KWWWWWWKKKLLLKLLLLLKWWWKWWWK..
+..KDDWWWWWWKKKKLLLLLLKWWKWWWWK..
+..KWDDWWWWWKLLLKKLLLLKWKWWWWWK..
+..KWWWDDWWWKLLLLLKKLLKKWWWWWWK..
+..KWWWWWDDWKLLLLLLLKKKWWWWWWWK..
+..KWWWWWWWDKDLLLLLLLLKKKWWWWWK..
+..KWWWWWWWWKLDDLLLLLLKWWKKWWWK..
+..KWWWWWWWWKLLLDDLLLLKWWWWKKWK..
+..KWWWWWWWWKLLLLLDDLLKWWWWWWKK..
+..KKKKKKKKKKKKKKKKKKKKKKKKKKKK..
+............KDDDDDDK............
+............KDDDDDDK............
+.............KDDDDK.............
+.............KDDDDK.............
+..............KDDK..............
+..............KKKK..............
+................................
+................................
+................................
+"""
+
+
 def draw(art, path):
     rows = [r for r in art.strip("\n").split("\n")]
     w = max(len(r) for r in rows)
@@ -160,4 +198,5 @@ if __name__ == "__main__":
     draw(LOGO_32, "system_logo_32.png")
     draw(ICON_AI, "icon_ai.png")
     draw(ICON_SUMMON, "icon_summon.png")
+    draw(ICON_NAV, "icon_nav.png")
     print("pda art ->", OUT)

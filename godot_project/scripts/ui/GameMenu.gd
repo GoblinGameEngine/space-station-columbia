@@ -88,6 +88,7 @@ const APPS := [
 	["quests", "Quests", "icon_quests.png"],
 	["ai", "NPC AI", "icon_ai.png"],
 	["summon", "Summon Aerostat", "icon_summon.png"],
+	["nav", "Navigation", "icon_nav.png"],
 	["control", "Control Panel", "icon_control.png"],
 	["help", "Help", "icon_help.png"],
 ]
@@ -179,6 +180,11 @@ func _process(delta: float) -> void:
 		_map_station.queue_redraw()
 	if _current == "summon":
 		_refresh_ride()
+	if _current == "nav" and _nav_map:
+		if _nav_map.follow:
+			var p := _player_sx()
+			_nav_map.view = Vector2(p.x, p.y)
+		_nav_map.queue_redraw()
 
 
 # ------------------------------------------------------------------ a controller
@@ -807,6 +813,7 @@ func _build_system() -> void:
 	_apps["quests"] = _app("Quests", _quest_tabs(), "Your tasks.  Tap Track to follow one on the map.")
 	_apps["ai"] = _app("NPC AI", _ai_tabs(), "The station's people talk through an AI service.  Setup: get a free Groq key and paste it in.  Voice: choose the model.  Try it: talk to someone.")
 	_apps["summon"] = _app("Summon Aerostat", _summon_tabs(), "Call an aerostat to you.  Tap Request: the nearest free one (the red one) comes down and lands near you.  Drag the map to look round, + and - to zoom, Center to follow yourself again.")
+	_apps["nav"] = _app("Navigation", _nav_tabs(), "The political map: whose law runs where (the dotted shades), town limits, roads, tram lines.  Drag to look round, + and - to zoom: the closer, the more is named.  Boxed T: a fast-travel tram stop -- tap it, or pick a town under Travel.  Law: the rules where you stand.")
 	_apps["control"] = _app("Control Panel", _control_tabs(), "Sound, Display and Controls settings.")
 	_apps["help"] = _app("Help", _help_tabs(), "The System Help.")
 	for a in _apps.values():
@@ -1026,6 +1033,8 @@ func _open_app(name: String) -> void:
 	if name == "summon":
 		_ride_follow = true
 		_refresh_ride()
+	if name == "nav":
+		_refresh_nav()
 
 
 func _close_app() -> void:
@@ -1249,6 +1258,148 @@ func _draw_nearby_marker() -> void:
 	_map_nearby.draw_rect(Rect2(Vector2.ZERO, _map_nearby.size), K, false)
 	_map_nearby.draw_rect(Rect2(2, 2, 12, 15), W)
 	_map_nearby.draw_string(_bold, Vector2(4, 14), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE, K)
+
+
+# ------------------------------------------------------------------ Navigation
+## The political map (NavMap), fast travel by tram to the two largest tiers of towns (research/law/
+## 03_settlements.md), and the law where you stand (research/law/02_cities.md).
+var _nav_map: NavMap
+var _nav_list: VBoxContainer
+var _nav_law: Label
+var _nav_status: Label
+
+
+func _nav_tabs() -> TabContainer:
+	var tabs := TabContainer.new()
+	var pg := _tab_page(tabs, "Map", false)
+	_nav_map = NavMap.new()
+	_nav_map.font = _font
+	_nav_map.bold = _bold
+	_nav_map.custom_minimum_size = Vector2(222, 196)
+	_nav_map.travel_requested.connect(_nav_confirm)
+	pg.add_child(_nav_map)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 3)
+	var c := _button("Center", func(): _nav_map.follow = true)
+	c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(c)
+	var zin := _button("+", func(): _nav_map.zoom(-1))
+	zin.custom_minimum_size = Vector2(30, 18)
+	row.add_child(zin)
+	var zout := _button("-", func(): _nav_map.zoom(1))
+	zout.custom_minimum_size = Vector2(30, 18)
+	row.add_child(zout)
+	pg.add_child(row)
+	var tv := _tab_page(tabs, "Travel")
+	tv.add_child(_label("Ride the tram to:", true))
+	_nav_list = VBoxContainer.new()
+	_nav_list.add_theme_constant_override("separation", 3)
+	tv.add_child(_nav_list)
+	var lw := _tab_page(tabs, "Law")
+	_nav_law = _label("")
+	lw.add_child(_nav_law)
+	return tabs
+
+
+func _nav_dests() -> Array:
+	## The fast-travel stops: each town of the two largest tiers, at its tram stop nearest its middle
+	## (the user: "Make sure the fast travel destinations are at tram stops").
+	var out := []
+	if not FileAccess.file_exists("res://remake/law/settlements.json"):
+		return out
+	var sets: Array = JSON.parse_string(FileAccess.get_file_as_string("res://remake/law/settlements.json")).settlements
+	for st in sets:
+		if not st.fast_travel or not st.get("centre"):
+			continue
+		var c := Vector2(float(st.centre[0]), float(st.centre[1]))
+		var best := {}
+		var bd := INF
+		for l in TransitNet.lines():
+			if str(l.kind) != "tram":
+				continue
+			for sp in l.stops:
+				var p := TransitNet.point_at(l, float(sp.d))
+				var d := Vector2(StationGeo.wrap_ds(p.x - c.x), p.y - c.y).length() * (1.0 if str(sp.town) == str(st.name) else 3.0)
+				if d < bd:
+					bd = d
+					var q := TransitNet.point_at(l, float(sp.d) + 1.0)
+					best = {"name": st.name, "tier": st.tier, "s": fposmod(p.x, StationGeo.CIRC), "x": p.y, "stop": str(sp.name), "line": str(l.name),
+						"dir": Vector2(StationGeo.wrap_ds(q.x - p.x), q.y - p.y).normalized(), "own": str(sp.town) == str(st.name)}
+		if not best.is_empty():
+			out.append(best)
+	return out
+
+
+func _refresh_nav() -> void:
+	if _nav_map == null:
+		return
+	if _nav_map.dests.is_empty():
+		_nav_map.dests = _nav_dests()
+		for c in _nav_list.get_children():
+			c.queue_free()
+		for dd in _nav_map.dests:
+			var b := _button("%s -- %s%s" % [dd.name, dd.stop, "" if dd.own else " (nearest)"], _nav_confirm.bind(dd))
+			b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+			_nav_list.add_child(b)
+	_nav_map.follow = true
+	# the law where you stand: the nearest settlement, and the city whose ordinances it follows
+	var p := _player_sx()
+	var law := {}
+	if FileAccess.file_exists("res://remake/law/ordinances.json"):
+		law = JSON.parse_string(FileAccess.get_file_as_string("res://remake/law/ordinances.json"))
+	var sets: Array = JSON.parse_string(FileAccess.get_file_as_string("res://remake/law/settlements.json")).settlements if FileAccess.file_exists("res://remake/law/settlements.json") else []
+	var here := {}
+	var hd := INF
+	for st in sets:
+		if not st.get("centre"):
+			continue
+		var d := Vector2(StationGeo.wrap_ds(float(st.centre[0]) - p.x), float(st.centre[1]) - p.y).length()
+		if d < hd:
+			hd = d
+			here = st
+	var txt := "Out in the country."
+	if not here.is_empty():
+		var city := {}
+		for c in law.get("cities", []):
+			if c.id == here.governed_by:
+				city = c
+		if not city.is_empty():
+			var pk: Dictionary = city.parking
+			txt = "%s (%s, %.1f km)\nLaw of %s: %s.\n\nSpeed: %d km/h in town, %d near schools, %d in alleys.\nDowntown parking: %s, %d-hour limit.\nResidential: at most %d hours in one place.\nTransit: %s.\nSidewalks: the owner keeps them (ORC 729.01)." % [
+				here.name, here.tier, hd / 1000.0, city.name, city.code, int(city.speed.residential_kmh), int(city.speed.school_kmh), int(city.speed.alley_kmh),
+				pk.downtown.hours, int(pk.downtown.limit_h), int(pk.residential.max_hours), city.transit.authority]
+	_nav_law.text = txt
+
+
+func _nav_confirm(dd: Dictionary) -> void:
+	var p := _player_sx()
+	var km := Vector2(StationGeo.wrap_ds(float(dd.s) - p.x), float(dd.x) - p.y).length() / 1000.0
+	var mins := int(round(4.0 + km * 3.2))
+	_show_message("Travel", "Take the tram to %s?\n%s, the %s.\nAbout %d minutes." % [dd.name, dd.stop, dd.line, mins],
+		[["Travel", _nav_travel.bind(dd, mins)], ["Cancel", Callable()]])
+
+
+func _nav_travel(dd: Dictionary, mins: int) -> void:
+	## Off at the stop: on the kerbside, by the stop, facing the street; the clock moves on by the ride.
+	var pl := get_tree().get_first_node_in_group("player") as StationPlayer
+	if pl == null:
+		return
+	if pl.is_seated() and pl._vehicle and pl._vehicle.has_method("leave_seat"):
+		pl._vehicle.leave_seat()
+	set_open(false)
+	var dir: Vector2 = dd.dir
+	var right := Vector2(-dir.y, dir.x)
+	var at := Vector2(float(dd.s), float(dd.x)) + right * 7.5
+	var s := fposmod(at.x, StationGeo.CIRC)
+	var face := -right                                   # looking back at the street
+	var yaw := atan2(-face.y, face.x)
+	pl.stand_up(StationGeo.point(s, at.y, MapTerrain.elevation(s, at.y) + 1.0), StationGeo.basis(s, yaw))
+	var sky := get_tree().current_scene.get_node_or_null("DaySkySystem")
+	if sky:
+		sky.time_of_day = fposmod(float(sky.time_of_day) + mins / 1440.0, 1.0)
+	var hud := get_tree().root.get_node_or_null("Hud")
+	if hud and hud.has_method("toast"):
+		hud.toast("%s: %s" % [dd.name, dd.stop])
 
 
 # ------------------------------------------------------------------ Summon Aerostat

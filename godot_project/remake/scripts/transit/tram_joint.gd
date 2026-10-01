@@ -37,6 +37,7 @@ func setup(p_a: TramSection, p_b: TramSection) -> void:
 	_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	_mi.mesh = _mesh
 	_mi.top_level = true
+	_mi.visibility_range_end = 90.0                     # (past it the sections' far models close their own ends)
 	add_child(_mi)
 	var cyl := CylinderMesh.new()
 	cyl.top_radius = 0.78
@@ -49,6 +50,7 @@ func setup(p_a: TramSection, p_b: TramSection) -> void:
 	pm.roughness = 0.35
 	_plate.material_override = pm
 	_plate.top_level = true
+	_plate.visibility_range_end = 45.0
 	add_child(_plate)
 	_body.sync_to_physics = true
 	_body.collision_layer = 1 | RemakeGroundVehicle.HULL_LAYER

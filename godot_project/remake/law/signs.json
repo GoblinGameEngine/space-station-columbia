@@ -1,0 +1,206 @@
+{
+ "signs": [
+  {
+   "code": "R1-1",
+   "name": "STOP",
+   "legend": "STOP",
+   "colours": "white on red octagon",
+   "use": "minor street at a junction"
+  },
+  {
+   "code": "R2-1",
+   "name": "SPEED LIMIT",
+   "legend": "SPEED LIMIT nn",
+   "colours": "black on white",
+   "use": "speed limits (km/h aboard, the legend in the station's metric)"
+  },
+  {
+   "code": "R7-1",
+   "name": "NO PARKING ANY TIME",
+   "legend": "NO PARKING ANY TIME with arrow",
+   "colours": "red on white",
+   "use": "no-parking stretches"
+  },
+  {
+   "code": "R7-2",
+   "name": "NO PARKING (times)",
+   "legend": "NO PARKING 8 AM - 5 PM with arrow",
+   "colours": "red on white",
+   "use": "timed no-parking (sweeping, rush hours)"
+  },
+  {
+   "code": "R7-108",
+   "name": "TIMED PARKING",
+   "legend": "2 HOUR PARKING 8 AM - 6 PM with arrow",
+   "colours": "green on white",
+   "use": "time-limited parking"
+  },
+  {
+   "code": "R7-20",
+   "name": "PAY STATION",
+   "legend": "PAY STATION with arrow",
+   "colours": "green on white",
+   "use": "metered blocks"
+  },
+  {
+   "code": "R7-8",
+   "name": "RESERVED PARKING (accessible)",
+   "legend": "symbol of accessibility, RESERVED PARKING",
+   "colours": "green/blue on white",
+   "use": "accessible spaces (ORC 4511.69)"
+  },
+  {
+   "code": "R7-107",
+   "name": "NO PARKING BUS/TRAM STOP",
+   "legend": "NO PARKING + transit symbol",
+   "colours": "red on white",
+   "use": "the kerb at a tram stop (the station uses the tram symbol)"
+  },
+  {
+   "code": "R7-201P",
+   "name": "TOW-AWAY ZONE",
+   "legend": "TOW-AWAY ZONE plaque",
+   "colours": "red on white",
+   "use": "with a no-parking sign"
+  },
+  {
+   "code": "R7-202P",
+   "name": "THIS SIDE OF SIGN",
+   "legend": "THIS SIDE OF SIGN plaque",
+   "colours": "black on white",
+   "use": "with a parking sign"
+  },
+  {
+   "code": "R7-203",
+   "name": "EMERGENCY ROUTE",
+   "legend": "EMERGENCY SNOW ROUTE (aboard: EMERGENCY ROUTE / FLOOD ROUTE)",
+   "colours": "white on red and black on white",
+   "use": "routes cleared in an emergency (no snow since VY 212: flood and evacuation routes)"
+  },
+  {
+   "code": "R8-3",
+   "name": "NO PARKING (symbol)",
+   "legend": "P with red circle and slash",
+   "colours": "red/black on white",
+   "use": "no parking where a word sign won't fit"
+  },
+  {
+   "code": "R8-3hP",
+   "name": "times plaque",
+   "legend": "8 AM - 6 PM",
+   "colours": "black on white",
+   "use": "under R8-3"
+  },
+  {
+   "code": "D3-1",
+   "name": "STREET NAME",
+   "legend": "street name",
+   "colours": "white on green",
+   "use": "every junction (subdivision rules)"
+  },
+  {
+   "code": "D4-2",
+   "name": "PARK & RIDE",
+   "legend": "PARK & RIDE with transit symbol",
+   "colours": "white on green",
+   "use": "the way to a park-and-ride lot"
+  },
+  {
+   "code": "D9-11",
+   "name": "PARKING (guide)",
+   "legend": "P",
+   "colours": "white on blue",
+   "use": "the way to a public lot"
+  },
+  {
+   "code": "W14-1",
+   "name": "DEAD END",
+   "legend": "DEAD END",
+   "colours": "black on yellow",
+   "use": "a street with no way through"
+  },
+  {
+   "code": "W14-2",
+   "name": "NO OUTLET",
+   "legend": "NO OUTLET",
+   "colours": "black on yellow",
+   "use": "the mouth of a cul-de-sac or loop with one way out"
+  },
+  {
+   "code": "S1-1",
+   "name": "SCHOOL",
+   "legend": "school children symbol",
+   "colours": "black on fluorescent yellow-green",
+   "use": "school zones"
+  },
+  {
+   "code": "R10-? / agency",
+   "name": "TRAM STOP (city design)",
+   "legend": "the city transit authority's own stop flag (not a MUTCD regulatory sign: stop flags are the agency's)",
+   "colours": "per city",
+   "use": "every tram stop"
+  }
+ ],
+ "transit_flags": {
+  "port_carrow": {
+   "authority": "Port Carrow Lakeshore Transit (PCLT)",
+   "stop_flag": "navy rectangle, white tram symbol in a white ring, a bronze stripe at the foot; route numbers in white boxes",
+   "colours": [
+    "#1d2b4f",
+    "#ffffff",
+    "#9a6b34"
+   ],
+   "shape": "rectangle 450 x 600 mm on its own post"
+  },
+  "kessler": {
+   "authority": "Capital Area Tramways (CAT)",
+   "stop_flag": "red roundel on a white disc, a white tram symbol on the bar, the stop name below in a white panel",
+   "colours": [
+    "#b31b1b",
+    "#ffffff",
+    "#222222"
+   ],
+   "shape": "round 600 mm disc over a 300 x 450 mm name panel"
+  },
+  "solana_point": {
+   "authority": "Solana Metro Tranvía (SMT)",
+   "stop_flag": "sun-yellow pennant shape, black tram symbol, the stop name in Spanish and English",
+   "colours": [
+    "#ecb928",
+    "#111111",
+    "#1e8080"
+   ],
+   "shape": "pennant 450 x 650 mm"
+  },
+  "harrow_falls": {
+   "authority": "Kettle Valley Transit (KVT)",
+   "stop_flag": "green shield (the old mill-town crest), white tram symbol, a white band with the stop name",
+   "colours": [
+    "#2f6b3a",
+    "#ffffff",
+    "#7a2c1e"
+   ],
+   "shape": "shield 500 x 650 mm"
+  },
+  "brightwater": {
+   "authority": "Brightwater Boardwalk Trams (BBT)",
+   "stop_flag": "teal lollipop disc with a cream rim, white tram symbol, the stop name on a cream bar",
+   "colours": [
+    "#1f8a8a",
+    "#f2e6c8",
+    "#c0392b"
+   ],
+   "shape": "disc 550 mm over a bar 600 x 150 mm"
+  },
+  "oceanview": {
+   "authority": "Oceanview Citilink Trams (OCT)",
+   "stop_flag": "orange square, white tram symbol, a white route strip; the stop name on a blue plate",
+   "colours": [
+    "#e2711d",
+    "#ffffff",
+    "#1f4e8c"
+   ],
+   "shape": "square 500 mm over a plate 500 x 150 mm"
+  }
+ }
+}

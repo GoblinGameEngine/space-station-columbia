@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """The Space Station Columbia sign faces (road standard §4-5) as one atlas for RoadFurniture.gd:
-godot_project/remake/textures/road_signs.png, 8 x 4 cells of 256 px, transparent round each shape.
+godot_project/remake/textures/road_signs.png, 8 x 8 cells of 256 px, transparent round each shape.
 Cell names and each face's back (a grey silhouette of the same shape) are in CELLS below and
 mirrored in RoadFurniture.gd's ATLAS table.
     python3 tools/sign_atlas.py
@@ -21,7 +21,32 @@ YEL, GREEN, GREY = (250, 200, 20), (0, 110, 60), (150, 152, 155)
 CELLS = ["stop", "yield", "speed_15", "speed_40", "speed_50", "speed_60", "speed_70", "speed_90",
          "curve_l", "curve_r", "junction", "rr_ahead", "stop_ahead", "crossbuck", "plate_allway", "dead_end",
          "route_sr14", "route_us30", "route_coast", "rxr", "stripes", "green", "lamp_red", "lamp_off",
-         "back_oct", "back_tri", "back_rect", "back_diamond", "back_disc", "back_crossbuck", "back_shield", "back_plate"]
+         "back_oct", "back_tri", "back_rect", "back_diamond", "back_disc", "back_crossbuck", "back_shield", "back_plate",
+         # parking and transit (MUTCD R7 / R8 / D4 / D9 / W14; research/law/04_signs.md)
+         "no_parking", "no_parking_tram", "parking_2h", "parking_3h", "pay_station", "tow_away", "emergency_route", "flood_route",
+         "accessible", "park_ride", "parking_guide", "no_outlet", "school", "back_tall", "back_pennant", "back_square",
+         "tram_port_carrow", "tram_kessler", "tram_solana_point", "tram_harrow_falls", "tram_brightwater", "tram_oceanview"]
+TRAM_FLAG = {   # the cities' transit authorities' own stop flags (tools/law/canon_law.py CITIES transit)
+    "tram_port_carrow": ("rect", (29, 43, 79), (255, 255, 255), (154, 107, 52), "PCLT"),
+    "tram_kessler": ("roundel", (179, 27, 27), (255, 255, 255), (34, 34, 34), "CAT"),
+    "tram_solana_point": ("pennant", (236, 185, 40), (17, 17, 17), (30, 128, 128), "SMT"),
+    "tram_harrow_falls": ("shield", (47, 107, 58), (255, 255, 255), (122, 44, 30), "KVT"),
+    "tram_brightwater": ("disc", (31, 138, 138), (242, 230, 200), (192, 57, 43), "BBT"),
+    "tram_oceanview": ("square", (226, 113, 29), (255, 255, 255), (31, 78, 140), "OCT"),
+}
+
+
+def tram_symbol(d, cx, cy, sc, col):
+    """A tram seen from the front: the rounded body, the windscreen, two lamps (the station's)."""
+    w, h = 60 * sc, 78 * sc
+    d.rounded_rectangle([(cx - w / 2) * SS, (cy - h / 2) * SS, (cx + w / 2) * SS, (cy + h / 2) * SS], 14 * sc * SS, fill=col)
+    bg = (0, 0, 0, 0)
+    d.rounded_rectangle([(cx - w / 2 + 8 * sc) * SS, (cy - h / 2 + 12 * sc) * SS, (cx + w / 2 - 8 * sc) * SS, (cy - 2 * sc) * SS], 6 * sc * SS, fill=bg)
+    for lx in (-1, 1):
+        d.ellipse([(cx + lx * 16 * sc - 6 * sc) * SS, (cy + 18 * sc - 6 * sc) * SS, (cx + lx * 16 * sc + 6 * sc) * SS, (cy + 18 * sc + 6 * sc) * SS], fill=bg)
+    d.rectangle([(cx - w / 2 + 4 * sc) * SS, (cy + h / 2) * SS, (cx - w / 2 + 14 * sc) * SS, (cy + h / 2 + 8 * sc) * SS], fill=col)
+    d.rectangle([(cx + w / 2 - 14 * sc) * SS, (cy + h / 2) * SS, (cx + w / 2 - 4 * sc) * SS, (cy + h / 2 + 8 * sc) * SS], fill=col)
+
 
 
 def font(px):
@@ -157,11 +182,126 @@ def cell(name):
         d.rectangle([0, 0, N * SS, N * SS], fill=(255, 40, 30))
     elif name == "lamp_off":
         d.rectangle([0, 0, N * SS, N * SS], fill=(70, 20, 18))
+    elif name in ("no_parking", "no_parking_tram", "parking_2h", "parking_3h", "pay_station", "tow_away", "accessible", "back_tall"):
+        # the R7 family: a tall white rectangle (12 x 18 in), black border; legends in red (prohibitions) or green
+        box = (56, 4, 200, 252)
+        if name == "back_tall":
+            d.rounded_rectangle([v * SS for v in box], 6 * SS, fill=GREY)
+        else:
+            d.rounded_rectangle([v * SS for v in box], 6 * SS, fill=WHITE)
+            d.rounded_rectangle([v * SS for v in (60, 8, 196, 248)], 5 * SS, outline=BLACK, width=3 * SS)
+            arrow = lambda y, col: (d.line(P([(84, y), (172, y)]), fill=col, width=7 * SS),
+                                    d.polygon(P([(76, y), (96, y - 14), (96, y + 14)]), fill=col),
+                                    d.polygon(P([(180, y), (160, y - 14), (160, y + 14)]), fill=col))
+            if name == "no_parking":
+                text(d, (128, 50), "NO", 40, RED)
+                text(d, (128, 96), "PARKING", 26, RED)
+                text(d, (128, 136), "ANY", 30, RED)
+                text(d, (128, 172), "TIME", 30, RED)
+                arrow(220, RED)
+            elif name == "no_parking_tram":
+                text(d, (128, 40), "NO", 36, RED)
+                text(d, (128, 78), "PARKING", 24, RED)
+                tram_symbol(d, 128, 150, 0.9, BLACK)
+                arrow(225, RED)
+            elif name in ("parking_2h", "parking_3h"):
+                text(d, (128, 52), name[-2], 64, GREEN)
+                text(d, (128, 96), "HOUR", 28, GREEN)
+                text(d, (128, 128), "PARKING", 24, GREEN)
+                text(d, (128, 166), "8AM-6PM", 22, GREEN)
+                arrow(218, GREEN)
+            elif name == "pay_station":
+                text(d, (128, 70), "PAY", 46, GREEN)
+                text(d, (128, 120), "STATION", 26, GREEN)
+                arrow(190, GREEN)
+            elif name == "tow_away":
+                text(d, (128, 90), "TOW-", 40, RED)
+                text(d, (128, 140), "AWAY", 40, RED)
+                text(d, (128, 186), "ZONE", 40, RED)
+            elif name == "accessible":
+                d.rectangle([v * SS for v in (80, 30, 176, 130)], fill=(20, 60, 160))
+                text(d, (128, 80), "\u267f", 70, WHITE)
+                text(d, (128, 166), "RESERVED", 22, GREEN)
+                text(d, (128, 198), "PARKING", 22, GREEN)
+    elif name in ("emergency_route", "flood_route"):
+        box = (40, 30, 216, 226)
+        d.rectangle([v * SS for v in box], fill=WHITE)
+        d.rectangle([v * SS for v in (40, 30, 216, 96)], fill=RED)
+        d.rectangle([v * SS for v in box], outline=BLACK, width=3 * SS)
+        text(d, (128, 63), "EMERGENCY" if name == "emergency_route" else "FLOOD", 24 if name == "emergency_route" else 34, WHITE)
+        text(d, (128, 130), "ROUTE", 34, BLACK)
+        text(d, (128, 180), "NO PARKING", 22, RED)
+        text(d, (128, 206), "WHEN DECLARED", 14, BLACK)
+    elif name in ("park_ride", "parking_guide", "back_square"):
+        box = (24, 40, 232, 216)
+        if name == "back_square":
+            d.rounded_rectangle([v * SS for v in box], 10 * SS, fill=GREY)
+        elif name == "park_ride":
+            d.rounded_rectangle([v * SS for v in box], 10 * SS, fill=GREEN)
+            d.rounded_rectangle([v * SS for v in (30, 46, 226, 210)], 8 * SS, outline=WHITE, width=3 * SS)
+            text(d, (100, 92), "PARK &", 30, WHITE)
+            text(d, (100, 134), "RIDE", 34, WHITE)
+            tram_symbol(d, 186, 120, 0.7, WHITE)
+            text(d, (128, 186), "TRAM", 24, WHITE)
+        else:
+            d.rounded_rectangle([v * SS for v in box], 10 * SS, fill=(20, 60, 160))
+            text(d, (128, 128), "P", 120, WHITE)
+    elif name == "no_outlet":
+        dia = [(128, 2), (254, 128), (128, 254), (2, 128)]
+        d.polygon(P(dia), fill=BLACK)
+        d.polygon(P([(128, 10), (246, 128), (128, 246), (10, 128)]), fill=YEL)
+        text(d, (128, 108), "NO", 40, BLACK)
+        text(d, (128, 150), "OUTLET", 30, BLACK)
+    elif name == "school":
+        pent = [(128, 4), (250, 90), (250, 252), (6, 252), (6, 90)]
+        d.polygon(P(pent), fill=BLACK)
+        d.polygon(P([(128, 14), (242, 94), (242, 244), (14, 244), (14, 94)]), fill=(200, 230, 30))
+        for cx in (96, 160):
+            d.ellipse([(cx - 14) * SS, 96 * SS, (cx + 14) * SS, 124 * SS], fill=BLACK)
+            d.polygon(P([(cx - 18, 128), (cx + 18, 128), (cx + 22, 200), (cx - 22, 200)]), fill=BLACK)
+            d.line(P([(cx - 10, 200), (cx - 16, 232)]), fill=BLACK, width=8 * SS)
+            d.line(P([(cx + 10, 200), (cx + 16, 232)]), fill=BLACK, width=8 * SS)
+    elif name == "back_pennant":
+        d.polygon(P([(40, 6), (216, 6), (216, 200), (128, 250), (40, 200)]), fill=GREY)
+    elif name in TRAM_FLAG:
+        shape, bg, fg, acc, tag = TRAM_FLAG[name]
+        if shape == "rect":
+            d.rectangle([v * SS for v in (40, 6, 216, 250)], fill=bg)
+            d.ellipse([v * SS for v in (68, 40, 188, 160)], outline=fg, width=6 * SS)
+            tram_symbol(d, 128, 100, 0.8, fg)
+            d.rectangle([v * SS for v in (40, 226, 216, 250)], fill=acc)
+            text(d, (128, 196), tag, 30, fg)
+        elif shape == "roundel":
+            d.ellipse([v * SS for v in (14, 14, 242, 242)], fill=WHITE)
+            d.ellipse([v * SS for v in (14, 14, 242, 242)], outline=bg, width=26 * SS)
+            d.rectangle([v * SS for v in (4, 104, 252, 152)], fill=bg)
+            tram_symbol(d, 128, 128, 0.42, fg)
+            text(d, (128, 196), tag, 26, acc)
+        elif shape == "pennant":
+            d.polygon(P([(40, 6), (216, 6), (216, 200), (128, 250), (40, 200)]), fill=bg)
+            tram_symbol(d, 128, 92, 0.85, fg)
+            text(d, (128, 176), tag, 30, acc)
+        elif shape == "shield":
+            d.polygon(P([(40, 6), (216, 6), (216, 150), (128, 250), (40, 150)]), fill=bg)
+            tram_symbol(d, 128, 80, 0.8, fg)
+            d.rectangle([v * SS for v in (40, 140, 216, 172)], fill=fg)
+            text(d, (128, 157), tag, 24, bg)
+            d.polygon(P([(40, 6), (216, 6), (216, 20), (40, 20)]), fill=acc)
+        elif shape == "disc":
+            d.ellipse([v * SS for v in (6, 6, 250, 250)], fill=fg)
+            d.ellipse([v * SS for v in (16, 16, 240, 240)], fill=bg)
+            tram_symbol(d, 128, 110, 0.85, fg)
+            text(d, (128, 196), tag, 30, acc)
+        else:
+            d.rectangle([v * SS for v in (14, 14, 242, 242)], fill=bg)
+            tram_symbol(d, 128, 100, 0.85, fg)
+            d.rectangle([v * SS for v in (14, 186, 242, 242)], fill=acc)
+            text(d, (128, 214), tag, 30, fg)
     return im.resize((N, N), Image.LANCZOS)
 
 
 def main():
-    atlas = Image.new("RGBA", (8 * N, 4 * N), (0, 0, 0, 0))
+    atlas = Image.new("RGBA", (8 * N, 8 * N), (0, 0, 0, 0))
     for k, name in enumerate(CELLS):
         atlas.alpha_composite(cell(name), ((k % 8) * N, (k // 8) * N))
     atlas.save(OUT)

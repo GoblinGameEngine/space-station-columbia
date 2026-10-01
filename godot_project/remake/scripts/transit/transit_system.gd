@@ -117,6 +117,10 @@ func _physics_process(delta: float) -> void:
 			var near := false
 			if v and v.carrying_player():
 				near = true
+			elif v and running:
+				# a live tram by where it really is (it runs behind its timetable when held up; judged by
+				# the timetable, a late tram was freed under the people aboard)
+				near = v.distance_to_player(player.global_position) < RANGE
 			elif running:
 				var p := TransitNet.point_at(l, float(st.d))
 				near = Vector2(StationGeo.wrap_ds(p.x - ps), p.y - px).length() < RANGE

@@ -114,7 +114,12 @@ def clear_of_roads(out):
             if L < 1e-6:
                 continue
             k = len(segs)
-            segs.append((a[0] % C, a[1], ds / L, dx / L, L, rd["w"] * 0.5))
+            # each side's edge: the kerb (hl / hr: parking lanes widen their side), then the tree
+            # lawn and the sidewalk (tools/street_rules.py); a building clears the back of the walk
+            verge = rd.get("lawn", 0.0) + rd.get("walk", 0.0)
+            margin = 0.3 if rd.get("walk", 0.0) > 0 else ROAD_MARGIN
+            segs.append((a[0] % C, a[1], ds / L, dx / L, L, rd["w"] * 0.5,
+                         rd.get("hl", rd["w"] * 0.5) + verge + margin, rd.get("hr", rd["w"] * 0.5) + verge + margin))
             for t in range(0, int(L // G) + 2):
                 u = min(t * G, L)
                 cs, cx = int(((a[0] + ds / L * u) % C) // G), int((a[1] + dx / L * u) // G)
@@ -123,9 +128,11 @@ def clear_of_roads(out):
                         grid.setdefault(((cs + i) % int(C // G + 1), cx + j), set()).add(k)
 
     def corners(e):
+        # the footprint (the massing), not the visual bounds: awnings and porches may overhang the
+        # sidewalk, as they do on any main street; the walls may not
         c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
         return [(e["s"] + lx * sn - lz * c, e["x"] + lx * c + lz * sn)
-                for lx in (e["min"][0], e["max"][0]) for lz in (e["min"][2], e["max"][2])]
+                for lx in (e["fmin"][0], e["fmax"][0]) for lz in (e["fmin"][1], e["fmax"][1])]
     moved, stuck = 0, []
     for e in out:
         if e["kind"] == "crossing" or e.get("over_water"):
@@ -140,17 +147,16 @@ def clear_of_roads(out):
             for p in cs + [(e["s"], e["x"])]:
                 keys |= grid.get((int((p[0] % C) // G), int(p[1] // G)), set())
             for k in keys:
-                sa, xa, ts, tx, L, hw = segs[k]
-                ns, nx = -tx, ts
+                sa, xa, ts, tx, L, hw, lim_l, lim_r = segs[k]
+                ns, nx = -tx, ts                                 # (the road's right)
                 us = [wrap(p[0] - sa) * ts + (p[1] - xa) * tx for p in cs]
                 if max(us) < -hw or min(us) > L + hw:
                     continue                                     # beside the segment, not along it
                 vs = [wrap(p[0] - sa) * ns + (p[1] - xa) * nx for p in cs]
-                lim = hw + ROAD_MARGIN
-                if max(vs) < -lim or min(vs) > lim:
+                if max(vs) < -lim_l or min(vs) > lim_r:
                     continue
                 vc = wrap(e["s"] - sa) * ns + (e["x"] - xa) * nx
-                shift = (lim - min(vs)) if vc >= 0 else -(max(vs) + lim)
+                shift = (lim_r - min(vs)) if vc >= 0 else -(max(vs) + lim_l)
                 if best is None or abs(shift) > abs(best[0]):
                     best = (shift, ns, nx)
             if best is None:
@@ -311,9 +317,11 @@ def drop_overlapping_crossings(out, inv_by_id):
     wrap = lambda d: (d + C / 2) % C - C / 2
 
     def corners(e):
+        # the footprint (the massing), not the visual bounds: awnings and porches may overhang the
+        # sidewalk, as they do on any main street; the walls may not
         c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
         return [(e["s"] + lx * sn - lz * c, e["x"] + lx * c + lz * sn)
-                for lx in (e["min"][0], e["max"][0]) for lz in (e["min"][2], e["max"][2])]
+                for lx in (e["fmin"][0], e["fmax"][0]) for lz in (e["fmin"][1], e["fmax"][1])]
 
     def overlap(a, b):
         ca = corners(a)

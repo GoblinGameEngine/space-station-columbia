@@ -26,8 +26,23 @@ func _init() -> void:
 	floats = true
 
 
+const LOD_MODEL := "res://remake/vehicles/aerostat_lod.glb"   # remake/blender/vehicles/aerostat_lod.py
+const LOD_NEAR := 90.0                # m: past this the one-mesh aerostat stands in for the full model
+const LOD_FAR := 1200.0
+
+
 func _build_hull() -> void:
 	load_model(MODEL)
+	if model and ResourceLoader.exists(LOD_MODEL):
+		for gi in model.find_children("*", "GeometryInstance3D", true, false):
+			var g := gi as GeometryInstance3D
+			g.visibility_range_end = minf(g.visibility_range_end, LOD_NEAR) if g.visibility_range_end > 0.0 else LOD_NEAR
+		var lod: Node3D = (load(LOD_MODEL) as PackedScene).instantiate()
+		lod.name = "LOD"
+		add_child(lod)
+		for gi in lod.find_children("*", "GeometryInstance3D", true, false):
+			(gi as GeometryInstance3D).visibility_range_begin = LOD_NEAR
+			(gi as GeometryInstance3D).visibility_range_end = LOD_FAR
 	# floor and belly (the acrylic ahead of the doorways is as solid underfoot as the mat)
 	add_box(Vector3(2.0, 0.1, 4.3), Vector3(0, FLOOR - 0.05, 0))
 	add_box(Vector3(1.9, 0.26, 4.0), Vector3(0, 0.15, 0))

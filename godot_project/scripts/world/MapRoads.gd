@@ -27,17 +27,17 @@ const SURFACE := {"hwy": "asphalt", "county": "asphalt", "main": "asphalt", "str
 	"gravel": "gravel", "alley": "concrete", "rail": "ballast"}
 const TEX := {"asphalt": ["lib/asphalt", 6.0], "gravel": ["p-site/gravel_road", 6.0],
 	"concrete": ["lib/concrete", 3.0], "ballast": ["p-site/ballast", 3.0], "shoulder": ["p-site/gravel_road", 4.0],
-	"kerb": ["lib/concrete", 2.0]}
+	"kerb": ["lib/concrete", 2.0], "walk": ["lib/concrete", 1.5]}
 const PAVED := ["hwy", "county", "main", "street"]
 const SHOULDER := {"hwy": 2.4, "county": 1.5, "street": 0.9, "gravel": 0.6}
 const GUTTER := 0.45
 const CURB_H := 0.15
 const CURB_W := 0.2
-const FINE := ["paint_w", "paint_y", "decal", "kerb", "shoulder"]
+const FINE := ["paint_w", "paint_y", "decal", "kerb", "shoulder", "walk"]
 const FINE_CELL := 100.0
 const NEAR_R := 900.0
 const BAKED := "res://remake/baked/roads.res"
-const BAKE_VERSION := 2              # bump when the builder's output changes
+const BAKE_VERSION := 4              # bump when the builder's output changes
 const RXR_CELL := 19                 # tools/sign_atlas.py: the RXR marking's cell
 
 var _roads: Array = []
@@ -67,6 +67,7 @@ func setup(near := Vector2(INF, INF)) -> void:
 		_mats[key] = m
 	(_mats["shoulder"] as StandardMaterial3D).albedo_color = Color(1.08, 1.02, 0.92)
 	(_mats["kerb"] as StandardMaterial3D).albedo_color = Color(1.15, 1.15, 1.12)
+	(_mats["walk"] as StandardMaterial3D).albedo_color = Color(1.05, 1.04, 1.0)
 	for key in ["paint_w", "paint_y"]:
 		var m := StandardMaterial3D.new()
 		m.albedo_color = Color(0.93, 0.93, 0.9) if key == "paint_w" else Color(0.95, 0.72, 0.1)
@@ -214,6 +215,15 @@ func _quad(st: SurfaceTool, v: Array, uv: Array, up: Vector3) -> void:
 		st.add_vertex(v[j])
 
 
+func _quad_side(st: SurfaceTool, v: Array, uv: Array, up: Vector3, mirrored: bool) -> void:
+	## _quad for a strip built outward from the road: on the road's right (the side the ribbon's rows
+	## start from) the strip runs the other way round, so its order is reversed to face up / outward.
+	if mirrored:
+		_quad(st, [v[3], v[2], v[1], v[0]], [uv[3], uv[2], uv[1], uv[0]], up)
+	else:
+		_quad(st, v, uv, up)
+
+
 func _pt(p: Vector2, h: float) -> Vector3:
 	return StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y) + h)
 
@@ -223,11 +233,17 @@ func _add_road(rd: Dictionary, ctx: String, jn: String, dup: String) -> void:
 	var pts: Array = rd.pts
 	var cls: String = rd.cls
 	var surf: String = SURFACE.get(cls, "asphalt")
-	var hw: float = rd.w * 0.5
+	# each side's half width to its kerb (a parking lane widens its side; tools/street_rules.py), and
+	# the tree lawn and sidewalk behind the kerb (the ground there is at the kerb's top, MapTerrain)
+	var hw_r: float = rd.get("hr", rd.w * 0.5)
+	var hw_l: float = rd.get("hl", rd.w * 0.5)
+	var lawn: float = rd.get("lawn", 0.0)
+	var walk: float = rd.get("walk", 0.0)
 	var tile: float = TEX[surf][1]
 	var run := 0.0
 	var prev := []
 	var prev_edge := []                                   # [side -> profile points] at the previous sample
+	var prev_walk := []                                   # [side -> [inner, outer, skirt, u]] sidewalk rows
 	for k in pts.size() - 1:
 		var a := Vector2(pts[k][0], pts[k][1])
 		var b := Vector2(pts[k + 1][0], pts[k + 1][1])
@@ -257,8 +273,8 @@ func _add_road(rd: Dictionary, ctx: String, jn: String, dup: String) -> void:
 			var over_water := hidden or MapTerrain._body_profile(fposmod(c.x, StationGeo.CIRC), c.y) > 0.05 \
 				or MapTerrain.on_small_bridge(c.x, c.y, 8.0, STEP)   # (the bridge model is the road there; its
 				                                                      # approach slab covers the row short of it)
-			var l := c + side * hw
-			var r := c - side * hw
+			var l := c + side * hw_r                            # (side is the road's right: -dx, ds)
+			var r := c - side * hw_l
 			var up := StationGeo.up(c.x)
 			var hl := 0.0
 			var hr := 0.0
@@ -269,12 +285,12 @@ func _add_road(rd: Dictionary, ctx: String, jn: String, dup: String) -> void:
 			if not prev.is_empty() and not row.is_empty():
 				var st := _st(c, surf)
 				_quad(st, [prev[0], row[0], row[1], prev[1]],
-					[Vector2(0.0, prev[2]), Vector2(0.0, row[2]), Vector2(rd.w / tile, row[2]), Vector2(rd.w / tile, prev[2])], up)
+					[Vector2(0.0, prev[2]), Vector2(0.0, row[2]), Vector2((hw_r + hw_l) / tile, row[2]), Vector2((hw_r + hw_l) / tile, prev[2])], up)
 			# the edges: a cross-section profile each side, joined to the previous sample's
 			var edge_now := []
 			if edge != "" and not over_water and i > 0:
 				for sg in [1.0, -1.0]:
-					var e: Vector2 = c + side * hw * sg
+					var e: Vector2 = c + side * (hw_r if sg > 0.0 else hw_l) * sg
 					var he := hl if sg > 0.0 else hr               # the ribbon's own edge height
 					var prof := []                             # [point, u (across, m)]
 					if edge == "curb":
@@ -303,10 +319,32 @@ func _add_road(rd: Dictionary, ctx: String, jn: String, dup: String) -> void:
 						if p0.size() != p1.size():
 							continue                           # a curb turning into a shoulder: start afresh
 						for j in p1.size() - 1:
-							_quad(st2, [p0[j][0], p1[j][0], p1[j + 1][0], p0[j + 1][0]],
+							_quad_side(st2, [p0[j][0], p1[j][0], p1[j + 1][0], p0[j + 1][0]],
 								[Vector2(p0[j][1] / et, (run - seg_len / n) / et), Vector2(p1[j][1] / et, run / et),
-								Vector2(p1[j + 1][1] / et, run / et), Vector2(p0[j + 1][1] / et, (run - seg_len / n) / et)], up)
+								Vector2(p1[j + 1][1] / et, run / et), Vector2(p0[j + 1][1] / et, (run - seg_len / n) / et)], up, sgi == 0)
 			prev_edge = edge_now
+			# the sidewalks: concrete on the raised ground behind the kerb and its tree lawn
+			var walk_now := []
+			if edge == "curb" and walk > 0.0 and not over_water and i > 0:
+				for sg in [1.0, -1.0]:
+					var o: Vector2 = side * sg
+					var k0: Vector2 = c + o * ((hw_r if sg > 0.0 else hw_l) + CURB_W + lawn)
+					var k1: Vector2 = k0 + o * walk
+					var h0 := MapTerrain.elevation(k0.x, k0.y) + 0.025
+					var h1 := MapTerrain.elevation(k1.x, k1.y) + 0.025
+					var k2: Vector2 = k1 + o * 0.06
+					walk_now.append([StationGeo.point(k0.x, k0.y, h0), StationGeo.point(k1.x, k1.y, h1),
+						StationGeo.point(k2.x, k2.y, MapTerrain.elevation(k2.x, k2.y) - 0.1)])
+				if prev_walk.size() == 2:
+					var wt: float = TEX["walk"][1]
+					var st3 := _st(c, "walk")
+					for sgi in 2:
+						var a0: Array = prev_walk[sgi]
+						var a1: Array = walk_now[sgi]
+						_quad_side(st3, [a0[0], a1[0], a1[1], a0[1]], [Vector2(0, (run - seg_len / n) / wt), Vector2(0, run / wt),
+							Vector2(walk / wt, run / wt), Vector2(walk / wt, (run - seg_len / n) / wt)], up, sgi == 0)
+						_quad_side(st3, [a0[1], a1[1], a1[2], a0[2]], [Vector2(0, 0), Vector2(1, 0), Vector2(1, 0.1), Vector2(0, 0.1)], up, sgi == 0)
+			prev_walk = walk_now
 			prev = row
 			run += seg_len / n
 

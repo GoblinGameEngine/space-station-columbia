@@ -6,7 +6,7 @@ As with the buildings, these are **types and roles, not designs**. The station's
 
 **Priority 1** means the engine already asks for it: a commute mode, a place's machinery, a trait, a job. Priority 2 comes with the next systems (deliveries, emergencies, harbours, the rail line). Priority 3 adds variety and colour. Counts by priority: 1: 23, 2: 39, 3: 78. **Already modelled:** `city_car` (pod (2-seat)), `minivan` (van), `delivery_van` (van (can take a shop livery)), `service_van` (van (with ladder rack and livery)), `personal_aerostat` (aerostat).
 
-**Station count** is how many the present station (1092 households, 2399 residents, 901 place units) needs. It combines the place units' fleets (`per_place` × the number of units of each type), the households' own vehicles (drawn per household from the residents' car access, commute, age, family, finances, farm or trade, and resort town), and one rail line.
+**Station count** is how many the present station (1092 households, 2399 residents, 903 place units) needs. It combines the place units' fleets (`per_place` × the number of units of each type), the households' own vehicles (drawn per household from the residents' car access, commute, age, family, finances, farm or trade, and resort town), and one rail line.
 
 ## Household vehicles (people's own) (24 types, 3074 on the station)
 

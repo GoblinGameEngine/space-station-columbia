@@ -19,6 +19,8 @@ const SPEC := "res://remake/vehicles/tram/carrow_tram.json"
 const BOARD := "res://remake/vehicles/chassis/steward_tram.glb"
 const DOOR_TIME := 1.0
 const RAMP_LAYER := 1 << 4
+const LOD_NEAR := 70.0                # m: closer, the full section; farther, the one-mesh model (body and wheels)
+const LOD_FAR := 600.0
 static var _spec: Dictionary
 static var _scenes := {}
 static var _glass: StandardMaterial3D
@@ -70,6 +72,12 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 	name = "Section_" + kind
 	board = _scene(BOARD).instantiate()
 	add_child(board)
+	# frugal up close (the user): the board's deck, caps and socket are hidden under the body's floor,
+	# skirts and podiums -- only the pods and wheels show, through the arches
+	for n in board.find_children("*", "Node3D", true, false):
+		var nm := str(n.name)
+		if nm.begins_with("span_") or nm.begins_with("cap_") or nm == "socket" or nm.begins_with("mount_"):
+			n.queue_free()
 	body = _scene(spec.glb).instantiate()
 	add_child(body)
 	for tag in ["F", "B"]:
@@ -111,6 +119,7 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 	_doors()
 	_lights()
 	_cheap()
+	_lod()
 
 
 # -- looks ------------------------------------------------------------------------------------------
@@ -155,6 +164,25 @@ func _cheap() -> void:
 			mi.visibility_range_end = 45.0
 	for mi in board.find_children("*", "GeometryInstance3D", true, false):
 		(mi as GeometryInstance3D).visibility_range_end = 120.0
+
+
+func _lod() -> void:
+	## Far off, the section is one low-poly mesh with its wheels (carrow_tram_*_lod.glb, built with the
+	## body); near, the full body and board. (Visibility ranges, so the renderer swaps them per camera.)
+	var path := str(spec.get("lod_glb", ""))
+	if path == "" or not ResourceLoader.exists(path):
+		return
+	var lod: Node3D = _scene(path).instantiate()
+	lod.name = "LOD"
+	add_child(lod)
+	for gi in lod.find_children("*", "GeometryInstance3D", true, false):
+		(gi as GeometryInstance3D).visibility_range_begin = LOD_NEAR
+		(gi as GeometryInstance3D).visibility_range_end = LOD_FAR
+		(gi as GeometryInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	for root in [body, board]:
+		for gi in root.find_children("*", "GeometryInstance3D", true, false):
+			var g := gi as GeometryInstance3D
+			g.visibility_range_end = minf(g.visibility_range_end, LOD_NEAR) if g.visibility_range_end > 0.0 else LOD_NEAR
 
 
 func _lights() -> void:
@@ -347,34 +375,53 @@ func steer(front: float, back: float, run: float, wheel_r: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	_animate_doors(delta)
-	_carry(delta)
-	_have_prev = true
+	_have_prev = true                    # (TransitVehicle carries the people aboard, before this)
 	_prev = global_transform
 	for d in _debris.duplicate():
 		if not is_instance_valid(d):
 			_debris.erase(d)
 
 
-func _carry(delta: float) -> void:
-	## Everyone standing inside moves with the section (its own motion at their point).
-	if not _have_prev or delta <= 0.0:
-		return
-	var now: Array = []
-	var zf := float(spec.length_front) + 0.4
-	var zb := float(spec.length_back) + 0.4
-	for p in get_tree().get_nodes_in_group("player"):
-		if not p is StationPlayer or (p as StationPlayer).is_seated():
+func holds(lp: Vector3) -> bool:
+	## Is a person's origin (their eyes) at lp -- in the section's frame -- inside it? (Each end 0.4 m
+	## past the portal: the two sections' spaces overlap across the joint's walkway.)
+	return absf(lp.x) < 1.3 and lp.y > 0.2 and lp.y < 3.0 and lp.z > -float(spec.length_front) - 0.4 \
+		and lp.z < float(spec.length_back) + 0.4
+
+
+func door_exit(lp: Vector3) -> bool:
+	## Is lp out through one of the section's doorways, open (more than half)?
+	for d in doors:
+		if float(d.t) < 0.5:
 			continue
-		var pos := (p as Node3D).global_position
-		var lp := _prev.affine_inverse() * pos
-		if absf(lp.x) < 1.3 and lp.y > 0.2 and lp.y < 3.0 and lp.z > -zf and lp.z < zb:
-			now.append(p)
-			(p as StationPlayer).carrier_velocity = (global_transform * lp - pos) / delta
-			(p as StationPlayer).sheltered = true
-	for p in _riders:
-		if not now.has(p) and is_instance_valid(p):
-			(p as StationPlayer).carrier_velocity = Vector3.ZERO
-			(p as StationPlayer).sheltered = false
+		var side := signf(float(d.spec.ramp_box.from[0]))
+		if signf(lp.x) == side and absf(lp.z - float(d.spec.z)) < float(d.spec.width) * 0.5 + 0.3:
+			return true
+	return false
+
+
+func carry_at(p: StationPlayer, lp: Vector3, delta: float) -> void:
+	## Move p with the section: its own motion at lp (lp in last tick's frame).
+	p.carrier_velocity = (global_transform * lp - _prev * lp) / delta
+	p.sheltered = true
+	# and turn with it (a rider faces the same way in the tram round a bend)
+	var up := global_transform.basis.y
+	var yaw := _prev.basis.z.slide(up).signed_angle_to(global_transform.basis.z.slide(up), up)
+	if absf(yaw) > 1e-5 and absf(yaw) < 0.3:
+		p.global_rotate(up, yaw)
+
+
+func velocity() -> Vector3:
+	## The section's velocity this tick (it is placed, not simulated).
+	var dt := get_physics_process_delta_time()
+	return (global_transform.origin - _prev.origin) / dt if _have_prev and dt > 0.0 else Vector3.ZERO
+
+
+func prev_xf() -> Transform3D:
+	return _prev if _have_prev else global_transform
+
+
+func set_riders(now: Array) -> void:
 	_riders = now
 
 

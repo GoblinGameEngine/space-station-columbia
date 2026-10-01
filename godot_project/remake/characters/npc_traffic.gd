@@ -278,15 +278,29 @@ func _find_spot(door: Vector2) -> Dictionary:
 	var right := Vector2(-t.y, t.x)                            # (s, x): facing +s, +x is to the right
 	var side := signf(Vector2(StationGeo.wrap_ds(door.x - c.x), door.y - c.y).dot(right))
 	side = side if side != 0.0 else 1.0
-	var w := float(NpcPlaces._road(ri).w)
+	# where the law lets it park (tools/street_rules.py, the city's ordinance): the door side's parking
+	# lane; else the far side's; else off the street -- past the tree lawn and sidewalk, as on a drive
+	var rd := NpcPlaces._road(ri)
+	var w := float(rd.w)
+	var park: Array = rd.get("park", [1 if w >= PARK_LANE else 0, 1 if w >= PARK_LANE else 0])
+	var kerb_r := float(rd.get("hr", w * 0.5))
+	var kerb_l := float(rd.get("hl", w * 0.5))
+	var ix_door := 1 if side > 0.0 else 0
+	if int(park[ix_door]) == 0 and int(park[1 - ix_door]) == 1:
+		side = -side                                           # across the street, where parking is allowed
+		ix_door = 1 - ix_door
 	var face := t if side > 0.0 else -t
-	var off := w * 0.5 - 1.15 if w >= PARK_LANE else w * 0.5 + VERGE    # the parking lane, or off the road past the pavement
+	var kerb := kerb_r if side > 0.0 else kerb_l
+	var off := kerb - 1.15 if int(park[ix_door]) == 1 \
+		else kerb + float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0)) + (VERGE if float(rd.get("walk", 0.0)) > 0.0 else VERGE)
 	for k in 17:                                               # 0, +6.5, -6.5, +13 ... along the road
 		var along := ceilf(k / 2.0) * 6.5 * (1.0 if k % 2 == 1 else -1.0)
 		var p := c + right * side * off + t * along
 		p = Vector2(fposmod(p.x, StationGeo.CIRC), p.y)
 		if _blocked(p, face):
 			continue
+		if int(park[ix_door]) == 1 and TramStopZones.inside(p, 2.5):
+			continue                                           # a tram stop's kerb: no parking (R7-107)
 		_taken.append(p)
 		return {"p": p, "dir": face}
 	return {}

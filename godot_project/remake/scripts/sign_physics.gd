@@ -67,6 +67,9 @@ func _hit(id: int, body: Node3D) -> void:
 	elif body is RigidBody3D:
 		v = (body as RigidBody3D).linear_velocity
 		m = (body as RigidBody3D).mass
+	elif body is TramHull:                                   # a tram's hull (kinematic: its section's own motion)
+		v = (body as TramHull).section.velocity()
+		m = 12000.0
 	else:
 		return
 	if v.length() < 1.5:

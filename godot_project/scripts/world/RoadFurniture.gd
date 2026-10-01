@@ -23,7 +23,15 @@ const ATLAS := {                       # name: [cell, back cell, size m]
 	"speed_50": [4, 26, 0.75], "speed_60": [5, 26, 0.75], "speed_70": [6, 26, 0.75], "speed_90": [7, 26, 0.75],
 	"curve_l": [8, 27, 0.9], "curve_r": [9, 27, 0.9], "junction": [10, 27, 0.9], "rr_ahead": [11, 28, 0.9],
 	"stop_ahead": [12, 27, 0.9], "crossbuck": [13, 29, 1.3], "plate_allway": [14, 31, 0.6], "dead_end": [15, 27, 0.9],
-	"route_sr14": [16, 30, 0.6], "route_us30": [17, 30, 0.6], "route_coast": [18, 30, 0.6]}
+	"route_sr14": [16, 30, 0.6], "route_us30": [17, 30, 0.6], "route_coast": [18, 30, 0.6],
+	# parking and transit (research/law/04_signs.md): R7 signs are 12 x 18 in (0.3 x 0.45 m) faces on a
+	# square cell, so 0.46 m cells; guide signs larger
+	"no_parking": [32, 45, 0.46], "no_parking_tram": [33, 45, 0.46], "parking_2h": [34, 45, 0.46], "parking_3h": [35, 45, 0.46],
+	"pay_station": [36, 45, 0.46], "tow_away": [37, 45, 0.46], "emergency_route": [38, 26, 0.6], "flood_route": [39, 26, 0.6],
+	"accessible": [40, 45, 0.46], "park_ride": [41, 47, 0.9], "parking_guide": [42, 47, 0.6], "no_outlet": [43, 27, 0.75],
+	"school": [44, 27, 0.75],
+	"tram_port_carrow": [48, 26, 0.6], "tram_kessler": [49, 28, 0.6], "tram_solana_point": [50, 46, 0.65],
+	"tram_harrow_falls": [51, 30, 0.65], "tram_brightwater": [52, 28, 0.6], "tram_oceanview": [53, 47, 0.6]}
 const STRIPES := 20
 const GREEN := 21
 const LAMP_RED := 22
@@ -113,9 +121,9 @@ func _box(st: SurfaceTool, c: Vector3, b: Basis, he: Vector3, uv_cell := -1) -> 
 
 func _cell_uv(cell: int) -> Array:
 	var u0 := (cell % 8) / 8.0
-	var v0 := (cell / 8) / 4.0
+	var v0 := (cell / 8) / 8.0                  # (8 x 8 cells: tools/sign_atlas.py)
 	var eps := 0.002
-	return [Vector2(u0 + eps, v0 + 0.25 - eps), Vector2(u0 + 0.125 - eps, v0 + 0.25 - eps),
+	return [Vector2(u0 + eps, v0 + 0.125 - eps), Vector2(u0 + 0.125 - eps, v0 + 0.125 - eps),
 		Vector2(u0 + 0.125 - eps, v0 + eps), Vector2(u0 + eps, v0 + eps)]
 
 

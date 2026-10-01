@@ -25,7 +25,13 @@ const LINES := [
 	["north_shore", "North Shore Line", ["Haven Point", "Tern Harbor", "Port Carrow", "Brightwater"]],
 	["south_shore", "South Shore Line", ["Playa Verde", "Solana Point", "Pelican Cove", "Oceanview"]],
 	["kettle", "Kettle Line", ["Victory Bay", "Port Tamsin", "Dunmore Crossing", "Cedar Ford", "Marlowe", "Fenwick", "Loomis Grove", "Haskins Corner"]],
+	# (2026-10-01) the inland cities had no tram: every fast-travel town is on a line now
+	["southland", "Southland Line", ["Harrow Falls", "Bellhaven", "Pruett", "Kessler", "Tamarack"]],
 ]
+const PNR_AT := 700.0              # a park-and-ride stop this far (m) out from a city's or town's middle
+const PNR_BAND := [500.0, 950.0]
+const PNR_CLEAR := 60.0            # ... where nothing is built within this (outside the town)
+const EXPORT := "res://remake/transit.json"
 const STOP_TYPES := ["town_hall", "post_office", "library", "grocery", "cafe", "diner", "church"]
 
 static var _lines: Array = []
@@ -34,7 +40,7 @@ static var _sites: Array = []         # buildings as [centre (s, x), radius] for
 
 
 const CACHE := "user://transit_lines.bin"
-const CACHE_VERSION := 3
+const CACHE_VERSION := 5
 
 
 static func lines() -> Array:
@@ -55,6 +61,71 @@ static func lines() -> Array:
 		if w:
 			w.store_var({"stamp": stamp, "lines": _lines, "loops": loops})
 	return _lines
+
+
+static func _park_and_ride(line: Dictionary) -> void:
+	## A park-and-ride stop where the line comes into each city and town of the two largest tiers
+	## (research/law: DESIGN_RULES park_and_ride; Calthorpe's TOD): PNR_AT out from its middle, on
+	## the line, where nothing is built (the lot goes beside it: tools/parking_lots.py).
+	if not FileAccess.file_exists("res://remake/law/settlements.json"):
+		return
+	var sets: Array = JSON.parse_string(FileAccess.get_file_as_string("res://remake/law/settlements.json")).settlements
+	var pts: PackedVector2Array = line.pts
+	var cum: PackedFloat64Array = line.cum
+	for st in sets:
+		if not str(st.tier) in ["city", "town"] or not st.get("centre"):
+			continue
+		var on_line := false
+		for sp in line.stops:
+			if str(sp.town) == str(st.name):
+				on_line = true
+		if not on_line:
+			continue
+		var c := Vector2(float(st.centre[0]), float(st.centre[1]))
+		var best := -1
+		var bd := INF
+		for i in range(0, pts.size(), 3):
+			var d := NpcPlaces.dist(pts[i], c)
+			if d < PNR_BAND[0] or d > PNR_BAND[1]:
+				continue
+			if _built_near(pts[i], PNR_CLEAR):
+				continue
+			if absf(d - PNR_AT) < bd:
+				bd = absf(d - PNR_AT)
+				best = i
+		if best < 0:
+			continue
+		var dd := float(cum[best])
+		var taken := false
+		for sp in line.stops:
+			if absf(fposmod(float(sp.d) - dd + float(line.length) * 0.5, float(line.length)) - float(line.length) * 0.5) < 150.0:
+				taken = true
+		if not taken:
+			(line.stops as Array).append({"d": dd, "name": "%s Park & Ride stop" % st.name, "town": str(st.name), "pnr": true})
+
+
+static func _built_near(p: Vector2, r: float) -> bool:
+	return not _buildings_near(p, r).is_empty()
+
+
+static func export_json() -> void:
+	## The network as data for the map tools (tools/parking_lots.py, the PDA's map): every line's
+	## points and stops (with their positions).
+	var out := []
+	for l in lines():
+		var stops := []
+		for sp in l.stops:
+			var p := point_at(l, float(sp.d))
+			var q := point_at(l, float(sp.d) + 1.0)
+			stops.append({"d": float(sp.d), "name": str(sp.name), "town": str(sp.town), "pnr": bool(sp.get("pnr", false)),
+				"s": fposmod(p.x, StationGeo.CIRC), "x": p.y, "dir": [StationGeo.wrap_ds(q.x - p.x), q.y - p.y]})
+		var pts := []
+		for i in range(0, (l.pts as PackedVector2Array).size(), 2):
+			var v: Vector2 = l.pts[i]
+			pts.append([snappedf(fposmod(v.x, StationGeo.CIRC), 0.1), snappedf(v.y, 0.1)])
+		out.append({"id": l.id, "name": l.name, "kind": l.kind, "length": l.length, "pts": pts, "stops": stops})
+	var f := FileAccess.open(EXPORT, FileAccess.WRITE)
+	f.store_string(JSON.stringify({"_about": "Tram and train lines (TransitNet, exported by remake/tools/bake_transit.gd)", "lines": out}, " "))
 
 
 static func _stop_building(town: String) -> String:
@@ -129,6 +200,7 @@ static func _build() -> void:
 		_finish(line)
 		for sp in stop_pts:
 			(line.stops as Array).append({"d": _nearest_d(line, sp[1]), "name": "%s stop" % sp[0], "town": sp[0]})
+		_park_and_ride(line)
 		(line.stops as Array).sort_custom(func(a, b): return float(a.d) < float(b.d))
 		_finish(line)
 		_lines.append(line)

@@ -130,9 +130,13 @@ func _kerbside(roads: Array, c: Vector2, reach: float) -> Array:
 	for rd in roads:
 		var pts: Array = rd.pts
 		var jn: String = rd.get("jn", "")
-		# in the kerbside lane, just inside the gutter (main streets have a parking lane); county roads
-		# have none: there the car pulls onto the verge past the kerb
-		var off: float = float(rd.w) * 0.5 - HALF.x - 0.35 if rd.cls != "county" else float(rd.w) * 0.5 + KERB + HALF.x
+		# only in a parking lane the law allows (tools/street_rules.py: park [left, right]; the city's
+		# ordinance) -- never in a travel lane (cars stood in the lanes and the traffic drove through them)
+		var park: Array = rd.get("park", [0, 0])
+		if int(park[0]) == 0 and int(park[1]) == 0:
+			continue
+		var off_r: float = float(rd.get("hr", float(rd.w) * 0.5)) - HALF.x - 0.3
+		var off_l: float = float(rd.get("hl", float(rd.w) * 0.5)) - HALF.x - 0.3
 		var run := 0.0
 		var next_t := 12.0
 		var total := 0.0
@@ -164,9 +168,11 @@ func _kerbside(roads: Array, c: Vector2, reach: float) -> Array:
 				if not clear_j:
 					continue
 				for sg in [1.0, -1.0]:
-					var p: Vector2 = a + u * t + side * off * sg
+					if int(park[1 if sg > 0.0 else 0]) == 0:
+						continue
+					var p: Vector2 = a + u * t + side * (off_r if sg > 0.0 else off_l) * sg
 					var d := Vector2(StationGeo.wrap_ds(p.x - c.x), p.y - c.y).length()
-					if d < reach:
+					if d < reach and not TramStopZones.inside(p, 2.5):
 						# we drive on the right: side is the right of u, so a car there faces along u
 						out.append([p.x, p.y, yaw if sg > 0.0 else yaw + PI, d])
 			run += L

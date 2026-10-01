@@ -53,6 +53,8 @@ var model: Node3D
 var pilot: StationPlayer
 var engines: Array = []              # [Node3D engine, Node3D rotor or null, side +1 left / -1 right]
 var doors: Array = []                # RemakeSlideDoor
+var _doorways: Array = []            # [AABB (local, the side's leaves closed), leaves] -- the only ways out
+var _aboard := {}                    # player -> their place in the cabin last tick (local)
 var seat_pilot: Node3D
 var _lv := Vector3.ZERO              # velocity in the vehicle's own frame (x right, y up, -z forward)
 var _yaw_rate := 0.0
@@ -188,6 +190,7 @@ func _rig() -> void:
 			var bb: AABB = d.transform * leaf.get_aabb()
 			box = bb if i == 0 else box.merge(bb)
 		var leaves: Array = by_side[side]
+		_doorways.append([box, leaves])
 		var z := RemakeInteractZone.make(self, "Doorway_" + str(side), Transform3D(Basis(), box.get_center()),
 			box.size + Vector3(0.8, 0.0, 0.0),
 			func(by: Node) -> String: return (leaves[0] as RemakeSlideDoor).interact(by),
@@ -546,23 +549,55 @@ func _flying_self() -> bool:
 
 
 func _carry(delta: float) -> void:
-	## Everyone standing in the cabin moves with it.
+	## Everyone standing in the cabin moves with it, and stays in it: out only through an open
+	## doorway (walked or pushed). Anyone who'd leave otherwise -- squeezed through a wall by a crowd or
+	## an obstacle, dropped through the floor -- is put back where they stood last tick. A jump of
+	## metres in a tick is a teleport (fast travel, a respawn): it lets them go.
 	var w := global_transform.basis.y * _yaw_rate
 	var vel := global_transform.basis * _lv
 	var now: Array = []
 	for p in get_tree().get_nodes_in_group("player"):
-		if not p is StationPlayer or p == pilot:
+		if not p is StationPlayer or p == pilot or (p as StationPlayer).is_seated():
 			continue
-		var lp: Vector3 = global_transform.affine_inverse() * (p as Node3D).global_position
-		if cabin_box.has_point(lp):
-			now.append(p)
-			(p as StationPlayer).carrier_velocity = vel + w.cross((p as Node3D).global_position - global_position)
-			(p as StationPlayer).sheltered = true
+		var pl := p as StationPlayer
+		var lp: Vector3 = global_transform.affine_inverse() * pl.global_position
+		var inside := cabin_box.has_point(lp)
+		if not inside and _aboard.has(pl):
+			var last: Vector3 = _aboard[pl]
+			if lp.distance_to(last) <= 3.0 and not _out_a_door(lp):
+				pl.global_position = global_transform * last
+				pl.velocity = Vector3.ZERO
+				lp = last
+				inside = true
+		if not inside:
+			_aboard.erase(pl)
+			continue
+		_aboard[pl] = lp
+		now.append(pl)
+		pl.carrier_velocity = vel + w.cross(pl.global_position - global_position)
+		pl.sheltered = true
+		if absf(_yaw_rate * delta) > 1e-5:
+			pl.global_rotate(global_transform.basis.y, _yaw_rate * delta)     # turn with the cabin
 	for p in _riders:
 		if not now.has(p) and is_instance_valid(p):
 			(p as StationPlayer).carrier_velocity = Vector3.ZERO
 			(p as StationPlayer).sheltered = false
 	_riders = now
+
+
+func _out_a_door(lp: Vector3) -> bool:
+	## Is lp (local) out through a doorway whose doors are open?
+	for dw in _doorways:
+		var leaves: Array = dw[1]
+		if leaves.is_empty() or not (leaves[0] as RemakeSlideDoor).is_open:
+			continue
+		var box: AABB = dw[0]
+		# the doorway, reaching out from the cabin wall (across its thin dimension) a metre each way
+		var g := box.grow(0.3)
+		g = g.expand(g.position - Vector3(1.0, 0, 0)).expand(g.end + Vector3(1.0, 0, 0))
+		if g.has_point(Vector3(lp.x, clampf(lp.y, g.position.y + 0.01, g.end.y - 0.01), lp.z)):
+			return true
+	return false
 
 
 # ------------------------------------------------------------------ a readout while piloting
