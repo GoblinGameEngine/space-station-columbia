@@ -218,7 +218,7 @@ static func _angle(q: Vector2) -> float:
 
 
 func displacement(bound: Array) -> Vector3:
-	## How far a bound point has moved.
+	## How far a bound point has moved (the joints' moves only).
 	var out := Vector3.ZERO
 	var ids: Array = bound[0]
 	var ws: Array = bound[1]
@@ -227,17 +227,67 @@ func displacement(bound: Array) -> Vector3:
 	return out
 
 
+func deformed(v: Vector3, bound: Array) -> Vector3:
+	## Where a bound point (as built) is now: each of its joints carries it, moved and turned -- exactly
+	## as the skinned mesh draws it.
+	var out := Vector3.ZERO
+	var ids: Array = bound[0]
+	var ws: Array = bound[1]
+	for i in 4:
+		var j: int = ids[i]
+		var q: Quaternion = rot[j] if j < rot.size() else Quaternion.IDENTITY
+		out += (nodes[j] + q * (v - nodes_rest[j])) * float(ws[i])
+	return out
+
+
+var rot: Array = []                       # each joint's turn (Quaternion), from how its tubes turned
+var _adj: Array = []                      # joint -> [joints it is tubed to]
+
+
+func update_turns() -> void:
+	## Each joint's best turn: the average of the arcs its tubes swung through (so the skin's normals turn
+	## with a dent and it catches the light).
+	if _adj.is_empty():
+		_adj.resize(nodes_rest.size())
+		for i in _adj.size():
+			_adj[i] = []
+		for b in beams:
+			(_adj[b[0]] as Array).append(b[1])
+			(_adj[b[1]] as Array).append(b[0])
+	rot.resize(nodes.size())
+	for i in nodes.size():
+		var sum := Vector4.ZERO
+		var first := Quaternion.IDENTITY
+		var n := 0
+		for j in _adj[i]:
+			var r := nodes_rest[j] - nodes_rest[i]
+			var c := nodes[j] - nodes[i]
+			if r.length() < 1e-4 or c.length() < 1e-4:
+				continue
+			var q := Quaternion(r.normalized(), c.normalized())
+			if n == 0:
+				first = q
+			elif first.dot(q) < 0.0:
+				q = -q
+			sum += Vector4(q.x, q.y, q.z, q.w)
+			n += 1
+		if n == 0 or sum.length() < 1e-6:
+			rot[i] = Quaternion.IDENTITY
+		else:
+			var s4 := sum.normalized()
+			rot[i] = Quaternion(s4.x, s4.y, s4.z, s4.w)
+
+
 # -- damage -----------------------------------------------------------------------------------------------
 
 func impact(p: Vector3, dir: Vector3, energy: float) -> void:
-	## A blow at p (section frame), pushing along dir, with energy (J-like units): the joints near it go in,
-	## the tubes drag their neighbours, and what was bent past yield stays bent.
+	## A blow at p (section frame), pushing along dir, with energy (J): the joints near it go in, the tubes
+	## drag their neighbours, and what was bent past yield stays bent.
 	var fr: Dictionary = std.frame
-	var dent_e := float(fr.dent_energy)
-	if energy < dent_e * 0.05:
+	if energy < float(fr.min_energy):
 		return                                       # (a knock the frame shrugs off)
-	var r := 0.45 + 0.35 * sqrt(energy / dent_e)
-	var depth := clampf(energy / dent_e * 0.12, 0.0, float(fr.max_dent))
+	var depth := clampf(energy / float(fr.dent_stiffness), 0.0, float(fr.max_dent))
+	var r := 0.30 + 0.25 * sqrt(energy / 50000.0)
 	var dn := dir.normalized()
 	for i in nodes.size():
 		var w := exp(-pow(nodes[i].distance_to(p) / r, 2.0))
@@ -252,6 +302,12 @@ func impact(p: Vector3, dir: Vector3, energy: float) -> void:
 		var s := L / float(b[2]) - 1.0
 		if absf(s) > yield_s:
 			b[2] = lerpf(float(b[2]), L, plastic)            # (bent for good)
+
+
+func beam_strain(i: int, orig_len: float) -> float:
+	## How far a tube is stretched or squeezed from as built.
+	var b: Array = beams[i]
+	return absf(nodes[b[0]].distance_to(nodes[b[1]]) / orig_len - 1.0)
 
 
 func _relax(iters: int) -> void:

@@ -20,6 +20,7 @@ const MOVING := ["door_leaf", "door_glass", "ramp"]
 const INSIDE := ["lining_bay", "door_head_lining", "ceiling_bay", "end_lining", "cap_lining", "seat", "stanchion", "fittings", "podium", "cab", "floor"]
 const INSIDE_RANGE := 45.0
 const TUBE_SIDES := 6
+const PAIR_REACH := 1.6               # m: a panel's fastenings are judged between mount joints this near
 
 static var _plans := {}
 static var _plans_mx := Mutex.new()
@@ -86,7 +87,7 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 		openings[str(e.side)].append([lo + float(pl[2]), hi + float(pl[2]), "window"])
 	var proto := TubeFrame.build(std, bp, openings)
 	var plan := {"bp": bp, "std": std, "style": str(bp.style), "frame_proto": proto, "modules": {}, "groups": {},
-				 "moving": {}, "mounts": {}, "ranges": {}}
+				 "moving": {}, "mounts": {}, "lines": {}, "ranges": {}}
 	var bind_cache := {}
 	for pl in bp.placements:
 		var mid := str(pl[0])
@@ -99,7 +100,8 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 		for b in e.boxes:
 			boxes.append([b[0], b[1], float(b[2]) + anchor, b[3], b[4], b[5]])
 		plan.modules[mid] = {"kind": _kind_of(str(e.role)), "role": e.role, "hp": e.hp, "mass_kg": e.mass_kg, "breaks": e.breaks,
-							 "tolerance": e.tolerance, "boxes": boxes, "component": cid}
+							 "tolerance": (std.get("tolerance", {}) as Dictionary).get(str(e.role), e.tolerance),   # (the standard's, live)
+							 "boxes": boxes, "component": cid}
 		var geo := VehicleLibrary.geometry(str(bp.standard), cid)
 		if str(e.role) in MOVING:
 			plan.moving[mid] = {"geo": geo, "anchor": anchor}
@@ -139,6 +141,17 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 			gr.weights = gw
 			plan.ranges[mid] = plan.ranges.get(mid, []) + [[key, start, gp.size()]]
 		plan.mounts[mid] = PackedInt32Array(mounts.keys())
+		# its fastening: pairs of its mount joints near each other (within PAIR_REACH): a sheet fastened
+		# across them tears loose when the frame distorts it -- a dent far off doesn't
+		var ms: Array = mounts.keys()
+		var pairs := PackedInt32Array()
+		for i in ms.size():
+			for j in range(i + 1, ms.size()):
+				var d := proto.nodes_rest[ms[i]].distance_to(proto.nodes_rest[ms[j]])
+				if d > 0.05 and d < PAIR_REACH:
+					pairs.append(ms[i])
+					pairs.append(ms[j])
+		plan.lines[mid] = pairs
 	# the tubes, bound to their two joints
 	var tg := {"mat": "frame_tube", "inside": true, "pos": PackedVector3Array(), "nor": PackedVector3Array(),
 			   "bones": PackedInt32Array(), "weights": PackedFloat32Array()}
@@ -303,21 +316,38 @@ func impact(p: Vector3, dir: Vector3, energy: float) -> Array:
 	## Bend the frame (section frame point and direction); the skin follows; returns the components whose
 	## mounts are now strained past their tolerance.
 	frame.impact(p, dir, energy)
+	frame.update_turns()
 	for i in frame.nodes.size():
 		skel.set_bone_pose_position(i, frame.nodes[i])
+		skel.set_bone_pose_rotation(i, frame.rot[i])                # (the skin's normals turn with the dent)
 	var out: Array = []
+	var proto: TubeFrame = plan.frame_proto
+	var share := float(plan.std.get("detach_share", 0.3))
 	for mid in plan.mounts:
 		if _gone.has(mid):
 			continue
 		var m: Dictionary = plan.modules[mid]
-		if frame.strain(plan.mounts[mid]) > float(m.tolerance):
+		var tol := float(m.tolerance)
+		var pairs: PackedInt32Array = plan.lines.get(mid, PackedInt32Array())
+		var brittle := str(m.breaks) == "shatter"
+		var n_pairs := pairs.size() / 2
+		if n_pairs == 0:
+			continue
+		var over := 0
+		for k in n_pairs:
+			var a := pairs[k * 2]
+			var b := pairs[k * 2 + 1]
+			var r := proto.nodes_rest[a].distance_to(proto.nodes_rest[b])
+			if absf(frame.nodes[a].distance_to(frame.nodes[b]) / r - 1.0) > tol:
+				over += 1
+		if (brittle and over >= 1) or over >= mini(int(plan.std.get("detach_count", 3)), maxi(2, ceili(n_pairs * share))):
 			out.append(mid)
 	return out
 
 
 func displaced(rest: Vector3) -> Vector3:
 	## Where a point of the section (as built) is now.
-	return rest + frame.displacement(frame.bind(rest))
+	return frame.deformed(rest, frame.bind(rest))
 
 
 func break_off(mid: String, how: String, velocity: Vector3) -> void:
@@ -329,17 +359,95 @@ func break_off(mid: String, how: String, velocity: Vector3) -> void:
 		_shards(mid, velocity)
 	elif how != "none":
 		_debris(mid, velocity)
+		if not str(plan.modules[mid].role) in NO_FLANGE:
+			_flange(mid)                                     # (it tore off: its edges stay on the frame)
 	_rebuild()
 
 
+const NO_FLANGE := ["seat", "stanchion", "fittings", "podium", "cab", "floor", "glazing", "door_glass"]
+var _extra := {}                      # group key -> {pos, nor, bones, weights}: torn flanges left on the frame
+
+
+func _flange(mid: String) -> void:
+	## The torn edge a panel leaves where it was fastened: along each of its outline edges (the edges only
+	## one of its triangles has -- its perimeter and the edges of its openings), a jagged strip of its own
+	## sheet, 1-4 cm wide, bound to the frame like the rest of the skin.
+	var proto: TubeFrame = plan.frame_proto
+	for r in plan.ranges.get(mid, []):
+		var gr: Dictionary = plan.groups[r[0]]
+		var edges := {}
+		for i in range(r[1], r[2] - 2, 3):
+			var t := [gr.pos[i], gr.pos[i + 1], gr.pos[i + 2]]
+			var n: Vector3 = gr.nor[i]
+			for k in 3:
+				var a: Vector3 = t[k]
+				var b: Vector3 = t[(k + 1) % 3]
+				var ka := Vector3i(roundi(a.x * 1000), roundi(a.y * 1000), roundi(a.z * 1000))
+				var kb := Vector3i(roundi(b.x * 1000), roundi(b.y * 1000), roundi(b.z * 1000))
+				var key := [ka, kb] if str(ka) < str(kb) else [kb, ka]
+				var ks := str(key)
+				if edges.has(ks):
+					edges[ks][0] += 1
+				else:
+					edges[ks] = [1, a, b, t[(k + 2) % 3], n]
+		if not _extra.has(r[0]):
+			_extra[r[0]] = {"pos": PackedVector3Array(), "nor": PackedVector3Array(), "bones": PackedInt32Array(), "weights": PackedFloat32Array()}
+		var ex: Dictionary = _extra[r[0]]
+		var ep: PackedVector3Array = ex.pos
+		var en: PackedVector3Array = ex.nor
+		var eb: PackedInt32Array = ex.bones
+		var ew: PackedFloat32Array = ex.weights
+		for ks in edges:
+			var e: Array = edges[ks]
+			if int(e[0]) != 1:
+				continue
+			var a: Vector3 = e[1]
+			var b: Vector3 = e[2]
+			var n: Vector3 = e[4]
+			var along := b - a
+			var L := along.length()
+			if L < 0.01:
+				continue
+			var inward := n.cross(along).normalized()
+			if inward.dot((e[3] as Vector3) - a) < 0.0:
+				inward = -inward
+			var steps := maxi(1, ceili(L / 0.06))
+			for st in steps:
+				var pa := a.lerp(b, float(st) / steps)
+				var pb := a.lerp(b, float(st + 1) / steps)
+				var qa := pa + inward * _tear(pa)
+				var qb := pb + inward * _tear(pb)
+				for v in [pa, pb, qb, pa, qb, qa]:
+					var bd := proto.bind(v)
+					ep.append(v)
+					en.append(n)
+					for k in 4:
+						eb.append(int(bd[0][k]))
+						ew.append(float(bd[1][k]))
+		ex.pos = ep
+		ex.nor = en
+		ex.bones = eb
+		ex.weights = ew
+
+
+static func _tear(p: Vector3) -> float:
+	## How far the torn strip reaches in from the edge at p (jagged, the same every time at the same place).
+	var h := fposmod(sin(p.dot(Vector3(12.9898, 78.233, 37.719))) * 43758.5453, 1.0)
+	return 0.012 + 0.03 * h
+
+
 func _rebuild() -> void:
-	## The groups without the components gone (this body's own meshes from now on).
+	## The groups without the components gone, with the torn flanges they left (this body's own meshes from
+	## now on).
 	var drop := {}
 	for mid in _gone:
 		for r in plan.ranges.get(mid, []):
 			if not drop.has(r[0]):
 				drop[r[0]] = []
 			drop[r[0]].append([r[1], r[2]])
+	for key in _extra:
+		if not drop.has(key):
+			drop[key] = []
 	for key in drop:
 		var gr: Dictionary = plan.groups[key]
 		var keep := PackedByteArray()
@@ -360,6 +468,11 @@ func _rebuild() -> void:
 			for k in 4:
 				bones.append(gr.bones[i * 4 + k])
 				weights.append(gr.weights[i * 4 + k])
+		if _extra.has(key):
+			pos.append_array(_extra[key].pos)
+			nor.append_array(_extra[key].nor)
+			bones.append_array(_extra[key].bones)
+			weights.append_array(_extra[key].weights)
 		(_groups[key] as MeshInstance3D).mesh = _mesh_of(pos, nor, bones, weights)
 	_own_mesh = true
 
@@ -378,8 +491,11 @@ func _component_mesh(mid: String) -> ArrayMesh:
 		for i in range(r[1], r[2]):
 			var b := [[gr.bones[i * 4], gr.bones[i * 4 + 1], gr.bones[i * 4 + 2], gr.bones[i * 4 + 3]],
 					  [gr.weights[i * 4], gr.weights[i * 4 + 1], gr.weights[i * 4 + 2], gr.weights[i * 4 + 3]]]
-			pos.append(gr.pos[i] + frame.displacement(b))
-			nor.append(gr.nor[i])
+			pos.append(frame.deformed(gr.pos[i], b))
+			var nq := Quaternion.IDENTITY                             # (its normal turned as the skin draws it)
+			if frame.rot.size() > 0:
+				nq = frame.rot[int(b[0][0])]
+			nor.append(nq * gr.nor[i])
 		if pos.is_empty():
 			continue
 		_last_pts.append_array(pos)

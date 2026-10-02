@@ -67,11 +67,20 @@ ROAD_TRAM = {
     "side_slots": {"end": 0.13, "door": 1.24, "bay_short": 2.21, "bay_long": 3.58},
     "roof_slot": 1.40,
     # the frame's steel: how much a member takes before it bends for good, and how far it can bend
-    "frame": {"yield_strain": 0.012, "plastic": 0.85, "stiffness": 1.0, "dent_energy": 4000.0, "max_dent": 0.55},
+    # the frame's steel: how much a member takes before it bends for good, and how a blow dents it -- the
+    # energy (J) a metre of dent takes (a 1.5 t car at 30 km/h, half its closing energy absorbed: ~13 cm),
+    # the least that dents at all, the deepest dent
+    "frame": {"yield_strain": 0.012, "plastic": 0.85, "dent_stiffness": 200000.0, "min_energy": 4000.0, "max_dent": 0.45},
+    # a panel comes off when this many of its fastenings (pairs of nearby mount joints) are torn past its
+    # tolerance -- or this share of them, if fewer (a dent tears a patch of a big panel); glass at the first
+    "detach_count": 3,
+    "detach_share": 0.3,
     # how much strain at its mounts each role takes before it comes off (or breaks)
-    "tolerance": {"glazing": 0.012, "door_glass": 0.012, "door_leaf": 0.05, "side_bay": 0.06, "door_head": 0.06,
-                  "roof_bay": 0.07, "roof_fairing": 0.05, "lining_bay": 0.09, "door_head_lining": 0.09, "ceiling_bay": 0.10, "end_lining": 0.09, "cap_lining": 0.09, "wheel_well": 0.15, "reveal": 0.08, "end_portal": 0.08, "end_cap": 0.06, "seat": 0.15,
-                  "stanchion": 0.10, "fittings": 0.10, "podium": 0.20, "floor": 1.0, "cab": 0.12, "ramp": 0.08},
+    "tolerance": {"glazing": 0.012, "door_glass": 0.012, "door_leaf": 0.05, "side_bay": 0.03, "door_head": 0.03,
+                  "roof_bay": 0.03, "roof_fairing": 0.03, "lining_bay": 0.045, "door_head_lining": 0.045, "ceiling_bay": 0.05,
+                  "end_lining": 0.045, "cap_lining": 0.045, "wheel_well": 0.10, "reveal": 0.04, "end_portal": 0.035,
+                  "end_cap": 0.035, "seat": 0.15, "stanchion": 0.10, "fittings": 0.10, "podium": 0.20, "floor": 1.0,
+                  "cab": 0.12, "ramp": 0.08},
 }
 
 STANDARDS = {s["id"]: s for s in (ROAD_TRAM,)}

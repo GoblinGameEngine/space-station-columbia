@@ -667,11 +667,14 @@ func carries(p: Node) -> bool:
 
 # -- damage -------------------------------------------------------------------------------------------
 
-func hit_at(local_point: Vector3, amount: float) -> void:
-	## Damage spread over the modules near a point (section frame): most to the nearest.
+func hit_at(local_point: Vector3, amount: float, brittle_only := false) -> void:
+	## Damage spread over the modules near a point (section frame): most to the nearest. (brittle_only: just
+	## the glass -- an assembled body's panels come off by the frame's bending, bend())
 	var near: Array = []
 	for mid in shapes:
 		if hp.get(mid, 0.0) <= 0.0 or str(spec.modules[mid].breaks) == "none":
+			continue
+		if brittle_only and str(spec.modules[mid].breaks) != "shatter":
 			continue
 		var best := INF
 		for cs in shapes[mid]:
@@ -703,7 +706,9 @@ func knock_from(by: Node3D, v_by: Vector3, m_by: float) -> void:
 		# the blow bends the tube frame where it lands; whatever it shakes loose comes off
 		var at := Vector3(clampf(local.x, -1.3, 1.3), clampf(local.y, 0.4, 2.9), clampf(local.z, -float(spec.length_front), float(spec.length_back)))
 		var dir := global_transform.basis.inverse() * rel.normalized()
-		bend(at, dir, amount * 40.0)
+		bend(at, dir, 0.5 * m_by * rel.length_squared() * 0.5)      # (J: half the closing energy goes into the frame)
+		hit_at(local, amount, true)                                  # (the blow itself breaks only glass)
+		return
 	hit_at(local, amount)
 
 
