@@ -157,7 +157,7 @@ def main():
     sys.exit(1 if total else 0)
 
 
-if __name__ == "__main__" and not os.environ.get("TUBES"):
+if __name__ == "__main__" and not os.environ.get("TUBES") and not os.environ.get("CROSS"):
     main()
 
 
@@ -183,7 +183,7 @@ def frame_beams(bp, by_role, std):
         return any(k == kind and min(z0, z1) < hi + 0.02 and max(z0, z1) > lo - 0.02 for lo, hi, k in openings.get(side, []))
 
     def open_at(side, z, kind):
-        m = -0.03 if kind == "window" else 0.02
+        m = -0.03 if kind in ("window", "arch") else 0.02
         return any(k == kind and lo + m < z < hi - m for lo, hi, k in openings.get(side, []))
 
     def jamb(side, z):
@@ -297,3 +297,51 @@ def tube_test(path):
 if __name__ == "__main__" and os.environ.get("TUBES"):
     n = sum(tube_test(p) for p in (sys.argv[1:] or [os.path.join(ROOT, "remake/vehicles/tram/carrow_tram_%s.blueprint.json" % k) for k in ("front", "mid", "rear")]))
     print("TUBE POINTS SEEN", n)
+
+
+# -- nothing across an opening (CROSS=1): trim, rails, mouldings must stop at arches, doors and windows ---------
+CROSS_OK = {"glazing", "door_glass", "door_leaf", "reveal", "wheel_well", "ramp"}
+
+
+def crossing_test(path):
+    """Every side opening (wheel arches from the standard, doors from the blueprint, windows from the glazing)
+    must be clear of the exterior's other parts: a vertex on the skin's layer strictly inside an opening is
+    something drawn across it (the keel line drawn across the wheels was one)."""
+    bp, by_role = load_body(path)
+    std = json.load(open(os.path.join(ROOT, "remake/vehicles/standards/%s.json" % bp["standard"])))
+    outer = std["outer_half_width"]
+    rects = {"R": [], "L": []}          # (z0, z1, y0, y1, what)
+    for ax in std["axles"]:
+        for sd in ("R", "L"):
+            rects[sd].append((-ax - std["arch_half"], -ax + std["arch_half"], std["skirt"], 1.0, "wheel arch"))
+    for d in bp["doors"]:
+        rects[d["side"]].append((d["z"] - d["width"] / 2, d["z"] + d["width"] / 2, std["floor"], std["door"]["head"], "door " + d["id"]))
+    for mid, tris in by_role.get("glazing", []):
+        mx = tris[:, :, 0].mean()
+        if abs(mx) > 0.3:
+            rects["R" if mx > 0 else "L"].append((tris[:, :, 2].min(), tris[:, :, 2].max(), tris[:, :, 1].min(), tris[:, :, 1].max(), "window " + mid))
+    bad = []
+    m = 0.03
+    for role, items in by_role.items():
+        if role in CROSS_OK:
+            continue
+        for mid, tris in items:
+            pts = tris.reshape(-1, 3)
+            for sd, sgn in (("R", 1), ("L", -1)):
+                on = pts[(pts[:, 0] * sgn) > outer - 0.025]          # (the skin and what is on it)
+                if not len(on):
+                    continue
+                for z0, z1, y0, y1, what in rects[sd]:
+                    inside = (on[:, 2] > z0 + m) & (on[:, 2] < z1 - m) & (on[:, 1] > y0 + m) & (on[:, 1] < y1 - m)
+                    if inside.any():
+                        bad.append((mid, role, what, int(inside.sum())))
+    print("%-6s openings: %s" % (bp["kind"], "CLEAR" if not bad else "%d crossings" % len(bad)))
+    for b in bad[:20]:
+        print("        %s (%s) crosses the %s (%d vertices)" % b)
+    return len(bad)
+
+
+if __name__ == "__main__" and os.environ.get("CROSS"):
+    n = sum(crossing_test(p) for p in (sys.argv[1:] or [os.path.join(ROOT, "remake/vehicles/tram/carrow_tram_%s.blueprint.json" % k) for k in ("front", "mid", "rear")]))
+    print("OPENING CROSSINGS", n)
+    sys.exit(1 if n else 0)

@@ -42,7 +42,7 @@ ROAD_TRAM = {
     "portal": {"half_width": 0.64, "head": 2.62},
     "door": {"width": 1.24, "head": 2.55},
     "axles": [2.25, -2.25],
-    "arch_half": 0.62,
+    "arch_half": 0.58,                                 # (clear of the doors: an arch may not run into a door aperture)
     # the frame: a welded tube space frame (the makers' cottage craft, after the British tube-frame builders),
     # bolted to the board at its sills and floor. Each ring's joints (x, z) -- the tubes' centrelines, inside
     # the wall between the exterior skin and the interior lining -- right side up, over the roof, down the left,

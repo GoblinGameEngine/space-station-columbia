@@ -228,8 +228,17 @@ func _physics_process(delta: float) -> void:
 	_f_sum = Vector3.ZERO
 	if dv.length() > 2.0 and _v_prev.length() > 1.0:
 		_hit(dv)
+	# (its speed going into this tick's collisions: the fastest of the last few ticks -- the contact can be
+	# reported a tick after the collision took the speed off)
+	_v_hist.append(_v_prev)
+	if _v_hist.size() > 3:
+		_v_hist.pop_front()
+	var v_in := Vector3.ZERO
+	for vh in _v_hist:
+		if (vh as Vector3).length() > v_in.length():
+			v_in = vh
 	_v_prev = v
-	_shove_others()
+	_shove_others(v_in)
 	# the controls
 	var thr := 0.0
 	var steer_in := 0.0
@@ -429,12 +438,17 @@ func _hit(dv: Vector3) -> void:
 			disabled = true
 
 
-func _shove_others() -> void:
-	## Whatever it's touching that is held still by its own logic (a driven car, a person, a sign)
-	## gets the hit: it lets go to the physics with its share of the momentum (Physics.knock).
+var _v_hist: Array = []
+
+
+func _shove_others(v_in: Vector3) -> void:
+	## Whatever it's touching that is held still by its own logic (a driven car, a person, a sign, a
+	## tram) gets the hit: it lets go to the physics with its share of the momentum (Physics.knock).
+	## v_in: the speed it came in with -- after the collision it has already stopped, and a knock at that
+	## speed did nothing (a 50 km/h crash into a tram reached it as ~0).
 	for o in get_colliding_bodies():
 		if o is Node and (o as Node).has_method("knock"):
-			o.knock(self, _v_prev, mass)
+			o.knock(self, v_in, mass)
 
 
 func _sweep(from: Transform3D, motion: Vector3) -> Vector3:

@@ -2,18 +2,24 @@ extends Node3D
 class_name TramJoint
 
 ## The articulation between two tram sections: a covered walkway people can cross while the tram
-## runs or stands. Each section's end has a portal (TramSection's endwall) and a rubber flange; the
-## joint strings an accordion bellows between the two flanges (rebuilt every tick, so it bends and
-## stretches with the turn), lays a turntable floor plate across the gap, and walls the walkway in.
-## Two pivots -- one at each portal -- and the turntable between: the sections steer for themselves
-## (both their axles), the joint only follows.
+## runs or stands. Multi-point, as real low-floor trams are: an articulation ring (a short module on
+## the turntable, with the walkway through it) between two accordion bellows, one to each section's
+## portal flange. The ring sits midway and turns half the bend, so each bellows takes half of it -- one
+## bellows alone could not: at a 14 m turning loop the sections meet at ~40 degrees and their inside
+## corners passed through each other (the user, 2026-10-01: "missing the accordion section necessary
+## for the multi point articulation"). The sections steer for themselves (both their axles); the joint
+## only follows.
 
-const RINGS := 10
+const RINGS := 8                     # folds per bellows
 const AROUND := 28
 const HALF_W := 1.18                 # the bellows' half width / height round the portal
 const Z0 := 0.42
 const Z1 := 2.86
 const WALK_HW := 0.70                # the walkway's half width inside
+const RING_HALF := 0.20              # the articulation ring's half length (along the walkway)
+const PORTAL_HW := 0.66              # its opening (the walkway through it)
+const PORTAL_Z0 := 0.55
+const PORTAL_Z1 := 2.64
 
 var a: TramSection                   # ahead
 var b: TramSection                   # behind
@@ -26,6 +32,7 @@ var _wall_l := CollisionShape3D.new()
 var _wall_r := CollisionShape3D.new()
 var _roof := CollisionShape3D.new()
 var _mat := StandardMaterial3D.new()
+var _ring_mat := StandardMaterial3D.new()
 var _dirty := true                   # the sections moved since the bellows was drawn
 var _built := false
 var _rel := Transform3D()             # b's portal in a's frame, when the bellows was last built
@@ -39,9 +46,12 @@ func setup(p_a: TramSection, p_b: TramSection) -> void:
 	_mat.albedo_color = Color(0.12, 0.12, 0.13)
 	_mat.roughness = 0.9
 	_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_ring_mat.albedo_color = Color(0.86, 0.84, 0.76)
+	_ring_mat.roughness = 0.5
+	_ring_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	_mi.mesh = _mesh
 	_mi.top_level = true
-	_mi.visibility_range_end = 90.0                     # (past it the sections' far models close their own ends)
+	_mi.visibility_range_end = TramSection.LOD_FAR      # (seen as far as the sections are: no gap between them from afar)
 	add_child(_mi)
 	var cyl := CylinderMesh.new()
 	cyl.top_radius = 0.78
@@ -130,37 +140,14 @@ func _bellows() -> void:
 			var c := cos(ang)
 			var sn := sin(ang)
 			_ring.append(Vector3(signf(c) * pow(absf(c), 0.25) * HALF_W, signf(sn) * pow(absf(sn), 0.25) * (Z1 - Z0) / 2, 0.0))
-	# the bellows: rings from a's flange to b's, folds alternating in and out
-	var rings: Array = []
-	for r in RINGS + 1:
-		var t := float(r) / RINGS
-		var xf := Transform3D(Basis(Quaternion.IDENTITY.slerp(q_rel, t)), rel.origin * t)
-		var k := 1.0 if r % 2 == 0 or r == RINGS else 0.94
-		var ring := PackedVector3Array()
-		ring.resize(AROUND)
-		for i in AROUND:
-			ring[i] = xf * Vector3(_ring[i].x * k, (Z0 + Z1) / 2 + _ring[i].y * k, 0.0)
-		rings.append(ring)
+	# the articulation ring: midway, turned half the bend
+	var m := Transform3D(Basis(Quaternion.IDENTITY.slerp(q_rel, 0.5)), rel.origin * 0.5)
+	var m_front := m * Transform3D(Basis(), Vector3(0, 0, -RING_HALF))
+	var m_back := m * Transform3D(Basis(), Vector3(0, 0, RING_HALF))
 	var verts := PackedVector3Array()
 	var norms := PackedVector3Array()
-	verts.resize(RINGS * AROUND * 6)
-	norms.resize(RINGS * AROUND * 6)
-	var vi := 0
-	for r in RINGS:
-		var r0: PackedVector3Array = rings[r]
-		var r1: PackedVector3Array = rings[r + 1]
-		for i in AROUND:
-			var i2 := (i + 1) % AROUND
-			var n := ((r1[i] - r0[i]).cross(r0[i2] - r0[i])).normalized()
-			verts[vi] = r0[i]
-			verts[vi + 1] = r1[i]
-			verts[vi + 2] = r1[i2]
-			verts[vi + 3] = r0[i]
-			verts[vi + 4] = r1[i2]
-			verts[vi + 5] = r0[i2]
-			for q in 6:
-				norms[vi + q] = n
-			vi += 6
+	_fold(Transform3D.IDENTITY, m_front, verts, norms)
+	_fold(m_back, rel, verts, norms)
 	_mesh.clear_surfaces()
 	var arr := []
 	arr.resize(Mesh.ARRAY_MAX)
@@ -168,3 +155,70 @@ func _bellows() -> void:
 	arr[Mesh.ARRAY_NORMAL] = norms
 	_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
 	_mesh.surface_set_material(0, _mat)
+	var rv := PackedVector3Array()
+	var rn := PackedVector3Array()
+	_collar(m_front, m_back, rv, rn)
+	var arr2 := []
+	arr2.resize(Mesh.ARRAY_MAX)
+	arr2[Mesh.ARRAY_VERTEX] = rv
+	arr2[Mesh.ARRAY_NORMAL] = rn
+	_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr2)
+	_mesh.surface_set_material(1, _ring_mat)
+
+
+func _fold(f0: Transform3D, f1: Transform3D, verts: PackedVector3Array, norms: PackedVector3Array) -> void:
+	## One accordion bellows from frame f0 to f1 (both in the joint's drawing frame), folds alternating.
+	var q0 := f0.basis.get_rotation_quaternion()
+	var q1 := f1.basis.get_rotation_quaternion()
+	var rings: Array = []
+	for r in RINGS + 1:
+		var t := float(r) / RINGS
+		var xf := Transform3D(Basis(q0.slerp(q1, t)), f0.origin.lerp(f1.origin, t))
+		var k := 1.0 if r % 2 == 0 or r == RINGS else 0.94
+		var ring := PackedVector3Array()
+		ring.resize(AROUND)
+		for i in AROUND:
+			ring[i] = xf * Vector3(_ring[i].x * k, (Z0 + Z1) / 2 + _ring[i].y * k, 0.0)
+		rings.append(ring)
+	for r in RINGS:
+		var r0: PackedVector3Array = rings[r]
+		var r1: PackedVector3Array = rings[r + 1]
+		for i in AROUND:
+			var i2 := (i + 1) % AROUND
+			var n := ((r1[i] - r0[i]).cross(r0[i2] - r0[i])).normalized()
+			for v in [r0[i], r1[i], r1[i2], r0[i], r1[i2], r0[i2]]:
+				verts.append(v)
+				norms.append(n)
+
+
+func _collar(f0: Transform3D, f1: Transform3D, verts: PackedVector3Array, norms: PackedVector3Array) -> void:
+	## The articulation ring: a short collar the bellows' size outside, the walkway's portal through it.
+	var outer := PackedVector3Array()
+	for i in AROUND:
+		outer.append(Vector3(_ring[i].x * 1.02, (Z0 + Z1) / 2 + _ring[i].y * 1.02, 0.0))
+	var inner: Array = []                                # the portal opening, sampled at the same angles
+	for i in AROUND:
+		var d := Vector2(_ring[i].x, _ring[i].y).normalized()
+		var hx := PORTAL_HW
+		var hy := (PORTAL_Z1 - PORTAL_Z0) / 2.0
+		var t := minf(hx / maxf(absf(d.x), 1e-6), hy / maxf(absf(d.y), 1e-6))
+		inner.append(Vector3(d.x * t, (PORTAL_Z0 + PORTAL_Z1) / 2.0 + d.y * t, 0.0))
+	var faces := [[f0, -1.0], [f1, 1.0]]
+	for fc in faces:
+		var xf: Transform3D = fc[0]
+		var n: Vector3 = xf.basis * Vector3(0, 0, fc[1])
+		for i in AROUND:
+			var i2 := (i + 1) % AROUND
+			for v in [xf * outer[i], xf * outer[i2], xf * (inner[i2] as Vector3), xf * outer[i], xf * (inner[i2] as Vector3), xf * (inner[i] as Vector3)]:
+				verts.append(v)
+				norms.append(n)
+	for i in AROUND:                                     # its outside band and its tunnel
+		var i2 := (i + 1) % AROUND
+		for band in [[outer[i], outer[i2], 1.0], [inner[i] as Vector3, inner[i2] as Vector3, -1.0]]:
+			var p0: Vector3 = band[0]
+			var p1: Vector3 = band[1]
+			var q := [f0 * p0, f1 * p0, f1 * p1, f0 * p0, f1 * p1, f0 * p1]
+			var n: Vector3 = ((q[1] as Vector3) - (q[0] as Vector3)).cross((q[2] as Vector3) - (q[0] as Vector3)).normalized() * float(band[2])
+			for v in q:
+				verts.append(v)
+				norms.append(n)

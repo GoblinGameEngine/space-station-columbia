@@ -148,7 +148,7 @@ func _unbeam(a: int, b: int) -> void:
 func _open_at(openings: Dictionary, side: String, z: float, kind: String) -> bool:
 	## Is z in an opening of this kind? (A window counts out to the tube's radius and a margin past its
 	## edge: a post at the glass's edge would show through it.)
-	var m := -0.03 if kind == "window" else 0.02
+	var m := -0.03 if kind == "window" or kind == "arch" else 0.02
 	for o in openings.get(side, []):
 		if str(o[2]) == kind and z > float(o[0]) + m and z < float(o[1]) - m:
 			return true

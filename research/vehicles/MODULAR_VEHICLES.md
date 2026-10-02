@@ -120,6 +120,11 @@ a bent body keeps its seams closed.
   exterior shell alone, then against the interior shell alone. Closers and reveals count in both; the
   platform closes the bottom; the portals are allowed. Both shells must report SEALED. For the dense run
   use `SEAL_DIRS=2400 SEAL_ROWS=11`.
+- **Openings** (`CROSS=1`). No exterior part may cross a side opening (wheel arch, door, window): any vertex in
+  the skin's outer 2.5 cm strictly inside one fails, except glass, door leaves, reveals, wheel wells and ramps.
+  Trim runs along a panel follow its spans with the openings cut out. (The Carrow keel line once ran
+  straight across the wheels, drawn black by the outline shader: an ongoing problem until this test.)
+  The standard's own openings must not overlap either: an arch may not run into a door aperture.
 - **Tubes** (`TUBES=1`). Points on every tube's surface cast rays against everything opaque. Glass is
   see-through, and the portal is allowed. Nothing may be seen from outside.
 

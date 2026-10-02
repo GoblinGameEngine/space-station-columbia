@@ -56,7 +56,7 @@ NOSE = 0.66                 # the nose's reach past HL (front and rear)
 DOOR_W = 1.24
 DOOR_H = 2.55               # door head (z); the opening starts at the floor
 AXLES = (2.25, -2.25)
-ARCH = 0.62                 # half the wheel arch's length
+ARCH = STD_ARCH = 0.58      # half the wheel arch's length (kit/standards.py: clear of the door apertures)
 HOUSING = (0.66, 1.05)      # the wheel housings / podiums: |x| from 0.66 to the wall, up to z 1.05
 AISLE_X = 0.21              # the aisle's centre line (2+1 seating: pairs on the left, singles on the right)
 PORTAL = (0.64, 2.62)       # the joint portal: half width, head
@@ -470,8 +470,10 @@ def section(kind):
                 sill_pan(bid, sx, p0, p1)
             for a0, a1, _, _ in arches:
                 MESH[bid].pipe([(sx * (WO + 0.01), a0, ARCH_TOP), (sx * (WO + 0.01), a1, ARCH_TOP)], 0.012, "chrome", n=6, caps=True)
-            # Carrow's keel line in bronze, and the chrome belt
-            MESH[bid].pipe([(sx * (WO + 0.006), y0, SKIRT + 0.04), (sx * (WO + 0.006), y1, SKIRT + 0.04)], 0.008, "bronze", n=6)
+            # Carrow's keel line in bronze (stopping at the wheel arches: trim never crosses an opening -- it ran
+            # straight across the wheels), and the chrome belt (above the arches)
+            for p0, p1 in pan:
+                MESH[bid].pipe([(sx * (WO + 0.006), p0, SKIRT + 0.04), (sx * (WO + 0.006), p1, SKIRT + 0.04)], 0.008, "bronze", n=6)
             MESH[bid].pipe([(sx * (WO + 0.008), y0, BELT), (sx * (WO + 0.008), y1, BELT)], 0.012, "chrome", n=6)
             ebox(bid, sx, y0, y1, SKIRT, CANT)
             for k, (wy0, wy1, _, _) in enumerate(wins):

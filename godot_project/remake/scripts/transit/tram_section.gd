@@ -621,8 +621,9 @@ func _physics_process(delta: float) -> void:
 func holds(lp: Vector3) -> bool:
 	## Is a person's origin (their eyes) at lp -- in the section's frame -- inside it? (Each end 0.4 m
 	## past the portal: the two sections' spaces overlap across the joint's walkway.)
-	return absf(lp.x) < 1.3 and lp.y > 0.2 and lp.y < 3.0 and lp.z > -float(spec.length_front) - 0.4 \
-		and lp.z < float(spec.length_back) + 0.4
+	var reach := TransitVehicle.JOINT_GAP * 0.5 + 0.15   # (out to the middle of the joint and a little past)
+	return absf(lp.x) < 1.3 and lp.y > 0.2 and lp.y < 3.0 and lp.z > -float(spec.length_front) - reach \
+		and lp.z < float(spec.length_back) + reach
 
 
 func door_exit(lp: Vector3) -> bool:
@@ -694,8 +695,16 @@ func hit_at(local_point: Vector3, amount: float, brittle_only := false) -> void:
 			break
 
 
+var _knocked := {}                    # hitter instance id -> when it last hit (one blow per collision)
+
+
 func knock_from(by: Node3D, v_by: Vector3, m_by: float) -> void:
 	## A vehicle ran into the section: the energy above a slow nudge goes into the panels it hit.
+	var now := Time.get_ticks_msec()
+	var last := int(_knocked.get(by.get_instance_id(), -100000))
+	_knocked[by.get_instance_id()] = now
+	if now - last < 500:
+		return                                       # (the same collision, reported again)
 	var rel := v_by - (global_transform.origin - _prev.origin) / maxf(get_physics_process_delta_time(), 1e-3)
 	var kmh := rel.length() * 3.6
 	if kmh < 8.0:
