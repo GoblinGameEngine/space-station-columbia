@@ -812,7 +812,7 @@ func _build_system() -> void:
 	_apps["inventory"] = _app("Inventory", _inventory_tabs(), "What you carry.  Weapons: tap Equip to arm one.")
 	_apps["quests"] = _app("Quests", _quest_tabs(), "Your tasks.  Tap Track to follow one on the map.")
 	_apps["ai"] = _app("NPC AI", _ai_tabs(), "The station's people talk through an AI service.  Setup: get a free Groq key and paste it in.  Voice: choose the model.  Try it: talk to someone.")
-	_apps["summon"] = _app("Summon Aerostat", _summon_tabs(), "Call an aerostat to you.  Tap Request: the nearest free one (the red one) comes down and lands near you.  Drag the map to look round, + and - to zoom, Center to follow yourself again.")
+	_apps["summon"] = _app("Summon Aerostat", _summon_tabs(), "Call an aerostat to you.  Tap Request: the nearest free one (the red one) comes down and lands near you.  Deliver Station Wagon: a car set down in front of you.  Drag the map to look round, + and - to zoom, Center to follow yourself again.")
 	_apps["nav"] = _app("Navigation", _nav_tabs(), "The political map: whose law runs where (the dotted shades), town limits, roads, tram lines.  Drag to look round, + and - to zoom: the closer, the more is named.  Boxed T: a fast-travel tram stop -- tap it, or pick a town under Travel.  Law: the rules where you stand.")
 	_apps["control"] = _app("Control Panel", _control_tabs(), "Sound, Display and Controls settings.")
 	_apps["help"] = _app("Help", _help_tabs(), "The System Help.")
@@ -1444,7 +1444,38 @@ func _summon_tabs() -> TabContainer:
 	_ride_btn = _button("Request Aerostat", _ride_request)
 	_ride_btn.custom_minimum_size = Vector2(0, 22)
 	pg.add_child(_ride_btn)
+	var wb := _button("Deliver Station Wagon", _wagon_request)
+	wb.custom_minimum_size = Vector2(0, 22)
+	pg.add_child(wb)
 	return tabs
+
+
+func _wagon_request() -> void:
+	## A Carrow station wagon set down a few metres in front of you, facing the way you look (look down the
+	## road first). One at a time: asking again takes the last one away.
+	var p := get_tree().get_first_node_in_group("player") as Node3D
+	if p == null:
+		return
+	for w in get_tree().get_nodes_in_group("delivered_wagon"):
+		(w as Node).queue_free()
+	var up := StationGeo.up(StationGeo.s_of(p.global_position))
+	var cam := p.get_viewport().get_camera_3d()
+	var fwd := -(cam.global_transform.basis.z if cam else p.global_transform.basis.z)
+	fwd = (fwd - up * fwd.dot(up)).normalized()
+	var at := p.global_position + fwd * 5.5 - fwd.cross(up) * 1.4      # (ahead, a little to the left: its door by you)
+	var q := PhysicsRayQueryParameters3D.create(at + up * 4.0, at - up * 8.0, 1)
+	if p is CollisionObject3D:
+		q.exclude = [(p as CollisionObject3D).get_rid()]
+	var hit := p.get_world_3d().direct_space_state.intersect_ray(q)
+	if not hit.is_empty():
+		at = hit.position
+	var w := RemakeWagon.new()
+	w.name = "DeliveredWagon"
+	w.add_to_group("delivered_wagon")
+	get_tree().current_scene.add_child(w)
+	w.global_transform = Transform3D(Basis(fwd.cross(up), up, -fwd).orthonormalized(), at + up * 0.15)
+	_ride_msg = "A station wagon is waiting ahead of you, facing the way you look.  Use its doors, or its steering wheel to drive."
+	_refresh_ride()
 
 
 func _ride() -> RemakeSummonedAerostat:

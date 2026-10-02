@@ -33,7 +33,8 @@ const WALK_S := 40.0                 # real seconds from the door to the car bef
 const DWELL_S := 45.0                # real seconds at each stop on a round
 const SEAT_H := 0.36
 const ROADS := ["street", "main", "county", "hwy", "gravel", "alley"]
-const MODEL := {"city_car": "pod", "minivan": "van"}
+const MODEL := {"city_car": "pod", "minivan": "van"}   # (only these are built: the Grok-made models of the other
+                                                       # types were taken out, 2026-10-02, till each has a modular body)
 
 var player: Node3D
 var world_seed := 1
@@ -62,7 +63,7 @@ func _ready() -> void:
 	TrafficSigns.load_all()
 	world_seed = _life.seed
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FLEET))
-	vehicles = d.vehicles
+	vehicles = (d.vehicles as Array).filter(func(x): return MODEL.has(str(x.type)))
 	_types = (JSON.parse_string(FileAccess.get_file_as_string("res://remake/characters/npc_vehicles.json")) as Dictionary).vehicles
 	if FileAccess.file_exists("res://remake/groundcars.json"):              # the player's pods and vans: their places are taken
 		for g in (JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json")) as Dictionary).groundcars:

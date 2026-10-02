@@ -20,9 +20,11 @@ var beams: Array = []                    # [a, b, rest length, diameter]
 var stations := PackedFloat32Array()     # ring z (Godot, front -> back)
 var ring_n := 0
 var names: Array = []                    # joint names round a ring
-var profile: Array = []                  # [Vector2(x, y)] of each ring (the tip rings are drawn in)
+var profile: Array = []                  # [Vector2(x, y)] of each ring
 var bind_segs: Array = []                # [a, b] profile segments points are bound to
 var std: Dictionary
+var centres: Array = []                  # each ring's middle (Vector2): points are bound by their angle round it
+var orders: Array = []                   # each ring's joints sorted by that angle: [[joint, angle]]
 
 
 static func build(p_std: Dictionary, bp: Dictionary, openings: Dictionary) -> TubeFrame:
@@ -34,9 +36,25 @@ static func build(p_std: Dictionary, bp: Dictionary, openings: Dictionary) -> Tu
 	for r in ring:
 		f.names.append(str(r[0]))
 	# (no hoops in a nose or tail: a cap is a moulding bolted to the last full hoop, and bends with it)
+	# the rings: the standard's own, one shape per station (a car: the nose, the hood, the screen, the cabin), or
+	# the one ring at every blueprint station (a tram section: the same section all along)
 	var zs: Array = []
-	for z in bp.stations:
-		zs.append(float(z))
+	var shapes: Array = []
+	if p_std.has("rings"):
+		var rl: Array = (p_std.rings as Array).duplicate()
+		rl.sort_custom(func(a, b): return float(a.y) > float(b.y))         # (front first: Godot z ascending)
+		for r in rl:
+			zs.append(-float(r.y))
+			shapes.append(r.joints)
+	else:
+		for z in bp.stations:
+			zs.append(float(z))
+			shapes.append(ring)
+	# the open tops (no member across the windscreen or a lid): Godot z ranges
+	for t in p_std.get("top_openings", []):
+		if not openings.has("T"):
+			openings["T"] = []
+		openings["T"].append([-float(t[1]), -float(t[0]), str(t[2])])
 	# the wheel arches are openings low in the sides: no rail or post may cross one (it would show)
 	for ax in p_std.axles:
 		for sd in ["R", "L"]:
@@ -46,25 +64,24 @@ static func build(p_std: Dictionary, bp: Dictionary, openings: Dictionary) -> Tu
 	var bolted: Array = p_std.bolted
 	for ri in zs.size():
 		var z: float = zs[ri]
-		var tip := false
 		f.stations.append(z)
 		var prof: Array = []
-		for r in ring:
+		var shape: Array = shapes[ri]
+		for r in shape:
 			var x := float(r[1])
 			var y := float(r[2])
-			if tip:                                  # (the nose's / tail's last ring: drawn in)
-				x *= 0.78
-				y = 0.45 + (y - 0.45) * 0.9
 			prof.append(Vector2(x, y))
 			var zz := z
 			if ri == 0 or ri == zs.size() - 1:                 # (the end hoops stand inside the end cavity)
 				zz += float(p_std.get("end_inset", 0.0)) * (1.0 if ri == 0 else -1.0)
 			var nm0 := str(r[0])
-			if not tip and (nm0.begins_with("belt") or nm0.begins_with("head")) and nm0.length() > 5:
+			var low_cant := nm0.begins_with("cant") and y < float(p_std.door.head)        # (a car's A-pillar: by the door)
+			if (nm0.begins_with("belt") or nm0.begins_with("head") or low_cant) and nm0.length() > 5:
 				zz += f._jamb_step(openings, nm0.substr(nm0.length() - 1), z)
 			f.nodes_rest.append(Vector3(x, y, zz))
 			f.inv_mass.append(0.15 if bolted.has(str(r[0])) else 1.0)
 		f.profile.append(prof)
+		f._ring_binding(prof)
 	f.nodes = f.nodes_rest.duplicate()
 	var idx := func(name: String) -> int: return f.names.find(name)
 	var main_d := float(p_std.tubes.main_d)
@@ -92,6 +109,8 @@ static func build(p_std: Dictionary, bp: Dictionary, openings: Dictionary) -> Tu
 				continue                                 # (a window: no post across it)
 			if side != "C" and (pair.has("skirt") or pair.has("sill")) and f._open_at(openings, side, z, "arch"):
 				continue                                 # (a wheel arch: nothing low across it)
+			if TOP.has(pair[0]) and TOP.has(pair[1]) and f._top_open(openings, z):
+				continue                                 # (the windscreen, a lid: nothing across the top)
 			f._beam(ri * n + int(sg[0]), ri * n + int(sg[1]), main_d)
 		if ri == 0:
 			continue
@@ -103,10 +122,13 @@ static func build(p_std: Dictionary, bp: Dictionary, openings: Dictionary) -> Tu
 				continue                                 # (the belt and head rails stop at a door)
 			if (nm.begins_with("skirt") or nm.begins_with("sill")) and nm.length() > 5 and f._touches(openings, nm.substr(nm.length() - 1), z0, z, "arch"):
 				continue                                 # (and the skirt and sill rails at a wheel arch)
+			if (nm.begins_with("roof") or nm == "crown") and f._top_touches(openings, z0, z):
+				continue                                 # (and the roof rails over a windscreen or a lid)
 			f._beam((ri - 1) * n + j, ri * n + j, main_d)
 		# the braces: the roof, the floor, the lower side panels where there's no door
-		f._beam((ri - 1) * n + idx.call("roof_R"), ri * n + idx.call("crown"), brace_d)
-		f._beam((ri - 1) * n + idx.call("crown"), ri * n + idx.call("roof_L"), brace_d)
+		if not f._top_touches(openings, z0, z):
+			f._beam((ri - 1) * n + idx.call("roof_R"), ri * n + idx.call("crown"), brace_d)
+			f._beam((ri - 1) * n + idx.call("crown"), ri * n + idx.call("roof_L"), brace_d)
 		f._beam((ri - 1) * n + idx.call("sill_R"), ri * n + idx.call("floor_C"), brace_d)
 		f._beam((ri - 1) * n + idx.call("floor_C"), ri * n + idx.call("sill_L"), brace_d)
 		for sd in ["R", "L"]:
@@ -117,6 +139,23 @@ static func build(p_std: Dictionary, bp: Dictionary, openings: Dictionary) -> Tu
 				f._unbeam((ri - 1) * n + idx.call("sill_" + sd), ri * n + idx.call("floor_C"))
 				f._unbeam((ri - 1) * n + idx.call("floor_C"), ri * n + idx.call("sill_" + sd))
 	return f
+
+
+const TOP := ["cant", "roof", "crown"]
+
+
+func _top_open(openings: Dictionary, z: float) -> bool:
+	for o in openings.get("T", []):
+		if z > float(o[0]) + 0.02 and z < float(o[1]) - 0.02:
+			return true
+	return false
+
+
+func _top_touches(openings: Dictionary, z0: float, z1: float) -> bool:
+	for o in openings.get("T", []):
+		if minf(z0, z1) < float(o[1]) - 0.02 and maxf(z0, z1) > float(o[0]) + 0.02:
+			return true
+	return false
 
 
 func _jamb_step(openings: Dictionary, side: String, z: float) -> float:
@@ -156,14 +195,27 @@ func _open_at(openings: Dictionary, side: String, z: float, kind: String) -> boo
 
 
 func _beam(a: int, b: int, d: float) -> void:
-	if a < 0 or b < 0 or a == b:
+	if a < 0 or b < 0 or a == b or nodes_rest[a].distance_to(nodes_rest[b]) < 0.02:
 		return
 	beams.append([a, b, nodes_rest[a].distance_to(nodes_rest[b]), d])
 
 
 # -- binding the skin --------------------------------------------------------------------------------------
 
-const CENTRE := Vector2(0.0, 1.65)       # the ring's middle: points are bound by their angle round it
+func _ring_binding(prof: Array) -> void:
+	## A ring's middle (half way up its middle line) and its joints in order round it.
+	var lo := INF
+	var hi := -INF
+	for q in prof:
+		lo = minf(lo, (q as Vector2).y)
+		hi = maxf(hi, (q as Vector2).y)
+	var c := Vector2(0.0, (lo + hi) * 0.5)
+	centres.append(c)
+	var order: Array = []
+	for i in prof.size():
+		order.append([i, fposmod(atan2((prof[i] as Vector2).y - c.y, (prof[i] as Vector2).x - c.x), TAU)])
+	order.sort_custom(func(a, b): return a[1] < b[1])
+	orders.append(order)
 
 
 func bind(p: Vector3) -> Array:
@@ -178,43 +230,27 @@ func bind(p: Vector3) -> Array:
 	var z0 := stations[k]
 	var z1 := stations[mini(k + 1, nr - 1)]
 	var t := clampf((p.z - z0) / (z1 - z0), 0.0, 1.0) if z1 > z0 else 0.0
-	var ang := _angle(Vector2(p.x, p.y))
-	var order: Array = _ring_order()
+	var n := ring_n
+	var k1 := mini(k + 1, nr - 1)
+	var A := _round(k, Vector2(p.x, p.y))
+	var B := _round(k1, Vector2(p.x, p.y))
+	return [[k * n + A[0], k * n + A[1], k1 * n + B[0], k1 * n + B[1]], [(1 - t) * (1 - A[2]), (1 - t) * A[2], t * (1 - B[2]), t * B[2]]]
+
+
+func _round(k: int, q: Vector2) -> Array:
+	## [joint a, joint b, u]: q's place between the two joints of ring k either side of it, by angle round the
+	## ring's middle (each ring its own: a car's rings differ along it; continuous in q).
+	var order: Array = orders[k]
+	var ang := fposmod(atan2(q.y - (centres[k] as Vector2).y, q.x - (centres[k] as Vector2).x), TAU)
 	var m := order.size()
-	var ia := 0
-	var ib := 0
-	var u := 0.0
 	for i in m:
 		var a0: float = order[i][1]
 		var a1: float = order[(i + 1) % m][1]
 		var span := fposmod(a1 - a0, TAU)
 		var off := fposmod(ang - a0, TAU)
 		if off <= span:
-			ia = order[i][0]
-			ib = order[(i + 1) % m][0]
-			u = off / span if span > 1e-6 else 0.0
-			break
-	var n := ring_n
-	var k1 := mini(k + 1, nr - 1)
-	return [[k * n + ia, k * n + ib, k1 * n + ia, k1 * n + ib], [(1 - t) * (1 - u), (1 - t) * u, t * (1 - u), t * u]]
-
-
-var _order: Array = []
-
-
-func _ring_order() -> Array:
-	## The joints round the ring sorted by angle about its middle (from the standard ring, the same for
-	## every ring, so the binding is continuous along the body too).
-	if _order.is_empty():
-		var ring: Array = std.ring
-		for i in ring.size():
-			_order.append([i, _angle(Vector2(float(ring[i][1]), float(ring[i][2])))])
-		_order.sort_custom(func(a, b): return a[1] < b[1])
-	return _order
-
-
-static func _angle(q: Vector2) -> float:
-	return fposmod(atan2(q.y - CENTRE.y, q.x - CENTRE.x), TAU)
+			return [int(order[i][0]), int(order[(i + 1) % m][0]), off / span if span > 1e-6 else 0.0]
+	return [int(order[0][0]), int(order[0][0]), 0.0]
 
 
 func displacement(bound: Array) -> Vector3:

@@ -264,7 +264,7 @@ func _place_ground_vehicles() -> void:
 	for a in d.groundcars:
 		var s: float = a.s
 		var x: float = a.x
-		var mk := (func(): return RemakeVan.new()) if a.kind == "van" else (func(): return RemakePod.new())
+		var mk := (func(): return RemakeVan.new()) if a.kind == "van" else ((func(): return RemakeWagon.new()) if a.kind == "wagon" else (func(): return RemakePod.new()))
 		root.add(str(a.id), mk, Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x))))
 	root.build_near(player.global_position)
 	print("RemakeStation: %d ground vehicles parked (%d built near the player)" % [d.groundcars.size(), root.live_count()])

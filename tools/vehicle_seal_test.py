@@ -20,9 +20,33 @@ import sys
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "godot_project")
-CLOSERS = {"glazing", "door_glass", "door_leaf", "reveal"}      # (the reveals join the two shells: part of both)
+CLOSERS = {"glazing", "door_glass", "door_leaf", "reveal", "hatch", "hatch_glass", "frunk_lid"}   # (the reveals join the two shells)
 INTERIOR = {"lining_bay", "door_head_lining", "ceiling_bay", "floor", "podium", "end_lining", "cap_lining"}
-EXTERIOR = {"side_bay", "door_head", "roof_bay", "end_portal", "end_cap", "wheel_well", "underpan"}
+EXTERIOR = {"side_bay", "door_head", "roof_bay", "end_portal", "end_cap", "wheel_well", "underpan", "trim", "frunk_tub"}
+FITTINGS = {"seat", "stanchion", "fittings", "ramp", "roof_fairing", "dash", "lamp", "cab"}
+
+
+def portals(bp):
+    """The joint portals a ray may leave by (a tram section's ends: to the bellows): [(z, half width, y0, y1)]."""
+    if bp.get("kind") not in ("front", "mid", "rear"):
+        return []
+    out = []
+    if bp["kind"] != "front":
+        out.append(-4.2)
+    if bp["kind"] != "rear":
+        out.append(4.2)
+    return [(z, 0.64, 0.55, 2.62) for z in out]
+
+
+def through_portal(bp, o, d):
+    for zend, pw, y0, y1 in portals(bp):
+        if abs(d[2]) > 1e-6:
+            tt = (zend - o[2]) / d[2]
+            if tt > 0:
+                q = o + d * tt
+                if abs(q[0]) < pw and y0 <= q[1] <= y1:
+                    return True
+    return False
 
 
 def res(p):
@@ -62,9 +86,14 @@ def gather(by_role, roles):
 
 def platform(bp):
     """The board's deck closes the bottom between the sills (two triangles at its top)."""
-    z0 = -float(bp.get("length_front", 4.2)) - 0.1
-    z1 = float(bp.get("length_back", 4.2)) + 0.1
-    a, b, c, d = (-1.3, 0.49, z0), (1.3, 0.49, z0), (1.3, 0.49, z1), (-1.3, 0.49, z1)
+    pf = bp.get("platform")
+    if pf:
+        hw, y, (z0, z1) = pf["half_w"], pf["y"], pf["z"]
+    else:
+        hw, y = 1.3, 0.49
+        z0 = -float(bp.get("length_front", 4.2)) - 0.1
+        z1 = float(bp.get("length_back", 4.2)) + 0.1
+    a, b, c, d = (-hw, y, z0), (hw, y, z0), (hw, y, z1), (-hw, y, z1)
     return np.array([[a, b, c], [a, c, d]], dtype=np.float32)
 
 
@@ -113,16 +142,7 @@ def escapes(bp, tri, pts, dirs):
                         if tt > 0:
                             ts.append(tt)
             p = o + d * min(ts)
-            # out through a portal (to the next section's bellows) is allowed: where the ray crosses the end plane
-            through = False
-            for zend, is_portal in ((-4.2, bp["kind"] != "front"), (4.2, bp["kind"] != "rear")):
-                if is_portal and abs(d[2]) > 1e-6:
-                    tt = (zend - o[2]) / d[2]
-                    if tt > 0:
-                        q = o + d * tt
-                        if abs(q[0]) < pw and 0.55 <= q[1] <= 2.62:
-                            through = True
-            if through:
+            if through_portal(bp, o, d):          # (out through a portal to the next section's bellows: allowed)
                 continue
             out.append((tuple(np.round(o, 2)), tuple(np.round(d, 2)), tuple(np.round(p, 2))))
     return out
@@ -135,10 +155,13 @@ def main():
     for path in paths:
         bp, by_role = load_body(path)
         roles = set(by_role)
-        unknown = roles - CLOSERS - INTERIOR - EXTERIOR - {"seat", "stanchion", "fittings", "ramp", "roof_fairing"}
+        unknown = roles - CLOSERS - INTERIOR - EXTERIOR - FITTINGS
         zf, zb = -float(bp["length_front"]), float(bp["length_back"])
         # points in the cabin itself (clear of the wheel housings, which are outside the shell)
-        pts = [(x, y, z) for x in (-0.55, 0.0, 0.55) for y in (0.9, 1.8, 2.5) for z in np.linspace(zf + 0.5, zb - 0.5, int(os.environ.get("SEAL_ROWS", "7")))]
+        if bp.get("cabin_points"):
+            pts = [tuple(p) for p in bp["cabin_points"]]
+        else:
+            pts = [(x, y, z) for x in (-0.55, 0.0, 0.55) for y in (0.9, 1.8, 2.5) for z in np.linspace(zf + 0.5, zb - 0.5, int(os.environ.get("SEAL_ROWS", "7")))]
         for name, shell in (("exterior", EXTERIOR), ("interior", INTERIOR)):
             tri = np.concatenate([gather(by_role, shell | CLOSERS), platform(bp)])
             esc = escapes(bp, tri, pts, dirs)
@@ -166,8 +189,14 @@ def frame_beams(bp, by_role, std):
     """The tube frame as the game builds it (TubeFrame.build): [a, b, diameter] in the section frame."""
     ring = std["ring"]
     names = [r[0] for r in ring]
-    zs = list(bp["stations"])
-    openings = {"R": [], "L": []}
+    if std.get("rings"):
+        rl = sorted(std["rings"], key=lambda r: -r["y"])
+        zs = [-r["y"] for r in rl]
+        shapes = [r["joints"] for r in rl]
+    else:
+        zs = list(bp["stations"])
+        shapes = [ring] * len(zs)
+    openings = {"R": [], "L": [], "T": [(-t[1], -t[0], t[2]) for t in std.get("top_openings", [])]}
     for d in bp["doors"]:
         openings[d["side"]].append((d["z"] - d["width"] / 2, d["z"] + d["width"] / 2, "door"))
     for mid, tris in by_role.get("glazing", []):
@@ -186,6 +215,12 @@ def frame_beams(bp, by_role, std):
         m = -0.03 if kind in ("window", "arch") else 0.02
         return any(k == kind and lo + m < z < hi - m for lo, hi, k in openings.get(side, []))
 
+    def top_open(z):
+        return any(lo + 0.02 < z < hi - 0.02 for lo, hi, _ in openings["T"])
+
+    def top_touches(z0, z1):
+        return any(min(z0, z1) < hi - 0.02 and max(z0, z1) > lo + 0.02 for lo, hi, _ in openings["T"])
+
     def jamb(side, z):
         for lo, hi, k in openings.get(side, []):
             if k == "door":
@@ -197,14 +232,11 @@ def frame_beams(bp, by_role, std):
     nodes = []
     n = len(ring)
     for ri, z in enumerate(zs):
-        tip = False
-        for nm, x, y in ring:
-            if tip:
-                x, y = x * 0.78, 0.45 + (y - 0.45) * 0.9
+        for nm, x, y in shapes[ri]:
             zz = z
             if ri == 0 or ri == len(zs) - 1:
                 zz += std.get("end_inset", 0.0) * (1 if ri == 0 else -1)
-            if not tip and (nm.startswith("belt") or nm.startswith("head")) and len(nm) > 5:
+            if (nm.startswith("belt") or nm.startswith("head") or (nm.startswith("cant") and y < std["door"]["head"])) and len(nm) > 5:
                 zz += jamb(nm[-1], z)
             nodes.append((x, y, zz))
     idx = names.index
@@ -212,6 +244,11 @@ def frame_beams(bp, by_role, std):
     segs = [(idx(chain[i]), idx(chain[i + 1])) for i in range(len(chain) - 1)] + [(idx("sill_L"), idx("floor_C")), (idx("floor_C"), idx("sill_R"))]
     md, bd = std["tubes"]["main_d"], std["tubes"]["brace_d"]
     beams = []
+    TOP = {"cant", "roof", "crown"}
+
+    def add(a, b, d):
+        if math.dist(nodes[a], nodes[b]) >= 0.02:
+            beams.append((a, b, d))
     for ri, z in enumerate(zs):
         for a, b in segs:
             na, nb = names[a], names[b]
@@ -224,7 +261,9 @@ def frame_beams(bp, by_role, std):
                 continue
             if side != "C" and (pair & {"skirt", "sill"}) and open_at(side, z, "arch"):
                 continue
-            beams.append((ri * n + a, ri * n + b, md))
+            if pair <= TOP and top_open(z):
+                continue
+            add(ri * n + a, ri * n + b, md)
         if ri == 0:
             continue
         zm = (zs[ri - 1] + z) / 2
@@ -234,16 +273,19 @@ def frame_beams(bp, by_role, std):
                 continue
             if (nm.startswith("skirt") or nm.startswith("sill")) and len(nm) > 5 and touches(nm[-1], zs[ri - 1], z, "arch"):
                 continue
-            beams.append(((ri - 1) * n + j, ri * n + j, md))
-        for a, b in (("roof_R", "crown"), ("crown", "roof_L")):
-            beams.append(((ri - 1) * n + idx(a), ri * n + idx(b), bd))
+            if (nm.startswith("roof") or nm == "crown") and top_touches(zs[ri - 1], z):
+                continue
+            add((ri - 1) * n + j, ri * n + j, md)
+        if not top_touches(zs[ri - 1], z):
+            for a, b in (("roof_R", "crown"), ("crown", "roof_L")):
+                add((ri - 1) * n + idx(a), ri * n + idx(b), bd)
         if not touches("R", zs[ri - 1], z, "arch"):
-            beams.append(((ri - 1) * n + idx("sill_R"), ri * n + idx("floor_C"), bd))
+            add((ri - 1) * n + idx("sill_R"), ri * n + idx("floor_C"), bd)
         if not touches("L", zs[ri - 1], z, "arch"):
-            beams.append(((ri - 1) * n + idx("floor_C"), ri * n + idx("sill_L"), bd))
+            add((ri - 1) * n + idx("floor_C"), ri * n + idx("sill_L"), bd)
         for sd in ("R", "L"):
             if not open_at(sd, zm, "door") and not touches(sd, zs[ri - 1], z, "arch"):
-                beams.append(((ri - 1) * n + idx("sill_" + sd), ri * n + idx("belt_" + sd), bd))
+                add((ri - 1) * n + idx("sill_" + sd), ri * n + idx("belt_" + sd), bd)
     return [(np.array(nodes[a]), np.array(nodes[b]), d) for a, b, d in beams]
 
 
@@ -253,7 +295,7 @@ def tube_test(path):
     beams = frame_beams(bp, by_role, std)
     # everything opaque hides a tube (both shells, reveals, doors, fittings); glass is see-through -- a tube
     # in view from outside through a window counts as seen
-    opaque = set(by_role) - {"glazing", "door_glass", "ramp"}
+    opaque = set(by_role) - {"glazing", "door_glass", "hatch_glass", "ramp"}
     tri = np.concatenate([gather(by_role, opaque), platform(bp)])
     dirs = fib_dirs(160)
     seen = []
@@ -273,19 +315,7 @@ def tube_test(path):
                 hit = first_hit(p, dirs, tri)
                 esc = ~np.isfinite(hit)
                 # (out through a portal into the bellows isn't outside)
-                ok = []
-                for kk in np.nonzero(esc)[0]:
-                    dd = dirs[kk]
-                    through = False
-                    for zend, is_portal in ((-4.2, bp["kind"] != "front"), (4.2, bp["kind"] != "rear")):
-                        if is_portal and abs(dd[2]) > 1e-6:
-                            tt = (zend - p[2]) / dd[2]
-                            if tt > 0:
-                                q = p + dd * tt
-                                if abs(q[0]) < 0.64 and 0.55 <= q[1] <= 2.62:
-                                    through = True
-                    if not through:
-                        ok.append(kk)
+                ok = [kk for kk in np.nonzero(esc)[0] if not through_portal(bp, p, dirs[kk])]
                 if ok:
                     seen.append((tuple(np.round(p, 3)), len(ok)))
     print("%-6s tubes: %d members, %s" % (bp["kind"], len(beams), "HIDDEN from outside" if not seen else "%d points visible from outside" % len(seen)))
@@ -300,7 +330,7 @@ if __name__ == "__main__" and os.environ.get("TUBES"):
 
 
 # -- nothing across an opening (CROSS=1): trim, rails, mouldings must stop at arches, doors and windows ---------
-CROSS_OK = {"glazing", "door_glass", "door_leaf", "reveal", "wheel_well", "ramp"}
+CROSS_OK = {"glazing", "door_glass", "door_leaf", "reveal", "wheel_well", "ramp", "hatch", "hatch_glass", "frunk_lid"}
 
 
 def crossing_test(path):
@@ -313,15 +343,16 @@ def crossing_test(path):
     rects = {"R": [], "L": []}          # (z0, z1, y0, y1, what)
     for ax in std["axles"]:
         for sd in ("R", "L"):
-            rects[sd].append((-ax - std["arch_half"], -ax + std["arch_half"], std["skirt"], 1.0, "wheel arch"))
+            rects[sd].append((-ax - std["arch_half"], -ax + std["arch_half"], std["skirt"], std.get("arch_top", 1.0), "wheel arch"))
     for d in bp["doors"]:
-        rects[d["side"]].append((d["z"] - d["width"] / 2, d["z"] + d["width"] / 2, std["floor"], std["door"]["head"], "door " + d["id"]))
+        rects[d["side"]].append((d["z"] - d["width"] / 2, d["z"] + d["width"] / 2, d.get("sill", std["floor"]), d.get("head", std["door"]["head"]), "door " + d["id"]))
     for mid, tris in by_role.get("glazing", []):
         mx = tris[:, :, 0].mean()
         if abs(mx) > 0.3:
             rects["R" if mx > 0 else "L"].append((tris[:, :, 2].min(), tris[:, :, 2].max(), tris[:, :, 1].min(), tris[:, :, 1].max(), "window " + mid))
     bad = []
     m = 0.03
+    arcs = [(-ax, std["arch_zc"], std["arch_r"], std["arch_half"]) for ax in std["axles"]] if std.get("arch_r") else []
     for role, items in by_role.items():
         if role in CROSS_OK:
             continue
@@ -333,6 +364,9 @@ def crossing_test(path):
                     continue
                 for z0, z1, y0, y1, what in rects[sd]:
                     inside = (on[:, 2] > z0 + m) & (on[:, 2] < z1 - m) & (on[:, 1] > y0 + m) & (on[:, 1] < y1 - m)
+                    if what == "wheel arch" and arcs:                       # (a round arch: inside its circle)
+                        za, zc, r, _ = min(arcs, key=lambda a: abs(a[0] - (z0 + z1) / 2))
+                        inside &= (on[:, 2] - za) ** 2 + (on[:, 1] - zc) ** 2 < (r - m) ** 2
                     if inside.any():
                         bad.append((mid, role, what, int(inside.sum())))
     print("%-6s openings: %s" % (bp["kind"], "CLEAR" if not bad else "%d crossings" % len(bad)))

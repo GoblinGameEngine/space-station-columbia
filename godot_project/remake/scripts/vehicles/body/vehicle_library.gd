@@ -10,7 +10,7 @@ const ROOT := "res://remake/vehicles/components/"
 
 static var _mx := Mutex.new()
 static var _catalogs := {}            # standard -> {component id -> entry (with "pack" path)}
-static var _palettes := {}            # style -> {material name -> spec}
+static var _palettes := {}            # "standard/style" -> {material name -> spec} (a maker's tram and car differ)
 static var _packs := {}               # pack path -> PackedByteArray
 static var _geo := {}                 # component id -> {material: [PackedVector3Array positions, normals]}
 static var _standards := {}
@@ -39,7 +39,7 @@ static func catalog(std_id: String) -> Dictionary:
 				var c = JSON.parse_string(FileAccess.get_file_as_string(ROOT + std_id + "/" + f))
 				if not c is Dictionary:
 					continue
-				_palettes[str(c.style)] = c.palette
+				_palettes[std_id + "/" + str(c.style)] = c.palette
 				for id in c.components:
 					var e: Dictionary = c.components[id]
 					e["pack"] = c.pack
@@ -51,6 +51,7 @@ static func catalog(std_id: String) -> Dictionary:
 
 
 static func palette(style: String) -> Dictionary:
+	## style: "standard/style", e.g. "SW180/carrow"
 	_mx.lock()
 	var out: Dictionary = _palettes.get(style, {})
 	_mx.unlock()

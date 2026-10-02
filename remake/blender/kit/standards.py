@@ -83,7 +83,11 @@ ROAD_TRAM = {
                   "cab": 0.12, "ramp": 0.08},
 }
 
-STANDARDS = {s["id"]: s for s in (ROAD_TRAM,)}
+from kit import sw180  # noqa: E402
+
+WAGON = sw180.standard()
+
+STANDARDS = {s["id"]: s for s in (ROAD_TRAM, WAGON)}
 
 
 def write_json(std, out_dir):

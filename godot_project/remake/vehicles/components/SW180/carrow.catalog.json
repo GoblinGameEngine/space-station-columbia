@@ -1,0 +1,2491 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SW180",
+ "class": "station_wagon",
+ "style": "carrow",
+ "pack": "res://remake/vehicles/components/SW180/carrow.pack",
+ "palette": {
+  "cream": {
+   "albedo": [
+    0.9176,
+    0.8863,
+    0.8
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.8392,
+    0.7843,
+    0.6745
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.9255,
+    0.902,
+    0.8392
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.3765,
+    0.251,
+    0.1725
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.6902,
+    0.3608,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2745,
+    0.1961,
+    0.149
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SW180.end_cap.nose.C.carrow.51c9a8": {
+   "id": "SW180.end_cap.nose.C.carrow.51c9a8",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.64,
+     0.06,
+     1.8393,
+     0.68,
+     0.12
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.035
+  },
+  "SW180.trim.cowl.C.carrow.ec5fe4": {
+   "id": "SW180.trim.cowl.C.carrow.ec5fe4",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1,
+     0.025,
+     1.8289,
+     0.07,
+     0.05
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.glazing.screen.C.carrow.a8e25a": {
+   "id": "SW180.glazing.screen.C.carrow.a8e25a",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     13320,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5625,
+     0.385,
+     1.8289,
+     0.985,
+     0.77
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.trim.a_pillar.R.carrow.18e116": {
+   "id": "SW180.trim.a_pillar.R.carrow.18e116",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     21384,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.865,
+     1.52,
+     0.385,
+     0.13,
+     0.94,
+     0.77
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.trim.sail.R.carrow.7511ad": {
+   "id": "SW180.trim.sail.R.carrow.7511ad",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     23400,
+     90
+    ],
+    "chrome": [
+     25560,
+     96
+    ],
+    "glass_dark": [
+     27864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9963,
+     1.1524,
+     0.115,
+     0.1674,
+     0.2048,
+     0.23
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.side_bay.fender.R.carrow.f453bb": {
+   "id": "SW180.side_bay.fender.R.carrow.f453bb",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     28728,
+     1932
+    ],
+    "cream": [
+     75096,
+     402
+    ],
+    "wood": [
+     84744,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.8773,
+     0.685,
+     0.62,
+     0.1329,
+     0.77,
+     1.24
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.side_bay.b_post.R.carrow.05e34d": {
+   "id": "SW180.side_bay.b_post.R.carrow.05e34d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "side_bay",
+   "slot": "b_post",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/side_bay/b_post/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     92520,
+     18
+    ],
+    "chrome": [
+     92952,
+     96
+    ],
+    "cream": [
+     95256,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     0.9069,
+     1.1,
+     0.92,
+     0.0737,
+     1.6,
+     1.84
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.side_bay.quarter.R.carrow.8908b0": {
+   "id": "SW180.side_bay.quarter.R.carrow.8908b0",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     96264,
+     144
+    ],
+    "chrome": [
+     99720,
+     2076
+    ],
+    "cream": [
+     149544,
+     168
+    ],
+    "wood": [
+     153576,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.8967,
+     1.1,
+     0.69,
+     0.0941,
+     1.6,
+     1.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.glazing.quarter_glass.R.carrow.54f20d": {
+   "id": "SW180.glazing.quarter_glass.R.carrow.54f20d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "glazing",
+   "slot": "quarter_glass",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/glazing/quarter_glass/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     162216,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.475,
+     0.54,
+     0.06,
+     0.85,
+     1.08
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.trim.a_pillar.L.carrow.1f2c7e": {
+   "id": "SW180.trim.a_pillar.L.carrow.1f2c7e",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     166536,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.865,
+     1.52,
+     0.385,
+     0.13,
+     0.94,
+     0.77
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.trim.sail.L.carrow.2f3748": {
+   "id": "SW180.trim.sail.L.carrow.2f3748",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     168552,
+     90
+    ],
+    "chrome": [
+     170712,
+     96
+    ],
+    "glass_dark": [
+     173016,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9963,
+     1.1524,
+     0.115,
+     0.1674,
+     0.2048,
+     0.23
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.side_bay.fender.L.carrow.df97bd": {
+   "id": "SW180.side_bay.fender.L.carrow.df97bd",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     173880,
+     1932
+    ],
+    "cream": [
+     220248,
+     402
+    ],
+    "wood": [
+     229896,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     -0.8773,
+     0.685,
+     0.62,
+     0.1328,
+     0.77,
+     1.24
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.side_bay.b_post.L.carrow.8492e5": {
+   "id": "SW180.side_bay.b_post.L.carrow.8492e5",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "side_bay",
+   "slot": "b_post",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/side_bay/b_post/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     237672,
+     18
+    ],
+    "chrome": [
+     238104,
+     96
+    ],
+    "cream": [
+     240408,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -0.9069,
+     1.1,
+     0.92,
+     0.0737,
+     1.6,
+     1.84
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.side_bay.quarter.L.carrow.de0a57": {
+   "id": "SW180.side_bay.quarter.L.carrow.de0a57",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     241416,
+     108
+    ],
+    "chrome": [
+     244008,
+     2076
+    ],
+    "cream": [
+     293832,
+     168
+    ],
+    "wood": [
+     297864,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     -0.8967,
+     1.1,
+     0.69,
+     0.0941,
+     1.6,
+     1.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.glazing.quarter_glass.L.carrow.26101f": {
+   "id": "SW180.glazing.quarter_glass.L.carrow.26101f",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "glazing",
+   "slot": "quarter_glass",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/glazing/quarter_glass/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     306504,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.475,
+     0.54,
+     0.06,
+     0.85,
+     1.08
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.roof_bay.roof_front.C.carrow.ad52e4": {
+   "id": "SW180.roof_bay.roof_front.C.carrow.ad52e4",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "roof_bay",
+   "slot": "roof_front",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/roof_bay/roof_front/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     310824,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9775,
+     0.65,
+     1.74,
+     0.155,
+     1.3
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.roof_bay.roof_rear.C.carrow.88ee5d": {
+   "id": "SW180.roof_bay.roof_rear.C.carrow.88ee5d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "roof_bay",
+   "slot": "roof_rear",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/roof_bay/roof_rear/C",
+   "reach": 1.25,
+   "mats": {
+    "black": [
+     316008,
+     216
+    ],
+    "chrome": [
+     321192,
+     168
+    ],
+    "cream": [
+     325224,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.006,
+     0.065,
+     1.74,
+     0.212,
+     2.63
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.03
+  },
+  "SW180.end_cap.tail.C.carrow.c830b7": {
+   "id": "SW180.end_cap.tail.C.carrow.c830b7",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     352872,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1736,
+     0.03,
+     1.8164,
+     1.7472,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.035
+  },
+  "SW180.floor.floor.C.carrow.ad7419": {
+   "id": "SW180.floor.floor.C.carrow.ad7419",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     359712,
+     1248
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.725,
+     1.725,
+     1.74,
+     0.35,
+     3.45
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "SW180.lining_bay.sail.R.carrow.ba1054": {
+   "id": "SW180.lining_bay.sail.R.carrow.ba1054",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     389664,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     0.8628,
+     0.9174,
+     0.115,
+     0.02,
+     0.6748,
+     0.23
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.a_pillar.R.carrow.496d02": {
+   "id": "SW180.lining_bay.a_pillar.R.carrow.496d02",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     393264,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.805,
+     1.4942,
+     0.385,
+     0.13,
+     0.9256,
+     0.77
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.b_post.R.carrow.c1d78d": {
+   "id": "SW180.lining_bay.b_post.R.carrow.c1d78d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "b_post",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/b_post/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     395280,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.84,
+     1.24,
+     0.98,
+     0.06,
+     1.32,
+     0.12
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.quarter.R.carrow.eebd0c": {
+   "id": "SW180.lining_bay.quarter.R.carrow.eebd0c",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     396000,
+     300
+    ]
+   },
+   "boxes": [
+    [
+     0.8305,
+     1.24,
+     0.69,
+     0.079,
+     1.32,
+     1.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.sail.L.carrow.5b010f": {
+   "id": "SW180.lining_bay.sail.L.carrow.5b010f",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     403200,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     -0.8628,
+     0.9174,
+     0.115,
+     0.02,
+     0.6748,
+     0.23
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.a_pillar.L.carrow.be9676": {
+   "id": "SW180.lining_bay.a_pillar.L.carrow.be9676",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     406800,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.805,
+     1.4942,
+     0.385,
+     0.13,
+     0.9256,
+     0.77
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.b_post.L.carrow.3425ce": {
+   "id": "SW180.lining_bay.b_post.L.carrow.3425ce",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "b_post",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/b_post/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     408816,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -0.84,
+     1.24,
+     0.98,
+     0.06,
+     1.32,
+     0.12
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.lining_bay.quarter.L.carrow.cc2c8b": {
+   "id": "SW180.lining_bay.quarter.L.carrow.cc2c8b",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lining_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/lining_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     409536,
+     300
+    ]
+   },
+   "boxes": [
+    [
+     -0.8305,
+     1.24,
+     0.69,
+     0.079,
+     1.32,
+     1.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.ceiling_bay.roof_front.C.carrow.01837d": {
+   "id": "SW180.ceiling_bay.roof_front.C.carrow.01837d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "ceiling_bay",
+   "slot": "roof_front",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/ceiling_bay/roof_front/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     416736,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.65,
+     1.62,
+     0.1,
+     1.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "SW180.ceiling_bay.roof_rear.C.carrow.50a99e": {
+   "id": "SW180.ceiling_bay.roof_rear.C.carrow.50a99e",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "ceiling_bay",
+   "slot": "roof_rear",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/ceiling_bay/roof_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     421920,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.69,
+     1.62,
+     0.1,
+     1.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "SW180.end_lining.firewall.C.carrow.c76b6c": {
+   "id": "SW180.end_lining.firewall.C.carrow.c76b6c",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     449568,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.815,
+     -0.0,
+     1.74,
+     0.53,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.end_lining.tail.C.carrow.d7c2bf": {
+   "id": "SW180.end_lining.tail.C.carrow.d7c2bf",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "end_lining",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/end_lining/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     451008,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2711,
+     -0.0,
+     1.73,
+     1.4422,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.045
+  },
+  "SW180.reveal.door_front.R.carrow.ba5e3b": {
+   "id": "SW180.reveal.door_front.R.carrow.ba5e3b",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "door_front",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/reveal/door_front/R",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     454464,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.24,
+     0.46,
+     0.12,
+     1.32,
+     0.92
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.door_rear.R.carrow.576b03": {
+   "id": "SW180.reveal.door_rear.R.carrow.576b03",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "door_rear",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/reveal/door_rear/R",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     456768,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.24,
+     0.4,
+     0.12,
+     1.32,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.quarter_glass.R.carrow.addf3b": {
+   "id": "SW180.reveal.quarter_glass.R.carrow.addf3b",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "quarter_glass",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/reveal/quarter_glass/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     458496,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.475,
+     0.54,
+     0.12,
+     0.85,
+     1.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.door_front.L.carrow.4b33ce": {
+   "id": "SW180.reveal.door_front.L.carrow.4b33ce",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "door_front",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/reveal/door_front/L",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     462240,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.24,
+     0.46,
+     0.12,
+     1.32,
+     0.92
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.door_rear.L.carrow.79f351": {
+   "id": "SW180.reveal.door_rear.L.carrow.79f351",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "door_rear",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/reveal/door_rear/L",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     464544,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.24,
+     0.4,
+     0.12,
+     1.32,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.quarter_glass.L.carrow.5c4a1c": {
+   "id": "SW180.reveal.quarter_glass.L.carrow.5c4a1c",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "quarter_glass",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/reveal/quarter_glass/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     466272,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.475,
+     0.54,
+     0.12,
+     0.85,
+     1.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.screen.C.carrow.0997a9": {
+   "id": "SW180.reveal.screen.C.carrow.0997a9",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     470016,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5454,
+     0.385,
+     1.8289,
+     1.0192,
+     0.77
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.reveal.hatch.C.carrow.1307cb": {
+   "id": "SW180.reveal.hatch.C.carrow.1307cb",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "reveal",
+   "slot": "hatch",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/reveal/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     474336,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.26,
+     0.03,
+     1.48,
+     1.28,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.door_leaf.door_front.R.carrow.a747a4": {
+   "id": "SW180.door_leaf.door_front.R.carrow.a747a4",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_leaf",
+   "slot": "door_front",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/door_leaf/door_front/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     477216,
+     1248
+    ],
+    "cream": [
+     507168,
+     96
+    ],
+    "dash": [
+     509472,
+     36
+    ],
+    "lining": [
+     510336,
+     36
+    ],
+    "wood": [
+     511200,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.8769,
+     0.815,
+     0.46,
+     0.1337,
+     0.47,
+     0.92
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SW180.door_glass.door_front.R.carrow.6b4aa0": {
+   "id": "SW180.door_glass.door_front.R.carrow.6b4aa0",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_glass",
+   "slot": "door_front",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/door_glass/door_front/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     516384,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.475,
+     0.46,
+     0.06,
+     0.85,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.door_leaf.door_rear.R.carrow.296f3e": {
+   "id": "SW180.door_leaf.door_rear.R.carrow.296f3e",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_leaf",
+   "slot": "door_rear",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/door_leaf/door_rear/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     517680,
+     1104
+    ],
+    "cream": [
+     544176,
+     48
+    ],
+    "dash": [
+     545328,
+     36
+    ],
+    "lining": [
+     546192,
+     12
+    ],
+    "wood": [
+     546480,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.8769,
+     0.815,
+     0.4,
+     0.1337,
+     0.47,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SW180.door_glass.door_rear.R.carrow.ab045d": {
+   "id": "SW180.door_glass.door_rear.R.carrow.ab045d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_glass",
+   "slot": "door_rear",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/door_glass/door_rear/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     550800,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.475,
+     0.4,
+     0.06,
+     0.85,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.door_leaf.door_front.L.carrow.f64135": {
+   "id": "SW180.door_leaf.door_front.L.carrow.f64135",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_leaf",
+   "slot": "door_front",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/door_leaf/door_front/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     551232,
+     1248
+    ],
+    "cream": [
+     581184,
+     96
+    ],
+    "dash": [
+     583488,
+     36
+    ],
+    "lining": [
+     584352,
+     36
+    ],
+    "wood": [
+     585216,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -0.8769,
+     0.815,
+     0.46,
+     0.1337,
+     0.47,
+     0.92
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SW180.door_glass.door_front.L.carrow.496ead": {
+   "id": "SW180.door_glass.door_front.L.carrow.496ead",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_glass",
+   "slot": "door_front",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/door_glass/door_front/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     590400,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.475,
+     0.46,
+     0.06,
+     0.85,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.door_leaf.door_rear.L.carrow.6b8fc4": {
+   "id": "SW180.door_leaf.door_rear.L.carrow.6b8fc4",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_leaf",
+   "slot": "door_rear",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/door_leaf/door_rear/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     591696,
+     1104
+    ],
+    "cream": [
+     618192,
+     48
+    ],
+    "dash": [
+     619344,
+     36
+    ],
+    "lining": [
+     620208,
+     12
+    ],
+    "wood": [
+     620496,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -0.8769,
+     0.815,
+     0.4,
+     0.1337,
+     0.47,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SW180.door_glass.door_rear.L.carrow.d41664": {
+   "id": "SW180.door_glass.door_rear.L.carrow.d41664",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "door_glass",
+   "slot": "door_rear",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/door_glass/door_rear/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     624816,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.475,
+     0.4,
+     0.06,
+     0.85,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.hatch.hatch.C.carrow.634d16": {
+   "id": "SW180.hatch.hatch.C.carrow.634d16",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "hatch",
+   "slot": "hatch",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/hatch/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     625248,
+     120
+    ],
+    "chrome": [
+     628128,
+     180
+    ],
+    "cream": [
+     632448,
+     240
+    ],
+    "lamp_brake": [
+     638208,
+     36
+    ],
+    "lining": [
+     639072,
+     120
+    ],
+    "wood": [
+     641952,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.26,
+     0.042,
+     1.48,
+     1.28,
+     0.084
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 26,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SW180.hatch_glass.hatch.C.carrow.ee10b3": {
+   "id": "SW180.hatch_glass.hatch.C.carrow.ee10b3",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "hatch_glass",
+   "slot": "hatch",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/hatch_glass/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     642096,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.48,
+     0.06,
+     1.28,
+     0.76,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 8,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SW180.frunk_lid.lid.C.carrow.122ab7": {
+   "id": "SW180.frunk_lid.lid.C.carrow.122ab7",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     643392,
+     576
+    ],
+    "tub": [
+     657216,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0026,
+     0.48,
+     1.634,
+     0.194,
+     0.954
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SW180.frunk_tub.lid.C.carrow.bc47cd": {
+   "id": "SW180.frunk_tub.lid.C.carrow.bc47cd",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     666432,
+     225
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.825,
+     0.48,
+     1.64,
+     0.55,
+     0.96
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SW180.wheel_well.well_front.R.carrow.3b03b3": {
+   "id": "SW180.wheel_well.well_front.R.carrow.3b03b3",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "wheel_well",
+   "slot": "well_front",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/wheel_well/well_front/R",
+   "reach": 0.012,
+   "mats": {
+    "rubber": [
+     671832,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.6988,
+     0.5804,
+     0.4202,
+     0.4975,
+     0.5632,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SW180.wheel_well.well_front.L.carrow.d1b5b6": {
+   "id": "SW180.wheel_well.well_front.L.carrow.d1b5b6",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "wheel_well",
+   "slot": "well_front",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/wheel_well/well_front/L",
+   "reach": 0.012,
+   "mats": {
+    "rubber": [
+     687816,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.6988,
+     0.5803,
+     0.4202,
+     0.4975,
+     0.5631,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SW180.wheel_well.well_rear.R.carrow.d2e42f": {
+   "id": "SW180.wheel_well.well_rear.R.carrow.d2e42f",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "wheel_well",
+   "slot": "well_rear",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/wheel_well/well_rear/R",
+   "reach": 0.012,
+   "mats": {
+    "rubber": [
+     703800,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.6988,
+     0.5803,
+     0.4202,
+     0.4976,
+     0.5632,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SW180.wheel_well.well_rear.L.carrow.e31638": {
+   "id": "SW180.wheel_well.well_rear.L.carrow.e31638",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "wheel_well",
+   "slot": "well_rear",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/wheel_well/well_rear/L",
+   "reach": 0.012,
+   "mats": {
+    "rubber": [
+     719784,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.6988,
+     0.5803,
+     0.4202,
+     0.4976,
+     0.5632,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SW180.underpan.underpan.C.carrow.2ae77d": {
+   "id": "SW180.underpan.underpan.C.carrow.2ae77d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     735768,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4025,
+     2.32,
+     1.8,
+     0.205,
+     4.64
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SW180.lamp.head_lamp.C.carrow.d7078a": {
+   "id": "SW180.lamp.head_lamp.C.carrow.d7078a",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/lamp/head_lamp/C",
+   "reach": 0.023,
+   "mats": {
+    "chrome": [
+     747864,
+     960
+    ],
+    "glass_dark": [
+     770904,
+     6
+    ],
+    "lamp_amber": [
+     771048,
+     72
+    ],
+    "lamp_drl": [
+     772776,
+     960
+    ],
+    "lamp_head": [
+     795816,
+     960
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.775,
+     -0.013,
+     1.48,
+     0.15,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SW180.trim.nose.C.carrow.5373e5": {
+   "id": "SW180.trim.nose.C.carrow.5373e5",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/trim/nose/C",
+   "reach": 0.091,
+   "mats": {
+    "chrome": [
+     818856,
+     108
+    ],
+    "rubber": [
+     821448,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.47,
+     -0.0255,
+     1.7,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.trim.tail.C.carrow.730fae": {
+   "id": "SW180.trim.tail.C.carrow.730fae",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "trim",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/trim/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     822312,
+     108
+    ],
+    "rubber": [
+     824904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.47,
+     0.0855,
+     1.7,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.04
+  },
+  "SW180.lamp.tail_lamp.C.carrow.930a83": {
+   "id": "SW180.lamp.tail_lamp.C.carrow.930a83",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     825768,
+     12
+    ],
+    "lamp_amber": [
+     826056,
+     36
+    ],
+    "lamp_reverse": [
+     826920,
+     36
+    ],
+    "lamp_tail": [
+     827784,
+     252
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.17,
+     0.1055,
+     1.722,
+     0.5,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SW180.seat.free.L.carrow.e3925d": {
+   "id": "SW180.seat.free.L.carrow.e3925d",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "SW180/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     833832,
+     36
+    ],
+    "seat": [
+     834696,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.38,
+     1.0746,
+     0.4335,
+     0.46,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SW180.seat.free.R.carrow.1ea364": {
+   "id": "SW180.seat.free.R.carrow.1ea364",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "seat",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "SW180/seat/free/R",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     837288,
+     36
+    ],
+    "seat": [
+     838152,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.38,
+     1.0746,
+     0.4335,
+     0.46,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SW180.seat.free.C.carrow.a121be": {
+   "id": "SW180.seat.free.C.carrow.a121be",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "seat",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/seat/free/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     840744,
+     108
+    ],
+    "seat": [
+     843336,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9977,
+     0.4023,
+     1.16,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 26,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SW180.dash.free.C.carrow.2af033": {
+   "id": "SW180.dash.free.C.carrow.2af033",
+   "standard": "SW180",
+   "class": "station_wagon",
+   "role": "dash",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "SW180/dash/free/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     848520,
+     1236
+    ],
+    "chrome": [
+     878184,
+     120
+    ],
+    "dash": [
+     881064,
+     108
+    ],
+    "gauge": [
+     883656,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0408,
+     0.3015,
+     1.6,
+     0.4815,
+     0.603
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  }
+ }
+}

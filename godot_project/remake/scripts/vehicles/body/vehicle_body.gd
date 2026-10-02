@@ -16,11 +16,13 @@ class_name VehicleBody
 ##   impact(p, dir, energy) -> [ids]    bend the frame; the components shaken loose
 ##   break_off(id, how, velocity)       a component comes off (falls as debris) or shatters
 
-const MOVING := ["door_leaf", "door_glass", "ramp"]
+const MOVING := ["door_leaf", "door_glass", "ramp", "hatch", "hatch_glass", "frunk_lid"]   # (their own nodes: they swing)
 const INSIDE := ["lining_bay", "door_head_lining", "ceiling_bay", "end_lining", "cap_lining", "seat", "stanchion", "fittings", "podium", "cab", "floor"]
 const INSIDE_RANGE := 45.0
 const TUBE_SIDES := 6
-const PAIR_REACH := 1.6               # m: a panel's fastenings are judged between mount joints this near
+const PAIR_REACH := 1.6               # m: a panel's fastenings are judged between mount joints this near ...
+const PAIR_MIN := 0.05                # m: ... and no nearer (the standard's "pair_min": a car's, 0.25 -- on a short
+                                      # baseline a centimetre reads as a tear, and the wagon's nose hoops are 7 cm apart)
 
 static var _plans := {}
 static var _plans_mx := Mutex.new()
@@ -86,8 +88,9 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 				hi = maxf(hi, p.z)
 		openings[str(e.side)].append([lo + float(pl[2]), hi + float(pl[2]), "window"])
 	var proto := TubeFrame.build(std, bp, openings)
-	var plan := {"bp": bp, "std": std, "style": str(bp.style), "frame_proto": proto, "modules": {}, "groups": {},
+	var plan := {"bp": bp, "std": std, "style": "%s/%s" % [bp.standard, bp.style], "frame_proto": proto, "modules": {}, "groups": {},
 				 "moving": {}, "mounts": {}, "lines": {}, "ranges": {}}
+	var pair_min := float(std.get("pair_min", PAIR_MIN))
 	var bind_cache := {}
 	for pl in bp.placements:
 		var mid := str(pl[0])
@@ -148,7 +151,7 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 		for i in ms.size():
 			for j in range(i + 1, ms.size()):
 				var d := proto.nodes_rest[ms[i]].distance_to(proto.nodes_rest[ms[j]])
-				if d > 0.05 and d < PAIR_REACH:
+				if d > pair_min and d < PAIR_REACH:
 					pairs.append(ms[i])
 					pairs.append(ms[j])
 		plan.lines[mid] = pairs
@@ -166,7 +169,7 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 
 static func _kind_of(role: String) -> String:
 	## (the old module kinds the tram's code knows: glass shatters, panels detach)
-	if role in ["glazing", "door_glass"]:
+	if role in ["glazing", "door_glass", "hatch_glass"]:
 		return "glass"
 	return role
 
@@ -245,6 +248,8 @@ func _build() -> void:
 	frame.names = proto.names
 	frame.profile = proto.profile
 	frame.bind_segs = proto.bind_segs
+	frame.centres = proto.centres
+	frame.orders = proto.orders
 	skel = Skeleton3D.new()
 	skel.name = "Frame"
 	var skin := Skin.new()
