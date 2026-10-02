@@ -1,0 +1,3925 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "RT255",
+ "class": "road_tram",
+ "style": "carrow",
+ "pack": "res://remake/vehicles/components/RT255/carrow.pack",
+ "palette": {
+  "cream": {
+   "albedo": [
+    0.9098,
+    0.8863,
+    0.8078
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "teal": {
+   "albedo": [
+    0.2039,
+    0.502,
+    0.4863
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8039,
+    0.8157,
+    0.8314
+   ],
+   "rough": 0.12,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "bronze": {
+   "albedo": [
+    0.6275,
+    0.4392,
+    0.2196
+   ],
+   "rough": 0.3,
+   "metal": 0.9,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.1098,
+    0.1098,
+    0.1176
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.7843
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.22
+  },
+  "lining": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8549
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "cove": {
+   "albedo": [
+    0.2275,
+    0.5333,
+    0.5176
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "floor": {
+   "albedo": [
+    0.8078,
+    0.7843,
+    0.7216
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "ceiling": {
+   "albedo": [
+    0.9412,
+    0.9333,
+    0.902
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.1882,
+    0.5176,
+    0.502
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "shell": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.1569,
+    0.2039,
+    0.2275
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.902,
+    0.8235
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_ceiling": {
+   "albedo": [
+    1.0,
+    0.9882,
+    0.9412
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9216
+   ],
+   "emit_strength": 1.5,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.902
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9647,
+    0.8627
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 2.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9412,
+    0.549,
+    0.0784
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.0784
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "dest": {
+   "albedo": [
+    0.1569,
+    0.1176,
+    0.0392
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.6667,
+    0.1569
+   ],
+   "emit_strength": 1.4,
+   "alpha": 1
+  },
+  "glass_dark": {
+   "albedo": [
+    0.2353,
+    0.3059,
+    0.3294
+   ],
+   "rough": 0.15,
+   "metal": 0.3,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "tyre": {
+   "albedo": [
+    0.1176,
+    0.1176,
+    0.1255
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "RT255.floor.free.C.carrow.01ec00": {
+   "id": "RT255.floor.free.C.carrow.01ec00",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "floor",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/floor/free/C",
+   "reach": 0.0,
+   "mats": {
+    "floor": [
+     0,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.525,
+     4.47,
+     2.43,
+     0.05,
+     8.94
+    ]
+   ],
+   "hp": 5000,
+   "mass_kg": 420,
+   "breaks": "none",
+   "tolerance": 1.0
+  },
+  "RT255.podium.free.L.carrow.44ef30": {
+   "id": "RT255.podium.free.L.carrow.44ef30",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "podium",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/podium/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     864,
+     36
+    ],
+    "shell": [
+     1728,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9375,
+     0.8,
+     0.66,
+     0.555,
+     0.5,
+     1.32
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 60,
+   "breaks": "none",
+   "tolerance": 0.2
+  },
+  "RT255.podium.free.R.carrow.e0f738": {
+   "id": "RT255.podium.free.R.carrow.e0f738",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "podium",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/podium/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     2592,
+     36
+    ],
+    "shell": [
+     3456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9375,
+     0.8,
+     0.66,
+     0.555,
+     0.5,
+     1.32
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 60,
+   "breaks": "none",
+   "tolerance": 0.2
+  },
+  "RT255.door_head.door.L.carrow.13d72c": {
+   "id": "RT255.door_head.door.L.carrow.13d72c",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_head",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_head/door/L",
+   "reach": 0.02,
+   "mats": {
+    "chrome": [
+     4320,
+     36
+    ],
+    "cream": [
+     5184,
+     6
+    ],
+    "rubber": [
+     5328,
+     12
+    ],
+    "teal": [
+     5616,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.2625,
+     0.425,
+     0.62,
+     0.025,
+     0.25,
+     1.24
+    ],
+    [
+     -1.2625,
+     2.585,
+     0.62,
+     0.025,
+     0.07,
+     1.24
+    ]
+   ],
+   "hp": 260,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.reveal.door.L.carrow.344ab3": {
+   "id": "RT255.reveal.door.L.carrow.344ab3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/reveal/door/L",
+   "reach": 0.0,
+   "mats": {
+    "shell": [
+     5760,
+     72
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.door_head_lining.door.L.carrow.48ea4e": {
+   "id": "RT255.door_head_lining.door.L.carrow.48ea4e",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_head_lining",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_head_lining/door/L",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     7488,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     2.675,
+     0.62,
+     0.02,
+     0.25,
+     1.24
+    ]
+   ],
+   "hp": 130,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.door_leaf.door.L.carrow.1afd3b": {
+   "id": "RT255.door_leaf.door.L.carrow.1afd3b",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_leaf",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_leaf/door/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     8352,
+     36
+    ],
+    "teal": [
+     9216,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2445,
+     1.55,
+     0.928,
+     0.045,
+     2.0,
+     0.624
+    ]
+   ],
+   "hp": 220,
+   "mass_kg": 38,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "RT255.door_glass.door.L.carrow.c1b111": {
+   "id": "RT255.door_glass.door.L.carrow.c1b111",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     10080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2515,
+     1.25,
+     0.928,
+     0.039,
+     0.6,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.door_glass.door.L.carrow.bb4b5b": {
+   "id": "RT255.door_glass.door.L.carrow.bb4b5b",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     10944,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2515,
+     2.035,
+     0.928,
+     0.039,
+     0.77,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.door_leaf.door.L.carrow.f417e9": {
+   "id": "RT255.door_leaf.door.L.carrow.f417e9",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_leaf",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_leaf/door/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     11808,
+     36
+    ],
+    "teal": [
+     12672,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2445,
+     1.55,
+     0.312,
+     0.045,
+     2.0,
+     0.624
+    ]
+   ],
+   "hp": 220,
+   "mass_kg": 38,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "RT255.door_glass.door.L.carrow.de73ed": {
+   "id": "RT255.door_glass.door.L.carrow.de73ed",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     13536,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2515,
+     1.25,
+     0.312,
+     0.039,
+     0.6,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.door_glass.door.L.carrow.d31328": {
+   "id": "RT255.door_glass.door.L.carrow.d31328",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     14400,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2515,
+     2.035,
+     0.312,
+     0.039,
+     0.77,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.ramp.door.L.carrow.a86e90": {
+   "id": "RT255.ramp.door.L.carrow.a86e90",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ramp",
+   "slot": "door",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/ramp/door/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     15264,
+     6
+    ],
+    "rubber": [
+     15408,
+     6
+    ]
+   },
+   "boxes": [],
+   "hp": 400,
+   "mass_kg": 30,
+   "breaks": "none",
+   "tolerance": 0.08
+  },
+  "RT255.stanchion.free.L.carrow.172ff8": {
+   "id": "RT255.stanchion.free.L.carrow.172ff8",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "stanchion",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/stanchion/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     15552,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.095,
+     1.485,
+     0.018,
+     0.04,
+     1.87,
+     0.04
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.stanchion.free.L.carrow.a65b9e": {
+   "id": "RT255.stanchion.free.L.carrow.a65b9e",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "stanchion",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/stanchion/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     19584,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.095,
+     1.485,
+     0.018,
+     0.04,
+     1.87,
+     0.04
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.side_bay.end.L.carrow.48b70a": {
+   "id": "RT255.side_bay.end.L.carrow.48b70a",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "end",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/side_bay/end/L",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     23616,
+     60
+    ],
+    "chrome": [
+     25056,
+     60
+    ],
+    "rubber": [
+     26496,
+     12
+    ],
+    "teal": [
+     26784,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.2625,
+     1.46,
+     0.065,
+     0.025,
+     2.32,
+     0.13
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.lining_bay.end.L.carrow.cb61a3": {
+   "id": "RT255.lining_bay.end.L.carrow.cb61a3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "end",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/end/L",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     27216,
+     48
+    ],
+    "lamp_ceiling": [
+     28368,
+     36
+    ],
+    "lining": [
+     29232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     1.675,
+     0.035,
+     0.02,
+     2.25,
+     0.07
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.side_bay.bay_short.L.carrow.a1c38f": {
+   "id": "RT255.side_bay.bay_short.L.carrow.a1c38f",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_short",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_short/L",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     29376,
+     60
+    ],
+    "chrome": [
+     30816,
+     120
+    ],
+    "cream": [
+     33696,
+     12
+    ],
+    "rubber": [
+     33984,
+     12
+    ],
+    "teal": [
+     34272,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.2625,
+     1.46,
+     1.105,
+     0.025,
+     2.32,
+     2.21
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.reveal.bay_short.L.carrow.e3ac94": {
+   "id": "RT255.reveal.bay_short.L.carrow.e3ac94",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "bay_short",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/reveal/bay_short/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     36288,
+     24
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.glazing.bay_short.L.carrow.7edd85": {
+   "id": "RT255.glazing.bay_short.L.carrow.7edd85",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "bay_short",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/glazing/bay_short/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     36864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2525,
+     1.725,
+     1.105,
+     0.015,
+     1.15,
+     1.97
+    ]
+   ],
+   "hp": 70,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.lining_bay.bay_short.L.carrow.1bd59b": {
+   "id": "RT255.lining_bay.bay_short.L.carrow.1bd59b",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "bay_short",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/bay_short/L",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     37728,
+     144
+    ],
+    "lamp_ceiling": [
+     41184,
+     36
+    ],
+    "lining": [
+     42048,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     1.675,
+     1.105,
+     0.02,
+     2.25,
+     2.21
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.side_bay.bay_long.L.carrow.8d9bf6": {
+   "id": "RT255.side_bay.bay_long.L.carrow.8d9bf6",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     42768,
+     60
+    ],
+    "chrome": [
+     44208,
+     120
+    ],
+    "cream": [
+     47088,
+     24
+    ],
+    "rubber": [
+     47664,
+     24
+    ],
+    "teal": [
+     48240,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.2625,
+     1.46,
+     1.79,
+     0.025,
+     2.32,
+     3.58
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.reveal.bay_long.L.carrow.8b9e15": {
+   "id": "RT255.reveal.bay_long.L.carrow.8b9e15",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/reveal/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     51696,
+     48
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.glazing.bay_long.L.carrow.fe97ed": {
+   "id": "RT255.glazing.bay_long.L.carrow.fe97ed",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/glazing/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     52848,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2525,
+     1.725,
+     2.655,
+     0.015,
+     1.15,
+     1.61
+    ]
+   ],
+   "hp": 70,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.glazing.bay_long.L.carrow.6516b7": {
+   "id": "RT255.glazing.bay_long.L.carrow.6516b7",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/glazing/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     53712,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2525,
+     1.725,
+     0.925,
+     0.015,
+     1.15,
+     1.61
+    ]
+   ],
+   "hp": 70,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.lining_bay.bay_long.L.carrow.668fdc": {
+   "id": "RT255.lining_bay.bay_long.L.carrow.668fdc",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     54576,
+     240
+    ],
+    "lamp_ceiling": [
+     60336,
+     36
+    ],
+    "lining": [
+     61200,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     1.675,
+     1.79,
+     0.02,
+     2.25,
+     3.58
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.door_head.door.R.carrow.141e76": {
+   "id": "RT255.door_head.door.R.carrow.141e76",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_head",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_head/door/R",
+   "reach": 0.02,
+   "mats": {
+    "chrome": [
+     62352,
+     36
+    ],
+    "cream": [
+     63216,
+     6
+    ],
+    "rubber": [
+     63360,
+     12
+    ],
+    "teal": [
+     63648,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.2625,
+     0.425,
+     0.62,
+     0.025,
+     0.25,
+     1.24
+    ],
+    [
+     1.2625,
+     2.585,
+     0.62,
+     0.025,
+     0.07,
+     1.24
+    ]
+   ],
+   "hp": 260,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.reveal.door.R.carrow.a1fa2f": {
+   "id": "RT255.reveal.door.R.carrow.a1fa2f",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/reveal/door/R",
+   "reach": 0.0,
+   "mats": {
+    "shell": [
+     63792,
+     72
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.door_head_lining.door.R.carrow.dc6db7": {
+   "id": "RT255.door_head_lining.door.R.carrow.dc6db7",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_head_lining",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_head_lining/door/R",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     65520,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     2.675,
+     0.62,
+     0.02,
+     0.25,
+     1.24
+    ]
+   ],
+   "hp": 130,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.door_leaf.door.R.carrow.275b8a": {
+   "id": "RT255.door_leaf.door.R.carrow.275b8a",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_leaf",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_leaf/door/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     66384,
+     36
+    ],
+    "teal": [
+     67248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2445,
+     1.55,
+     0.928,
+     0.045,
+     2.0,
+     0.624
+    ]
+   ],
+   "hp": 220,
+   "mass_kg": 38,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "RT255.door_glass.door.R.carrow.08ea63": {
+   "id": "RT255.door_glass.door.R.carrow.08ea63",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     68112,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2515,
+     1.25,
+     0.928,
+     0.039,
+     0.6,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.door_glass.door.R.carrow.cfbc00": {
+   "id": "RT255.door_glass.door.R.carrow.cfbc00",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     68976,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2515,
+     2.035,
+     0.928,
+     0.039,
+     0.77,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.door_leaf.door.R.carrow.64b844": {
+   "id": "RT255.door_leaf.door.R.carrow.64b844",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_leaf",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_leaf/door/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     69840,
+     36
+    ],
+    "teal": [
+     70704,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2445,
+     1.55,
+     0.312,
+     0.045,
+     2.0,
+     0.624
+    ]
+   ],
+   "hp": 220,
+   "mass_kg": 38,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "RT255.door_glass.door.R.carrow.47dbd3": {
+   "id": "RT255.door_glass.door.R.carrow.47dbd3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     71568,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2515,
+     1.25,
+     0.312,
+     0.039,
+     0.6,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.door_glass.door.R.carrow.9fe7ee": {
+   "id": "RT255.door_glass.door.R.carrow.9fe7ee",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "door_glass",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/door_glass/door/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     72432,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2515,
+     2.035,
+     0.312,
+     0.039,
+     0.77,
+     0.444
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.ramp.door.R.carrow.ae4e54": {
+   "id": "RT255.ramp.door.R.carrow.ae4e54",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ramp",
+   "slot": "door",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/ramp/door/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     73296,
+     6
+    ],
+    "rubber": [
+     73440,
+     6
+    ]
+   },
+   "boxes": [],
+   "hp": 400,
+   "mass_kg": 30,
+   "breaks": "none",
+   "tolerance": 0.08
+  },
+  "RT255.stanchion.free.R.carrow.fd3471": {
+   "id": "RT255.stanchion.free.R.carrow.fd3471",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "stanchion",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/stanchion/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     73584,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.095,
+     1.485,
+     0.018,
+     0.04,
+     1.87,
+     0.04
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.stanchion.free.R.carrow.f92491": {
+   "id": "RT255.stanchion.free.R.carrow.f92491",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "stanchion",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/stanchion/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     77616,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.095,
+     1.485,
+     0.018,
+     0.04,
+     1.87,
+     0.04
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.side_bay.bay_long.R.carrow.ee5829": {
+   "id": "RT255.side_bay.bay_long.R.carrow.ee5829",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     81648,
+     60
+    ],
+    "chrome": [
+     83088,
+     120
+    ],
+    "cream": [
+     85968,
+     24
+    ],
+    "rubber": [
+     86544,
+     24
+    ],
+    "teal": [
+     87120,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.2625,
+     1.46,
+     1.79,
+     0.025,
+     2.32,
+     3.58
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.reveal.bay_long.R.carrow.54c5a1": {
+   "id": "RT255.reveal.bay_long.R.carrow.54c5a1",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/reveal/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     90576,
+     48
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.glazing.bay_long.R.carrow.086e81": {
+   "id": "RT255.glazing.bay_long.R.carrow.086e81",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/glazing/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     91728,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2525,
+     1.725,
+     2.655,
+     0.015,
+     1.15,
+     1.61
+    ]
+   ],
+   "hp": 70,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.glazing.bay_long.R.carrow.b92a84": {
+   "id": "RT255.glazing.bay_long.R.carrow.b92a84",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/glazing/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     92592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2525,
+     1.725,
+     0.925,
+     0.015,
+     1.15,
+     1.61
+    ]
+   ],
+   "hp": 70,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.lining_bay.bay_long.R.carrow.f8cda1": {
+   "id": "RT255.lining_bay.bay_long.R.carrow.f8cda1",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     93456,
+     240
+    ],
+    "lamp_ceiling": [
+     99216,
+     36
+    ],
+    "lining": [
+     100080,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     1.675,
+     1.76,
+     0.02,
+     2.25,
+     3.52
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.side_bay.bay_short.R.carrow.8aeec2": {
+   "id": "RT255.side_bay.bay_short.R.carrow.8aeec2",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_short",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_short/R",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     101232,
+     60
+    ],
+    "chrome": [
+     102672,
+     120
+    ],
+    "cream": [
+     105552,
+     12
+    ],
+    "rubber": [
+     105840,
+     12
+    ],
+    "teal": [
+     106128,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.2625,
+     1.46,
+     1.105,
+     0.025,
+     2.32,
+     2.21
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.reveal.bay_short.R.carrow.098a11": {
+   "id": "RT255.reveal.bay_short.R.carrow.098a11",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "bay_short",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/reveal/bay_short/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     108144,
+     24
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.glazing.bay_short.R.carrow.2d0124": {
+   "id": "RT255.glazing.bay_short.R.carrow.2d0124",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "bay_short",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/glazing/bay_short/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     108720,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2525,
+     1.725,
+     1.105,
+     0.015,
+     1.15,
+     1.97
+    ]
+   ],
+   "hp": 70,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.lining_bay.bay_short.R.carrow.58ff23": {
+   "id": "RT255.lining_bay.bay_short.R.carrow.58ff23",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "bay_short",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/bay_short/R",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     109584,
+     144
+    ],
+    "lamp_ceiling": [
+     113040,
+     36
+    ],
+    "lining": [
+     113904,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     1.675,
+     1.105,
+     0.02,
+     2.25,
+     2.21
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.side_bay.end.R.carrow.0c137b": {
+   "id": "RT255.side_bay.end.R.carrow.0c137b",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "end",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/side_bay/end/R",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     114624,
+     60
+    ],
+    "chrome": [
+     116064,
+     60
+    ],
+    "rubber": [
+     117504,
+     12
+    ],
+    "teal": [
+     117792,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.2625,
+     1.46,
+     0.065,
+     0.025,
+     2.32,
+     0.13
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.lining_bay.end.R.carrow.1e0578": {
+   "id": "RT255.lining_bay.end.R.carrow.1e0578",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "end",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/end/R",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     118224,
+     48
+    ],
+    "lamp_ceiling": [
+     119376,
+     36
+    ],
+    "lining": [
+     120240,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     1.675,
+     0.065,
+     0.02,
+     2.25,
+     0.13
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.wheel_well.free.L.carrow.1b2bb6": {
+   "id": "RT255.wheel_well.free.L.carrow.1b2bb6",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "wheel_well",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/wheel_well/free/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     120384,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9775,
+     1.01,
+     0.62,
+     0.595,
+     0.02,
+     1.24
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 25,
+   "breaks": "none",
+   "tolerance": 0.15
+  },
+  "RT255.wheel_well.free.R.carrow.491ab3": {
+   "id": "RT255.wheel_well.free.R.carrow.491ab3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "wheel_well",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/wheel_well/free/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     121248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9775,
+     1.01,
+     0.62,
+     0.595,
+     0.02,
+     1.24
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 25,
+   "breaks": "none",
+   "tolerance": 0.15
+  },
+  "RT255.roof_bay.roof.C.carrow.e44195": {
+   "id": "RT255.roof_bay.roof.C.carrow.e44195",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "roof_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/roof_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     122112,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.82,
+     0.7,
+     2.55,
+     0.4,
+     1.4
+    ]
+   ],
+   "hp": 450,
+   "mass_kg": 90,
+   "breaks": "detach",
+   "tolerance": 0.07
+  },
+  "RT255.ceiling_bay.roof.C.carrow.3e8ee4": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.3e8ee4",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     124416,
+     6
+    ],
+    "chrome": [
+     124560,
+     384
+    ],
+    "lamp_ceiling": [
+     133776,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.67,
+     1.63,
+     0.03,
+     1.34
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.ceiling_bay.roof.C.carrow.6f75e6": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.6f75e6",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     134640,
+     6
+    ],
+    "chrome": [
+     134784,
+     384
+    ],
+    "lamp_ceiling": [
+     144000,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.7,
+     1.63,
+     0.03,
+     1.4
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.ceiling_bay.roof.C.carrow.617555": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.617555",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     144864,
+     6
+    ],
+    "chrome": [
+     145008,
+     384
+    ],
+    "lamp_ceiling": [
+     154224,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.7,
+     1.63,
+     0.03,
+     1.4
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.roof_bay.roof.C.carrow.0a4257": {
+   "id": "RT255.roof_bay.roof.C.carrow.0a4257",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "roof_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/roof_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     155088,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.82,
+     0.7,
+     2.55,
+     0.4,
+     1.4
+    ]
+   ],
+   "hp": 450,
+   "mass_kg": 90,
+   "breaks": "detach",
+   "tolerance": 0.07
+  },
+  "RT255.ceiling_bay.roof.C.carrow.35dc1d": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.35dc1d",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     157392,
+     6
+    ],
+    "chrome": [
+     157536,
+     384
+    ],
+    "lamp_ceiling": [
+     166752,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.7,
+     1.63,
+     0.03,
+     1.4
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.ceiling_bay.roof.C.carrow.799c0e": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.799c0e",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     167616,
+     6
+    ],
+    "chrome": [
+     167760,
+     384
+    ],
+    "lamp_ceiling": [
+     176976,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.7,
+     1.63,
+     0.03,
+     1.4
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.ceiling_bay.roof.C.carrow.8aba8c": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.8aba8c",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     177840,
+     6
+    ],
+    "chrome": [
+     177984,
+     384
+    ],
+    "lamp_ceiling": [
+     187200,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.7,
+     1.63,
+     0.03,
+     1.4
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.roof_fairing.free.C.carrow.1ab3b3": {
+   "id": "RT255.roof_fairing.free.C.carrow.1ab3b3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "roof_fairing",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/roof_fairing/free/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     188064,
+     1404
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.08,
+     1.3,
+     1.5,
+     0.22,
+     2.6
+    ],
+    [
+     0.0,
+     3.08,
+     4.9,
+     1.5,
+     0.22,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 80,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "RT255.end_cap.free.C.carrow.55762f": {
+   "id": "RT255.end_cap.free.C.carrow.55762f",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "end_cap",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/end_cap/free/C",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     221760,
+     360
+    ],
+    "chrome": [
+     230400,
+     1044
+    ],
+    "cream": [
+     255456,
+     888
+    ],
+    "dest": [
+     276768,
+     36
+    ],
+    "lamp_amber": [
+     277632,
+     288
+    ],
+    "lamp_head": [
+     284544,
+     720
+    ],
+    "rubber": [
+     301824,
+     186
+    ],
+    "teal": [
+     306288,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6,
+     0.1583,
+     2.07,
+     2.4,
+     0.08
+    ],
+    [
+     -1.225,
+     1.6,
+     0.4133,
+     0.1,
+     2.6,
+     0.66
+    ],
+    [
+     1.225,
+     1.6,
+     0.4133,
+     0.1,
+     2.6,
+     0.66
+    ],
+    [
+     0.0,
+     2.77,
+     0.4133,
+     2.55,
+     0.3,
+     0.66
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 180,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.glazing.free.C.carrow.5e0e72": {
+   "id": "RT255.glazing.free.C.carrow.5e0e72",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/glazing/free/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     314064,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.0195,
+     1.72,
+     1.15,
+     0.05
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 30,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.cap_lining.free.C.carrow.a9730e": {
+   "id": "RT255.cap_lining.free.C.carrow.a9730e",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "cap_lining",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/cap_lining/free/C",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     314208,
+     564
+    ],
+    "lining": [
+     327744,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6,
+     0.0545,
+     1.95,
+     2.2,
+     0.04
+    ]
+   ],
+   "hp": 450,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.reveal.free.C.carrow.6049d3": {
+   "id": "RT255.reveal.free.C.carrow.6049d3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/reveal/free/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     335808,
+     24
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.end_portal.free.C.carrow.26442b": {
+   "id": "RT255.end_portal.free.C.carrow.26442b",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "end_portal",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/end_portal/free/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     336384,
+     180
+    ],
+    "cream": [
+     340704,
+     54
+    ],
+    "rubber": [
+     342000,
+     1158
+    ],
+    "teal": [
+     369792,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -0.9275,
+     1.46,
+     0.015,
+     0.575,
+     2.32,
+     0.03
+    ],
+    [
+     0.9275,
+     1.46,
+     0.015,
+     0.575,
+     2.32,
+     0.03
+    ],
+    [
+     0.0,
+     2.77,
+     0.015,
+     1.28,
+     0.3,
+     0.03
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.end_lining.free.C.carrow.849533": {
+   "id": "RT255.end_lining.free.C.carrow.849533",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "end_lining",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/end_lining/free/C",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     370800,
+     78
+    ],
+    "lining": [
+     372672,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.9275,
+     1.675,
+     0.015,
+     0.575,
+     2.25,
+     0.03
+    ],
+    [
+     0.9275,
+     1.675,
+     0.015,
+     0.575,
+     2.25,
+     0.03
+    ]
+   ],
+   "hp": 450,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.reveal.free.C.carrow.cb240e": {
+   "id": "RT255.reveal.free.C.carrow.cb240e",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/reveal/free/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     372960,
+     18
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.seat.free.L.carrow.4d84bd": {
+   "id": "RT255.seat.free.L.carrow.4d84bd",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     373392,
+     132
+    ],
+    "seat": [
+     376560,
+     72
+    ],
+    "shell": [
+     378288,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.745,
+     0.73,
+     0.25,
+     0.8,
+     0.36,
+     0.34
+    ],
+    [
+     -0.745,
+     1.26,
+     0.5,
+     0.88,
+     0.62,
+     0.08
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.L.carrow.4907b7": {
+   "id": "RT255.seat.free.L.carrow.4907b7",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     380016,
+     132
+    ],
+    "seat": [
+     383184,
+     72
+    ],
+    "shell": [
+     384912,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.745,
+     0.73,
+     0.25,
+     0.8,
+     0.36,
+     0.34
+    ],
+    [
+     -0.745,
+     1.26,
+     0.5,
+     0.88,
+     0.62,
+     0.08
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.R.carrow.95f66b": {
+   "id": "RT255.seat.free.R.carrow.95f66b",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/seat/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     386640,
+     132
+    ],
+    "seat": [
+     389808,
+     72
+    ],
+    "shell": [
+     391536,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     0.73,
+     0.25,
+     0.38,
+     0.36,
+     0.34
+    ],
+    [
+     0.965,
+     1.26,
+     0.5,
+     0.46,
+     0.62,
+     0.08
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.R.carrow.7cc2cf": {
+   "id": "RT255.seat.free.R.carrow.7cc2cf",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/seat/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     393264,
+     132
+    ],
+    "seat": [
+     396432,
+     72
+    ],
+    "shell": [
+     398160,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     0.73,
+     0.25,
+     0.38,
+     0.36,
+     0.34
+    ],
+    [
+     0.965,
+     1.26,
+     0.5,
+     0.46,
+     0.62,
+     0.08
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.L.carrow.f67f84": {
+   "id": "RT255.seat.free.L.carrow.f67f84",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     399888,
+     132
+    ],
+    "seat": [
+     403056,
+     72
+    ],
+    "shell": [
+     404784,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.945,
+     1.23,
+     0.23,
+     0.34,
+     0.36,
+     0.38
+    ],
+    [
+     -1.195,
+     1.76,
+     0.23,
+     0.08,
+     0.62,
+     0.46
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.R.carrow.72b109": {
+   "id": "RT255.seat.free.R.carrow.72b109",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/seat/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     406512,
+     132
+    ],
+    "seat": [
+     409680,
+     72
+    ],
+    "shell": [
+     411408,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.945,
+     1.23,
+     0.23,
+     0.34,
+     0.36,
+     0.38
+    ],
+    [
+     1.195,
+     1.76,
+     0.23,
+     0.08,
+     0.62,
+     0.46
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.R.carrow.0b99c8": {
+   "id": "RT255.seat.free.R.carrow.0b99c8",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/seat/free/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     413136,
+     132
+    ],
+    "seat": [
+     416304,
+     72
+    ],
+    "shell": [
+     418032,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.945,
+     1.23,
+     0.23,
+     0.34,
+     0.36,
+     0.38
+    ],
+    [
+     1.195,
+     1.76,
+     0.23,
+     0.08,
+     0.62,
+     0.46
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.seat.free.L.carrow.db0490": {
+   "id": "RT255.seat.free.L.carrow.db0490",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     419760,
+     132
+    ],
+    "seat": [
+     422928,
+     72
+    ],
+    "shell": [
+     424656,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.945,
+     1.23,
+     0.23,
+     0.34,
+     0.36,
+     0.38
+    ],
+    [
+     -1.195,
+     1.76,
+     0.23,
+     0.08,
+     0.62,
+     0.46
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.fittings.free.C.carrow.3130ae": {
+   "id": "RT255.fittings.free.C.carrow.3130ae",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "fittings",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/fittings/free/C",
+   "reach": 0.0,
+   "mats": {
+    "cream": [
+     426384,
+     2688
+    ]
+   },
+   "boxes": [],
+   "hp": 200,
+   "mass_kg": 8,
+   "breaks": "none",
+   "tolerance": 0.1
+  },
+  "RT255.cab.free.C.carrow.b9afae": {
+   "id": "RT255.cab.free.C.carrow.b9afae",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "cab",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/cab/free/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     490896,
+     360
+    ],
+    "dash": [
+     499536,
+     156
+    ],
+    "gauge": [
+     503280,
+     720
+    ],
+    "rubber": [
+     520560,
+     288
+    ],
+    "teal": [
+     527472,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.7075,
+     1.05,
+     1.1,
+     1.015,
+     1.0,
+     0.06
+    ],
+    [
+     -0.1575,
+     0.865,
+     0.135,
+     2.115,
+     0.63,
+     0.27
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 90,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RT255.seat.free.L.carrow.f20260": {
+   "id": "RT255.seat.free.L.carrow.f20260",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     528336,
+     132
+    ],
+    "seat": [
+     531504,
+     72
+    ],
+    "shell": [
+     533232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     0.73,
+     0.25,
+     0.44,
+     0.36,
+     0.34
+    ],
+    [
+     -0.7,
+     1.26,
+     0.5,
+     0.52,
+     0.62,
+     0.08
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.floor.free.C.carrow.01b984": {
+   "id": "RT255.floor.free.C.carrow.01b984",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "floor",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/floor/free/C",
+   "reach": 0.0,
+   "mats": {
+    "floor": [
+     534960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.525,
+     4.2,
+     2.43,
+     0.05,
+     8.4
+    ]
+   ],
+   "hp": 5000,
+   "mass_kg": 420,
+   "breaks": "none",
+   "tolerance": 1.0
+  },
+  "RT255.lining_bay.bay_long.L.carrow.036bda": {
+   "id": "RT255.lining_bay.bay_long.L.carrow.036bda",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     535824,
+     240
+    ],
+    "lamp_ceiling": [
+     541584,
+     36
+    ],
+    "lining": [
+     542448,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     1.675,
+     1.82,
+     0.02,
+     2.25,
+     3.52
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.lining_bay.end.R.carrow.72cac9": {
+   "id": "RT255.lining_bay.end.R.carrow.72cac9",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "end",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/end/R",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     543600,
+     48
+    ],
+    "lamp_ceiling": [
+     544752,
+     36
+    ],
+    "lining": [
+     545616,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     1.675,
+     0.095,
+     0.02,
+     2.25,
+     0.07
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.ceiling_bay.roof.C.carrow.706c27": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.706c27",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     545760,
+     6
+    ],
+    "chrome": [
+     545904,
+     384
+    ],
+    "lamp_ceiling": [
+     555120,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.73,
+     1.63,
+     0.03,
+     1.34
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.end_portal.free.C.carrow.ec121d": {
+   "id": "RT255.end_portal.free.C.carrow.ec121d",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "end_portal",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/end_portal/free/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     555984,
+     180
+    ],
+    "cream": [
+     560304,
+     54
+    ],
+    "rubber": [
+     561600,
+     1158
+    ],
+    "teal": [
+     589392,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -0.9275,
+     1.46,
+     0.08,
+     0.575,
+     2.32,
+     0.03
+    ],
+    [
+     0.9275,
+     1.46,
+     0.08,
+     0.575,
+     2.32,
+     0.03
+    ],
+    [
+     0.0,
+     2.77,
+     0.08,
+     1.28,
+     0.3,
+     0.03
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.end_lining.free.C.carrow.924540": {
+   "id": "RT255.end_lining.free.C.carrow.924540",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "end_lining",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/end_lining/free/C",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     590400,
+     78
+    ],
+    "lining": [
+     592272,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.9275,
+     1.675,
+     -0.015,
+     0.575,
+     2.25,
+     0.03
+    ],
+    [
+     0.9275,
+     1.675,
+     -0.015,
+     0.575,
+     2.25,
+     0.03
+    ]
+   ],
+   "hp": 450,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.reveal.free.C.carrow.6ef9bc": {
+   "id": "RT255.reveal.free.C.carrow.6ef9bc",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/reveal/free/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     592560,
+     18
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RT255.seat.free.L.carrow.16f3f9": {
+   "id": "RT255.seat.free.L.carrow.16f3f9",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "seat",
+   "slot": "free",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/seat/free/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     592992,
+     132
+    ],
+    "seat": [
+     596160,
+     72
+    ],
+    "shell": [
+     597888,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.745,
+     0.73,
+     0.25,
+     0.8,
+     0.36,
+     0.34
+    ],
+    [
+     -0.745,
+     1.26,
+     0.5,
+     0.88,
+     0.62,
+     0.08
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RT255.side_bay.bay_long.L.carrow.5a4940": {
+   "id": "RT255.side_bay.bay_long.L.carrow.5a4940",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_long",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_long/L",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     599616,
+     60
+    ],
+    "chrome": [
+     601056,
+     120
+    ],
+    "cream": [
+     603936,
+     24
+    ],
+    "rubber": [
+     604512,
+     24
+    ],
+    "teal": [
+     605088,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.2625,
+     1.46,
+     1.79,
+     0.025,
+     2.32,
+     3.58
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.side_bay.bay_short.L.carrow.5518f9": {
+   "id": "RT255.side_bay.bay_short.L.carrow.5518f9",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_short",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_short/L",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     608544,
+     60
+    ],
+    "chrome": [
+     609984,
+     120
+    ],
+    "cream": [
+     612864,
+     12
+    ],
+    "rubber": [
+     613152,
+     12
+    ],
+    "teal": [
+     613440,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.2625,
+     1.46,
+     1.105,
+     0.025,
+     2.32,
+     2.21
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.lining_bay.end.L.carrow.a71fe9": {
+   "id": "RT255.lining_bay.end.L.carrow.a71fe9",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "end",
+   "side": "L",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/end/L",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     615456,
+     48
+    ],
+    "lamp_ceiling": [
+     616608,
+     36
+    ],
+    "lining": [
+     617472,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     1.675,
+     0.095,
+     0.02,
+     2.25,
+     0.07
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.side_bay.bay_short.R.carrow.a69e6a": {
+   "id": "RT255.side_bay.bay_short.R.carrow.a69e6a",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_short",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_short/R",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     617616,
+     60
+    ],
+    "chrome": [
+     619056,
+     120
+    ],
+    "cream": [
+     621936,
+     12
+    ],
+    "rubber": [
+     622224,
+     12
+    ],
+    "teal": [
+     622512,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.2625,
+     1.46,
+     1.105,
+     0.025,
+     2.32,
+     2.21
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.side_bay.bay_long.R.carrow.39d1d1": {
+   "id": "RT255.side_bay.bay_long.R.carrow.39d1d1",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "side_bay",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/side_bay/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     624528,
+     60
+    ],
+    "chrome": [
+     625968,
+     120
+    ],
+    "cream": [
+     628848,
+     24
+    ],
+    "rubber": [
+     629424,
+     24
+    ],
+    "teal": [
+     630000,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.2625,
+     1.46,
+     1.79,
+     0.025,
+     2.32,
+     3.58
+    ]
+   ],
+   "hp": 320,
+   "mass_kg": 70,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.lining_bay.bay_long.R.carrow.8902a3": {
+   "id": "RT255.lining_bay.bay_long.R.carrow.8902a3",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "lining_bay",
+   "slot": "bay_long",
+   "side": "R",
+   "style": "carrow",
+   "interface": "RT255/lining_bay/bay_long/R",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     633456,
+     240
+    ],
+    "lamp_ceiling": [
+     639216,
+     36
+    ],
+    "lining": [
+     640080,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     1.675,
+     1.82,
+     0.02,
+     2.25,
+     3.52
+    ]
+   ],
+   "hp": 160,
+   "mass_kg": 23,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.ceiling_bay.roof.C.carrow.b485e2": {
+   "id": "RT255.ceiling_bay.roof.C.carrow.b485e2",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "ceiling_bay",
+   "slot": "roof",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/ceiling_bay/roof/C",
+   "reach": 0.0,
+   "mats": {
+    "ceiling": [
+     641232,
+     6
+    ],
+    "chrome": [
+     641376,
+     384
+    ],
+    "lamp_ceiling": [
+     650592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.815,
+     0.7,
+     1.63,
+     0.03,
+     1.4
+    ]
+   ],
+   "hp": 225,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RT255.end_cap.free.C.carrow.5349f0": {
+   "id": "RT255.end_cap.free.C.carrow.5349f0",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "end_cap",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/end_cap/free/C",
+   "reach": 0.0,
+   "mats": {
+    "bronze": [
+     651456,
+     360
+    ],
+    "chrome": [
+     660096,
+     804
+    ],
+    "cream": [
+     679392,
+     888
+    ],
+    "dest": [
+     700704,
+     36
+    ],
+    "lamp_amber": [
+     701568,
+     288
+    ],
+    "lamp_tail": [
+     708480,
+     516
+    ],
+    "rubber": [
+     720864,
+     186
+    ],
+    "teal": [
+     725328,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6,
+     0.585,
+     2.07,
+     2.4,
+     0.08
+    ],
+    [
+     -1.225,
+     1.6,
+     0.33,
+     0.1,
+     2.6,
+     0.66
+    ],
+    [
+     1.225,
+     1.6,
+     0.33,
+     0.1,
+     2.6,
+     0.66
+    ],
+    [
+     0.0,
+     2.77,
+     0.33,
+     2.55,
+     0.3,
+     0.66
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 180,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RT255.glazing.free.C.carrow.76480f": {
+   "id": "RT255.glazing.free.C.carrow.76480f",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "glazing",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/glazing/free/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     733104,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.0446,
+     1.36,
+     0.95,
+     0.05
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 30,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RT255.cap_lining.free.C.carrow.86fb20": {
+   "id": "RT255.cap_lining.free.C.carrow.86fb20",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "cap_lining",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/cap_lining/free/C",
+   "reach": 0.0,
+   "mats": {
+    "cove": [
+     733248,
+     564
+    ],
+    "lining": [
+     746784,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6,
+     0.555,
+     1.95,
+     2.2,
+     0.04
+    ]
+   ],
+   "hp": 450,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.09
+  },
+  "RT255.reveal.free.C.carrow.d5ff26": {
+   "id": "RT255.reveal.free.C.carrow.d5ff26",
+   "standard": "RT255",
+   "class": "road_tram",
+   "role": "reveal",
+   "slot": "free",
+   "side": "C",
+   "style": "carrow",
+   "interface": "RT255/reveal/free/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     754848,
+     24
+    ]
+   },
+   "boxes": [],
+   "hp": 150,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  }
+ }
+}

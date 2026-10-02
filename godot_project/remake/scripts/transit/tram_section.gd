@@ -45,6 +45,7 @@ var _riders: Array = []
 var _merged: Array = []               # the merged meshes (_merge)
 var _merged_from := {}                # the module meshes drawn by them
 var _lod_on := false
+var assembled := false                # the body is a VehicleBody: a tube frame and its panels
 var _debris: Array = []
 
 
@@ -84,8 +85,18 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 			n.queue_free()
 	Prof.end("sec.board")
 	Prof.begin("sec.body")
-	body = _scene(spec.glb).instantiate()
-	add_child(body)
+	if spec.has("blueprint"):
+		# assembled in the game: the RT255 tube frame and its panels, inside and out, from the component
+		# library (research/vehicles/MODULAR_VEHICLES.md)
+		var vb := VehicleBody.make(VehicleBody.prepare(str(spec.blueprint)))
+		body = vb
+		add_child(body)
+		spec = vb.section_spec(spec)
+		lamp_mats = vb.lamp_mats
+		assembled = true
+	else:
+		body = _scene(spec.glb).instantiate()
+		add_child(body)
 	for tag in ["F", "B"]:
 		wheels[tag] = []
 		for s in ["L", "R"]:
@@ -118,6 +129,7 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 			sh.size = Vector3(b[3], b[4], b[5]).max(Vector3.ONE * 0.02)
 			cs.shape = sh
 			cs.position = Vector3(b[0], b[1], b[2])
+			cs.set_meta("rest", cs.position)
 			hull.add_child(cs)
 			list.append(cs)
 		shapes[mid] = list
@@ -129,15 +141,18 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 	                                      # rebuilt the hull's compound shape at every box -- 14 ms a tram)
 	Prof.end("sec.modules")
 	Prof.begin("sec.materials")
-	_materials()
+	if not assembled:
+		_materials()
 	Prof.end("sec.materials")
 	Prof.begin("sec.doors")
 	_doors()
 	_lights()
-	_cheap()
+	if not assembled:
+		_cheap()
 	Prof.end("sec.doors")
 	Prof.begin("sec.merge")
-	_merge()
+	if not assembled:
+		_merge()
 	Prof.end("sec.merge")
 	Prof.begin("sec.lod")
 	_lod()
@@ -683,7 +698,26 @@ func knock_from(by: Node3D, v_by: Vector3, m_by: float) -> void:
 	if kmh < 8.0:
 		return
 	var amount := pow(kmh - 8.0, 2.0) * (m_by / 1500.0) * 0.6
-	hit_at(global_transform.affine_inverse() * by.global_position, amount)
+	var local := global_transform.affine_inverse() * by.global_position
+	if assembled:
+		# the blow bends the tube frame where it lands; whatever it shakes loose comes off
+		var at := Vector3(clampf(local.x, -1.3, 1.3), clampf(local.y, 0.4, 2.9), clampf(local.z, -float(spec.length_front), float(spec.length_back)))
+		var dir := global_transform.basis.inverse() * rel.normalized()
+		bend(at, dir, amount * 40.0)
+	hit_at(local, amount)
+
+
+func bend(at: Vector3, dir: Vector3, energy: float) -> void:
+	## A blow to the frame (section frame): it dents, the skin with it; the collision boxes follow; parts
+	## strained past their tolerance come off.
+	var vb := body as VehicleBody
+	for mid in vb.impact(at, dir, energy):
+		damage(mid, INF)
+	for mid in shapes:
+		for cs in shapes[mid]:
+			var c := cs as CollisionShape3D
+			if c.has_meta("rest"):
+				c.position = vb.displaced(c.get_meta("rest"))
 
 
 func damage(mid: String, amount: float) -> void:
@@ -695,6 +729,11 @@ func damage(mid: String, amount: float) -> void:
 	var m: Dictionary = spec.modules[mid]
 	for cs in shapes[mid]:
 		(cs as CollisionShape3D).disabled = true
+	if assembled and not meshes.has(mid):
+		var v := (global_transform.origin - _prev.origin) / maxf(get_physics_process_delta_time(), 1e-3)
+		(body as VehicleBody).break_off(mid, "shatter" if str(m.breaks) == "shatter" else str(m.breaks), v)
+		RoadDriver.tally["tram_parts_broken"] = int(RoadDriver.tally.get("tram_parts_broken", 0)) + 1
+		return
 	var mi: Node3D = meshes.get(mid)
 	if mi == null:
 		return

@@ -1,0 +1,202 @@
+{
+ "id": "RT255",
+ "class": "road_tram",
+ "about": "articulated road tram sections on the Steward tram board (2.55 m wide, 8.4 m between portals)",
+ "board": "steward_tram",
+ "outer_half_width": 1.275,
+ "inner_half_width": 1.215,
+ "deck": 0.5,
+ "floor": 0.55,
+ "ceiling": 2.8,
+ "skirt": 0.3,
+ "belt": 1.05,
+ "window": [
+  1.15,
+  2.3
+ ],
+ "cant": 2.62,
+ "crown": 3.02,
+ "half_length": 4.2,
+ "nose_reach": 0.66,
+ "portal": {
+  "half_width": 0.64,
+  "head": 2.62
+ },
+ "door": {
+  "width": 1.24,
+  "head": 2.55
+ },
+ "axles": [
+  2.25,
+  -2.25
+ ],
+ "arch_half": 0.62,
+ "ring": [
+  [
+   "skirt_R",
+   1.245,
+   0.36
+  ],
+  [
+   "sill_R",
+   1.245,
+   0.515
+  ],
+  [
+   "belt_R",
+   1.245,
+   1.05
+  ],
+  [
+   "head_R",
+   1.24,
+   2.38
+  ],
+  [
+   "cant_R",
+   1.16,
+   2.7
+  ],
+  [
+   "roof_R",
+   0.88,
+   2.875
+  ],
+  [
+   "crown",
+   0.0,
+   2.95
+  ],
+  [
+   "roof_L",
+   -0.88,
+   2.875
+  ],
+  [
+   "cant_L",
+   -1.16,
+   2.7
+  ],
+  [
+   "head_L",
+   -1.24,
+   2.38
+  ],
+  [
+   "belt_L",
+   -1.245,
+   1.05
+  ],
+  [
+   "sill_L",
+   -1.245,
+   0.515
+  ],
+  [
+   "skirt_L",
+   -1.245,
+   0.36
+  ],
+  [
+   "floor_C",
+   0.0,
+   0.515
+  ]
+ ],
+ "exterior": {
+  "skin_x": 1.275,
+  "shoulder": [
+   [
+    2.3,
+    1.275
+   ],
+   [
+    2.48,
+    1.263
+   ],
+   [
+    2.62,
+    1.225
+   ]
+  ],
+  "sill_pan_x": 1.1
+ },
+ "interior": {
+  "lining_x": 1.215,
+  "cove": {
+   "from_z": 2.3,
+   "rx": 0.4,
+   "rz": 0.5
+  },
+  "ceiling": 2.8,
+  "end_gap": 0.06
+ },
+ "end_inset": 0.03,
+ "tubes": {
+  "main_d": 0.03,
+  "brace_d": 0.024,
+  "material": "frame_tube",
+  "exposed_inside": [],
+  "exposed_outside": []
+ },
+ "bolted": [
+  "sill_R",
+  "sill_L",
+  "floor_C"
+ ],
+ "stringers": [
+  "skirt_R",
+  "sill_R",
+  "belt_R",
+  "head_R",
+  "cant_R",
+  "roof_R",
+  "crown",
+  "roof_L",
+  "cant_L",
+  "head_L",
+  "belt_L",
+  "sill_L",
+  "skirt_L",
+  "floor_C"
+ ],
+ "side_slots": {
+  "end": 0.13,
+  "door": 1.24,
+  "bay_short": 2.21,
+  "bay_long": 3.58
+ },
+ "roof_slot": 1.4,
+ "frame": {
+  "yield_strain": 0.012,
+  "plastic": 0.85,
+  "stiffness": 1.0,
+  "dent_energy": 4000.0,
+  "max_dent": 0.55
+ },
+ "tolerance": {
+  "glazing": 0.012,
+  "door_glass": 0.012,
+  "door_leaf": 0.05,
+  "side_bay": 0.06,
+  "door_head": 0.06,
+  "roof_bay": 0.07,
+  "roof_fairing": 0.05,
+  "lining_bay": 0.09,
+  "door_head_lining": 0.09,
+  "ceiling_bay": 0.1,
+  "end_lining": 0.09,
+  "cap_lining": 0.09,
+  "wheel_well": 0.15,
+  "reveal": 0.08,
+  "end_portal": 0.08,
+  "end_cap": 0.06,
+  "seat": 0.15,
+  "stanchion": 0.1,
+  "fittings": 0.1,
+  "podium": 0.2,
+  "floor": 1.0,
+  "cab": 0.12,
+  "ramp": 0.08
+ }
+}

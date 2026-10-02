@@ -29,6 +29,10 @@ func _ready() -> void:
 		print("TransitSystem: %s (%s) %.1f km, %d stops, %d vehicles, a loop every %.0f min" % [l.name, l.kind, float(l.length) / 1000.0,
 			(l.stops as Array).size(), int(l.count), float(l.period) / 60.0])
 	_pave_loops()
+	for k in ["front", "mid", "rear"]:                # (the sections' bodies: planned while the world loads)
+		var sp: Dictionary = TramSection.load_spec().sections.get(k, {})
+		if sp.has("blueprint"):
+			VehicleBody.warm(str(sp.blueprint))
 	crowds = StopCrowds.new()
 	crowds.transit = self
 	crowds.player = player
