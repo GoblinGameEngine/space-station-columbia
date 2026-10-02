@@ -1,0 +1,1162 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SD180",
+ "class": "sedan",
+ "style": "civic_police",
+ "pack": "res://remake/vehicles/components/SD180/civic_police.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.102,
+    0.1098,
+    0.1255
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9098
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SD180.trim.bumper_front.C.civic_police.dc8af1": {
+   "id": "SD180.trim.bumper_front.C.civic_police.dc8af1",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "civic_police",
+   "interface": "SD180/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     108
+    ],
+    "rubber": [
+     2592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.7928,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.bumper_rear.C.civic_police.7b0256": {
+   "id": "SD180.trim.bumper_rear.C.civic_police.7b0256",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "civic_police",
+   "interface": "SD180/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     3456,
+     108
+    ],
+    "rubber": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.7928,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.mirror.R.civic_police.21db53": {
+   "id": "SD180.trim.mirror.R.civic_police.21db53",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     6912,
+     96
+    ],
+    "glass_dark": [
+     9216,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0063,
+     1.3633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.mirror.L.civic_police.301098": {
+   "id": "SD180.trim.mirror.L.civic_police.301098",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     10080,
+     96
+    ],
+    "glass_dark": [
+     12384,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0059,
+     1.3635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_fender.R.civic_police.2f62f3": {
+   "id": "SD180.trim.belt_fender.R.civic_police.2f62f3",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13248,
+     456
+    ]
+   },
+   "boxes": [
+    [
+     0.9255,
+     1.128,
+     0.6369,
+     0.02,
+     0.2755,
+     1.2738
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_post_0.R.civic_police.2f8616": {
+   "id": "SD180.trim.belt_post_0.R.civic_police.2f8616",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     24192,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.926,
+     1.258,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_quarter.R.civic_police.c35de0": {
+   "id": "SD180.trim.belt_quarter.R.civic_police.c35de0",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26496,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     0.9224,
+     1.2219,
+     0.6864,
+     0.0227,
+     0.0877,
+     1.3728
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_fender.L.civic_police.789467": {
+   "id": "SD180.trim.belt_fender.L.civic_police.789467",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     38304,
+     456
+    ]
+   },
+   "boxes": [
+    [
+     -0.9255,
+     1.128,
+     0.6369,
+     0.02,
+     0.2755,
+     1.2738
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_post_0.L.civic_police.24461a": {
+   "id": "SD180.trim.belt_post_0.L.civic_police.24461a",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/trim/belt_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     49248,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.926,
+     1.258,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_quarter.L.civic_police.5e638f": {
+   "id": "SD180.trim.belt_quarter.L.civic_police.5e638f",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/trim/belt_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     51552,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     -0.9224,
+     1.2219,
+     0.6864,
+     0.0227,
+     0.0876,
+     1.3727
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.leaf_trim.belt_door_F.R.civic_police.951fa0": {
+   "id": "SD180.leaf_trim.belt_door_F.R.civic_police.951fa0",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     63360,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     0.926,
+     1.258,
+     0.457,
+     0.02,
+     0.02,
+     0.914
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.belt_door_B.R.civic_police.79baae": {
+   "id": "SD180.leaf_trim.belt_door_B.R.civic_police.79baae",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/belt_door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     71712,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.926,
+     1.258,
+     0.407,
+     0.02,
+     0.02,
+     0.814
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.belt_door_F.L.civic_police.f1a3da": {
+   "id": "SD180.leaf_trim.belt_door_F.L.civic_police.f1a3da",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     79200,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -0.926,
+     1.258,
+     0.457,
+     0.02,
+     0.02,
+     0.914
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.belt_door_B.L.civic_police.5b5260": {
+   "id": "SD180.leaf_trim.belt_door_B.L.civic_police.5b5260",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/belt_door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     87552,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -0.926,
+     1.258,
+     0.407,
+     0.02,
+     0.02,
+     0.814
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.trim.livery_fender.R.civic_police.f63838": {
+   "id": "SD180.trim.livery_fender.R.civic_police.f63838",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     95040,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.924,
+     0.92,
+     0.59,
+     0.02,
+     0.6,
+     1.18
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.livery_quarter.R.civic_police.b666fd": {
+   "id": "SD180.trim.livery_quarter.R.civic_police.b666fd",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/trim/livery_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     100224,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.9234,
+     0.92,
+     0.64,
+     0.02,
+     0.6,
+     1.28
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.leaf_trim.livery_door_F.R.civic_police.8808ff": {
+   "id": "SD180.leaf_trim.livery_door_F.R.civic_police.8808ff",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/livery_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     105984,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.924,
+     0.93,
+     0.41,
+     0.02,
+     0.58,
+     0.82
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.livery_door_B.R.civic_police.a6eb1b": {
+   "id": "SD180.leaf_trim.livery_door_B.R.civic_police.a6eb1b",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "livery_door_B",
+   "side": "R",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/livery_door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     109440,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.924,
+     0.93,
+     0.36,
+     0.02,
+     0.58,
+     0.72
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.trim.livery_fender.L.civic_police.d3dd47": {
+   "id": "SD180.trim.livery_fender.L.civic_police.d3dd47",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     112896,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -0.924,
+     0.92,
+     0.59,
+     0.02,
+     0.6,
+     1.18
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.livery_quarter.L.civic_police.499100": {
+   "id": "SD180.trim.livery_quarter.L.civic_police.499100",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/trim/livery_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     118080,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -0.9234,
+     0.92,
+     0.64,
+     0.02,
+     0.6,
+     1.28
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.leaf_trim.livery_door_F.L.civic_police.5b7cde": {
+   "id": "SD180.leaf_trim.livery_door_F.L.civic_police.5b7cde",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     123840,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.924,
+     0.93,
+     0.41,
+     0.02,
+     0.58,
+     0.82
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.livery_door_B.L.civic_police.aa95e1": {
+   "id": "SD180.leaf_trim.livery_door_B.L.civic_police.aa95e1",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "livery_door_B",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/leaf_trim/livery_door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     127296,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.924,
+     0.93,
+     0.36,
+     0.02,
+     0.58,
+     0.72
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.equipment.roof_bar.C.civic_police.1daec4": {
+   "id": "SD180.equipment.roof_bar.C.civic_police.1daec4",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "equipment",
+   "slot": "roof_bar",
+   "side": "C",
+   "style": "civic_police",
+   "interface": "SD180/equipment/roof_bar/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     130752,
+     108
+    ],
+    "lamp_blue": [
+     133344,
+     108
+    ],
+    "lamp_red": [
+     135936,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.095,
+     0.13,
+     1.28,
+     0.11,
+     0.26
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SD180.equipment.push_bar.C.civic_police.5f18f8": {
+   "id": "SD180.equipment.push_bar.C.civic_police.5f18f8",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "equipment",
+   "slot": "push_bar",
+   "side": "C",
+   "style": "civic_police",
+   "interface": "SD180/equipment/push_bar/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     138528,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6655,
+     0.0504,
+     0.76,
+     0.569,
+     0.1009
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SD180.equipment.spotlight.L.civic_police.ed807b": {
+   "id": "SD180.equipment.spotlight.L.civic_police.ed807b",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "equipment",
+   "slot": "spotlight",
+   "side": "L",
+   "style": "civic_police",
+   "interface": "SD180/equipment/spotlight/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     148896,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.98,
+     1.39,
+     0.065,
+     0.14,
+     0.1365,
+     0.13
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

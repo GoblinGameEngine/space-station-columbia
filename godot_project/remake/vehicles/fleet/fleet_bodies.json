@@ -1,0 +1,83 @@
+{
+ "_about": "Fleet bodies: road vehicle type -> its blueprint, board and package (remake/blender/fleet/build.py)",
+ "types": {
+  "sedan": {
+   "blueprint": "res://remake/vehicles/fleet/sedan.blueprint.json",
+   "standard": "SD180",
+   "style": "carrow_saloon",
+   "board": "carrow_k28",
+   "phys": "sedan",
+   "half_w": 0.92,
+   "height": 2.04,
+   "nose": 2.36,
+   "tail": -2.4,
+   "floor": 0.55,
+   "driver": "L"
+  },
+  "luxury_sedan": {
+   "blueprint": "res://remake/vehicles/fleet/luxury_sedan.blueprint.json",
+   "standard": "SD180",
+   "style": "carrow_regent",
+   "board": "carrow_k28",
+   "phys": "luxury_sedan",
+   "half_w": 0.92,
+   "height": 2.04,
+   "nose": 2.36,
+   "tail": -2.4,
+   "floor": 0.55,
+   "driver": "L"
+  },
+  "company_car": {
+   "blueprint": "res://remake/vehicles/fleet/company_car.blueprint.json",
+   "standard": "SD180",
+   "style": "carrow_fleet",
+   "board": "carrow_k28",
+   "phys": "company_car",
+   "half_w": 0.92,
+   "height": 2.04,
+   "nose": 2.36,
+   "tail": -2.4,
+   "floor": 0.55,
+   "driver": "L"
+  },
+  "police_car": {
+   "blueprint": "res://remake/vehicles/fleet/police_car.blueprint.json",
+   "standard": "SD180",
+   "style": "civic_police",
+   "board": "carrow_k28",
+   "phys": "police_car",
+   "half_w": 0.92,
+   "height": 2.04,
+   "nose": 2.36,
+   "tail": -2.4,
+   "floor": 0.55,
+   "driver": "L"
+  },
+  "taxi": {
+   "blueprint": "res://remake/vehicles/fleet/taxi.blueprint.json",
+   "standard": "SD180",
+   "style": "civic_cab",
+   "board": "carrow_k28",
+   "phys": "taxi",
+   "half_w": 0.92,
+   "height": 2.04,
+   "nose": 2.36,
+   "tail": -2.4,
+   "floor": 0.55,
+   "driver": "L"
+  },
+  "fire_chief_car": {
+   "blueprint": "res://remake/vehicles/fleet/fire_chief_car.blueprint.json",
+   "standard": "SD180",
+   "style": "civic_fire_chief",
+   "board": "carrow_k28",
+   "phys": "fire_chief_car",
+   "half_w": 0.92,
+   "height": 2.04,
+   "nose": 2.36,
+   "tail": -2.4,
+   "floor": 0.55,
+   "driver": "L"
+  }
+ }
+}

@@ -20,10 +20,10 @@ import sys
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "godot_project")
-CLOSERS = {"glazing", "door_glass", "door_leaf", "reveal", "hatch", "hatch_glass", "frunk_lid"}   # (the reveals join the two shells)
+CLOSERS = {"glazing", "door_glass", "door_leaf", "reveal", "hatch", "hatch_glass", "frunk_lid", "trunk_lid", "leaf_trim"}   # (the reveals join the two shells)
 INTERIOR = {"lining_bay", "door_head_lining", "ceiling_bay", "floor", "podium", "end_lining", "cap_lining"}
-EXTERIOR = {"side_bay", "door_head", "roof_bay", "end_portal", "end_cap", "wheel_well", "underpan", "trim", "frunk_tub"}
-FITTINGS = {"seat", "stanchion", "fittings", "ramp", "roof_fairing", "dash", "lamp", "cab"}
+EXTERIOR = {"side_bay", "door_head", "roof_bay", "end_portal", "end_cap", "wheel_well", "underpan", "trim", "frunk_tub", "cargo_wall", "cargo_floor"}
+FITTINGS = {"seat", "stanchion", "fittings", "ramp", "roof_fairing", "dash", "lamp", "cab", "equipment", "cargo_lining"}
 
 
 def portals(bp):
@@ -330,7 +330,7 @@ if __name__ == "__main__" and os.environ.get("TUBES"):
 
 
 # -- nothing across an opening (CROSS=1): trim, rails, mouldings must stop at arches, doors and windows ---------
-CROSS_OK = {"glazing", "door_glass", "door_leaf", "reveal", "wheel_well", "ramp", "hatch", "hatch_glass", "frunk_lid"}
+CROSS_OK = {"glazing", "door_glass", "door_leaf", "reveal", "wheel_well", "ramp", "hatch", "hatch_glass", "frunk_lid", "trunk_lid", "leaf_trim"}
 
 
 def crossing_test(path):

@@ -220,7 +220,9 @@ BOARDS = [
     steward("steward_heavy", "heavy", 10, [1, 6, 9], [0, 2]),
     steward("steward_tram", "heavy", 8, [1, 7], [0, 1]),        # a tram section's board: every wheel steers
     harrow("harrow_h27", 2.70),
+    harrow("harrow_h31", 3.10),        # the long ladder: full-size SUVs and pickups (2026-10-02)
     carrow("carrow_k28", 2.80),
+    carrow("carrow_k36", 3.60),        # the long keel: limousines and hearses (2026-10-02)
     solana("solana_l25", 2.50),
 ]
 

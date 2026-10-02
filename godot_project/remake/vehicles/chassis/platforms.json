@@ -2252,6 +2252,736 @@
    "mass_kg": 777.8
   },
   {
+   "id": "harrow_h31",
+   "name": "Harrow Ladder H-31",
+   "deck_width_m": 1.3,
+   "mount_x_m": 0.6,
+   "maker": "harrow_motor_works",
+   "family": "harrow",
+   "board": "harrow_ladder",
+   "cls": "standard",
+   "length_m": 4.65,
+   "width_m": 1.8,
+   "track_m": 1.55,
+   "wheel_r": 0.32,
+   "wheelbase_m": 3.1,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.55,
+     "steer": true,
+     "driven": false
+    },
+    {
+     "tag": "B",
+     "y": -1.55,
+     "steer": false,
+     "driven": true
+    }
+   ],
+   "drive": "rear (one motor, a differential, a De Dion tube)",
+   "steering": "rack and pinion, mechanical",
+   "pack_kwh": 30.0,
+   "power_kw": 60.0,
+   "modules": [
+    {
+     "id": "rail_L",
+     "kind": "harrow_rail",
+     "pos": [
+      -0.52,
+      0,
+      0.36
+     ],
+     "size": [
+      0.075,
+      4.550000000000001,
+      0.15
+     ],
+     "mass_kg": 67.4,
+     "hp": 900,
+     "attach": null,
+     "tube": "150 x 75 x 4 mm boxed steel, rolled and seam-welded"
+    },
+    {
+     "id": "rail_R",
+     "kind": "harrow_rail",
+     "pos": [
+      0.52,
+      0,
+      0.36
+     ],
+     "size": [
+      0.075,
+      4.550000000000001,
+      0.15
+     ],
+     "mass_kg": 67.4,
+     "hp": 900,
+     "attach": "cross_0",
+     "tube": "150 x 75 x 4 mm boxed steel, rolled and seam-welded"
+    },
+    {
+     "id": "cross_0",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      2.1,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_1",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      1.05,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_2",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      0.0,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_3",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      -1.05,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "cross_4",
+     "kind": "harrow_cross",
+     "pos": [
+      0,
+      -2.1,
+      0.36
+     ],
+     "size": [
+      1.04,
+      0.06,
+      0.1
+     ],
+     "mass_kg": 9.0,
+     "hp": 500,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_0L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      1.85,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_0R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      1.85,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_1L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      1.11,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_1R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      1.11,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_2L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      0.37,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_2R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      0.37,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_3L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      -0.37,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_3R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      -0.37,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_4L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      -1.11,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_4R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      -1.11,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "outrigger_5L",
+     "kind": "harrow_outrigger",
+     "pos": [
+      -0.5800000000000001,
+      -1.85,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_L"
+    },
+    {
+     "id": "outrigger_5R",
+     "kind": "harrow_outrigger",
+     "pos": [
+      0.5800000000000001,
+      -1.85,
+      0.44
+     ],
+     "size": [
+      0.14,
+      0.05,
+      0.1
+     ],
+     "mass_kg": 2.5,
+     "hp": 200,
+     "attach": "rail_R"
+    },
+    {
+     "id": "mount_rail_L",
+     "kind": "mount_rail",
+     "pos": [
+      -0.6,
+      0,
+      0.48
+     ],
+     "size": [
+      0.06,
+      4.3500000000000005,
+      0.04
+     ],
+     "mass_kg": 5.2,
+     "hp": 300,
+     "attach": null,
+     "holes_every_m": 0.75
+    },
+    {
+     "id": "mount_rail_R",
+     "kind": "mount_rail",
+     "pos": [
+      0.6,
+      0,
+      0.48
+     ],
+     "size": [
+      0.06,
+      4.3500000000000005,
+      0.04
+     ],
+     "mass_kg": 5.2,
+     "hp": 300,
+     "attach": null,
+     "holes_every_m": 0.75
+    },
+    {
+     "id": "crate_0",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      1.0,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "crate_1",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      0.5,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "crate_2",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      0.0,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "crate_3",
+     "kind": "harrow_crate",
+     "pos": [
+      0,
+      -0.5,
+      0.33
+     ],
+     "size": [
+      0.92,
+      0.4,
+      0.24
+     ],
+     "mass_kg": 62.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "kwh": 7.5,
+     "cells": "LFP prismatic, steel cans, hand-built"
+    },
+    {
+     "id": "motor",
+     "kind": "harrow_motor",
+     "pos": [
+      0,
+      -0.93,
+      0.33
+     ],
+     "size": [
+      0.34,
+      0.42,
+      0.34
+     ],
+     "mass_kg": 85.0,
+     "hp": 500,
+     "attach": "cross_3",
+     "motor": "wound-rotor induction, 60 kW, 240 Nm, single reduction 9:1",
+     "kw": 60.0,
+     "nm": 240.0
+    },
+    {
+     "id": "diff",
+     "kind": "harrow_diff",
+     "pos": [
+      0,
+      -1.37,
+      0.32
+     ],
+     "size": [
+      0.36,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 32.0,
+     "hp": 450,
+     "attach": "cross_4"
+    },
+    {
+     "id": "dedion",
+     "kind": "harrow_dedion",
+     "pos": [
+      0,
+      -1.63,
+      0.32
+     ],
+     "size": [
+      1.4000000000000001,
+      0.1,
+      0.1
+     ],
+     "mass_kg": 23.0,
+     "hp": 500,
+     "attach": "leaf_L"
+    },
+    {
+     "id": "controller",
+     "kind": "controller",
+     "pos": [
+      0,
+      1.23,
+      0.4
+     ],
+     "size": [
+      0.36,
+      0.22,
+      0.14
+     ],
+     "mass_kg": 12.0,
+     "hp": 120,
+     "attach": "cross_1",
+     "brains": "two Thirty-Twos; contactors; a fan",
+     "heat": "finned steel box"
+    },
+    {
+     "id": "leaf_L",
+     "kind": "harrow_leaf",
+     "pos": [
+      -0.52,
+      -1.55,
+      0.27
+     ],
+     "size": [
+      0.07,
+      1.2,
+      0.12
+     ],
+     "mass_kg": 18.0,
+     "hp": 400,
+     "attach": "rail_L",
+     "spring": "semi-elliptic, 7 leaves"
+    },
+    {
+     "id": "corner_FL",
+     "kind": "harrow_front_corner",
+     "pos": [
+      -0.575,
+      1.55,
+      0.32
+     ],
+     "size": [
+      0.42,
+      0.36,
+      0.4
+     ],
+     "mass_kg": 22.0,
+     "hp": 350,
+     "attach": "rail_L",
+     "suspension": "double wishbones, coil spring, lever damper; drum brake"
+    },
+    {
+     "id": "corner_BL",
+     "kind": "harrow_hub",
+     "pos": [
+      -0.655,
+      -1.55,
+      0.32
+     ],
+     "size": [
+      0.16,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 9.0,
+     "hp": 300,
+     "attach": "dedion",
+     "suspension": "De Dion tube, drum brake"
+    },
+    {
+     "id": "leaf_R",
+     "kind": "harrow_leaf",
+     "pos": [
+      0.52,
+      -1.55,
+      0.27
+     ],
+     "size": [
+      0.07,
+      1.2,
+      0.12
+     ],
+     "mass_kg": 18.0,
+     "hp": 400,
+     "attach": "rail_R",
+     "spring": "semi-elliptic, 7 leaves"
+    },
+    {
+     "id": "corner_FR",
+     "kind": "harrow_front_corner",
+     "pos": [
+      0.575,
+      1.55,
+      0.32
+     ],
+     "size": [
+      0.42,
+      0.36,
+      0.4
+     ],
+     "mass_kg": 22.0,
+     "hp": 350,
+     "attach": "rail_R",
+     "suspension": "double wishbones, coil spring, lever damper; drum brake"
+    },
+    {
+     "id": "corner_BR",
+     "kind": "harrow_hub",
+     "pos": [
+      0.655,
+      -1.55,
+      0.32
+     ],
+     "size": [
+      0.16,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 9.0,
+     "hp": 300,
+     "attach": "dedion",
+     "suspension": "De Dion tube, drum brake"
+    },
+    {
+     "id": "wheel_FL",
+     "kind": "wheel",
+     "pos": [
+      -0.775,
+      1.55,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_FL",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_FR",
+     "kind": "wheel",
+     "pos": [
+      0.775,
+      1.55,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_FR",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BL",
+     "kind": "wheel",
+     "pos": [
+      -0.775,
+      -1.55,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_BL",
+     "steer": false,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BR",
+     "kind": "wheel",
+     "pos": [
+      0.775,
+      -1.55,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 18.0,
+     "hp": 250,
+     "attach": "corner_BR",
+     "steer": false,
+     "wheel_r": 0.32
+    }
+   ],
+   "mass_kg": 790.2
+  },
+  {
    "id": "carrow_k28",
    "name": "Carrow Keel K-28",
    "deck_width_m": 1.3,
@@ -2709,6 +3439,480 @@
      "pos": [
       0.78,
       -1.4,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_BR",
+     "steer": false,
+     "wheel_r": 0.32
+    }
+   ],
+   "mass_kg": 692.0
+  },
+  {
+   "id": "carrow_k36",
+   "name": "Carrow Keel K-36",
+   "deck_width_m": 1.3,
+   "mount_x_m": 0.6,
+   "maker": "carrow_coach_company",
+   "family": "carrow",
+   "board": "carrow_keel",
+   "cls": "standard",
+   "length_m": 5.2,
+   "width_m": 1.8,
+   "track_m": 1.56,
+   "wheel_r": 0.32,
+   "wheelbase_m": 3.6,
+   "axles": [
+    {
+     "tag": "F",
+     "y": 1.8,
+     "steer": true,
+     "driven": true
+    },
+    {
+     "tag": "B",
+     "y": -1.8,
+     "steer": false,
+     "driven": true
+    }
+   ],
+   "drive": "both axles (a motor at each, inboard, with half-shafts)",
+   "steering": "rack and pinion, mechanical",
+   "pack_kwh": 36.0,
+   "power_kw": 90.0,
+   "modules": [
+    {
+     "id": "keel",
+     "kind": "carrow_keel",
+     "pos": [
+      0,
+      0,
+      0.33
+     ],
+     "size": [
+      0.34,
+      3.1,
+      0.34
+     ],
+     "mass_kg": 350,
+     "hp": 1400,
+     "attach": null,
+     "tube": "340 mm rolled steel tube, 3 mm (aluminium since VY 431)",
+     "kwh": 36.0,
+     "cells": "LFP cartridges, a string of 12, loaded from the hatch at the back"
+    },
+    {
+     "id": "keel_hatch",
+     "kind": "carrow_hatch",
+     "pos": [
+      0,
+      -1.59,
+      0.33
+     ],
+     "size": [
+      0.36,
+      0.08,
+      0.36
+     ],
+     "mass_kg": 4.0,
+     "hp": 150,
+     "attach": "keel"
+    },
+    {
+     "id": "gunwale",
+     "kind": "carrow_gunwale",
+     "pos": [
+      0,
+      0,
+      0.47
+     ],
+     "size": [
+      1.2,
+      5.08,
+      0.06
+     ],
+     "mass_kg": 30.0,
+     "hp": 700,
+     "attach": "keel",
+     "tube": "60 mm round steel tube, bent in one piece; it is the Pattern's mount rail"
+    },
+    {
+     "id": "rib_0L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      1.4,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_0R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      1.4,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_1L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      0.467,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_1R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      0.467,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_2L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      -0.467,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_2R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      -0.467,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_3L",
+     "kind": "carrow_rib",
+     "pos": [
+      -0.38,
+      -1.4,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "rib_3R",
+     "kind": "carrow_rib",
+     "pos": [
+      0.38,
+      -1.4,
+      0.42
+     ],
+     "size": [
+      0.44,
+      0.05,
+      0.16
+     ],
+     "mass_kg": 3.0,
+     "hp": 220,
+     "attach": "keel"
+    },
+    {
+     "id": "bulkhead_F",
+     "kind": "carrow_bulkhead",
+     "pos": [
+      0,
+      2.1,
+      0.42
+     ],
+     "size": [
+      1.2,
+      0.06,
+      0.2
+     ],
+     "mass_kg": 7.0,
+     "hp": 500,
+     "attach": "keel",
+     "note": "a cross tube from gunwale to gunwale, tied back to the keel's end: carries the motor and the suspension"
+    },
+    {
+     "id": "motor_F",
+     "kind": "carrow_motor",
+     "pos": [
+      0,
+      1.8,
+      0.34
+     ],
+     "size": [
+      0.3,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 55.0,
+     "hp": 450,
+     "attach": "bulkhead_F",
+     "motor": "induction, 45 kW, 190 Nm, 8.5:1 with a differential",
+     "kw": 45.0,
+     "nm": 190.0
+    },
+    {
+     "id": "corner_FL",
+     "kind": "carrow_corner",
+     "pos": [
+      -0.56,
+      1.8,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_F",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "corner_FR",
+     "kind": "carrow_corner",
+     "pos": [
+      0.56,
+      1.8,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_F",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "bulkhead_B",
+     "kind": "carrow_bulkhead",
+     "pos": [
+      0,
+      -2.1,
+      0.42
+     ],
+     "size": [
+      1.2,
+      0.06,
+      0.2
+     ],
+     "mass_kg": 7.0,
+     "hp": 500,
+     "attach": "keel",
+     "note": "a cross tube from gunwale to gunwale, tied back to the keel's end: carries the motor and the suspension"
+    },
+    {
+     "id": "motor_B",
+     "kind": "carrow_motor",
+     "pos": [
+      0,
+      -1.8,
+      0.34
+     ],
+     "size": [
+      0.3,
+      0.3,
+      0.3
+     ],
+     "mass_kg": 55.0,
+     "hp": 450,
+     "attach": "bulkhead_B",
+     "motor": "induction, 45 kW, 190 Nm, 8.5:1 with a differential",
+     "kw": 45.0,
+     "nm": 190.0
+    },
+    {
+     "id": "corner_BL",
+     "kind": "carrow_corner",
+     "pos": [
+      -0.56,
+      -1.8,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_B",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "corner_BR",
+     "kind": "carrow_corner",
+     "pos": [
+      0.56,
+      -1.8,
+      0.32
+     ],
+     "size": [
+      0.46,
+      0.36,
+      0.44
+     ],
+     "mass_kg": 20.0,
+     "hp": 330,
+     "attach": "bulkhead_B",
+     "suspension": "double wishbones, coil-over damper; disc brake (front), drum (rear)",
+     "halfshaft": true
+    },
+    {
+     "id": "controller",
+     "kind": "controller",
+     "pos": [
+      0,
+      1.2,
+      0.53
+     ],
+     "size": [
+      0.32,
+      0.24,
+      0.1
+     ],
+     "mass_kg": 12.0,
+     "hp": 120,
+     "attach": "keel",
+     "brains": "three Thirty-Twos: one per motor, one for the pack",
+     "heat": "on the keel, cooled by it"
+    },
+    {
+     "id": "wheel_FL",
+     "kind": "wheel",
+     "pos": [
+      -0.78,
+      1.8,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_FL",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_FR",
+     "kind": "wheel",
+     "pos": [
+      0.78,
+      1.8,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_FR",
+     "steer": true,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BL",
+     "kind": "wheel",
+     "pos": [
+      -0.78,
+      -1.8,
+      0.32
+     ],
+     "size": [
+      0.2,
+      0.64,
+      0.64
+     ],
+     "mass_kg": 17.0,
+     "hp": 250,
+     "attach": "corner_BL",
+     "steer": false,
+     "wheel_r": 0.32
+    },
+    {
+     "id": "wheel_BR",
+     "kind": "wheel",
+     "pos": [
+      0.78,
+      -1.8,
       0.32
      ],
      "size": [

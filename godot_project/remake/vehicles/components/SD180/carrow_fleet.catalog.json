@@ -1,0 +1,813 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SD180",
+ "class": "sedan",
+ "style": "carrow_fleet",
+ "pack": "res://remake/vehicles/components/SD180/carrow_fleet.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.5882,
+    0.5961,
+    0.6118
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.5882,
+    0.5961,
+    0.6118
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SD180.trim.bumper_front.C.carrow_fleet.9946cc": {
+   "id": "SD180.trim.bumper_front.C.carrow_fleet.9946cc",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     108
+    ],
+    "rubber": [
+     2592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.7928,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.bumper_rear.C.carrow_fleet.ca85de": {
+   "id": "SD180.trim.bumper_rear.C.carrow_fleet.ca85de",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     3456,
+     108
+    ],
+    "rubber": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.7928,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.mirror.R.carrow_fleet.94b7fc": {
+   "id": "SD180.trim.mirror.R.carrow_fleet.94b7fc",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     6912,
+     96
+    ],
+    "glass_dark": [
+     9216,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0063,
+     1.3633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.mirror.L.carrow_fleet.e1bfa8": {
+   "id": "SD180.trim.mirror.L.carrow_fleet.e1bfa8",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     10080,
+     96
+    ],
+    "glass_dark": [
+     12384,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0059,
+     1.3635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_fender.R.carrow_fleet.13efe0": {
+   "id": "SD180.trim.belt_fender.R.carrow_fleet.13efe0",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13248,
+     456
+    ]
+   },
+   "boxes": [
+    [
+     0.9255,
+     1.128,
+     0.6369,
+     0.02,
+     0.2755,
+     1.2738
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_post_0.R.carrow_fleet.1b096d": {
+   "id": "SD180.trim.belt_post_0.R.carrow_fleet.1b096d",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     24192,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.926,
+     1.258,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_quarter.R.carrow_fleet.b637b6": {
+   "id": "SD180.trim.belt_quarter.R.carrow_fleet.b637b6",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26496,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     0.9224,
+     1.2219,
+     0.6864,
+     0.0227,
+     0.0877,
+     1.3728
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_fender.L.carrow_fleet.60811e": {
+   "id": "SD180.trim.belt_fender.L.carrow_fleet.60811e",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     38304,
+     456
+    ]
+   },
+   "boxes": [
+    [
+     -0.9255,
+     1.128,
+     0.6369,
+     0.02,
+     0.2755,
+     1.2738
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_post_0.L.carrow_fleet.994839": {
+   "id": "SD180.trim.belt_post_0.L.carrow_fleet.994839",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "L",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/belt_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     49248,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.926,
+     1.258,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.trim.belt_quarter.L.carrow_fleet.603fe3": {
+   "id": "SD180.trim.belt_quarter.L.carrow_fleet.603fe3",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "L",
+   "style": "carrow_fleet",
+   "interface": "SD180/trim/belt_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     51552,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     -0.9224,
+     1.2219,
+     0.6864,
+     0.0227,
+     0.0876,
+     1.3727
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SD180.leaf_trim.belt_door_F.R.carrow_fleet.7b106f": {
+   "id": "SD180.leaf_trim.belt_door_F.R.carrow_fleet.7b106f",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "carrow_fleet",
+   "interface": "SD180/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     63360,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     0.926,
+     1.258,
+     0.457,
+     0.02,
+     0.02,
+     0.914
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.belt_door_B.R.carrow_fleet.a014a5": {
+   "id": "SD180.leaf_trim.belt_door_B.R.carrow_fleet.a014a5",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "R",
+   "style": "carrow_fleet",
+   "interface": "SD180/leaf_trim/belt_door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     71712,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.926,
+     1.258,
+     0.407,
+     0.02,
+     0.02,
+     0.814
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.belt_door_F.L.carrow_fleet.fe6dc5": {
+   "id": "SD180.leaf_trim.belt_door_F.L.carrow_fleet.fe6dc5",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "carrow_fleet",
+   "interface": "SD180/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     79200,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -0.926,
+     1.258,
+     0.457,
+     0.02,
+     0.02,
+     0.914
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SD180.leaf_trim.belt_door_B.L.carrow_fleet.2dbc4d": {
+   "id": "SD180.leaf_trim.belt_door_B.L.carrow_fleet.2dbc4d",
+   "standard": "SD180",
+   "class": "sedan",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "L",
+   "style": "carrow_fleet",
+   "interface": "SD180/leaf_trim/belt_door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     87552,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -0.926,
+     1.258,
+     0.407,
+     0.02,
+     0.02,
+     0.814
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  }
+ }
+}
