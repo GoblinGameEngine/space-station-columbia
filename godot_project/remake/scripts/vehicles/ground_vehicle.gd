@@ -42,6 +42,7 @@ const HULL_LAYER := 1 << 8           # the swept hull's own layer: vehicles see 
 const WADE := 0.45
 const STEP := 0.4                    # (old kinematic drive) the most a wheel climbs in one go
 const GRIP := 1.15                   # play: a little more grip than real tyres
+const HOLD := 40.0                   # 1/s: a held wheel's grip at a crawl (4 let a car creep down a 2 % camber)
 const RAY_UP := 0.45                 # the suspension ray starts this far above the hub
 const PED_LAYER := 1 << 9            # people's bodies (vehicles collide with them)
 static var _specs := {}
@@ -218,7 +219,10 @@ func _physics_process(delta: float) -> void:
 		for p in get_tree().get_nodes_in_group("player"):
 			if (p as Node3D).global_position.distance_squared_to(global_position) < 900.0:
 				near = true
-		if not near:
+		# (or, with someone near, once it has come to rest with nobody at the wheel: the parking brake holds it
+		# dead still -- the tyres' hold alone let it creep a centimetre a second down a camber)
+		var at_rest := drive_input.is_empty() and v.length_squared() < 0.0004 and angular_velocity.length_squared() < 0.0004
+		if not near or at_rest:
 			if _motor.playing:
 				_motor.stop()
 			sleeping = true
@@ -285,6 +289,7 @@ func _physics_process(delta: float) -> void:
 			if (forward_cmd and vf > top) or (reversing and vf < -reverse_speed):
 				f_motor = 0.0
 	var braking := (thr > 0.02 and vf < -0.5) or (thr < -0.02 and vf > 0.5)
+	var parked := pilot == null and drive_input.is_empty()   # nobody at the wheel: the parking brake is on (no rolling off)
 	if _comp.size() != wheels.size():
 		_comp.resize(wheels.size())
 		_comp.fill(x0)
@@ -344,10 +349,10 @@ func _physics_process(delta: float) -> void:
 		if (drive == "AWD" or (drive == "FWD" and w[2]) or (drive == "RWD" and not w[2])) and driven > 0:
 			fx += f_motor / driven
 		fx -= float(sp[1]) * fz * signf(vl)            # rolling resistance
-		if braking or (_handbrake and not w[2]):
-			fx = -signf(vl) * mu * fz * 0.9 if absf(vl) > 0.3 else -vl * m_corner * 4.0
+		if braking or (_handbrake and not w[2]) or parked:
+			fx = -signf(vl) * mu * fz * 0.9 if absf(vl) > 0.3 else -vl * m_corner * HOLD
 		elif absf(thr) < 0.02 and absf(vl) < 0.3 and pilot != null:
-			fx = -vl * m_corner * 4.0                  # holding still
+			fx = -vl * m_corner * HOLD                 # holding still
 		# traction control and the friction circle
 		var lim := mu * fz
 		fx = clampf(fx, -lim, lim)

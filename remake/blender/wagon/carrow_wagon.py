@@ -689,7 +689,7 @@ def cabin():
         me.lathe([(0.0, 0.045), (0.004, 0.045), (0.005, 0.0001)], "gauge", n=16,
                  xf=Matrix.Translation((gx, 0.745, 1.08)))
     c = Vector((-0.38, 0.62, 1.10))
-    tilt = Matrix.Rotation(math.radians(-62), 4, "X")
+    tilt = Matrix.Rotation(math.radians(68), 4, "X")       # (square to the column: its top leans toward the dash)
     ring = [c + tilt @ Vector((0.19 * math.cos(TAU * k / 24), 0.19 * math.sin(TAU * k / 24), 0)) for k in range(25)]
     me.pipe(ring, 0.014, "black", n=8, caps=False)
     for a in (0.0, math.pi):
