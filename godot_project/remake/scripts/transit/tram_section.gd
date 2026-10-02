@@ -432,7 +432,11 @@ func _doors() -> void:
 		var zone := RemakeInteractZone.make(self, "Door_" + str(d.id), Transform3D(Basis(), Vector3(signf(float(rbox.from[0])) * 1.1, 1.5, float(d.z))),
 			Vector3(0.6, 2.0, float(d.width)), _door_use.bind(doors.size()), _door_prompt.bind(doors.size()))
 		zone.gives_way = true
-		doors.append({"spec": d, "open": false, "t": 0.0, "leaves": leaves, "ramp": ramp_mi, "ramp_shape": cs, "ramp_body": rb})
+		var a3 := Vector3(a.x, a.y, float(rbox.z))
+		doors.append({"spec": d, "open": false, "t": 0.0, "leaves": leaves, "ramp": ramp_mi, "ramp_shape": cs, "ramp_body": rb,
+			"r": 0.0, "droop": 0.0, "hinge": a3, "dir0": (b - a).normalized(), "len": (b - a).length(), "sx": signf(a.x),
+			"ramp_rest": ramp_mi.transform if ramp_mi else Transform3D(), "shape_rest": cs.transform})
+		_pose_ramp(doors[-1])
 
 
 func _door_prompt(i: int) -> String:
@@ -461,8 +465,13 @@ func close_all() -> void:
 
 
 func doors_settled(open: bool) -> bool:
+	## Open: every curbside door open and its ramp down on the sidewalk; closed: every ramp stowed and
+	## every door shut (the tram doesn't move till then).
 	for d in doors:
-		if bool(d.spec.curbside) and (float(d.t) < 1.0 if open else float(d.t) > 0.0):
+		if open:
+			if bool(d.spec.curbside) and (float(d.t) < 1.0 or float(d.r) < 1.0):
+				return false
+		elif float(d.t) > 0.0 or float(d.r) > 0.0:
 			return false
 	return true
 
@@ -475,28 +484,92 @@ func curbside_doors() -> Array:
 	return out
 
 
+const RAMP_OUT := 0.9                  # s: the ramp slides out of its pocket under the sill, level
+const RAMP_DROP := 0.7                 # s: it tilts down onto the sidewalk
+const RAMP_MAX_DROOP := 0.45           # rad: steeper than this and it rests on the kerb's edge instead
+
+
 func _animate_doors(delta: float) -> void:
+	## A door opens, then its ramp slides out and drops onto the sidewalk; closing, the ramp rises and
+	## slides home first, then the door shuts.
 	for d in doors:
-		var target := 1.0 if d.open else 0.0
-		if is_equal_approx(float(d.t), target):
+		var want_open: bool = d.open
+		var has_ramp: bool = d.ramp != null
+		# the door: opens straight away; shuts only once its ramp is stowed
+		var target := 1.0 if want_open else (0.0 if not has_ramp or float(d.r) <= 0.001 else 1.0)
+		if float(d.t) != target:
+			d.t = move_toward(float(d.t), target, delta / DOOR_TIME)
+			if absf(float(d.t) - target) < 1e-4:
+				d.t = target                            # (exactly: the tram waits on exact ends)
+			_pose_leaves(d)
+		if not has_ramp:
 			continue
-		d.t = move_toward(float(d.t), target, delta / DOOR_TIME)
-		var e := smoothstep(0.0, 1.0, float(d.t))
-		# the plug door: out first, then along
-		var out_k := clampf(e * 4.0, 0.0, 1.0)
-		var along_k := clampf((e - 0.15) / 0.85, 0.0, 1.0)
-		for lf in d.leaves:
-			var off: Vector3 = lf.open
-			var v := Vector3(off.x * out_k, 0.0, off.z * along_k)
-			for k in lf.nodes.size():
-				if is_instance_valid(lf.nodes[k]):
-					(lf.nodes[k] as Node3D).position = lf.closed[k] + v
-			for k in lf.shapes.size():
-				(lf.shapes[k] as Node3D).position = lf.sclosed[k] + v
-		var deployed := float(d.t) > 0.85
-		if d.ramp:
-			(d.ramp as Node3D).visible = float(d.t) > 0.5
-		(d.ramp_shape as CollisionShape3D).disabled = not deployed
+		# the ramp: out once the door is open; in before it shuts
+		var rt := 1.0 if want_open and float(d.t) >= 1.0 else 0.0
+		if float(d.r) == rt:
+			continue
+		if float(d.r) <= 0.0 and rt > 0.0:
+			d.droop = _ramp_droop(d)                    # (how far down the sidewalk is, here)
+		var total := RAMP_OUT + RAMP_DROP
+		d.r = move_toward(float(d.r), rt, delta / total)
+		if absf(float(d.r) - rt) < 1e-4:
+			d.r = rt
+		_pose_ramp(d)
+
+
+func _pose_leaves(d: Dictionary) -> void:
+	var e := smoothstep(0.0, 1.0, float(d.t))
+	# the plug door: out first, then along
+	var out_k := clampf(e * 4.0, 0.0, 1.0)
+	var along_k := clampf((e - 0.15) / 0.85, 0.0, 1.0)
+	for lf in d.leaves:
+		var off: Vector3 = lf.open
+		var v := Vector3(off.x * out_k, 0.0, off.z * along_k)
+		for k in lf.nodes.size():
+			if is_instance_valid(lf.nodes[k]):
+				(lf.nodes[k] as Node3D).position = lf.closed[k] + v
+		for k in lf.shapes.size():
+			(lf.shapes[k] as Node3D).position = lf.sclosed[k] + v
+
+
+func _pose_ramp(d: Dictionary) -> void:
+	## The ramp at its stage r: 0 stowed in the pocket under the floor (its whole length inboard of the
+	## sill, a little below it), .. out level, .. tilted down by `droop` with its root at the sill.
+	var mi := d.ramp as Node3D
+	var r := float(d.r)
+	var split := RAMP_OUT / (RAMP_OUT + RAMP_DROP)
+	var e := smoothstep(0.0, 1.0, clampf(r / split, 0.0, 1.0))          # out
+	var k := smoothstep(0.0, 1.0, clampf((r - split) / (1.0 - split), 0.0, 1.0))   # down
+	var hinge: Vector3 = d.hinge
+	var sx: float = d.sx
+	var L: float = d.len
+	var phi := float(d.droop) * k
+	var dir := Vector2(sx * cos(phi), -sin(phi))
+	var dir0: Vector2 = d.dir0
+	var alpha := atan2(dir0.x * dir.y - dir0.y * dir.x, dir0.x * dir.x + dir0.y * dir.y)
+	var root := hinge + Vector3(-sx * L * (1.0 - e), -0.07 * (1.0 - e), 0.0)
+	var xf := Transform3D(Basis(Vector3(0, 0, 1), alpha), root) * Transform3D(Basis(), -hinge)
+	if mi:
+		mi.transform = xf * (d.ramp_rest as Transform3D)
+		mi.visible = r > 0.0
+	(d.ramp_shape as CollisionShape3D).transform = xf * (d.shape_rest as Transform3D)
+	(d.ramp_shape as CollisionShape3D).disabled = r < 1.0          # walked on once it's down
+
+
+func _ramp_droop(d: Dictionary) -> float:
+	## How far the ramp tilts to rest on the sidewalk: a ray down where its tip will be.
+	var hinge: Vector3 = d.hinge
+	var L: float = d.len
+	var sx: float = d.sx
+	var tip := global_transform * (hinge + Vector3(sx * L * 0.97, 0.0, 0.0))
+	var up := global_transform.basis.y.normalized()
+	var q := PhysicsRayQueryParameters3D.create(tip + up * 0.3, tip - up * 1.6, 1)
+	q.exclude = [hull.get_rid(), (d.ramp_body as CollisionObject3D).get_rid()]
+	var hit := get_world_3d().direct_space_state.intersect_ray(q)
+	var drop := 0.4                                          # (no ground found: the spec's own slope)
+	if not hit.is_empty():
+		drop = (tip - hit.position).dot(up) - 0.02
+	return clampf(asin(clampf(drop / L, -1.0, 1.0)), 0.0, RAMP_MAX_DROOP)
 
 
 # -- motion -----------------------------------------------------------------------------------------

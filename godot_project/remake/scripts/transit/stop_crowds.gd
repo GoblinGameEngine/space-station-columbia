@@ -16,7 +16,6 @@ const WAIT_MAX := 7                    # the most waiting at a stop
 const WALK := 1.35                     # m/s
 const MAX_WALKERS := 30                # people walking to or from the stops at once, at most
 const SPOT_SPAN := 18.0                # m of kerb behind the stop's mark people wait along
-const KERB_OFF := 4.6                  # m right of the tram's line: on the sidewalk
 
 var transit: Node                      # TransitSystem
 var player: Node3D
@@ -103,7 +102,8 @@ func _spot(st: Dictionary, k: int) -> Array:
 	var b := TransitNet.point_at(l, d + 1.0)
 	var t := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y).normalized()
 	var right := Vector2(-t.y, t.x)
-	var p := TransitNet.point_at(l, d) + right * (KERB_OFF + fmod(k * 0.53, 1.1))
+	var kerb := TransitNet.stop_pull(l, int(st.stop)) + TransitNet.PULL_HALF_W + TransitNet.PULL_GAP
+	var p := TransitNet.point_at(l, d) + right * (kerb + 1.2 + fmod(k * 0.53, 1.1))
 	var face := -right
 	return [Vector2(fposmod(p.x, StationGeo.CIRC), p.y), atan2(-face.y, face.x)]
 

@@ -470,6 +470,50 @@ static func point_at(line: Dictionary, d: float) -> Vector2:
 	return Vector2(fposmod(a2.x + StationGeo.wrap_ds(b2.x - a2.x) * t2, StationGeo.CIRC), a2.y + (b2.y - a2.y) * t2)
 
 
+static var _pulls := {}
+const PULL_HALF_W := 1.3              # a tram's half width
+const PULL_GAP := 0.25                # m it stops short of the kerb
+
+
+static func stop_pull(line: Dictionary, i: int) -> float:
+	## How far a tram moves right at stop i to stand at the kerb (its line runs in the travel lane; the
+	## stop zone's kerb, kept clear of parking, is beyond): from the street's own cross-section.
+	var key := "%s#%d" % [line.id, i]
+	if _pulls.has(key):
+		return _pulls[key]
+	var d := float(line.stops[i].d)
+	var p := point_at(line, d)
+	var a := point_at(line, d - 1.0)
+	var b := point_at(line, d + 1.0)
+	var t := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y).normalized()
+	var right := Vector2(-t.y, t.x)
+	var seg := MapTerrain._road_cell(Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / MapTerrain.RCELL), floori(p.y / MapTerrain.RCELL)))
+	var best := INF
+	var pull := 0.0
+	for j in range(0, seg.size(), MapTerrain.RSTRIDE):
+		var ds := StationGeo.wrap_ds(seg[j + 2] - seg[j])
+		var dx: float = seg[j + 3] - seg[j + 1]
+		var L2 := ds * ds + dx * dx
+		if L2 < 1e-6:
+			continue
+		var ps := StationGeo.wrap_ds(p.x - seg[j])
+		var px: float = p.y - seg[j + 1]
+		var u := clampf((ps * ds + px * dx) / L2, 0.0, 1.0)
+		var off := Vector2(ps - ds * u, px - dx * u)
+		if off.length() >= best:
+			continue
+		var rd: Dictionary = MapTerrain._d.roads[int(seg[j + 9])]
+		if not str(rd.cls) in ["street", "main", "county", "hwy"]:
+			continue
+		best = off.length()
+		var along := Vector2(ds, dx).dot(t) >= 0.0               # travelling with the road's points
+		var kerb: float = seg[j + 4] if along else seg[j + 5]
+		pull = kerb - off.dot(right) - PULL_HALF_W - PULL_GAP
+	pull = clampf(pull, 0.0, 3.5) if best < 12.0 else 0.0
+	_pulls[key] = pull
+	return pull
+
+
 static func state(line: Dictionary, t: float) -> Dictionary:
 	## Where a vehicle is at time t (s) into its loop: {d, dwelling, stop (index or -1)}.
 	var stops: Array = line.stops

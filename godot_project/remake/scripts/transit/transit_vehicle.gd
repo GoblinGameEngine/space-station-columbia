@@ -268,7 +268,7 @@ func _arrive() -> void:
 	n_off = mini(mini(n_off, all.size()), 8)
 	for k in n_off:
 		var r: Array = all[k]
-		_plan.append([1.3 + k * 0.8, _alight.bind(r)])
+		_plan.append([0.4 + k * 0.8, _alight.bind(r)])
 	var n_on := clampi(target - (riders.size() - n_off), 0, 8)
 	var crowds: StopCrowds = get_parent().crowds if "crowds" in get_parent() else null
 	var sidx := _stop_index()
@@ -276,10 +276,10 @@ func _arrive() -> void:
 		# the people waiting here (as many as there are)
 		var who := crowds.take(str(line.id), sidx, n_on)
 		for k in who.size():
-			_plan.append([2.2 + k * 1.0, _board_person.bind(who[k])])
+			_plan.append([1.2 + k * 1.0, _board_person.bind(who[k])])
 	else:
 		for k in n_on:
-			_plan.append([2.2 + k * 1.1, _board])
+			_plan.append([1.2 + k * 1.1, _board])
 
 
 func _depart() -> void:
@@ -562,8 +562,8 @@ func _p3(p: Vector2, h: float) -> Vector3:
 
 
 func _tangent(s: float) -> Vector3:
-	var a := TransitNet.point_at(line, s - 0.6)
-	var b := TransitNet.point_at(line, s + 0.6)
+	var a := _pulled(s - 0.6)                      # (the path it drives: pulled in at the stops)
+	var b := _pulled(s + 0.6)
 	var ss := fposmod(b.x, StationGeo.CIRC)
 	return (StationGeo.forward(ss) * StationGeo.wrap_ds(b.x - a.x) + Vector3.RIGHT * (b.y - a.y)).normalized()
 
@@ -606,9 +606,9 @@ func _place_tram() -> void:
 	var night := _night()
 	for i in sections.size():
 		var sec := sections[i] as TramSection
-		var pf := TransitNet.point_at(line, s_fa)
+		var pf := _pulled(s_fa)
 		var s_ra := _back_along(pf, s_fa, WB)
-		var pr := TransitNet.point_at(line, s_ra)
+		var pr := _pulled(s_ra)
 		var hs: Array = _heights.get(i, [-INF, -INF])
 		var hf := _line_h(space, s_fa, hs[0])
 		var hr := _line_h(space, s_ra, hs[1])
@@ -662,6 +662,39 @@ func _line_h(space: PhysicsDirectSpaceState3D, along: float, was: float) -> floa
 				cache[k] = h
 		out += float(h) * ((1.0 - (u - k0)) if j == 0 else (u - k0))
 	return out
+
+
+const PULL_IN := 30.0                 # m over which a tram eases to the kerb before a stop
+const PULL_OUT := 25.0                # and back out to its lane after
+
+
+func _pulled(along: float) -> Vector2:
+	## The line's point at `along`, moved to the kerb near a stop (TransitNet.stop_pull): the whole
+	## tram stands at the kerb, its doors over the sidewalk, and eases back out once past.
+	var p := TransitNet.point_at(line, along)
+	var L := float(line.length)
+	var tl := length()
+	var w := 0.0
+	var pull := 0.0
+	for i in (line.stops as Array).size():
+		var sd := float(line.stops[i].d)
+		var x := fposmod(along - sd + L * 0.5, L) - L * 0.5          # (- before the stop's mark)
+		if x < -tl - PULL_IN - 6.0 or x > PULL_OUT:
+			continue
+		var k := 1.0
+		if x < -tl - 6.0:
+			k = smoothstep(-tl - 6.0 - PULL_IN, -tl - 6.0, x)
+		elif x > 1.0:
+			k = 1.0 - smoothstep(1.0, PULL_OUT, x)
+		if k > w:
+			w = k
+			pull = TransitNet.stop_pull(line, i)
+	if w <= 0.0 or pull <= 0.0:
+		return p
+	var a := TransitNet.point_at(line, along - 1.0)
+	var b := TransitNet.point_at(line, along + 1.0)
+	var t := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y).normalized()
+	return p + Vector2(-t.y, t.x) * pull * w
 
 
 func _night() -> float:
@@ -719,7 +752,12 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	Prof.begin("tram.vehicle_tick")
-	for p in _plan.duplicate():
+	var ready := true                                # (no one steps off till the doors are open and the ramps down)
+	if _at_stop:
+		for sec in sections:
+			if not (sec as TramSection).doors_settled(true):
+				ready = false
+	for p in (_plan.duplicate() if ready else []):
 		p[0] = float(p[0]) - delta
 		if float(p[0]) <= 0.0:
 			_plan.erase(p)
