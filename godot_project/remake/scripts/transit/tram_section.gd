@@ -42,6 +42,9 @@ var _spin := 0.0
 var _prev := Transform3D()
 var _have_prev := false
 var _riders: Array = []
+var _merged: Array = []               # the merged meshes (_merge)
+var _merged_from := {}                # the module meshes drawn by them
+var _lod_on := false
 var _debris: Array = []
 
 
@@ -70,6 +73,7 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 	vehicle = p_vehicle
 	spec = load_spec().sections[kind]
 	name = "Section_" + kind
+	Prof.begin("sec.board")
 	board = _scene(BOARD).instantiate()
 	add_child(board)
 	# frugal up close (the user): the board's deck, caps and socket are hidden under the body's floor,
@@ -78,6 +82,8 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 		var nm := str(n.name)
 		if nm.begins_with("span_") or nm.begins_with("cap_") or nm == "socket" or nm.begins_with("mount_"):
 			n.queue_free()
+	Prof.end("sec.board")
+	Prof.begin("sec.body")
 	body = _scene(spec.glb).instantiate()
 	add_child(body)
 	for tag in ["F", "B"]:
@@ -86,6 +92,8 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 			var w := board.find_child("wheel_%s%s" % [tag, s], true, false) as Node3D
 			if w:
 				wheels[tag].append([w, w.transform])
+	Prof.end("sec.body")
+	Prof.begin("sec.modules")
 	hull = TramHull.new()
 	hull.name = "Hull"
 	hull.section = self
@@ -93,12 +101,14 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 	hull.top_level = true                # a synced body doesn't follow its parent: sync_bodies() moves it
 	hull.collision_layer = 1 | RemakeGroundVehicle.HULL_LAYER
 	hull.collision_mask = 0
-	add_child(hull)
 	var mods: Dictionary = spec.modules
+	var by_name := {}                      # (one walk of the body, not one search per module)
+	for n in body.find_children("*", "", true, false):
+		by_name[str(n.name)] = n
 	for mid in mods:
 		var m: Dictionary = mods[mid]
 		hp[mid] = float(m.hp)
-		var mi := body.find_child(mid, true, false)
+		var mi: Node = by_name.get(mid)
 		if mi:
 			meshes[mid] = mi
 		var list: Array = []
@@ -115,11 +125,23 @@ func setup(p_kind: String, p_vehicle: Node) -> void:
 			(mi as Node3D).visible = false
 			for cs in list:
 				(cs as CollisionShape3D).disabled = true
+	add_child(hull)                       # (into the world with all its shapes: one by one, the physics
+	                                      # rebuilt the hull's compound shape at every box -- 14 ms a tram)
+	Prof.end("sec.modules")
+	Prof.begin("sec.materials")
 	_materials()
+	Prof.end("sec.materials")
+	Prof.begin("sec.doors")
 	_doors()
 	_lights()
 	_cheap()
+	Prof.end("sec.doors")
+	Prof.begin("sec.merge")
+	_merge()
+	Prof.end("sec.merge")
+	Prof.begin("sec.lod")
 	_lod()
+	Prof.end("sec.lod")
 
 
 # -- looks ------------------------------------------------------------------------------------------
@@ -133,21 +155,37 @@ func _materials() -> void:
 		_glass.cull_mode = BaseMaterial3D.CULL_DISABLED
 		_glass.roughness = 0.05
 		_glass.metallic_specular = 0.9
+	# (a kind merged before draws its modules from the shared merge: only what moves -- door leaves
+	# and their glass, the ramps -- needs its own materials now; a module gets them if it comes loose)
+	var cached := _merge_cache.has(kind)
 	for mi in body.find_children("*", "MeshInstance3D", true, false):
 		var m := mi as MeshInstance3D
-		for i in m.mesh.get_surface_count():
-			var mat := m.mesh.surface_get_material(i)
-			if mat == null:
-				continue
-			var nm := str(mat.resource_name)
-			if nm.begins_with("glass"):
+		var nm0 := str(m.name)
+		var moves: bool = nm0.begins_with("door_") or (nm0.begins_with("glass_") and (nm0.ends_with("_9") or nm0.ends_with("_16"))) \
+			or (spec.modules.has(nm0) and str(spec.modules[nm0].kind) == "ramp")
+		_apply_materials(m, cached and not moves)
+
+
+func _apply_materials(m: MeshInstance3D, lamps_only := false) -> void:
+	## Glass made transparent; the lamps' materials copied per section (one copy per lamp name when
+	## lamps_only: the merged body's lamps use those).
+	for i in m.mesh.get_surface_count():
+		var mat := m.mesh.surface_get_material(i)
+		if mat == null:
+			continue
+		var nm := str(mat.resource_name)
+		if nm.begins_with("glass"):
+			if not lamps_only:
 				m.set_surface_override_material(i, _glass)
-			elif nm.begins_with("lamp_") or nm == "dest":
-				var c := (mat as BaseMaterial3D).duplicate() as BaseMaterial3D
+		elif nm.begins_with("lamp_") or nm == "dest":
+			if lamps_only and lamp_mats.has(nm):
+				continue
+			var c := (mat as BaseMaterial3D).duplicate() as BaseMaterial3D
+			if not lamps_only:
 				m.set_surface_override_material(i, c)
-				if not lamp_mats.has(nm):
-					lamp_mats[nm] = []
-				lamp_mats[nm].append(c)
+			if not lamp_mats.has(nm):
+				lamp_mats[nm] = []
+			lamp_mats[nm].append(c)
 
 
 func _cheap() -> void:
@@ -166,12 +204,120 @@ func _cheap() -> void:
 		(mi as GeometryInstance3D).visibility_range_end = 120.0
 
 
+func _merge() -> void:
+	## Drawn as a few meshes, one per material (and shadow kind): a section is some 270 modules, each
+	## its own mesh for the damage -- drawn one by one that was ~800 draw calls a tram. The modules stay,
+	## hidden, for damage; a broken one is left out of the next merge. Door leaves and ramps move, so
+	## they are drawn on their own.
+	var moving := {}
+	for d in doors:
+		for lf in d.leaves:
+			for n in lf.nodes:
+				moving[n] = true
+		if d.ramp:
+			moving[d.ramp] = true
+	var damaged := false
+	for mid in hp:
+		if float(hp[mid]) <= 0.0:
+			damaged = true
+	if not damaged and _merge_cache.has(kind):
+		_merge_from_cache(moving)
+		return
+	var groups := {}                      # key -> [material, shadow, inside, SurfaceTool]
+	for mi in body.find_children("*", "MeshInstance3D", true, false):
+		var m := mi as MeshInstance3D
+		if moving.has(m) or m.mesh == null or str(m.name).begins_with("Merged_"):
+			continue
+		var mid := str(m.name)
+		if hp.has(mid) and float(hp[mid]) <= 0.0:
+			m.visible = false
+			continue
+		if not m.visible and not _merged_from.has(m):
+			continue                                  # (hidden for its own reasons)
+		var xf := body.global_transform.affine_inverse() * m.global_transform if m.is_inside_tree() else _rel_xf(m)
+		var kind := str(spec.modules[mid].kind) if spec.modules.has(mid) else ""
+		var inside := kind in ["seat", "stanchion", "fittings", "podium", "cab", "floor"]
+		for i in m.mesh.get_surface_count():
+			var mat: Material = m.get_surface_override_material(i)
+			if mat == null:
+				mat = m.material_override if m.material_override else m.mesh.surface_get_material(i)
+			var shadow := m.cast_shadow != GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			var key := "%d|%s|%s" % [mat.get_instance_id() if mat else 0, shadow, inside]
+			if not groups.has(key):
+				var st := SurfaceTool.new()
+				groups[key] = [mat, shadow, inside, st, false]
+			(groups[key][3] as SurfaceTool).append_from(m.mesh, i, xf)
+			groups[key][4] = true
+		m.visible = false
+		_merged_from[m] = true
+	for n in _merged:
+		(n as Node).queue_free()
+	_merged.clear()
+	var k := 0
+	var cached: Array = []
+	for key in groups:
+		var g: Array = groups[key]
+		if not g[4]:
+			continue
+		var mesh := (g[3] as SurfaceTool).commit()
+		var mat_name := str((g[0] as Material).resource_name) if g[0] else ""
+		cached.append([mesh, g[0], g[1], g[2], mat_name if mat_name.begins_with("lamp_") or mat_name == "dest" else ""])
+		var out := MeshInstance3D.new()
+		out.name = "Merged_%d" % k
+		k += 1
+		out.mesh = mesh
+		out.material_override = g[0]
+		out.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if g[1] else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		out.visibility_range_end = 45.0 if g[2] else (LOD_NEAR if _lod_on else 0.0)
+		body.add_child(out)
+		_merged.append(out)
+	if not damaged:
+		_merge_cache[kind] = cached
+
+
+static var _merge_cache := {}          # section kind -> [[mesh, material, shadow, inside, lamp name]] (undamaged)
+
+
+func _merge_from_cache(moving: Dictionary) -> void:
+	## An undamaged section of a kind built before: its merged meshes are shared (only the lamp
+	## materials are this section's own, so each lights on its own).
+	for mi in body.find_children("*", "MeshInstance3D", true, false):
+		var m := mi as MeshInstance3D
+		if moving.has(m) or m.mesh == null or not m.visible:
+			continue
+		m.visible = false
+		_merged_from[m] = true
+	var k := 0
+	for g in _merge_cache[kind]:
+		var out := MeshInstance3D.new()
+		out.name = "Merged_%d" % k
+		k += 1
+		out.mesh = g[0]
+		var lamp: String = g[4]
+		out.material_override = (lamp_mats[lamp][0] if lamp != "" and lamp_mats.has(lamp) else g[1])
+		out.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON if g[2] else GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		out.visibility_range_end = 45.0 if g[3] else (LOD_NEAR if _lod_on else 0.0)
+		body.add_child(out)
+		_merged.append(out)
+
+
+func _rel_xf(n: Node3D) -> Transform3D:
+	## n's transform relative to the body, up the parent chain (before the section is in the tree).
+	var xf := Transform3D.IDENTITY
+	var at: Node = n
+	while at != null and at != body:
+		xf = (at as Node3D).transform * xf
+		at = at.get_parent()
+	return xf
+
+
 func _lod() -> void:
 	## Far off, the section is one low-poly mesh with its wheels (carrow_tram_*_lod.glb, built with the
 	## body); near, the full body and board. (Visibility ranges, so the renderer swaps them per camera.)
 	var path := str(spec.get("lod_glb", ""))
 	if path == "" or not ResourceLoader.exists(path):
 		return
+	_lod_on = true
 	var lod: Node3D = _scene(path).instantiate()
 	lod.name = "LOD"
 	add_child(lod)
@@ -374,12 +520,14 @@ func steer(front: float, back: float, run: float, wheel_r: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	Prof.begin("tram.section_tick")
 	_animate_doors(delta)
 	_have_prev = true                    # (TransitVehicle carries the people aboard, before this)
 	_prev = global_transform
 	for d in _debris.duplicate():
 		if not is_instance_valid(d):
 			_debris.erase(d)
+	Prof.end("tram.section_tick")
 
 
 func holds(lp: Vector3) -> bool:
@@ -481,6 +629,8 @@ func damage(mid: String, amount: float) -> void:
 		_shatter(mi)
 	else:
 		_detach(mid, mi, float(m.mass_kg))
+	_merged_from.erase(mi)
+	_merge()                                       # (drawn without it from now on)
 	RoadDriver.tally["tram_parts_broken"] = int(RoadDriver.tally.get("tram_parts_broken", 0)) + 1
 
 
@@ -548,6 +698,9 @@ func _detach(mid: String, mi: Node3D, mass: float) -> void:
 	mi.get_parent().remove_child(mi)
 	rb.add_child(mi)
 	mi.global_transform = at
+	mi.visible = true                              # (it was drawn as part of the merged body)
+	if mi is MeshInstance3D:
+		_apply_materials(mi as MeshInstance3D)
 	var out := (global_transform.basis * bb.get_center()).normalized()
 	rb.linear_velocity = (global_transform.origin - _prev.origin) / maxf(get_physics_process_delta_time(), 1e-3) + out * 2.0
 	rb.angular_velocity = Vector3(randf_range(-2, 2), randf_range(-2, 2), randf_range(-2, 2))

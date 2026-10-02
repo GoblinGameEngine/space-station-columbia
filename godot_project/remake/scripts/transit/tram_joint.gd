@@ -26,6 +26,10 @@ var _wall_l := CollisionShape3D.new()
 var _wall_r := CollisionShape3D.new()
 var _roof := CollisionShape3D.new()
 var _mat := StandardMaterial3D.new()
+var _dirty := true                   # the sections moved since the bellows was drawn
+var _built := false
+var _rel := Transform3D()             # b's portal in a's frame, when the bellows was last built
+var _ring := PackedVector3Array()     # the bellows' cross-section (unit folds)
 
 
 func setup(p_a: TramSection, p_b: TramSection) -> void:
@@ -71,45 +75,14 @@ func ends() -> Array:
 
 
 func update() -> void:
+	## Each physics tick: the walkway's floor, walls and roof follow the sections; the bellows is
+	## redrawn on the next frame, if anyone is near enough to see it (_process).
 	var e := ends()
 	var ta: Transform3D = e[0]
 	var tb: Transform3D = e[1]
 	var qa := ta.basis.get_rotation_quaternion()
 	var qb := tb.basis.get_rotation_quaternion()
-	# the bellows: rings from a's flange to b's, folds alternating in and out
-	var rings: Array = []
-	for r in RINGS + 1:
-		var t := float(r) / RINGS
-		var xf := Transform3D(Basis(qa.slerp(qb, t)), ta.origin.lerp(tb.origin, t))
-		var k := 1.0 if r % 2 == 0 or r == RINGS else 0.94
-		var ring := PackedVector3Array()
-		for i in AROUND:
-			var ang := TAU * i / AROUND
-			var c := cos(ang)
-			var s := sin(ang)
-			var x := signf(c) * pow(absf(c), 0.25) * HALF_W * k
-			var y := (Z0 + Z1) / 2 + signf(s) * pow(absf(s), 0.25) * (Z1 - Z0) / 2 * k
-			ring.append(xf * Vector3(x, y, 0))
-		rings.append(ring)
-	var verts := PackedVector3Array()
-	var norms := PackedVector3Array()
-	for r in RINGS:
-		var r0: PackedVector3Array = rings[r]
-		var r1: PackedVector3Array = rings[r + 1]
-		for i in AROUND:
-			var i2 := (i + 1) % AROUND
-			var p := [r0[i], r1[i], r1[i2], r0[i], r1[i2], r0[i2]]
-			var n := ((r1[i] - r0[i]).cross(r0[i2] - r0[i])).normalized()
-			for v in p:
-				verts.append(v)
-				norms.append(n)
-	_mesh.clear_surfaces()
-	var arr := []
-	arr.resize(Mesh.ARRAY_MAX)
-	arr[Mesh.ARRAY_VERTEX] = verts
-	arr[Mesh.ARRAY_NORMAL] = norms
-	_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
-	_mesh.surface_set_material(0, _mat)
+	_dirty = true
 	# the floor plate and the walkway's walls and roof, at the middle frame
 	var mid := Transform3D(Basis(qa.slerp(qb, 0.5)), ta.origin.lerp(tb.origin, 0.5))
 	var floor_y := float(TramSection.load_spec().floor_y)
@@ -124,3 +97,74 @@ func update() -> void:
 		cs.position = Vector3(pair[1] * (WALK_HW + 0.04), floor_y + 1.1, 0)
 	(_roof.shape as BoxShape3D).size = Vector3(WALK_HW * 2 + 0.2, 0.08, gap)
 	_roof.position = Vector3(0, float(TramSection.load_spec().portal.head) + 0.04, 0)
+
+
+func _process(_delta: float) -> void:
+	if not _dirty:
+		return
+	var cam := get_viewport().get_camera_3d()
+	if cam == null or cam.global_position.distance_to(a.global_position) > _mi.visibility_range_end + 10.0:
+		_mi.visible = false                              # (the sections' far models close their ends)
+		return
+	_mi.visible = true
+	_dirty = false
+	_bellows()
+
+
+func _bellows() -> void:
+	## Drawn in the front portal's frame: its shape depends only on how the two portals sit to each
+	## other, so on straight track (or a steady curve) it's only moved, not rebuilt.
+	var e := ends()
+	var ta: Transform3D = e[0]
+	var tb: Transform3D = e[1]
+	_mi.global_transform = ta
+	var rel := ta.affine_inverse() * tb
+	var q_rel := rel.basis.get_rotation_quaternion()
+	if _built and rel.origin.distance_to(_rel.origin) < 0.01 and q_rel.angle_to(_rel.basis.get_rotation_quaternion()) < 0.003:
+		return
+	_built = true
+	_rel = rel
+	if _ring.is_empty():
+		for i in AROUND:
+			var ang := TAU * i / AROUND
+			var c := cos(ang)
+			var sn := sin(ang)
+			_ring.append(Vector3(signf(c) * pow(absf(c), 0.25) * HALF_W, signf(sn) * pow(absf(sn), 0.25) * (Z1 - Z0) / 2, 0.0))
+	# the bellows: rings from a's flange to b's, folds alternating in and out
+	var rings: Array = []
+	for r in RINGS + 1:
+		var t := float(r) / RINGS
+		var xf := Transform3D(Basis(Quaternion.IDENTITY.slerp(q_rel, t)), rel.origin * t)
+		var k := 1.0 if r % 2 == 0 or r == RINGS else 0.94
+		var ring := PackedVector3Array()
+		ring.resize(AROUND)
+		for i in AROUND:
+			ring[i] = xf * Vector3(_ring[i].x * k, (Z0 + Z1) / 2 + _ring[i].y * k, 0.0)
+		rings.append(ring)
+	var verts := PackedVector3Array()
+	var norms := PackedVector3Array()
+	verts.resize(RINGS * AROUND * 6)
+	norms.resize(RINGS * AROUND * 6)
+	var vi := 0
+	for r in RINGS:
+		var r0: PackedVector3Array = rings[r]
+		var r1: PackedVector3Array = rings[r + 1]
+		for i in AROUND:
+			var i2 := (i + 1) % AROUND
+			var n := ((r1[i] - r0[i]).cross(r0[i2] - r0[i])).normalized()
+			verts[vi] = r0[i]
+			verts[vi + 1] = r1[i]
+			verts[vi + 2] = r1[i2]
+			verts[vi + 3] = r0[i]
+			verts[vi + 4] = r1[i2]
+			verts[vi + 5] = r0[i2]
+			for q in 6:
+				norms[vi + q] = n
+			vi += 6
+	_mesh.clear_surfaces()
+	var arr := []
+	arr.resize(Mesh.ARRAY_MAX)
+	arr[Mesh.ARRAY_VERTEX] = verts
+	arr[Mesh.ARRAY_NORMAL] = norms
+	_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+	_mesh.surface_set_material(0, _mat)

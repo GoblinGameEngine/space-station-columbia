@@ -16,6 +16,7 @@ var _clock: Node
 var live := {}                       # "line#j" -> TransitVehicle
 var _t := 0.0
 var world_seed := 1
+var crowds: StopCrowds                # the people at the stops near the player
 
 
 func _ready() -> void:
@@ -28,6 +29,10 @@ func _ready() -> void:
 		print("TransitSystem: %s (%s) %.1f km, %d stops, %d vehicles, a loop every %.0f min" % [l.name, l.kind, float(l.length) / 1000.0,
 			(l.stops as Array).size(), int(l.count), float(l.period) / 60.0])
 	_pave_loops()
+	crowds = StopCrowds.new()
+	crowds.transit = self
+	crowds.player = player
+	add_child(crowds)
 
 
 func _pave_loops() -> void:
@@ -89,6 +94,10 @@ func clock_seconds() -> float:
 	return (float(_clock.get("day")) + float(_clock.time_of_day)) * DaySkySystem.DAY_LENGTH_SECONDS
 
 
+func day() -> int:
+	return int(_clock.get("day")) if _clock else 0
+
+
 func hour() -> float:
 	return (float(_clock.time_of_day) if _clock else 0.4) * 24.0
 
@@ -97,6 +106,12 @@ func _physics_process(delta: float) -> void:
 	## (on the physics tick: people stand and walk in the trams, which carry them)
 	if player == null or StationGeo.loading:
 		return
+	Prof.begin("transit.system")
+	_tick(delta)
+	Prof.end("transit.system")
+
+
+func _tick(delta: float) -> void:
 	var T := clock_seconds()
 	var h := hour()
 	var running := h >= 5.5 or h < 0.5
@@ -131,6 +146,7 @@ func _physics_process(delta: float) -> void:
 				v = TransitVehicle.new()
 				v.world_seed = world_seed
 				add_child(v)
+				v.d = float(st.d)                 # (its first riders are those of where it starts)
 				v.setup(l, j, h)
 				live[key] = v
 			v.place(float(st.d), bool(st.dwelling), int(st.stop))

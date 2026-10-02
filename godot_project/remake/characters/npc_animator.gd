@@ -331,7 +331,17 @@ func stride_length() -> float:
 	return float(_L.T) * 0.8 * float(style.stride)
 
 
+var _lod_t := randf() * 0.25         # (spread over frames)
+var _lod_rate := 1
+
+
 func _process(delta: float) -> void:
+	Prof.begin("npc.animator")
+	_anim_tick(delta)
+	Prof.end("npc.animator")
+
+
+func _anim_tick(delta: float) -> void:
 	if manual:
 		return
 	t += delta
@@ -340,13 +350,34 @@ func _process(delta: float) -> void:
 		phase = fmod(phase + delta * speed / stride_length(), 1.0)
 	elif _walk > 0.02:
 		phase = fmod(phase + delta * 0.3 * _walk, 1.0)                           # finishing the step
-	if drawing_rate > 1:
+	# level of detail: who's seen, how near (looked at four times a second)
+	_lod_t -= delta
+	if _lod_t <= 0.0:
+		_lod_t = 0.25
+		var cam := get_viewport().get_camera_3d() if is_inside_tree() else null
+		var me := get_parent() as Node3D
+		if cam == null or me == null:
+			_lod_rate = drawing_rate
+		else:
+			var d := cam.global_position.distance_to(me.global_position)
+			if d > 6.0 and not cam.is_position_in_frustum(me.global_position + me.global_basis.y * 1.0):
+				_lod_rate = 0                            # off screen: not posed at all (the step goes on)
+			elif d > 60.0:
+				_lod_rate = maxi(drawing_rate, 8)         # 3 a second
+			elif d > 25.0:
+				_lod_rate = maxi(drawing_rate, 4)         # 6 a second
+			else:
+				_lod_rate = drawing_rate
+	if _lod_rate == 0:
 		_held += delta
-		if _held < drawing_rate / 24.0:
+		return
+	if _lod_rate > 1:
+		_held += delta
+		if _held < _lod_rate / 24.0:
 			return
 		delta = _held
 		_held = 0.0
-	pose(phase, _walk, t, delta)
+	pose(phase, _walk, t, minf(delta, 0.25))
 
 
 # -- helpers ------------------------------------------------------------------------------------

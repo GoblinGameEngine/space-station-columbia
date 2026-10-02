@@ -99,6 +99,12 @@ func today() -> int:
 
 
 func _process(delta: float) -> void:
+	Prof.begin("population")
+	_tick_population(delta)
+	Prof.end("population")
+
+
+func _tick_population(delta: float) -> void:
 	if player == null:
 		return
 	_collect()

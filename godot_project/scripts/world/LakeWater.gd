@@ -17,10 +17,22 @@ const SCROLL_SPEED := Vector2(0.015, 0.008)
 var _material: StandardMaterial3D
 var _uv_offset := Vector2.ZERO
 
+static var _drivers := {}             # material instance id -> the one node that scrolls it
+
 func _ready() -> void:
 	var mat := get_active_material(0)
 	if mat is StandardMaterial3D:
 		_material = mat
+		# the water meshes share their material: one of them scrolls it (96 did, every frame)
+		var d = _drivers.get(mat.get_instance_id())
+		if d != null and is_instance_valid(d) and d != self:
+			set_process(false)
+		else:
+			_drivers[mat.get_instance_id()] = self
+
+func _exit_tree() -> void:
+	if _material and _drivers.get(_material.get_instance_id()) == self:
+		_drivers.erase(_material.get_instance_id())
 
 func _process(delta: float) -> void:
 	if _material == null:

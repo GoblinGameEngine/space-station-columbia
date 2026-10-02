@@ -1,0 +1,418 @@
+{
+ "_about": "The station's calendar of crowd-drawing events (godot_project/remake/events.json), read by",
+ "start_date": "2752-05-24",
+ "start_weekday": 2,
+ "events": [
+  {
+   "id": "launch_day",
+   "name": "Launch Day",
+   "town": "Kessler",
+   "when": {
+    "md": "04-21"
+   },
+   "hours": [
+    9,
+    22
+   ],
+   "draw": 2.5,
+   "what": "the Launch Bell at Kessler; parades in every town"
+  },
+  {
+   "id": "launch_day_towns",
+   "name": "Launch Day parades",
+   "town": "*",
+   "when": {
+    "md": "04-21"
+   },
+   "hours": [
+    10,
+    14
+   ],
+   "draw": 0.8,
+   "what": "parades in every town"
+  },
+  {
+   "id": "waymakers_vigil",
+   "name": "the Waymakers' Vigil",
+   "town": "*",
+   "when": {
+    "md": "04-20"
+   },
+   "hours": [
+    20,
+    30
+   ],
+   "draw": 0.5,
+   "what": "an all-night vigil facing north"
+  },
+  {
+   "id": "charter_day",
+   "name": "Charter Day",
+   "town": "*",
+   "when": {
+    "md": "07-04"
+   },
+   "hours": [
+    9,
+    23
+   ],
+   "draw": 1.2,
+   "what": "the Charter read on every town square; fireworks at the early dusk"
+  },
+  {
+   "id": "charter_parade",
+   "name": "Charter Day parade",
+   "town": "Kessler",
+   "when": {
+    "md": "07-04"
+   },
+   "hours": [
+    6,
+    13
+   ],
+   "draw": 2.0,
+   "what": "the parade route (Kessler ordinances)"
+  },
+  {
+   "id": "dyngus_day",
+   "name": "Dyngus Day",
+   "town": "Port Carrow",
+   "when": {
+    "easter_monday": true
+   },
+   "hours": [
+    10,
+    24
+   ],
+   "draw": 2.0,
+   "what": "Hedwig Hill throws the station's biggest"
+  },
+  {
+   "id": "midsummer_regatta",
+   "name": "the Midsummer Regatta",
+   "town": "Port Tamsin",
+   "when": {
+    "sat_near": "07-20"
+   },
+   "hours": [
+    8,
+    20
+   ],
+   "draw": 3.0,
+   "what": "races on Lake Tamsin and the seas"
+  },
+  {
+   "id": "regatta_week",
+   "name": "Regatta Week",
+   "town": "Port Carrow",
+   "when": {
+    "md_range": [
+     "07-14",
+     "07-20"
+    ]
+   },
+   "hours": [
+    10,
+    22
+   ],
+   "draw": 0.8,
+   "what": "the Lakeshore Road kerbs closed (Port Carrow ordinances)"
+  },
+  {
+   "id": "fiesta_de_rosario",
+   "name": "the Fiesta de Rosario",
+   "town": "Solana Point",
+   "when": {
+    "nth": [
+     2,
+     5,
+     8
+    ],
+    "span_days": 2
+   },
+   "hours": [
+    11,
+    26
+   ],
+   "draw": 2.5,
+   "what": "the Solano procession, dancing on the Malecon"
+  },
+  {
+   "id": "northland_fair",
+   "name": "the Northland Fair",
+   "town": "Marlowe",
+   "when": {
+    "md_range": [
+     "08-25",
+     "08-31"
+    ]
+   },
+   "hours": [
+    9,
+    22
+   ],
+   "draw": 3.0,
+   "what": "livestock shows, the midway, tractor pulls"
+  },
+  {
+   "id": "labor_day",
+   "name": "Labor Day (the Union Parade)",
+   "town": "Port Carrow",
+   "when": {
+    "nth": [
+     1,
+     0,
+     9
+    ]
+   },
+   "hours": [
+    9,
+    17
+   ],
+   "draw": 1.5,
+   "what": "the Cannery and Dock Workers' parade"
+  },
+  {
+   "id": "forty_days",
+   "name": "the Forty Days march",
+   "town": "Tern Harbor",
+   "when": {
+    "nth": [
+     1,
+     0,
+     9
+    ]
+   },
+   "hours": [
+    9,
+    15
+   ],
+   "draw": 1.5,
+   "what": "the Tern Harbor march (since VY 429)"
+  },
+  {
+   "id": "saint_jean",
+   "name": "Saint-Jean-Baptiste Day",
+   "town": "Port Carrow",
+   "when": {
+    "md": "06-24"
+   },
+   "hours": [
+    18,
+    26
+   ],
+   "draw": 1.0,
+   "what": "bonfires on the beach, Carrow French songs"
+  },
+  {
+   "id": "tamsins_day",
+   "name": "Tamsin's Day",
+   "town": "Port Tamsin",
+   "when": {
+    "md": "06-12"
+   },
+   "hours": [
+    9,
+    17
+   ],
+   "draw": 1.5,
+   "what": "blessings of babies at the lake"
+  },
+  {
+   "id": "return_day",
+   "name": "Return Day",
+   "town": "*",
+   "when": {
+    "nth": [
+     -1,
+     0,
+     5
+    ]
+   },
+   "hours": [
+    9,
+    17
+   ],
+   "draw": 0.6,
+   "what": "the memorial groves; the first swim of summer"
+  },
+  {
+   "id": "new_year",
+   "name": "New Year's Eve",
+   "town": "*",
+   "when": {
+    "md": "12-31"
+   },
+   "hours": [
+    20,
+    26
+   ],
+   "draw": 0.8,
+   "what": "late parties"
+  },
+  {
+   "id": "thanksgiving",
+   "name": "the Thanksgiving spinball games",
+   "town": "Solana Point",
+   "when": {
+    "nth": [
+     4,
+     3,
+     11
+    ]
+   },
+   "hours": [
+    11,
+    18
+   ],
+   "draw": 1.5,
+   "what": "the games at the Sun Bowl"
+  },
+  {
+   "id": "halloween",
+   "name": "Halloween",
+   "town": "*",
+   "when": {
+    "md": "10-31"
+   },
+   "hours": [
+    17,
+    24
+   ],
+   "draw": 0.5,
+   "what": "trick-or-treat"
+  },
+  {
+   "id": "suns_game_day",
+   "name": "Suns game day",
+   "town": "Solana Point",
+   "when": {
+    "weekly": [
+     5
+    ]
+   },
+   "hours": [
+    11,
+    18
+   ],
+   "draw": 1.2,
+   "what": "spinball at the Sun Bowl (Solana Point ordinances)"
+  },
+  {
+   "id": "falls_shift_am",
+   "name": "the Falls Yard shift change",
+   "town": "Harrow Falls",
+   "when": {
+    "weekly": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "hours": [
+    5.5,
+    7
+   ],
+   "draw": 0.8,
+   "what": "the Works' early shift (Harrow Falls ordinances)"
+  },
+  {
+   "id": "falls_shift_pm",
+   "name": "the Falls Yard shift change",
+   "town": "Harrow Falls",
+   "when": {
+    "weekly": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "hours": [
+    14.5,
+    16
+   ],
+   "draw": 0.8,
+   "what": "the Works' day shift out"
+  },
+  {
+   "id": "harbour_loading",
+   "name": "harbour loading",
+   "town": "Port Carrow",
+   "when": {
+    "weekly": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   "hours": [
+    6,
+    10
+   ],
+   "draw": 0.3,
+   "what": "the dock streets (Port Carrow ordinances)"
+  },
+  {
+   "id": "beach_season",
+   "name": "the beach season",
+   "town": "Brightwater",
+   "when": {
+    "weekly": [
+     5,
+     6
+    ],
+    "months": [
+     6,
+     7,
+     8
+    ]
+   },
+   "hours": [
+    10,
+    19
+   ],
+   "draw": 1.0,
+   "what": "summer-season beach lots (Brightwater ordinances)"
+  },
+  {
+   "id": "ocean_road_nights",
+   "name": "Ocean Road nights",
+   "town": "Oceanview",
+   "when": {
+    "weekly": [
+     4,
+     5
+    ]
+   },
+   "hours": [
+    20,
+    26
+   ],
+   "draw": 0.8,
+   "what": "the strip (Oceanview ordinances)"
+  },
+  {
+   "id": "fish_fry",
+   "name": "the Friday fish fry",
+   "town": "*",
+   "when": {
+    "weekly": [
+     4
+    ]
+   },
+   "hours": [
+    17,
+    21
+   ],
+   "draw": 0.2,
+   "what": "every tavern, church and lodge"
+  }
+ ]
+}

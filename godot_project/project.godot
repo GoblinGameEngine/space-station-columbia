@@ -115,10 +115,12 @@ Hud="*res://scenes/ui/Hud.tscn"
 
 [rendering]
 
+driver/threads/thread_model=2
+
 renderer/rendering_method="forward_plus"
 renderer/rendering_method.mobile="mobile"
 textures/vram_compression/import_etc2_astc=true
 
 [physics]
 
-3d/physics_engine="GodotPhysics3D"
+3d/physics_engine="Jolt Physics"

@@ -37,6 +37,8 @@ var joints: Array = []               # TramJoint
 var seats: Array = []                # seat marker nodes
 var stands: Array = []               # [stand marker, strap marker]
 var riders: Array = []               # [npc, animator, marker]
+var built := false                   # all its sections made (_build_tram)
+var _placed := false
 var _aboard := {}                    # player -> [section index, their place in its frame] (_keep_aboard)
 var walkers: Array = []              # {npc, an, sec, pts, i, mode ("on"/"off"), seat}
 var driver_npc: Node3D
@@ -75,12 +77,25 @@ func setup(p_line: Dictionary, p_index: int, hour: float) -> void:
 		for k in n - 2:
 			kinds.append("mid")
 		kinds.append("rear")
-		for k in kinds:
-			var sec := TramSection.new()
-			add_child(sec)
-			sec.setup(k, self)
-			sections.append(sec)
-			parts.append([sec, TramSection.length_front(k), -TramSection.length_back(k), false])
+		_build_tram(kinds, hour)
+		return
+	else:
+		_build_train(hour)
+
+
+func _build_tram(kinds: Array, hour: float) -> void:
+	## A section a frame (each is some 5 ms to build; a tram all at once was a dropped frame). It's
+	## made far off (TransitSystem.RANGE); place() waits for it.
+	for k in kinds:
+		var sec := TramSection.new()
+		add_child(sec)
+		sec.setup(k, self)
+		sections.append(sec)
+		parts.append([sec, TramSection.length_front(k), -TramSection.length_back(k), false])
+		await get_tree().process_frame
+		if not is_inside_tree():
+			return
+	if true:
 		for i in sections.size() - 1:
 			var j := TramJoint.new()
 			add_child(j)
@@ -95,7 +110,12 @@ func setup(p_line: Dictionary, p_index: int, hour: float) -> void:
 				var z := RemakeInteractZone.make(m.get_parent(), "Sit_" + str(m.name), m.transform * Transform3D(Basis(), Vector3(0, 0.1, 0)),
 					Vector3(0.5, 0.55, 0.5), _sit.bind(m), _sit_prompt.bind(m))
 				z.gives_way = false
-	else:
+		_finish_setup(hour)
+		built = true
+
+
+func _build_train(hour: float) -> void:
+	if true:
 		var sc2 := _scene(TRAIN)
 		for k in 3:
 			if sc2 == null:
@@ -107,6 +127,11 @@ func setup(p_line: Dictionary, p_index: int, hour: float) -> void:
 			if str(m.name) != "seat_driver":
 				seats.append(m)
 		RemakeInteractZone.make(self, "Board", Transform3D.IDENTITY, Vector3(4.0, 3.5, 8.0), _use, _prompt)
+	_finish_setup(hour)
+	built = true
+
+
+func _finish_setup(hour: float) -> void:
 	for m in find_children("stand_*", "Node3D", true, false):
 		var strap := (m.get_parent() as Node3D).find_child("strap_" + str(m.name).substr(6), false, false)
 		stands.append([m, strap])
@@ -127,9 +152,18 @@ func _occupancy(hour: float) -> float:
 	return clampf(0.12 + 0.75 * peak + (0.15 if hour > 10.0 and hour < 15.0 else 0.0), 0.05, 0.95)
 
 
+func _demand(at_d: float) -> float:
+	## The share of seats taken here, now (TransitDemand: the towns round about, the hour, the events).
+	var sys := get_parent()
+	var h: float = sys.hour() if sys.has_method("hour") else 12.0
+	var dy: int = sys.day() if sys.has_method("day") else 0
+	return TransitDemand.load_at(TransitNet.point_at(line, at_d), h, dy)
+
+
 func _fill(hour: float) -> void:
-	## Passengers for this run: a share of the seats, and at the peaks some standing.
-	var occ := _occupancy(hour)
+	## Passengers for this run: as many as ride here at this hour (TransitDemand), and when it's
+	## crowded some standing.
+	var occ := _demand(d) if str(line.kind) == "tram" else _occupancy(hour)
 	var rng := NpcRng.for_trait(world_seed, "%s#%d" % [line.id, index], "riders:%d" % int(hour))
 	var n := 0
 	for m in seats:
@@ -143,13 +177,22 @@ func _fill(hour: float) -> void:
 				n += 1
 
 
+var _to_spawn: Array = []             # riders waiting to be made (a few a frame: _process)
+
+
 func _spawn(marker: Variant, seated: bool, rng: NpcRng, n: int, mode := "", extra := {}) -> void:
+	## (queued: a person's traits take ~1.5 ms to draw, and a full tram is dozens)
 	var r := rng.rand() if rng else _rng.randf()
+	_to_spawn.append([marker, seated, r, n, mode, extra])
+
+
+func _spawn_now(marker: Variant, seated: bool, r: float, n: int, mode: String, extra: Dictionary) -> void:
 	var pid := "T%s%d_%s%d:%d" % [str(line.id).substr(0, 3), index, mode, n if n >= 0 else _rng.randi() % 100000, int(r * 1000)]
 	var age := 16 + int(r * 64) if mode != "driver" else 28 + int(r * 30)
 	var v := NpcTraits.shared().person(world_seed, pid, ["L0", "L1"], "", {"age": age})
 	var job := {"v": v, "pid": pid, "marker": marker, "seated": seated, "mode": mode, "extra": extra, "data": {}}
-	job.task = WorkerThreadPool.add_task(func(): job.data = NpcCharacter.prepare(v, pid, world_seed, "work"), false, "rider " + pid)
+	var seed := world_seed                           # (the job may outlive this tram: it captures values only)
+	job.task = WorkerThreadPool.add_task(func(): job.data = NpcCharacter.prepare(v, pid, seed, "work"), false, "rider " + pid)
 	_pending.append(job)
 
 
@@ -211,18 +254,32 @@ func _arrive() -> void:
 	_at_stop = true
 	for sec in sections:
 		(sec as TramSection).open_curbside(true)
-	# who gets off: some of those seated; who gets on: a few, more at the peaks
-	var seated := riders.filter(func(r): return seats.has(r[2]))
-	seated.shuffle()
-	var n_off := mini(6, int(round(seated.size() * _rng.randf_range(0.1, 0.35))))
+	# who gets off and who gets on: the load the run ahead calls for (TransitDemand) -- leaving a town
+	# it empties, coming into one it fills; some get off anywhere
+	var here := _demand(d)
+	var ahead := 0.0
+	for k in 4:
+		ahead += _demand(d + 250.0 * (k + 1)) * 0.25
+	var target := int(round(seats.size() * ahead))
+	var all := riders.duplicate()
+	all.shuffle()
+	var leave_share := clampf(0.08 + 0.6 * maxf(0.0, here - ahead) / maxf(here, 0.05), 0.0, 0.9)
+	var n_off := int(round(all.size() * leave_share)) + maxi(0, all.size() - target - 2)
+	n_off = mini(mini(n_off, all.size()), 8)
 	for k in n_off:
-		var r: Array = seated[k]
-		_plan.append([1.3 + k * 0.9, _alight.bind(r)])
-	var occ := _occupancy(get_parent().hour() if get_parent().has_method("hour") else 12.0)
-	var free := seats.size() - riders.size()
-	var n_on := mini(5, int(round(free * occ * 0.25 + _rng.randf() * 2.0)))
-	for k in n_on:
-		_plan.append([2.2 + k * 1.1, _board])
+		var r: Array = all[k]
+		_plan.append([1.3 + k * 0.8, _alight.bind(r)])
+	var n_on := clampi(target - (riders.size() - n_off), 0, 8)
+	var crowds: StopCrowds = get_parent().crowds if "crowds" in get_parent() else null
+	var sidx := _stop_index()
+	if crowds and sidx >= 0 and crowds.tracked(str(line.id), sidx):
+		# the people waiting here (as many as there are)
+		var who := crowds.take(str(line.id), sidx, n_on)
+		for k in who.size():
+			_plan.append([2.2 + k * 1.0, _board_person.bind(who[k])])
+	else:
+		for k in n_on:
+			_plan.append([2.2 + k * 1.1, _board])
 
 
 func _depart() -> void:
@@ -231,6 +288,8 @@ func _depart() -> void:
 	for w in walkers.duplicate():
 		if w.mode == "on" and int(w.i) >= 3 and is_instance_valid(w.npc):
 			_seat_walker(w)                                  # already aboard: sit straight down
+		elif w.mode == "off" and int(w.i) >= 4 and is_instance_valid(w.npc):
+			_hand_off(w)                                     # out of the door: on their way
 		elif is_instance_valid(w.npc):
 			(w.npc as Node).queue_free()
 		walkers.erase(w)
@@ -259,7 +318,7 @@ func _path_out(sec: TramSection, from: Vector3, door_z: float) -> Array:
 func _alight(r: Array) -> void:
 	if not riders.has(r) or not is_instance_valid(r[0]):
 		return
-	var marker := r[2] as Node3D
+	var marker := (r[2][0] if r[2] is Array else r[2]) as Node3D
 	var sec := _section_of(marker)
 	if sec == null:
 		return
@@ -291,6 +350,43 @@ func _board() -> void:
 	pts.reverse()
 	pts[0] = Vector3(4.2, 0.0, float(door.spec.z) - 1.2)
 	_spawn(m, true, null, -1, "board", {"sec": sec, "pts": pts})
+
+
+func _stop_index() -> int:
+	var best := -1
+	var bd := INF
+	var L := float(line.length)
+	for i in (line.stops as Array).size():
+		var dd := absf(fposmod(float(line.stops[i].d) - _stop_d + L * 0.5, L) - L * 0.5)
+		if dd < bd:
+			bd = dd
+			best = i
+	return best if bd < 40.0 else -1
+
+
+func _board_person(person: Dictionary) -> void:
+	## Someone who was waiting at the stop walks to a door and on, to a free seat (or a strap).
+	var npc := person.npc as Node3D
+	if not is_instance_valid(npc):
+		return
+	var taken := _taken()
+	var free: Array = seats.filter(func(m): return not taken.has(m))
+	if free.is_empty() or not _at_stop:
+		return                                         # (full: they wait for the next)
+	var m: Node3D = free[_rng.randi() % free.size()]
+	var sec := _section_of(m)
+	var door := _door_for(sec, m.position.z)
+	if door.is_empty():
+		return
+	var xf := npc.global_transform
+	npc.get_parent().remove_child(npc)
+	sec.body.add_child(npc)
+	npc.global_transform = xf
+	var pts := _path_out(sec, m.position, float(door.spec.z))
+	pts.reverse()
+	pts[0] = npc.position
+	(person.an as NpcAnimator).ambient = false
+	walkers.append({"npc": npc, "an": person.an, "sec": sec, "pts": pts, "i": 1, "mode": "on", "seat": m})
 
 
 func _section_of(n: Node) -> TramSection:
@@ -328,7 +424,7 @@ func _walk(delta: float) -> void:
 				if w.mode == "on":
 					_seat_walker(w)
 				else:
-					npc.queue_free()
+					_hand_off(w)
 				continue
 		else:
 			npc.position = p + dv.normalized() * step
@@ -336,6 +432,16 @@ func _walk(delta: float) -> void:
 		if flat.length() > 0.02:
 			npc.basis = Basis.looking_at(flat.normalized(), Vector3.UP)
 		w.an.speed = WALK
+
+
+func _hand_off(w: Dictionary) -> void:
+	## Off the tram: they walk on, along the pavement to somewhere near the stop (StopCrowds).
+	walkers.erase(w)
+	var crowds: StopCrowds = get_parent().crowds if "crowds" in get_parent() else null
+	if crowds == null:
+		(w.npc as Node).queue_free()
+		return
+	crowds.walk_away(w.npc, w.an)
 
 
 func walking() -> bool:
@@ -465,12 +571,24 @@ func _tangent(s: float) -> Vector3:
 func place(p_d: float, p_dwelling: bool, p_stop: int) -> void:
 	dwelling = p_dwelling
 	stop = p_stop
+	if not built:
+		d = p_d                                      # (still being built: it starts where the timetable has it)
+		return
+	Prof.begin("tram.operate")
 	d = _operate(p_d, p_dwelling)
+	Prof.end("tram.operate")
 	if str(line.kind) == "tram":
+		Prof.begin("tram.place")
 		_place_tram()
+		_placed = true
+		Prof.end("tram.place")
+		Prof.begin("tram.aboard")
 		_keep_aboard()
+		Prof.end("tram.aboard")
 	else:
+		Prof.begin("train.place")
 		_place_train()
+		Prof.end("train.place")
 	if _player:
 		_player.global_transform = Transform3D(_player_seat.global_transform.basis, _player_seat.global_transform * Vector3(0, 0.72, 0))
 
@@ -492,8 +610,8 @@ func _place_tram() -> void:
 		var s_ra := _back_along(pf, s_fa, WB)
 		var pr := TransitNet.point_at(line, s_ra)
 		var hs: Array = _heights.get(i, [-INF, -INF])
-		var hf := RoadSurface.stand_h(space, Vector2(fposmod(pf.x, StationGeo.CIRC), pf.y), hs[0])
-		var hr := RoadSurface.stand_h(space, Vector2(fposmod(pr.x, StationGeo.CIRC), pr.y), hs[1])
+		var hf := _line_h(space, s_fa, hs[0])
+		var hr := _line_h(space, s_ra, hs[1])
 		_heights[i] = [hf, hr]
 		var P_f := _p3(pf, hf)
 		var P_r := _p3(pr, hr)
@@ -511,9 +629,39 @@ func _place_tram() -> void:
 		if i + 1 < sections.size():
 			var gap := (TramSection.length_back(sec.kind) - AXLE) + JOINT_GAP + (TramSection.length_front((sections[i + 1] as TramSection).kind) - AXLE)
 			s_fa = _back_along(pr, s_ra, gap)
+	Prof.begin("tram.joints")
 	for j in joints:
 		(j as TramJoint).update()
+	Prof.end("tram.joints")
 	dwelling = _holding
+
+
+static var _heights_along := {}        # line id -> {half-metre index along it: the height a vehicle stands at}
+const H_STEP := 0.5
+
+
+func _line_h(space: PhysicsDirectSpaceState3D, along: float, was: float) -> float:
+	## The height a tram stands at, at a distance along its line: RoadSurface.stand_h, looked up once
+	## per H_STEP of the line and shared by every tram on it (the line never moves), interpolated.
+	var cache: Dictionary = _heights_along.get(line.id, {})
+	if cache.is_empty():
+		_heights_along[line.id] = cache
+	var L := float(line.length)
+	var u := fposmod(along, L) / H_STEP
+	var k0 := floori(u)
+	var out := 0.0
+	for j in 2:
+		var k := (k0 + j) % maxi(1, int(L / H_STEP))
+		var h = cache.get(k)
+		if h == null:
+			var p := TransitNet.point_at(line, k * H_STEP)
+			var q := Vector2(fposmod(p.x, StationGeo.CIRC), p.y)
+			h = RoadSurface.stand_h(space, q, was)
+			# (over water a small bridge is found by a ray, its body maybe not built yet: asked afresh)
+			if MapTerrain.water_at(q.x, q.y).x < -9000.0 or GreatBridges.deck_h(q.x, q.y) > -INF:
+				cache[k] = h
+		out += float(h) * ((1.0 - (u - k0)) if j == 0 else (u - k0))
+	return out
 
 
 func _night() -> float:
@@ -553,12 +701,24 @@ func _place_train() -> void:
 		z.global_transform = (parts[0][0] as Node3D).global_transform * Transform3D(Basis(), Vector3(1.4, 1.5, 0.0))
 
 
+func _exit_tree() -> void:
+	for job in _pending:                             # (worker tasks must be waited for)
+		WorkerThreadPool.wait_for_task_completion(job.task)
+	_pending.clear()
+
+
 func _process(_delta: float) -> void:
+	if not _to_spawn.is_empty():
+		var t0 := Time.get_ticks_usec()
+		while not _to_spawn.is_empty() and Time.get_ticks_usec() - t0 < 2000:
+			var j: Array = _to_spawn.pop_front()
+			_spawn_now(j[0], j[1], j[2], j[3], j[4], j[5])
 	if not _pending.is_empty():
 		_collect()
 
 
 func _physics_process(delta: float) -> void:
+	Prof.begin("tram.vehicle_tick")
 	for p in _plan.duplicate():
 		p[0] = float(p[0]) - delta
 		if float(p[0]) <= 0.0:
@@ -566,6 +726,7 @@ func _physics_process(delta: float) -> void:
 			(p[1] as Callable).call()
 	if not walkers.is_empty():
 		_walk(delta)
+	Prof.end("tram.vehicle_tick")
 
 
 # -- the player ------------------------------------------------------------------------------------
@@ -687,6 +848,8 @@ func _keep_aboard() -> void:
 
 
 func distance_to_player(at: Vector3) -> float:
+	if not built or not _placed:
+		return 0.0                                   # (still being made, or not yet put on its line: keep it)
 	var best := INF
 	for sec in sections:
 		best = minf(best, (sec as Node3D).global_position.distance_to(at))

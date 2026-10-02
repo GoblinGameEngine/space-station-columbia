@@ -25,6 +25,8 @@ func setup(id: String, sign: float, is_locked: bool) -> void:
 	_closed_rot = rotation.y
 	add_to_group("remake_door")
 	sync_to_physics = false
+	collision_mask = 0               # (a door is moved, it never needs to find what it touches: with a mask
+	                                 # every leaf paired with the walls and floor round it -- thousands of pairs)
 
 
 ## Called by the player's interact ray.

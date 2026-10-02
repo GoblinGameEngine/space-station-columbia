@@ -22,6 +22,9 @@ class_name NpcTraffic
 const FLEET := "res://remake/characters/npc_fleet.json"
 const RANGE := 160.0
 const SLICE := 50                    # vehicles placed per frame (the far ones are a distance check)
+const FAR_RECHECK_MS := 3000         # a vehicle found far away isn't looked at again for this long (3 s at
+                                     # town speed is ~40 m: inside the RANGE + 100 m margin it was judged by)
+var _ms := 0
 const CAR_SPEED := 11.0              # m/s on town streets (40 km/h)
 const LANE := 1.8                    # the driving lane: this far right of the centre line
 const PARK_LANE := 10.0              # roads this wide have a parking lane at each kerb
@@ -113,7 +116,10 @@ func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 	var day: int = now[0]
 	var h: float = now[1]
 	var last := {}
-	for seg in _life.timeline(pid, day):
+	Prof.begin("traffic.timeline")
+	var tl := _life.timeline(pid, day)
+	Prof.end("traffic.timeline")
+	for seg in tl:
 		if seg.kind == "trip" and seg.get("mode", "") == "car" and float(seg.t0) <= h:
 			last = seg
 	if last.is_empty():
@@ -133,11 +139,15 @@ func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 	var rough_end := start + straight * 1.6 / CAR_SPEED * gh
 	if h < rough_end:
 		if _near_line(a, b):
+			Prof.begin("traffic.route")
+			var rk := _life.place_of(P, str(last.from)) + ">" + _life.place_of(P, str(last.to))
 			var r := _route(_life.place_of(P, str(last.from)), _life.place_of(P, str(last.to)))
-			var L := NpcPlaces.route_length(r)
+			var cum: PackedFloat32Array = _cum_of(rk, r)
+			Prof.end("traffic.route")
+			var L := cum[cum.size() - 1] if cum.size() > 0 else 0.0
 			var t := (h - start) / gh * CAR_SPEED
 			if t < L:
-				var w := _on_route(r, t, CAR_SPEED)
+				var w := _on_route(r, t, CAR_SPEED, cum)
 				w.trip = trip
 				w.dest = dest
 				w.length = L
@@ -176,7 +186,8 @@ func _round(v: Dictionary, now: Array) -> Dictionary:
 	var marks2: Array = rc[1]
 	if pts2.size() < 2:
 		return {}
-	var L := NpcPlaces.route_length(pts2)
+	var cum2: PackedFloat32Array = _cum_of(key, pts2)
+	var L := cum2[cum2.size() - 1]
 	var period := L / CAR_SPEED + marks2.size() * DWELL_S
 	var t: float = fposmod(float(now[2]) + float(hash(v.id) % 1000), period)
 	var d := 0.0
@@ -184,17 +195,17 @@ func _round(v: Dictionary, now: Array) -> Dictionary:
 		var m0: float = marks2[i]
 		var m1: float = marks2[i + 1] if i + 1 < marks2.size() else L
 		if t < DWELL_S:
-			return _round_at(pts2, m0, L, marks2)
+			return _round_at(pts2, m0, L, marks2, cum2)
 		t -= DWELL_S
 		var run := (m1 - m0) / CAR_SPEED
 		if t < run:
-			return _round_at(pts2, m0 + t * CAR_SPEED, L, marks2)
+			return _round_at(pts2, m0 + t * CAR_SPEED, L, marks2, cum2)
 		t -= run
-	return _round_at(pts2, L, L, marks2)
+	return _round_at(pts2, L, L, marks2, cum2)
 
 
-func _round_at(pts: PackedVector2Array, t: float, L: float, marks: Array) -> Dictionary:
-	var w := _on_route(pts, t, CAR_SPEED)
+func _round_at(pts: PackedVector2Array, t: float, L: float, marks: Array, cum := PackedFloat32Array()) -> Dictionary:
+	var w := _on_route(pts, t, CAR_SPEED, cum)
 	w.loop = L
 	w.marks = marks
 	return w
@@ -217,20 +228,46 @@ func _route(from_b: String, to_b: String) -> PackedVector2Array:
 	return _route_cache[key]
 
 
-func _on_route(r: PackedVector2Array, t: float, speed: float) -> Dictionary:
-	var p := _pos_along(r, t)
-	var q := _pos_along(r, t + 2.0)
-	var o := _pos_along(r, t - 2.0)
+var _cums := {}                      # route key -> its running length at each point
+
+
+func _cum_of(key: String, r: PackedVector2Array) -> PackedFloat32Array:
+	var c = _cums.get(key)
+	if c != null and (c as PackedFloat32Array).size() == r.size():
+		return c
+	if _cums.size() > 600:
+		_cums.clear()
+	var out := PackedFloat32Array()
+	out.resize(r.size())
+	var acc := 0.0
+	for i in r.size():
+		if i > 0:
+			acc += NpcPlaces.dist(r[i - 1], r[i])
+		out[i] = acc
+	_cums[key] = out
+	return out
+
+
+func _on_route(r: PackedVector2Array, t: float, speed: float, cum := PackedFloat32Array()) -> Dictionary:
+	var p := _pos_along(r, t, cum)
+	var q := _pos_along(r, t + 2.0, cum)
+	var o := _pos_along(r, t - 2.0, cum)
 	var dir := Vector2(StationGeo.wrap_ds(q.x - o.x), q.y - o.y)
 	if dir.length() < 0.01:
 		dir = Vector2(1, 0)
 	return {"pos": p, "yaw": atan2(-dir.y, dir.x), "driving": speed > 0.0, "speed": speed, "moving": true, "route": r, "t": t}
 
 
-static func _pos_along(r: PackedVector2Array, t: float) -> Vector2:
+static func _pos_along(r: PackedVector2Array, t: float, cum := PackedFloat32Array()) -> Vector2:
 	if r.size() == 0:
 		return Vector2.ZERO
 	t = maxf(t, 0.0)
+	if cum.size() == r.size() and r.size() > 1:
+		# (with the running lengths: straight to the segment)
+		var i := clampi(cum.bsearch(t) - 1, 0, r.size() - 2)
+		var seg := cum[i + 1] - cum[i]
+		var f := clampf((t - cum[i]) / maxf(seg, 1e-6), 0.0, 1.0)
+		return Vector2(fposmod(r[i].x + StationGeo.wrap_ds(r[i + 1].x - r[i].x) * f, StationGeo.CIRC), r[i].y + (r[i + 1].y - r[i].y) * f)
 	for i in r.size() - 1:
 		var seg := NpcPlaces.dist(r[i], r[i + 1])
 		if t <= seg:
@@ -249,7 +286,7 @@ func _parked(door: Vector2, v: Dictionary) -> Dictionary:
 	var key := "%.1f,%.1f#%d" % [door.x, door.y, int(v.slot)]
 	if not _spot_cache.has(key):
 		if _spots_this_frame >= 2:
-			return {}                                              # (found in a frame or two)
+			return {"later": true}                                 # (found in a frame or two)
 		_spots_this_frame += 1
 		_spot_cache[key] = _find_spot(door)
 	var sp: Dictionary = _spot_cache[key]
@@ -345,9 +382,16 @@ func _in_building(q: Vector2, margin: float) -> bool:
 # -- the frame --------------------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
+	Prof.begin("traffic")
+	_tick_traffic(delta)
+	Prof.end("traffic")
+
+
+func _tick_traffic(delta: float) -> void:
 	if player == null or vehicles.is_empty() or StationGeo.loading:
 		return                                                     # nothing drives till the world is in
 	var t_us := Time.get_ticks_usec()
+	_ms = Time.get_ticks_msec()
 	_here = Vector2(StationGeo.s_of(player.global_position), player.global_position.x)
 	var now := _now()
 	var ts0 := Time.get_ticks_usec()
@@ -368,10 +412,17 @@ func _process(delta: float) -> void:
 				wn.queue_free()
 				live.erase(v.id)
 			continue
+		if int(v.get("far_until", 0)) > _ms:
+			continue                                               # far off a moment ago: can't be near yet
 		var tl := Time.get_ticks_usec()
+		Prof.begin("traffic.locate")
 		v.where = _locate(v, now)
+		Prof.end("traffic.locate")
 		var tm := Time.get_ticks_usec()
 		_show(v)
+		var wh: Dictionary = v.where
+		if (wh.is_empty() or wh.get("away", false)) and not live.has(v.id):
+			v.far_until = _ms + FAR_RECHECK_MS
 		t_loc += tm - tl
 		t_show += Time.get_ticks_usec() - tm
 	var t_slice := Time.get_ticks_usec() - t_us
@@ -383,7 +434,9 @@ func _process(delta: float) -> void:
 		var e: Dictionary = live[id]
 		var t1 := Time.get_ticks_usec()
 		if e.sim != null:
+			Prof.begin("traffic.drive")
 			_drive(e, delta, now)
+			Prof.end("traffic.drive")
 		var t2 := Time.get_ticks_usec()
 		if live.has(id):
 			_visual(live[id], delta, cam)

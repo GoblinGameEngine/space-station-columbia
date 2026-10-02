@@ -19,6 +19,8 @@ func setup(p_slide: Vector3) -> void:
 	_closed = position
 	sync_to_physics = false
 	add_to_group("remake_door")
+	collision_mask = 0               # (a door is moved, it never needs to find what it touches: with a mask
+	                                 # every leaf paired with the walls and floor round it -- thousands of pairs)
 
 
 ## Called by the player's interact ray.

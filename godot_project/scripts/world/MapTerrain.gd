@@ -103,8 +103,11 @@ static func _load() -> void:
 			cum.append(cum[k] + Vector2(_wrap(rp[k + 1][0] - rp[k][0]), rp[k + 1][1] - rp[k][1]).length())
 		rd["cum"] = cum
 		rd["zp"] = PackedFloat32Array(rd.get("prof", []))
+		# (indexed as far as it can reach: its wider side's kerb, the lawn and walk, the shoulder, the blend)
+		var reach: float = maxf(float(rd.get("hr", rd.w * 0.5)), float(rd.get("hl", rd.w * 0.5))) \
+			+ float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0)) + 0.5 + BLEND_MAX
 		for k in rp.size() - 1:
-			_index(["road", i, k], rp[k][0], rp[k][1], rp[k + 1][0], rp[k + 1][1], rd.w * 0.5 + 0.5 + BLEND_MAX)
+			_index(["road", i, k], rp[k][0], rp[k][1], rp[k + 1][0], rp[k + 1][1], reach)
 	for i in _d.areas.size():
 		var ap: Array = _d.areas[i].poly
 		var lo := Vector2(1e9, 1e9)
@@ -281,11 +284,35 @@ static func _body_profile(s: float, x: float) -> float:
 	return dep
 
 
+static var _water_cells := {}         # Vector2i -> the coarse cell's small-water items only
+static var _pad_cells := {}           # Vector2i -> its pads only
+
+
+static var _cache_mx := Mutex.new()     # the lazily built cells are asked for from worker threads (terrain tiles)
+
+
+static func _kind_cell(cache: Dictionary, key: Vector2i, kinds: Array) -> Array:
+	## The coarse cell's items of these kinds (filtered once, on first use).
+	_cache_mx.lock()
+	var got = cache.get(key)
+	_cache_mx.unlock()
+	if got != null:
+		return got
+	var out: Array = []
+	for it in _grid.get(key, []):
+		if kinds.has(it[0]):
+			out.append(it)
+	_cache_mx.lock()
+	cache[key] = out
+	_cache_mx.unlock()
+	return out
+
+
 static func _small_depth(s: float, x: float) -> float:
 	## Carved depth of the small water (creeks, spurs, ponds, oxbows, ditches) below the terrain.
 	var dep := 0.0
 	var key := Vector2i(floori(s / CELL), floori(x / CELL))
-	for it in _grid.get(key, []):
+	for it in _kind_cell(_water_cells, key, ["seg", "pond", "oxbow", "ditch"]):
 		match it[0]:
 			"seg":
 				var cr: Dictionary = _d.creeks[it[1]]
@@ -338,6 +365,42 @@ static func sample(s: float, x: float) -> Vector2:
 	return Vector2(h, maxf(0.0, base - h))
 
 
+const RCELL := 16.0                   # the roads' own fine grid (_road_cell)
+const RSTRIDE := 11                  # per segment: a.s a.x b.s b.x kerb_r kerb_l verge cum0 cum1 road k
+static var _rcells := {}             # Vector2i -> PackedFloat32Array, built on first use
+
+
+static func _road_cell(key: Vector2i) -> PackedFloat32Array:
+	## The road segments that can reach into a RCELL cell (its share of the coarse grid's, as packed
+	## numbers: the height lookup's inner loop then touches no Dictionary).
+	_cache_mx.lock()
+	var got = _rcells.get(key)
+	_cache_mx.unlock()
+	if got != null:
+		return got
+	var out := PackedFloat32Array()
+	var cs := (key.x + 0.5) * RCELL
+	var cx := (key.y + 0.5) * RCELL
+	var half_diag := RCELL * 0.7072
+	for it in _grid.get(Vector2i(floori(cs / CELL), floori(cx / CELL)), []):
+		if it[0] != "road":
+			continue
+		var rd: Dictionary = _d.roads[it[1]]
+		var a: Array = rd.pts[it[2]]
+		var bq: Array = rd.pts[it[2] + 1]
+		var kr: float = rd.get("hr", rd.w * 0.5)
+		var kl: float = rd.get("hl", rd.w * 0.5)
+		var verge: float = float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0))
+		if _seg_dist(cs, cx, a[0], a[1], bq[0], bq[1]) > maxf(kr, kl) + verge + 0.5 + BLEND_MAX + half_diag:
+			continue
+		var cum: PackedFloat32Array = rd.cum
+		out.append_array(PackedFloat32Array([a[0], a[1], bq[0], bq[1], kr, kl, verge, cum[it[2]], cum[it[2] + 1], it[1], it[2]]))
+	_cache_mx.lock()
+	_rcells[key] = out
+	_cache_mx.unlock()
+	return out
+
+
 static func _road_grade(s: float, x: float, base: float) -> Vector2:
 	## (terrain graded to the nearest road, that road's weight 0..1): flat across the carriageway
 	## and a 0.5 m shoulder at the centreline's height, blending back over ROAD_BLEND.
@@ -347,33 +410,39 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 	var best_rise := 0.0
 	var on_carriageway := false
 	var on_road := {}                     # road -> [distance, height] of its nearest segment, where it weighs 1
-	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
-		if it[0] != "road":
-			continue
-		var rd: Dictionary = _d.roads[it[1]]
-		var a: Array = rd.pts[it[2]]
-		var bq: Array = rd.pts[it[2] + 1]
-		var pr := _seg_proj(s, x, a[0], a[1], bq[0], bq[1])
+	var seg := _road_cell(Vector2i(floori(s / RCELL), floori(x / RCELL)))
+	for j in range(0, seg.size(), RSTRIDE):
+		# the nearest point of the segment (its distance; t along it)
+		var a0: float = seg[j]
+		var a1: float = seg[j + 1]
+		var ds := fposmod(seg[j + 2] - a0 + C * 0.5, C) - C * 0.5
+		var dx: float = seg[j + 3] - a1
+		var ps := fposmod(s - a0 + C * 0.5, C) - C * 0.5
+		var px := x - a1
+		var L2 := ds * ds + dx * dx
+		var t := clampf((ps * ds + px * dx) / L2, 0.0, 1.0) if L2 > 1e-9 else 0.0
+		var dist := Vector2(ps - ds * t, px - dx * t).length()
 		# the right of way: each side's kerb (a parking lane widens its side), then the tree lawn and
 		# the sidewalk (tools/street_rules.py) -- all of it graded flat with the road
-		var kr: float = rd.get("hr", rd.w * 0.5)
-		var kl: float = rd.get("hl", rd.w * 0.5)
-		var verge: float = float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0))
+		var kr: float = seg[j + 4]
+		var kl: float = seg[j + 5]
+		var verge: float = seg[j + 6]
 		var hw: float = maxf(kr, kl) + verge
-		if pr.x > hw + 0.5 + BLEND_MAX:
+		if dist > hw + 0.5 + BLEND_MAX:
 			continue
-		var right_side: bool = (_wrap(bq[0] - a[0]) * (x - a[1]) - (bq[1] - a[1]) * _wrap(s - a[0])) > 0.0   # (right of the way along the points: (-dx, ds))
+		var right_side: bool = (ds * px - dx * ps) > 0.0          # (right of the way along the points: (-dx, ds))
 		var kerb: float = kr if right_side else kl
-		if pr.x <= kerb:
+		if dist <= kerb:
 			on_carriageway = true
+		var ri := int(seg[j + 9])
+		var rd: Dictionary = _d.roads[ri]
 		var h: float
 		var zp: PackedFloat32Array = rd.zp
 		if zp.is_empty():
-			h = base_elev(a[0] + _wrap(bq[0] - a[0]) * pr.y, a[1] + (bq[1] - a[1]) * pr.y)
+			h = base_elev(a0 + ds * t, a1 + dx * t)
 		else:
 			# the road's graded profile at the nearest point of its centreline
-			var cum: PackedFloat32Array = rd.cum
-			var u: float = lerpf(cum[it[2]], cum[it[2] + 1], pr.y) / _prof_step
+			var u: float = lerpf(seg[j + 7], seg[j + 8], t) / _prof_step
 			var k := clampi(floori(u), 0, zp.size() - 1)
 			var k1 := mini(k + 1, zp.size() - 1)
 			if zp[k] < -9000.0 or zp[k1] < -9000.0:
@@ -381,17 +450,17 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 			h = lerpf(zp[k], zp[k1], clampf(u - k, 0.0, 1.0))
 		# the cut or fill slope reaches out SIDE_SLOPE m for every metre the road is off the ground
 		var blend := clampf(absf(h - base) * SIDE_SLOPE, ROAD_BLEND, BLEND_MAX)
-		var w := 1.0 - smoothstep(hw + 0.5, hw + 0.5 + blend, pr.x)
+		var w := 1.0 - smoothstep(hw + 0.5, hw + 0.5 + blend, dist)
 		# the strongest road; between equals (every nearby segment of a road weighs 1 on its
 		# carriageway), the nearest segment -- not one whose clamped end happens to come first
-		if w > best_w + 1e-6 or (w > best_w - 1e-6 and pr.x < best_d):
+		if w > best_w + 1e-6 or (w > best_w - 1e-6 and dist < best_d):
 			best_w = w
 			best_h = h
-			best_d = pr.x
-			best_rise = CURB_RISE * clampf((pr.x - kerb) / 0.25, 0.0, 1.0) if verge > 0.0 else 0.0
+			best_d = dist
+			best_rise = CURB_RISE * clampf((dist - kerb) / 0.25, 0.0, 1.0) if verge > 0.0 else 0.0
 		# where carriageways overlap (a junction), each road's nearest segment, to blend between
-		if w > 0.999 and pr.x < float(on_road.get(it[1], [INF])[0]):
-			on_road[it[1]] = [pr.x, h]
+		if w > 0.999 and dist < float(on_road.get(ri, [INF])[0]):
+			on_road[ri] = [dist, h]
 	if on_road.size() > 1:
 		# a junction: the roads' heights (one at the junction itself, tools/road_profile.py) blended by
 		# nearness, so the surface doesn't step where one road's carriageway gives way to the next's
@@ -431,9 +500,7 @@ static func _pad_grade(s: float, x: float, h: float) -> float:
 	## The terrain levelled to the pad of the nearest building's lot.
 	var best_w := 0.0
 	var best_h := h
-	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
-		if it[0] != "pad":
-			continue
+	for it in _kind_cell(_pad_cells, Vector2i(floori(s / CELL), floori(x / CELL)), ["pad"]):
 		var pd: Array = _pads[it[1]]
 		var ds := _wrap(s - pd[0])
 		var dx: float = x - pd[1]
