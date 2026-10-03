@@ -456,13 +456,13 @@ func _doors() -> void:
 
 func _door_prompt(i: int) -> String:
 	var d: Dictionary = doors[i]
-	if not vehicle or not vehicle.stopped():
+	if vehicle and not vehicle.stopped():           # (a summoned tram, with no TransitVehicle, is parked)
 		return ""
 	return "Close the doors" if d.open else "Open the doors"
 
 
 func _door_use(_by: Node, i: int) -> String:
-	if not vehicle or not vehicle.stopped():
+	if vehicle and not vehicle.stopped():           # (a summoned tram, with no TransitVehicle, is parked)
 		return ""
 	doors[i].open = not doors[i].open
 	return "doors"

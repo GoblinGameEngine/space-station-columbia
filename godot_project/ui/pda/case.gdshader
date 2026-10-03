@@ -1,8 +1,8 @@
 // The NYNEX Communicator's case, after the Apple Newton MessagePad: matte slate-grey plastic, lit
 // from above -- a soft falloff down the face, fine grain, rounded edges that catch the light on top
 // and fall into shade below -- the deep well the glass sits in (its upper wall in shadow, its lower
-// lip lit), the glass strip under the screen the soft keys are printed on, the drilled speaker
-// grille, the stylus silo along the left side, and a soft shadow under it all.
+// lip lit), the drilled speaker grille, the stylus silo along the left side, and a soft shadow under
+// it all. (The scroll wheel in the right side is drawn over it: GameMenu.gd's CaseWheel.)
 // Drawn over the device's rect grown by `margin` (for the shadow); positions are in the device's
 // own pixels.
 shader_type canvas_item;
@@ -12,16 +12,12 @@ uniform float radius = 22.0;
 uniform float k = 1.0;                       // the case's scale
 uniform vec4 well = vec4(20.0, 50.0, 260.0, 360.0);     // x, y, w, h
 uniform float well_radius = 6.0;
-uniform vec4 strip = vec4(30.0, 380.0, 240.0, 30.0);    // the soft keys' glass
 uniform vec4 grille = vec4(200.0, 12.0, 60.0, 24.0);
 uniform vec4 silo = vec4(4.0, 120.0, 8.0, 240.0);
-uniform float backlight = 0.0;
 
 varying vec2 p;
 
 const vec3 PLASTIC = vec3(0.205, 0.218, 0.226);
-const vec3 DAY_BG = vec3(0.64, 0.71, 0.52);
-const vec3 NIGHT_BG = vec3(0.45, 0.96, 0.64);
 
 void vertex() {
 	p = VERTEX;
@@ -90,12 +86,6 @@ void fragment() {
 			frame *= 0.6 + 0.4 * smoothstep(0.0, 7.0 * k, from_top);
 			frame += vec3(0.05) * (1.0 - smoothstep(0.0, 3.0 * k, well.y + well.w - p.y));
 			c = frame;
-			// the soft keys' glass: the panel's own colour (lit at night like the screen), a touch dimmer
-			float dg = rrect(p, strip, 2.0 * k);
-			if (dg < 0.0) {
-				c = mix(DAY_BG, NIGHT_BG, backlight) * 0.9;
-				c *= 1.0 - 0.12 * (1.0 - smoothstep(0.0, 4.0 * k, p.y - strip.y));
-			}
 		} else if (dw < 2.5 * k) {
 			// the lip round the well: its lower edge faces up and catches the light
 			vec2 nw = rrect_normal(p, well, well_radius);

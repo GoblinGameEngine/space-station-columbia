@@ -364,6 +364,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_died(_attacker: Node) -> void:
 	print("StationPlayer died -- respawning.")
+	respawn()
+
+
+func respawn() -> void:
+	## Back to where you started (the Communicator's System > Respawn, or a death), out of any vehicle, healed.
 	if _vehicle:
 		_vehicle.leave_seat()
 	carrier_velocity = Vector3.ZERO

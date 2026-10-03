@@ -1,22 +1,28 @@
 extends CanvasLayer
 
 ## The game menu is the player's handheld: a NYNEX Communicator, a portrait mid-90s PDA (the Apple
-## Newton MessagePad's and Palm Pilot's upright form) running "The System".  The System keeps
-## Windows CE 1.0's way of working -- a desktop of icons, a taskbar whose System button opens a flat
-## (non-cascading) menu, full-screen apps with tabs -- and wears the Macintosh System 6 look: Chicago
-## type, pinstriped title bars with a close box, rounded push buttons, the grey dither desktop.
-##   Station Map (Station, Nearby) · Inventory (Weapons, Items) · Quests (Active, Completed)
-##   NPC AI (Setup, Voice, Try it) · Control Panel (Sound, Display, Controls) · Help (Contents, About)
-##   System menu: the apps, New Game..., Suspend (back to the game).
+## Newton MessagePad's and Palm Pilot's upright form) running "The System", which works and looks like
+## the Macintosh's System 6 / 7 (the user, 2026-10-02: "Make the whole interface more Macintosh-like"):
+##   - the menu bar along the top: the System menu (the logo: About, the apps), then the menus, and
+##     the clock at the right. Menus drop down from it and may hold submenus (hierarchical, System 7's).
+##     On the desktop: File (New Game, Load Game), Edit (Summon <kind> > every vehicle of it, Summon
+##     Tram..., Dismiss Vehicle), System (Respawn, Exit Game). In an app: File (Close), View (its pages),
+##     Help;
+##   - the desktop: the grey dither, the apps' icons (double-tap opens);
+##   - the apps: windows with a pinstriped title bar and a close box, their pages chosen from View:
+##     Station Map (Station, Nearby) · Inventory (Weapons, Items) · Quests (Active, Completed) ·
+##     NPC AI (Setup, Voice, Try it) · Navigation (Map, Travel, Law) · Control Panel (Sound, Display,
+##     Controls) · Help (Contents, About);
+##   - alerts: double-framed boxes with rounded buttons.
 ## The screen is a 240 x 320 dot-matrix LCD in 4 shades of black on green (ui/pda/lcd.gdshader), the
 ## green backlight on at night.  It is drawn at a whole number of screen pixels per LCD pixel (2 on
 ## the Steam Deck), and its type is pixel type drawn at its own size -- ChicagoFLF 12 for the
 ## system, Pixel Operator 16 for text -- so every letter lands on whole pixels: crisp at any size.
-## Below the screen, four hardware keys open the apps (as the Palm Pilot's did) and the power key
-## puts the device away.
+## The case has two controls: the power key (puts the device away) and a scroll wheel on its right side.
 
 const SCREEN := Vector2i(240, 320)
-const TASKBAR_H := 20
+const MENU_H := 20                      # the menu bar
+const ROW_H := 16                       # a menu item
 const TITLE_H := 19
 const SYS_SIZE := 12                    # ChicagoFLF: crisp at 12
 const TEXT_SIZE := 16                   # Pixel Operator: crisp at 16
@@ -25,7 +31,6 @@ const CASE_TOP := 58.0                  # the forehead: NYNEX, the speaker, the 
 const CASE_BOTTOM := 56.0               # the chin: the bell and COMMUNICATOR
 const CASE_SIDE := 26.0
 const BEZEL := 9.0                      # the well round the glass
-const STRIP := 44.0                     # the soft keys' glass under the screen
 const SHADOW := 24.0
 const W := Color(1, 1, 1)
 const L := Color(0.667, 0.667, 0.667)
@@ -44,17 +49,23 @@ var _k := 1.0                           # the case's scale
 
 var _dim: ColorRect
 var _device: Control
-var _hw_keys: Array = []
+var _power: Button
+var _wheel: CaseWheel
 var _screen_rect: TextureRect
 var _vp: SubViewport
 var _lcd: ShaderMaterial
 var _desk: Control
 var _desk_icons := {}
-var _taskbar: Control
-var _task_btn: Button
 var _clock: Label
-var _start_menu: Control
+var _bar: Control                      # the menu bar
+var _bar_titles: HBoxContainer
+var _menu_layer: Control               # the open menus (and a catcher: a tap off them closes them)
+var _menus: Array = []                 # the bar's menus: [{title, logo, items}]
+var _menu_stack: Array = []            # the open menu and its open submenus: [{node, rows, items}]
+var _open_title := -1
 var _apps := {}                        # name -> app window Control
+var _pages := {}                       # name -> its TabContainer (the pages, chosen from View)
+var _app_titles := {}                  # name -> its MacTitle
 var _current := ""
 var _msgbox: Control
 var _last_click := {}                  # icon -> msec of its last click (double-tap opens)
@@ -78,6 +89,7 @@ var _ai_history: Array = []
 # a controller in the Communicator: the stylus (an arrow pointer on the LCD) the sticks move
 var _stylus: TextureRect
 var _stylus_at := Vector2(120, 150)
+var _pointer_at := Vector2(120, 150)   # where the pointer last was on the LCD (the scroll wheel scrolls there)
 var _pad_tap := false                  # the tap under way came from a controller's A
 var _scroll_t := 0.0
 const STYLUS_SPEED := 190.0            # LCD pixels a second at full stick
@@ -87,7 +99,6 @@ const APPS := [
 	["inventory", "Inventory", "icon_inventory.png"],
 	["quests", "Quests", "icon_quests.png"],
 	["ai", "NPC AI", "icon_ai.png"],
-	["summon", "Summon Aerostat", "icon_summon.png"],
 	["nav", "Navigation", "icon_nav.png"],
 	["control", "Control Panel", "icon_control.png"],
 	["help", "Help", "icon_help.png"],
@@ -155,7 +166,7 @@ func set_open(open: bool) -> void:
 		_update_backlight()
 		_update_clock()
 	else:
-		_start_menu.visible = false
+		_close_menus()
 		var player := get_tree().get_first_node_in_group("player")
 		if player and player.has_method("recapture_mouse"):
 			player.recapture_mouse()
@@ -178,8 +189,6 @@ func _process(delta: float) -> void:
 	_update_backlight()
 	if _current == "map":
 		_map_station.queue_redraw()
-	if _current == "summon":
-		_refresh_ride()
 	if _current == "nav" and _nav_map:
 		if _nav_map.follow:
 			var p := _player_sx()
@@ -224,12 +233,13 @@ func _set_stylus(at: Vector2) -> void:
 		m.button_mask = MOUSE_BUTTON_MASK_LEFT if Input.is_joy_button_pressed(0, JOY_BUTTON_A) else 0
 		_vp.push_input(m, true)
 	_stylus_at = p
+	_pointer_at = p
 	_stylus.position = p.floor()
 	_stylus.move_to_front()
 
 
 func _pad_input(e: InputEventJoypadButton) -> void:
-	## A taps (hold and move to drag), B goes back, LB / RB change tabs, Y the System menu, the D-pad
+	## A taps (hold and move to drag), B goes back, LB / RB change pages, Y the menu bar, the D-pad
 	## nudges the stylus; Menu (toggle_menu) is left to put the device away.
 	if e.button_index == JOY_BUTTON_START:
 		return
@@ -252,13 +262,15 @@ func _pad_input(e: InputEventJoypadButton) -> void:
 				_back()
 		JOY_BUTTON_Y:
 			if e.pressed:
-				_start_menu.visible = not _start_menu.visible
+				if _open_title >= 0:
+					_close_menus()
+				else:
+					_open_menu(mini(1, _menus.size() - 1))
 		JOY_BUTTON_LEFT_SHOULDER, JOY_BUTTON_RIGHT_SHOULDER:
 			if e.pressed and _current != "":
-				var tabs := _apps[_current].get_child(2) as TabContainer
-				if tabs:
-					var step := 1 if e.button_index == JOY_BUTTON_RIGHT_SHOULDER else -1
-					tabs.current_tab = posmod(tabs.current_tab + step, tabs.get_tab_count())
+				var tabs: TabContainer = _pages[_current]
+				var step := 1 if e.button_index == JOY_BUTTON_RIGHT_SHOULDER else -1
+				_show_page(posmod(tabs.current_tab + step, tabs.get_tab_count()))
 		JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN, JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_RIGHT:
 			if e.pressed:
 				var d := {JOY_BUTTON_DPAD_UP: Vector2.UP, JOY_BUTTON_DPAD_DOWN: Vector2.DOWN,
@@ -267,14 +279,14 @@ func _pad_input(e: InputEventJoypadButton) -> void:
 
 
 func _back() -> void:
-	## B: the alert, then the System menu, then the app, then the device itself
+	## B: the alert, then the open menus, then the app, then the device itself
 	var f := _vp.gui_get_focus_owner()
 	if f is LineEdit:
 		f.release_focus()
 	elif _msgbox.visible:
 		_msgbox.visible = false
-	elif _start_menu.visible:
-		_start_menu.visible = false
+	elif _open_title >= 0:
+		_close_menus()
 	elif _current != "":
 		_close_app()
 	else:
@@ -432,9 +444,8 @@ class DeviceBody extends Control:
 
 
 class CasePrint extends Control:
-	## What's printed on the case and its glass: NYNEX centred on the forehead; the Bell bell and
-	## COMMUNICATOR centred on the chin (tools/pda_case.py); on the glass strip under the screen, the
-	## soft keys -- the apps' pictures and names in the LCD's ink, as the Newton's were printed.
+	## What's printed on the case: NYNEX centred on the forehead; the Bell bell and COMMUNICATOR
+	## centred on the chin (tools/pda_case.py); POWER under the power key.
 	var font: Font
 	var k := 1.0
 	var nynex: Texture2D
@@ -442,11 +453,8 @@ class CasePrint extends Control:
 	var word: Texture2D
 	var forehead := Rect2()
 	var chin := Rect2()
-	var strip := Rect2()
 	var power := Rect2()
-	var keys: Array = []                  # [texture, label]
 	const SILVER := Color(0.8, 0.81, 0.83)
-	const INK := Color(0.07, 0.1, 0.06, 0.85)
 
 	func _mark(tex: Texture2D, h: float, at: Vector2, c := SILVER) -> float:
 		var w := h * tex.get_width() / tex.get_height()
@@ -469,31 +477,60 @@ class CasePrint extends Control:
 		var fs := maxi(10, int(10 * k))
 		draw_string(font, Vector2(power.position.x - 20 * k, power.end.y + fs + 3 * k), "POWER", HORIZONTAL_ALIGNMENT_CENTER,
 			power.size.x + 40 * k, fs, Color(0.62, 0.64, 0.67))
-		# the soft keys
-		var n := keys.size()
-		var icon := minf(24.0 * k, strip.size.y * 0.55)
-		var ls := maxi(10, int(11 * k))
+
+
+class CaseWheel extends Control:
+	## The scroll wheel on the case's right side: a ridged rubber wheel standing a little proud of the
+	## case in its slot. Rolled (dragged up or down), turned with a mouse wheel, or tapped above or
+	## below its middle, it scrolls the screen where the pointer is -- one notch at a time.
+	signal notch(down: bool)
+	var k := 1.0
+	var phase := 0.0
+	var _drag := false
+	var _acc := 0.0
+
+	func _draw() -> void:
+		var r := Rect2(Vector2.ZERO, size)
+		draw_rect(r.grow(1.0 * k), Color(0.04, 0.045, 0.05))                 # the slot
+		var pitch := 4.0 * k
+		var n := int(size.y / pitch) + 2
 		for i in n:
-			var cx := strip.position.x + strip.size.x * (i + 0.5) / n
-			var tex: Texture2D = keys[i][0]
-			draw_texture_rect(tex, Rect2(Vector2(cx - icon * 0.5, strip.position.y + 4 * k).round(), Vector2(icon, icon)), false, INK)
-			draw_string(font, Vector2(cx - 40 * k, strip.end.y - 5 * k).round(), keys[i][1], HORIZONTAL_ALIGNMENT_CENTER, 80 * k, ls, INK)
+			var y := fposmod(phase + i * pitch, size.y + pitch) - pitch * 0.5
+			if y < 0.0 or y > size.y:
+				continue
+			var t := y / size.y                                                # round the wheel: lit on top, dark below
+			var lit := sin(t * PI) * (1.15 - 0.5 * t)
+			draw_rect(Rect2(0, y, size.x, maxf(1.0, pitch * 0.5 * sin(t * PI))), Color(0.07, 0.075, 0.08).lerp(Color(0.36, 0.37, 0.39), lit))
+		for i in int(size.y):
+			var t := (i + 0.5) / size.y                                       # its curve: the ends fall away into shadow
+			draw_rect(Rect2(0, i, size.x, 1), Color(0, 0, 0, 0.75 * pow(absf(t - 0.42) * 2.0, 2.2)))
 
+	func _step(down: bool) -> void:
+		phase += (1.0 if down else -1.0) * 2.0 * k
+		queue_redraw()
+		notch.emit(down)
 
-func _soft_key(on_press: Callable) -> Button:
-	## an invisible touch area over a printed soft key (it darkens a moment when pressed)
-	var b := Button.new()
-	b.focus_mode = Control.FOCUS_NONE
-	b.flat = true
-	for st in ["normal", "hover", "focus", "disabled"]:
-		b.add_theme_stylebox_override(st, StyleBoxEmpty.new())
-	var dn := StyleBoxFlat.new()
-	dn.bg_color = Color(0, 0, 0, 0.18)
-	dn.set_corner_radius_all(4)
-	b.add_theme_stylebox_override("pressed", dn)
-	b.add_theme_stylebox_override("hover_pressed", dn)
-	b.pressed.connect(on_press)
-	return b
+	func _gui_input(e: InputEvent) -> void:
+		if e is InputEventMouseButton:
+			if e.button_index == MOUSE_BUTTON_WHEEL_DOWN and e.pressed:
+				_step(true)
+			elif e.button_index == MOUSE_BUTTON_WHEEL_UP and e.pressed:
+				_step(false)
+			elif e.button_index == MOUSE_BUTTON_LEFT:
+				if e.pressed:
+					_drag = true
+					_acc = 0.0
+				else:
+					if _drag and absf(_acc) < 2.0:                             # a tap: one notch, toward the side tapped
+						_step(e.position.y > size.y * 0.5)
+					_drag = false
+			accept_event()
+		elif e is InputEventMouseMotion and _drag:
+			_acc += e.relative.y
+			while absf(_acc) >= 7.0 * k:                                       # a notch every few pixels rolled
+				_step(_acc < 0.0)                                               # (rolled up -- the thumb pushing the wheel up -- scrolls down)
+				_acc -= signf(_acc) * 7.0 * k
+			accept_event()
 
 
 func _power_key() -> Button:
@@ -539,8 +576,6 @@ func _build_device() -> void:
 	_print.nynex = _mipmapped(PDA + "case_nynex.png")
 	_print.bell = _mipmapped(PDA + "case_bell.png")
 	_print.word = _mipmapped(PDA + "case_communicator.png")
-	for spec in [["icon_map.png", "MAP"], ["icon_inventory.png", "ITEMS"], ["icon_quests.png", "QUESTS"], ["icon_control.png", "SETUP"]]:
-		_print.keys.append([_ink(PDA + spec[0]), spec[1]])
 	_print.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_print.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	body.add_child(_print)
@@ -567,15 +602,29 @@ func _build_device() -> void:
 	_screen_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	_screen_rect.gui_input.connect(_screen_input)
 	body.add_child(_screen_rect)
-	# the soft keys printed under the screen, and the power key
-	for app in ["map", "inventory", "quests", "control"]:
-		var b := _soft_key(_open_app.bind(app))
-		body.add_child(b)
-		_hw_keys.append(b)
-	var pw := _power_key()
-	body.add_child(pw)
-	_hw_keys.append(pw)
+	# the two controls: the power key, and the scroll wheel down the right side
+	_power = _power_key()
+	body.add_child(_power)
+	_wheel = CaseWheel.new()
+	_wheel.notch.connect(_wheel_notch)
+	body.add_child(_wheel)
 	_layout()
+
+
+func _wheel_notch(down: bool) -> void:
+	## A notch of the case's wheel: a mouse wheel's notch on the screen, where the pointer is (over an
+	## open menu, the menu).
+	var at := _pointer_at
+	if not _menu_stack.is_empty():
+		var m: Control = _menu_stack[-1].node
+		at = m.position + m.size * 0.5
+	for pressed in [true, false]:
+		var w := InputEventMouseButton.new()
+		w.button_index = MOUSE_BUTTON_WHEEL_DOWN if down else MOUSE_BUTTON_WHEEL_UP
+		w.pressed = pressed
+		w.position = at.floor()
+		w.global_position = w.position
+		_vp.push_input(w, true)
 
 
 func _mipmapped(path: String) -> ImageTexture:
@@ -585,23 +634,12 @@ func _mipmapped(path: String) -> ImageTexture:
 	return ImageTexture.create_from_image(img)
 
 
-func _ink(path: String) -> ImageTexture:
-	## an icon as printing: its dark lines kept (as coverage), its white fill left out
-	var img := (load(path) as Texture2D).get_image()
-	img.convert(Image.FORMAT_RGBA8)
-	for y in img.get_height():
-		for x in img.get_width():
-			var c := img.get_pixel(x, y)
-			img.set_pixel(x, y, Color(1, 1, 1, c.a * clampf(1.4 - c.get_luminance() * 1.5, 0.0, 1.0)))
-	img.generate_mipmaps()
-	return ImageTexture.create_from_image(img)
-
-
 func _screen_input(event: InputEvent) -> void:
 	## Taps and drags on the glass go to The System, in LCD pixels.
 	if event is InputEventMouse:
 		var ev: InputEventMouse = event.duplicate()
 		ev.position = (event.position / _px).floor()
+		_pointer_at = ev.position
 		ev.global_position = ev.position
 		_vp.push_input(ev, true)
 
@@ -614,7 +652,7 @@ func _layout() -> void:
 	var vs := get_viewport().get_visible_rect().size
 	_k = clampf(vs.y / 800.0, 0.6, 3.0)
 	var case_w := 2.0 * (CASE_SIDE + BEZEL) * _k
-	var case_h := (CASE_TOP + CASE_BOTTOM + 2.0 * BEZEL + STRIP) * _k
+	var case_h := (CASE_TOP + CASE_BOTTOM + 2.0 * BEZEL) * _k
 	# the whole device on the display, its screen as big as that allows: a whole number of screen
 	# pixels per LCD pixel when that's within 8% of it (perfectly sharp), else the exact size, the
 	# LCD shader keeping each dot a solid block with a one-pixel soft edge
@@ -628,8 +666,7 @@ func _layout() -> void:
 	_screen_rect.position = (Vector2(CASE_SIDE + BEZEL, CASE_TOP + BEZEL) * _k).floor()
 	_screen_rect.size = lcd
 	var lr := Rect2(_screen_rect.position, lcd)
-	var well := Rect2(lr.position - Vector2(BEZEL, BEZEL) * _k, lr.size + Vector2(2.0 * BEZEL, 2.0 * BEZEL + STRIP) * _k)
-	var strip := Rect2(Vector2(lr.position.x, lr.end.y + 4 * _k), Vector2(lr.size.x, (STRIP - 2.0) * _k))
+	var well := lr.grow(BEZEL * _k)
 	var forehead := Rect2(Vector2.ZERO, Vector2(body.x, well.position.y))
 	var chin := Rect2(Vector2(0, well.end.y), Vector2(body.x, body.y - well.end.y))
 	var power := Rect2(Vector2(well.position.x + 6 * _k, forehead.size.y * 0.5 - 8 * _k), Vector2(30, 11) * _k)
@@ -638,7 +675,6 @@ func _layout() -> void:
 	_case_mat.set_shader_parameter("k", _k)
 	_case_mat.set_shader_parameter("well", Vector4(well.position.x, well.position.y, well.size.x, well.size.y))
 	_case_mat.set_shader_parameter("well_radius", 5.0 * _k)
-	_case_mat.set_shader_parameter("strip", Vector4(strip.position.x, strip.position.y, strip.size.x, strip.size.y))
 	var gw := 7.0 * 6 * _k
 	_case_mat.set_shader_parameter("grille", Vector4(well.end.x - gw - 4 * _k, forehead.size.y * 0.5 - 10.5 * _k, gw, 21.0 * _k))
 	_case_mat.set_shader_parameter("silo", Vector4(5 * _k, well.position.y + 30 * _k, 7 * _k, well.size.y - 60 * _k))
@@ -647,16 +683,15 @@ func _layout() -> void:
 	_print.k = _k
 	_print.forehead = forehead
 	_print.chin = chin
-	_print.strip = strip
 	_print.power = power
 	_print.queue_redraw()
-	for i in 4:
-		var b: Button = _hw_keys[i]
-		b.size = Vector2(strip.size.x / 4.0 - 4 * _k, strip.size.y).round()
-		b.position = Vector2(strip.position.x + strip.size.x * i / 4.0 + 2 * _k, strip.position.y).floor()
-	var pw: Button = _hw_keys[4]
-	pw.size = power.size.round()
-	pw.position = power.position.floor()
+	_power.size = power.size.round()
+	_power.position = power.position.floor()
+	# the wheel: in the right side, level with the screen's upper middle, standing a little proud of the case
+	_wheel.k = _k
+	_wheel.size = Vector2(9.0, 70.0) * _k
+	_wheel.position = Vector2(body.x - 6.0 * _k, well.position.y + well.size.y * 0.38 - 35.0 * _k).floor()
+	_wheel.queue_redraw()
 	_lcd.set_shader_parameter("px_scale", float(_px))
 
 
@@ -676,7 +711,6 @@ func _update_backlight() -> void:
 		elif t > DaySkySystem.DAY_END:
 			bl = (t - DaySkySystem.DAY_END) / (DaySkySystem.DUSK_END - DaySkySystem.DAY_END)
 	_lcd.set_shader_parameter("backlight", clampf(bl, 0.0, 1.0))
-	_case_mat.set_shader_parameter("backlight", clampf(bl, 0.0, 1.0))
 
 
 func _update_clock() -> void:
@@ -690,14 +724,12 @@ func _update_clock() -> void:
 
 # ------------------------------------------------------------------ The System
 class MacTitle extends Control:
-	## A System 6 title bar: pinstripes, the close box on the left, the title centred on a white
-	## band, and (in the zoom box's place) a help box.
+	## A System 6 title bar: pinstripes, the close box on the left, the title centred on a white band.
 	signal close_pressed
-	signal help_pressed
 	var title := ""
 	var font: Font
 	var font_size := 12
-	var _down := ""
+	var _down := false
 
 	func _frame(r: Rect2, c: Color) -> void:
 		draw_rect(Rect2(r.position, Vector2(r.size.x, 1)), c)
@@ -708,25 +740,16 @@ class MacTitle extends Control:
 	func close_box() -> Rect2:
 		return Rect2(8, 4, 11, 11)
 
-	func help_box() -> Rect2:
-		return Rect2(size.x - 19, 4, 11, 11)
-
 	func _draw() -> void:
 		draw_rect(Rect2(Vector2.ZERO, size), Color.WHITE)
 		for y in range(4, int(size.y) - 4, 2):
 			draw_rect(Rect2(1, y, size.x - 2, 1), Color.BLACK)
 		draw_rect(Rect2(0, size.y - 1, size.x, 1), Color.BLACK)
-		for spec in [[close_box(), "close"], [help_box(), "help"]]:
-			var r: Rect2 = spec[0]
-			draw_rect(r.grow(1), Color.WHITE)
-			_frame(r, Color.BLACK)
-			if _down == spec[1]:
-				draw_rect(r.grow(-2), Color.BLACK)
-		# the help box's "?"
-		var h := help_box().position + Vector2(3, 2)
-		for p in [Vector2(1, 0), Vector2(2, 0), Vector2(3, 0), Vector2(0, 1), Vector2(4, 1), Vector2(4, 2), Vector2(3, 3),
-				Vector2(2, 4), Vector2(2, 6)]:
-			draw_rect(Rect2(h + p, Vector2.ONE), Color.WHITE if _down == "help" else Color.BLACK)
+		var r := close_box()
+		draw_rect(r.grow(1), Color.WHITE)
+		_frame(r, Color.BLACK)
+		if _down:
+			draw_rect(r.grow(-2), Color.BLACK)
 		var tw := font.get_string_size(title, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
 		var tx := floorf((size.x - tw) * 0.5)
 		draw_rect(Rect2(tx - 6, 1, tw + 12, size.y - 2), Color.WHITE)
@@ -735,20 +758,13 @@ class MacTitle extends Control:
 
 	func _gui_input(e: InputEvent) -> void:
 		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
-			var hit := ""
-			if close_box().grow(2).has_point(e.position):
-				hit = "close"
-			elif help_box().grow(2).has_point(e.position):
-				hit = "help"
+			var hit := close_box().grow(2).has_point(e.position)
 			if e.pressed:
 				_down = hit
 			else:
-				if hit != "" and hit == _down:
-					if hit == "close":
-						close_pressed.emit()
-					else:
-						help_pressed.emit()
-				_down = ""
+				if hit and _down:
+					close_pressed.emit()
+				_down = false
 			queue_redraw()
 			accept_event()
 
@@ -785,6 +801,102 @@ class DeskIcon extends Control:
 			accept_event()
 
 
+class MenuBarView extends Control:
+	## The menu bar: white, a black line under it.
+	func _draw() -> void:
+		draw_rect(Rect2(Vector2.ZERO, size), Color.WHITE)
+		draw_rect(Rect2(0, size.y - 1, size.x, 1), Color.BLACK)
+
+
+class MenuTitle extends Control:
+	## A menu's title in the bar (its name, or the System menu's logo), inverted while its menu is open.
+	signal tapped
+	signal hovered
+	var text := ""
+	var logo: Texture2D
+	var logo_open: Texture2D               # (the logo inverted)
+	var font: Font
+	var font_size := 12
+	var open := false
+
+	func _draw() -> void:
+		var r := Rect2(0, 0, size.x, size.y - 1)
+		if open:
+			draw_rect(r, Color.BLACK)
+		if logo:
+			draw_texture(logo_open if open else logo, ((r.size - logo.get_size()) * 0.5).floor())
+		else:
+			var base := floorf((r.size.y - font.get_height(font_size)) * 0.5) + font.get_ascent(font_size)
+			draw_string(font, Vector2(7, base), text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, Color.WHITE if open else Color.BLACK)
+
+	func _gui_input(e: InputEvent) -> void:
+		if e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT and e.pressed:
+			tapped.emit()
+			accept_event()
+		elif e is InputEventMouseMotion:
+			hovered.emit()
+
+
+class MenuRow extends Control:
+	## An item of a menu: its name (grey when it can't be chosen), a check mark before it when it's the
+	## one in force, a triangle after it when it opens a submenu; inverted under the pointer. A dotted
+	## line between groups.
+	signal chosen
+	signal hovered
+	var text := ""
+	var font: Font
+	var font_size := 12
+	var sub := false
+	var checked := false
+	var disabled := false
+	var sep := false
+	var hot := false
+
+	func _draw() -> void:
+		if sep:
+			for x in range(0, int(size.x), 2):
+				draw_rect(Rect2(x, floorf(size.y * 0.5), 1, 1), Color.BLACK)
+			return
+		var ink := Color.BLACK
+		if hot and not disabled:
+			draw_rect(Rect2(Vector2.ZERO, size), Color.BLACK)
+			ink = Color.WHITE
+		elif disabled:
+			ink = Color(0.667, 0.667, 0.667)
+		var mid := floorf(size.y * 0.5)
+		if checked:
+			for q in [Vector2(0, 3), Vector2(1, 4), Vector2(2, 5), Vector2(3, 4), Vector2(4, 3), Vector2(5, 2), Vector2(6, 1), Vector2(7, 0)]:
+				draw_rect(Rect2(Vector2(3, mid - 3) + q, Vector2(1, 2)), ink)
+		var base := floorf((size.y - font.get_height(font_size)) * 0.5) + font.get_ascent(font_size)
+		draw_string(font, Vector2(14, base), text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, ink)
+		if sub:
+			for i in 4:
+				draw_rect(Rect2(size.x - 10 + i, mid - 3 + i, 1, 7 - 2 * i), ink)
+
+	func _gui_input(e: InputEvent) -> void:
+		if sep:
+			return
+		if e is InputEventMouseMotion:
+			if not hot:
+				hovered.emit()
+		elif e is InputEventMouseButton and e.button_index == MOUSE_BUTTON_LEFT:
+			if not e.pressed:
+				hovered.emit()
+				chosen.emit()
+			accept_event()
+
+
+class ScreenCorners extends Control:
+	## The Macintosh screen's rounded corners: a few black pixels at each.
+	const R := 5
+	func _draw() -> void:
+		for y in R:
+			for x in R:
+				if pow(R - x - 0.5, 2.0) + pow(R - y - 0.5, 2.0) > R * R:
+					for c in [Vector2(x, y), Vector2(size.x - 1 - x, y), Vector2(x, size.y - 1 - y), Vector2(size.x - 1 - x, size.y - 1 - y)]:
+						draw_rect(Rect2(c, Vector2.ONE), Color.BLACK)
+
+
 func _build_system() -> void:
 	var root := Control.new()
 	root.theme = _theme
@@ -792,7 +904,8 @@ func _build_system() -> void:
 	_vp.add_child(root)
 	# the desktop: the grey dither, the icons
 	_desk = Panel.new()
-	_desk.size = Vector2(SCREEN.x, SCREEN.y - TASKBAR_H)
+	_desk.position = Vector2(0, MENU_H)
+	_desk.size = Vector2(SCREEN.x, SCREEN.y - MENU_H)
 	_desk.add_theme_stylebox_override("panel", _checker())
 	_desk.gui_input.connect(_desk_input)
 	for i in APPS.size():
@@ -808,69 +921,54 @@ func _build_system() -> void:
 		_desk_icons[APPS[i][0]] = ic
 	root.add_child(_desk)
 	# the apps
-	_apps["map"] = _app("Station Map", _map_tabs(), "The station's map.  Station: the whole ring, north (the Marlowe end) up.  Nearby: the kilometre round you.")
-	_apps["inventory"] = _app("Inventory", _inventory_tabs(), "What you carry.  Weapons: tap Equip to arm one.")
-	_apps["quests"] = _app("Quests", _quest_tabs(), "Your tasks.  Tap Track to follow one on the map.")
-	_apps["ai"] = _app("NPC AI", _ai_tabs(), "The station's people talk through an AI service.  Setup: get a free Groq key and paste it in.  Voice: choose the model.  Try it: talk to someone.")
-	_apps["summon"] = _app("Summon Aerostat", _summon_tabs(), "Call an aerostat to you.  Tap Request: the nearest free one (the red one) comes down and lands near you.  Deliver Station Wagon: a car set down in front of you.  Drag the map to look round, + and - to zoom, Center to follow yourself again.")
-	_apps["nav"] = _app("Navigation", _nav_tabs(), "The political map: whose law runs where (the dotted shades), town limits, roads, tram lines.  Drag to look round, + and - to zoom: the closer, the more is named.  Boxed T: a fast-travel tram stop -- tap it, or pick a town under Travel.  Law: the rules where you stand.")
-	_apps["control"] = _app("Control Panel", _control_tabs(), "Sound, Display and Controls settings.")
-	_apps["help"] = _app("Help", _help_tabs(), "The System Help.")
+	_app("map", "Station Map", _map_tabs(), "The station's map.  Station: the whole ring, north (the Marlowe end) up.  Nearby: the kilometre round you.")
+	_app("inventory", "Inventory", _inventory_tabs(), "What you carry.  Weapons: tap Equip to arm one.")
+	_app("quests", "Quests", _quest_tabs(), "Your tasks.  Tap Track to follow one on the map.")
+	_app("ai", "NPC AI", _ai_tabs(), "The station's people talk through an AI service.  Setup: get a free Groq key and paste it in.  Voice: choose the model.  Try it: talk to someone.")
+	_app("nav", "Navigation", _nav_tabs(), "The political map: whose law runs where (the dotted shades), town limits, roads, tram lines.  Drag to look round, + and - to zoom: the closer, the more is named.  Boxed T: a fast-travel tram stop -- tap it, or pick a town under Travel.  Law: the rules where you stand.")
+	_app("control", "Control Panel", _control_tabs(), "Sound, Display and Controls settings.")
+	_app("help", "Help", _help_tabs(), "The System Help.")
 	for a in _apps.values():
 		a.visible = false
 		root.add_child(a)
-	# the taskbar
-	_taskbar = PanelContainer.new()
-	_taskbar.position = Vector2(0, SCREEN.y - TASKBAR_H)
-	_taskbar.size = Vector2(SCREEN.x, TASKBAR_H)
-	var tb := _flat(W, K, 0, 0, 1)
-	tb.border_width_top = 1
-	_taskbar.add_theme_stylebox_override("panel", tb)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 3)
-	_taskbar.add_child(row)
-	var sysb := Button.new()
-	sysb.text = "System"
-	sysb.icon = load(PDA + "system_logo.png")
-	sysb.add_theme_constant_override("h_separation", 3)
-	for st in ["normal", "hover", "pressed", "hover_pressed"]:
-		var sb: StyleBoxFlat = _theme.get_stylebox(st, "Button").duplicate()
-		sb.content_margin_top = 0
-		sb.content_margin_bottom = 0
-		sysb.add_theme_stylebox_override(st, sb)
-	sysb.pressed.connect(func(): _start_menu.visible = not _start_menu.visible)
-	row.add_child(sysb)
-	_task_btn = Button.new()
-	_task_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_task_btn.clip_text = true
-	_task_btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
-	_task_btn.visible = false
-	for st in ["normal", "hover", "pressed", "hover_pressed"]:
-		var sb: StyleBoxFlat = _theme.get_stylebox(st, "Button").duplicate()
-		sb.content_margin_top = 0
-		sb.content_margin_bottom = 0
-		_task_btn.add_theme_stylebox_override(st, sb)
-	_task_btn.pressed.connect(func(): if _current != "": _apps[_current].visible = not _apps[_current].visible)
-	row.add_child(_task_btn)
-	var spacer := Control.new()
-	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	row.add_child(spacer)
-	_task_btn.visibility_changed.connect(func(): spacer.visible = not _task_btn.visible)
+	# the open menus, over everything but the bar (a tap off them closes them)
+	_menu_layer = Control.new()
+	_menu_layer.size = Vector2(SCREEN)
+	_menu_layer.visible = false
+	_menu_layer.gui_input.connect(func(e: InputEvent):
+		if e is InputEventMouseButton and e.pressed and e.button_index == MOUSE_BUTTON_LEFT:
+			_close_menus())
+	root.add_child(_menu_layer)
+	# the menu bar: the menus' titles, the clock at the right
+	_bar = MenuBarView.new()
+	_bar.size = Vector2(SCREEN.x, MENU_H)
+	_bar.gui_input.connect(func(e: InputEvent):
+		if e is InputEventMouseButton and e.pressed:
+			_close_menus())
+	_bar_titles = HBoxContainer.new()
+	_bar_titles.add_theme_constant_override("separation", 0)
+	_bar_titles.position = Vector2(6, 0)
+	_bar_titles.size = Vector2(0, MENU_H)
+	_bar.add_child(_bar_titles)
 	_clock = Label.new()
 	_clock.add_theme_font_override("font", _bold)
 	_clock.add_theme_font_size_override("font_size", SYS_SIZE)
-	_clock.custom_minimum_size = Vector2(56, 0)
 	_clock.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_clock.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	row.add_child(_clock)
-	root.add_child(_taskbar)
-	_start_menu = _build_start_menu()
-	root.add_child(_start_menu)
+	_clock.position = Vector2(SCREEN.x - 76, 0)
+	_clock.size = Vector2(68, MENU_H - 1)
+	_clock.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_bar.add_child(_clock)
+	root.add_child(_bar)
+	_set_menus(_desktop_menus())
 	_msgbox = Control.new()
 	_msgbox.size = Vector2(SCREEN)
 	_msgbox.visible = false
 	root.add_child(_msgbox)
+	var corners := ScreenCorners.new()
+	corners.size = Vector2(SCREEN)
+	corners.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(corners)
 	# the stylus: System 6's arrow, shown while a controller is in use
 	_stylus = TextureRect.new()
 	_stylus.texture = _image(["K..........", "KK.........", "KWK........", "KWWK.......", "KWWWK......", "KWWWWK.....",
@@ -883,7 +981,7 @@ func _build_system() -> void:
 
 func _desk_input(e: InputEvent) -> void:
 	if e is InputEventMouseButton and e.pressed:
-		_start_menu.visible = false
+		_close_menus()
 		_select_icon("")
 
 
@@ -895,7 +993,7 @@ func _select_icon(name: String) -> void:
 
 func _icon_tapped(name: String) -> void:
 	## One tap selects, a double tap opens.
-	_start_menu.visible = false
+	_close_menus()
 	var now := Time.get_ticks_msec()
 	if _pad_tap or now - int(_last_click.get(name, -10000)) < 600:        # (a controller's tap opens at once)
 		_last_click[name] = -10000
@@ -906,82 +1004,227 @@ func _icon_tapped(name: String) -> void:
 		_select_icon(name)
 
 
-func _build_start_menu() -> Control:
-	## The System menu (CE 1.0's Start menu: one flat list, no cascading), drawn as a System 6 menu:
-	## white, black edged, a drop shadow, the highlighted item inverted; the OS's name down the left.
+# ------------------------------------------------------------------ the menu bar
+## A menu is {title, logo, items}; an item is {text, do (a Callable)}, or {text, sub (items)} for a
+## submenu, or {sep} for a dotted line; "checked" and "disabled" as they say.
+
+func _item(text: String, do: Callable, extra := {}) -> Dictionary:
+	var d := {"text": text, "do": do}
+	d.merge(extra)
+	return d
+
+
+func _sub(text: String, items: Array) -> Dictionary:
+	return {"text": text, "sub": items, "disabled": items.is_empty()}
+
+
+func _sep() -> Dictionary:
+	return {"sep": true}
+
+
+func _logo_menu() -> Dictionary:
+	## The System menu, under the logo (the Apple menu's place): About, and the apps.
+	var items: Array = [_item("About The System...", _show_about), _sep()]
+	for a in APPS:
+		items.append(_item(a[1], _open_app.bind(a[0])))
+	return {"title": "", "logo": true, "items": items}
+
+
+func _desktop_menus() -> Array:
+	## The game's menus (the user's: File > New Game, Load Game; Edit > Summon ...; System > Respawn, Exit Game).
+	return [_logo_menu(),
+		{"title": "File", "items": [_item("New Game...", _confirm_new_game), _item("Load Game...", _load_game)]},
+		{"title": "Edit", "items": _edit_items()},
+		{"title": "System", "items": [_item("Respawn", _respawn), _sep(), _item("Exit Game...", _confirm_exit)]}]
+
+
+func _app_menus(name: String) -> Array:
+	## An app's menus: File (Close), View (its pages, the one shown checked), Help.
+	var tabs: TabContainer = _pages[name]
+	var pages: Array = []
+	for i in tabs.get_tab_count():
+		pages.append(_item(tabs.get_tab_title(i), _show_page.bind(i), {"checked": i == tabs.current_tab}))
+	var t: String = _app_titles[name].get_meta("app")
+	return [_logo_menu(),
+		{"title": "File", "items": [_item("Close", _close_app)]},
+		{"title": "View", "items": pages},
+		{"title": "Help", "items": [_item("%s Help" % t, func(): _show_message(t, str(_app_titles[name].get_meta("help"))))]}]
+
+
+func _set_menus(spec: Array) -> void:
+	_close_menus()
+	_menus = spec
+	for c in _bar_titles.get_children():
+		_bar_titles.remove_child(c)
+		c.queue_free()
+	for i in spec.size():
+		var m: Dictionary = spec[i]
+		var t := MenuTitle.new()
+		t.font = _bold
+		t.font_size = SYS_SIZE
+		if m.get("logo", false):
+			t.logo = load(PDA + "system_logo.png")
+			t.logo_open = _inverted(t.logo)
+			t.custom_minimum_size = Vector2(28, MENU_H)
+		else:
+			t.text = str(m.title)
+			t.custom_minimum_size = Vector2(ceilf(_bold.get_string_size(t.text, HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE).x) + 14, MENU_H)
+		t.tapped.connect(_title_tapped.bind(i))
+		t.hovered.connect(_title_hovered.bind(i))
+		_bar_titles.add_child(t)
+
+
+func _inverted(tex: Texture2D) -> ImageTexture:
+	var img := tex.get_image()
+	img.convert(Image.FORMAT_RGBA8)
+	for y in img.get_height():
+		for x in img.get_width():
+			var c := img.get_pixel(x, y)
+			img.set_pixel(x, y, Color(1.0 - c.r, 1.0 - c.g, 1.0 - c.b, c.a))
+	return ImageTexture.create_from_image(img)
+
+
+func _title_tapped(i: int) -> void:
+	if _open_title == i:
+		_close_menus()
+	else:
+		_open_menu(i)
+
+
+func _title_hovered(i: int) -> void:
+	## With a menu open, moving along the bar opens the menu under the pointer (the Mac's way).
+	if _open_title >= 0 and _open_title != i:
+		_open_menu(i)
+
+
+func _open_menu(i: int) -> void:
+	_close_menus()
+	if i < 0 or i >= _menus.size():
+		return
+	_open_title = i
+	var t := _bar_titles.get_child(i) as MenuTitle
+	t.open = true
+	t.queue_redraw()
+	_drop(_menus[i].items, Vector2(_bar_titles.position.x + t.position.x, MENU_H - 1), 0)
+
+
+func _close_menus() -> void:
+	for m in _menu_stack:
+		(m.node as Node).queue_free()
+	_menu_stack.clear()
+	if _bar_titles and _open_title >= 0 and _open_title < _bar_titles.get_child_count():
+		var t := _bar_titles.get_child(_open_title) as MenuTitle
+		t.open = false
+		t.queue_redraw()
+	_open_title = -1
+	if _menu_layer:
+		_menu_layer.visible = false
+
+
+func _drop(items: Array, at: Vector2, level: int) -> void:
+	## A menu (level 0) or a submenu (1, 2 ...) at `at`: white, black edged, a shadow at its right and
+	## foot. One too long for the screen scrolls (the wheel, the right stick, its scroll bar).
+	while _menu_stack.size() > level:
+		(_menu_stack.pop_back().node as Node).queue_free()
+	var w := 0.0
+	var h := 0.0
+	var has_sub := false
+	for it in items:
+		if it.get("sep", false):
+			h += 7
+			continue
+		w = maxf(w, _bold.get_string_size(str(it.text), HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE).x)
+		has_sub = has_sub or it.has("sub")
+		h += ROW_H
+	w = ceilf(w + 14 + (18 if has_sub else 10))
+	var max_h := SCREEN.y - 4 - at.y
+	if h > max_h and level > 0:                          # (a submenu moves up the screen before it scrolls)
+		at.y = maxf(MENU_H, SCREEN.y - 4 - h)
+		max_h = SCREEN.y - 4 - at.y
+	var scroll := h > max_h
+	var view_h := minf(h, max_h)
+	var sb := 12.0 if scroll else 0.0
 	var holder := Control.new()
-	holder.visible = false
+	holder.size = Vector2(w + sb + 3, view_h + 3)
+	holder.position = Vector2(clampf(at.x, 0.0, SCREEN.x - holder.size.x), at.y).floor()
 	var shadow := ColorRect.new()
 	shadow.color = K
+	shadow.position = Vector2(1, 1)
+	shadow.size = Vector2(w + sb + 2, view_h + 2)
+	shadow.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	holder.add_child(shadow)
-	var m := PanelContainer.new()
-	m.add_theme_stylebox_override("panel", _flat(W, K, 1, 0, 1))
-	holder.add_child(m)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 0)
-	m.add_child(row)
-	var banner := ColorRect.new()
-	banner.color = K
-	banner.custom_minimum_size = Vector2(20, 0)
-	var bl := Label.new()
-	bl.text = "The System"
-	bl.add_theme_font_override("font", _bold)
-	bl.add_theme_font_size_override("font_size", SYS_SIZE)
-	bl.add_theme_color_override("font_color", W)
-	bl.rotation = -PI * 0.5
-	banner.add_child(bl)
-	var logo := TextureRect.new()
-	logo.texture = load(PDA + "system_logo.png")
-	var logo_bg := ColorRect.new()
-	logo_bg.color = W
-	logo_bg.size = Vector2(18, 18)
-	logo.position = Vector2(1, 1)
-	logo_bg.add_child(logo)
-	banner.add_child(logo_bg)
-	banner.resized.connect(func():
-		logo_bg.position = Vector2(1, banner.size.y - 19)
-		bl.position = Vector2(3, banner.size.y - 24))
-	row.add_child(banner)
+	var panel := Panel.new()
+	panel.add_theme_stylebox_override("panel", _flat(W, K, 1, 0, 0))
+	panel.size = Vector2(w + sb + 2, view_h + 2)
+	holder.add_child(panel)
 	var col := VBoxContainer.new()
 	col.add_theme_constant_override("separation", 0)
-	row.add_child(col)
-	var entries := []
-	for a in APPS:
-		entries.append([a[1], _open_app.bind(a[0])])
-	entries.append([])
-	entries.append(["New Game...", _confirm_new_game])
-	entries.append(["Suspend", func(): set_open(false)])
-	for e in entries:
-		if e.is_empty():
-			var sep := HSeparator.new()
-			sep.add_theme_stylebox_override("separator", _dotted())
-			col.add_child(sep)
-			continue
-		var b := Button.new()
-		b.text = e[0]
-		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		b.custom_minimum_size = Vector2(124, 18)
-		b.add_theme_stylebox_override("normal", _flat(Color.TRANSPARENT, Color.TRANSPARENT, 0, 0, 4))
-		b.add_theme_stylebox_override("hover", _flat(K, K, 0, 0, 4))
-		b.add_theme_stylebox_override("pressed", _flat(K, K, 0, 0, 4))
-		b.add_theme_stylebox_override("hover_pressed", _flat(K, K, 0, 0, 4))
-		b.add_theme_color_override("font_hover_color", W)
-		b.pressed.connect(func():
-			_start_menu.visible = false
-			e[1].call())
-		col.add_child(b)
-	var place := func():
-		m.reset_size()
-		m.position = Vector2(0, SCREEN.y - TASKBAR_H - m.size.y - 1)
-		shadow.position = m.position + Vector2(1, 1)
-		shadow.size = m.size
-		holder.size = Vector2(SCREEN)
-	m.resized.connect(place)
-	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	place.call()
-	return holder
+	var rows: Array = []
+	for idx in items.size():
+		var it: Dictionary = items[idx]
+		var r := MenuRow.new()
+		r.font = _bold
+		r.font_size = SYS_SIZE
+		r.sep = it.get("sep", false)
+		r.text = str(it.get("text", ""))
+		r.sub = it.has("sub")
+		r.checked = it.get("checked", false)
+		r.disabled = it.get("disabled", false)
+		r.custom_minimum_size = Vector2(w, 7 if r.sep else ROW_H)
+		r.hovered.connect(_row_hover.bind(level, idx))
+		r.chosen.connect(_row_chosen.bind(level, idx))
+		col.add_child(r)
+		rows.append(r)
+	if scroll:
+		var sc := ScrollContainer.new()
+		sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		sc.position = Vector2(1, 1)
+		sc.size = Vector2(w + sb, view_h)
+		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		sc.add_child(col)
+		panel.add_child(sc)
+	else:
+		col.position = Vector2(1, 1)
+		panel.add_child(col)
+	_menu_layer.add_child(holder)
+	_menu_layer.visible = true
+	_menu_stack.append({"node": holder, "rows": rows, "items": items, "from": -1})
 
 
+func _row_hover(level: int, idx: int) -> void:
+	## The pointer on an item: it lights; a submenu's item opens its submenu beside it.
+	if level >= _menu_stack.size():
+		return
+	var m: Dictionary = _menu_stack[level]
+	for j in m.rows.size():
+		var r: MenuRow = m.rows[j]
+		if r.hot != (j == idx):
+			r.hot = (j == idx)
+			r.queue_redraw()
+	var it: Dictionary = m.items[idx]
+	if it.has("sub") and not it.get("disabled", false):
+		if _menu_stack.size() > level + 1 and int(_menu_stack[level + 1].get("opened_by", -1)) == idx:
+			return
+		var row: Control = m.rows[idx]
+		var hold: Control = m.node
+		_drop(it.sub, Vector2(hold.position.x + hold.size.x - 6, row.get_global_rect().position.y - 1), level + 1)
+		_menu_stack[-1]["opened_by"] = idx
+	else:
+		while _menu_stack.size() > level + 1:
+			(_menu_stack.pop_back().node as Node).queue_free()
+
+
+func _row_chosen(level: int, idx: int) -> void:
+	if level >= _menu_stack.size():
+		return
+	var it: Dictionary = _menu_stack[level].items[idx]
+	if it.get("disabled", false) or it.get("sep", false) or it.has("sub"):
+		return
+	_close_menus()
+	(it.do as Callable).call()
+
+
+# ------------------------------------------------------------------ the windows
 func _dotted() -> StyleBoxTexture:
 	## the grey (dotted) line System 6 menus separate groups with
 	var s := StyleBoxTexture.new()
@@ -991,11 +1234,12 @@ func _dotted() -> StyleBoxTexture:
 	return s
 
 
-func _app(title: String, tabs: TabContainer, help: String) -> Control:
-	## A full-screen app window (CE's apps didn't overlap): a System 6 title bar -- close box, title,
-	## help box -- a black frame, then the app's tabs.
+func _app(name: String, title: String, tabs: TabContainer, help: String) -> void:
+	## An app's window, under the menu bar: a System 6 title bar (the close box, the title and the page
+	## shown), a black frame, then its pages -- chosen from the View menu, not tabs.
 	var w := Control.new()
-	w.size = Vector2(SCREEN.x, SCREEN.y - TASKBAR_H)
+	w.position = Vector2(0, MENU_H)
+	w.size = Vector2(SCREEN.x, SCREEN.y - MENU_H)
 	var bg := Panel.new()
 	bg.size = w.size
 	bg.add_theme_stylebox_override("panel", _flat(W, K, 1))
@@ -1004,49 +1248,60 @@ func _app(title: String, tabs: TabContainer, help: String) -> Control:
 	bar.title = title
 	bar.font = _bold
 	bar.font_size = SYS_SIZE
-	bar.position = Vector2.ZERO
 	bar.size = Vector2(SCREEN.x, TITLE_H)
 	bar.close_pressed.connect(_close_app)
-	bar.help_pressed.connect(func(): _show_message(title, help))
+	bar.set_meta("app", title)
+	bar.set_meta("help", help)
 	w.add_child(bar)
+	tabs.tabs_visible = false
 	tabs.position = Vector2(4, TITLE_H + 3)
-	tabs.size = Vector2(SCREEN.x - 8, SCREEN.y - TASKBAR_H - TITLE_H - 7)
+	tabs.size = Vector2(SCREEN.x - 8, SCREEN.y - MENU_H - TITLE_H - 7)
 	w.add_child(tabs)
-	return w
+	_apps[name] = w
+	_pages[name] = tabs
+	_app_titles[name] = bar
 
 
 func _open_app(name: String) -> void:
 	if not _is_open:
 		return
-	_start_menu.visible = false
+	_close_menus()
 	for k in _apps:
 		_apps[k].visible = (k == name)
 	_current = name
-	for a in APPS:
-		if a[0] == name:
-			_task_btn.text = a[1]
-	_task_btn.visible = true
+	_show_page(_pages[name].current_tab)
 	if name == "map":
 		_refresh_map()
 	if name == "ai":
 		_refresh_ai()
-	if name == "summon":
-		_ride_follow = true
-		_refresh_ride()
 	if name == "nav":
 		_refresh_nav()
+
+
+func _show_page(i: int) -> void:
+	## A page of the open app (View, or LB / RB): the title bar names it, View checks it.
+	if _current == "":
+		return
+	var tabs: TabContainer = _pages[_current]
+	tabs.current_tab = i
+	var bar: MacTitle = _app_titles[_current]
+	var t: String = bar.get_meta("app")
+	bar.title = t if tabs.get_tab_count() < 2 else "%s: %s" % [t, tabs.get_tab_title(i)]
+	bar.queue_redraw()
+	_set_menus(_app_menus(_current))
 
 
 func _close_app() -> void:
 	if _current != "":
 		_apps[_current].visible = false
 	_current = ""
-	_task_btn.visible = false
+	_set_menus(_desktop_menus())
 
 
-func _show_message(title: String, text: String, buttons := [["OK", Callable()]]) -> void:
-	## A System 6 alert: a double-framed box in the middle of the screen, the logo, the message and
-	## rounded buttons (the first, the default, ringed).
+func _show_message(title: String, text: String, buttons := [["OK", Callable()]], extra: Control = null) -> void:
+	## A System 6 alert: a double-framed box in the middle of the screen, the logo, the message (and
+	## any control it asks with) and rounded buttons (the first, the default, ringed).
+	_close_menus()
 	for c in _msgbox.get_children():
 		c.queue_free()
 	var shade := Control.new()
@@ -1078,6 +1333,8 @@ func _show_message(title: String, text: String, buttons := [["OK", Callable()]])
 	msg.autowrap_mode = TextServer.AUTOWRAP_WORD
 	msg.custom_minimum_size = Vector2(150, 0)
 	tv.add_child(msg)
+	if extra:
+		tv.add_child(extra)
 	head.add_child(tv)
 	v.add_child(head)
 	var row := HBoxContainer.new()
@@ -1103,8 +1360,12 @@ func _show_message(title: String, text: String, buttons := [["OK", Callable()]])
 			row.add_child(b)
 	_msgbox.add_child(outer)
 	outer.reset_size()
-	outer.position = ((Vector2(SCREEN) - Vector2(0, TASKBAR_H) - outer.size) * 0.5).floor()
+	outer.position = ((Vector2(SCREEN) - outer.size) * 0.5).floor()
 	_msgbox.visible = true
+
+
+func _show_about() -> void:
+	_show_message("About The System", "NYNEX Communicator\nThe System, version 2.0\n240 x 320, 4-level display.  Backlight: automatic.")
 
 
 func _confirm_new_game() -> void:
@@ -1122,6 +1383,24 @@ func _on_new_game() -> void:
 	WeaponManager.equipped_index = -1
 	set_open(false)
 	get_tree().reload_current_scene()
+
+
+func _load_game() -> void:
+	## (There's no saving yet: nothing to load.)
+	_show_message("Load Game", "There are no saved games.")
+
+
+func _respawn() -> void:
+	## Back to where you started, out of any vehicle.
+	var pl := get_tree().get_first_node_in_group("player") as StationPlayer
+	if pl == null:
+		return
+	set_open(false)
+	pl.respawn()
+
+
+func _confirm_exit() -> void:
+	_show_message("Exit Game", "Leave Space Station Columbia?", [["Exit", func(): get_tree().quit()], ["Cancel", Callable()]])
 
 
 func _tab_page(tabs: TabContainer, title: String, scroll := true) -> VBoxContainer:
@@ -1397,233 +1676,231 @@ func _nav_travel(dd: Dictionary, mins: int) -> void:
 	var sky := get_tree().current_scene.get_node_or_null("DaySkySystem")
 	if sky:
 		sky.time_of_day = fposmod(float(sky.time_of_day) + mins / 1440.0, 1.0)
+	_tell("%s: %s" % [dd.name, dd.stop])
+
+
+# ------------------------------------------------------------------ Summon (the Edit menu)
+## Call a vehicle to you from Edit > Summon <kind> > <vehicle>: it is set down a few metres in front of you, to the
+## left, facing the way you look (an aerostat flies in and lands near you). Summon Tram... asks how many sections.
+## Dismiss Vehicle sends it away; summoning another dismisses the last (one at a time). Every type of the fleet
+## (FleetBodies) is in a kind; any the kinds don't name go under Summon Other, so none is ever missing.
+const HAND_BUILT := ["aerostat", "pod", "van", "bicycle"]
+const SUMMON_KINDS := [
+	["Summon Aerostat", ["aerostat", "cargo_aerostat", "rescue_aerostat"]],
+	["Summon Boat", ["rowboat_dinghy", "canoe_kayak", "fishing_skiff", "pedal_boat", "personal_watercraft", "rescue_board", "sailboat",
+		"pontoon_boat", "cabin_cruiser", "lobster_boat", "coast_guard_boat", "workboat_tug", "trawler", "ferry", "barge", "travel_lift"]],
+	["Summon Passenger Car", ["pod", "van", "station_wagon", "sedan", "luxury_sedan", "company_car", "police_car", "taxi", "fire_chief_car",
+		"unmarked_car", "crossover_suv", "full_size_suv", "police_suv", "sports_car", "convertible", "limousine", "hearse", "pickup_truck",
+		"public_works_pickup", "tow_truck", "utility_bucket_truck", "brush_truck", "lifeguard_truck", "hi_rail_truck", "delivery_van",
+		"parcel_van", "service_van", "paratransit_van", "ambulance", "hotel_shuttle", "food_truck", "ice_cream_truck", "mail_truck",
+		"armored_truck"]],
+	["Summon HGV", ["box_truck", "refrigerated_truck", "garbage_truck", "recycling_truck", "dump_truck", "fire_engine", "ladder_truck",
+		"street_sweeper", "milk_tanker", "semi_truck", "yard_tug", "grain_truck", "cement_mixer", "mobile_crane", "motorhome", "transit_bus",
+		"school_bus", "sightseeing_trolley", "tram_maintenance_car", "excavator"]],
+	["tram", []],
+	["Summon Farm Vehicle", ["utility_tractor", "row_crop_tractor", "backhoe_loader", "combine_harvester", "crop_sprayer", "grain_cart",
+		"hay_wagon", "manure_spreader", "hay_baler", "planter_drill", "plough_disc", "farm_pickup_flatbed"]],
+	["Summon Small Vehicle", ["bicycle", "golf_cart", "utility_cart", "hydroponics_harvest_cart", "utv", "parks_mower", "riding_mower", "atv",
+		"go_kart", "bumper_car", "mobility_scooter", "power_wheelchair", "skid_steer", "forklift", "kiddie_train", "motorcycle",
+		"scooter_moped", "child_bicycle", "cargo_bike", "adult_tricycle", "kick_scooter", "skateboard", "surrey_bike", "manual_wheelchair",
+		"rollator", "baby_stroller", "child_wagon", "shopping_cart", "hand_truck", "pallet_jack", "wheelbarrow", "luggage_cart",
+		"housekeeping_cart", "hospital_gurney", "food_cart"]],
+	# (kinds the user's list didn't name, so no vehicle is left out)
+	["Summon Train", ["passenger_train", "freight_locomotive", "boxcar", "covered_hopper", "tank_car", "flatcar", "reefer_car"]],
+	["Summon Trailer", ["utility_trailer", "boat_trailer", "camper_trailer", "livestock_trailer", "semi_trailer_dry", "semi_trailer_reefer",
+		"low_loader"]],
+	["Summon Spacecraft", ["passenger_shuttle", "supply_freighter", "eva_sled", "cargo_mule", "spoke_elevator_car"]],
+]
+const VEHICLE_NAMES := {"aerostat": "Personal aerostat", "pod": "City car (pod)", "van": "Minivan"}
+var _tram_n := TransitVehicle.MIN_SECTIONS
+
+
+func _vname(vt: String) -> String:
+	if VEHICLE_NAMES.has(vt):
+		return VEHICLE_NAMES[vt]
+	var words := vt.split("_")
+	for i in words.size():
+		if words[i] in ["suv", "atv", "utv", "eva", "pwc"]:
+			words[i] = words[i].to_upper()
+	var t := " ".join(words)
+	return t.substr(0, 1).to_upper() + t.substr(1)
+
+
+func _edit_items() -> Array:
+	var reg := FleetBodies.types()
+	var seen := {}
+	var out: Array = []
+	for kind in SUMMON_KINDS:
+		if kind[0] == "tram":
+			out.append(_item("Summon Tram...", _ask_tram))
+			continue
+		var ts: Array = []
+		for t in kind[1]:
+			seen[t] = true
+			if HAND_BUILT.has(t) or reg.has(t):
+				ts.append(t)
+		out.append(_sub(kind[0], _vehicle_items(ts)))
+	var rest: Array = []
+	for t in reg:
+		if not seen.has(t):
+			rest.append(t)
+	if not rest.is_empty():
+		out.append(_sub("Summon Other", _vehicle_items(rest)))
+	out.append(_sep())
+	out.append(_item("Dismiss Vehicle", func(): _dismiss(true)))
+	return out
+
+
+func _vehicle_items(ts: Array) -> Array:
+	var names := ts.duplicate()
+	names.sort_custom(func(x, y): return _vname(x) < _vname(y))
+	var items: Array = []
+	for t in names:
+		items.append(_item(_vname(t), _summon_now.bind(t)))
+	return items
+
+
+func _tell(text: String) -> void:
 	var hud := get_tree().root.get_node_or_null("Hud")
-	if hud and hud.has_method("toast"):
-		hud.toast("%s: %s" % [dd.name, dd.stop])
+	if hud and hud.has_method("show_notification"):
+		hud.show_notification(text)
 
 
-# ------------------------------------------------------------------ Summon Aerostat
-## A ride-hailing app: a local map (north up, dragged to look round, zoomed with + and -) with you
-## and your aerostat on it, live; a status line; Request / Cancel.  The aerostat flies itself
-## (remake/scripts/vehicles/summoned_aerostat.gd) and keeps flying while the Communicator is open.
-const RIDE_ZOOMS := [1.0, 2.0, 4.0, 8.0]           # metres per LCD pixel
-var _ride_map: Control
-var _ride_status: Label
-var _ride_btn: Button
-var _ride_view := Vector2.ZERO                     # (s, x) at the map's centre
-var _ride_follow := true                           # keep the player centred (until the map is dragged)
-var _ride_zoom_i := 1
-var _ride_msg := ""                                # the last request's answer, while nothing is coming
+func _dismiss(say: bool) -> void:
+	## Send the summoned vehicle away (getting you out of it first, if you're aboard).
+	var gone := false
+	for v in get_tree().get_nodes_in_group("delivered_wagon") + get_tree().get_nodes_in_group("summoned_aerostat"):
+		if (v as Node).is_queued_for_deletion():
+			continue
+		if v.get("pilot") != null and v.has_method("leave_seat"):
+			v.leave_seat()
+		v.remove_from_group("delivered_wagon")
+		v.remove_from_group("summoned_aerostat")
+		(v as Node).queue_free()
+		gone = true
+	if say:
+		set_open(false)
+		_tell("Dismissed." if gone else "Nothing to dismiss.")
 
 
-func _summon_tabs() -> TabContainer:
-	var tabs := TabContainer.new()
-	var pg := _tab_page(tabs, "Ride", false)
-	_ride_map = Control.new()
-	_ride_map.custom_minimum_size = Vector2(222, 146)
-	_ride_map.clip_contents = true
-	_ride_map.mouse_filter = Control.MOUSE_FILTER_STOP
-	_ride_map.draw.connect(_draw_ride_map)
-	_ride_map.gui_input.connect(_ride_map_input)
-	pg.add_child(_ride_map)
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 3)
-	var c := _button("Center", func(): _ride_follow = true)
-	c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(c)
-	var zin := _button("+", func(): _ride_zoom(-1))
-	zin.custom_minimum_size = Vector2(30, 18)
-	row.add_child(zin)
-	var zout := _button("-", func(): _ride_zoom(1))
-	zout.custom_minimum_size = Vector2(30, 18)
-	row.add_child(zout)
-	pg.add_child(row)
-	_ride_status = _label("")
-	_ride_status.custom_minimum_size = Vector2(200, 36)
-	pg.add_child(_ride_status)
-	_ride_btn = _button("Request Aerostat", _ride_request)
-	_ride_btn.custom_minimum_size = Vector2(0, 22)
-	pg.add_child(_ride_btn)
-	var wb := _button("Deliver Station Wagon", _wagon_request)
-	wb.custom_minimum_size = Vector2(0, 22)
-	pg.add_child(wb)
-	return tabs
-
-
-func _wagon_request() -> void:
-	## A Carrow station wagon set down a few metres in front of you, facing the way you look (look down the
-	## road first). One at a time: asking again takes the last one away.
+func _drop_point(length: float, half: float) -> Array:
+	## Where a vehicle is set down: ahead of you and to the left (its door by you), on the ground.
+	## [position, basis], or [] with no player.
 	var p := get_tree().get_first_node_in_group("player") as Node3D
 	if p == null:
-		return
-	for w in get_tree().get_nodes_in_group("delivered_wagon"):
-		(w as Node).queue_free()
+		return []
 	var up := StationGeo.up(StationGeo.s_of(p.global_position))
 	var cam := p.get_viewport().get_camera_3d()
 	var fwd := -(cam.global_transform.basis.z if cam else p.global_transform.basis.z)
 	fwd = (fwd - up * fwd.dot(up)).normalized()
-	var at := p.global_position + fwd * 5.5 - fwd.cross(up) * 1.4      # (ahead, a little to the left: its door by you)
+	var at := p.global_position + fwd * (3.2 + length * 0.5) - fwd.cross(up) * (0.7 + half)
+	return [_ground(at, up, p), Basis(fwd.cross(up), up, -fwd).orthonormalized()]
+
+
+func _ground(at: Vector3, up: Vector3, p: Node3D) -> Vector3:
 	var q := PhysicsRayQueryParameters3D.create(at + up * 4.0, at - up * 8.0, 1)
 	if p is CollisionObject3D:
 		q.exclude = [(p as CollisionObject3D).get_rid()]
 	var hit := p.get_world_3d().direct_space_state.intersect_ray(q)
-	if not hit.is_empty():
-		at = hit.position
-	var w := RemakeWagon.new()
-	w.name = "DeliveredWagon"
+	return hit.position if not hit.is_empty() else at
+
+
+func _summon_now(vt: String) -> void:
+	_dismiss(false)
+	set_open(false)
+	if vt == "aerostat":
+		var r := RemakeSummonedAerostat.summon(get_tree())
+		_tell(str(r.message))
+		return
+	var info := FleetBodies.of(vt)
+	var drop := _drop_point(float(info.get("nose", 2.3)) - float(info.get("tail", -2.3)), float(info.get("half_w", 0.95)))
+	if drop.is_empty():
+		return
+	var w: Node3D
+	if vt == "pod":
+		w = RemakePod.new()
+	elif vt == "van":
+		w = RemakeVan.new()
+	elif vt == "bicycle":
+		w = RemakeBicycle.new()
+	elif bool(info.get("prop", false)):                    # (a cart, a chair, a boat: just its body, set down)
+		w = Node3D.new()
+		w.set_meta("vtype", vt)
+		w.add_child(VehicleBody.make(VehicleBody.prepare(str(info.blueprint))))
+	else:
+		w = RemakeModularCar.new(vt)
+	w.name = "DeliveredVehicle"
 	w.add_to_group("delivered_wagon")
 	get_tree().current_scene.add_child(w)
-	w.global_transform = Transform3D(Basis(fwd.cross(up), up, -fwd).orthonormalized(), at + up * 0.15)
-	_ride_msg = "A station wagon is waiting ahead of you, facing the way you look.  Use its doors, or its steering wheel to drive."
-	_refresh_ride()
+	var up: Vector3 = (drop[1] as Basis).y
+	w.global_transform = Transform3D(drop[1], drop[0] + up * 0.15)
+	_tell("Your %s." % _vname(vt).to_lower())
 
 
-func _ride() -> RemakeSummonedAerostat:
-	for a in get_tree().get_nodes_in_group("summoned_aerostat"):
-		if not (a as Node).is_queued_for_deletion():
-			return a
-	return null
+func _ask_tram() -> void:
+	## How many sections: from two (a front and a rear) to the most a tram on the lines has.
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 4)
+	var n := _label("", true, false)
+	n.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	n.custom_minimum_size = Vector2(84, 0)
+	var upd := func(): n.text = "%d sections" % _tram_n
+	var less := _button("<", func():
+		_tram_n = maxi(TransitVehicle.MIN_SECTIONS, _tram_n - 1)
+		upd.call())
+	less.custom_minimum_size = Vector2(24, 18)
+	var more := _button(">", func():
+		_tram_n = mini(TransitVehicle.MAX_SECTIONS, _tram_n + 1)
+		upd.call())
+	more.custom_minimum_size = Vector2(24, 18)
+	row.add_child(less)
+	row.add_child(n)
+	row.add_child(more)
+	upd.call()
+	_show_message("Summon Tram", "How many sections?  From %d to %d." % [TransitVehicle.MIN_SECTIONS, TransitVehicle.MAX_SECTIONS],
+		[["Summon", func(): _summon_tram(_tram_n)], ["Cancel", Callable()]], row)
 
 
-func _ride_request() -> void:
-	var a := _ride()
-	if a and a.phase != "parked" and not a.disabled:
-		a.queue_free()                                 # Cancel
-		a.remove_from_group("summoned_aerostat")
-		_ride_msg = "Ride cancelled."
-	else:
-		var r := RemakeSummonedAerostat.summon(get_tree())
-		_ride_msg = r.message
-	_ride_follow = true
-	_refresh_ride()
-
-
-func _ride_zoom(step: int) -> void:
-	_ride_zoom_i = clampi(_ride_zoom_i + step, 0, RIDE_ZOOMS.size() - 1)
-	_ride_map.queue_redraw()
-
-
-func _ride_map_input(e: InputEvent) -> void:
-	## Drag to look round, the wheel (or a controller's right stick) to zoom.
-	if e is InputEventMouseMotion and (e.button_mask & MOUSE_BUTTON_MASK_LEFT):
-		_ride_follow = false
-		_ride_view -= e.relative * RIDE_ZOOMS[_ride_zoom_i]
-		_ride_view.x = fposmod(_ride_view.x, StationGeo.CIRC)
-		_ride_view.y = clampf(_ride_view.y, -StationGeo.HALF_LEN, StationGeo.HALF_LEN)
-		_ride_map.queue_redraw()
-	elif e is InputEventMouseButton and e.pressed and e.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
-		_ride_zoom(-1 if e.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
-		_ride_map.accept_event()
-
-
-func _refresh_ride() -> void:
-	if _ride_map == null:
+func _summon_tram(n: int) -> void:
+	## A Carrow tram of n sections (front, mids, rear) with their joints, standing beside you.
+	_dismiss(false)
+	set_open(false)
+	var kinds: Array = ["front"]
+	for i in n - 2:
+		kinds.append("mid")
+	kinds.append("rear")
+	var length := TransitVehicle.JOINT_GAP * (n - 1)
+	for k in kinds:
+		length += TramSection.length_front(k) + TramSection.length_back(k)
+	var drop := _drop_point(length, 1.3)
+	if drop.is_empty():
 		return
-	if _map_tex == null:
-		_map_tex = load(PDA + "map_detail.png")
-		_map_overview = load(PDA + "map_overview.png")
-	var p := _player_sx()
-	if _ride_follow:
-		_ride_view = Vector2(p.x, p.y)
-	var a := _ride()
-	var t := ""
-	if a == null:
-		t = (_ride_msg + "\n" if _ride_msg != "" else "") + "Tap Request and an aerostat will come to you."
-		_ride_btn.text = "Request Aerostat"
-	else:
-		var st := a.status()
-		if st.disabled:
-			t = "Your aerostat is disabled."
-			_ride_btn.text = "Request Another"
-		elif st.phase == "dive":
-			t = "Your aerostat is on its way: %d m away, %d m up.  Arriving in %s." % [st.dist, st.alt, _mmss(st.eta)]
-			_ride_btn.text = "Cancel Ride"
-		elif st.phase == "let_down":
-			t = "Arriving now: landing %d m from you.  %s." % [st.dist, _mmss(st.eta)]
-			_ride_btn.text = "Cancel Ride"
-		elif a.pilot:
-			t = "Enjoy your flight."
-			_ride_btn.text = "Request Another"
-		else:
-			t = "Your aerostat is here, %d m away (the red one).  Step aboard." % st.dist
-			_ride_btn.text = "Request Another"
-	if _ride_status.text != t:
-		_ride_status.text = t
-	_ride_map.queue_redraw()
-
-
-func _mmss(sec: float) -> String:
-	var n := maxi(0, ceili(sec))
-	return "%d:%02d" % [n / 60, n % 60]
-
-
-func _ride_to_map(s: float, x: float) -> Vector2:
-	## A place (s, x) on the ride map, in its pixels.
-	var m: float = RIDE_ZOOMS[_ride_zoom_i]
-	return (_ride_map.size * 0.5 + Vector2(StationGeo.wrap_ds(s - _ride_view.x), x - _ride_view.y) / m).floor()
-
-
-func _draw_ride_map() -> void:
-	var sz := _ride_map.size
-	var m: float = RIDE_ZOOMS[_ride_zoom_i]
-	_ride_map.draw_rect(Rect2(Vector2.ZERO, sz), W)
-	if _map_tex:
-		# the map image (4 m / px) under the window, in up to two pieces across the ring's seam
-		var ppm: float = _map_tex.get_width() / StationGeo.FARSIDE_W
-		var tw := float(_map_tex.get_width())
-		var src := Rect2(fposmod(_ride_view.x - sz.x * 0.5 * m, StationGeo.CIRC) * ppm,
-			(_ride_view.y - sz.y * 0.5 * m + StationGeo.FARSIDE_H * 0.5) * ppm, sz.x * m * ppm, sz.y * m * ppm)
-		var first := minf(src.size.x, tw - src.position.x)
-		_ride_map.draw_texture_rect_region(_map_tex, Rect2(0, 0, sz.x * first / src.size.x, sz.y),
-			Rect2(src.position, Vector2(first, src.size.y)))
-		if first < src.size.x:
-			var dx := sz.x * first / src.size.x
-			_ride_map.draw_texture_rect_region(_map_tex, Rect2(dx, 0, sz.x - dx, sz.y),
-				Rect2(0, src.position.y, src.size.x - first, src.size.y))
-	var p := _player_sx()
-	var a := _ride()
-	if a and not a.is_queued_for_deletion():
-		var ap := a.global_position
-		var au := _ride_to_map(StationGeo.s_of(ap), ap.x)
-		if a.phase != "parked":
-			# the route to where it will land, dotted, and the landing mark
-			var pu := _ride_to_map(StationGeo.s_of(a.pad), a.pad.x)
-			var n := int(au.distance_to(pu) / 4.0)
-			for i in n:
-				var q := au.lerp(pu, float(i) / maxf(1, n)).floor()
-				_ride_map.draw_rect(Rect2(q, Vector2(2, 2)), K)
-			_ride_map.draw_line(pu + Vector2(-4, -4), pu + Vector2(5, 5), K, 2.0)
-			_ride_map.draw_line(pu + Vector2(-4, 5), pu + Vector2(5, -4), K, 2.0)
-		var inside := Rect2(Vector2(6, 6), sz - Vector2(12, 12))
-		if inside.has_point(au):
-			# a balloon over its cabin; blinking while it flies
-			var on := a.phase == "parked" or int(Time.get_ticks_msec() / 300) % 2 == 0
-			_ride_map.draw_circle(au + Vector2(0, -3), 5.0, K)
-			_ride_map.draw_circle(au + Vector2(0, -3), 3.0, W if on else D)
-			_ride_map.draw_rect(Rect2(au + Vector2(-2, 3), Vector2(5, 3)), K)
-		else:
-			# off the map: an arrow at the edge pointing its way
-			var c := sz * 0.5
-			var d := (au - c).normalized()
-			var e := c + d * minf(absf((sz.x * 0.5 - 8) / d.x) if absf(d.x) > 1e-3 else 1e9,
-				absf((sz.y * 0.5 - 8) / d.y) if absf(d.y) > 1e-3 else 1e9)
-			var sd := Vector2(-d.y, d.x)
-			_ride_map.draw_colored_polygon(PackedVector2Array([e + d * 6, e - d * 4 + sd * 5, e - d * 4 - sd * 5]), K)
-	# you
-	var c2 := _ride_to_map(p.x, p.y)
-	var d2 := Vector2(cos(p.z), sin(p.z))
-	var side := Vector2(-d2.y, d2.x)
-	_ride_map.draw_colored_polygon(PackedVector2Array([c2 + d2 * 8, c2 - d2 * 5 + side * 5, c2 - d2 * 2, c2 - d2 * 5 - side * 5]), K)
-	_ride_map.draw_polyline(PackedVector2Array([c2 + d2 * 9, c2 - d2 * 6 + side * 6, c2 - d2 * 2, c2 - d2 * 6 - side * 6, c2 + d2 * 9]), W, 1.0)
-	# the frame, north, the scale
-	_ride_map.draw_rect(Rect2(Vector2.ZERO, sz), K, false)
-	_ride_map.draw_rect(Rect2(2, 2, 12, 15), W)
-	_ride_map.draw_string(_bold, Vector2(4, 14), "N", HORIZONTAL_ALIGNMENT_LEFT, -1, SYS_SIZE, K)
-	var bar_m := 50.0 * m
-	var bw := bar_m / m
-	_ride_map.draw_rect(Rect2(3, sz.y - 18, bw + 36, 15), W)
-	_ride_map.draw_rect(Rect2(5, sz.y - 7, bw, 2), K)
-	_ride_map.draw_string(_font, Vector2(bw + 8, sz.y - 5), "%d m" % bar_m, HORIZONTAL_ALIGNMENT_LEFT, -1, TEXT_SIZE, K)
+	var p := get_tree().get_first_node_in_group("player") as Node3D
+	var up: Vector3 = (drop[1] as Basis).y
+	var tram := Node3D.new()
+	tram.name = "SummonedTram"
+	tram.set_meta("vtype", "tram")
+	tram.add_to_group("delivered_wagon")
+	get_tree().current_scene.add_child(tram)
+	tram.global_transform = Transform3D(drop[1], drop[0])
+	var secs: Array = []
+	var z := -length * 0.5                                 # (the front's nose; -z is forward)
+	for k in kinds:
+		var sec := TramSection.new()
+		tram.add_child(sec)
+		sec.setup(k, null)
+		z += TramSection.length_front(k)
+		sec.position = Vector3(0, 0, z)
+		sec.global_position = _ground(sec.global_position, up, p)   # (each on the ground under it)
+		sec.sync_bodies()
+		z += TramSection.length_back(k) + TransitVehicle.JOINT_GAP
+		secs.append(sec)
+	for i in secs.size() - 1:
+		var j := TramJoint.new()
+		tram.add_child(j)
+		j.setup(secs[i], secs[i + 1])
+		j.update()
+	_tell("Your tram: %d sections." % n)
 
 
 # ------------------------------------------------------------------ Inventory
@@ -1985,17 +2262,21 @@ func _help_tabs() -> TabContainer:
 	var tabs := TabContainer.new()
 	var c := _tab_page(tabs, "Contents")
 	for line in [["Using The System", true],
-			["Double-tap an icon on the desktop to open it, or tap System and choose it.  The keys under the screen open the Map, Items, Quests and Setup.", false],
+			["Double-tap an icon on the desktop to open it, or choose it from the menu under the logo at the top left.", false],
+			["The menu bar", true],
+			["Tap a menu's name to open it, then tap an item.  An item with a triangle opens a submenu.  File starts a new game, Edit summons vehicles, System respawns you or exits the game.", false],
 			["In an app", true],
-			["The tabs change pages.  The box at the top left closes the app; the ? box at the top right explains it.", false],
+			["Its View menu changes pages.  The box at the top left of its window closes it, as does File > Close.  Help explains it.", false],
 			["With a controller", true],
-			["The left stick moves the stylus; A taps, B goes back, LB and RB change tabs, the right stick scrolls, Y opens the System menu.  On a Steam Deck the screen also takes your finger.", false],
+			["The left stick moves the stylus; A taps, B goes back, LB and RB change pages, the right stick scrolls, Y opens the menu bar.  On a Steam Deck the screen also takes your finger.", false],
+			["The scroll wheel", true],
+			["Roll the wheel on the right of the case, or tap above or below its middle, to scroll a page or a long menu.", false],
 			["Talking to people", true],
 			["Open NPC AI and follow its three steps to give the station's people their voices.", false],
 			["Getting a ride", true],
-			["Open Summon Aerostat and tap Request: a red aerostat comes down and lands near you.  Fly gently -- it takes damage from 15 km/h, and a hard enough crash disables it.", false],
+			["Choose Edit > Summon and a kind of vehicle: it is set down in front of you.  Summon Tram... asks how many sections.  Edit > Dismiss Vehicle sends it away.  An aerostat flies in and lands near you; fly gently -- it takes damage from 15 km/h.", false],
 			["Putting it away", true],
-			["Choose Suspend from the System menu, press the Power key, or press the Communicator key again.", false]]:
+			["Press the Power key, or the Communicator key again.", false]]:
 		c.add_child(_label(line[0], line[1]))
 	var a := _tab_page(tabs, "About")
 	var logo := TextureRect.new()
@@ -2003,7 +2284,7 @@ func _help_tabs() -> TabContainer:
 	logo.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	a.add_child(logo)
 	a.add_child(_label("NYNEX Communicator", true))
-	a.add_child(_label("The System  version 1.1"))
+	a.add_child(_label("The System  version 2.0"))
 	a.add_child(_label("240 x 320, 4-level display.  Backlight: automatic."))
 	a.add_child(HSeparator.new())
 	a.add_child(_label("Space Station Columbia", true))
