@@ -1,0 +1,2960 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "CU185",
+ "class": "crossover_suv",
+ "style": "carrow_trek",
+ "pack": "res://remake/vehicles/components/CU185/carrow_trek.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.3765,
+    0.4392,
+    0.2824
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.8863,
+    0.8549,
+    0.7686
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "CU185.end_cap.nose.C.carrow_trek.ec09f0": {
+   "id": "CU185.end_cap.nose.C.carrow_trek.ec09f0",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     651
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7363,
+     0.08,
+     1.8577,
+     0.8325,
+     0.16
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.trim.cowl.C.carrow_trek.8a5f6a": {
+   "id": "CU185.trim.cowl.C.carrow_trek.8a5f6a",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     15624,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3494,
+     0.04,
+     1.825,
+     0.0813,
+     0.08
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.glazing.screen.C.carrow_trek.ad4f34": {
+   "id": "CU185.glazing.screen.C.carrow_trek.ad4f34",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     17928,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.725,
+     0.41,
+     1.825,
+     0.79,
+     0.82
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.trim.screen.C.carrow_trek.a35c4a": {
+   "id": "CU185.trim.screen.C.carrow_trek.a35c4a",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     23688,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6978,
+     0.41,
+     1.825,
+     0.7436,
+     0.82
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.side_bay.fender.R.carrow_trek.f3a378": {
+   "id": "CU185.side_bay.fender.R.carrow_trek.f3a378",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28872,
+     468
+    ]
+   },
+   "boxes": [
+    [
+     0.8745,
+     0.825,
+     0.61,
+     0.111,
+     1.01,
+     1.22
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.trim.sail.R.carrow_trek.d66431": {
+   "id": "CU185.trim.sail.R.carrow_trek.d66431",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     40104,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.9252,
+     1.364,
+     0.1,
+     0.02,
+     0.108,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.trim.a_pillar.R.carrow_trek.192d3a": {
+   "id": "CU185.trim.a_pillar.R.carrow_trek.192d3a",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41832,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.865,
+     1.685,
+     0.41,
+     0.13,
+     0.75,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.side_bay.rocker_F.R.carrow_trek.7d7e07": {
+   "id": "CU185.side_bay.rocker_F.R.carrow_trek.7d7e07",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43272,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.915,
+     0.45,
+     0.46,
+     0.03,
+     0.26,
+     0.92
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.post_0.R.carrow_trek.d81d64": {
+   "id": "CU185.side_bay.post_0.R.carrow_trek.d81d64",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     43560,
+     18
+    ],
+    "paint": [
+     43992,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.15,
+     0.05,
+     0.06,
+     1.66,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.rocker_B.R.carrow_trek.8e90d2": {
+   "id": "CU185.side_bay.rocker_B.R.carrow_trek.8e90d2",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/rocker_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44424,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.915,
+     0.45,
+     0.41,
+     0.03,
+     0.26,
+     0.82
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.quarter.R.carrow_trek.729a83": {
+   "id": "CU185.side_bay.quarter.R.carrow_trek.729a83",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     44568,
+     108
+    ],
+    "paint": [
+     47160,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     0.8935,
+     1.15,
+     0.67,
+     0.0731,
+     1.66,
+     1.34
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.fender.L.carrow_trek.8bc4a8": {
+   "id": "CU185.side_bay.fender.L.carrow_trek.8bc4a8",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51624,
+     468
+    ]
+   },
+   "boxes": [
+    [
+     -0.8745,
+     0.825,
+     0.61,
+     0.111,
+     1.01,
+     1.22
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.trim.sail.L.carrow_trek.f7f0d5": {
+   "id": "CU185.trim.sail.L.carrow_trek.f7f0d5",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     62856,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.9252,
+     1.364,
+     0.1,
+     0.02,
+     0.108,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.trim.a_pillar.L.carrow_trek.f9a870": {
+   "id": "CU185.trim.a_pillar.L.carrow_trek.f9a870",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     64584,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.865,
+     1.685,
+     0.41,
+     0.13,
+     0.75,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.side_bay.rocker_F.L.carrow_trek.4f6414": {
+   "id": "CU185.side_bay.rocker_F.L.carrow_trek.4f6414",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66024,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.915,
+     0.45,
+     0.46,
+     0.03,
+     0.26,
+     0.92
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.post_0.L.carrow_trek.62d488": {
+   "id": "CU185.side_bay.post_0.L.carrow_trek.62d488",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     66312,
+     18
+    ],
+    "paint": [
+     66744,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.15,
+     0.05,
+     0.06,
+     1.66,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.rocker_B.L.carrow_trek.be6de2": {
+   "id": "CU185.side_bay.rocker_B.L.carrow_trek.be6de2",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/rocker_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     67176,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.915,
+     0.45,
+     0.41,
+     0.03,
+     0.26,
+     0.82
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.side_bay.quarter.L.carrow_trek.b8514d": {
+   "id": "CU185.side_bay.quarter.L.carrow_trek.b8514d",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     67320,
+     108
+    ],
+    "paint": [
+     69912,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     -0.8935,
+     1.15,
+     0.67,
+     0.0731,
+     1.66,
+     1.34
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.roof_bay.roof_0.C.carrow_trek.79c950": {
+   "id": "CU185.roof_bay.roof_0.C.carrow_trek.79c950",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     74376,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.05,
+     0.64,
+     1.74,
+     0.14,
+     1.28
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.roof_bay.roof_1.C.carrow_trek.170f6b": {
+   "id": "CU185.roof_bay.roof_1.C.carrow_trek.170f6b",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     83016,
+     1080
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.05,
+     0.64,
+     1.74,
+     0.14,
+     1.28
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.end_cap.tail.C.carrow_trek.d8a410": {
+   "id": "CU185.end_cap.tail.C.carrow_trek.d8a410",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     108936,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.22,
+     0.04,
+     1.8321,
+     1.8,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CU185.floor.floor.C.carrow_trek.840ae7": {
+   "id": "CU185.floor.floor.C.carrow_trek.840ae7",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     119232,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.725,
+     1.69,
+     1.74,
+     0.35,
+     3.38
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "CU185.lining_bay.trim_0_0.R.carrow_trek.05939f": {
+   "id": "CU185.lining_bay.trim_0_0.R.carrow_trek.05939f",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     148032,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.8652,
+     0.999,
+     0.1,
+     0.02,
+     0.838,
+     0.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.trim_1_0.R.carrow_trek.ba9a4f": {
+   "id": "CU185.lining_bay.trim_1_0.R.carrow_trek.ba9a4f",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     150912,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.84,
+     1.28,
+     0.05,
+     0.06,
+     1.4,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.trim_2_0.R.carrow_trek.e32935": {
+   "id": "CU185.lining_bay.trim_2_0.R.carrow_trek.e32935",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     151632,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.8339,
+     1.28,
+     0.67,
+     0.0721,
+     1.4,
+     1.34
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.a_pillar.R.carrow_trek.469d8d": {
+   "id": "CU185.lining_bay.a_pillar.R.carrow_trek.469d8d",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     159120,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.805,
+     1.6622,
+     0.41,
+     0.13,
+     0.7356,
+     0.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.trim_0_0.L.carrow_trek.d1e2a0": {
+   "id": "CU185.lining_bay.trim_0_0.L.carrow_trek.d1e2a0",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     160560,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.8652,
+     0.999,
+     0.1,
+     0.02,
+     0.838,
+     0.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.trim_1_0.L.carrow_trek.c271a7": {
+   "id": "CU185.lining_bay.trim_1_0.L.carrow_trek.c271a7",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     163440,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -0.84,
+     1.28,
+     0.05,
+     0.06,
+     1.4,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.trim_2_0.L.carrow_trek.0d2d2e": {
+   "id": "CU185.lining_bay.trim_2_0.L.carrow_trek.0d2d2e",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/trim_2_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     164160,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -0.8339,
+     1.28,
+     0.67,
+     0.0721,
+     1.4,
+     1.34
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.lining_bay.a_pillar.L.carrow_trek.8884ce": {
+   "id": "CU185.lining_bay.a_pillar.L.carrow_trek.8884ce",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     171648,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.805,
+     1.6622,
+     0.41,
+     0.13,
+     0.7356,
+     0.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.ceiling_bay.roof_0.C.carrow_trek.ceb4c4": {
+   "id": "CU185.ceiling_bay.roof_0.C.carrow_trek.ceb4c4",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     173088,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.025,
+     0.64,
+     1.62,
+     0.09,
+     1.28
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.ceiling_bay.roof_1.C.carrow_trek.f1c212": {
+   "id": "CU185.ceiling_bay.roof_1.C.carrow_trek.f1c212",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     181728,
+     1080
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.025,
+     0.64,
+     1.62,
+     0.09,
+     1.28
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.end_lining.firewall.C.carrow_trek.669be7": {
+   "id": "CU185.end_lining.firewall.C.carrow_trek.669be7",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     207648,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.945,
+     0.0,
+     1.74,
+     0.79,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.end_lining.rear_wall.C.carrow_trek.756e73": {
+   "id": "CU185.end_lining.rear_wall.C.carrow_trek.756e73",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     209088,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     0.0,
+     1.73,
+     1.52,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.rear_opening.C.carrow_trek.dff3fb": {
+   "id": "CU185.reveal.rear_opening.C.carrow_trek.dff3fb",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     212544,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.345,
+     0.04,
+     1.4,
+     1.25,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.door_F.R.carrow_trek.2c984e": {
+   "id": "CU185.reveal.door_F.R.carrow_trek.2c984e",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     215424,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.28,
+     0.46,
+     0.12,
+     1.4,
+     0.92
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.door_B.R.carrow_trek.7b5054": {
+   "id": "CU185.reveal.door_B.R.carrow_trek.7b5054",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     217440,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.28,
+     0.41,
+     0.12,
+     1.4,
+     0.82
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.window_Q.R.carrow_trek.72eb3f": {
+   "id": "CU185.reveal.window_Q.R.carrow_trek.72eb3f",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     219168,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.645,
+     0.52,
+     0.12,
+     0.67,
+     1.04
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.door_F.L.carrow_trek.9cd6ca": {
+   "id": "CU185.reveal.door_F.L.carrow_trek.9cd6ca",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     223200,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.28,
+     0.46,
+     0.12,
+     1.4,
+     0.92
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.door_B.L.carrow_trek.2ffbca": {
+   "id": "CU185.reveal.door_B.L.carrow_trek.2ffbca",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     225216,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.28,
+     0.41,
+     0.12,
+     1.4,
+     0.82
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.window_Q.L.carrow_trek.dafd02": {
+   "id": "CU185.reveal.window_Q.L.carrow_trek.dafd02",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     226944,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.645,
+     0.52,
+     0.12,
+     0.67,
+     1.04
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.reveal.screen.C.carrow_trek.5c051a": {
+   "id": "CU185.reveal.screen.C.carrow_trek.5c051a",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     230976,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7096,
+     0.41,
+     1.825,
+     0.8208,
+     0.82
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CU185.glazing.window_Q.R.carrow_trek.078469": {
+   "id": "CU185.glazing.window_Q.R.carrow_trek.078469",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/glazing/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     234720,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.645,
+     0.52,
+     0.06,
+     0.67,
+     1.04
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.glazing.window_Q.L.carrow_trek.b900ab": {
+   "id": "CU185.glazing.window_Q.L.carrow_trek.b900ab",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/glazing/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     239472,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.645,
+     0.52,
+     0.06,
+     0.67,
+     1.04
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.door_leaf.door_F.R.carrow_trek.da4e90": {
+   "id": "CU185.door_leaf.door_F.R.carrow_trek.da4e90",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     244224,
+     24
+    ],
+    "paint": [
+     244800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     0.945,
+     0.46,
+     0.06,
+     0.73,
+     0.92
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_glass.door_F.R.carrow_trek.213dc9": {
+   "id": "CU185.door_glass.door_F.R.carrow_trek.213dc9",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     246528,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.645,
+     0.46,
+     0.06,
+     0.67,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.leaf_trim.handle_F.R.carrow_trek.a568b1": {
+   "id": "CU185.leaf_trim.handle_F.R.carrow_trek.a568b1",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     247392,
+     36
+    ],
+    "dash": [
+     248256,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.875,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_leaf.door_B.R.carrow_trek.0ba102": {
+   "id": "CU185.door_leaf.door_B.R.carrow_trek.0ba102",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/door_leaf/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     249120,
+     12
+    ],
+    "paint": [
+     249408,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     0.945,
+     0.41,
+     0.06,
+     0.73,
+     0.82
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_glass.door_B.R.carrow_trek.92dbf6": {
+   "id": "CU185.door_glass.door_B.R.carrow_trek.92dbf6",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/door_glass/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     250560,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.645,
+     0.41,
+     0.06,
+     0.67,
+     0.82
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.leaf_trim.handle_B.R.carrow_trek.59376c": {
+   "id": "CU185.leaf_trim.handle_B.R.carrow_trek.59376c",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/leaf_trim/handle_B/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     250992,
+     36
+    ],
+    "dash": [
+     251856,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.875,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_leaf.door_F.L.carrow_trek.f7d020": {
+   "id": "CU185.door_leaf.door_F.L.carrow_trek.f7d020",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     252720,
+     24
+    ],
+    "paint": [
+     253296,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     0.945,
+     0.46,
+     0.06,
+     0.73,
+     0.92
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_glass.door_F.L.carrow_trek.fffe98": {
+   "id": "CU185.door_glass.door_F.L.carrow_trek.fffe98",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     255024,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.645,
+     0.46,
+     0.06,
+     0.67,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.leaf_trim.handle_F.L.carrow_trek.d81b16": {
+   "id": "CU185.leaf_trim.handle_F.L.carrow_trek.d81b16",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     255888,
+     36
+    ],
+    "dash": [
+     256752,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.875,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_leaf.door_B.L.carrow_trek.e64896": {
+   "id": "CU185.door_leaf.door_B.L.carrow_trek.e64896",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/door_leaf/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     257616,
+     12
+    ],
+    "paint": [
+     257904,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     0.945,
+     0.41,
+     0.06,
+     0.73,
+     0.82
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.door_glass.door_B.L.carrow_trek.dc1976": {
+   "id": "CU185.door_glass.door_B.L.carrow_trek.dc1976",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/door_glass/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     259056,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.645,
+     0.41,
+     0.06,
+     0.67,
+     0.82
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.leaf_trim.handle_B.L.carrow_trek.adf144": {
+   "id": "CU185.leaf_trim.handle_B.L.carrow_trek.adf144",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/leaf_trim/handle_B/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     259488,
+     36
+    ],
+    "dash": [
+     260352,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.875,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.frunk_lid.lid.C.carrow_trek.bad860": {
+   "id": "CU185.frunk_lid.lid.C.carrow_trek.bad860",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     261216,
+     636
+    ],
+    "tub": [
+     276480,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2108,
+     0.467,
+     1.634,
+     0.2647,
+     0.934
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.frunk_tub.lid.C.carrow_trek.d5ce7f": {
+   "id": "CU185.frunk_tub.lid.C.carrow_trek.d5ce7f",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     286848,
+     282
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9469,
+     0.47,
+     1.64,
+     0.7937,
+     0.94
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "CU185.hatch.hatch.C.carrow_trek.b412ec": {
+   "id": "CU185.hatch.hatch.C.carrow_trek.b412ec",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "hatch",
+   "slot": "hatch",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/hatch/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     293616,
+     120
+    ],
+    "lining": [
+     296496,
+     120
+    ],
+    "paint": [
+     299376,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.345,
+     0.04,
+     1.4,
+     1.25,
+     0.08
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 26,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.hatch_glass.hatch.C.carrow_trek.4ff4ce": {
+   "id": "CU185.hatch_glass.hatch.C.carrow_trek.4ff4ce",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "hatch_glass",
+   "slot": "hatch",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/hatch_glass/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     305136,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.66,
+     0.0,
+     1.24,
+     0.52,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 8,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CU185.leaf_trim.handle_hatch.C.carrow_trek.998e74": {
+   "id": "CU185.leaf_trim.handle_hatch.C.carrow_trek.998e74",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "leaf_trim",
+   "slot": "handle_hatch",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/leaf_trim/handle_hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     306432,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.35,
+     0.01,
+     0.16,
+     0.03,
+     0.02
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CU185.wheel_well.well_0.R.carrow_trek.bdb317": {
+   "id": "CU185.wheel_well.well_0.R.carrow_trek.bdb317",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     307296,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6238,
+     0.5903,
+     0.4318,
+     0.6475,
+     0.5432,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CU185.wheel_well.well_0.L.carrow_trek.577e27": {
+   "id": "CU185.wheel_well.well_0.L.carrow_trek.577e27",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     324432,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6238,
+     0.5903,
+     0.4318,
+     0.6475,
+     0.5432,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CU185.wheel_well.well_1.R.carrow_trek.ab5bf8": {
+   "id": "CU185.wheel_well.well_1.R.carrow_trek.ab5bf8",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     341568,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.6238,
+     0.5903,
+     0.4318,
+     0.6475,
+     0.5432,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CU185.wheel_well.well_1.L.carrow_trek.2dd65f": {
+   "id": "CU185.wheel_well.well_1.L.carrow_trek.2dd65f",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     357552,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.6238,
+     0.5902,
+     0.4318,
+     0.6476,
+     0.5431,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CU185.underpan.underpan.C.carrow_trek.dc6a83": {
+   "id": "CU185.underpan.underpan.C.carrow_trek.dc6a83",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     373536,
+     558
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4125,
+     2.32,
+     1.8,
+     0.185,
+     4.64
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "CU185.seat.row_0.C.carrow_trek.b6c56b": {
+   "id": "CU185.seat.row_0.C.carrow_trek.b6c56b",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     386928,
+     72
+    ],
+    "seat": [
+     388656,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1146,
+     0.4335,
+     1.22,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CU185.seat.row_1.C.carrow_trek.540736": {
+   "id": "CU185.seat.row_1.C.carrow_trek.540736",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     393840,
+     108
+    ],
+    "seat": [
+     396432,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0377,
+     0.4023,
+     1.16,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CU185.dash.dash.C.carrow_trek.a826f8": {
+   "id": "CU185.dash.dash.C.carrow_trek.a826f8",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     401616,
+     1236
+    ],
+    "chrome": [
+     431280,
+     120
+    ],
+    "dash": [
+     434160,
+     108
+    ],
+    "gauge": [
+     436752,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1449,
+     0.2876,
+     1.58,
+     0.3901,
+     0.5751
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "CU185.dash.readout.C.carrow_trek.6c18ea": {
+   "id": "CU185.dash.readout.C.carrow_trek.6c18ea",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     445968,
+     36
+    ],
+    "lcd": [
+     446832,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.38,
+     1.23,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "CU185.lamp.head_lamp.C.carrow_trek.cf7f87": {
+   "id": "CU185.lamp.head_lamp.C.carrow_trek.cf7f87",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     447696,
+     72
+    ],
+    "lamp_amber": [
+     449424,
+     72
+    ],
+    "lamp_head": [
+     451152,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.86,
+     0.007,
+     1.664,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CU185.trim.grille.C.carrow_trek.fea6aa": {
+   "id": "CU185.trim.grille.C.carrow_trek.fea6aa",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     452880,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.86,
+     0.004,
+     1.034,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.lamp.tail_lamp.C.carrow_trek.1c97c9": {
+   "id": "CU185.lamp.tail_lamp.C.carrow_trek.1c97c9",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     456336,
+     12
+    ],
+    "lamp_amber": [
+     456624,
+     48
+    ],
+    "lamp_brake": [
+     457776,
+     36
+    ],
+    "lamp_reverse": [
+     458640,
+     48
+    ],
+    "lamp_tail": [
+     459792,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.506,
+     0.006,
+     1.7084,
+     1.072,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CU185.lamp.side_marker.C.carrow_trek.9e6251": {
+   "id": "CU185.lamp.side_marker.C.carrow_trek.9e6251",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     467856,
+     72
+    ],
+    "lamp_tail": [
+     469584,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     2.16,
+     1.876,
+     0.03,
+     4.32
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CU185.trim.bumper_front.C.carrow_trek.f346b5": {
+   "id": "CU185.trim.bumper_front.C.carrow_trek.f346b5",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     471312,
+     108
+    ],
+    "rubber": [
+     473904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.48,
+     0.0655,
+     1.8112,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.trim.bumper_rear.C.carrow_trek.178bae": {
+   "id": "CU185.trim.bumper_rear.C.carrow_trek.178bae",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     474768,
+     108
+    ],
+    "rubber": [
+     477360,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.48,
+     0.0655,
+     1.8112,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.trim.mirror.R.carrow_trek.229789": {
+   "id": "CU185.trim.mirror.R.carrow_trek.229789",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     478224,
+     96
+    ],
+    "glass_dark": [
+     480528,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0158,
+     1.4038,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.trim.mirror.L.carrow_trek.70dc49": {
+   "id": "CU185.trim.mirror.L.carrow_trek.70dc49",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_trek",
+   "interface": "CU185/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     481392,
+     96
+    ],
+    "glass_dark": [
+     483696,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0158,
+     1.4038,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CU185.equipment.roof_rails.C.carrow_trek.a1864d": {
+   "id": "CU185.equipment.roof_rails.C.carrow_trek.a1864d",
+   "standard": "CU185",
+   "class": "crossover_suv",
+   "role": "equipment",
+   "slot": "roof_rails",
+   "side": "C",
+   "style": "carrow_trek",
+   "interface": "CU185/equipment/roof_rails/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     484560,
+     216
+    ],
+    "chrome": [
+     489744,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1435,
+     1.16,
+     1.152,
+     0.067,
+     2.32
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

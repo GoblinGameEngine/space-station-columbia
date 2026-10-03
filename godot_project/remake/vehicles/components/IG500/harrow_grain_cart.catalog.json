@@ -1,0 +1,841 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "IG500",
+ "class": "grain_cart",
+ "style": "harrow_grain_cart",
+ "pack": "res://remake/vehicles/components/IG500/harrow_grain_cart.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.2353,
+    0.4706,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.2353,
+    0.4706,
+    0.2353
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "IG500.cargo_wall.cargo_plinth.C.harrow_grain_cart.fb4114": {
+   "id": "IG500.cargo_wall.cargo_plinth.C.harrow_grain_cart.fb4114",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5725,
+     2.5,
+     1.48,
+     0.135,
+     5.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_wall.cargo_side.R.harrow_grain_cart.639e72": {
+   "id": "IG500.cargo_wall.cargo_side.R.harrow_grain_cart.639e72",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     720,
+     372
+    ],
+    "rubber": [
+     9648,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.22,
+     1.6106,
+     2.5,
+     0.06,
+     1.9787,
+     5.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_lining.cargo_side.R.harrow_grain_cart.007e00": {
+   "id": "IG500.cargo_lining.cargo_side.R.harrow_grain_cart.007e00",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13104,
+     156
+    ],
+    "lining": [
+     16848,
+     228
+    ]
+   },
+   "boxes": [
+    [
+     0.9173,
+     1.48,
+     2.5,
+     0.5455,
+     2.24,
+     5.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_wall.cargo_rail.R.harrow_grain_cart.3fc506": {
+   "id": "IG500.cargo_wall.cargo_rail.R.harrow_grain_cart.3fc506",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     22320,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.22,
+     2.6,
+     2.5,
+     0.06,
+     0.02,
+     5.0
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_wall.cargo_side.L.harrow_grain_cart.108205": {
+   "id": "IG500.cargo_wall.cargo_side.L.harrow_grain_cart.108205",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22464,
+     372
+    ],
+    "rubber": [
+     31392,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.22,
+     1.6106,
+     2.5,
+     0.06,
+     1.9787,
+     5.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_lining.cargo_side.L.harrow_grain_cart.dc6f51": {
+   "id": "IG500.cargo_lining.cargo_side.L.harrow_grain_cart.dc6f51",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     34848,
+     156
+    ],
+    "lining": [
+     38592,
+     228
+    ]
+   },
+   "boxes": [
+    [
+     -0.9173,
+     1.48,
+     2.5,
+     0.5455,
+     2.24,
+     5.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_wall.cargo_rail.L.harrow_grain_cart.9611ec": {
+   "id": "IG500.cargo_wall.cargo_rail.L.harrow_grain_cart.9611ec",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     44064,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.22,
+     2.6,
+     2.5,
+     0.06,
+     0.02,
+     5.0
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_floor.cargo_floor.C.harrow_grain_cart.0aa7f7": {
+   "id": "IG500.cargo_floor.cargo_floor.C.harrow_grain_cart.0aa7f7",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     44208,
+     18
+    ],
+    "tub": [
+     44640,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.67,
+     2.5,
+     2.5,
+     0.06,
+     5.0
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "IG500.cargo_wall.cargo_front.C.harrow_grain_cart.72a9a3": {
+   "id": "IG500.cargo_wall.cargo_front.C.harrow_grain_cart.72a9a3",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     45360,
+     6
+    ],
+    "paint": [
+     45504,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.62,
+     0.03,
+     2.5,
+     1.96,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_lining.cargo_front.C.harrow_grain_cart.3c7b8c": {
+   "id": "IG500.cargo_lining.cargo_front.C.harrow_grain_cart.3c7b8c",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45648,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.65,
+     0.0,
+     2.38,
+     1.9,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_wall.cargo_rear.C.harrow_grain_cart.ef8fb2": {
+   "id": "IG500.cargo_wall.cargo_rear.C.harrow_grain_cart.ef8fb2",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45792,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.62,
+     -0.0,
+     2.5,
+     1.96,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.cargo_lining.cargo_rear.C.harrow_grain_cart.08d8f6": {
+   "id": "IG500.cargo_lining.cargo_rear.C.harrow_grain_cart.08d8f6",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45936,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.62,
+     -0.0,
+     2.38,
+     1.84,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IG500.lamp.tail_lamp.C.harrow_grain_cart.55b023": {
+   "id": "IG500.lamp.tail_lamp.C.harrow_grain_cart.55b023",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     46080,
+     216
+    ],
+    "lamp_tail": [
+     51264,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.626,
+     2.52,
+     2.516,
+     1.852,
+     5.04
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "IG500.equipment.auger.L.harrow_grain_cart.618c96": {
+   "id": "IG500.equipment.auger.L.harrow_grain_cart.618c96",
+   "standard": "IG500",
+   "class": "grain_cart",
+   "role": "equipment",
+   "slot": "auger",
+   "side": "L",
+   "style": "harrow_grain_cart",
+   "interface": "IG500/equipment/auger/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     60768,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.275,
+     2.5,
+     2.2219,
+     0.5458,
+     0.8939,
+     4.4437
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

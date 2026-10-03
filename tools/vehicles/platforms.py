@@ -30,7 +30,7 @@ PATTERN = {
     "mount_pitch_m": 0.75,       # body mounts every 0.75 m along each side rail
     # the mount rails' half-spacing by width class: inboard of the wheels (the deck sits between them,
     # like a skateboard's), so a body's arches clear the tyres and any body fits any board of its class
-    "mount_x_m": {"narrow": 0.50, "standard": 0.60, "broad": 0.70, "heavy": 0.80},
+    "mount_x_m": {"narrow": 0.50, "standard": 0.60, "broad": 0.70, "heavy": 0.80, "farm": 0.55, "rail": 0.55},
     "socket": "behind the front axle on the centre line: power (the pack's bus) and control (the drive command, by wire)",
 }
 
@@ -41,6 +41,10 @@ STEWARD_CLASS = {
     "narrow": (1.50, 1.20, 0.31, 0.15, 40.0, 8.0, 45.0, 40.0, 900.0, 900, 700),
     "broad": (1.95, 1.60, 0.40, 0.19, 62.0, 12.0, 80.0, 90.0, 2200.0, 1300, 1000),
     "heavy": (2.20, 1.80, 0.48, 0.23, 95.0, 18.0, 130.0, 160.0, 5200.0, 2000, 1500),
+    # the farm board (2026-10-02): a narrow deck between big equal wheels -- the Steward's tractors
+    "farm": (2.00, 1.30, 0.62, 0.19, 62.0, 12.0, 110.0, 90.0, 4500.0, 1300, 1100),
+    # the rail board (2026-10-02): standard gauge (1,435 mm), two-axle bogies, a deck between them
+    "rail": (1.435, 2.20, 0.46, 0.23, 95.0, 18.0, 130.0, 160.0, 5200.0, 2000, 1500),
 }
 SPAN = 0.75                      # the span pitch (= the Pattern's mount pitch)
 CAP = 0.35                       # the nose and tail caps
@@ -214,16 +218,105 @@ def solana(id_, wb):
                 steering="rack and pinion, mechanical", pack_kwh=24.0, power_kw=50.0, modules=mods)
 
 
+def micro(id_, wb, track, r, deck, mount_x, name, hub=True):
+    """A Solana micro board (2026-10-02): the Lattice made small for light vehicles -- carts, karts, mowers, scooters,
+    chairs. Its own little Pattern: a lower deck (`deck_top_m`) and close mount rails; lugged truss sides, one slide-in
+    cassette, rear hub motors (none on a bumper car's: a single motor under the seat drives it)."""
+    L = wb + 2 * r + 0.12
+    yf, yb = wb / 2, -wb / 2
+    axles = [dict(tag="F", y=yf, steer=True, driven=False), dict(tag="B", y=yb, steer=False, driven=True)]
+    mods = []
+    for s_, sx in (("L", -1), ("R", 1)):
+        mods.append(dict(id="truss_%s" % s_, kind="solana_truss", pos=[sx * mount_x, 0, deck - 0.10], size=[0.06, L - 0.1, 0.14], mass_kg=round(3.0 * L, 1),
+                         hp=250, attach=None if s_ == "L" else "cross_0", tube="25 mm drawn chromoly in lugs", panels=4))
+        mods.append(dict(id="mount_rail_%s" % s_, kind="mount_rail", pos=[sx * mount_x, 0, deck - 0.02], size=[0.04, L - 0.2, 0.03], mass_kg=1.5, hp=150,
+                         attach="truss_%s" % s_, holes_every_m=0.25))
+    for i in range(3):
+        y = yf + 0.1 - i * (wb + 0.2) / 2
+        mods.append(dict(id="cross_%d" % i, kind="solana_cross", pos=[0, round(y, 3), deck - 0.10], size=[mount_x * 2 - 0.04, 0.03, 0.12], mass_kg=0.8,
+                         hp=100, attach="truss_L", end=i in (0, 2)))
+    mods.append(dict(id="cassette", kind="solana_cassette", pos=[0, 0, deck - 0.12], size=[mount_x * 2 - 0.1, min(0.62, wb * 0.5), 0.10], mass_kg=round(14 * wb, 1),
+                     hp=150, attach="truss_L", kwh=round(2.0 * wb, 1), cells="LFP pouch in a slide-in cassette", swap="a minute at a Solana Swap"))
+    for s_, sx in (("L", -1), ("R", 1)):
+        mods.append(dict(id="corner_F%s" % s_, kind="solana_front_corner", pos=[sx * (track / 2 - 0.10), yf, r], size=[0.16, 0.16, 0.18], mass_kg=3.0, hp=120,
+                         attach="truss_%s" % s_, suspension="a swing axle on a coil"))
+        mods.append(dict(id="corner_B%s" % s_, kind="solana_rear_corner", pos=[sx * (track / 2 - 0.12), yb + 0.12, r], size=[0.08, 0.30, 0.12], mass_kg=3.0,
+                         hp=120, attach="truss_%s" % s_, suspension="a trailing arm"))
+    mods.append(dict(id="controller", kind="controller", pos=[0, round(yf - 0.15, 3), deck - 0.06], size=[0.16, 0.12, 0.06], mass_kg=2.0, hp=60,
+                     attach="cross_0", brains="a Thirty-Two", heat="open fins"))
+    wl = wheels(axles, track, r, 4.0)
+    if hub:
+        for wmod in wl:
+            if wmod["id"].startswith("wheel_B"):
+                wmod.update(kind="wheel_hub_motor", mass_kg=10.0, motor="outer-rotor hub motor, ferrite magnets, 3 kW", kw=3.0, nm=120.0)
+    mods += wl
+    return dict(id=id_, name=name, deck_width_m=mount_x * 2 + 0.06, mount_x_m=mount_x, deck_top_m=deck, maker="solana_cycle_and_motor", family="solana",
+                board="solana_micro", cls="micro", length_m=round(L, 3), width_m=track + 0.15, track_m=track, wheel_r=r, wheelbase_m=wb, axles=axles,
+                drive="rear (a hub motor in each rear wheel)", steering="tiller or wheel, mechanical", pack_kwh=round(2.0 * wb, 1), power_kw=6.0, modules=mods)
+
+
+def trailer(id_, deck_l, axle_ys, track, r, hitch, cls="standard", name=""):
+    """A Harrow running gear (2026-10-02): an unpowered board for trailers -- two boxed rails and cross members, beam
+    axles on leaf springs, the Pattern's mount rails, and a hitch: an A-frame tongue with a ball coupler, or a
+    kingpin plate (and landing legs) for a semi trailer. The deck's middle is y = 0; the hitch is ahead of it."""
+    zt = PATTERN["deck_top_m"]
+    rail_x = PATTERN["mount_x_m"][cls] - 0.08
+    yf, yb = deck_l / 2, -deck_l / 2
+    axles = [dict(tag="B%d" % i, y=y, steer=False, driven=False) for i, y in enumerate(axle_ys)]
+    mods = [dict(id="rail_%s" % s, kind="harrow_rail", pos=[sx * rail_x, 0, 0.40], size=[0.075, deck_l - 0.05, 0.15], mass_kg=round(12 * deck_l, 1), hp=900,
+                 attach=None if s == "L" else "cross_0", tube="150 x 75 x 4 mm boxed steel") for s, sx in (("L", -1), ("R", 1))]
+    n = max(3, int(deck_l / 0.9) + 1)
+    for i in range(n):
+        y = yf - 0.05 - i * (deck_l - 0.1) / (n - 1)
+        mods.append(dict(id="cross_%d" % i, kind="harrow_cross", pos=[0, round(y, 3), 0.40], size=[rail_x * 2, 0.06, 0.10], mass_kg=6.0, hp=400, attach="rail_L"))
+    mods += mounts(cls, deck_l, zt)
+    for a in axles:
+        mods.append(dict(id="axle_%s" % a["tag"], kind="harrow_dedion", pos=[0, a["y"], r], size=[track - 0.15, 0.10, 0.10], mass_kg=30.0, hp=500,
+                         attach="rail_L", axle="a straight beam axle, unpowered, drum brakes worked by the coupling's overrun"))
+        for s, sx in (("L", -1), ("R", 1)):
+            mods.append(dict(id="leaf_%s%s" % (a["tag"], s), kind="harrow_leaf", pos=[sx * rail_x, a["y"], 0.30], size=[0.07, 1.0, 0.12], mass_kg=14.0, hp=400,
+                             attach="rail_%s" % s))
+            mods.append(dict(id="corner_%s%s" % (a["tag"], s), kind="harrow_hub", pos=[sx * (track / 2 - 0.12), a["y"], r], size=[0.16, 0.3, 0.3], mass_kg=8.0,
+                             hp=300, attach="axle_%s" % a["tag"]))
+    if hitch == "tongue":
+        mods.append(dict(id="tongue", kind="harrow_tongue", pos=[0, round(yf + 0.55, 3), 0.45], size=[rail_x * 2, 1.1, 0.10], mass_kg=25.0, hp=600, attach="cross_0",
+                         coupler="a 50 mm ball coupler and safety chains; a jockey wheel"))
+    else:
+        mods.append(dict(id="kingpin", kind="harrow_kingpin", pos=[0, round(yf - 0.9, 3), 0.48], size=[1.2, 1.4, 0.04], mass_kg=60.0, hp=900, attach="cross_1",
+                         coupler="a 2-inch kingpin in an upper coupler plate"))
+        mods.append(dict(id="landing_legs", kind="harrow_legs", pos=[0, round(yf - 2.6, 3), 0.25], size=[rail_x * 2 + 0.2, 0.2, 0.5], mass_kg=70.0, hp=500,
+                         attach="cross_2"))
+    mods += wheels(axles, track, r, 16.0)
+    return dict(id=id_, name=name or "Harrow running gear %s" % id_[-3:].upper(), deck_width_m=PATTERN["mount_x_m"][cls] * 2 + 0.1,
+                mount_x_m=PATTERN["mount_x_m"][cls], maker="harrow_motor_works", family="harrow", board="harrow_trailer", cls=cls,
+                length_m=round(deck_l, 3), width_m=track + 0.25, track_m=track, wheel_r=r, wheelbase_m=round(abs(axle_ys[0] - axle_ys[-1]), 3),
+                axles=axles, drive="none (towed)", steering="none", pack_kwh=0.0, power_kw=0.0, hitch=hitch, modules=mods)
+
+
 BOARDS = [
     steward("steward_narrow", "narrow", 5, [1, 4], [0, 1]),
     steward("steward_broad", "broad", 7, [1, 6], [0]),
     steward("steward_heavy", "heavy", 10, [1, 6, 9], [0, 2]),
     steward("steward_tram", "heavy", 8, [1, 7], [0, 1]),        # a tram section's board: every wheel steers
+    steward("steward_farm5", "farm", 5, [1, 4], [0]),          # tractors (2026-10-02)
+    steward("steward_farm7", "farm", 7, [1, 6], [0]),          # row-crop tractors, backhoe loaders
+    steward("steward_rail32", "rail", 32, [2, 5, 27, 30], []),  # passenger cars and locomotives (2026-10-02)
+    steward("steward_rail22", "rail", 22, [2, 5, 17, 20], []),  # freight cars
     harrow("harrow_h27", 2.70),
     harrow("harrow_h31", 3.10),        # the long ladder: full-size SUVs and pickups (2026-10-02)
     carrow("carrow_k28", 2.80),
     carrow("carrow_k36", 3.60),        # the long keel: limousines and hearses (2026-10-02)
     solana("solana_l25", 2.50),
+    # the Solana micro boards (2026-10-02)
+    micro("solana_m20", 2.00, 1.30, 0.30, 0.42, 0.42, "Solana Micro M-20: UTVs and park mowers"),
+    micro("solana_m16", 1.65, 1.05, 0.23, 0.36, 0.34, "Solana Micro M-16: golf and utility carts"),
+    micro("solana_m12", 1.20, 0.92, 0.25, 0.40, 0.26, "Solana Micro M-12: ATVs and riding mowers"),
+    micro("solana_m10", 1.05, 1.00, 0.14, 0.20, 0.30, "Solana Micro M-10: karts and bumper cars"),
+    micro("solana_m06", 0.62, 0.56, 0.13, 0.22, 0.18, "Solana Micro M-06: scooters and power chairs"),
+    # the trailers' running gear (2026-10-02)
+    trailer("harrow_tr25", 2.5, [0.0], 1.70, 0.28, "tongue", name="Harrow running gear, single axle"),
+    trailer("harrow_tr50", 5.0, [-0.35, 0.35], 1.90, 0.32, "tongue", cls="broad", name="Harrow running gear, tandem"),
+    trailer("harrow_ts150", 15.0, [-5.4, -6.6], 2.10, 0.48, "kingpin", cls="heavy", name="Harrow semi-trailer gear, tandem"),
 ]
 
 

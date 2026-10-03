@@ -1,0 +1,3053 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "HF250",
+ "class": "fire_engine",
+ "style": "harrow_fire_engine",
+ "pack": "res://remake/vehicles/components/HF250/harrow_fire_engine.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7059,
+    0.0941,
+    0.0941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7059,
+    0.0941,
+    0.0941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "HF250.end_cap.nose.C.harrow_fire_engine.832993": {
+   "id": "HF250.end_cap.nose.C.harrow_fire_engine.832993",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.3368,
+     1.7,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.trim.cowl.C.harrow_fire_engine.4c8104": {
+   "id": "HF250.trim.cowl.C.harrow_fire_engine.4c8104",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1625,
+     0.03,
+     2.4016,
+     0.155,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.glazing.screen.C.harrow_fire_engine.5407e4": {
+   "id": "HF250.glazing.screen.C.harrow_fire_engine.5407e4",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.19,
+     2.4016,
+     0.82,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HF250.trim.screen.C.harrow_fire_engine.0fe875": {
+   "id": "HF250.trim.screen.C.harrow_fire_engine.0fe875",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5041,
+     0.19,
+     2.4016,
+     0.7362,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.side_bay.fender.R.harrow_fire_engine.cdedba": {
+   "id": "HF250.side_bay.fender.R.harrow_fire_engine.cdedba",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.trim.sail.R.harrow_fire_engine.cf8721": {
+   "id": "HF250.trim.sail.R.harrow_fire_engine.cf8721",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.a_pillar.R.harrow_fire_engine.1fdec5": {
+   "id": "HF250.trim.a_pillar.R.harrow_fire_engine.1fdec5",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.side_bay.rocker_F.R.harrow_fire_engine.0c00cb": {
+   "id": "HF250.side_bay.rocker_F.R.harrow_fire_engine.0c00cb",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22824,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.side_bay.quarter.R.harrow_fire_engine.ad73af": {
+   "id": "HF250.side_bay.quarter.R.harrow_fire_engine.ad73af",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24408,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.side_bay.fender.L.harrow_fire_engine.72472b": {
+   "id": "HF250.side_bay.fender.L.harrow_fire_engine.72472b",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29016,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.trim.sail.L.harrow_fire_engine.b8e95d": {
+   "id": "HF250.trim.sail.L.harrow_fire_engine.b8e95d",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31896,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.a_pillar.L.harrow_fire_engine.9419fa": {
+   "id": "HF250.trim.a_pillar.L.harrow_fire_engine.9419fa",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.side_bay.rocker_F.L.harrow_fire_engine.c3aa81": {
+   "id": "HF250.side_bay.rocker_F.L.harrow_fire_engine.c3aa81",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34488,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.side_bay.quarter.L.harrow_fire_engine.ac68b3": {
+   "id": "HF250.side_bay.quarter.L.harrow_fire_engine.ac68b3",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36072,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.roof_bay.roof_0.C.harrow_fire_engine.2e3581": {
+   "id": "HF250.roof_bay.roof_0.C.harrow_fire_engine.2e3581",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40680,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.79,
+     0.78,
+     2.36,
+     0.34,
+     1.56
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.end_cap.tail.C.harrow_fire_engine.c07e65": {
+   "id": "HF250.end_cap.tail.C.harrow_fire_engine.c07e65",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     68328,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.69,
+     0.03,
+     2.4606,
+     2.54,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.floor.floor.C.harrow_fire_engine.a9448b": {
+   "id": "HF250.floor.floor.C.harrow_fire_engine.a9448b",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     75168,
+     1140
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.97,
+     2.36,
+     0.02,
+     1.94
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HF250.lining_bay.trim_0_0.R.harrow_fire_engine.ea0c0b": {
+   "id": "HF250.lining_bay.trim_0_0.R.harrow_fire_engine.ea0c0b",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102528,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.lining_bay.trim_1_0.R.harrow_fire_engine.ea7347": {
+   "id": "HF250.lining_bay.trim_1_0.R.harrow_fire_engine.ea7347",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     104832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.lining_bay.a_pillar.R.harrow_fire_engine.1a6532": {
+   "id": "HF250.lining_bay.a_pillar.R.harrow_fire_engine.1a6532",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     108288,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.lining_bay.trim_0_0.L.harrow_fire_engine.48789b": {
+   "id": "HF250.lining_bay.trim_0_0.L.harrow_fire_engine.48789b",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     109152,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.lining_bay.trim_1_0.L.harrow_fire_engine.5cc074": {
+   "id": "HF250.lining_bay.trim_1_0.L.harrow_fire_engine.5cc074",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     111456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.lining_bay.a_pillar.L.harrow_fire_engine.02628d": {
+   "id": "HF250.lining_bay.a_pillar.L.harrow_fire_engine.02628d",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     114912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.ceiling_bay.roof_0.C.harrow_fire_engine.51770f": {
+   "id": "HF250.ceiling_bay.roof_0.C.harrow_fire_engine.51770f",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     115776,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.76,
+     0.78,
+     2.24,
+     0.28,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.end_lining.firewall.C.harrow_fire_engine.a28153": {
+   "id": "HF250.end_lining.firewall.C.harrow_fire_engine.a28153",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     143424,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.74,
+     0.0,
+     2.35,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.end_lining.rear_wall.C.harrow_fire_engine.979a4e": {
+   "id": "HF250.end_lining.rear_wall.C.harrow_fire_engine.979a4e",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1,
+     -0.0,
+     2.35,
+     1.6,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.reveal.rear_opening.C.harrow_fire_engine.f0010e": {
+   "id": "HF250.reveal.rear_opening.C.harrow_fire_engine.f0010e",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     148320,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     0.03,
+     1.2,
+     0.35,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.glazing.back_window.C.harrow_fire_engine.dca946": {
+   "id": "HF250.glazing.back_window.C.harrow_fire_engine.dca946",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     151200,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     -0.0,
+     1.2,
+     0.35,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HF250.reveal.door_F.R.harrow_fire_engine.887403": {
+   "id": "HF250.reveal.door_F.R.harrow_fire_engine.887403",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     152496,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.reveal.door_F.L.harrow_fire_engine.e8977f": {
+   "id": "HF250.reveal.door_F.L.harrow_fire_engine.e8977f",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     156240,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.reveal.screen.C.harrow_fire_engine.ae6fa2": {
+   "id": "HF250.reveal.screen.C.harrow_fire_engine.ae6fa2",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     159984,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.532,
+     0.19,
+     2.4016,
+     0.856,
+     0.38
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.door_leaf.door_F.R.harrow_fire_engine.aea20f": {
+   "id": "HF250.door_leaf.door_F.R.harrow_fire_engine.aea20f",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     163152,
+     54
+    ],
+    "paint": [
+     164448,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.door_glass.door_F.R.harrow_fire_engine.bad5b8": {
+   "id": "HF250.door_glass.door_F.R.harrow_fire_engine.bad5b8",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     168624,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HF250.leaf_trim.handle_F.R.harrow_fire_engine.dad5be": {
+   "id": "HF250.leaf_trim.handle_F.R.harrow_fire_engine.dad5be",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     172512,
+     36
+    ],
+    "dash": [
+     173376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.door_leaf.door_F.L.harrow_fire_engine.ddbc51": {
+   "id": "HF250.door_leaf.door_F.L.harrow_fire_engine.ddbc51",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     174240,
+     54
+    ],
+    "paint": [
+     175536,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.door_glass.door_F.L.harrow_fire_engine.ced97d": {
+   "id": "HF250.door_glass.door_F.L.harrow_fire_engine.ced97d",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HF250.leaf_trim.handle_F.L.harrow_fire_engine.2f6e21": {
+   "id": "HF250.leaf_trim.handle_F.L.harrow_fire_engine.2f6e21",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     183600,
+     36
+    ],
+    "dash": [
+     184464,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.wheel_well.well_0.R.harrow_fire_engine.71ea46": {
+   "id": "HF250.wheel_well.well_0.R.harrow_fire_engine.71ea46",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     185328,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     0.9675,
+     0.8008,
+     0.5918,
+     0.5689,
+     0.7623,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HF250.wheel_well.well_0.L.harrow_fire_engine.474869": {
+   "id": "HF250.wheel_well.well_0.L.harrow_fire_engine.474869",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     200592,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     -0.9676,
+     0.8007,
+     0.5918,
+     0.5692,
+     0.7622,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HF250.wheel_well.steps.R.harrow_fire_engine.6076e2": {
+   "id": "HF250.wheel_well.steps.R.harrow_fire_engine.6076e2",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/wheel_well/steps/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     215856,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HF250.wheel_well.steps.L.harrow_fire_engine.8b92b3": {
+   "id": "HF250.wheel_well.steps.L.harrow_fire_engine.8b92b3",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/wheel_well/steps/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     218448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HF250.underpan.underpan.C.harrow_fire_engine.84955e": {
+   "id": "HF250.underpan.underpan.C.harrow_fire_engine.84955e",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     221040,
+     330
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4625,
+     1.06,
+     2.42,
+     0.085,
+     2.12
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_wall.cargo_plinth.C.harrow_fire_engine.08bec1": {
+   "id": "HF250.cargo_wall.cargo_plinth.C.harrow_fire_engine.08bec1",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     228960,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8725,
+     3.4,
+     1.68,
+     0.735,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_wall.cargo_side.R.harrow_fire_engine.02ab4a": {
+   "id": "HF250.cargo_wall.cargo_side.R.harrow_fire_engine.02ab4a",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     229680,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.24,
+     2.095,
+     3.4,
+     0.02,
+     1.71,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_lining.cargo_side.R.harrow_fire_engine.32bfa0": {
+   "id": "HF250.cargo_lining.cargo_side.R.harrow_fire_engine.32bfa0",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     234288,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.095,
+     3.4,
+     0.02,
+     1.59,
+     6.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_wall.cargo_side.L.harrow_fire_engine.5914d3": {
+   "id": "HF250.cargo_wall.cargo_side.L.harrow_fire_engine.5914d3",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     238896,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.24,
+     2.095,
+     3.4,
+     0.02,
+     1.71,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_lining.cargo_side.L.harrow_fire_engine.6fde15": {
+   "id": "HF250.cargo_lining.cargo_side.L.harrow_fire_engine.6fde15",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     243504,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.095,
+     3.4,
+     0.02,
+     1.59,
+     6.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_floor.cargo_floor.C.harrow_fire_engine.b01649": {
+   "id": "HF250.cargo_floor.cargo_floor.C.harrow_fire_engine.b01649",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     248112,
+     18
+    ],
+    "tub": [
+     248544,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     3.4,
+     2.48,
+     0.06,
+     6.8
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HF250.cargo_wall.cargo_front.C.harrow_fire_engine.5b0dc5": {
+   "id": "HF250.cargo_wall.cargo_front.C.harrow_fire_engine.5b0dc5",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     248688,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.095,
+     -0.0,
+     2.48,
+     1.71,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_lining.cargo_front.C.harrow_fire_engine.d2c35d": {
+   "id": "HF250.cargo_lining.cargo_front.C.harrow_fire_engine.d2c35d",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     248832,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.095,
+     0.0,
+     2.36,
+     1.59,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_wall.cargo_roof.C.harrow_fire_engine.30da2a": {
+   "id": "HF250.cargo_wall.cargo_roof.C.harrow_fire_engine.30da2a",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     248976,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.95,
+     3.4,
+     2.48,
+     0.02,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_lining.cargo_roof.C.harrow_fire_engine.116da3": {
+   "id": "HF250.cargo_lining.cargo_roof.C.harrow_fire_engine.116da3",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     249120,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.89,
+     3.37,
+     2.36,
+     0.02,
+     6.74
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.cargo_wall.cargo_rear.C.harrow_fire_engine.2f2827": {
+   "id": "HF250.cargo_wall.cargo_rear.C.harrow_fire_engine.2f2827",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     249264,
+     24
+    ],
+    "paint2": [
+     249840,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.095,
+     0.03,
+     2.48,
+     1.71,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HF250.hatch.cdoor_C1.R.harrow_fire_engine.bf65b9": {
+   "id": "HF250.hatch.cdoor_C1.R.harrow_fire_engine.bf65b9",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C1",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     250416,
+     504
+    ],
+    "chrome": [
+     262512,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2125,
+     2.2,
+     0.497,
+     0.061,
+     1.494,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C1.L.harrow_fire_engine.2c6667": {
+   "id": "HF250.hatch.cdoor_C1.L.harrow_fire_engine.2c6667",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C1",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     263376,
+     504
+    ],
+    "chrome": [
+     275472,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2125,
+     2.2,
+     0.497,
+     0.061,
+     1.494,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C2.R.harrow_fire_engine.9395a1": {
+   "id": "HF250.hatch.cdoor_C2.R.harrow_fire_engine.9395a1",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C2",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     276336,
+     504
+    ],
+    "chrome": [
+     288432,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2125,
+     2.2,
+     0.497,
+     0.061,
+     1.494,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C2.L.harrow_fire_engine.331cd2": {
+   "id": "HF250.hatch.cdoor_C2.L.harrow_fire_engine.331cd2",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C2",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     289296,
+     504
+    ],
+    "chrome": [
+     301392,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2125,
+     2.2,
+     0.497,
+     0.061,
+     1.494,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C3.R.harrow_fire_engine.9671e7": {
+   "id": "HF250.hatch.cdoor_C3.R.harrow_fire_engine.9671e7",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C3",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     302256,
+     504
+    ],
+    "chrome": [
+     314352,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2125,
+     2.2,
+     0.497,
+     0.061,
+     1.494,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C3.L.harrow_fire_engine.d6ed56": {
+   "id": "HF250.hatch.cdoor_C3.L.harrow_fire_engine.d6ed56",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C3",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     315216,
+     504
+    ],
+    "chrome": [
+     327312,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2125,
+     2.2,
+     0.497,
+     0.061,
+     1.494,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C4.R.harrow_fire_engine.ce1968": {
+   "id": "HF250.hatch.cdoor_C4.R.harrow_fire_engine.ce1968",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C4",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C4/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     328176,
+     504
+    ],
+    "chrome": [
+     340272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2125,
+     2.2,
+     0.447,
+     0.061,
+     1.494,
+     0.894
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.hatch.cdoor_C4.L.harrow_fire_engine.915158": {
+   "id": "HF250.hatch.cdoor_C4.L.harrow_fire_engine.915158",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "hatch",
+   "slot": "cdoor_C4",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/hatch/cdoor_C4/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     341136,
+     504
+    ],
+    "chrome": [
+     353232,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2125,
+     2.2,
+     0.447,
+     0.061,
+     1.494,
+     0.894
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.seat.row_0.C.harrow_fire_engine.9d13a0": {
+   "id": "HF250.seat.row_0.C.harrow_fire_engine.9d13a0",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     354096,
+     108
+    ],
+    "seat": [
+     356688,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9246,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HF250.dash.dash.C.harrow_fire_engine.272418": {
+   "id": "HF250.dash.dash.C.harrow_fire_engine.272418",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     364464,
+     1236
+    ],
+    "chrome": [
+     394128,
+     120
+    ],
+    "dash": [
+     397008,
+     108
+    ],
+    "gauge": [
+     399600,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.3676,
+     2.2,
+     0.3901,
+     0.7351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "HF250.dash.readout.C.harrow_fire_engine.a58528": {
+   "id": "HF250.dash.readout.C.harrow_fire_engine.a58528",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     408816,
+     36
+    ],
+    "lcd": [
+     409680,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "HF250.lamp.head_lamp.C.harrow_fire_engine.ff7af6": {
+   "id": "HF250.lamp.head_lamp.C.harrow_fire_engine.ff7af6",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     410544,
+     72
+    ],
+    "lamp_amber": [
+     412272,
+     72
+    ],
+    "lamp_head": [
+     414000,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.007,
+     2.1998,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HF250.trim.grille.C.harrow_fire_engine.742b73": {
+   "id": "HF250.trim.grille.C.harrow_fire_engine.742b73",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     415728,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.5698,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.lamp.tail_lamp.C.harrow_fire_engine.7c3f18": {
+   "id": "HF250.lamp.tail_lamp.C.harrow_fire_engine.7c3f18",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     419184,
+     12
+    ],
+    "lamp_amber": [
+     419472,
+     48
+    ],
+    "lamp_brake": [
+     420624,
+     36
+    ],
+    "lamp_reverse": [
+     421488,
+     48
+    ],
+    "lamp_tail": [
+     422640,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.916,
+     0.006,
+     2.44,
+     1.932,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HF250.lamp.side_marker.C.harrow_fire_engine.6e70fd": {
+   "id": "HF250.lamp.side_marker.C.harrow_fire_engine.6e70fd",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     430704,
+     72
+    ],
+    "lamp_tail": [
+     432432,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     4.3,
+     2.496,
+     0.21,
+     8.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HF250.lamp.id_lamp.C.harrow_fire_engine.1c86b0": {
+   "id": "HF250.lamp.id_lamp.C.harrow_fire_engine.1c86b0",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     434160,
+     180
+    ],
+    "lamp_tail": [
+     438480,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.921,
+     4.23,
+     2.44,
+     0.126,
+     8.46
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HF250.trim.bumper_front.C.harrow_fire_engine.1fda8e": {
+   "id": "HF250.trim.bumper_front.C.harrow_fire_engine.1fda8e",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     442800,
+     108
+    ],
+    "rubber": [
+     445392,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.bumper_rear.C.harrow_fire_engine.a1d608": {
+   "id": "HF250.trim.bumper_rear.C.harrow_fire_engine.a1d608",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     446256,
+     108
+    ],
+    "rubber": [
+     448848,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.mirror.R.harrow_fire_engine.6e91c9": {
+   "id": "HF250.trim.mirror.R.harrow_fire_engine.6e91c9",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     449712,
+     96
+    ],
+    "glass_dark": [
+     452016,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.mirror.L.harrow_fire_engine.ad01a9": {
+   "id": "HF250.trim.mirror.L.harrow_fire_engine.ad01a9",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     452880,
+     96
+    ],
+    "glass_dark": [
+     455184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.livery_fender.R.harrow_fire_engine.c1057e": {
+   "id": "HF250.trim.livery_fender.R.harrow_fire_engine.c1057e",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     456048,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.2241,
+     2.1208,
+     0.32,
+     0.0399,
+     0.1183,
+     0.64
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.livery_quarter.R.harrow_fire_engine.4f962b": {
+   "id": "HF250.trim.livery_quarter.R.harrow_fire_engine.4f962b",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/livery_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     458928,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.239,
+     2.125,
+     0.1,
+     0.02,
+     0.11,
+     0.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.leaf_trim.livery_door_F.R.harrow_fire_engine.674fe0": {
+   "id": "HF250.leaf_trim.livery_door_F.R.harrow_fire_engine.674fe0",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/leaf_trim/livery_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     460080,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.2404,
+     2.125,
+     0.43,
+     0.02,
+     0.11,
+     0.86
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.trim.livery_fender.L.harrow_fire_engine.8bb25a": {
+   "id": "HF250.trim.livery_fender.L.harrow_fire_engine.8bb25a",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     464112,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.2241,
+     2.1208,
+     0.32,
+     0.0399,
+     0.1183,
+     0.64
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.livery_quarter.L.harrow_fire_engine.bab16c": {
+   "id": "HF250.trim.livery_quarter.L.harrow_fire_engine.bab16c",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/livery_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     466992,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.239,
+     2.125,
+     0.1,
+     0.02,
+     0.11,
+     0.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.leaf_trim.livery_door_F.L.harrow_fire_engine.24444a": {
+   "id": "HF250.leaf_trim.livery_door_F.L.harrow_fire_engine.24444a",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     468144,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.2404,
+     2.125,
+     0.43,
+     0.02,
+     0.11,
+     0.86
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HF250.equipment.roof_bar.C.harrow_fire_engine.18aef0": {
+   "id": "HF250.equipment.roof_bar.C.harrow_fire_engine.18aef0",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "equipment",
+   "slot": "roof_bar",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/equipment/roof_bar/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     472176,
+     108
+    ],
+    "lamp_red": [
+     474768,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.015,
+     0.13,
+     1.28,
+     0.11,
+     0.26
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "HF250.equipment.hose_bed.C.harrow_fire_engine.daac83": {
+   "id": "HF250.equipment.hose_bed.C.harrow_fire_engine.daac83",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "equipment",
+   "slot": "hose_bed",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/equipment/hose_bed/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     479952,
+     36
+    ],
+    "livery1": [
+     480816,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.05,
+     3.0,
+     1.98,
+     0.2,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "HF250.equipment.ladder_rack.C.harrow_fire_engine.adbd67": {
+   "id": "HF250.equipment.ladder_rack.C.harrow_fire_engine.adbd67",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "equipment",
+   "slot": "ladder_rack",
+   "side": "C",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/equipment/ladder_rack/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     486000,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.75,
+     3.0,
+     2.64,
+     0.14,
+     6.0
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

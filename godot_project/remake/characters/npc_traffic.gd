@@ -33,8 +33,8 @@ const WALK_S := 40.0                 # real seconds from the door to the car bef
 const DWELL_S := 45.0                # real seconds at each stop on a round
 const SEAT_H := 0.36
 const ROADS := ["street", "main", "county", "hwy", "gravel", "alley"]
-const MODEL := {"city_car": "pod", "minivan": "van"}   # (only these are built: the Grok-made models of the other
-                                                       # types were taken out, 2026-10-02, till each has a modular body)
+const MODEL := {"city_car": "pod", "minivan": "van"}   # (the other types are the modular bodies, FleetBodies: the
+                                                       # Grok-made models were taken out, 2026-10-02)
 
 var player: Node3D
 var world_seed := 1
@@ -63,7 +63,11 @@ func _ready() -> void:
 	TrafficSigns.load_all()
 	world_seed = _life.seed
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FLEET))
-	vehicles = (d.vehicles as Array).filter(func(x): return MODEL.has(str(x.type)))
+	vehicles = (d.vehicles as Array).filter(func(x): return MODEL.has(str(x.type)) or FleetBodies.has(str(x.type)))
+	var used := {}
+	for x in vehicles:
+		used[str(x.type)] = true
+	FleetBodies.warm_all(used.keys())                     # (only the types on the roads)
 	_types = (JSON.parse_string(FileAccess.get_file_as_string("res://remake/characters/npc_vehicles.json")) as Dictionary).vehicles
 	if FileAccess.file_exists("res://remake/groundcars.json"):              # the player's pods and vans: their places are taken
 		for g in (JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json")) as Dictionary).groundcars:
@@ -575,9 +579,82 @@ func _drive(e: Dictionary, dt: float, now: Array) -> void:
 		(e.node as Node).queue_free()
 		live.erase(v.id)
 		return
-	(e.node as Node3D).global_transform = Transform3D(StationGeo.basis(q.x, atan2(-d.y, d.x)), StationGeo.point(q.x, q.y, _road_h(q, e.node)))
+	(e.node as Node3D).global_transform = _on_ground(e.node, str(v.type), q, atan2(-d.y, d.x))
 	e.speed = s.v
 	(e.node as NpcCarBody).v_now = -(e.node as Node3D).global_transform.basis.z * s.v
+
+
+var _wheelbox := {}                   # type -> Vector2(half the wheelbase, half the track)
+
+
+func _wheel_box(vtype: String) -> Vector2:
+	if not _wheelbox.has(vtype):
+		var wb := Vector2(1.25, 0.75)
+		if vtype == "minivan":
+			wb = Vector2(1.67, 0.84)
+		var info := FleetBodies.of(vtype)
+		if not info.is_empty() and str(info.get("board", "none")) != "none":
+			var b := RemakeModularCar._board(str(info.board))
+			if not b.is_empty():
+				wb = Vector2(float(b.wheelbase_m) / 2.0, float(b.track_m) / 2.0)
+		_wheelbox[vtype] = wb
+	return _wheelbox[vtype]
+
+
+func _on_ground(node: Node3D, vtype: String, p: Vector2, yaw: float) -> Transform3D:
+	## Stood on the road's real surface. The height at each wheel's contact is a ray down onto the colliders (the road's
+	## own mesh, a kerb, a bridge's deck); the body is pitched and rolled to that plane and lifted by any twist, so every
+	## wheel is on the surface and none in it. (Standing it level at the terrain's height under its middle put its wheels
+	## into the road wherever the road sat above the terrain, sloped, or was cambered.)
+	var h := _road_h(p, node)
+	var bas := StationGeo.basis(p.x, yaw)
+	var origin := StationGeo.point(p.x, p.y, h)
+	var box := _wheel_box(vtype)
+	var up := bas.y
+	var space := node.get_world_3d().direct_space_state
+	var ex: Array[RID] = []
+	if node is CollisionObject3D:
+		ex.append((node as CollisionObject3D).get_rid())
+	var hs: Array[float] = []
+	for c: Vector2 in [Vector2(-box.y, -box.x), Vector2(box.y, -box.x), Vector2(-box.y, box.x), Vector2(box.y, box.x)]:   # FL FR BL BR
+		var at: Vector3 = origin + bas.x * c.x + bas.z * c.y
+		var hit := _surface_hit(space, at + up * 1.2, at - up * 1.5, ex)
+		var hp: Vector3 = hit.position if not hit.is_empty() else origin
+		hs.append((hp - origin).dot(up))
+	var f := (hs[0] + hs[1]) * 0.5
+	var bk := (hs[2] + hs[3]) * 0.5
+	var l := (hs[0] + hs[2]) * 0.5
+	var r := (hs[1] + hs[3]) * 0.5
+	var mean := (hs[0] + hs[1] + hs[2] + hs[3]) * 0.25
+	var plane: Array[float] = [mean + (f - bk) * 0.5 + (l - r) * 0.5, mean + (f - bk) * 0.5 - (l - r) * 0.5,
+		mean - (f - bk) * 0.5 + (l - r) * 0.5, mean - (f - bk) * 0.5 - (l - r) * 0.5]
+	var twist := 0.0
+	for i in 4:
+		twist = maxf(twist, hs[i] - float(plane[i]))
+	var pitch := atan2(f - bk, 2.0 * box.x)                # (nose up when the front is higher)
+	var roll := atan2(r - l, 2.0 * box.y)                  # (right side up when the right is higher)
+	bas = bas.rotated(bas.x.normalized(), pitch)
+	bas = bas.rotated(bas.z.normalized(), roll)
+	return Transform3D(bas.orthonormalized(), origin + up * (mean + twist))
+
+
+func _surface_hit(space: PhysicsDirectSpaceState3D, from: Vector3, to: Vector3, ex: Array[RID]) -> Dictionary:
+	## A ray down onto the surface a wheel stands on, through any vehicle in the way -- the traffic's own (this one's
+	## body among them: tilted, its sill under a ray lifted that side again, and again, until it stood on edge), a
+	## summoned one, a loose panel.
+	var skip: Array[RID] = ex.duplicate()
+	for i in 6:
+		var q := PhysicsRayQueryParameters3D.create(from, to, 1)
+		q.exclude = skip
+		var hit: Dictionary = space.intersect_ray(q)
+		if hit.is_empty():
+			return hit
+		var c := hit.collider as CollisionObject3D
+		if c == null or not (is_ancestor_of(c) or c is RigidBody3D or (c.collision_layer & (RemakeGroundVehicle.HULL_LAYER | (1 << 10))) != 0 \
+				or c.is_in_group("delivered_wagon") or c.get_parent() is RigidBody3D):
+			return hit
+		skip.append(hit.rid)
+	return {}
 
 
 func _road_h(p: Vector2, node: Node3D) -> float:
@@ -633,7 +710,7 @@ func _show(v: Dictionary) -> void:
 		live[v.id] = e
 	var node := e.node as Node3D
 	var p: Vector2 = w.pos
-	node.global_transform = Transform3D(StationGeo.basis(p.x, float(w.yaw)), StationGeo.point(p.x, p.y, _road_h(p, node)))
+	node.global_transform = _on_ground(node, str(v.type), p, float(w.yaw))
 	e.speed = float(w.get("speed", 0.0))
 	e.moving = bool(w.get("moving", false))
 	if bool(w.get("moving", false)) and e.sim == null and w.has("route"):
@@ -673,6 +750,8 @@ func _build(v: Dictionary) -> Dictionary:
 
 
 func _model_path(v: Dictionary) -> String:
+	if FleetBodies.has(str(v.type)) and not MODEL.has(str(v.type)):
+		return FleetBodies.board_path(str(FleetBodies.of(str(v.type)).board))      # (the board; the body goes on it)
 	return "res://remake/vehicles/%s.glb" % str(MODEL.get(str(v.type), str(v.type)))
 
 
@@ -706,6 +785,11 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 				var m := (sc as PackedScene).instantiate() as Node3D
 				node.add_child(m)
 				e.model = m
+				var vt := str(e.v.type)
+				if FleetBodies.has(vt) and not MODEL.has(vt):           # a modular body on its board
+					FleetBodies.strip_board(m)
+					var vb := VehicleBody.make(VehicleBody.prepare(str(FleetBodies.of(vt).blueprint)))
+					m.add_child(vb)
 				var wheels: Array = []
 				for n in m.find_children("wheel_*", "Node3D", true, false):
 					wheels.append([n, (n as Node3D).transform.basis])

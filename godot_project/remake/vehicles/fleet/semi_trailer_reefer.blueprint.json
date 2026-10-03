@@ -1,0 +1,195 @@
+{
+ "_about": "semi_trailer_reefer on the TR150 standard (a trailer; remake/blender/fleet/build.py)",
+ "type": "semi_trailer_reefer",
+ "standard": "TR150",
+ "class": "semi_trailer_reefer",
+ "style": "harrow_semi_trailer_reefer",
+ "kind": "trailer",
+ "board": "harrow_ts150",
+ "stations": [
+  -7.37,
+  -6.62,
+  -5.87,
+  -5.12,
+  -4.37,
+  -3.62,
+  -2.87,
+  -2.12,
+  -1.37,
+  -0.62,
+  0.13,
+  0.88,
+  1.63,
+  2.38,
+  3.13,
+  3.88,
+  4.63,
+  5.38,
+  6.13,
+  6.88,
+  7.47
+ ],
+ "placements": [
+  [
+   "cargo_plinth",
+   "TR150.cargo_wall.cargo_plinth.C.harrow_semi_trailer_reefer.ba73d8",
+   -7.4
+  ],
+  [
+   "cargo_side_R",
+   "TR150.cargo_wall.cargo_side.R.harrow_semi_trailer_reefer.f4fa97",
+   -7.4
+  ],
+  [
+   "cargo_lining_R",
+   "TR150.cargo_lining.cargo_side.R.harrow_semi_trailer_reefer.66df04",
+   -7.4
+  ],
+  [
+   "cargo_side_L",
+   "TR150.cargo_wall.cargo_side.L.harrow_semi_trailer_reefer.9c6805",
+   -7.4
+  ],
+  [
+   "cargo_lining_L",
+   "TR150.cargo_lining.cargo_side.L.harrow_semi_trailer_reefer.d9caed",
+   -7.4
+  ],
+  [
+   "cargo_floor",
+   "TR150.cargo_floor.cargo_floor.C.harrow_semi_trailer_reefer.2db8e9",
+   -7.4
+  ],
+  [
+   "cargo_front",
+   "TR150.cargo_wall.cargo_front.C.harrow_semi_trailer_reefer.c08e03",
+   -7.4
+  ],
+  [
+   "cargo_front_lining",
+   "TR150.cargo_lining.cargo_front.C.harrow_semi_trailer_reefer.5c65e0",
+   -7.34
+  ],
+  [
+   "cargo_roof",
+   "TR150.cargo_wall.cargo_roof.C.harrow_semi_trailer_reefer.294844",
+   -7.4
+  ],
+  [
+   "cargo_ceiling",
+   "TR150.cargo_lining.cargo_roof.C.harrow_semi_trailer_reefer.3412de",
+   -7.34
+  ],
+  [
+   "cargo_rear_frame",
+   "TR150.cargo_wall.cargo_rear.C.harrow_semi_trailer_reefer.b61a04",
+   7.44
+  ],
+  [
+   "cargo_barn_R",
+   "TR150.hatch.cargo_barn_R.R.harrow_semi_trailer_reefer.d89a1b",
+   7.444
+  ],
+  [
+   "cargo_barn_L",
+   "TR150.hatch.cargo_barn_L.L.harrow_semi_trailer_reefer.031d66",
+   7.444
+  ],
+  [
+   "tail_lamps",
+   "TR150.lamp.tail_lamp.C.harrow_semi_trailer_reefer.b45dc5",
+   -7.42
+  ],
+  [
+   "underride_guard",
+   "TR150.trim.bumper_rear.C.harrow_semi_trailer_reefer.23eff9",
+   7.3
+  ],
+  [
+   "reefer",
+   "TR150.equipment.reefer.C.harrow_semi_trailer_reefer.562507",
+   -7.769
+  ]
+ ],
+ "doors": [],
+ "closers": [
+  {
+   "id": "cargo_barn_R",
+   "kind": "door",
+   "side": "R",
+   "parts": [
+    "cargo_barn_R"
+   ],
+   "hinge": [
+    1.22,
+    1.25,
+    7.5
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    -0.0
+   ],
+   "open_deg": 100
+  },
+  {
+   "id": "cargo_barn_L",
+   "kind": "door",
+   "side": "L",
+   "parts": [
+    "cargo_barn_L"
+   ],
+   "hinge": [
+    -1.22,
+    1.25,
+    7.5
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    -0.0
+   ],
+   "open_deg": -100
+  }
+ ],
+ "length_front": 7.4,
+ "length_back": 7.5,
+ "platform": {
+  "half_w": 0.82,
+  "y": 0.49,
+  "z": [
+   -7.5,
+   7.5
+  ]
+ },
+ "cabin_points": [],
+ "markers": [
+  [
+   "stand_cargo",
+   [
+    0,
+    0.0,
+    8.3
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_R",
+   [
+    1.16,
+    1.0,
+    7.55
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_L",
+   [
+    -1.16,
+    1.0,
+    7.55
+   ],
+   3.1416
+  ]
+ ]
+}

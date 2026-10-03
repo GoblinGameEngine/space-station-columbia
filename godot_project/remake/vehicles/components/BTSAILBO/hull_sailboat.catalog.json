@@ -1,0 +1,2968 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTSAILBO",
+ "class": "sailboat",
+ "style": "hull_sailboat",
+ "pack": "res://remake/vehicles/components/BTSAILBO/hull_sailboat.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1176,
+    0.2353,
+    0.4314
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTSAILBO.side_bay.bottom_0.R.hull_sailboat.04987a": {
+   "id": "BTSAILBO.side_bay.bottom_0.R.hull_sailboat.04987a",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.6781,
+     0.0156,
+     1.65,
+     1.3561,
+     1.2145,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_0.R.hull_sailboat.3ab337": {
+   "id": "BTSAILBO.lining_bay.bottom_0.R.hull_sailboat.3ab337",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1728,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.6421,
+     0.0876,
+     1.65,
+     1.2841,
+     1.2145,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_0.L.hull_sailboat.fe343c": {
+   "id": "BTSAILBO.side_bay.bottom_0.L.hull_sailboat.fe343c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     3456,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.6781,
+     0.0156,
+     1.65,
+     1.3561,
+     1.2145,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_0.L.hull_sailboat.db37ad": {
+   "id": "BTSAILBO.lining_bay.bottom_0.L.hull_sailboat.db37ad",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5184,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.6421,
+     0.0876,
+     1.65,
+     1.2841,
+     1.2145,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_0.R.hull_sailboat.83d463": {
+   "id": "BTSAILBO.side_bay.topside_0.R.hull_sailboat.83d463",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.7416,
+     0.5505,
+     1.65,
+     1.4649,
+     1.399,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_0.R.hull_sailboat.282db2": {
+   "id": "BTSAILBO.lining_bay.topside_0.R.hull_sailboat.282db2",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8640,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.701,
+     0.5865,
+     1.65,
+     1.4021,
+     1.327,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_0.L.hull_sailboat.788e47": {
+   "id": "BTSAILBO.side_bay.topside_0.L.hull_sailboat.788e47",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.7416,
+     0.5505,
+     1.65,
+     1.4649,
+     1.399,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_0.L.hull_sailboat.630b4f": {
+   "id": "BTSAILBO.lining_bay.topside_0.L.hull_sailboat.630b4f",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12096,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.701,
+     0.5865,
+     1.65,
+     1.4021,
+     1.327,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_0.R.hull_sailboat.12ded8": {
+   "id": "BTSAILBO.roof_bay.sidedeck_0.R.hull_sailboat.12ded8",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.7411,
+     1.1544,
+     1.65,
+     1.4659,
+     0.2332,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_0.R.hull_sailboat.cdca97": {
+   "id": "BTSAILBO.lining_bay.sidedeck_0.R.hull_sailboat.cdca97",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.701,
+     1.1184,
+     1.65,
+     1.4021,
+     0.2632,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_0.L.hull_sailboat.b828b3": {
+   "id": "BTSAILBO.roof_bay.sidedeck_0.L.hull_sailboat.b828b3",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     15552,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.7411,
+     1.1544,
+     1.65,
+     1.4659,
+     0.2332,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_0.L.hull_sailboat.ce71d7": {
+   "id": "BTSAILBO.lining_bay.sidedeck_0.L.hull_sailboat.ce71d7",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     16416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.701,
+     1.1184,
+     1.65,
+     1.4021,
+     0.2632,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_0.R.hull_sailboat.366757": {
+   "id": "BTSAILBO.roof_bay.deck_0.R.hull_sailboat.366757",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17280,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.6044,
+     1.1844,
+     1.65,
+     1.2087,
+     0.2512,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_0.R.hull_sailboat.6fe8b4": {
+   "id": "BTSAILBO.lining_bay.deck_0.R.hull_sailboat.6fe8b4",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     19008,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.5684,
+     1.1124,
+     1.65,
+     1.1367,
+     0.2512,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_0.L.hull_sailboat.f7016c": {
+   "id": "BTSAILBO.roof_bay.deck_0.L.hull_sailboat.f7016c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20736,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.6044,
+     1.1844,
+     1.65,
+     1.2087,
+     0.2512,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_0.L.hull_sailboat.461454": {
+   "id": "BTSAILBO.lining_bay.deck_0.L.hull_sailboat.461454",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     22464,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.5684,
+     1.1124,
+     1.65,
+     1.1367,
+     0.2512,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_1.R.hull_sailboat.386046": {
+   "id": "BTSAILBO.side_bay.bottom_1.R.hull_sailboat.386046",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     24192,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.69,
+     -0.3745,
+     1.55,
+     1.38,
+     0.451,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_1.R.hull_sailboat.2624c4": {
+   "id": "BTSAILBO.lining_bay.bottom_1.R.hull_sailboat.2624c4",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     25632,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.654,
+     -0.3025,
+     1.55,
+     1.308,
+     0.451,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_1.L.hull_sailboat.d3690d": {
+   "id": "BTSAILBO.side_bay.bottom_1.L.hull_sailboat.d3690d",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     27072,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.69,
+     -0.3745,
+     1.55,
+     1.38,
+     0.451,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_1.L.hull_sailboat.d85432": {
+   "id": "BTSAILBO.lining_bay.bottom_1.L.hull_sailboat.d85432",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     28512,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.654,
+     -0.3025,
+     1.55,
+     1.308,
+     0.451,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_1.R.hull_sailboat.90533d": {
+   "id": "BTSAILBO.side_bay.topside_1.R.hull_sailboat.90533d",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29952,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.4281,
+     0.4437,
+     1.55,
+     0.1439,
+     1.1882,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_1.R.hull_sailboat.bbe41c": {
+   "id": "BTSAILBO.lining_bay.topside_1.R.hull_sailboat.bbe41c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     31392,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.3561,
+     0.4797,
+     1.55,
+     0.1439,
+     1.1162,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_1.L.hull_sailboat.004e8e": {
+   "id": "BTSAILBO.side_bay.topside_1.L.hull_sailboat.004e8e",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32832,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.4281,
+     0.4437,
+     1.55,
+     0.1439,
+     1.1882,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_1.L.hull_sailboat.49aa10": {
+   "id": "BTSAILBO.lining_bay.topside_1.L.hull_sailboat.49aa10",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     34272,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.3561,
+     0.4797,
+     1.55,
+     0.1439,
+     1.1162,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_1.R.hull_sailboat.016fef": {
+   "id": "BTSAILBO.roof_bay.sidedeck_1.R.hull_sailboat.016fef",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     35712,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.3544,
+     1.0296,
+     1.55,
+     0.2913,
+     0.0584,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_1.R.hull_sailboat.109c6f": {
+   "id": "BTSAILBO.lining_bay.sidedeck_1.R.hull_sailboat.109c6f",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     36432,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.2824,
+     0.9936,
+     1.55,
+     0.2913,
+     0.0884,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_1.L.hull_sailboat.d81415": {
+   "id": "BTSAILBO.roof_bay.sidedeck_1.L.hull_sailboat.d81415",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     37152,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.3544,
+     1.0296,
+     1.55,
+     0.2913,
+     0.0584,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_1.L.hull_sailboat.e3b577": {
+   "id": "BTSAILBO.lining_bay.sidedeck_1.L.hull_sailboat.e3b577",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     37872,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.2824,
+     0.9936,
+     1.55,
+     0.2913,
+     0.0884,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_1.R.hull_sailboat.0a554d": {
+   "id": "BTSAILBO.roof_bay.deck_1.R.hull_sailboat.0a554d",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38592,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.615,
+     1.0596,
+     1.55,
+     1.23,
+     0.0764,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_1.R.hull_sailboat.7460e2": {
+   "id": "BTSAILBO.lining_bay.deck_1.R.hull_sailboat.7460e2",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40032,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.579,
+     0.9876,
+     1.55,
+     1.158,
+     0.0764,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_1.L.hull_sailboat.5f940d": {
+   "id": "BTSAILBO.roof_bay.deck_1.L.hull_sailboat.5f940d",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     41472,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.615,
+     1.0596,
+     1.55,
+     1.23,
+     0.0764,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_1.L.hull_sailboat.d714ac": {
+   "id": "BTSAILBO.lining_bay.deck_1.L.hull_sailboat.d714ac",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42912,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.579,
+     0.9876,
+     1.55,
+     1.158,
+     0.0764,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_2.R.hull_sailboat.e22a2c": {
+   "id": "BTSAILBO.side_bay.bottom_2.R.hull_sailboat.e22a2c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44352,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.69,
+     -0.3749,
+     0.05,
+     1.38,
+     0.4501,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_2.R.hull_sailboat.d716f6": {
+   "id": "BTSAILBO.lining_bay.bottom_2.R.hull_sailboat.d716f6",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44928,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.654,
+     -0.3029,
+     0.05,
+     1.308,
+     0.4501,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_2.L.hull_sailboat.6b22cb": {
+   "id": "BTSAILBO.side_bay.bottom_2.L.hull_sailboat.6b22cb",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     45504,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.69,
+     -0.3749,
+     0.05,
+     1.38,
+     0.4501,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_2.L.hull_sailboat.343dbd": {
+   "id": "BTSAILBO.lining_bay.bottom_2.L.hull_sailboat.343dbd",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46080,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.654,
+     -0.3029,
+     0.05,
+     1.308,
+     0.4501,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_2.R.hull_sailboat.3cc320": {
+   "id": "BTSAILBO.side_bay.topside_2.R.hull_sailboat.3cc320",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46656,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.44,
+     0.4266,
+     0.05,
+     0.12,
+     1.153,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_2.R.hull_sailboat.415734": {
+   "id": "BTSAILBO.lining_bay.topside_2.R.hull_sailboat.415734",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47232,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.368,
+     0.4626,
+     0.05,
+     0.12,
+     1.081,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_2.L.hull_sailboat.21f938": {
+   "id": "BTSAILBO.side_bay.topside_2.L.hull_sailboat.21f938",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47808,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.44,
+     0.4266,
+     0.05,
+     0.12,
+     1.153,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_2.L.hull_sailboat.056341": {
+   "id": "BTSAILBO.lining_bay.topside_2.L.hull_sailboat.056341",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48384,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.368,
+     0.4626,
+     0.05,
+     0.12,
+     1.081,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_2.R.hull_sailboat.57ebd9": {
+   "id": "BTSAILBO.roof_bay.sidedeck_2.R.hull_sailboat.57ebd9",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48960,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.365,
+     1.0133,
+     0.05,
+     0.27,
+     0.0215,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_2.R.hull_sailboat.5ef2f8": {
+   "id": "BTSAILBO.lining_bay.sidedeck_2.R.hull_sailboat.5ef2f8",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49248,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.293,
+     0.9773,
+     0.05,
+     0.27,
+     0.0515,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_2.L.hull_sailboat.f8059a": {
+   "id": "BTSAILBO.roof_bay.sidedeck_2.L.hull_sailboat.f8059a",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49536,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.365,
+     1.0133,
+     0.05,
+     0.27,
+     0.0215,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_2.L.hull_sailboat.ffdac6": {
+   "id": "BTSAILBO.lining_bay.sidedeck_2.L.hull_sailboat.ffdac6",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.293,
+     0.9773,
+     0.05,
+     0.27,
+     0.0515,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_2.R.hull_sailboat.eee8a8": {
+   "id": "BTSAILBO.roof_bay.deck_2.R.hull_sailboat.eee8a8",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50112,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.615,
+     1.0433,
+     0.05,
+     1.23,
+     0.0395,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_2.R.hull_sailboat.2e30df": {
+   "id": "BTSAILBO.lining_bay.deck_2.R.hull_sailboat.2e30df",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50688,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.579,
+     0.9713,
+     0.05,
+     1.158,
+     0.0395,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_2.L.hull_sailboat.103caa": {
+   "id": "BTSAILBO.roof_bay.deck_2.L.hull_sailboat.103caa",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51264,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.615,
+     1.0433,
+     0.05,
+     1.23,
+     0.0395,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_2.L.hull_sailboat.69a28c": {
+   "id": "BTSAILBO.lining_bay.deck_2.L.hull_sailboat.69a28c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     51840,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.579,
+     0.9713,
+     0.05,
+     1.158,
+     0.0395,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_3.R.hull_sailboat.2a3072": {
+   "id": "BTSAILBO.side_bay.bottom_3.R.hull_sailboat.2a3072",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     52416,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.69,
+     -0.3749,
+     1.0,
+     1.38,
+     0.4501,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_3.R.hull_sailboat.f930a4": {
+   "id": "BTSAILBO.lining_bay.bottom_3.R.hull_sailboat.f930a4",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     53568,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.654,
+     -0.3029,
+     1.0,
+     1.308,
+     0.4501,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_3.L.hull_sailboat.0204e5": {
+   "id": "BTSAILBO.side_bay.bottom_3.L.hull_sailboat.0204e5",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     54720,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.69,
+     -0.3749,
+     1.0,
+     1.38,
+     0.4501,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_3.L.hull_sailboat.da9a37": {
+   "id": "BTSAILBO.lining_bay.bottom_3.L.hull_sailboat.da9a37",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55872,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.654,
+     -0.3029,
+     1.0,
+     1.308,
+     0.4501,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_3.R.hull_sailboat.072c41": {
+   "id": "BTSAILBO.side_bay.topside_3.R.hull_sailboat.072c41",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57024,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.3792,
+     0.4185,
+     1.0,
+     0.2416,
+     1.2125,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_3.R.hull_sailboat.e10d69": {
+   "id": "BTSAILBO.lining_bay.topside_3.R.hull_sailboat.e10d69",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58176,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.3072,
+     0.4545,
+     1.0,
+     0.2416,
+     1.1405,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_3.L.hull_sailboat.3f7cdb": {
+   "id": "BTSAILBO.side_bay.topside_3.L.hull_sailboat.3f7cdb",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59328,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.3792,
+     0.4185,
+     1.0,
+     0.2416,
+     1.2125,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_3.L.hull_sailboat.532efe": {
+   "id": "BTSAILBO.lining_bay.topside_3.L.hull_sailboat.532efe",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     60480,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.3072,
+     0.4545,
+     1.0,
+     0.2416,
+     1.1405,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_3.R.hull_sailboat.1520b5": {
+   "id": "BTSAILBO.roof_bay.sidedeck_3.R.hull_sailboat.1520b5",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61632,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.3108,
+     1.0244,
+     1.0,
+     0.3784,
+     0.0426,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_3.R.hull_sailboat.313787": {
+   "id": "BTSAILBO.lining_bay.sidedeck_3.R.hull_sailboat.313787",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62208,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.2388,
+     0.9884,
+     1.0,
+     0.3784,
+     0.0726,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_3.L.hull_sailboat.2c47ba": {
+   "id": "BTSAILBO.roof_bay.sidedeck_3.L.hull_sailboat.2c47ba",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     62784,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.3108,
+     1.0244,
+     1.0,
+     0.3784,
+     0.0426,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_3.L.hull_sailboat.940062": {
+   "id": "BTSAILBO.lining_bay.sidedeck_3.L.hull_sailboat.940062",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63360,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.2388,
+     0.9884,
+     1.0,
+     0.3784,
+     0.0726,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_4.R.hull_sailboat.6f8b7c": {
+   "id": "BTSAILBO.side_bay.bottom_4.R.hull_sailboat.6f8b7c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     63936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6292,
+     -0.3939,
+     0.25,
+     1.2584,
+     0.4122,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_4.R.hull_sailboat.990b84": {
+   "id": "BTSAILBO.lining_bay.bottom_4.R.hull_sailboat.990b84",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64224,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5932,
+     -0.3219,
+     0.25,
+     1.1864,
+     0.4122,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.bottom_4.L.hull_sailboat.82867b": {
+   "id": "BTSAILBO.side_bay.bottom_4.L.hull_sailboat.82867b",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     64512,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6292,
+     -0.3939,
+     0.25,
+     1.2584,
+     0.4122,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.bottom_4.L.hull_sailboat.cf7362": {
+   "id": "BTSAILBO.lining_bay.bottom_4.L.hull_sailboat.cf7362",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64800,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5932,
+     -0.3219,
+     0.25,
+     1.1864,
+     0.4122,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_4.R.hull_sailboat.c21f16": {
+   "id": "BTSAILBO.side_bay.topside_4.R.hull_sailboat.c21f16",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65088,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.2773,
+     0.4116,
+     0.25,
+     0.181,
+     1.2434,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_4.R.hull_sailboat.b0971d": {
+   "id": "BTSAILBO.lining_bay.topside_4.R.hull_sailboat.b0971d",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65376,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.2053,
+     0.4476,
+     0.25,
+     0.181,
+     1.1714,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.side_bay.topside_4.L.hull_sailboat.72abda": {
+   "id": "BTSAILBO.side_bay.topside_4.L.hull_sailboat.72abda",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65664,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.2773,
+     0.4116,
+     0.25,
+     0.181,
+     1.2434,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.lining_bay.topside_4.L.hull_sailboat.0355c3": {
+   "id": "BTSAILBO.lining_bay.topside_4.L.hull_sailboat.0355c3",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65952,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.2053,
+     0.4476,
+     0.25,
+     0.181,
+     1.1714,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_4.R.hull_sailboat.455f11": {
+   "id": "BTSAILBO.roof_bay.sidedeck_4.R.hull_sailboat.455f11",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66240,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.2128,
+     1.0395,
+     0.25,
+     0.31,
+     0.0296,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_4.R.hull_sailboat.611c7e": {
+   "id": "BTSAILBO.lining_bay.sidedeck_4.R.hull_sailboat.611c7e",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66384,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.1408,
+     1.0035,
+     0.25,
+     0.31,
+     0.0596,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.sidedeck_4.L.hull_sailboat.b59ae4": {
+   "id": "BTSAILBO.roof_bay.sidedeck_4.L.hull_sailboat.b59ae4",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66528,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.2128,
+     1.0395,
+     0.25,
+     0.31,
+     0.0296,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.sidedeck_4.L.hull_sailboat.bc3e8a": {
+   "id": "BTSAILBO.lining_bay.sidedeck_4.L.hull_sailboat.bc3e8a",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66672,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.1408,
+     1.0035,
+     0.25,
+     0.31,
+     0.0596,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_4.R.hull_sailboat.bed141": {
+   "id": "BTSAILBO.roof_bay.deck_4.R.hull_sailboat.bed141",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66816,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5608,
+     1.0695,
+     0.25,
+     1.1216,
+     0.0476,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_4.R.hull_sailboat.b25ff2": {
+   "id": "BTSAILBO.lining_bay.deck_4.R.hull_sailboat.b25ff2",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     67104,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5248,
+     0.9975,
+     0.25,
+     1.0496,
+     0.0476,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.roof_bay.deck_4.L.hull_sailboat.1602b2": {
+   "id": "BTSAILBO.roof_bay.deck_4.L.hull_sailboat.1602b2",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     67392,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5608,
+     1.0695,
+     0.25,
+     1.1216,
+     0.0476,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.lining_bay.deck_4.L.hull_sailboat.bdfeb3": {
+   "id": "BTSAILBO.lining_bay.deck_4.L.hull_sailboat.bdfeb3",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     67680,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5248,
+     0.9975,
+     0.25,
+     1.0496,
+     0.0476,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.reveal.cockpit.C.hull_sailboat.a6ea49": {
+   "id": "BTSAILBO.reveal.cockpit.C.hull_sailboat.a6ea49",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     67968,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0184,
+     1.0,
+     2.46,
+     0.1326,
+     2.0
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTSAILBO.end_cap.transom.C.hull_sailboat.4e8e47": {
+   "id": "BTSAILBO.end_cap.transom.C.hull_sailboat.4e8e47",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     70272,
+     36
+    ],
+    "paint": [
+     71136,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2467,
+     -0.0,
+     2.58,
+     1.6933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.end_cap.stem.C.hull_sailboat.8f7074": {
+   "id": "BTSAILBO.end_cap.stem.C.hull_sailboat.8f7074",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     72000,
+     3
+    ],
+    "paint": [
+     72072,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.955,
+     -0.0,
+     0.02,
+     0.71,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTSAILBO.trim.strake.C.hull_sailboat.b24226": {
+   "id": "BTSAILBO.trim.strake.C.hull_sailboat.b24226",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     72936,
+     1344
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0952,
+     4.5154,
+     3.1043,
+     0.3191,
+     9.0308
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTSAILBO.cab.wheelhouse.C.hull_sailboat.afe0a4": {
+   "id": "BTSAILBO.cab.wheelhouse.C.hull_sailboat.afe0a4",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     105192,
+     108
+    ],
+    "paint2": [
+     107784,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3676,
+     1.65,
+     2.1,
+     0.63,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.1451f9": {
+   "id": "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.1451f9",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     108648,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3936,
+     1.54,
+     1.88,
+     0.143,
+     3.08
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTSAILBO.equipment.mast_sails.C.hull_sailboat.b08fec": {
+   "id": "BTSAILBO.equipment.mast_sails.C.hull_sailboat.b08fec",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "equipment",
+   "slot": "mast_sails",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/equipment/mast_sails/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     109512,
+     192
+    ],
+    "livery1": [
+     114120,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     7.0069,
+     3.55,
+     0.1383,
+     12.0,
+     7.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -72,6 +72,9 @@ var _f_sum := Vector3.ZERO           # the forces this vehicle applied itself la
 var _flip_t := 0.0
 var _handbrake := false
 var drive_input := {}                # {throttle -1..1, steer -1..1, handbrake}: overrides the pilot's controls
+var _x0 := 0.0                       # the static compression, last tick
+var _comp_geo: Array = []            # each wheel's compression against the real ground (no road roughness): where it is drawn
+var _prev_pos := Vector3.ZERO        # (where it was last tick: a body moved by hand isn't at rest, whatever its wheels said)
 
 
 func add_box(size: Vector3, at: Vector3, roll := 0.0) -> void:
@@ -136,7 +139,9 @@ func _rig() -> void:
 	super()
 	for n in model.find_children("wheel_*", "", true, false):
 		var tag := str(n.name).substr(6)             # "FL"
-		wheels.append([n, (n as Node3D).transform.basis, tag.begins_with("F"), _local(n).origin.x])
+		if tag.contains("_"):                         # (a hub motor's mesh, "wheel_BL_motor": not a wheel)
+			continue
+		wheels.append([n, (n as Node3D).transform.basis, tag.begins_with("F"), _local(n).origin.x, (n as Node3D).position])
 	steer_node = model.find_child("steering_wheel", true, false)
 	if steer_node:
 		_steer_base = steer_node.transform.basis
@@ -206,6 +211,9 @@ func _load_spec() -> void:
 	phys = (_specs.get(spec, {}) as Dictionary).duplicate()
 	if phys.is_empty():
 		phys = {"mass_kg": 1500, "power_kw": 120, "torque_nm": 300, "gear": 10.0, "wheel_r": wheel_r, "top_kmh": 160, "drive": "RWD", "cda": 0.6}
+	# the wheels are the model's own: ride on their radius (the type's spec says a generic 0.34 m, or 0.30 for a bicycle --
+	# a wheel bigger than that sank into the road: the van 6 cm, the bicycle 4, the pod 2, a tractor 28)
+	phys["wheel_r"] = wheel_r
 
 
 func _physics_process(delta: float) -> void:
@@ -221,7 +229,8 @@ func _physics_process(delta: float) -> void:
 				near = true
 		# (or, with someone near, once it has come to rest with nobody at the wheel: the parking brake holds it
 		# dead still -- the tyres' hold alone let it creep a centimetre a second down a camber)
-		var at_rest := drive_input.is_empty() and v.length_squared() < 0.0004 and angular_velocity.length_squared() < 0.0004
+		var at_rest := drive_input.is_empty() and v.length_squared() < 0.0004 and angular_velocity.length_squared() < 0.0004 \
+				and global_position.distance_squared_to(_prev_pos) < 0.0001
 		if not near or at_rest:
 			if _motor.playing:
 				_motor.stop()
@@ -271,6 +280,7 @@ func _physics_process(delta: float) -> void:
 	var k := m_corner * pow(TAU * ride_hz, 2.0)
 	var c := 2.0 * ride_damping * sqrt(k * m_corner)
 	var x0 := m_corner * 9.81 / k                      # the static compression
+	_x0 = x0
 	var r: float = float(phys.get("wheel_r", wheel_r))
 	var drive: String = phys.get("drive", "RWD")
 	var driven := 0
@@ -293,11 +303,17 @@ func _physics_process(delta: float) -> void:
 	if _comp.size() != wheels.size():
 		_comp.resize(wheels.size())
 		_comp.fill(x0)
+	if _comp_geo.size() != wheels.size():
+		_comp_geo.resize(wheels.size())
+		_comp_geo.fill(x0)
+	_prev_pos = global_position
 	_grounded = 0
 	var front_surface := ""
 	for i in wheels.size():
 		var w: Array = wheels[i]
-		var hub: Vector3 = global_transform * Vector3(w[3], _local(w[0]).origin.y, _local(w[0]).origin.z)
+		# (from the wheel's rest place, not where it is drawn: the drawn wheel moves with the suspension)
+		var rest_l: Vector3 = (_local((w[0] as Node3D).get_parent()) * (w[4] as Vector3)) if w.size() > 4 else _local(w[0]).origin
+		var hub: Vector3 = global_transform * Vector3(w[3], rest_l.y, rest_l.z)
 		var from := hub + b.y * RAY_UP
 		var q := PhysicsRayQueryParameters3D.create(from, from - b.y * (RAY_UP + r + travel + x0 + 0.3), 1)
 		q.exclude = _excluded()
@@ -309,6 +325,7 @@ func _physics_process(delta: float) -> void:
 			gp = StationGeo.point(ps, hub.x, MapTerrain.elevation(ps, hub.x))
 			if (from - gp).dot(b.y) > RAY_UP + r + travel + x0 + 0.3:
 				_comp[i] = 0.0
+				_comp_geo[i] = 0.0
 				continue
 		else:
 			gp = hit.position
@@ -320,6 +337,7 @@ func _physics_process(delta: float) -> void:
 		var sp := RoadSurface.props(surf)
 		var dist := (from - gp).dot(b.y) - RoadSurface.bump(flat, surf)
 		var comp := clampf(RAY_UP + r + x0 - dist, 0.0, x0 + travel + 0.2)
+		_comp_geo[i] = maxf(0.0, RAY_UP + r + x0 - (from - gp).dot(b.y))
 		if comp <= 0.0:
 			_comp[i] = 0.0
 			continue
@@ -329,6 +347,13 @@ func _physics_process(delta: float) -> void:
 		var fz := maxf(0.0, k * comp + c * dcomp)
 		if comp > x0 + travel:                         # the bump stop
 			fz += k * 8.0 * (comp - x0 - travel)
+			# and past it the tyre is rigid: the body goes no further into the ground at this corner. (The root of wheels
+			# in the road on a landing: the hull box starts CLEAR above the ground, so only the springs held a falling body
+			# up, and a spring gives -- the nose came down past the front tyres.)
+			var vin := -(v + angular_velocity.cross(hub - (global_transform * center_of_mass))).dot(gn)
+			if vin > 0.0:
+				apply_impulse(gn * vin * m_corner, gp - global_position)
+			global_position += gn * (comp - x0 - travel)
 		var contact := gp
 		_apply(gn * fz, contact - global_position)
 		# the tyre, in the contact plane
@@ -513,8 +538,25 @@ func _ground(p: Vector3, up: Vector3) -> Vector3:
 	return StationGeo.point(s, p.x, MapTerrain.elevation(s, p.x))
 
 
+func _suspend_wheels() -> void:
+	## Each wheel drawn where its suspension has it: up into its arch under load, down when it hangs -- its tyre on the
+	## ground, never in it (the body sits r + x0 - comp over the ground at each wheel: the wheel moves by comp - x0).
+	if _comp_geo.size() != wheels.size():
+		return
+	for i in wheels.size():
+		var w: Array = wheels[i]
+		if w.size() < 5:
+			continue
+		var n := w[0] as Node3D
+		var c := float(_comp_geo[i])                  # (against the real ground: the road's roughness is felt, not drawn)
+		var off := clampf(c - _x0, -travel, travel + 0.5) if c > 0.0 else -minf(travel, _x0)
+		var pb := (n.get_parent() as Node3D).global_transform.basis
+		n.position = (w[4] as Vector3) + (pb.inverse() * global_transform.basis.y).normalized() * off
+
+
 func _animate_car(delta: float) -> void:
 	_spin_a = fmod(_spin_a - _speed / wheel_r * delta, TAU)
+	_suspend_wheels()
 	for w in wheels:
 		var steer: float = _steer if w[2] else 0.0
 		(w[0] as Node3D).transform.basis = w[1] * Basis(Vector3.UP, steer) * Basis(Vector3.RIGHT, _spin_a)

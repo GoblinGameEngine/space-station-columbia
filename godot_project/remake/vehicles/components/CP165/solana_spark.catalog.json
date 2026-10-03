@@ -1,0 +1,2378 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "CP165",
+ "class": "coupe",
+ "style": "solana_spark",
+ "pack": "res://remake/vehicles/components/CP165/solana_spark.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.8235,
+    0.3137,
+    0.1569
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "CP165.end_cap.nose.C.solana_spark.442ea1": {
+   "id": "CP165.end_cap.nose.C.solana_spark.442ea1",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6668,
+     0.08,
+     1.7778,
+     0.7336,
+     0.16
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.trim.cowl.C.solana_spark.2f16b6": {
+   "id": "CP165.trim.cowl.C.solana_spark.2f16b6",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2716,
+     0.04,
+     1.74,
+     0.0768,
+     0.08
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.glazing.screen.C.solana_spark.8222a3": {
+   "id": "CP165.glazing.screen.C.solana_spark.8222a3",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     14472,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.62,
+     0.43,
+     1.74,
+     0.72,
+     0.86
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP165.trim.screen.C.solana_spark.36924e": {
+   "id": "CP165.trim.screen.C.solana_spark.36924e",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     20232,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.597,
+     0.43,
+     1.74,
+     0.6819,
+     0.86
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.side_bay.fender.R.solana_spark.567f26": {
+   "id": "CP165.side_bay.fender.R.solana_spark.567f26",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25416,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     0.8345,
+     0.78,
+     0.56,
+     0.111,
+     0.96,
+     1.12
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.trim.sail.R.solana_spark.c9ebde": {
+   "id": "CP165.trim.sail.R.solana_spark.c9ebde",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     37800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.8866,
+     1.2751,
+     0.09,
+     0.02,
+     0.0702,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.trim.a_pillar.R.solana_spark.e4616e": {
+   "id": "CP165.trim.a_pillar.R.solana_spark.e4616e",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     39528,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.825,
+     1.585,
+     0.43,
+     0.13,
+     0.69,
+     0.86
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.side_bay.rocker_F.R.solana_spark.784e7d": {
+   "id": "CP165.side_bay.rocker_F.R.solana_spark.784e7d",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40968,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.875,
+     0.43,
+     0.55,
+     0.03,
+     0.26,
+     1.1
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.side_bay.quarter.R.solana_spark.7ad846": {
+   "id": "CP165.side_bay.quarter.R.solana_spark.7ad846",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41256,
+     162
+    ],
+    "paint": [
+     45144,
+     414
+    ]
+   },
+   "boxes": [
+    [
+     0.8291,
+     1.08,
+     0.86,
+     0.1217,
+     1.56,
+     1.72
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.trim.c_pillar.R.solana_spark.b446ee": {
+   "id": "CP165.trim.c_pillar.R.solana_spark.b446ee",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "c_pillar",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/trim/c_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     55080,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.825,
+     1.585,
+     0.425,
+     0.13,
+     0.69,
+     0.85
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.side_bay.fender.L.solana_spark.80fbcc": {
+   "id": "CP165.side_bay.fender.L.solana_spark.80fbcc",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57384,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     -0.8345,
+     0.78,
+     0.56,
+     0.111,
+     0.96,
+     1.12
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.trim.sail.L.solana_spark.6bb712": {
+   "id": "CP165.trim.sail.L.solana_spark.6bb712",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     69768,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.8866,
+     1.2751,
+     0.09,
+     0.02,
+     0.0702,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.trim.a_pillar.L.solana_spark.d88563": {
+   "id": "CP165.trim.a_pillar.L.solana_spark.d88563",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     71496,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.825,
+     1.585,
+     0.43,
+     0.13,
+     0.69,
+     0.86
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.side_bay.rocker_F.L.solana_spark.260a8a": {
+   "id": "CP165.side_bay.rocker_F.L.solana_spark.260a8a",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     72936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.875,
+     0.43,
+     0.55,
+     0.03,
+     0.26,
+     1.1
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.side_bay.quarter.L.solana_spark.505f70": {
+   "id": "CP165.side_bay.quarter.L.solana_spark.505f70",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     73224,
+     162
+    ],
+    "paint": [
+     77112,
+     414
+    ]
+   },
+   "boxes": [
+    [
+     -0.8291,
+     1.08,
+     0.86,
+     0.1217,
+     1.56,
+     1.72
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.trim.c_pillar.L.solana_spark.b73a85": {
+   "id": "CP165.trim.c_pillar.L.solana_spark.b73a85",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "c_pillar",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/trim/c_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     87048,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.825,
+     1.585,
+     0.425,
+     0.13,
+     0.69,
+     0.85
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.roof_bay.roof_0.C.solana_spark.1b6307": {
+   "id": "CP165.roof_bay.roof_0.C.solana_spark.1b6307",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     89352,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.92,
+     0.285,
+     1.66,
+     0.12,
+     0.57
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.glazing.backlight.C.solana_spark.709298": {
+   "id": "CP165.glazing.backlight.C.solana_spark.709298",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "glazing",
+   "slot": "backlight",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/glazing/backlight/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     92808,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.61,
+     0.425,
+     1.78,
+     0.74,
+     0.85
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 10,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP165.trim.deck.C.solana_spark.85f952": {
+   "id": "CP165.trim.deck.C.solana_spark.85f952",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "deck",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/trim/deck/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     102024,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2612,
+     0.02,
+     1.78,
+     0.0575,
+     0.04
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.end_cap.tail.C.solana_spark.c89edc": {
+   "id": "CP165.end_cap.tail.C.solana_spark.c89edc",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     103176,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7625,
+     0.04,
+     1.7533,
+     0.925,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP165.floor.floor.C.solana_spark.cbd64f": {
+   "id": "CP165.floor.floor.C.solana_spark.cbd64f",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     111888,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.705,
+     1.14,
+     1.66,
+     0.31,
+     2.28
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "CP165.lining_bay.trim_0_0.R.solana_spark.379cd2": {
+   "id": "CP165.lining_bay.trim_0_0.R.solana_spark.379cd2",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     129168,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.8266,
+     0.9351,
+     0.09,
+     0.02,
+     0.7502,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.trim_1_0.R.solana_spark.93dc6f": {
+   "id": "CP165.lining_bay.trim_1_0.R.solana_spark.93dc6f",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     132048,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     0.8,
+     1.21,
+     0.5,
+     0.06,
+     1.3,
+     1.0
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.a_pillar.R.solana_spark.86f4c9": {
+   "id": "CP165.lining_bay.a_pillar.R.solana_spark.86f4c9",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     138528,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.765,
+     1.5622,
+     0.43,
+     0.13,
+     0.6756,
+     0.86
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.c_pillar.R.solana_spark.020bca": {
+   "id": "CP165.lining_bay.c_pillar.R.solana_spark.020bca",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "c_pillar",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/c_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     139968,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.765,
+     1.555,
+     0.425,
+     0.13,
+     0.69,
+     0.85
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.trim_0_0.L.solana_spark.092078": {
+   "id": "CP165.lining_bay.trim_0_0.L.solana_spark.092078",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     142272,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.8266,
+     0.9351,
+     0.09,
+     0.02,
+     0.7502,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.trim_1_0.L.solana_spark.f4ec16": {
+   "id": "CP165.lining_bay.trim_1_0.L.solana_spark.f4ec16",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     145152,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     -0.8,
+     1.21,
+     0.5,
+     0.06,
+     1.3,
+     1.0
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.a_pillar.L.solana_spark.cda083": {
+   "id": "CP165.lining_bay.a_pillar.L.solana_spark.cda083",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     151632,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.765,
+     1.5622,
+     0.43,
+     0.13,
+     0.6756,
+     0.86
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.lining_bay.c_pillar.L.solana_spark.9bd7af": {
+   "id": "CP165.lining_bay.c_pillar.L.solana_spark.9bd7af",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lining_bay",
+   "slot": "c_pillar",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/lining_bay/c_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     153072,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.765,
+     1.555,
+     0.425,
+     0.13,
+     0.69,
+     0.85
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.ceiling_bay.roof_0.C.solana_spark.0ddd61": {
+   "id": "CP165.ceiling_bay.roof_0.C.solana_spark.0ddd61",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     155376,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.895,
+     0.285,
+     1.54,
+     0.07,
+     0.57
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.end_lining.firewall.C.solana_spark.2ed5f4": {
+   "id": "CP165.end_lining.firewall.C.solana_spark.2ed5f4",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     158832,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.905,
+     0.0,
+     1.66,
+     0.71,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.end_lining.rear_wall.C.solana_spark.4a4164": {
+   "id": "CP165.end_lining.rear_wall.C.solana_spark.4a4164",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     160272,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.895,
+     0.0,
+     1.66,
+     0.69,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.reveal.door_F.R.solana_spark.2a0670": {
+   "id": "CP165.reveal.door_F.R.solana_spark.2a0670",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     161568,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.83,
+     1.21,
+     0.55,
+     0.12,
+     1.3,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.reveal.door_F.L.solana_spark.0eafa1": {
+   "id": "CP165.reveal.door_F.L.solana_spark.0eafa1",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     163584,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.83,
+     1.21,
+     0.55,
+     0.12,
+     1.3,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.reveal.screen.C.solana_spark.bb4244": {
+   "id": "CP165.reveal.screen.C.solana_spark.bb4244",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     165600,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.603,
+     0.43,
+     1.74,
+     0.754,
+     0.86
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.reveal.backlight.C.solana_spark.189328": {
+   "id": "CP165.reveal.backlight.C.solana_spark.189328",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "reveal",
+   "slot": "backlight",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/reveal/backlight/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     169344,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.593,
+     0.425,
+     1.78,
+     0.774,
+     0.85
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP165.door_leaf.door_F.R.solana_spark.b872a3": {
+   "id": "CP165.door_leaf.door_F.R.solana_spark.b872a3",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     173952,
+     24
+    ],
+    "paint": [
+     174528,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.86,
+     0.9,
+     0.55,
+     0.06,
+     0.68,
+     1.1
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.door_glass.door_F.R.solana_spark.48b93c": {
+   "id": "CP165.door_glass.door_F.R.solana_spark.48b93c",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     176256,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.86,
+     1.55,
+     0.55,
+     0.06,
+     0.62,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP165.leaf_trim.handle_F.R.solana_spark.0470a7": {
+   "id": "CP165.leaf_trim.handle_F.R.solana_spark.0470a7",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     177120,
+     36
+    ],
+    "dash": [
+     177984,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.835,
+     1.055,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.door_leaf.door_F.L.solana_spark.c898bd": {
+   "id": "CP165.door_leaf.door_F.L.solana_spark.c898bd",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     178848,
+     24
+    ],
+    "paint": [
+     179424,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.86,
+     0.9,
+     0.55,
+     0.06,
+     0.68,
+     1.1
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.door_glass.door_F.L.solana_spark.011bf1": {
+   "id": "CP165.door_glass.door_F.L.solana_spark.011bf1",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     181152,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.86,
+     1.55,
+     0.55,
+     0.06,
+     0.62,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP165.leaf_trim.handle_F.L.solana_spark.511ecf": {
+   "id": "CP165.leaf_trim.handle_F.L.solana_spark.511ecf",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     182016,
+     36
+    ],
+    "dash": [
+     182880,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.835,
+     1.055,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.frunk_lid.lid.C.solana_spark.8c1a16": {
+   "id": "CP165.frunk_lid.lid.C.solana_spark.8c1a16",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     183744,
+     696
+    ],
+    "tub": [
+     200448,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1135,
+     0.427,
+     1.554,
+     0.3077,
+     0.854
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.frunk_tub.lid.C.solana_spark.8f9bc0": {
+   "id": "CP165.frunk_tub.lid.C.solana_spark.8f9bc0",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     211968,
+     249
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9091,
+     0.43,
+     1.56,
+     0.7182,
+     0.86
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "CP165.trunk_lid.trunk.C.solana_spark.61749b": {
+   "id": "CP165.trunk_lid.trunk.C.solana_spark.61749b",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trunk_lid",
+   "slot": "trunk",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/trunk_lid/trunk/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     217944,
+     180
+    ],
+    "paint2": [
+     222264,
+     336
+    ],
+    "tub": [
+     230328,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2089,
+     0.337,
+     1.554,
+     0.1169,
+     0.674
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP165.frunk_tub.trunk.C.solana_spark.41b9f8": {
+   "id": "CP165.frunk_tub.trunk.C.solana_spark.41b9f8",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "frunk_tub",
+   "slot": "trunk",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/frunk_tub/trunk/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     238392,
+     213
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9088,
+     0.34,
+     1.56,
+     0.7175,
+     0.68
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "CP165.wheel_well.well_0.R.solana_spark.8b5c3a": {
+   "id": "CP165.wheel_well.well_0.R.solana_spark.8b5c3a",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     243504,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6338,
+     0.5603,
+     0.4118,
+     0.5475,
+     0.5232,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP165.wheel_well.well_0.L.solana_spark.6fbf13": {
+   "id": "CP165.wheel_well.well_0.L.solana_spark.6fbf13",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     260640,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6338,
+     0.5603,
+     0.4118,
+     0.5475,
+     0.5232,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP165.wheel_well.well_1.R.solana_spark.791c4d": {
+   "id": "CP165.wheel_well.well_1.R.solana_spark.791c4d",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     277776,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6338,
+     0.5603,
+     0.4118,
+     0.5475,
+     0.5232,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP165.wheel_well.well_1.L.solana_spark.3ce499": {
+   "id": "CP165.wheel_well.well_1.L.solana_spark.3ce499",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     294912,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6338,
+     0.5602,
+     0.4118,
+     0.5475,
+     0.5231,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP165.underpan.underpan.C.solana_spark.0541a4": {
+   "id": "CP165.underpan.underpan.C.solana_spark.0541a4",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     312048,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4025,
+     2.09,
+     1.72,
+     0.205,
+     4.18
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "CP165.seat.row_0.C.solana_spark.c329a4": {
+   "id": "CP165.seat.row_0.C.solana_spark.c329a4",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     323856,
+     72
+    ],
+    "seat": [
+     325584,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0646,
+     0.4335,
+     1.2,
+     1.1093,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP165.dash.dash.C.solana_spark.16c95b": {
+   "id": "CP165.dash.dash.C.solana_spark.16c95b",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     330768,
+     1236
+    ],
+    "chrome": [
+     360432,
+     120
+    ],
+    "dash": [
+     363312,
+     108
+    ],
+    "gauge": [
+     365904,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0749,
+     0.3576,
+     1.5,
+     0.3901,
+     0.7151
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "CP165.dash.readout.C.solana_spark.324e9d": {
+   "id": "CP165.dash.readout.C.solana_spark.324e9d",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     375120,
+     36
+    ],
+    "lcd": [
+     375984,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.37,
+     1.16,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "CP165.lamp.head_lamp.C.solana_spark.aee1a6": {
+   "id": "CP165.lamp.head_lamp.C.solana_spark.aee1a6",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     376848,
+     960
+    ],
+    "glass_dark": [
+     399888,
+     6
+    ],
+    "lamp_amber": [
+     400032,
+     72
+    ],
+    "lamp_drl": [
+     401760,
+     960
+    ],
+    "lamp_head": [
+     424800,
+     960
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.74,
+     0.01,
+     1.592,
+     0.16,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CP165.lamp.tail_lamp.C.solana_spark.6de3d1": {
+   "id": "CP165.lamp.tail_lamp.C.solana_spark.6de3d1",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     447840,
+     12
+    ],
+    "lamp_amber": [
+     448128,
+     48
+    ],
+    "lamp_brake": [
+     449280,
+     36
+    ],
+    "lamp_reverse": [
+     450144,
+     48
+    ],
+    "lamp_tail": [
+     451296,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.006,
+     0.3965,
+     1.6332,
+     0.512,
+     0.793
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CP165.lamp.side_marker.C.solana_spark.6e88b5": {
+   "id": "CP165.lamp.side_marker.C.solana_spark.6e88b5",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     459360,
+     72
+    ],
+    "lamp_tail": [
+     461088,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.86,
+     1.93,
+     1.796,
+     0.03,
+     3.86
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CP165.trim.bumper_front.C.solana_spark.0b6cf4": {
+   "id": "CP165.trim.bumper_front.C.solana_spark.0b6cf4",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     462816,
+     108
+    ],
+    "rubber": [
+     465408,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.45,
+     0.0655,
+     1.7376,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.trim.bumper_rear.C.solana_spark.81755b": {
+   "id": "CP165.trim.bumper_rear.C.solana_spark.81755b",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "solana_spark",
+   "interface": "CP165/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     466272,
+     108
+    ],
+    "rubber": [
+     468864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.45,
+     0.0655,
+     1.7376,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.trim.mirror.R.solana_spark.1a16d5": {
+   "id": "CP165.trim.mirror.R.solana_spark.1a16d5",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "solana_spark",
+   "interface": "CP165/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     469728,
+     96
+    ],
+    "glass_dark": [
+     472032,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9763,
+     1.3333,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP165.trim.mirror.L.solana_spark.1cc0d3": {
+   "id": "CP165.trim.mirror.L.solana_spark.1cc0d3",
+   "standard": "CP165",
+   "class": "coupe",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "solana_spark",
+   "interface": "CP165/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     472896,
+     96
+    ],
+    "glass_dark": [
+     475200,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9759,
+     1.3335,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  }
+ }
+}

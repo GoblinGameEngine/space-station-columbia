@@ -1,0 +1,895 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "LH165",
+ "class": "hydroponics_harvest_cart",
+ "style": "solana_hydroponics_harvest_cart",
+ "pack": "res://remake/vehicles/components/LH165/solana_hydroponics_harvest_cart.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.2353,
+    0.5882,
+    0.3529
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "LH165.cargo_wall.cargo_side.R.solana_hydroponics_harvest_cart.403857": {
+   "id": "LH165.cargo_wall.cargo_side.R.solana_hydroponics_harvest_cart.403857",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.24,
+     0.47,
+     1.0,
+     0.02,
+     0.38,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_lining.cargo_side.R.solana_hydroponics_harvest_cart.804dc7": {
+   "id": "LH165.cargo_lining.cargo_side.R.solana_hydroponics_harvest_cart.804dc7",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.18,
+     0.54,
+     1.0,
+     0.02,
+     0.24,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_wall.cargo_rail.R.solana_hydroponics_harvest_cart.4e9c69": {
+   "id": "LH165.cargo_wall.cargo_rail.R.solana_hydroponics_harvest_cart.4e9c69",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     2304,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.21,
+     0.66,
+     1.0,
+     0.06,
+     0.02,
+     2.0
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_wall.cargo_side.L.solana_hydroponics_harvest_cart.4b4388": {
+   "id": "LH165.cargo_wall.cargo_side.L.solana_hydroponics_harvest_cart.4b4388",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     2448,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.24,
+     0.47,
+     1.0,
+     0.02,
+     0.38,
+     2.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_lining.cargo_side.L.solana_hydroponics_harvest_cart.60f88d": {
+   "id": "LH165.cargo_lining.cargo_side.L.solana_hydroponics_harvest_cart.60f88d",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3600,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.18,
+     0.54,
+     1.0,
+     0.02,
+     0.24,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_wall.cargo_rail.L.solana_hydroponics_harvest_cart.a7bdab": {
+   "id": "LH165.cargo_wall.cargo_rail.L.solana_hydroponics_harvest_cart.a7bdab",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     4752,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.21,
+     0.66,
+     1.0,
+     0.06,
+     0.02,
+     2.0
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_floor.cargo_floor.C.solana_hydroponics_harvest_cart.68b470": {
+   "id": "LH165.cargo_floor.cargo_floor.C.solana_hydroponics_harvest_cart.68b470",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     4896,
+     6
+    ],
+    "tub": [
+     5040,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.39,
+     1.0,
+     0.48,
+     0.06,
+     2.0
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "LH165.cargo_wall.cargo_front.C.solana_hydroponics_harvest_cart.25aab9": {
+   "id": "LH165.cargo_wall.cargo_front.C.solana_hydroponics_harvest_cart.25aab9",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     5184,
+     6
+    ],
+    "paint": [
+     5328,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.47,
+     0.03,
+     0.48,
+     0.38,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_lining.cargo_front.C.solana_hydroponics_harvest_cart.d725bf": {
+   "id": "LH165.cargo_lining.cargo_front.C.solana_hydroponics_harvest_cart.d725bf",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5472,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.54,
+     -0.0,
+     0.36,
+     0.24,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_wall.cargo_rear.C.solana_hydroponics_harvest_cart.40ae91": {
+   "id": "LH165.cargo_wall.cargo_rear.C.solana_hydroponics_harvest_cart.40ae91",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5616,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.47,
+     -0.0,
+     0.48,
+     0.38,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.cargo_lining.cargo_rear.C.solana_hydroponics_harvest_cart.564e3f": {
+   "id": "LH165.cargo_lining.cargo_rear.C.solana_hydroponics_harvest_cart.564e3f",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.51,
+     0.0,
+     0.36,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LH165.seat.row_0.C.solana_hydroponics_harvest_cart.f31ad4": {
+   "id": "LH165.seat.row_0.C.solana_hydroponics_harvest_cart.f31ad4",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     5904,
+     36
+    ],
+    "seat": [
+     6768,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9583,
+     0.399,
+     0.4,
+     1.1566,
+     0.798
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LH165.dash.controls.C.solana_hydroponics_harvest_cart.6970a5": {
+   "id": "LH165.dash.controls.C.solana_hydroponics_harvest_cart.6970a5",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "dash",
+   "slot": "controls",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/dash/controls/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     9360,
+     132
+    ],
+    "chrome": [
+     12528,
+     84
+    ],
+    "rubber": [
+     14544,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7882,
+     0.1204,
+     0.7,
+     0.5506,
+     0.2408
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LH165.dash.readout.C.solana_hydroponics_harvest_cart.1158a4": {
+   "id": "LH165.dash.readout.C.solana_hydroponics_harvest_cart.1158a4",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     16272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.07,
+     0.004,
+     0.1,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.2,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "LH165.lamp.tail_lamp.C.solana_hydroponics_harvest_cart.9cea7a": {
+   "id": "LH165.lamp.tail_lamp.C.solana_hydroponics_harvest_cart.9cea7a",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_tail": [
+     17136,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.58,
+     0.006,
+     0.38,
+     0.06,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 1,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "LH165.equipment.crates.C.solana_hydroponics_harvest_cart.cc260e": {
+   "id": "LH165.equipment.crates.C.solana_hydroponics_harvest_cart.cc260e",
+   "standard": "LH165",
+   "class": "hydroponics_harvest_cart",
+   "role": "equipment",
+   "slot": "crates",
+   "side": "C",
+   "style": "solana_hydroponics_harvest_cart",
+   "interface": "LH165/equipment/crates/C",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     18864,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.81,
+     0.4,
+     0.32,
+     0.3,
+     0.8
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -13,8 +13,10 @@ vehicle companies. Canon from the user (2026-10-01); the details are mine within
     motors, batteries and electronics -- for personal and passenger vehicles;
   - the Steward makes the processors people use, and only 32-bit ones of early-2000s power: plentiful,
     well understood, and never enough in aggregate for people to build a mind to rival its own;
-  - LCD panels are scarce, so passenger vehicles have gauges; every car has a radio, an interchangeable
-    set in a standard slot (the Wire slot).
+  - monochrome LCD dot-matrix displays the Steward makes by the thousand a year, OLEDs and colour TFTs by the hundred (the user, 2026-10-02): they are
+    everywhere -- dashboards, destination signs, the Communicator, shop tills; only OLEDs and high-resolution
+    colour TFTs are scarce and rationed. Cars keep their gauges (the trade and the habit) beside a dot-matrix
+    readout; every car has a radio, an interchangeable set in a standard slot (the Wire slot).
 
 make_bible.py validates this module (people and events must exist) and writes
 godot_project/remake/bible/industry.json and research/bible/12_industry.md. The board platforms'
@@ -77,11 +79,18 @@ TECH_LIMITS = {
         "the_cap": "however many are joined, they never add up to a mind: the Steward makes no other kind, the network's links are slow, and every attempt to gang thousands together has failed or been found and stopped (the Lantern, VY 350, was the last that got far)",
         "known": "family", "popular": ["'a Thirty-Two is a Thirty-Two' (all machines are as smart as each other)", "'the Steward counts them' (rumour)"],
     },
+    "dot_matrix": {
+        "name": "dot-matrix displays (monochrome LCD)",
+        "what": "the Steward makes thousands of monochrome LCD dot-matrix panels a year (against a few hundred OLEDs and colour TFTs), from a thumbnail line to a bus's destination sign: black on green or grey, backlit green at night. Common, not free: a population heading for 250,000 and more shares them",
+        "uses": ["vehicle dashboards (a readout beside the gauges: range, charge, the trip)", "buses' and trams' destination signs",
+                 "the Communicator (The System's 240 x 320 screen)", "shop tills and scales", "appliances", "clocks", "the works' machines"],
+        "known": "everyday",
+    },
     "panels": {
-        "name": "panels (LCD screens)",
-        "what": "the Steward's panel line makes a few hundred a year; the Assembly's Panel Board rations them",
+        "name": "panels (OLED and colour TFT screens)",
+        "what": "OLEDs and high-resolution colour TFTs are the scarce ones: the Steward's panel line makes a few hundred a year; the Assembly's Panel Board rations them",
         "priority": ["hospitals and clinics", "the Boards (public notice screens)", "the Wire's studios and screens", "the Registry", "schools", "aerodromes", "works' machines"],
-        "vehicles": "passenger vehicles get none: gauges (needle dials, warning lamps, a mechanical odometer). Some heavy vehicles on Steward boards have the board's own small status panel, sealed into the deck",
+        "vehicles": "passenger vehicles get none: gauges and a monochrome dot-matrix readout. Some heavy vehicles on Steward boards have the board's own small colour status panel, sealed into the deck",
         "known": "living",
     },
     "gauges": {

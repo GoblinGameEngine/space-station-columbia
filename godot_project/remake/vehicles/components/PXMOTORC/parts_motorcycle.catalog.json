@@ -1,0 +1,701 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "PXMOTORC",
+ "class": "motorcycle",
+ "style": "parts_motorcycle",
+ "pack": "res://remake/vehicles/components/PXMOTORC/parts_motorcycle.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "PXMOTORC.frame_shown.frame.C.parts_motorcycle.cc4e87": {
+   "id": "PXMOTORC.frame_shown.frame.C.parts_motorcycle.cc4e87",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "frame_shown",
+   "slot": "frame",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/frame_shown/frame/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     132
+    ],
+    "chrome": [
+     3168,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6008,
+     0.6126,
+     0.06,
+     0.5822,
+     1.2253
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.equipment.pack.C.parts_motorcycle.7abda3": {
+   "id": "PXMOTORC.equipment.pack.C.parts_motorcycle.7abda3",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "equipment",
+   "slot": "pack",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/equipment/pack/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     5184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5,
+     0.3,
+     0.28,
+     0.32,
+     0.6
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.side_bay.tank.C.parts_motorcycle.783932": {
+   "id": "PXMOTORC.side_bay.tank.C.parts_motorcycle.783932",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "side_bay",
+   "slot": "tank",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/side_bay/tank/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.87,
+     0.24,
+     0.28,
+     0.2,
+     0.48
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.end_cap.nose.C.parts_motorcycle.7ac2b8": {
+   "id": "PXMOTORC.end_cap.nose.C.parts_motorcycle.7ac2b8",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.02,
+     0.06,
+     0.36,
+     0.32,
+     0.12
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.seat.seat.C.parts_motorcycle.a0b44d": {
+   "id": "PXMOTORC.seat.seat.C.parts_motorcycle.a0b44d",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "seat",
+   "slot": "seat",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/seat/seat/C",
+   "reach": 0.0,
+   "mats": {
+    "seat": [
+     7776,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.82,
+     0.28,
+     0.26,
+     0.1,
+     0.56
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.equipment.handlebar.C.parts_motorcycle.d3ac82": {
+   "id": "PXMOTORC.equipment.handlebar.C.parts_motorcycle.d3ac82",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "equipment",
+   "slot": "handlebar",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/equipment/handlebar/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     8640,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.12,
+     0.014,
+     0.72,
+     0.028,
+     0.028
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.wheel.wheel_F.C.parts_motorcycle.0e919c": {
+   "id": "PXMOTORC.wheel.wheel_F.C.parts_motorcycle.0e919c",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "wheel",
+   "slot": "wheel_F",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/wheel/wheel_F/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     10656,
+     252
+    ],
+    "rubber": [
+     16704,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.32,
+     0.32,
+     0.1,
+     0.64,
+     0.64
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.wheel.wheel_B.C.parts_motorcycle.95d668": {
+   "id": "PXMOTORC.wheel.wheel_B.C.parts_motorcycle.95d668",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "wheel",
+   "slot": "wheel_B",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/wheel/wheel_B/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     31104,
+     252
+    ],
+    "rubber": [
+     37152,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.32,
+     0.32,
+     0.13,
+     0.64,
+     0.64
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXMOTORC.lamp.head_lamp.C.parts_motorcycle.59a777": {
+   "id": "PXMOTORC.lamp.head_lamp.C.parts_motorcycle.59a777",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_head": [
+     51552,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.02,
+     0.0175,
+     0.16,
+     0.16,
+     0.035
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "PXMOTORC.lamp.tail_lamp.C.parts_motorcycle.3f28f0": {
+   "id": "PXMOTORC.lamp.tail_lamp.C.parts_motorcycle.3f28f0",
+   "standard": "PXMOTORC",
+   "class": "motorcycle",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "parts_motorcycle",
+   "interface": "PXMOTORC/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_tail": [
+     56160,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.77,
+     0.02,
+     0.12,
+     0.05,
+     0.04
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.05
+  }
+ }
+}

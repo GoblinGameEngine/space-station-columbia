@@ -1,0 +1,2995 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "PF190",
+ "class": "farm_pickup_flatbed",
+ "style": "harrow_farmhand",
+ "pack": "res://remake/vehicles/components/PF190/harrow_farmhand.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.2745,
+    0.3529,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.2745,
+    0.3529,
+    0.2353
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "PF190.end_cap.nose.C.harrow_farmhand.77e04f": {
+   "id": "PF190.end_cap.nose.C.harrow_farmhand.77e04f",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7834,
+     0.08,
+     1.9576,
+     0.9067,
+     0.16
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.trim.cowl.C.harrow_farmhand.d245ba": {
+   "id": "PF190.trim.cowl.C.harrow_farmhand.d245ba",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3544,
+     0.03,
+     1.925,
+     0.0713,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.glazing.screen.C.harrow_farmhand.6641f4": {
+   "id": "PF190.glazing.screen.C.harrow_farmhand.6641f4",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     14472,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.725,
+     0.41,
+     1.925,
+     0.79,
+     0.82
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PF190.trim.screen.C.harrow_farmhand.007d74": {
+   "id": "PF190.trim.screen.C.harrow_farmhand.007d74",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     20232,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6974,
+     0.41,
+     1.925,
+     0.7428,
+     0.82
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.side_bay.fender.R.harrow_farmhand.537da9": {
+   "id": "PF190.side_bay.fender.R.harrow_farmhand.537da9",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25416,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     0.9245,
+     0.83,
+     0.68,
+     0.1111,
+     1.0,
+     1.36
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.trim.sail.R.harrow_farmhand.36ff49": {
+   "id": "PF190.trim.sail.R.harrow_farmhand.36ff49",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     37800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.976,
+     1.3551,
+     0.09,
+     0.02,
+     0.0902,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.trim.a_pillar.R.harrow_farmhand.7e7e34": {
+   "id": "PF190.trim.a_pillar.R.harrow_farmhand.7e7e34",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     39528,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.915,
+     1.685,
+     0.41,
+     0.13,
+     0.75,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.side_bay.rocker_F.R.harrow_farmhand.512284": {
+   "id": "PF190.side_bay.rocker_F.R.harrow_farmhand.512284",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40968,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     0.455,
+     0.43,
+     0.03,
+     0.25,
+     0.86
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.post_0.R.harrow_farmhand.baa959": {
+   "id": "PF190.side_bay.post_0.R.harrow_farmhand.baa959",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41256,
+     18
+    ],
+    "paint": [
+     41688,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.155,
+     0.05,
+     0.06,
+     1.65,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.rocker_B.R.harrow_farmhand.a31714": {
+   "id": "PF190.side_bay.rocker_B.R.harrow_farmhand.a31714",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/rocker_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42120,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     0.455,
+     0.4,
+     0.03,
+     0.25,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.quarter.R.harrow_farmhand.d0bb43": {
+   "id": "PF190.side_bay.quarter.R.harrow_farmhand.d0bb43",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     42264,
+     36
+    ],
+    "paint": [
+     43128,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9464,
+     1.155,
+     0.09,
+     0.0672,
+     1.65,
+     0.18
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.fender.L.harrow_farmhand.072b57": {
+   "id": "PF190.side_bay.fender.L.harrow_farmhand.072b57",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43992,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     -0.9245,
+     0.83,
+     0.68,
+     0.1111,
+     1.0,
+     1.36
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.trim.sail.L.harrow_farmhand.313c2f": {
+   "id": "PF190.trim.sail.L.harrow_farmhand.313c2f",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     56376,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.976,
+     1.3551,
+     0.09,
+     0.02,
+     0.0902,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.trim.a_pillar.L.harrow_farmhand.08f8d8": {
+   "id": "PF190.trim.a_pillar.L.harrow_farmhand.08f8d8",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     58104,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.915,
+     1.685,
+     0.41,
+     0.13,
+     0.75,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.side_bay.rocker_F.L.harrow_farmhand.30dbd1": {
+   "id": "PF190.side_bay.rocker_F.L.harrow_farmhand.30dbd1",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59544,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.965,
+     0.455,
+     0.43,
+     0.03,
+     0.25,
+     0.86
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.post_0.L.harrow_farmhand.60f394": {
+   "id": "PF190.side_bay.post_0.L.harrow_farmhand.60f394",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     59832,
+     18
+    ],
+    "paint": [
+     60264,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.155,
+     0.05,
+     0.06,
+     1.65,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.rocker_B.L.harrow_farmhand.e53f91": {
+   "id": "PF190.side_bay.rocker_B.L.harrow_farmhand.e53f91",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/rocker_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     60696,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.965,
+     0.455,
+     0.4,
+     0.03,
+     0.25,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.side_bay.quarter.L.harrow_farmhand.42f2a1": {
+   "id": "PF190.side_bay.quarter.L.harrow_farmhand.42f2a1",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     60840,
+     36
+    ],
+    "paint": [
+     61704,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9464,
+     1.155,
+     0.09,
+     0.0672,
+     1.65,
+     0.18
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.roof_bay.roof_0.C.harrow_farmhand.898514": {
+   "id": "PF190.roof_bay.roof_0.C.harrow_farmhand.898514",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     62568,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.05,
+     0.65,
+     1.84,
+     0.14,
+     1.3
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.end_cap.tail.C.harrow_farmhand.98e213": {
+   "id": "PF190.end_cap.tail.C.harrow_farmhand.98e213",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     71208,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.225,
+     0.03,
+     1.9447,
+     1.79,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PF190.floor.floor.C.harrow_farmhand.b9676e": {
+   "id": "PF190.floor.floor.C.harrow_farmhand.b9676e",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     78048,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.725,
+     1.06,
+     1.84,
+     0.35,
+     2.12
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "PF190.lining_bay.trim_0_0.R.harrow_farmhand.9f9c70": {
+   "id": "PF190.lining_bay.trim_0_0.R.harrow_farmhand.9f9c70",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     89568,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.916,
+     0.9901,
+     0.09,
+     0.02,
+     0.8202,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.trim_1_0.R.harrow_farmhand.609a9c": {
+   "id": "PF190.lining_bay.trim_1_0.R.harrow_farmhand.609a9c",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     92448,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.89,
+     1.28,
+     0.05,
+     0.06,
+     1.4,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.trim_2_0.R.harrow_farmhand.16aac5": {
+   "id": "PF190.lining_bay.trim_2_0.R.harrow_farmhand.16aac5",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     93168,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.8866,
+     1.28,
+     0.09,
+     0.0667,
+     1.4,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.a_pillar.R.harrow_farmhand.0caa53": {
+   "id": "PF190.lining_bay.a_pillar.R.harrow_farmhand.0caa53",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     94608,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.855,
+     1.6622,
+     0.41,
+     0.13,
+     0.7356,
+     0.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.trim_0_0.L.harrow_farmhand.efbe79": {
+   "id": "PF190.lining_bay.trim_0_0.L.harrow_farmhand.efbe79",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     96048,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.916,
+     0.9901,
+     0.09,
+     0.02,
+     0.8202,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.trim_1_0.L.harrow_farmhand.6e54a7": {
+   "id": "PF190.lining_bay.trim_1_0.L.harrow_farmhand.6e54a7",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     98928,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -0.89,
+     1.28,
+     0.05,
+     0.06,
+     1.4,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.trim_2_0.L.harrow_farmhand.d89930": {
+   "id": "PF190.lining_bay.trim_2_0.L.harrow_farmhand.d89930",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/trim_2_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     99648,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.8866,
+     1.28,
+     0.09,
+     0.0667,
+     1.4,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.lining_bay.a_pillar.L.harrow_farmhand.cbd78c": {
+   "id": "PF190.lining_bay.a_pillar.L.harrow_farmhand.cbd78c",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     101088,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.855,
+     1.6622,
+     0.41,
+     0.13,
+     0.7356,
+     0.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.ceiling_bay.roof_0.C.harrow_farmhand.ccd3af": {
+   "id": "PF190.ceiling_bay.roof_0.C.harrow_farmhand.ccd3af",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     102528,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.025,
+     0.65,
+     1.72,
+     0.09,
+     1.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.end_lining.firewall.C.harrow_farmhand.00a695": {
+   "id": "PF190.end_lining.firewall.C.harrow_farmhand.00a695",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     111168,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.945,
+     0.0,
+     1.84,
+     0.79,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.end_lining.rear_wall.C.harrow_farmhand.b38a35": {
+   "id": "PF190.end_lining.rear_wall.C.harrow_farmhand.b38a35",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     112608,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     0.0,
+     1.83,
+     1.52,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.reveal.rear_opening.C.harrow_farmhand.233ff8": {
+   "id": "PF190.reveal.rear_opening.C.harrow_farmhand.233ff8",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     116064,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.67,
+     0.03,
+     1.1,
+     0.46,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.glazing.back_window.C.harrow_farmhand.963459": {
+   "id": "PF190.glazing.back_window.C.harrow_farmhand.963459",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     118944,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.67,
+     0.0,
+     1.1,
+     0.46,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PF190.reveal.door_F.R.harrow_farmhand.77e6b1": {
+   "id": "PF190.reveal.door_F.R.harrow_farmhand.77e6b1",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     120240,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.28,
+     0.43,
+     0.12,
+     1.4,
+     0.86
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.reveal.door_B.R.harrow_farmhand.cd8fb4": {
+   "id": "PF190.reveal.door_B.R.harrow_farmhand.cd8fb4",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/reveal/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     122256,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.28,
+     0.4,
+     0.12,
+     1.4,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.reveal.door_F.L.harrow_farmhand.44f0ef": {
+   "id": "PF190.reveal.door_F.L.harrow_farmhand.44f0ef",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     123984,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.28,
+     0.43,
+     0.12,
+     1.4,
+     0.86
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.reveal.door_B.L.harrow_farmhand.29d562": {
+   "id": "PF190.reveal.door_B.L.harrow_farmhand.29d562",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/reveal/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     126000,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.28,
+     0.4,
+     0.12,
+     1.4,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.reveal.screen.C.harrow_farmhand.5e12db": {
+   "id": "PF190.reveal.screen.C.harrow_farmhand.5e12db",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     127728,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7096,
+     0.41,
+     1.925,
+     0.8208,
+     0.82
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PF190.door_leaf.door_F.R.harrow_farmhand.86a205": {
+   "id": "PF190.door_leaf.door_F.R.harrow_farmhand.86a205",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     131472,
+     24
+    ],
+    "paint": [
+     132048,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     0.945,
+     0.43,
+     0.06,
+     0.73,
+     0.86
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_glass.door_F.R.harrow_farmhand.bde8c8": {
+   "id": "PF190.door_glass.door_F.R.harrow_farmhand.bde8c8",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     133776,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.645,
+     0.43,
+     0.06,
+     0.67,
+     0.86
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PF190.leaf_trim.handle_F.R.harrow_farmhand.cd4e53": {
+   "id": "PF190.leaf_trim.handle_F.R.harrow_farmhand.cd4e53",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     134640,
+     36
+    ],
+    "dash": [
+     135504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_leaf.door_B.R.harrow_farmhand.282570": {
+   "id": "PF190.door_leaf.door_B.R.harrow_farmhand.282570",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_leaf/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     136368,
+     12
+    ],
+    "paint": [
+     136656,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     0.945,
+     0.4,
+     0.06,
+     0.73,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_glass.door_B.R.harrow_farmhand.d1ae6a": {
+   "id": "PF190.door_glass.door_B.R.harrow_farmhand.d1ae6a",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_glass/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     137808,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.645,
+     0.4,
+     0.06,
+     0.67,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PF190.leaf_trim.handle_B.R.harrow_farmhand.e8823e": {
+   "id": "PF190.leaf_trim.handle_B.R.harrow_farmhand.e8823e",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/leaf_trim/handle_B/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     138240,
+     36
+    ],
+    "dash": [
+     139104,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_leaf.door_F.L.harrow_farmhand.7b0253": {
+   "id": "PF190.door_leaf.door_F.L.harrow_farmhand.7b0253",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     139968,
+     24
+    ],
+    "paint": [
+     140544,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     0.945,
+     0.43,
+     0.06,
+     0.73,
+     0.86
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_glass.door_F.L.harrow_farmhand.4fa363": {
+   "id": "PF190.door_glass.door_F.L.harrow_farmhand.4fa363",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     142272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.645,
+     0.43,
+     0.06,
+     0.67,
+     0.86
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PF190.leaf_trim.handle_F.L.harrow_farmhand.0b845b": {
+   "id": "PF190.leaf_trim.handle_F.L.harrow_farmhand.0b845b",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     143136,
+     36
+    ],
+    "dash": [
+     144000,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_leaf.door_B.L.harrow_farmhand.73094b": {
+   "id": "PF190.door_leaf.door_B.L.harrow_farmhand.73094b",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_leaf/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     12
+    ],
+    "paint": [
+     145152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     0.945,
+     0.4,
+     0.06,
+     0.73,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.door_glass.door_B.L.harrow_farmhand.ad0efa": {
+   "id": "PF190.door_glass.door_B.L.harrow_farmhand.ad0efa",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/door_glass/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     146304,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.645,
+     0.4,
+     0.06,
+     0.67,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PF190.leaf_trim.handle_B.L.harrow_farmhand.b4a347": {
+   "id": "PF190.leaf_trim.handle_B.L.harrow_farmhand.b4a347",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/leaf_trim/handle_B/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     146736,
+     36
+    ],
+    "dash": [
+     147600,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.frunk_lid.lid.C.harrow_farmhand.aaae20": {
+   "id": "PF190.frunk_lid.lid.C.harrow_farmhand.aaae20",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     148464,
+     696
+    ],
+    "tub": [
+     165168,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2578,
+     0.557,
+     1.734,
+     0.1912,
+     1.114
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PF190.frunk_tub.lid.C.harrow_farmhand.c5ae31": {
+   "id": "PF190.frunk_tub.lid.C.harrow_farmhand.c5ae31",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     176688,
+     294
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9519,
+     0.56,
+     1.74,
+     0.8037,
+     1.12
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "PF190.wheel_well.well_0.R.harrow_farmhand.aa5be4": {
+   "id": "PF190.wheel_well.well_0.R.harrow_farmhand.aa5be4",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     183744,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6663,
+     0.5953,
+     0.4318,
+     0.6625,
+     0.5333,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PF190.wheel_well.well_0.L.harrow_farmhand.a9ddb5": {
+   "id": "PF190.wheel_well.well_0.L.harrow_farmhand.a9ddb5",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     200880,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6663,
+     0.5952,
+     0.4318,
+     0.6625,
+     0.5332,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PF190.underpan.underpan.C.harrow_farmhand.6d052c": {
+   "id": "PF190.underpan.underpan.C.harrow_farmhand.6d052c",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     218016,
+     402
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4175,
+     1.76,
+     1.9,
+     0.175,
+     3.52
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_wall.cargo_plinth.C.harrow_farmhand.f7a308": {
+   "id": "PF190.cargo_wall.cargo_plinth.C.harrow_farmhand.f7a308",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     227664,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7225,
+     0.84,
+     1.25,
+     0.435,
+     1.68
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_wall.cargo_side.R.harrow_farmhand.4e84e5": {
+   "id": "PF190.cargo_wall.cargo_side.R.harrow_farmhand.4e84e5",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     228384,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.98,
+     1.045,
+     0.84,
+     0.02,
+     0.21,
+     1.68
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_lining.cargo_side.R.harrow_farmhand.930e6d": {
+   "id": "PF190.cargo_lining.cargo_side.R.harrow_farmhand.930e6d",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     229536,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.075,
+     0.84,
+     0.02,
+     0.15,
+     1.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_wall.cargo_rail.R.harrow_farmhand.c6a6ef": {
+   "id": "PF190.cargo_wall.cargo_rail.R.harrow_farmhand.c6a6ef",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     230688,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.0,
+     0.84,
+     0.06,
+     0.02,
+     1.68
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_wall.cargo_side.L.harrow_farmhand.67c843": {
+   "id": "PF190.cargo_wall.cargo_side.L.harrow_farmhand.67c843",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     230832,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.98,
+     1.045,
+     0.84,
+     0.02,
+     0.21,
+     1.68
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_lining.cargo_side.L.harrow_farmhand.a3e598": {
+   "id": "PF190.cargo_lining.cargo_side.L.harrow_farmhand.a3e598",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     231984,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.075,
+     0.84,
+     0.02,
+     0.15,
+     1.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_wall.cargo_rail.L.harrow_farmhand.b50ccc": {
+   "id": "PF190.cargo_wall.cargo_rail.L.harrow_farmhand.b50ccc",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     233136,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.0,
+     0.84,
+     0.06,
+     0.02,
+     1.68
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_floor.cargo_floor.C.harrow_farmhand.a5f9ac": {
+   "id": "PF190.cargo_floor.cargo_floor.C.harrow_farmhand.a5f9ac",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     233280,
+     18
+    ],
+    "tub": [
+     233712,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.97,
+     0.84,
+     1.96,
+     0.06,
+     1.68
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "PF190.cargo_wall.cargo_front.C.harrow_farmhand.21475a": {
+   "id": "PF190.cargo_wall.cargo_front.C.harrow_farmhand.21475a",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     233856,
+     6
+    ],
+    "paint": [
+     234000,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.97,
+     0.03,
+     1.96,
+     0.06,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_lining.cargo_front.C.harrow_farmhand.911c91": {
+   "id": "PF190.cargo_lining.cargo_front.C.harrow_farmhand.911c91",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     234144,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0,
+     -0.0,
+     1.84,
+     0.02,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.cargo_wall.cargo_rear.C.harrow_farmhand.49d137": {
+   "id": "PF190.cargo_wall.cargo_rear.C.harrow_farmhand.49d137",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     234288,
+     24
+    ],
+    "paint": [
+     234864,
+     9
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.97,
+     0.03,
+     1.96,
+     0.06,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PF190.seat.row_0.C.harrow_farmhand.db9403": {
+   "id": "PF190.seat.row_0.C.harrow_farmhand.db9403",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     235080,
+     72
+    ],
+    "seat": [
+     236808,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1146,
+     0.4335,
+     1.28,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PF190.seat.row_1.C.harrow_farmhand.cf58e0": {
+   "id": "PF190.seat.row_1.C.harrow_farmhand.cf58e0",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     241992,
+     108
+    ],
+    "seat": [
+     244584,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0377,
+     0.4023,
+     1.22,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PF190.dash.dash.C.harrow_farmhand.c2df0c": {
+   "id": "PF190.dash.dash.C.harrow_farmhand.c2df0c",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     249768,
+     1236
+    ],
+    "chrome": [
+     279432,
+     120
+    ],
+    "dash": [
+     282312,
+     108
+    ],
+    "gauge": [
+     284904,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1449,
+     0.2376,
+     1.68,
+     0.3901,
+     0.4751
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "PF190.dash.readout.C.harrow_farmhand.2e03e2": {
+   "id": "PF190.dash.readout.C.harrow_farmhand.2e03e2",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     294120,
+     36
+    ],
+    "lcd": [
+     294984,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.4,
+     1.23,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "PF190.lamp.head_lamp.C.harrow_farmhand.3a45c2": {
+   "id": "PF190.lamp.head_lamp.C.harrow_farmhand.3a45c2",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     295848,
+     480
+    ],
+    "lamp_amber": [
+     307368,
+     72
+    ],
+    "lamp_drl": [
+     309096,
+     480
+    ],
+    "lamp_head": [
+     320616,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     0.01,
+     1.754,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PF190.trim.grille.C.harrow_farmhand.eb8f7a": {
+   "id": "PF190.trim.grille.C.harrow_farmhand.eb8f7a",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     332136,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     0.004,
+     1.124,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.lamp.tail_lamp.C.harrow_farmhand.803ea1": {
+   "id": "PF190.lamp.tail_lamp.C.harrow_farmhand.803ea1",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     335592,
+     12
+    ],
+    "lamp_amber": [
+     335880,
+     48
+    ],
+    "lamp_brake": [
+     337032,
+     36
+    ],
+    "lamp_reverse": [
+     337896,
+     48
+    ],
+    "lamp_tail": [
+     339048,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.381,
+     0.8435,
+     1.92,
+     1.262,
+     1.687
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PF190.lamp.side_marker.C.harrow_farmhand.81c9b4": {
+   "id": "PF190.lamp.side_marker.C.harrow_farmhand.81c9b4",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     347112,
+     72
+    ],
+    "lamp_tail": [
+     348840,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0,
+     2.44,
+     1.976,
+     0.23,
+     4.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PF190.trim.bumper_front.C.harrow_farmhand.57a7f4": {
+   "id": "PF190.trim.bumper_front.C.harrow_farmhand.57a7f4",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     350568,
+     108
+    ],
+    "rubber": [
+     353160,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5,
+     0.0655,
+     1.9032,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.trim.bumper_rear.C.harrow_farmhand.9226c5": {
+   "id": "PF190.trim.bumper_rear.C.harrow_farmhand.9226c5",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     354024,
+     108
+    ],
+    "rubber": [
+     356616,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5,
+     0.0655,
+     1.9032,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.trim.mirror.R.harrow_farmhand.ed91af": {
+   "id": "PF190.trim.mirror.R.harrow_farmhand.ed91af",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     357480,
+     96
+    ],
+    "glass_dark": [
+     359784,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0663,
+     1.4033,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.trim.mirror.L.harrow_farmhand.5027a4": {
+   "id": "PF190.trim.mirror.L.harrow_farmhand.5027a4",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "harrow_farmhand",
+   "interface": "PF190/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     360648,
+     96
+    ],
+    "glass_dark": [
+     362952,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0659,
+     1.4035,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PF190.equipment.stakes.C.harrow_farmhand.4d4ec3": {
+   "id": "PF190.equipment.stakes.C.harrow_farmhand.4d4ec3",
+   "standard": "PF190",
+   "class": "farm_pickup_flatbed",
+   "role": "equipment",
+   "slot": "stakes",
+   "side": "C",
+   "style": "harrow_farmhand",
+   "interface": "PF190/equipment/stakes/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     363816,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.79,
+     1.95,
+     0.6,
+     1.58
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

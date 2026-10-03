@@ -1,0 +1,3699 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "MH300",
+ "class": "motorhome",
+ "style": "carrow_wayfarer",
+ "pack": "res://remake/vehicles/components/MH300/carrow_wayfarer.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.902,
+    0.8392
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.902,
+    0.8392
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.5882,
+    0.3529,
+    0.1961
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "MH300.end_cap.nose.C.carrow_wayfarer.ba8e10": {
+   "id": "MH300.end_cap.nose.C.carrow_wayfarer.ba8e10",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8985,
+     0.03,
+     2.3368,
+     0.9969,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.trim.cowl.C.carrow_wayfarer.ee1de6": {
+   "id": "MH300.trim.cowl.C.carrow_wayfarer.ee1de6",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.451,
+     0.035,
+     2.4174,
+     0.1781,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.glazing.screen.C.carrow_wayfarer.765b4d": {
+   "id": "MH300.glazing.screen.C.carrow_wayfarer.765b4d",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.045,
+     0.21,
+     2.4174,
+     1.27,
+     0.42
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.trim.screen.C.carrow_wayfarer.9794df": {
+   "id": "MH300.trim.screen.C.carrow_wayfarer.9794df",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9864,
+     0.21,
+     2.4251,
+     1.1607,
+     0.42
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.side_bay.fender.R.carrow_wayfarer.af2a3d": {
+   "id": "MH300.side_bay.fender.R.carrow_wayfarer.af2a3d",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     0.905,
+     0.195,
+     0.1753,
+     1.01,
+     0.39
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.fore_0.R.carrow_wayfarer.fa0b2e": {
+   "id": "MH300.side_bay.fore_0.R.carrow_wayfarer.fa0b2e",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "fore_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/fore_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19368,
+     378
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     0.9905,
+     0.06,
+     1.72,
+     1.981
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.fore_1.R.carrow_wayfarer.6bcf74": {
+   "id": "MH300.side_bay.fore_1.R.carrow_wayfarer.6bcf74",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "fore_1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/fore_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28440,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     0.6595,
+     0.06,
+     1.72,
+     1.319
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.trim.sail.R.carrow_wayfarer.e2eaf1": {
+   "id": "MH300.trim.sail.R.carrow_wayfarer.e2eaf1",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30600,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.16,
+     0.06,
+     0.73,
+     0.32
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.a_pillar.R.carrow_wayfarer.238dff": {
+   "id": "MH300.trim.a_pillar.R.carrow_wayfarer.238dff",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31464,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1695,
+     1.97,
+     0.21,
+     0.099,
+     1.16,
+     0.42
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.side_bay.rocker_E.R.carrow_wayfarer.c3037c": {
+   "id": "MH300.side_bay.rocker_E.R.carrow_wayfarer.c3037c",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "rocker_E",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/rocker_E/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32328,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.49,
+     0.4,
+     0.03,
+     0.18,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.quarter_0.R.carrow_wayfarer.96f1e3": {
+   "id": "MH300.side_bay.quarter_0.R.carrow_wayfarer.96f1e3",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32472,
+     222
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     1.3595,
+     0.06,
+     1.72,
+     2.719
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.quarter_1.R.carrow_wayfarer.cc0b73": {
+   "id": "MH300.side_bay.quarter_1.R.carrow_wayfarer.cc0b73",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     37800,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     1.2012,
+     1.26,
+     1.2255,
+     0.0777,
+     1.72,
+     2.451
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.fender.L.carrow_wayfarer.e0c032": {
+   "id": "MH300.side_bay.fender.L.carrow_wayfarer.e0c032",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46152,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     0.905,
+     0.195,
+     0.1753,
+     1.01,
+     0.39
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.trim.sail.L.carrow_wayfarer.48170e": {
+   "id": "MH300.trim.sail.L.carrow_wayfarer.48170e",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48168,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.16,
+     0.06,
+     0.73,
+     0.32
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.a_pillar.L.carrow_wayfarer.2a3cf4": {
+   "id": "MH300.trim.a_pillar.L.carrow_wayfarer.2a3cf4",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49032,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1695,
+     1.97,
+     0.21,
+     0.099,
+     1.16,
+     0.42
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.side_bay.rocker_F.L.carrow_wayfarer.1c4bbb": {
+   "id": "MH300.side_bay.rocker_F.L.carrow_wayfarer.1c4bbb",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49896,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     0.49,
+     0.35,
+     0.03,
+     0.18,
+     0.7
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.quarter_0.L.carrow_wayfarer.37b42a": {
+   "id": "MH300.side_bay.quarter_0.L.carrow_wayfarer.37b42a",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50328,
+     414
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     1.3,
+     0.06,
+     1.72,
+     2.6
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.quarter_1.L.carrow_wayfarer.874965": {
+   "id": "MH300.side_bay.quarter_1.L.carrow_wayfarer.874965",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     60264,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     0.6345,
+     0.06,
+     1.72,
+     1.269
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.quarter_2.L.carrow_wayfarer.c6d4f1": {
+   "id": "MH300.side_bay.quarter_2.L.carrow_wayfarer.c6d4f1",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "quarter_2",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/quarter_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61992,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     1.125,
+     0.06,
+     1.72,
+     2.25
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.side_bay.quarter_3.L.carrow_wayfarer.61fb62": {
+   "id": "MH300.side_bay.quarter_3.L.carrow_wayfarer.61fb62",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "side_bay",
+   "slot": "quarter_3",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/side_bay/quarter_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66456,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -1.2012,
+     1.26,
+     1.2255,
+     0.0777,
+     1.72,
+     2.451
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.roof_bay.roof_0.C.carrow_wayfarer.722cc4": {
+   "id": "MH300.roof_bay.roof_0.C.carrow_wayfarer.722cc4",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     74808,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.7457,
+     2.36,
+     0.56,
+     1.4914
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.roof_bay.roof_1.C.carrow_wayfarer.866064": {
+   "id": "MH300.roof_bay.roof_1.C.carrow_wayfarer.866064",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     92088,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.7543,
+     2.36,
+     0.56,
+     1.5086
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.roof_bay.roof_2.C.carrow_wayfarer.506dee": {
+   "id": "MH300.roof_bay.roof_2.C.carrow_wayfarer.506dee",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     102456,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.793,
+     2.36,
+     0.56,
+     1.586
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.roof_bay.roof_3.C.carrow_wayfarer.8f0b7c": {
+   "id": "MH300.roof_bay.roof_3.C.carrow_wayfarer.8f0b7c",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     114552,
+     648
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.607,
+     2.36,
+     0.56,
+     1.214
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.roof_bay.roof_4.C.carrow_wayfarer.d0af23": {
+   "id": "MH300.roof_bay.roof_4.C.carrow_wayfarer.d0af23",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "roof_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/roof_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     130104,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.924,
+     2.36,
+     0.56,
+     1.848
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.roof_bay.roof_5.C.carrow_wayfarer.00f543": {
+   "id": "MH300.roof_bay.roof_5.C.carrow_wayfarer.00f543",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "roof_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/roof_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     147384,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.761,
+     2.36,
+     0.56,
+     1.522
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.end_cap.tail.C.carrow_wayfarer.8340b9": {
+   "id": "MH300.end_cap.tail.C.carrow_wayfarer.8340b9",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     159480,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.54,
+     0.04,
+     2.4428,
+     2.28,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MH300.floor.floor.C.carrow_wayfarer.ce5bba": {
+   "id": "MH300.floor.floor.C.carrow_wayfarer.ce5bba",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     169776,
+     2496
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.885,
+     4.795,
+     2.36,
+     0.67,
+     9.59
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "MH300.lining_bay.trim_0_0.R.carrow_wayfarer.cc3450": {
+   "id": "MH300.lining_bay.trim_0_0.R.carrow_wayfarer.cc3450",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     229680,
+     528
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.35,
+     1.81,
+     0.06,
+     1.54,
+     3.62
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.trim_1_0.R.carrow_wayfarer.2c49f6": {
+   "id": "MH300.lining_bay.trim_1_0.R.carrow_wayfarer.2c49f6",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     242352,
+     624
+    ]
+   },
+   "boxes": [
+    [
+     1.1416,
+     1.35,
+     2.585,
+     0.0768,
+     1.54,
+     5.17
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.a_pillar.R.carrow_wayfarer.851edd": {
+   "id": "MH300.lining_bay.a_pillar.R.carrow_wayfarer.851edd",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     257328,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1095,
+     1.9412,
+     0.21,
+     0.099,
+     1.1456,
+     0.42
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.trim_0_0.L.carrow_wayfarer.aae94f": {
+   "id": "MH300.lining_bay.trim_0_0.L.carrow_wayfarer.aae94f",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     258192,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.35,
+     0.16,
+     0.06,
+     1.54,
+     0.32
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.trim_1_0.L.carrow_wayfarer.ef01e0": {
+   "id": "MH300.lining_bay.trim_1_0.L.carrow_wayfarer.ef01e0",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     259632,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.35,
+     1.3,
+     0.06,
+     1.54,
+     2.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.trim_1_1.L.carrow_wayfarer.8810b5": {
+   "id": "MH300.lining_bay.trim_1_1.L.carrow_wayfarer.8810b5",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "trim_1_1",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/trim_1_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     270000,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.35,
+     0.4,
+     0.06,
+     1.54,
+     0.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.trim_1_2.L.carrow_wayfarer.b9caa4": {
+   "id": "MH300.lining_bay.trim_1_2.L.carrow_wayfarer.b9caa4",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "trim_1_2",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/trim_1_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     270720,
+     624
+    ]
+   },
+   "boxes": [
+    [
+     -1.1416,
+     1.35,
+     2.585,
+     0.0768,
+     1.54,
+     5.17
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.lining_bay.a_pillar.L.carrow_wayfarer.288715": {
+   "id": "MH300.lining_bay.a_pillar.L.carrow_wayfarer.288715",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     285696,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1095,
+     1.9412,
+     0.21,
+     0.099,
+     1.1456,
+     0.42
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.ceiling_bay.roof_0.C.carrow_wayfarer.5c3abb": {
+   "id": "MH300.ceiling_bay.roof_0.C.carrow_wayfarer.5c3abb",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     286560,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.7457,
+     2.24,
+     0.5,
+     1.4914
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.ceiling_bay.roof_1.C.carrow_wayfarer.a6e14e": {
+   "id": "MH300.ceiling_bay.roof_1.C.carrow_wayfarer.a6e14e",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     303840,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.7543,
+     2.24,
+     0.5,
+     1.5086
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.ceiling_bay.roof_2.C.carrow_wayfarer.c6f65d": {
+   "id": "MH300.ceiling_bay.roof_2.C.carrow_wayfarer.c6f65d",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     314208,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.793,
+     2.24,
+     0.5,
+     1.586
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.ceiling_bay.roof_3.C.carrow_wayfarer.fd59df": {
+   "id": "MH300.ceiling_bay.roof_3.C.carrow_wayfarer.fd59df",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     326304,
+     648
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.607,
+     2.24,
+     0.5,
+     1.214
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.ceiling_bay.roof_4.C.carrow_wayfarer.bc2811": {
+   "id": "MH300.ceiling_bay.roof_4.C.carrow_wayfarer.bc2811",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "ceiling_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/ceiling_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     341856,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.924,
+     2.24,
+     0.5,
+     1.848
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.ceiling_bay.roof_5.C.carrow_wayfarer.d4ec55": {
+   "id": "MH300.ceiling_bay.roof_5.C.carrow_wayfarer.d4ec55",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "ceiling_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/ceiling_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     359136,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.761,
+     2.24,
+     0.5,
+     1.522
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.end_lining.firewall.C.carrow_wayfarer.6f307a": {
+   "id": "MH300.end_lining.firewall.C.carrow_wayfarer.6f307a",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     371232,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.015,
+     -0.0,
+     2.35,
+     0.93,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.end_lining.rear_wall.C.carrow_wayfarer.1e77cc": {
+   "id": "MH300.end_lining.rear_wall.C.carrow_wayfarer.1e77cc",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     372672,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.585,
+     0.0,
+     2.35,
+     2.07,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.rear_opening.C.carrow_wayfarer.3e4580": {
+   "id": "MH300.reveal.rear_opening.C.carrow_wayfarer.3e4580",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     376128,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.85,
+     0.04,
+     1.6,
+     0.5,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.glazing.back_window.C.carrow_wayfarer.87f951": {
+   "id": "MH300.glazing.back_window.C.carrow_wayfarer.87f951",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     379008,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.85,
+     0.0,
+     1.6,
+     0.5,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.reveal.door_E.R.carrow_wayfarer.554bd1": {
+   "id": "MH300.reveal.door_E.R.carrow_wayfarer.554bd1",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     380304,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.35,
+     0.4,
+     0.12,
+     1.54,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_C.R.carrow_wayfarer.511e82": {
+   "id": "MH300.reveal.window_C.R.carrow_wayfarer.511e82",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_C",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_C/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     382032,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.35,
+     0.12,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_W0.R.carrow_wayfarer.5b4690": {
+   "id": "MH300.reveal.window_W0.R.carrow_wayfarer.5b4690",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     383760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.5,
+     0.12,
+     0.73,
+     1.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_W1.R.carrow_wayfarer.6654d7": {
+   "id": "MH300.reveal.window_W1.R.carrow_wayfarer.6654d7",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     384912,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.65,
+     0.12,
+     0.73,
+     1.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_W2.R.carrow_wayfarer.cb06c4": {
+   "id": "MH300.reveal.window_W2.R.carrow_wayfarer.cb06c4",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     388944,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.6,
+     0.12,
+     0.73,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.door_F.L.carrow_wayfarer.b2b4bb": {
+   "id": "MH300.reveal.door_F.L.carrow_wayfarer.b2b4bb",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     391536,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.35,
+     0.35,
+     0.12,
+     1.54,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_W0.L.carrow_wayfarer.fb6a92": {
+   "id": "MH300.reveal.window_W0.L.carrow_wayfarer.fb6a92",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     393840,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.5,
+     0.12,
+     0.73,
+     1.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_W1.L.carrow_wayfarer.f2e4b9": {
+   "id": "MH300.reveal.window_W1.L.carrow_wayfarer.f2e4b9",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     394992,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.65,
+     0.12,
+     0.73,
+     1.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.window_W2.L.carrow_wayfarer.1a2e3d": {
+   "id": "MH300.reveal.window_W2.L.carrow_wayfarer.1a2e3d",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     399024,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.6,
+     0.12,
+     0.73,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.reveal.screen.C.carrow_wayfarer.d9db6a": {
+   "id": "MH300.reveal.screen.C.carrow_wayfarer.d9db6a",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     401616,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.027,
+     0.21,
+     2.4174,
+     1.306,
+     0.42
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MH300.glazing.window_C.R.carrow_wayfarer.1486da": {
+   "id": "MH300.glazing.window_C.R.carrow_wayfarer.1486da",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_C",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_C/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     404784,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.35,
+     0.06,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.glazing.window_W0.R.carrow_wayfarer.d32eba": {
+   "id": "MH300.glazing.window_W0.R.carrow_wayfarer.d32eba",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     406080,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.5,
+     0.06,
+     0.73,
+     1.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.glazing.window_W0.L.carrow_wayfarer.002085": {
+   "id": "MH300.glazing.window_W0.L.carrow_wayfarer.002085",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     406512,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.5,
+     0.06,
+     0.73,
+     1.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.glazing.window_W1.R.carrow_wayfarer.c38441": {
+   "id": "MH300.glazing.window_W1.R.carrow_wayfarer.c38441",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     406944,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.65,
+     0.06,
+     0.73,
+     1.3
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.glazing.window_W1.L.carrow_wayfarer.bf064a": {
+   "id": "MH300.glazing.window_W1.L.carrow_wayfarer.bf064a",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     411696,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.65,
+     0.06,
+     0.73,
+     1.3
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.glazing.window_W2.R.carrow_wayfarer.99999a": {
+   "id": "MH300.glazing.window_W2.R.carrow_wayfarer.99999a",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     416448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.6,
+     0.06,
+     0.73,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.glazing.window_W2.L.carrow_wayfarer.840e41": {
+   "id": "MH300.glazing.window_W2.L.carrow_wayfarer.840e41",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     419040,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.6,
+     0.06,
+     0.73,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.door_leaf.door_E.R.carrow_wayfarer.a860b3": {
+   "id": "MH300.door_leaf.door_E.R.carrow_wayfarer.a860b3",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "door_leaf",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/door_leaf/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     421632,
+     12
+    ],
+    "paint": [
+     421920,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     0.985,
+     0.4,
+     0.06,
+     0.81,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.door_glass.door_E.R.carrow_wayfarer.b5d16c": {
+   "id": "MH300.door_glass.door_E.R.carrow_wayfarer.b5d16c",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "door_glass",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/door_glass/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     423072,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.4,
+     0.06,
+     0.73,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.leaf_trim.handle_E.R.carrow_wayfarer.de85c5": {
+   "id": "MH300.leaf_trim.handle_E.R.carrow_wayfarer.de85c5",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "leaf_trim",
+   "slot": "handle_E",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/leaf_trim/handle_E/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     423504,
+     36
+    ],
+    "dash": [
+     424368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.205,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.door_leaf.door_F.L.carrow_wayfarer.752dac": {
+   "id": "MH300.door_leaf.door_F.L.carrow_wayfarer.752dac",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     425232,
+     36
+    ],
+    "paint": [
+     426096,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     0.985,
+     0.35,
+     0.06,
+     0.81,
+     0.7
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.door_glass.door_F.L.carrow_wayfarer.94772f": {
+   "id": "MH300.door_glass.door_F.L.carrow_wayfarer.94772f",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     428400,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.35,
+     0.06,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MH300.leaf_trim.handle_F.L.carrow_wayfarer.852d80": {
+   "id": "MH300.leaf_trim.handle_F.L.carrow_wayfarer.852d80",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     429696,
+     36
+    ],
+    "dash": [
+     430560,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.185,
+     1.205,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.wheel_well.well_0.R.carrow_wayfarer.a3af64": {
+   "id": "MH300.wheel_well.well_0.R.carrow_wayfarer.a3af64",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     431424,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5745,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.wheel_well.well_0.L.carrow_wayfarer.71b04d": {
+   "id": "MH300.wheel_well.well_0.L.carrow_wayfarer.71b04d",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     446256,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.wheel_well.well_1.R.carrow_wayfarer.0f795f": {
+   "id": "MH300.wheel_well.well_1.R.carrow_wayfarer.0f795f",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     461088,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.wheel_well.well_1.L.carrow_wayfarer.e558bb": {
+   "id": "MH300.wheel_well.well_1.L.carrow_wayfarer.e558bb",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     477072,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.wheel_well.well_2.R.carrow_wayfarer.4872fb": {
+   "id": "MH300.wheel_well.well_2.R.carrow_wayfarer.4872fb",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "wheel_well",
+   "slot": "well_2",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/wheel_well/well_2/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     493056,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5745,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.wheel_well.well_2.L.carrow_wayfarer.58376c": {
+   "id": "MH300.wheel_well.well_2.L.carrow_wayfarer.58376c",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "wheel_well",
+   "slot": "well_2",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/wheel_well/well_2/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     509040,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.underpan.underpan.C.carrow_wayfarer.5cdf05": {
+   "id": "MH300.underpan.underpan.C.carrow_wayfarer.5cdf05",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     525024,
+     756
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     4.9,
+     2.42,
+     0.105,
+     9.8
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "MH300.seat.row_0.C.carrow_wayfarer.6aebc7": {
+   "id": "MH300.seat.row_0.C.carrow_wayfarer.6aebc7",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     543168,
+     72
+    ],
+    "seat": [
+     544896,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1946,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.seat.row_1.C.carrow_wayfarer.3d278f": {
+   "id": "MH300.seat.row_1.C.carrow_wayfarer.3d278f",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     550080,
+     72
+    ],
+    "seat": [
+     551808,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.5,
+     1.3827,
+     0.4023,
+     0.76,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.seat.row_2.C.carrow_wayfarer.efd469": {
+   "id": "MH300.seat.row_2.C.carrow_wayfarer.efd469",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     555264,
+     72
+    ],
+    "seat": [
+     556992,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.5,
+     1.0977,
+     0.4023,
+     0.76,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MH300.dash.dash.C.carrow_wayfarer.cc74f8": {
+   "id": "MH300.dash.dash.C.carrow_wayfarer.cc74f8",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     560448,
+     1236
+    ],
+    "chrome": [
+     590112,
+     120
+    ],
+    "dash": [
+     592992,
+     108
+    ],
+    "gauge": [
+     595584,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2249,
+     0.2222,
+     2.2,
+     0.3901,
+     0.4443
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "MH300.dash.readout.C.carrow_wayfarer.d602f3": {
+   "id": "MH300.dash.readout.C.carrow_wayfarer.d602f3",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     604800,
+     36
+    ],
+    "lcd": [
+     605664,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     1.31,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "MH300.lamp.head_lamp.C.carrow_wayfarer.1da8e6": {
+   "id": "MH300.lamp.head_lamp.C.carrow_wayfarer.1da8e6",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     606528,
+     72
+    ],
+    "lamp_amber": [
+     608256,
+     72
+    ],
+    "lamp_head": [
+     609984,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.007,
+     2.222,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MH300.trim.grille.C.carrow_wayfarer.cd0fdc": {
+   "id": "MH300.trim.grille.C.carrow_wayfarer.cd0fdc",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     611712,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.592,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.lamp.tail_lamp.C.carrow_wayfarer.8f4a4c": {
+   "id": "MH300.lamp.tail_lamp.C.carrow_wayfarer.8f4a4c",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     615168,
+     12
+    ],
+    "lamp_amber": [
+     615456,
+     48
+    ],
+    "lamp_brake": [
+     616608,
+     36
+    ],
+    "lamp_reverse": [
+     617472,
+     48
+    ],
+    "lamp_tail": [
+     618624,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.511,
+     0.006,
+     2.2912,
+     1.322,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MH300.lamp.side_marker.C.carrow_wayfarer.40c5ec": {
+   "id": "MH300.lamp.side_marker.C.carrow_wayfarer.40c5ec",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     626688,
+     72
+    ],
+    "lamp_tail": [
+     628416,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.22,
+     4.74,
+     2.496,
+     0.03,
+     9.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MH300.lamp.id_lamp.C.carrow_wayfarer.715c37": {
+   "id": "MH300.lamp.id_lamp.C.carrow_wayfarer.715c37",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     630144,
+     180
+    ],
+    "lamp_tail": [
+     634464,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.626,
+     4.625,
+     2.24,
+     0.156,
+     9.25
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MH300.trim.bumper_front.C.carrow_wayfarer.836b04": {
+   "id": "MH300.trim.bumper_front.C.carrow_wayfarer.836b04",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     638784,
+     108
+    ],
+    "rubber": [
+     641376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.bumper_rear.C.carrow_wayfarer.b9dcfc": {
+   "id": "MH300.trim.bumper_rear.C.carrow_wayfarer.b9dcfc",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     642240,
+     108
+    ],
+    "rubber": [
+     644832,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.mirror.R.carrow_wayfarer.4e65ff": {
+   "id": "MH300.trim.mirror.R.carrow_wayfarer.4e65ff",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     645696,
+     96
+    ],
+    "glass_dark": [
+     648000,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3263,
+     1.4833,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.mirror.L.carrow_wayfarer.559f7e": {
+   "id": "MH300.trim.mirror.L.carrow_wayfarer.559f7e",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     648864,
+     96
+    ],
+    "glass_dark": [
+     651168,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3259,
+     1.4835,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_fender.R.carrow_wayfarer.fd5600": {
+   "id": "MH300.trim.livery_fender.R.carrow_wayfarer.fd5600",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     652032,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.2236,
+     0.95,
+     0.145,
+     0.0409,
+     0.3,
+     0.29
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_fore_0.R.carrow_wayfarer.4f5d68": {
+   "id": "MH300.trim.livery_fore_0.R.carrow_wayfarer.4f5d68",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_fore_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_fore_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     653184,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.95,
+     0.365,
+     0.02,
+     0.3,
+     0.73
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_fore_1.R.carrow_wayfarer.47913d": {
+   "id": "MH300.trim.livery_fore_1.R.carrow_wayfarer.47913d",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_fore_1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_fore_1/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     656640,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.95,
+     0.6095,
+     0.02,
+     0.3,
+     1.219
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_quarter_0.R.carrow_wayfarer.7032c4": {
+   "id": "MH300.trim.livery_quarter_0.R.carrow_wayfarer.7032c4",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_quarter_0",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     662400,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.95,
+     1.3095,
+     0.02,
+     0.3,
+     2.619
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_quarter_1.R.carrow_wayfarer.5b39f1": {
+   "id": "MH300.trim.livery_quarter_1.R.carrow_wayfarer.5b39f1",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_quarter_1",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     668736,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     1.2405,
+     0.95,
+     0.6,
+     0.02,
+     0.3,
+     1.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.leaf_trim.livery_door_E.R.carrow_wayfarer.437053": {
+   "id": "MH300.leaf_trim.livery_door_E.R.carrow_wayfarer.437053",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "leaf_trim",
+   "slot": "livery_door_E",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/leaf_trim/livery_door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     674496,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.95,
+     0.35,
+     0.02,
+     0.3,
+     0.7
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.trim.livery_fender.L.carrow_wayfarer.b2792c": {
+   "id": "MH300.trim.livery_fender.L.carrow_wayfarer.b2792c",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     677376,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.2236,
+     0.95,
+     0.145,
+     0.0409,
+     0.3,
+     0.29
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_quarter_0.L.carrow_wayfarer.e870c1": {
+   "id": "MH300.trim.livery_quarter_0.L.carrow_wayfarer.e870c1",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_quarter_0",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     678528,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     0.95,
+     0.615,
+     0.02,
+     0.3,
+     1.23
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_quarter_1.L.carrow_wayfarer.cf84fd": {
+   "id": "MH300.trim.livery_quarter_1.L.carrow_wayfarer.cf84fd",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_quarter_1",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     684288,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     0.95,
+     0.5845,
+     0.02,
+     0.3,
+     1.169
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_quarter_2.L.carrow_wayfarer.f0920b": {
+   "id": "MH300.trim.livery_quarter_2.L.carrow_wayfarer.f0920b",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_quarter_2",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_quarter_2/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     689472,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     0.95,
+     0.4995,
+     0.02,
+     0.3,
+     0.999
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.trim.livery_quarter_3.L.carrow_wayfarer.b92401": {
+   "id": "MH300.trim.livery_quarter_3.L.carrow_wayfarer.b92401",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "trim",
+   "slot": "livery_quarter_3",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/trim/livery_quarter_3/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     694080,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -1.2405,
+     0.95,
+     0.6,
+     0.02,
+     0.3,
+     1.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MH300.leaf_trim.livery_door_F.L.carrow_wayfarer.f52201": {
+   "id": "MH300.leaf_trim.livery_door_F.L.carrow_wayfarer.f52201",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     699840,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     0.95,
+     0.3,
+     0.02,
+     0.3,
+     0.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MH300.equipment.roof_ac.C.carrow_wayfarer.7f2c14": {
+   "id": "MH300.equipment.roof_ac.C.carrow_wayfarer.7f2c14",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "equipment",
+   "slot": "roof_ac",
+   "side": "C",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/equipment/roof_ac/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     702720,
+     108
+    ],
+    "paint2": [
+     705312,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.805,
+     3.425,
+     0.9,
+     0.25,
+     6.85
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "MH300.equipment.awning.R.carrow_wayfarer.fd7ce3": {
+   "id": "MH300.equipment.awning.R.carrow_wayfarer.fd7ce3",
+   "standard": "MH300",
+   "class": "motorhome",
+   "role": "equipment",
+   "slot": "awning",
+   "side": "R",
+   "style": "carrow_wayfarer",
+   "interface": "MH300/equipment/awning/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     707904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.27,
+     2.24,
+     1.8,
+     0.1,
+     0.12,
+     3.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

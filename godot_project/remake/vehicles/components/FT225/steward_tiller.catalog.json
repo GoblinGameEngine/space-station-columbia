@@ -1,0 +1,2269 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "FT225",
+ "class": "utility_tractor",
+ "style": "steward_tiller",
+ "pack": "res://remake/vehicles/components/FT225/steward_tiller.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.2353,
+    0.4706,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "FT225.end_cap.nose.C.steward_tiller.318f0b": {
+   "id": "FT225.end_cap.nose.C.steward_tiller.318f0b",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     651
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8048,
+     0.075,
+     1.1,
+     0.8095,
+     0.15
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.trim.cowl.C.steward_tiller.64fc63": {
+   "id": "FT225.trim.cowl.C.steward_tiller.64fc63",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     15624,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4203,
+     0.075,
+     0.9867,
+     0.0993,
+     0.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.glazing.screen.C.steward_tiller.af07c0": {
+   "id": "FT225.glazing.screen.C.steward_tiller.af07c0",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     16776,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.935,
+     0.175,
+     0.9867,
+     1.09,
+     0.35
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FT225.trim.screen.C.steward_tiller.2a4208": {
+   "id": "FT225.trim.screen.C.steward_tiller.2a4208",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     19080,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9074,
+     0.175,
+     0.9867,
+     1.0428,
+     0.35
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.side_bay.fender.R.steward_tiller.db58a9": {
+   "id": "FT225.side_bay.fender.R.steward_tiller.db58a9",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22536,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     0.4438,
+     0.895,
+     1.11,
+     0.1124,
+     0.99,
+     2.22
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.trim.sail.R.steward_tiller.bec2b0": {
+   "id": "FT225.trim.sail.R.steward_tiller.bec2b0",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26424,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.4977,
+     1.436,
+     0.035,
+     0.02,
+     0.132,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.trim.a_pillar.R.steward_tiller.006f1c": {
+   "id": "FT225.trim.a_pillar.R.steward_tiller.006f1c",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26856,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.46,
+     1.885,
+     0.175,
+     0.08,
+     1.03,
+     0.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.side_bay.rocker_F.R.steward_tiller.ff2052": {
+   "id": "FT225.side_bay.rocker_F.R.steward_tiller.ff2052",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     27432,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.485,
+     0.49,
+     0.415,
+     0.03,
+     0.18,
+     0.83
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.side_bay.quarter.R.steward_tiller.9bb4d3": {
+   "id": "FT225.side_bay.quarter.R.steward_tiller.9bb4d3",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     27720,
+     36
+    ],
+    "paint": [
+     28584,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.4795,
+     1.325,
+     0.27,
+     0.041,
+     1.85,
+     0.54
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.side_bay.fender.L.steward_tiller.6f9e6f": {
+   "id": "FT225.side_bay.fender.L.steward_tiller.6f9e6f",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30312,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -0.4438,
+     0.895,
+     1.11,
+     0.1124,
+     0.99,
+     2.22
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.trim.sail.L.steward_tiller.8f178f": {
+   "id": "FT225.trim.sail.L.steward_tiller.8f178f",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     34200,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.4977,
+     1.436,
+     0.035,
+     0.02,
+     0.132,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.trim.a_pillar.L.steward_tiller.37ba98": {
+   "id": "FT225.trim.a_pillar.L.steward_tiller.37ba98",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     34632,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.46,
+     1.885,
+     0.175,
+     0.08,
+     1.03,
+     0.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.side_bay.rocker_F.L.steward_tiller.13ef2c": {
+   "id": "FT225.side_bay.rocker_F.L.steward_tiller.13ef2c",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     35208,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.485,
+     0.49,
+     0.415,
+     0.03,
+     0.18,
+     0.83
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.side_bay.quarter.L.steward_tiller.c4d1eb": {
+   "id": "FT225.side_bay.quarter.L.steward_tiller.c4d1eb",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     35496,
+     36
+    ],
+    "paint": [
+     36360,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.4795,
+     1.325,
+     0.27,
+     0.041,
+     1.85,
+     0.54
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.roof_bay.roof_0.C.steward_tiller.dc8037": {
+   "id": "FT225.roof_bay.roof_0.C.steward_tiller.dc8037",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     38088,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.365,
+     0.545,
+     0.94,
+     0.23,
+     1.09
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FT225.end_cap.tail.C.steward_tiller.c9247c": {
+   "id": "FT225.end_cap.tail.C.steward_tiller.c9247c",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46728,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.44,
+     0.03,
+     1.1,
+     2.08,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FT225.floor.floor.C.steward_tiller.7b5034": {
+   "id": "FT225.floor.floor.C.steward_tiller.7b5034",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     53568,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     0.72,
+     0.944,
+     0.03,
+     1.44
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "FT225.lining_bay.trim_0_0.R.steward_tiller.50e471": {
+   "id": "FT225.lining_bay.trim_0_0.R.steward_tiller.50e471",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     61632,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.4377,
+     1.041,
+     0.035,
+     0.02,
+     0.922,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.lining_bay.trim_1_0.R.steward_tiller.ae3aad": {
+   "id": "FT225.lining_bay.trim_1_0.R.steward_tiller.ae3aad",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62352,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.4202,
+     1.415,
+     0.27,
+     0.0396,
+     1.67,
+     0.54
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.lining_bay.a_pillar.R.steward_tiller.594137": {
+   "id": "FT225.lining_bay.a_pillar.R.steward_tiller.594137",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.4,
+     1.8622,
+     0.175,
+     0.08,
+     1.0156,
+     0.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.lining_bay.trim_0_0.L.steward_tiller.d7d9b5": {
+   "id": "FT225.lining_bay.trim_0_0.L.steward_tiller.d7d9b5",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64944,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -0.4377,
+     1.041,
+     0.035,
+     0.02,
+     0.922,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.lining_bay.trim_1_0.L.steward_tiller.741aff": {
+   "id": "FT225.lining_bay.trim_1_0.L.steward_tiller.741aff",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65664,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.4202,
+     1.415,
+     0.27,
+     0.0396,
+     1.67,
+     0.54
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.lining_bay.a_pillar.L.steward_tiller.b540e7": {
+   "id": "FT225.lining_bay.a_pillar.L.steward_tiller.b540e7",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     67680,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.4,
+     1.8622,
+     0.175,
+     0.08,
+     1.0156,
+     0.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.ceiling_bay.roof_0.C.steward_tiller.e0f574": {
+   "id": "FT225.ceiling_bay.roof_0.C.steward_tiller.e0f574",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     68256,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.34,
+     0.545,
+     0.82,
+     0.18,
+     1.09
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.end_lining.firewall.C.steward_tiller.ccbe04": {
+   "id": "FT225.end_lining.firewall.C.steward_tiller.ccbe04",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     76896,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.985,
+     -0.0,
+     0.944,
+     0.87,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.end_lining.rear_wall.C.steward_tiller.6f5d08": {
+   "id": "FT225.end_lining.rear_wall.C.steward_tiller.6f5d08",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     78336,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.49,
+     -0.0,
+     0.96,
+     1.88,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.reveal.rear_opening.C.steward_tiller.6500dd": {
+   "id": "FT225.reveal.rear_opening.C.steward_tiller.6500dd",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     81792,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.03,
+     0.96,
+     0.65,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.glazing.back_window.C.steward_tiller.536a25": {
+   "id": "FT225.glazing.back_window.C.steward_tiller.536a25",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     84672,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.0,
+     0.96,
+     0.65,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FT225.reveal.door_F.R.steward_tiller.0c87db": {
+   "id": "FT225.reveal.door_F.R.steward_tiller.0c87db",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     85968,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.455,
+     1.415,
+     0.415,
+     0.09,
+     1.67,
+     0.83
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.reveal.window_Q.R.steward_tiller.7b17b8": {
+   "id": "FT225.reveal.window_Q.R.steward_tiller.7b17b8",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/reveal/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     87984,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.455,
+     1.81,
+     0.175,
+     0.0901,
+     0.88,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.reveal.door_F.L.steward_tiller.33d8f5": {
+   "id": "FT225.reveal.door_F.L.steward_tiller.33d8f5",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     89424,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.455,
+     1.415,
+     0.415,
+     0.09,
+     1.67,
+     0.83
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.reveal.window_Q.L.steward_tiller.24ea6b": {
+   "id": "FT225.reveal.window_Q.L.steward_tiller.24ea6b",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/reveal/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     91440,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.455,
+     1.81,
+     0.175,
+     0.0901,
+     0.88,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.reveal.screen.C.steward_tiller.b79f2e": {
+   "id": "FT225.reveal.screen.C.steward_tiller.b79f2e",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     92880,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.92,
+     0.175,
+     0.9867,
+     1.12,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FT225.glazing.window_Q.R.steward_tiller.04d008": {
+   "id": "FT225.glazing.window_Q.R.steward_tiller.04d008",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/glazing/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     95760,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.4849,
+     1.81,
+     0.175,
+     0.0301,
+     0.88,
+     0.35
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FT225.glazing.window_Q.L.steward_tiller.97544e": {
+   "id": "FT225.glazing.window_Q.L.steward_tiller.97544e",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/glazing/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     96624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.4849,
+     1.81,
+     0.175,
+     0.0301,
+     0.88,
+     0.35
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FT225.door_leaf.door_F.R.steward_tiller.4eec18": {
+   "id": "FT225.door_leaf.door_F.R.steward_tiller.4eec18",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     97488,
+     24
+    ],
+    "paint": [
+     98064,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.47,
+     0.975,
+     0.415,
+     0.06,
+     0.79,
+     0.83
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FT225.door_glass.door_F.R.steward_tiller.bca665": {
+   "id": "FT225.door_glass.door_F.R.steward_tiller.bca665",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     99792,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.485,
+     1.81,
+     0.415,
+     0.03,
+     0.88,
+     0.83
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FT225.leaf_trim.handle_F.R.steward_tiller.05fd1b": {
+   "id": "FT225.leaf_trim.handle_F.R.steward_tiller.05fd1b",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     100656,
+     36
+    ],
+    "dash": [
+     101520,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.445,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FT225.door_leaf.door_F.L.steward_tiller.054eca": {
+   "id": "FT225.door_leaf.door_F.L.steward_tiller.054eca",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102384,
+     24
+    ],
+    "paint": [
+     102960,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.47,
+     0.975,
+     0.415,
+     0.06,
+     0.79,
+     0.83
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FT225.door_glass.door_F.L.steward_tiller.9596f6": {
+   "id": "FT225.door_glass.door_F.L.steward_tiller.9596f6",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     104688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.485,
+     1.81,
+     0.415,
+     0.03,
+     0.88,
+     0.83
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FT225.leaf_trim.handle_F.L.steward_tiller.5d23c1": {
+   "id": "FT225.leaf_trim.handle_F.L.steward_tiller.5d23c1",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     105552,
+     36
+    ],
+    "dash": [
+     106416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.445,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FT225.frunk_lid.lid.C.steward_tiller.f7f9da": {
+   "id": "FT225.frunk_lid.lid.C.steward_tiller.f7f9da",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     107280,
+     216
+    ],
+    "tub": [
+     112464,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2704,
+     0.997,
+     0.7741,
+     0.2698,
+     1.994
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FT225.frunk_tub.lid.C.steward_tiller.d6fbe7": {
+   "id": "FT225.frunk_tub.lid.C.steward_tiller.d6fbe7",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     114768,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9778,
+     1.0,
+     0.944,
+     0.8557,
+     2.0
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "FT225.underpan.underpan.C.steward_tiller.058c83": {
+   "id": "FT225.underpan.underpan.C.steward_tiller.058c83",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     119520,
+     390
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     1.9,
+     1.1,
+     0.105,
+     3.8
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "FT225.seat.row_0.C.steward_tiller.e3fb85": {
+   "id": "FT225.seat.row_0.C.steward_tiller.e3fb85",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     128880,
+     36
+    ],
+    "seat": [
+     129744,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     0.48,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FT225.dash.dash.C.steward_tiller.afb52b": {
+   "id": "FT225.dash.dash.C.steward_tiller.afb52b",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     132336,
+     1236
+    ],
+    "chrome": [
+     162000,
+     120
+    ],
+    "dash": [
+     164880,
+     108
+    ],
+    "gauge": [
+     167472,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2049,
+     0.1826,
+     0.72,
+     0.3901,
+     0.3651
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "FT225.dash.readout.C.steward_tiller.dba9db": {
+   "id": "FT225.dash.readout.C.steward_tiller.dba9db",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     176688,
+     36
+    ],
+    "lcd": [
+     177552,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.29,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "FT225.lamp.head_lamp.C.steward_tiller.4e5939": {
+   "id": "FT225.lamp.head_lamp.C.steward_tiller.4e5939",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     178416,
+     72
+    ],
+    "lamp_amber": [
+     180144,
+     72
+    ],
+    "lamp_head": [
+     181872,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0,
+     0.007,
+     0.89,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FT225.trim.grille.C.steward_tiller.6aa91f": {
+   "id": "FT225.trim.grille.C.steward_tiller.6aa91f",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     183600,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0,
+     0.004,
+     0.26,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.lamp.tail_lamp.C.steward_tiller.3b6bba": {
+   "id": "FT225.lamp.tail_lamp.C.steward_tiller.3b6bba",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     187056,
+     12
+    ],
+    "lamp_amber": [
+     187344,
+     48
+    ],
+    "lamp_brake": [
+     188496,
+     36
+    ],
+    "lamp_reverse": [
+     189360,
+     48
+    ],
+    "lamp_tail": [
+     190512,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.586,
+     0.006,
+     0.9,
+     1.272,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FT225.lamp.side_marker.C.steward_tiller.ef1041": {
+   "id": "FT225.lamp.side_marker.C.steward_tiller.ef1041",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     198576,
+     72
+    ],
+    "lamp_tail": [
+     200304,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     1.74,
+     1.016,
+     0.03,
+     3.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FT225.trim.bumper_front.C.steward_tiller.5301b4": {
+   "id": "FT225.trim.bumper_front.C.steward_tiller.5301b4",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     202032,
+     108
+    ],
+    "rubber": [
+     204624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     1.02,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.trim.bumper_rear.C.steward_tiller.39e5d2": {
+   "id": "FT225.trim.bumper_rear.C.steward_tiller.39e5d2",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     205488,
+     108
+    ],
+    "rubber": [
+     208080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     1.02,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.trim.mirror.R.steward_tiller.315b1f": {
+   "id": "FT225.trim.mirror.R.steward_tiller.315b1f",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     208944,
+     96
+    ],
+    "glass_dark": [
+     211248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.5863,
+     1.4633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.trim.mirror.L.steward_tiller.fbc960": {
+   "id": "FT225.trim.mirror.L.steward_tiller.fbc960",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     212112,
+     96
+    ],
+    "glass_dark": [
+     214416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.5859,
+     1.4635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.trim.fenders.C.steward_tiller.128613": {
+   "id": "FT225.trim.fenders.C.steward_tiller.128613",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "trim",
+   "slot": "fenders",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/trim/fenders/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     215280,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1179,
+     1.7594,
+     2.4,
+     0.4042,
+     3.5188
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FT225.equipment.hitch.C.steward_tiller.473864": {
+   "id": "FT225.equipment.hitch.C.steward_tiller.473864",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "equipment",
+   "slot": "hitch",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/equipment/hitch/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     219888,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7,
+     0.3176,
+     0.8598,
+     0.5591,
+     0.6352
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "FT225.equipment.roof_beacon.C.steward_tiller.ae00de": {
+   "id": "FT225.equipment.roof_beacon.C.steward_tiller.ae00de",
+   "standard": "FT225",
+   "class": "utility_tractor",
+   "role": "equipment",
+   "slot": "roof_beacon",
+   "side": "C",
+   "style": "steward_tiller",
+   "interface": "FT225/equipment/roof_beacon/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     226800,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.41,
+     0.09,
+     0.18,
+     0.14,
+     0.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

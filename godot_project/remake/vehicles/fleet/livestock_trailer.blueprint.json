@@ -1,0 +1,217 @@
+{
+ "_about": "livestock_trailer on the TL500 standard (a trailer; remake/blender/fleet/build.py)",
+ "type": "livestock_trailer",
+ "standard": "TL500",
+ "class": "livestock_trailer",
+ "style": "harrow_livestock_trailer",
+ "kind": "trailer",
+ "board": "harrow_tr50",
+ "stations": [
+  -2.47,
+  -1.72,
+  -0.97,
+  -0.8,
+  0.8,
+  1.28,
+  2.03,
+  2.57
+ ],
+ "placements": [
+  [
+   "cargo_side_R",
+   "TL500.cargo_wall.cargo_side.R.harrow_livestock_trailer.f9bccb",
+   -2.5
+  ],
+  [
+   "cargo_lining_R",
+   "TL500.cargo_lining.cargo_side.R.harrow_livestock_trailer.cd076d",
+   -2.5
+  ],
+  [
+   "cargo_reveal_V0_R",
+   "TL500.reveal.cargo_window_V0.R.harrow_livestock_trailer.4d0eb2",
+   -2.3
+  ],
+  [
+   "cargo_reveal_V1_R",
+   "TL500.reveal.cargo_window_V1.R.harrow_livestock_trailer.fcc648",
+   -1.36
+  ],
+  [
+   "cargo_reveal_V2_R",
+   "TL500.reveal.cargo_window_V2.R.harrow_livestock_trailer.ca2b65",
+   -0.42
+  ],
+  [
+   "cargo_reveal_V3_R",
+   "TL500.reveal.cargo_window_V3.R.harrow_livestock_trailer.076836",
+   0.52
+  ],
+  [
+   "cargo_reveal_V4_R",
+   "TL500.reveal.cargo_window_V4.R.harrow_livestock_trailer.a6a3df",
+   1.46
+  ],
+  [
+   "cargo_side_L",
+   "TL500.cargo_wall.cargo_side.L.harrow_livestock_trailer.b7034d",
+   -2.5
+  ],
+  [
+   "cargo_lining_L",
+   "TL500.cargo_lining.cargo_side.L.harrow_livestock_trailer.843c22",
+   -2.5
+  ],
+  [
+   "cargo_reveal_V0_L",
+   "TL500.reveal.cargo_window_V0.L.harrow_livestock_trailer.e69f08",
+   -2.3
+  ],
+  [
+   "cargo_reveal_V1_L",
+   "TL500.reveal.cargo_window_V1.L.harrow_livestock_trailer.290d2b",
+   -1.36
+  ],
+  [
+   "cargo_reveal_V2_L",
+   "TL500.reveal.cargo_window_V2.L.harrow_livestock_trailer.819133",
+   -0.42
+  ],
+  [
+   "cargo_reveal_V3_L",
+   "TL500.reveal.cargo_window_V3.L.harrow_livestock_trailer.b6fe7e",
+   0.52
+  ],
+  [
+   "cargo_reveal_V4_L",
+   "TL500.reveal.cargo_window_V4.L.harrow_livestock_trailer.704752",
+   1.46
+  ],
+  [
+   "cargo_floor",
+   "TL500.cargo_floor.cargo_floor.C.harrow_livestock_trailer.a49942",
+   -2.5
+  ],
+  [
+   "cargo_front",
+   "TL500.cargo_wall.cargo_front.C.harrow_livestock_trailer.074686",
+   -2.5
+  ],
+  [
+   "cargo_front_lining",
+   "TL500.cargo_lining.cargo_front.C.harrow_livestock_trailer.4ff13c",
+   -2.44
+  ],
+  [
+   "cargo_roof",
+   "TL500.cargo_wall.cargo_roof.C.harrow_livestock_trailer.745c38",
+   -2.5
+  ],
+  [
+   "cargo_ceiling",
+   "TL500.cargo_lining.cargo_roof.C.harrow_livestock_trailer.ccf316",
+   -2.44
+  ],
+  [
+   "cargo_rear_frame",
+   "TL500.cargo_wall.cargo_rear.C.harrow_livestock_trailer.da442f",
+   2.54
+  ],
+  [
+   "cargo_barn_R",
+   "TL500.hatch.cargo_barn_R.R.harrow_livestock_trailer.b7213e",
+   2.544
+  ],
+  [
+   "cargo_barn_L",
+   "TL500.hatch.cargo_barn_L.L.harrow_livestock_trailer.30d1aa",
+   2.544
+  ],
+  [
+   "tail_lamps",
+   "TL500.lamp.tail_lamp.C.harrow_livestock_trailer.21d43d",
+   -2.52
+  ]
+ ],
+ "doors": [],
+ "closers": [
+  {
+   "id": "cargo_barn_R",
+   "kind": "door",
+   "side": "R",
+   "parts": [
+    "cargo_barn_R"
+   ],
+   "hinge": [
+    1.02,
+    0.62,
+    2.6
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    -0.0
+   ],
+   "open_deg": 100
+  },
+  {
+   "id": "cargo_barn_L",
+   "kind": "door",
+   "side": "L",
+   "parts": [
+    "cargo_barn_L"
+   ],
+   "hinge": [
+    -1.02,
+    0.62,
+    2.6
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    -0.0
+   ],
+   "open_deg": -100
+  }
+ ],
+ "length_front": 2.5,
+ "length_back": 2.6,
+ "platform": {
+  "half_w": 0.72,
+  "y": 0.49,
+  "z": [
+   -2.5,
+   2.5
+  ]
+ },
+ "cabin_points": [],
+ "markers": [
+  [
+   "stand_cargo",
+   [
+    0,
+    0.0,
+    3.4
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_R",
+   [
+    0.96,
+    0.77,
+    2.65
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_L",
+   [
+    -0.96,
+    0.77,
+    2.65
+   ],
+   3.1416
+  ]
+ ]
+}

@@ -1,0 +1,6136 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "PR250",
+ "class": "passenger_train",
+ "style": "steward_coach",
+ "pack": "res://remake/vehicles/components/PR250/steward_coach.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.5882,
+    0.5961,
+    0.6118
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.1569,
+    0.3608,
+    0.5882
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "PR250.end_cap.nose.C.steward_coach.2f42b6": {
+   "id": "PR250.end_cap.nose.C.steward_coach.2f42b6",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.55,
+     0.03,
+     2.7706,
+     1.1,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.trim.cowl.C.steward_coach.d1cfbf": {
+   "id": "PR250.trim.cowl.C.steward_coach.d1cfbf",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12168,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.2775,
+     0.07,
+     2.9221,
+     0.425,
+     0.14
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.glazing.screen.C.steward_coach.daf706": {
+   "id": "PR250.glazing.screen.C.steward_coach.daf706",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     13320,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.02,
+     0.225,
+     2.9221,
+     1.76,
+     0.45
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.trim.screen.C.steward_coach.5c1841": {
+   "id": "PR250.trim.screen.C.steward_coach.5c1841",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     15624,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.8624,
+     0.225,
+     2.9221,
+     1.4528,
+     0.45
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.side_bay.fender.R.steward_coach.de3565": {
+   "id": "PR250.side_bay.fender.R.steward_coach.de3565",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19080,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     1.3812,
+     1.57,
+     0.495,
+     0.1977,
+     1.14,
+     0.99
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.fore.R.steward_coach.ef2a13": {
+   "id": "PR250.side_bay.fore.R.steward_coach.ef2a13",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     21528,
+     36
+    ],
+    "paint": [
+     22392,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.0,
+     1.875,
+     0.06,
+     2.0,
+     3.75
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.trim.sail.R.steward_coach.2f95eb": {
+   "id": "PR250.trim.sail.R.steward_coach.2f95eb",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     24120,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.425,
+     0.06,
+     0.88,
+     0.85
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.a_pillar.R.steward_coach.1ea672": {
+   "id": "PR250.trim.a_pillar.R.steward_coach.1ea672",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     25416,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.4068,
+     2.835,
+     0.225,
+     0.1136,
+     1.43,
+     0.45
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.side_bay.rocker_D1.R.steward_coach.473172": {
+   "id": "PR250.side_bay.rocker_D1.R.steward_coach.473172",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "rocker_D1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/rocker_D1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25992,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.465,
+     1.125,
+     0.75,
+     0.03,
+     0.25,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.post_0.R.steward_coach.e0fee2": {
+   "id": "PR250.side_bay.post_0.R.steward_coach.e0fee2",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26136,
+     162
+    ],
+    "paint": [
+     30024,
+     306
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.0,
+     6.05,
+     0.06,
+     2.0,
+     12.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.rocker_D2.R.steward_coach.e0d74c": {
+   "id": "PR250.side_bay.rocker_D2.R.steward_coach.e0d74c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "rocker_D2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/rocker_D2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     37368,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.465,
+     1.125,
+     0.75,
+     0.03,
+     0.25,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.quarter.R.steward_coach.92ffcd": {
+   "id": "PR250.side_bay.quarter.R.steward_coach.92ffcd",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     37512,
+     90
+    ],
+    "paint": [
+     39672,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.4494,
+     2.0,
+     2.36,
+     0.0611,
+     2.0,
+     4.72
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.fender.L.steward_coach.82e51c": {
+   "id": "PR250.side_bay.fender.L.steward_coach.82e51c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43128,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -1.3812,
+     1.57,
+     0.495,
+     0.1977,
+     1.14,
+     0.99
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.fore.L.steward_coach.6683dd": {
+   "id": "PR250.side_bay.fore.L.steward_coach.6683dd",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     45576,
+     36
+    ],
+    "paint": [
+     46440,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.0,
+     1.875,
+     0.06,
+     2.0,
+     3.75
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.trim.sail.L.steward_coach.4e0f90": {
+   "id": "PR250.trim.sail.L.steward_coach.4e0f90",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     48168,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.425,
+     0.06,
+     0.88,
+     0.85
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.a_pillar.L.steward_coach.621776": {
+   "id": "PR250.trim.a_pillar.L.steward_coach.621776",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     49464,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.4068,
+     2.835,
+     0.225,
+     0.1136,
+     1.43,
+     0.45
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.side_bay.rocker_D1.L.steward_coach.ebc6e1": {
+   "id": "PR250.side_bay.rocker_D1.L.steward_coach.ebc6e1",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "rocker_D1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/rocker_D1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50040,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.465,
+     1.125,
+     0.75,
+     0.03,
+     0.25,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.post_0.L.steward_coach.2d0d2c": {
+   "id": "PR250.side_bay.post_0.L.steward_coach.2d0d2c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     50184,
+     162
+    ],
+    "paint": [
+     54072,
+     306
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.0,
+     6.05,
+     0.06,
+     2.0,
+     12.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.rocker_D2.L.steward_coach.8520b3": {
+   "id": "PR250.side_bay.rocker_D2.L.steward_coach.8520b3",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "rocker_D2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/rocker_D2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61416,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.465,
+     1.125,
+     0.75,
+     0.03,
+     0.25,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.side_bay.quarter.L.steward_coach.7b692b": {
+   "id": "PR250.side_bay.quarter.L.steward_coach.7b692b",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     61560,
+     90
+    ],
+    "paint": [
+     63720,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.4494,
+     2.0,
+     2.36,
+     0.0611,
+     2.0,
+     4.72
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.roof_bay.roof_0.C.steward_coach.0036a7": {
+   "id": "PR250.roof_bay.roof_0.C.steward_coach.0036a7",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     67176,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.775,
+     2.84,
+     0.9,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_1.C.steward_coach.dec424": {
+   "id": "PR250.roof_bay.roof_1.C.steward_coach.dec424",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     70632,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.675,
+     2.84,
+     0.9,
+     1.35
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_2.C.steward_coach.adbc93": {
+   "id": "PR250.roof_bay.roof_2.C.steward_coach.adbc93",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     74088,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.625,
+     2.84,
+     0.9,
+     1.25
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_3.C.steward_coach.0993b6": {
+   "id": "PR250.roof_bay.roof_3.C.steward_coach.0993b6",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     75816,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.85,
+     2.84,
+     0.9,
+     1.7
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_4.C.steward_coach.c254cf": {
+   "id": "PR250.roof_bay.roof_4.C.steward_coach.c254cf",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     79272,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     1.25,
+     2.84,
+     0.9,
+     2.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_5.C.steward_coach.5b5a9c": {
+   "id": "PR250.roof_bay.roof_5.C.steward_coach.5b5a9c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     84456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.675,
+     2.84,
+     0.9,
+     1.35
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_6.C.steward_coach.7ea019": {
+   "id": "PR250.roof_bay.roof_6.C.steward_coach.7ea019",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_6",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_6/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     87912,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.775,
+     2.84,
+     0.9,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_7.C.steward_coach.8fbddc": {
+   "id": "PR250.roof_bay.roof_7.C.steward_coach.8fbddc",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_7",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_7/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     93096,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.675,
+     2.84,
+     0.9,
+     1.35
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_8.C.steward_coach.0d9eda": {
+   "id": "PR250.roof_bay.roof_8.C.steward_coach.0d9eda",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_8",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_8/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     96552,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.675,
+     2.84,
+     0.9,
+     1.35
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_9.C.steward_coach.1ba736": {
+   "id": "PR250.roof_bay.roof_9.C.steward_coach.1ba736",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_9",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_9/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     100008,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     1.25,
+     2.84,
+     0.9,
+     2.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_10.C.steward_coach.c48ecd": {
+   "id": "PR250.roof_bay.roof_10.C.steward_coach.c48ecd",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_10",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_10/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     105192,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.65,
+     2.84,
+     0.9,
+     1.3
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_11.C.steward_coach.947506": {
+   "id": "PR250.roof_bay.roof_11.C.steward_coach.947506",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_11",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_11/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     106920,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.75,
+     2.84,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_12.C.steward_coach.47bc33": {
+   "id": "PR250.roof_bay.roof_12.C.steward_coach.47bc33",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_12",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_12/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     108648,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.775,
+     2.84,
+     0.9,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_13.C.steward_coach.b72134": {
+   "id": "PR250.roof_bay.roof_13.C.steward_coach.b72134",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_13",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_13/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     113832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.675,
+     2.84,
+     0.9,
+     1.35
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.roof_bay.roof_14.C.steward_coach.7a53ab": {
+   "id": "PR250.roof_bay.roof_14.C.steward_coach.7a53ab",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "roof_bay",
+   "slot": "roof_14",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/roof_bay/roof_14/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     117288,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.45,
+     0.91,
+     2.84,
+     0.9,
+     1.82
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.end_cap.tail.C.steward_coach.fec85d": {
+   "id": "PR250.end_cap.tail.C.steward_coach.fec85d",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     122472,
+     573
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.45,
+     0.04,
+     2.9576,
+     2.9,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "PR250.floor.floor.C.steward_coach.c99e0e": {
+   "id": "PR250.floor.floor.C.steward_coach.c99e0e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     136224,
+     1632
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.25,
+     12.21,
+     2.84,
+     0.02,
+     24.42
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "PR250.lining_bay.trim_0_0.R.steward_coach.2c6d9f": {
+   "id": "PR250.lining_bay.trim_0_0.R.steward_coach.2c6d9f",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     175392,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.39,
+     2.125,
+     0.225,
+     0.06,
+     1.75,
+     0.45
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_0_1.R.steward_coach.f7d70a": {
+   "id": "PR250.lining_bay.trim_0_1.R.steward_coach.f7d70a",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_0_1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_0_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     176832,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     1.39,
+     2.125,
+     2.075,
+     0.06,
+     1.75,
+     4.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_1_0.R.steward_coach.8125ad": {
+   "id": "PR250.lining_bay.trim_1_0.R.steward_coach.8125ad",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     179568,
+     366
+    ]
+   },
+   "boxes": [
+    [
+     1.39,
+     2.125,
+     6.05,
+     0.06,
+     1.75,
+     12.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_2_0.R.steward_coach.01aab7": {
+   "id": "PR250.lining_bay.trim_2_0.R.steward_coach.01aab7",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     188352,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     1.3895,
+     2.125,
+     2.36,
+     0.0611,
+     1.75,
+     4.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.a_pillar.R.steward_coach.4e088c": {
+   "id": "PR250.lining_bay.a_pillar.R.steward_coach.4e088c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     192816,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.3471,
+     2.7702,
+     0.225,
+     0.1142,
+     1.4156,
+     0.45
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_0_0.L.steward_coach.f23f38": {
+   "id": "PR250.lining_bay.trim_0_0.L.steward_coach.f23f38",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     193392,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.39,
+     2.125,
+     0.225,
+     0.06,
+     1.75,
+     0.45
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_0_1.L.steward_coach.562879": {
+   "id": "PR250.lining_bay.trim_0_1.L.steward_coach.562879",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_0_1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_0_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     194832,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     -1.39,
+     2.125,
+     2.075,
+     0.06,
+     1.75,
+     4.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_1_0.L.steward_coach.150498": {
+   "id": "PR250.lining_bay.trim_1_0.L.steward_coach.150498",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     197568,
+     366
+    ]
+   },
+   "boxes": [
+    [
+     -1.39,
+     2.125,
+     6.05,
+     0.06,
+     1.75,
+     12.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.trim_2_0.L.steward_coach.a433c6": {
+   "id": "PR250.lining_bay.trim_2_0.L.steward_coach.a433c6",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/trim_2_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     206352,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     -1.3895,
+     2.125,
+     2.36,
+     0.0611,
+     1.75,
+     4.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.lining_bay.a_pillar.L.steward_coach.c12733": {
+   "id": "PR250.lining_bay.a_pillar.L.steward_coach.c12733",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     210816,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.3471,
+     2.7702,
+     0.225,
+     0.1142,
+     1.4156,
+     0.45
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_0.C.steward_coach.0294c1": {
+   "id": "PR250.ceiling_bay.roof_0.C.steward_coach.0294c1",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     211392,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.775,
+     2.72,
+     0.78,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_1.C.steward_coach.83c1cb": {
+   "id": "PR250.ceiling_bay.roof_1.C.steward_coach.83c1cb",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     214848,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.675,
+     2.72,
+     0.78,
+     1.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_2.C.steward_coach.0a00d8": {
+   "id": "PR250.ceiling_bay.roof_2.C.steward_coach.0a00d8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     218304,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.625,
+     2.72,
+     0.78,
+     1.25
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_3.C.steward_coach.c216b9": {
+   "id": "PR250.ceiling_bay.roof_3.C.steward_coach.c216b9",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     220032,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.85,
+     2.72,
+     0.78,
+     1.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_4.C.steward_coach.124e04": {
+   "id": "PR250.ceiling_bay.roof_4.C.steward_coach.124e04",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     223488,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     1.25,
+     2.72,
+     0.78,
+     2.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_5.C.steward_coach.5fc98a": {
+   "id": "PR250.ceiling_bay.roof_5.C.steward_coach.5fc98a",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     228672,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.675,
+     2.72,
+     0.78,
+     1.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_6.C.steward_coach.b9d71c": {
+   "id": "PR250.ceiling_bay.roof_6.C.steward_coach.b9d71c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_6",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_6/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     232128,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.775,
+     2.72,
+     0.78,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_7.C.steward_coach.bd5c90": {
+   "id": "PR250.ceiling_bay.roof_7.C.steward_coach.bd5c90",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_7",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_7/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     237312,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.675,
+     2.72,
+     0.78,
+     1.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_8.C.steward_coach.9bb5d2": {
+   "id": "PR250.ceiling_bay.roof_8.C.steward_coach.9bb5d2",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_8",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_8/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     240768,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.675,
+     2.72,
+     0.78,
+     1.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_9.C.steward_coach.885733": {
+   "id": "PR250.ceiling_bay.roof_9.C.steward_coach.885733",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_9",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_9/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     244224,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     1.25,
+     2.72,
+     0.78,
+     2.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_10.C.steward_coach.1c7f68": {
+   "id": "PR250.ceiling_bay.roof_10.C.steward_coach.1c7f68",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_10",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_10/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     249408,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.65,
+     2.72,
+     0.78,
+     1.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_11.C.steward_coach.c9a1cb": {
+   "id": "PR250.ceiling_bay.roof_11.C.steward_coach.c9a1cb",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_11",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_11/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     251136,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.75,
+     2.72,
+     0.78,
+     1.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_12.C.steward_coach.4762d6": {
+   "id": "PR250.ceiling_bay.roof_12.C.steward_coach.4762d6",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_12",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_12/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     252864,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.775,
+     2.72,
+     0.78,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_13.C.steward_coach.e00582": {
+   "id": "PR250.ceiling_bay.roof_13.C.steward_coach.e00582",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_13",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_13/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     258048,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.675,
+     2.72,
+     0.78,
+     1.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.ceiling_bay.roof_14.C.steward_coach.ebf364": {
+   "id": "PR250.ceiling_bay.roof_14.C.steward_coach.ebf364",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "ceiling_bay",
+   "slot": "roof_14",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/ceiling_bay/roof_14/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     261504,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.39,
+     0.91,
+     2.72,
+     0.78,
+     1.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.end_lining.firewall.C.steward_coach.4e5651": {
+   "id": "PR250.end_lining.firewall.C.steward_coach.4e5651",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     266688,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.81,
+     -0.0,
+     2.83,
+     1.12,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.end_lining.rear_wall.C.steward_coach.e0429f": {
+   "id": "PR250.end_lining.rear_wall.C.steward_coach.e0429f",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     268128,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.515,
+     -0.0,
+     2.8377,
+     2.53,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.rear_opening.C.steward_coach.8f555a": {
+   "id": "PR250.reveal.rear_opening.C.steward_coach.8f555a",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     271584,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.04,
+     0.8,
+     0.7,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.glazing.back_window.C.steward_coach.f4b812": {
+   "id": "PR250.glazing.back_window.C.steward_coach.f4b812",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     274464,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     -0.0,
+     0.8,
+     0.7,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.reveal.door_D1.R.steward_coach.5f309d": {
+   "id": "PR250.reveal.door_D1.R.steward_coach.5f309d",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "door_D1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/door_D1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     275760,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.125,
+     0.75,
+     0.12,
+     1.75,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.door_D2.R.steward_coach.853549": {
+   "id": "PR250.reveal.door_D2.R.steward_coach.853549",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "door_D2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/door_D2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     277488,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.125,
+     0.75,
+     0.12,
+     1.75,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W0.R.steward_coach.6eb7c8": {
+   "id": "PR250.reveal.window_W0.R.steward_coach.6eb7c8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     279216,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W1.R.steward_coach.c7c7a8": {
+   "id": "PR250.reveal.window_W1.R.steward_coach.c7c7a8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     280368,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W2.R.steward_coach.49a892": {
+   "id": "PR250.reveal.window_W2.R.steward_coach.49a892",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     281520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W3.R.steward_coach.d86b7c": {
+   "id": "PR250.reveal.window_W3.R.steward_coach.d86b7c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     282672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W4.R.steward_coach.77e8c2": {
+   "id": "PR250.reveal.window_W4.R.steward_coach.77e8c2",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W4",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W4/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     283824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W5.R.steward_coach.4c8468": {
+   "id": "PR250.reveal.window_W5.R.steward_coach.4c8468",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W5",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W5/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     284976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W6.R.steward_coach.907a84": {
+   "id": "PR250.reveal.window_W6.R.steward_coach.907a84",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W6",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W6/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     286128,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W7.R.steward_coach.1579e5": {
+   "id": "PR250.reveal.window_W7.R.steward_coach.1579e5",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W7",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W7/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     287280,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W8.R.steward_coach.bf1dd4": {
+   "id": "PR250.reveal.window_W8.R.steward_coach.bf1dd4",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W8",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W8/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     288432,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W9.R.steward_coach.c002f7": {
+   "id": "PR250.reveal.window_W9.R.steward_coach.c002f7",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W9",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W9/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     289584,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W10.R.steward_coach.df14bb": {
+   "id": "PR250.reveal.window_W10.R.steward_coach.df14bb",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W10",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W10/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     290736,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W11.R.steward_coach.67500c": {
+   "id": "PR250.reveal.window_W11.R.steward_coach.67500c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W11",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W11/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     291888,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W12.R.steward_coach.50447e": {
+   "id": "PR250.reveal.window_W12.R.steward_coach.50447e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W12",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W12/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     293040,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.door_D1.L.steward_coach.cc5c96": {
+   "id": "PR250.reveal.door_D1.L.steward_coach.cc5c96",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "door_D1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/door_D1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     294192,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.125,
+     0.75,
+     0.12,
+     1.75,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.door_D2.L.steward_coach.14de84": {
+   "id": "PR250.reveal.door_D2.L.steward_coach.14de84",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "door_D2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/door_D2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     295920,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.125,
+     0.75,
+     0.12,
+     1.75,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W0.L.steward_coach.1f0686": {
+   "id": "PR250.reveal.window_W0.L.steward_coach.1f0686",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     297648,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W1.L.steward_coach.869eff": {
+   "id": "PR250.reveal.window_W1.L.steward_coach.869eff",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     298800,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W2.L.steward_coach.fb8573": {
+   "id": "PR250.reveal.window_W2.L.steward_coach.fb8573",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     299952,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W3.L.steward_coach.0bdcf1": {
+   "id": "PR250.reveal.window_W3.L.steward_coach.0bdcf1",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     301104,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W4.L.steward_coach.2b17be": {
+   "id": "PR250.reveal.window_W4.L.steward_coach.2b17be",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W4",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W4/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     302256,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W5.L.steward_coach.6b0d7b": {
+   "id": "PR250.reveal.window_W5.L.steward_coach.6b0d7b",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W5",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W5/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     303408,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W6.L.steward_coach.75c30c": {
+   "id": "PR250.reveal.window_W6.L.steward_coach.75c30c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W6",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W6/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     304560,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W7.L.steward_coach.daf875": {
+   "id": "PR250.reveal.window_W7.L.steward_coach.daf875",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W7",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W7/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     305712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W8.L.steward_coach.95762b": {
+   "id": "PR250.reveal.window_W8.L.steward_coach.95762b",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W8",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W8/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     306864,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W9.L.steward_coach.bd0583": {
+   "id": "PR250.reveal.window_W9.L.steward_coach.bd0583",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W9",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W9/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     308016,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W10.L.steward_coach.d515d6": {
+   "id": "PR250.reveal.window_W10.L.steward_coach.d515d6",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W10",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W10/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     309168,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W11.L.steward_coach.af7a50": {
+   "id": "PR250.reveal.window_W11.L.steward_coach.af7a50",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W11",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W11/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     310320,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.window_W12.L.steward_coach.498881": {
+   "id": "PR250.reveal.window_W12.L.steward_coach.498881",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "window_W12",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/window_W12/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     311472,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     2.56,
+     0.575,
+     0.12,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.reveal.screen.C.steward_coach.d9198f": {
+   "id": "PR250.reveal.screen.C.steward_coach.d9198f",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     312624,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.984,
+     0.225,
+     2.9221,
+     1.832,
+     0.45
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PR250.glazing.window_W0.R.steward_coach.20229a": {
+   "id": "PR250.glazing.window_W0.R.steward_coach.20229a",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     315504,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W0.L.steward_coach.21b484": {
+   "id": "PR250.glazing.window_W0.L.steward_coach.21b484",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     315936,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W1.R.steward_coach.a08ca4": {
+   "id": "PR250.glazing.window_W1.R.steward_coach.a08ca4",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     316368,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W1.L.steward_coach.9f6570": {
+   "id": "PR250.glazing.window_W1.L.steward_coach.9f6570",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     316800,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W2.R.steward_coach.98f24e": {
+   "id": "PR250.glazing.window_W2.R.steward_coach.98f24e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     317232,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W2.L.steward_coach.9a2d55": {
+   "id": "PR250.glazing.window_W2.L.steward_coach.9a2d55",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     317664,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W3.R.steward_coach.1bc496": {
+   "id": "PR250.glazing.window_W3.R.steward_coach.1bc496",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     318096,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W3.L.steward_coach.1130f3": {
+   "id": "PR250.glazing.window_W3.L.steward_coach.1130f3",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     318528,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W4.R.steward_coach.f6df23": {
+   "id": "PR250.glazing.window_W4.R.steward_coach.f6df23",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W4",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W4/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     318960,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W4.L.steward_coach.38289e": {
+   "id": "PR250.glazing.window_W4.L.steward_coach.38289e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W4",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W4/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     319392,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W5.R.steward_coach.7f9fef": {
+   "id": "PR250.glazing.window_W5.R.steward_coach.7f9fef",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W5",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W5/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     319824,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W5.L.steward_coach.d32bff": {
+   "id": "PR250.glazing.window_W5.L.steward_coach.d32bff",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W5",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W5/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     320256,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W6.R.steward_coach.9844c4": {
+   "id": "PR250.glazing.window_W6.R.steward_coach.9844c4",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W6",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W6/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     320688,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W6.L.steward_coach.80009e": {
+   "id": "PR250.glazing.window_W6.L.steward_coach.80009e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W6",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W6/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     321120,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W7.R.steward_coach.ad23e6": {
+   "id": "PR250.glazing.window_W7.R.steward_coach.ad23e6",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W7",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W7/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     321552,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W7.L.steward_coach.0777df": {
+   "id": "PR250.glazing.window_W7.L.steward_coach.0777df",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W7",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W7/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     321984,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W8.R.steward_coach.d4fb06": {
+   "id": "PR250.glazing.window_W8.R.steward_coach.d4fb06",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W8",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W8/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     322416,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W8.L.steward_coach.6027a1": {
+   "id": "PR250.glazing.window_W8.L.steward_coach.6027a1",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W8",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W8/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     322848,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W9.R.steward_coach.62bc0c": {
+   "id": "PR250.glazing.window_W9.R.steward_coach.62bc0c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W9",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W9/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     323280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W9.L.steward_coach.1cce4f": {
+   "id": "PR250.glazing.window_W9.L.steward_coach.1cce4f",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W9",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W9/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     323712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W10.R.steward_coach.3c9270": {
+   "id": "PR250.glazing.window_W10.R.steward_coach.3c9270",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W10",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W10/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     324144,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W10.L.steward_coach.32cecf": {
+   "id": "PR250.glazing.window_W10.L.steward_coach.32cecf",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W10",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W10/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     324576,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W11.R.steward_coach.2108a2": {
+   "id": "PR250.glazing.window_W11.R.steward_coach.2108a2",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W11",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W11/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     325008,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W11.L.steward_coach.0d9943": {
+   "id": "PR250.glazing.window_W11.L.steward_coach.0d9943",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W11",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W11/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     325440,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W12.R.steward_coach.5e7073": {
+   "id": "PR250.glazing.window_W12.R.steward_coach.5e7073",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W12",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W12/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     325872,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.glazing.window_W12.L.steward_coach.5a859a": {
+   "id": "PR250.glazing.window_W12.L.steward_coach.5a859a",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "glazing",
+   "slot": "window_W12",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/glazing/window_W12/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     326304,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.575,
+     0.06,
+     0.88,
+     1.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.door_leaf.door_D1.R.steward_coach.17f006": {
+   "id": "PR250.door_leaf.door_D1.R.steward_coach.17f006",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_leaf",
+   "slot": "door_D1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/door_leaf/door_D1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     326736,
+     12
+    ],
+    "paint": [
+     327024,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     1.685,
+     0.75,
+     0.06,
+     0.87,
+     1.5
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_glass.door_D1.R.steward_coach.c14035": {
+   "id": "PR250.door_glass.door_D1.R.steward_coach.c14035",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_glass",
+   "slot": "door_D1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/door_glass/door_D1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     328176,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.75,
+     0.06,
+     0.88,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.leaf_trim.handle_D1.R.steward_coach.44472c": {
+   "id": "PR250.leaf_trim.handle_D1.R.steward_coach.44472c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "handle_D1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/handle_D1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     328608,
+     36
+    ],
+    "dash": [
+     329472,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.425,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_leaf.door_D2.R.steward_coach.acd829": {
+   "id": "PR250.door_leaf.door_D2.R.steward_coach.acd829",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_leaf",
+   "slot": "door_D2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/door_leaf/door_D2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     330336,
+     12
+    ],
+    "paint": [
+     330624,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     1.685,
+     0.75,
+     0.06,
+     0.87,
+     1.5
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_glass.door_D2.R.steward_coach.a88877": {
+   "id": "PR250.door_glass.door_D2.R.steward_coach.a88877",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_glass",
+   "slot": "door_D2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/door_glass/door_D2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     331776,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.56,
+     0.75,
+     0.06,
+     0.88,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.leaf_trim.handle_D2.R.steward_coach.caa2e8": {
+   "id": "PR250.leaf_trim.handle_D2.R.steward_coach.caa2e8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "handle_D2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/handle_D2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     332208,
+     36
+    ],
+    "dash": [
+     333072,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.425,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_leaf.door_D1.L.steward_coach.903e33": {
+   "id": "PR250.door_leaf.door_D1.L.steward_coach.903e33",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_leaf",
+   "slot": "door_D1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/door_leaf/door_D1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     333936,
+     12
+    ],
+    "paint": [
+     334224,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     1.685,
+     0.75,
+     0.06,
+     0.87,
+     1.5
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_glass.door_D1.L.steward_coach.130ae0": {
+   "id": "PR250.door_glass.door_D1.L.steward_coach.130ae0",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_glass",
+   "slot": "door_D1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/door_glass/door_D1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     335376,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.75,
+     0.06,
+     0.88,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.leaf_trim.handle_D1.L.steward_coach.0c0459": {
+   "id": "PR250.leaf_trim.handle_D1.L.steward_coach.0c0459",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "handle_D1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/handle_D1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     335808,
+     36
+    ],
+    "dash": [
+     336672,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.425,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_leaf.door_D2.L.steward_coach.f5b530": {
+   "id": "PR250.door_leaf.door_D2.L.steward_coach.f5b530",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_leaf",
+   "slot": "door_D2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/door_leaf/door_D2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     337536,
+     12
+    ],
+    "paint": [
+     337824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     1.685,
+     0.75,
+     0.06,
+     0.87,
+     1.5
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.door_glass.door_D2.L.steward_coach.fe1963": {
+   "id": "PR250.door_glass.door_D2.L.steward_coach.fe1963",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "door_glass",
+   "slot": "door_D2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/door_glass/door_D2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     338976,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.56,
+     0.75,
+     0.06,
+     0.88,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "PR250.leaf_trim.handle_D2.L.steward_coach.10eaa8": {
+   "id": "PR250.leaf_trim.handle_D2.L.steward_coach.10eaa8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "handle_D2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/handle_D2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     339408,
+     36
+    ],
+    "dash": [
+     340272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.425,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.underpan.underpan.C.steward_coach.7b170f": {
+   "id": "PR250.underpan.underpan.C.steward_coach.7b170f",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     341136,
+     1014
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7525,
+     12.35,
+     2.9,
+     0.495,
+     24.7
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "PR250.seat.row_0.C.steward_coach.8995e8": {
+   "id": "PR250.seat.row_0.C.steward_coach.8995e8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     365472,
+     36
+    ],
+    "seat": [
+     366336,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     1.9246,
+     0.4335,
+     0.51,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_1.C.steward_coach.b0978d": {
+   "id": "PR250.seat.row_1.C.steward_coach.b0978d",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     368928,
+     144
+    ],
+    "seat": [
+     372384,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_2.C.steward_coach.23d7fe": {
+   "id": "PR250.seat.row_2.C.steward_coach.23d7fe",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     379296,
+     144
+    ],
+    "seat": [
+     382752,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_3.C.steward_coach.697145": {
+   "id": "PR250.seat.row_3.C.steward_coach.697145",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_3",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_3/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     389664,
+     144
+    ],
+    "seat": [
+     393120,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_4.C.steward_coach.8bc421": {
+   "id": "PR250.seat.row_4.C.steward_coach.8bc421",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_4",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_4/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     400032,
+     144
+    ],
+    "seat": [
+     403488,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_5.C.steward_coach.ee67dd": {
+   "id": "PR250.seat.row_5.C.steward_coach.ee67dd",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_5",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_5/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     410400,
+     144
+    ],
+    "seat": [
+     413856,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_6.C.steward_coach.179bb1": {
+   "id": "PR250.seat.row_6.C.steward_coach.179bb1",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_6",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_6/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     420768,
+     144
+    ],
+    "seat": [
+     424224,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_7.C.steward_coach.bf561e": {
+   "id": "PR250.seat.row_7.C.steward_coach.bf561e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_7",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_7/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     431136,
+     144
+    ],
+    "seat": [
+     434592,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_8.C.steward_coach.1eab45": {
+   "id": "PR250.seat.row_8.C.steward_coach.1eab45",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_8",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_8/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     441504,
+     144
+    ],
+    "seat": [
+     444960,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_9.C.steward_coach.055bb1": {
+   "id": "PR250.seat.row_9.C.steward_coach.055bb1",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_9",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_9/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     451872,
+     144
+    ],
+    "seat": [
+     455328,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_10.C.steward_coach.c14093": {
+   "id": "PR250.seat.row_10.C.steward_coach.c14093",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_10",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_10/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     462240,
+     144
+    ],
+    "seat": [
+     465696,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_11.C.steward_coach.6c6ea7": {
+   "id": "PR250.seat.row_11.C.steward_coach.6c6ea7",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_11",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_11/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     472608,
+     144
+    ],
+    "seat": [
+     476064,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_12.C.steward_coach.be30b3": {
+   "id": "PR250.seat.row_12.C.steward_coach.be30b3",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_12",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_12/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     482976,
+     144
+    ],
+    "seat": [
+     486432,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_13.C.steward_coach.fedeb2": {
+   "id": "PR250.seat.row_13.C.steward_coach.fedeb2",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_13",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_13/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     493344,
+     144
+    ],
+    "seat": [
+     496800,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_14.C.steward_coach.ba2d1e": {
+   "id": "PR250.seat.row_14.C.steward_coach.ba2d1e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_14",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_14/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     503712,
+     144
+    ],
+    "seat": [
+     507168,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_15.C.steward_coach.7dc5fb": {
+   "id": "PR250.seat.row_15.C.steward_coach.7dc5fb",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_15",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_15/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     514080,
+     144
+    ],
+    "seat": [
+     517536,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_16.C.steward_coach.41290f": {
+   "id": "PR250.seat.row_16.C.steward_coach.41290f",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_16",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_16/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     524448,
+     144
+    ],
+    "seat": [
+     527904,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_17.C.steward_coach.00de47": {
+   "id": "PR250.seat.row_17.C.steward_coach.00de47",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_17",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_17/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     534816,
+     144
+    ],
+    "seat": [
+     538272,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_18.C.steward_coach.a8c6bc": {
+   "id": "PR250.seat.row_18.C.steward_coach.a8c6bc",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_18",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_18/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     545184,
+     144
+    ],
+    "seat": [
+     548640,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.seat.row_19.C.steward_coach.59288c": {
+   "id": "PR250.seat.row_19.C.steward_coach.59288c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "seat",
+   "slot": "row_19",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/seat/row_19/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     555552,
+     144
+    ],
+    "seat": [
+     559008,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8277,
+     0.4023,
+     2.4,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "PR250.dash.dash.C.steward_coach.ef4c14": {
+   "id": "PR250.dash.dash.C.steward_coach.ef4c14",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     565920,
+     1236
+    ],
+    "chrome": [
+     595584,
+     120
+    ],
+    "dash": [
+     598464,
+     108
+    ],
+    "gauge": [
+     601056,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.2072,
+     2.68,
+     0.3901,
+     0.4143
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "PR250.dash.readout.C.steward_coach.9939d9": {
+   "id": "PR250.dash.readout.C.steward_coach.9939d9",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     610272,
+     36
+    ],
+    "lcd": [
+     611136,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "PR250.lamp.head_lamp.C.steward_coach.ef27a3": {
+   "id": "PR250.lamp.head_lamp.C.steward_coach.ef27a3",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     612000,
+     480
+    ],
+    "lamp_amber": [
+     623520,
+     72
+    ],
+    "lamp_drl": [
+     625248,
+     480
+    ],
+    "lamp_head": [
+     636768,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.01,
+     2.654,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PR250.lamp.tail_lamp.C.steward_coach.5fadd4": {
+   "id": "PR250.lamp.tail_lamp.C.steward_coach.5fadd4",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     648288,
+     12
+    ],
+    "lamp_amber": [
+     648576,
+     48
+    ],
+    "lamp_brake": [
+     649728,
+     36
+    ],
+    "lamp_reverse": [
+     650592,
+     48
+    ],
+    "lamp_tail": [
+     651744,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.061,
+     0.006,
+     2.8608,
+     1.822,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PR250.lamp.side_marker.C.steward_coach.277d35": {
+   "id": "PR250.lamp.side_marker.C.steward_coach.277d35",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     659808,
+     72
+    ],
+    "lamp_tail": [
+     661536,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.302,
+     12.19,
+     2.976,
+     0.03,
+     24.38
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PR250.lamp.id_lamp.C.steward_coach.02f9fa": {
+   "id": "PR250.lamp.id_lamp.C.steward_coach.02f9fa",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     663264,
+     180
+    ],
+    "lamp_tail": [
+     667584,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.736,
+     12.025,
+     2.7,
+     0.376,
+     24.05
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "PR250.trim.bumper_front.C.steward_coach.774992": {
+   "id": "PR250.trim.bumper_front.C.steward_coach.774992",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     671904,
+     108
+    ],
+    "rubber": [
+     674496,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.05,
+     0.0655,
+     2.8232,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.bumper_rear.C.steward_coach.1495c8": {
+   "id": "PR250.trim.bumper_rear.C.steward_coach.1495c8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     675360,
+     108
+    ],
+    "rubber": [
+     677952,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.05,
+     0.0655,
+     2.8232,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.mirror.R.steward_coach.4288e7": {
+   "id": "PR250.trim.mirror.R.steward_coach.4288e7",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     678816,
+     96
+    ],
+    "glass_dark": [
+     681120,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.5663,
+     2.2133,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.mirror.L.steward_coach.628b47": {
+   "id": "PR250.trim.mirror.L.steward_coach.628b47",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     681984,
+     96
+    ],
+    "glass_dark": [
+     684288,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.5659,
+     2.2135,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_fender.R.steward_coach.41773d": {
+   "id": "PR250.trim.livery_fender.R.steward_coach.41773d",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     685152,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.4506,
+     1.75,
+     0.445,
+     0.0668,
+     0.3,
+     0.89
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_fore.R.steward_coach.634a3e": {
+   "id": "PR250.trim.livery_fore.R.steward_coach.634a3e",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     689184,
+     696
+    ]
+   },
+   "boxes": [
+    [
+     1.484,
+     1.75,
+     1.8,
+     0.02,
+     0.3,
+     3.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_post_0.R.steward_coach.b96b85": {
+   "id": "PR250.trim.livery_post_0.R.steward_coach.b96b85",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_post_0",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     705888,
+     2400
+    ]
+   },
+   "boxes": [
+    [
+     1.484,
+     1.75,
+     6.0,
+     0.02,
+     0.3,
+     12.0
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_quarter.R.steward_coach.b6061d": {
+   "id": "PR250.trim.livery_quarter.R.steward_coach.b6061d",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     763488,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     1.484,
+     1.75,
+     2.285,
+     0.02,
+     0.3,
+     4.57
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.leaf_trim.livery_door_D1.R.steward_coach.41387c": {
+   "id": "PR250.leaf_trim.livery_door_D1.R.steward_coach.41387c",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "livery_door_D1",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/livery_door_D1/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     784224,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     1.484,
+     1.75,
+     0.7,
+     0.02,
+     0.3,
+     1.4
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.leaf_trim.livery_door_D2.R.steward_coach.59ea6d": {
+   "id": "PR250.leaf_trim.livery_door_D2.R.steward_coach.59ea6d",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "livery_door_D2",
+   "side": "R",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/livery_door_D2/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     790560,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     1.484,
+     1.75,
+     0.7,
+     0.02,
+     0.3,
+     1.4
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.trim.livery_fender.L.steward_coach.15577b": {
+   "id": "PR250.trim.livery_fender.L.steward_coach.15577b",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     796896,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.4506,
+     1.75,
+     0.445,
+     0.0668,
+     0.3,
+     0.89
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_fore.L.steward_coach.a71fea": {
+   "id": "PR250.trim.livery_fore.L.steward_coach.a71fea",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     800928,
+     696
+    ]
+   },
+   "boxes": [
+    [
+     -1.484,
+     1.75,
+     1.8,
+     0.02,
+     0.3,
+     3.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_post_0.L.steward_coach.c2c8c8": {
+   "id": "PR250.trim.livery_post_0.L.steward_coach.c2c8c8",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_post_0",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     817632,
+     2400
+    ]
+   },
+   "boxes": [
+    [
+     -1.484,
+     1.75,
+     6.0,
+     0.02,
+     0.3,
+     12.0
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.trim.livery_quarter.L.steward_coach.d52e91": {
+   "id": "PR250.trim.livery_quarter.L.steward_coach.d52e91",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/trim/livery_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     875232,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     -1.484,
+     1.75,
+     2.285,
+     0.02,
+     0.3,
+     4.57
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "PR250.leaf_trim.livery_door_D1.L.steward_coach.19b7c7": {
+   "id": "PR250.leaf_trim.livery_door_D1.L.steward_coach.19b7c7",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "livery_door_D1",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/livery_door_D1/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     895968,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     -1.484,
+     1.75,
+     0.7,
+     0.02,
+     0.3,
+     1.4
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.leaf_trim.livery_door_D2.L.steward_coach.0dd12a": {
+   "id": "PR250.leaf_trim.livery_door_D2.L.steward_coach.0dd12a",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "leaf_trim",
+   "slot": "livery_door_D2",
+   "side": "L",
+   "style": "steward_coach",
+   "interface": "PR250/leaf_trim/livery_door_D2/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     902304,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     -1.484,
+     1.75,
+     0.7,
+     0.02,
+     0.3,
+     1.4
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "PR250.equipment.dest_sign.C.steward_coach.d2acf2": {
+   "id": "PR250.equipment.dest_sign.C.steward_coach.d2acf2",
+   "standard": "PR250",
+   "class": "passenger_train",
+   "role": "equipment",
+   "slot": "dest_sign",
+   "side": "C",
+   "style": "steward_coach",
+   "interface": "PR250/equipment/dest_sign/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     908640,
+     36
+    ],
+    "lcd": [
+     909504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.665,
+     0.032,
+     1.6,
+     0.2,
+     0.064
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.25
+  }
+ }
+}

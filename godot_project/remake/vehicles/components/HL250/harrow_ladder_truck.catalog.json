@@ -1,0 +1,2886 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "HL250",
+ "class": "ladder_truck",
+ "style": "harrow_ladder_truck",
+ "pack": "res://remake/vehicles/components/HL250/harrow_ladder_truck.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7059,
+    0.0941,
+    0.0941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7059,
+    0.0941,
+    0.0941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "HL250.end_cap.nose.C.harrow_ladder_truck.a36974": {
+   "id": "HL250.end_cap.nose.C.harrow_ladder_truck.a36974",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.3368,
+     1.7,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.trim.cowl.C.harrow_ladder_truck.aa4d0c": {
+   "id": "HL250.trim.cowl.C.harrow_ladder_truck.aa4d0c",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1625,
+     0.03,
+     2.4016,
+     0.155,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.glazing.screen.C.harrow_ladder_truck.6d36a2": {
+   "id": "HL250.glazing.screen.C.harrow_ladder_truck.6d36a2",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.19,
+     2.4016,
+     0.82,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HL250.trim.screen.C.harrow_ladder_truck.b453ce": {
+   "id": "HL250.trim.screen.C.harrow_ladder_truck.b453ce",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5041,
+     0.19,
+     2.4016,
+     0.7362,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.side_bay.fender.R.harrow_ladder_truck.a36224": {
+   "id": "HL250.side_bay.fender.R.harrow_ladder_truck.a36224",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.trim.sail.R.harrow_ladder_truck.d82ecd": {
+   "id": "HL250.trim.sail.R.harrow_ladder_truck.d82ecd",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.a_pillar.R.harrow_ladder_truck.5fd822": {
+   "id": "HL250.trim.a_pillar.R.harrow_ladder_truck.5fd822",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.side_bay.rocker_F.R.harrow_ladder_truck.37c1f1": {
+   "id": "HL250.side_bay.rocker_F.R.harrow_ladder_truck.37c1f1",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22824,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.side_bay.quarter.R.harrow_ladder_truck.d51e59": {
+   "id": "HL250.side_bay.quarter.R.harrow_ladder_truck.d51e59",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24408,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.side_bay.fender.L.harrow_ladder_truck.b7bebd": {
+   "id": "HL250.side_bay.fender.L.harrow_ladder_truck.b7bebd",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29016,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.trim.sail.L.harrow_ladder_truck.ce1c5c": {
+   "id": "HL250.trim.sail.L.harrow_ladder_truck.ce1c5c",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31896,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.a_pillar.L.harrow_ladder_truck.6b73aa": {
+   "id": "HL250.trim.a_pillar.L.harrow_ladder_truck.6b73aa",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.side_bay.rocker_F.L.harrow_ladder_truck.96435a": {
+   "id": "HL250.side_bay.rocker_F.L.harrow_ladder_truck.96435a",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34488,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.side_bay.quarter.L.harrow_ladder_truck.6411d8": {
+   "id": "HL250.side_bay.quarter.L.harrow_ladder_truck.6411d8",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36072,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.roof_bay.roof_0.C.harrow_ladder_truck.0e085b": {
+   "id": "HL250.roof_bay.roof_0.C.harrow_ladder_truck.0e085b",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40680,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.79,
+     0.78,
+     2.36,
+     0.34,
+     1.56
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.end_cap.tail.C.harrow_ladder_truck.16b580": {
+   "id": "HL250.end_cap.tail.C.harrow_ladder_truck.16b580",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     68328,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.69,
+     0.03,
+     2.4606,
+     2.54,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HL250.floor.floor.C.harrow_ladder_truck.62add6": {
+   "id": "HL250.floor.floor.C.harrow_ladder_truck.62add6",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     75168,
+     1140
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.97,
+     2.36,
+     0.02,
+     1.94
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HL250.lining_bay.trim_0_0.R.harrow_ladder_truck.01eb08": {
+   "id": "HL250.lining_bay.trim_0_0.R.harrow_ladder_truck.01eb08",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102528,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.lining_bay.trim_1_0.R.harrow_ladder_truck.cfbb2e": {
+   "id": "HL250.lining_bay.trim_1_0.R.harrow_ladder_truck.cfbb2e",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     104832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.lining_bay.a_pillar.R.harrow_ladder_truck.3ab5f5": {
+   "id": "HL250.lining_bay.a_pillar.R.harrow_ladder_truck.3ab5f5",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     108288,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.lining_bay.trim_0_0.L.harrow_ladder_truck.3e1844": {
+   "id": "HL250.lining_bay.trim_0_0.L.harrow_ladder_truck.3e1844",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     109152,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.lining_bay.trim_1_0.L.harrow_ladder_truck.00c6d7": {
+   "id": "HL250.lining_bay.trim_1_0.L.harrow_ladder_truck.00c6d7",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     111456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.lining_bay.a_pillar.L.harrow_ladder_truck.269d06": {
+   "id": "HL250.lining_bay.a_pillar.L.harrow_ladder_truck.269d06",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     114912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.ceiling_bay.roof_0.C.harrow_ladder_truck.6a275f": {
+   "id": "HL250.ceiling_bay.roof_0.C.harrow_ladder_truck.6a275f",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     115776,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.76,
+     0.78,
+     2.24,
+     0.28,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.end_lining.firewall.C.harrow_ladder_truck.b64b89": {
+   "id": "HL250.end_lining.firewall.C.harrow_ladder_truck.b64b89",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     143424,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.74,
+     0.0,
+     2.35,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.end_lining.rear_wall.C.harrow_ladder_truck.948030": {
+   "id": "HL250.end_lining.rear_wall.C.harrow_ladder_truck.948030",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1,
+     -0.0,
+     2.35,
+     1.6,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.reveal.rear_opening.C.harrow_ladder_truck.6880ed": {
+   "id": "HL250.reveal.rear_opening.C.harrow_ladder_truck.6880ed",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     148320,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     0.03,
+     1.2,
+     0.35,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.glazing.back_window.C.harrow_ladder_truck.66e6a4": {
+   "id": "HL250.glazing.back_window.C.harrow_ladder_truck.66e6a4",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     151200,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     -0.0,
+     1.2,
+     0.35,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HL250.reveal.door_F.R.harrow_ladder_truck.a3117f": {
+   "id": "HL250.reveal.door_F.R.harrow_ladder_truck.a3117f",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     152496,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.reveal.door_F.L.harrow_ladder_truck.6464e2": {
+   "id": "HL250.reveal.door_F.L.harrow_ladder_truck.6464e2",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     156240,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.reveal.screen.C.harrow_ladder_truck.841ba3": {
+   "id": "HL250.reveal.screen.C.harrow_ladder_truck.841ba3",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     159984,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.532,
+     0.19,
+     2.4016,
+     0.856,
+     0.38
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HL250.door_leaf.door_F.R.harrow_ladder_truck.4338a3": {
+   "id": "HL250.door_leaf.door_F.R.harrow_ladder_truck.4338a3",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     163152,
+     54
+    ],
+    "paint": [
+     164448,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.door_glass.door_F.R.harrow_ladder_truck.5f2bd0": {
+   "id": "HL250.door_glass.door_F.R.harrow_ladder_truck.5f2bd0",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     168624,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HL250.leaf_trim.handle_F.R.harrow_ladder_truck.ed8427": {
+   "id": "HL250.leaf_trim.handle_F.R.harrow_ladder_truck.ed8427",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     172512,
+     36
+    ],
+    "dash": [
+     173376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.door_leaf.door_F.L.harrow_ladder_truck.881029": {
+   "id": "HL250.door_leaf.door_F.L.harrow_ladder_truck.881029",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     174240,
+     54
+    ],
+    "paint": [
+     175536,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.door_glass.door_F.L.harrow_ladder_truck.b79a79": {
+   "id": "HL250.door_glass.door_F.L.harrow_ladder_truck.b79a79",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HL250.leaf_trim.handle_F.L.harrow_ladder_truck.8c1f68": {
+   "id": "HL250.leaf_trim.handle_F.L.harrow_ladder_truck.8c1f68",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     183600,
+     36
+    ],
+    "dash": [
+     184464,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.wheel_well.well_0.R.harrow_ladder_truck.9648fd": {
+   "id": "HL250.wheel_well.well_0.R.harrow_ladder_truck.9648fd",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     185328,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     0.9675,
+     0.8008,
+     0.5918,
+     0.5689,
+     0.7623,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HL250.wheel_well.well_0.L.harrow_ladder_truck.1227a0": {
+   "id": "HL250.wheel_well.well_0.L.harrow_ladder_truck.1227a0",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     200592,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     -0.9676,
+     0.8007,
+     0.5918,
+     0.5692,
+     0.7622,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HL250.wheel_well.steps.R.harrow_ladder_truck.7905ed": {
+   "id": "HL250.wheel_well.steps.R.harrow_ladder_truck.7905ed",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/wheel_well/steps/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     215856,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HL250.wheel_well.steps.L.harrow_ladder_truck.865c1c": {
+   "id": "HL250.wheel_well.steps.L.harrow_ladder_truck.865c1c",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/wheel_well/steps/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     218448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HL250.underpan.underpan.C.harrow_ladder_truck.5792e8": {
+   "id": "HL250.underpan.underpan.C.harrow_ladder_truck.5792e8",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     221040,
+     330
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4625,
+     1.06,
+     2.42,
+     0.085,
+     2.12
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_wall.cargo_plinth.C.harrow_ladder_truck.724503": {
+   "id": "HL250.cargo_wall.cargo_plinth.C.harrow_ladder_truck.724503",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     228960,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8725,
+     3.4,
+     1.68,
+     0.735,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_wall.cargo_side.R.harrow_ladder_truck.d08507": {
+   "id": "HL250.cargo_wall.cargo_side.R.harrow_ladder_truck.d08507",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     229680,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     1.24,
+     1.92,
+     3.4,
+     0.02,
+     1.36,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_lining.cargo_side.R.harrow_ladder_truck.d82b7f": {
+   "id": "HL250.cargo_lining.cargo_side.R.harrow_ladder_truck.d82b7f",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     234000,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.92,
+     3.4,
+     0.02,
+     1.24,
+     6.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_wall.cargo_side.L.harrow_ladder_truck.908b21": {
+   "id": "HL250.cargo_wall.cargo_side.L.harrow_ladder_truck.908b21",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     238320,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -1.24,
+     1.92,
+     3.4,
+     0.02,
+     1.36,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_lining.cargo_side.L.harrow_ladder_truck.9d9e4a": {
+   "id": "HL250.cargo_lining.cargo_side.L.harrow_ladder_truck.9d9e4a",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     242640,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.92,
+     3.4,
+     0.02,
+     1.24,
+     6.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_floor.cargo_floor.C.harrow_ladder_truck.750065": {
+   "id": "HL250.cargo_floor.cargo_floor.C.harrow_ladder_truck.750065",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     246960,
+     18
+    ],
+    "tub": [
+     247392,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     3.4,
+     2.48,
+     0.06,
+     6.8
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HL250.cargo_wall.cargo_front.C.harrow_ladder_truck.d84778": {
+   "id": "HL250.cargo_wall.cargo_front.C.harrow_ladder_truck.d84778",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     247536,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.92,
+     -0.0,
+     2.48,
+     1.36,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_lining.cargo_front.C.harrow_ladder_truck.b700d2": {
+   "id": "HL250.cargo_lining.cargo_front.C.harrow_ladder_truck.b700d2",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     247680,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.92,
+     0.0,
+     2.36,
+     1.24,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_wall.cargo_roof.C.harrow_ladder_truck.95f6c4": {
+   "id": "HL250.cargo_wall.cargo_roof.C.harrow_ladder_truck.95f6c4",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     247824,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.6,
+     3.4,
+     2.48,
+     0.02,
+     6.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_lining.cargo_roof.C.harrow_ladder_truck.ca5714": {
+   "id": "HL250.cargo_lining.cargo_roof.C.harrow_ladder_truck.ca5714",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     247968,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.54,
+     3.37,
+     2.36,
+     0.02,
+     6.74
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.cargo_wall.cargo_rear.C.harrow_ladder_truck.8a35fb": {
+   "id": "HL250.cargo_wall.cargo_rear.C.harrow_ladder_truck.8a35fb",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     248112,
+     24
+    ],
+    "paint2": [
+     248688,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.92,
+     0.03,
+     2.48,
+     1.36,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HL250.hatch.cdoor_C1.R.harrow_ladder_truck.c2de4f": {
+   "id": "HL250.hatch.cdoor_C1.R.harrow_ladder_truck.c2de4f",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "hatch",
+   "slot": "cdoor_C1",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/hatch/cdoor_C1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     249264,
+     360
+    ],
+    "chrome": [
+     257904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2125,
+     2.025,
+     0.497,
+     0.061,
+     1.144,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.hatch.cdoor_C1.L.harrow_ladder_truck.caae6c": {
+   "id": "HL250.hatch.cdoor_C1.L.harrow_ladder_truck.caae6c",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "hatch",
+   "slot": "cdoor_C1",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/hatch/cdoor_C1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     258768,
+     360
+    ],
+    "chrome": [
+     267408,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2125,
+     2.025,
+     0.497,
+     0.061,
+     1.144,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.hatch.cdoor_C2.R.harrow_ladder_truck.34b3a0": {
+   "id": "HL250.hatch.cdoor_C2.R.harrow_ladder_truck.34b3a0",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "hatch",
+   "slot": "cdoor_C2",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/hatch/cdoor_C2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     268272,
+     360
+    ],
+    "chrome": [
+     276912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2125,
+     2.025,
+     0.497,
+     0.061,
+     1.144,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.hatch.cdoor_C2.L.harrow_ladder_truck.e883f4": {
+   "id": "HL250.hatch.cdoor_C2.L.harrow_ladder_truck.e883f4",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "hatch",
+   "slot": "cdoor_C2",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/hatch/cdoor_C2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     277776,
+     360
+    ],
+    "chrome": [
+     286416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2125,
+     2.025,
+     0.497,
+     0.061,
+     1.144,
+     0.994
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.seat.row_0.C.harrow_ladder_truck.dd5e17": {
+   "id": "HL250.seat.row_0.C.harrow_ladder_truck.dd5e17",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     287280,
+     108
+    ],
+    "seat": [
+     289872,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9246,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HL250.dash.dash.C.harrow_ladder_truck.b28c71": {
+   "id": "HL250.dash.dash.C.harrow_ladder_truck.b28c71",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     297648,
+     1236
+    ],
+    "chrome": [
+     327312,
+     120
+    ],
+    "dash": [
+     330192,
+     108
+    ],
+    "gauge": [
+     332784,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.3676,
+     2.2,
+     0.3901,
+     0.7351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "HL250.dash.readout.C.harrow_ladder_truck.f3c3d1": {
+   "id": "HL250.dash.readout.C.harrow_ladder_truck.f3c3d1",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     342000,
+     36
+    ],
+    "lcd": [
+     342864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "HL250.lamp.head_lamp.C.harrow_ladder_truck.143150": {
+   "id": "HL250.lamp.head_lamp.C.harrow_ladder_truck.143150",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     343728,
+     72
+    ],
+    "lamp_amber": [
+     345456,
+     72
+    ],
+    "lamp_head": [
+     347184,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.007,
+     2.1998,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HL250.trim.grille.C.harrow_ladder_truck.ec1ba0": {
+   "id": "HL250.trim.grille.C.harrow_ladder_truck.ec1ba0",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     348912,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.5698,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.lamp.tail_lamp.C.harrow_ladder_truck.1f2675": {
+   "id": "HL250.lamp.tail_lamp.C.harrow_ladder_truck.1f2675",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     352368,
+     12
+    ],
+    "lamp_amber": [
+     352656,
+     48
+    ],
+    "lamp_brake": [
+     353808,
+     36
+    ],
+    "lamp_reverse": [
+     354672,
+     48
+    ],
+    "lamp_tail": [
+     355824,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.741,
+     0.006,
+     2.44,
+     1.582,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HL250.lamp.side_marker.C.harrow_ladder_truck.045521": {
+   "id": "HL250.lamp.side_marker.C.harrow_ladder_truck.045521",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     363888,
+     72
+    ],
+    "lamp_tail": [
+     365616,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     4.3,
+     2.496,
+     0.21,
+     8.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HL250.lamp.id_lamp.C.harrow_ladder_truck.df19dc": {
+   "id": "HL250.lamp.id_lamp.C.harrow_ladder_truck.df19dc",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     367344,
+     180
+    ],
+    "lamp_tail": [
+     371664,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.761,
+     4.23,
+     2.44,
+     0.446,
+     8.46
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HL250.trim.bumper_front.C.harrow_ladder_truck.bcc35f": {
+   "id": "HL250.trim.bumper_front.C.harrow_ladder_truck.bcc35f",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     375984,
+     108
+    ],
+    "rubber": [
+     378576,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.bumper_rear.C.harrow_ladder_truck.200f9d": {
+   "id": "HL250.trim.bumper_rear.C.harrow_ladder_truck.200f9d",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     379440,
+     108
+    ],
+    "rubber": [
+     382032,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.mirror.R.harrow_ladder_truck.2c4215": {
+   "id": "HL250.trim.mirror.R.harrow_ladder_truck.2c4215",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     382896,
+     96
+    ],
+    "glass_dark": [
+     385200,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.mirror.L.harrow_ladder_truck.25aeb8": {
+   "id": "HL250.trim.mirror.L.harrow_ladder_truck.25aeb8",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     386064,
+     96
+    ],
+    "glass_dark": [
+     388368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.livery_fender.R.harrow_ladder_truck.06298c": {
+   "id": "HL250.trim.livery_fender.R.harrow_ladder_truck.06298c",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     389232,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.2241,
+     2.1208,
+     0.32,
+     0.0399,
+     0.1183,
+     0.64
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.livery_quarter.R.harrow_ladder_truck.dc7b7e": {
+   "id": "HL250.trim.livery_quarter.R.harrow_ladder_truck.dc7b7e",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/livery_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     392112,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.239,
+     2.125,
+     0.1,
+     0.02,
+     0.11,
+     0.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.leaf_trim.livery_door_F.R.harrow_ladder_truck.10ecde": {
+   "id": "HL250.leaf_trim.livery_door_F.R.harrow_ladder_truck.10ecde",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "R",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/leaf_trim/livery_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     393264,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.2404,
+     2.125,
+     0.43,
+     0.02,
+     0.11,
+     0.86
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.trim.livery_fender.L.harrow_ladder_truck.93d6b0": {
+   "id": "HL250.trim.livery_fender.L.harrow_ladder_truck.93d6b0",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     397296,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.2241,
+     2.1208,
+     0.32,
+     0.0399,
+     0.1183,
+     0.64
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.trim.livery_quarter.L.harrow_ladder_truck.938652": {
+   "id": "HL250.trim.livery_quarter.L.harrow_ladder_truck.938652",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/trim/livery_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     400176,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.239,
+     2.125,
+     0.1,
+     0.02,
+     0.11,
+     0.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HL250.leaf_trim.livery_door_F.L.harrow_ladder_truck.fa098f": {
+   "id": "HL250.leaf_trim.livery_door_F.L.harrow_ladder_truck.fa098f",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     401328,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.2404,
+     2.125,
+     0.43,
+     0.02,
+     0.11,
+     0.86
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HL250.equipment.roof_bar.C.harrow_ladder_truck.2bfb2a": {
+   "id": "HL250.equipment.roof_bar.C.harrow_ladder_truck.2bfb2a",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "equipment",
+   "slot": "roof_bar",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/equipment/roof_bar/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     405360,
+     108
+    ],
+    "lamp_red": [
+     407952,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.015,
+     0.13,
+     1.28,
+     0.11,
+     0.26
+    ]
+   ],
+   "hp": 120,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "HL250.equipment.aerial_ladder.C.harrow_ladder_truck.fa8805": {
+   "id": "HL250.equipment.aerial_ladder.C.harrow_ladder_truck.fa8805",
+   "standard": "HL250",
+   "class": "ladder_truck",
+   "role": "equipment",
+   "slot": "aerial_ladder",
+   "side": "C",
+   "style": "harrow_ladder_truck",
+   "interface": "HL250/equipment/aerial_ladder/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     413136,
+     2304
+    ],
+    "paint": [
+     468432,
+     36
+    ],
+    "paint2": [
+     469296,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.945,
+     4.16,
+     1.4,
+     1.21,
+     8.32
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 1800,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

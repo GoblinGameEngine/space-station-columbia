@@ -88,6 +88,7 @@ func _controls_prompt() -> String:
 func _animate_car(delta: float) -> void:
 	_spin_a = fmod(_spin_a - _speed / wheel_r * delta, TAU)
 	_crank_a = fmod(_crank_a - _speed / wheel_r / GEAR * delta, TAU)
+	_suspend_wheels()
 	for w in wheels:
 		(w[0] as Node3D).transform.basis = (w[1] as Basis) * Basis(Vector3.RIGHT, _spin_a)
 	if steer_node:

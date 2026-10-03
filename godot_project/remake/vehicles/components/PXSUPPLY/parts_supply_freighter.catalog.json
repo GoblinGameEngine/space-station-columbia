@@ -1,0 +1,542 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "PXSUPPLY",
+ "class": "supply_freighter",
+ "style": "parts_supply_freighter",
+ "pack": "res://remake/vehicles/components/PXSUPPLY/parts_supply_freighter.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.5882,
+    0.5961,
+    0.6118
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "PXSUPPLY.frame_shown.truss.C.parts_supply_freighter.7b59d8": {
+   "id": "PXSUPPLY.frame_shown.truss.C.parts_supply_freighter.7b59d8",
+   "standard": "PXSUPPLY",
+   "class": "supply_freighter",
+   "role": "frame_shown",
+   "slot": "truss",
+   "side": "C",
+   "style": "parts_supply_freighter",
+   "interface": "PXSUPPLY/frame_shown/truss/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     0,
+     1512
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     10.0,
+     28.0,
+     6.7,
+     6.7,
+     56.0
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXSUPPLY.cargo_wall.pods.C.parts_supply_freighter.65b1fa": {
+   "id": "PXSUPPLY.cargo_wall.pods.C.parts_supply_freighter.65b1fa",
+   "standard": "PXSUPPLY",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods",
+   "side": "C",
+   "style": "parts_supply_freighter",
+   "interface": "PXSUPPLY/cargo_wall/pods/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36288,
+     288
+    ],
+    "paint2": [
+     43200,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     10.0,
+     27.6,
+     17.2,
+     5.2,
+     55.2
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PXSUPPLY.cab.bridge.C.parts_supply_freighter.06afa9": {
+   "id": "PXSUPPLY.cab.bridge.C.parts_supply_freighter.06afa9",
+   "standard": "PXSUPPLY",
+   "class": "supply_freighter",
+   "role": "cab",
+   "slot": "bridge",
+   "side": "C",
+   "style": "parts_supply_freighter",
+   "interface": "PXSUPPLY/cab/bridge/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     48384,
+     36
+    ],
+    "paint": [
+     49248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     10.0,
+     2.55,
+     8.0,
+     7.0,
+     5.1
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PXSUPPLY.equipment.drive.C.parts_supply_freighter.fa243e": {
+   "id": "PXSUPPLY.equipment.drive.C.parts_supply_freighter.fa243e",
+   "standard": "PXSUPPLY",
+   "class": "supply_freighter",
+   "role": "equipment",
+   "slot": "drive",
+   "side": "C",
+   "style": "parts_supply_freighter",
+   "interface": "PXSUPPLY/equipment/drive/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     50112,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     10.0,
+     3.5,
+     13.0,
+     13.0,
+     7.0
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXSUPPLY.equipment.radiators.C.parts_supply_freighter.0ba546": {
+   "id": "PXSUPPLY.equipment.radiators.C.parts_supply_freighter.0ba546",
+   "standard": "PXSUPPLY",
+   "class": "supply_freighter",
+   "role": "equipment",
+   "slot": "radiators",
+   "side": "C",
+   "style": "parts_supply_freighter",
+   "interface": "PXSUPPLY/equipment/radiators/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     54720,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     10.0,
+     8.0,
+     26.0,
+     0.16,
+     16.0
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  }
+ }
+}

@@ -1,0 +1,2549 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "RL280",
+ "class": "freight_locomotive",
+ "style": "steward_hauler",
+ "pack": "res://remake/vehicles/components/RL280/steward_hauler.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.1647,
+    0.1804
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "RL280.end_cap.nose.C.steward_hauler.e1853b": {
+   "id": "RL280.end_cap.nose.C.steward_hauler.e1853b",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.56,
+     0.03,
+     2.789,
+     1.12,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.trim.cowl.C.steward_hauler.9ea1f4": {
+   "id": "RL280.trim.cowl.C.steward_hauler.9ea1f4",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1625,
+     0.03,
+     2.8686,
+     0.155,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.glazing.screen.C.steward_hauler.3404f4": {
+   "id": "RL280.glazing.screen.C.steward_hauler.3404f4",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.215,
+     2.8721,
+     0.82,
+     0.43
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RL280.trim.screen.C.steward_hauler.ac4593": {
+   "id": "RL280.trim.screen.C.steward_hauler.ac4593",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5027,
+     0.215,
+     2.8803,
+     0.7334,
+     0.43
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.side_bay.fender.R.steward_hauler.01ada0": {
+   "id": "RL280.side_bay.fender.R.steward_hauler.01ada0",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     15624,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     1.3854,
+     1.57,
+     0.32,
+     0.1891,
+     1.14,
+     0.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.trim.sail.R.steward_hauler.fd8f0a": {
+   "id": "RL280.trim.sail.R.steward_hauler.fd8f0a",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     18072,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.37,
+     0.29,
+     0.06,
+     0.5,
+     0.58
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.trim.a_pillar.R.steward_hauler.fcec32": {
+   "id": "RL280.trim.a_pillar.R.steward_hauler.fcec32",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.4061,
+     2.49,
+     0.215,
+     0.1123,
+     0.74,
+     0.43
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.side_bay.rocker_F.R.steward_hauler.4f0d2c": {
+   "id": "RL280.side_bay.rocker_F.R.steward_hauler.4f0d2c",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19944,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.465,
+     1.16,
+     0.375,
+     0.03,
+     0.32,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.side_bay.quarter.R.steward_hauler.167221": {
+   "id": "RL280.side_bay.quarter.R.steward_hauler.167221",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20088,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.4445,
+     1.81,
+     0.32,
+     0.0711,
+     1.62,
+     0.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.side_bay.fender.L.steward_hauler.0323f8": {
+   "id": "RL280.side_bay.fender.L.steward_hauler.0323f8",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21816,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -1.3854,
+     1.57,
+     0.32,
+     0.1891,
+     1.14,
+     0.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.trim.sail.L.steward_hauler.0052dd": {
+   "id": "RL280.trim.sail.L.steward_hauler.0052dd",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24264,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.37,
+     0.29,
+     0.06,
+     0.5,
+     0.58
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.trim.a_pillar.L.steward_hauler.c6b7b4": {
+   "id": "RL280.trim.a_pillar.L.steward_hauler.c6b7b4",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25560,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.4061,
+     2.49,
+     0.215,
+     0.1123,
+     0.74,
+     0.43
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.side_bay.rocker_F.L.steward_hauler.4543c0": {
+   "id": "RL280.side_bay.rocker_F.L.steward_hauler.4543c0",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26136,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.465,
+     1.16,
+     0.375,
+     0.03,
+     0.32,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.side_bay.quarter.L.steward_hauler.187f58": {
+   "id": "RL280.side_bay.quarter.L.steward_hauler.187f58",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26280,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.4445,
+     1.81,
+     0.32,
+     0.0711,
+     1.62,
+     0.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.roof_bay.roof_0.C.steward_hauler.45c12b": {
+   "id": "RL280.roof_bay.roof_0.C.steward_hauler.45c12b",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     28008,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.79,
+     0.77,
+     2.84,
+     0.34,
+     1.54
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.end_cap.tail.C.steward_hauler.301c02": {
+   "id": "RL280.end_cap.tail.C.steward_hauler.301c02",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34920,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.98,
+     0.03,
+     2.9369,
+     1.96,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "RL280.floor.floor.C.steward_hauler.f0f483": {
+   "id": "RL280.floor.floor.C.steward_hauler.f0f483",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     41760,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     0.985,
+     2.84,
+     0.02,
+     1.97
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "RL280.lining_bay.trim_0_0.R.steward_hauler.a00a0a": {
+   "id": "RL280.lining_bay.trim_0_0.R.steward_hauler.a00a0a",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48672,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.39,
+     1.97,
+     0.29,
+     0.06,
+     1.3,
+     0.58
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.lining_bay.trim_1_0.R.steward_hauler.d3a055": {
+   "id": "RL280.lining_bay.trim_1_0.R.steward_hauler.d3a055",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50832,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.3847,
+     1.97,
+     0.32,
+     0.0706,
+     1.3,
+     0.64
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.lining_bay.a_pillar.R.steward_hauler.a4fc94": {
+   "id": "RL280.lining_bay.a_pillar.R.steward_hauler.a4fc94",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52272,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.3461,
+     2.4612,
+     0.215,
+     0.1123,
+     0.7256,
+     0.43
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.lining_bay.trim_0_0.L.steward_hauler.7aecf3": {
+   "id": "RL280.lining_bay.trim_0_0.L.steward_hauler.7aecf3",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52848,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -1.39,
+     1.97,
+     0.29,
+     0.06,
+     1.3,
+     0.58
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.lining_bay.trim_1_0.L.steward_hauler.4805b7": {
+   "id": "RL280.lining_bay.trim_1_0.L.steward_hauler.4805b7",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55008,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.3847,
+     1.97,
+     0.32,
+     0.0706,
+     1.3,
+     0.64
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.lining_bay.a_pillar.L.steward_hauler.99d03d": {
+   "id": "RL280.lining_bay.a_pillar.L.steward_hauler.99d03d",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     56448,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.3461,
+     2.4612,
+     0.215,
+     0.1123,
+     0.7256,
+     0.43
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.ceiling_bay.roof_0.C.steward_hauler.d707bb": {
+   "id": "RL280.ceiling_bay.roof_0.C.steward_hauler.d707bb",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     57024,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.76,
+     0.77,
+     2.72,
+     0.28,
+     1.54
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.end_lining.firewall.C.steward_hauler.924a64": {
+   "id": "RL280.end_lining.firewall.C.steward_hauler.924a64",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     63936,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.74,
+     -0.0,
+     2.83,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.end_lining.rear_wall.C.steward_hauler.d482cd": {
+   "id": "RL280.end_lining.rear_wall.C.steward_hauler.d482cd",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65376,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1,
+     -0.0,
+     2.83,
+     1.6,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.reveal.rear_opening.C.steward_hauler.8195e7": {
+   "id": "RL280.reveal.rear_opening.C.steward_hauler.8195e7",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     68832,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     0.03,
+     0.8,
+     0.35,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.glazing.back_window.C.steward_hauler.9d1776": {
+   "id": "RL280.glazing.back_window.C.steward_hauler.9d1776",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     71712,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     -0.0,
+     0.8,
+     0.35,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RL280.reveal.door_F.R.steward_hauler.0f67db": {
+   "id": "RL280.reveal.door_F.R.steward_hauler.0f67db",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     73008,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     1.97,
+     0.375,
+     0.12,
+     1.3,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.reveal.door_F.L.steward_hauler.b9a2f8": {
+   "id": "RL280.reveal.door_F.L.steward_hauler.b9a2f8",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     74736,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.42,
+     1.97,
+     0.375,
+     0.12,
+     1.3,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.reveal.screen.C.steward_hauler.486638": {
+   "id": "RL280.reveal.screen.C.steward_hauler.486638",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     76464,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.532,
+     0.215,
+     2.8721,
+     0.856,
+     0.43
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "RL280.door_leaf.door_F.R.steward_hauler.a2b737": {
+   "id": "RL280.door_leaf.door_F.R.steward_hauler.a2b737",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     79344,
+     12
+    ],
+    "paint": [
+     79632,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     1.72,
+     0.375,
+     0.06,
+     0.8,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.door_glass.door_F.R.steward_hauler.0c915d": {
+   "id": "RL280.door_glass.door_F.R.steward_hauler.0c915d",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     80784,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.45,
+     2.37,
+     0.375,
+     0.06,
+     0.5,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RL280.leaf_trim.handle_F.R.steward_hauler.44d080": {
+   "id": "RL280.leaf_trim.handle_F.R.steward_hauler.44d080",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     81216,
+     36
+    ],
+    "dash": [
+     82080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.425,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.door_leaf.door_F.L.steward_hauler.8408c8": {
+   "id": "RL280.door_leaf.door_F.L.steward_hauler.8408c8",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     82944,
+     12
+    ],
+    "paint": [
+     83232,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     1.72,
+     0.375,
+     0.06,
+     0.8,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.door_glass.door_F.L.steward_hauler.f3f7e2": {
+   "id": "RL280.door_glass.door_F.L.steward_hauler.f3f7e2",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     84384,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.45,
+     2.37,
+     0.375,
+     0.06,
+     0.5,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "RL280.leaf_trim.handle_F.L.steward_hauler.ffb101": {
+   "id": "RL280.leaf_trim.handle_F.L.steward_hauler.ffb101",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     84816,
+     36
+    ],
+    "dash": [
+     85680,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.425,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.underpan.underpan.C.steward_hauler.a8e919": {
+   "id": "RL280.underpan.underpan.C.steward_hauler.a8e919",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     86544,
+     252
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7525,
+     1.075,
+     2.9,
+     0.495,
+     2.15
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_wall.cargo_plinth.C.steward_hauler.dbbe8d": {
+   "id": "RL280.cargo_wall.cargo_plinth.C.steward_hauler.dbbe8d",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     92592,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8725,
+     7.325,
+     1.135,
+     0.735,
+     14.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_wall.cargo_side.R.steward_hauler.722549": {
+   "id": "RL280.cargo_wall.cargo_side.R.steward_hauler.722549",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     93312,
+     750
+    ],
+    "rubber": [
+     111312,
+     246
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     2.47,
+     7.325,
+     0.06,
+     2.46,
+     14.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_lining.cargo_side.R.steward_hauler.710053": {
+   "id": "RL280.cargo_lining.cargo_side.R.steward_hauler.710053",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     117216,
+     282
+    ],
+    "lining": [
+     123984,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.7987,
+     2.32,
+     7.325,
+     0.4825,
+     2.64,
+     14.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_wall.cargo_side.L.steward_hauler.458487": {
+   "id": "RL280.cargo_wall.cargo_side.L.steward_hauler.458487",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     136080,
+     750
+    ],
+    "rubber": [
+     154080,
+     246
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     2.47,
+     7.325,
+     0.06,
+     2.46,
+     14.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_lining.cargo_side.L.steward_hauler.669a9a": {
+   "id": "RL280.cargo_lining.cargo_side.L.steward_hauler.669a9a",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     159984,
+     282
+    ],
+    "lining": [
+     166752,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     -0.7987,
+     2.32,
+     7.325,
+     0.4825,
+     2.64,
+     14.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_floor.cargo_floor.C.steward_hauler.fcf204": {
+   "id": "RL280.cargo_floor.cargo_floor.C.steward_hauler.fcf204",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     178848,
+     18
+    ],
+    "tub": [
+     179280,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     7.325,
+     2.2,
+     0.06,
+     14.65
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "RL280.cargo_wall.cargo_front.C.steward_hauler.6cd256": {
+   "id": "RL280.cargo_wall.cargo_front.C.steward_hauler.6cd256",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     180576,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     -0.0,
+     2.2,
+     2.46,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_lining.cargo_front.C.steward_hauler.c9f585": {
+   "id": "RL280.cargo_lining.cargo_front.C.steward_hauler.c9f585",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     180720,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     0.0,
+     2.08,
+     2.34,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_wall.cargo_roof.C.steward_hauler.a5fbb8": {
+   "id": "RL280.cargo_wall.cargo_roof.C.steward_hauler.a5fbb8",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     180864,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.7,
+     7.325,
+     2.2,
+     0.02,
+     14.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_lining.cargo_roof.C.steward_hauler.0c4b48": {
+   "id": "RL280.cargo_lining.cargo_roof.C.steward_hauler.0c4b48",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     181008,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.64,
+     7.295,
+     2.08,
+     0.02,
+     14.59
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_wall.cargo_rear.C.steward_hauler.cea21d": {
+   "id": "RL280.cargo_wall.cargo_rear.C.steward_hauler.cea21d",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     181152,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     0.0,
+     2.2,
+     2.46,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.cargo_lining.cargo_rear.C.steward_hauler.244f62": {
+   "id": "RL280.cargo_lining.cargo_rear.C.steward_hauler.244f62",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     181296,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     -0.0,
+     2.08,
+     2.34,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RL280.hatch.cdoor_C1.R.steward_hauler.1be1dc": {
+   "id": "RL280.hatch.cdoor_C1.R.steward_hauler.1be1dc",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "hatch",
+   "slot": "cdoor_C1",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/hatch/cdoor_C1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     181440,
+     756
+    ],
+    "chrome": [
+     199584,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0725,
+     2.575,
+     0.597,
+     0.061,
+     2.244,
+     1.194
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.hatch.cdoor_C1.L.steward_hauler.57c560": {
+   "id": "RL280.hatch.cdoor_C1.L.steward_hauler.57c560",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "hatch",
+   "slot": "cdoor_C1",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/hatch/cdoor_C1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     200448,
+     756
+    ],
+    "chrome": [
+     218592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0725,
+     2.575,
+     0.597,
+     0.061,
+     2.244,
+     1.194
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.hatch.cdoor_C2.R.steward_hauler.576311": {
+   "id": "RL280.hatch.cdoor_C2.R.steward_hauler.576311",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "hatch",
+   "slot": "cdoor_C2",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/hatch/cdoor_C2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     219456,
+     756
+    ],
+    "chrome": [
+     237600,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0725,
+     2.575,
+     0.597,
+     0.061,
+     2.244,
+     1.194
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.hatch.cdoor_C2.L.steward_hauler.4bf92d": {
+   "id": "RL280.hatch.cdoor_C2.L.steward_hauler.4bf92d",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "hatch",
+   "slot": "cdoor_C2",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/hatch/cdoor_C2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     238464,
+     756
+    ],
+    "chrome": [
+     256608,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0725,
+     2.575,
+     0.597,
+     0.061,
+     2.244,
+     1.194
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "RL280.seat.row_0.C.steward_hauler.98e55e": {
+   "id": "RL280.seat.row_0.C.steward_hauler.98e55e",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     257472,
+     72
+    ],
+    "seat": [
+     259200,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9246,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "RL280.dash.dash.C.steward_hauler.b49077": {
+   "id": "RL280.dash.dash.C.steward_hauler.b49077",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     264384,
+     1236
+    ],
+    "chrome": [
+     294048,
+     120
+    ],
+    "dash": [
+     296928,
+     108
+    ],
+    "gauge": [
+     299520,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.2426,
+     2.68,
+     0.3901,
+     0.4851
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "RL280.dash.readout.C.steward_hauler.be78e3": {
+   "id": "RL280.dash.readout.C.steward_hauler.be78e3",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     308736,
+     36
+    ],
+    "lcd": [
+     309600,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "RL280.lamp.head_lamp.C.steward_hauler.47b357": {
+   "id": "RL280.lamp.head_lamp.C.steward_hauler.47b357",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     310464,
+     480
+    ],
+    "lamp_amber": [
+     321984,
+     72
+    ],
+    "lamp_drl": [
+     323712,
+     480
+    ],
+    "lamp_head": [
+     335232,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     0.46,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "RL280.trim.grille.C.steward_hauler.d2131c": {
+   "id": "RL280.trim.grille.C.steward_hauler.d2131c",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     346752,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     0.64,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.lamp.tail_lamp.C.steward_hauler.0d85a6": {
+   "id": "RL280.lamp.tail_lamp.C.steward_hauler.0d85a6",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     350208,
+     12
+    ],
+    "lamp_amber": [
+     350496,
+     48
+    ],
+    "lamp_brake": [
+     351648,
+     36
+    ],
+    "lamp_reverse": [
+     352512,
+     48
+    ],
+    "lamp_tail": [
+     353664,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.291,
+     0.006,
+     2.16,
+     2.682,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "RL280.lamp.side_marker.C.steward_hauler.c89bda": {
+   "id": "RL280.lamp.side_marker.C.steward_hauler.c89bda",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     361728,
+     72
+    ],
+    "lamp_tail": [
+     363456,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.386,
+     8.24,
+     2.9452,
+     0.058,
+     16.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "RL280.lamp.id_lamp.C.steward_hauler.a38e8c": {
+   "id": "RL280.lamp.id_lamp.C.steward_hauler.a38e8c",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     365184,
+     180
+    ],
+    "lamp_tail": [
+     369504,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.26,
+     8.145,
+     2.7,
+     0.804,
+     16.29
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "RL280.trim.bumper_front.C.steward_hauler.94cbe0": {
+   "id": "RL280.trim.bumper_front.C.steward_hauler.94cbe0",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     373824,
+     108
+    ],
+    "rubber": [
+     376416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.8232,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.trim.bumper_rear.C.steward_hauler.a9700c": {
+   "id": "RL280.trim.bumper_rear.C.steward_hauler.a9700c",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     377280,
+     108
+    ],
+    "rubber": [
+     379872,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.8232,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.trim.mirror.R.steward_hauler.b92317": {
+   "id": "RL280.trim.mirror.R.steward_hauler.b92317",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     380736,
+     96
+    ],
+    "glass_dark": [
+     383040,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.5663,
+     2.2133,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RL280.trim.mirror.L.steward_hauler.dd3bac": {
+   "id": "RL280.trim.mirror.L.steward_hauler.dd3bac",
+   "standard": "RL280",
+   "class": "freight_locomotive",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "steward_hauler",
+   "interface": "RL280/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     383904,
+     96
+    ],
+    "glass_dark": [
+     386208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.5659,
+     2.2135,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  }
+ }
+}

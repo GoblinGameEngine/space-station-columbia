@@ -1,0 +1,612 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "PXADULT_",
+ "class": "adult_tricycle",
+ "style": "parts_adult_tricycle",
+ "pack": "res://remake/vehicles/components/PXADULT_/parts_adult_tricycle.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.5882,
+    0.1176,
+    0.1569
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "PXADULT_.frame_shown.frame.C.parts_adult_tricycle.1440f4": {
+   "id": "PXADULT_.frame_shown.frame.C.parts_adult_tricycle.1440f4",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "frame_shown",
+   "slot": "frame",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/frame_shown/frame/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     36
+    ],
+    "chrome": [
+     864,
+     84
+    ],
+    "paint": [
+     2880,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     -0.0002,
+     0.5804,
+     0.5616,
+     0.1192,
+     0.6708,
+     1.1232
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXADULT_.equipment.handlebar.C.parts_adult_tricycle.da0ca3": {
+   "id": "PXADULT_.equipment.handlebar.C.parts_adult_tricycle.da0ca3",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "equipment",
+   "slot": "handlebar",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/equipment/handlebar/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     15264,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     0.966,
+     0.0324,
+     0.5239,
+     0.132,
+     0.0649
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXADULT_.seat.saddle.C.parts_adult_tricycle.8018c1": {
+   "id": "PXADULT_.seat.saddle.C.parts_adult_tricycle.8018c1",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "seat",
+   "slot": "saddle",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/seat/saddle/C",
+   "reach": 0.0,
+   "mats": {
+    "seat": [
+     20448,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.84,
+     0.13,
+     0.16,
+     0.06,
+     0.26
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXADULT_.wheel.wheel_F.C.parts_adult_tricycle.6b2197": {
+   "id": "PXADULT_.wheel.wheel_F.C.parts_adult_tricycle.6b2197",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "wheel",
+   "slot": "wheel_F",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/wheel/wheel_F/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     21312,
+     252
+    ],
+    "rubber": [
+     27360,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.3,
+     0.3,
+     0.035,
+     0.6,
+     0.6
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXADULT_.wheel.wheel_B.C.parts_adult_tricycle.2f5bfd": {
+   "id": "PXADULT_.wheel.wheel_B.C.parts_adult_tricycle.2f5bfd",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "wheel",
+   "slot": "wheel_B",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/wheel/wheel_B/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     41760,
+     588
+    ],
+    "rubber": [
+     55872,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.3,
+     0.3,
+     0.675,
+     0.6,
+     0.6
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXADULT_.equipment.basket.C.parts_adult_tricycle.99267e": {
+   "id": "PXADULT_.equipment.basket.C.parts_adult_tricycle.99267e",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "equipment",
+   "slot": "basket",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/equipment/basket/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     84672,
+     1440
+    ]
+   },
+   "boxes": [
+    [
+     -0.0003,
+     0.5997,
+     0.2256,
+     0.5313,
+     0.3113,
+     0.4513
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXADULT_.equipment.basket.C.parts_adult_tricycle.bf8844": {
+   "id": "PXADULT_.equipment.basket.C.parts_adult_tricycle.bf8844",
+   "standard": "PXADULT_",
+   "class": "adult_tricycle",
+   "role": "equipment",
+   "slot": "basket",
+   "side": "C",
+   "style": "parts_adult_tricycle",
+   "interface": "PXADULT_/equipment/basket/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     119232,
+     1224
+    ]
+   },
+   "boxes": [
+    [
+     -0.0003,
+     0.8497,
+     0.1556,
+     0.3713,
+     0.2513,
+     0.3113
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  }
+ }
+}

@@ -1,0 +1,2995 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTCOAST_",
+ "class": "coast_guard_boat",
+ "style": "hull_coast_guard_boat",
+ "pack": "res://remake/vehicles/components/BTCOAST_/hull_coast_guard_boat.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7843,
+    0.2353,
+    0.1176
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTCOAST_.side_bay.bottom_0.R.hull_coast_guard_boat.1bd1d6": {
+   "id": "BTCOAST_.side_bay.bottom_0.R.hull_coast_guard_boat.1bd1d6",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6672,
+     0.0986,
+     1.3,
+     1.3344,
+     1.4101,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_0.R.hull_coast_guard_boat.d5ed5b": {
+   "id": "BTCOAST_.lining_bay.bottom_0.R.hull_coast_guard_boat.d5ed5b",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6272,
+     0.1786,
+     1.3,
+     1.2544,
+     1.4101,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_0.L.hull_coast_guard_boat.4828da": {
+   "id": "BTCOAST_.side_bay.bottom_0.L.hull_coast_guard_boat.4828da",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     2304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6672,
+     0.0986,
+     1.3,
+     1.3344,
+     1.4101,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_0.L.hull_coast_guard_boat.2596ed": {
+   "id": "BTCOAST_.lining_bay.bottom_0.L.hull_coast_guard_boat.2596ed",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3456,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6272,
+     0.1786,
+     1.3,
+     1.2544,
+     1.4101,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_0.R.hull_coast_guard_boat.dcd8ef": {
+   "id": "BTCOAST_.side_bay.topside_0.R.hull_coast_guard_boat.dcd8ef",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.7298,
+     0.7457,
+     1.3,
+     1.4412,
+     1.6086,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_0.R.hull_coast_guard_boat.0691ac": {
+   "id": "BTCOAST_.lining_bay.topside_0.R.hull_coast_guard_boat.0691ac",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6852,
+     0.7857,
+     1.3,
+     1.3704,
+     1.5286,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_0.L.hull_coast_guard_boat.f686c3": {
+   "id": "BTCOAST_.side_bay.topside_0.L.hull_coast_guard_boat.f686c3",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.7298,
+     0.7457,
+     1.3,
+     1.4412,
+     1.6086,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_0.L.hull_coast_guard_boat.568ac2": {
+   "id": "BTCOAST_.lining_bay.topside_0.L.hull_coast_guard_boat.568ac2",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6852,
+     0.7857,
+     1.3,
+     1.3704,
+     1.5286,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_0.R.hull_coast_guard_boat.f19a8b": {
+   "id": "BTCOAST_.roof_bay.sidedeck_0.R.hull_coast_guard_boat.f19a8b",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     9216,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.7293,
+     1.4756,
+     1.3,
+     1.4422,
+     0.1907,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_0.R.hull_coast_guard_boat.8209ab": {
+   "id": "BTCOAST_.lining_bay.sidedeck_0.R.hull_coast_guard_boat.8209ab",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9792,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.6852,
+     1.4356,
+     1.3,
+     1.3704,
+     0.2287,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_0.L.hull_coast_guard_boat.106be1": {
+   "id": "BTCOAST_.roof_bay.sidedeck_0.L.hull_coast_guard_boat.106be1",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.7293,
+     1.4756,
+     1.3,
+     1.4422,
+     0.1907,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_0.L.hull_coast_guard_boat.389e0a": {
+   "id": "BTCOAST_.lining_bay.sidedeck_0.L.hull_coast_guard_boat.389e0a",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10944,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.6852,
+     1.4356,
+     1.3,
+     1.3704,
+     0.2287,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_0.R.hull_coast_guard_boat.df15e8": {
+   "id": "BTCOAST_.roof_bay.deck_0.R.hull_coast_guard_boat.df15e8",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     11520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.5947,
+     1.5056,
+     1.3,
+     1.1893,
+     0.2087,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_0.R.hull_coast_guard_boat.816b50": {
+   "id": "BTCOAST_.lining_bay.deck_0.R.hull_coast_guard_boat.816b50",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.5547,
+     1.4256,
+     1.3,
+     1.1093,
+     0.2087,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_0.L.hull_coast_guard_boat.ce0f3f": {
+   "id": "BTCOAST_.roof_bay.deck_0.L.hull_coast_guard_boat.ce0f3f",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.5947,
+     1.5056,
+     1.3,
+     1.1893,
+     0.2087,
+     2.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_0.L.hull_coast_guard_boat.44cfae": {
+   "id": "BTCOAST_.lining_bay.deck_0.L.hull_coast_guard_boat.44cfae",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.5547,
+     1.4256,
+     1.3,
+     1.1093,
+     0.2087,
+     2.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_1.R.hull_coast_guard_boat.666737": {
+   "id": "BTCOAST_.side_bay.bottom_1.R.hull_coast_guard_boat.666737",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.736,
+     -0.4293,
+     1.9,
+     1.472,
+     0.7414,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_1.R.hull_coast_guard_boat.65fff4": {
+   "id": "BTCOAST_.lining_bay.bottom_1.R.hull_coast_guard_boat.65fff4",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     17856,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.696,
+     -0.3493,
+     1.9,
+     1.392,
+     0.7414,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_1.L.hull_coast_guard_boat.7a5afa": {
+   "id": "BTCOAST_.side_bay.bottom_1.L.hull_coast_guard_boat.7a5afa",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     19584,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.736,
+     -0.4293,
+     1.9,
+     1.472,
+     0.7414,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_1.L.hull_coast_guard_boat.673a62": {
+   "id": "BTCOAST_.lining_bay.bottom_1.L.hull_coast_guard_boat.673a62",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     21312,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.696,
+     -0.3493,
+     1.9,
+     1.392,
+     0.7414,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_1.R.hull_coast_guard_boat.b5da51": {
+   "id": "BTCOAST_.side_bay.topside_1.R.hull_coast_guard_boat.b5da51",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     23040,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.4672,
+     0.591,
+     1.9,
+     0.2656,
+     1.5786,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_1.R.hull_coast_guard_boat.697a80": {
+   "id": "BTCOAST_.lining_bay.topside_1.R.hull_coast_guard_boat.697a80",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     24768,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.3872,
+     0.631,
+     1.9,
+     0.2656,
+     1.4986,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_1.L.hull_coast_guard_boat.bc5cee": {
+   "id": "BTCOAST_.side_bay.topside_1.L.hull_coast_guard_boat.bc5cee",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26496,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.4672,
+     0.591,
+     1.9,
+     0.2656,
+     1.5786,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_1.L.hull_coast_guard_boat.41a04a": {
+   "id": "BTCOAST_.lining_bay.topside_1.L.hull_coast_guard_boat.41a04a",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     28224,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.3872,
+     0.631,
+     1.9,
+     0.2656,
+     1.4986,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_1.R.hull_coast_guard_boat.9382b3": {
+   "id": "BTCOAST_.roof_bay.sidedeck_1.R.hull_coast_guard_boat.9382b3",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29952,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3947,
+     1.3508,
+     1.9,
+     0.4107,
+     0.1009,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_1.R.hull_coast_guard_boat.1d3233": {
+   "id": "BTCOAST_.lining_bay.sidedeck_1.R.hull_coast_guard_boat.1d3233",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     30816,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3147,
+     1.3108,
+     1.9,
+     0.4107,
+     0.1389,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_1.L.hull_coast_guard_boat.82eef1": {
+   "id": "BTCOAST_.roof_bay.sidedeck_1.L.hull_coast_guard_boat.82eef1",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31680,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3947,
+     1.3508,
+     1.9,
+     0.4107,
+     0.1009,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_1.L.hull_coast_guard_boat.d0c0df": {
+   "id": "BTCOAST_.lining_bay.sidedeck_1.L.hull_coast_guard_boat.d0c0df",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     32544,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3147,
+     1.3108,
+     1.9,
+     0.4107,
+     0.1389,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_1.R.hull_coast_guard_boat.eb6ac8": {
+   "id": "BTCOAST_.roof_bay.deck_1.R.hull_coast_guard_boat.eb6ac8",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33408,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.656,
+     1.3808,
+     1.9,
+     1.312,
+     0.1189,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_1.R.hull_coast_guard_boat.7375a6": {
+   "id": "BTCOAST_.lining_bay.deck_1.R.hull_coast_guard_boat.7375a6",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     35136,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.616,
+     1.3008,
+     1.9,
+     1.232,
+     0.1189,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_1.L.hull_coast_guard_boat.2838b2": {
+   "id": "BTCOAST_.roof_bay.deck_1.L.hull_coast_guard_boat.2838b2",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36864,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.656,
+     1.3808,
+     1.9,
+     1.312,
+     0.1189,
+     3.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_1.L.hull_coast_guard_boat.5a3ce5": {
+   "id": "BTCOAST_.lining_bay.deck_1.L.hull_coast_guard_boat.5a3ce5",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38592,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.616,
+     1.3008,
+     1.9,
+     1.232,
+     0.1189,
+     3.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_2.R.hull_coast_guard_boat.c7c170": {
+   "id": "BTCOAST_.side_bay.bottom_2.R.hull_coast_guard_boat.c7c170",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40320,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.736,
+     -0.4988,
+     0.05,
+     1.472,
+     0.6024,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_2.R.hull_coast_guard_boat.801d98": {
+   "id": "BTCOAST_.lining_bay.bottom_2.R.hull_coast_guard_boat.801d98",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40896,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.696,
+     -0.4188,
+     0.05,
+     1.392,
+     0.6024,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_2.L.hull_coast_guard_boat.ea1bbd": {
+   "id": "BTCOAST_.side_bay.bottom_2.L.hull_coast_guard_boat.ea1bbd",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     41472,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.736,
+     -0.4988,
+     0.05,
+     1.472,
+     0.6024,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_2.L.hull_coast_guard_boat.2aee1d": {
+   "id": "BTCOAST_.lining_bay.bottom_2.L.hull_coast_guard_boat.2aee1d",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42048,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.696,
+     -0.4188,
+     0.05,
+     1.392,
+     0.6024,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_2.R.hull_coast_guard_boat.4823da": {
+   "id": "BTCOAST_.side_bay.topside_2.R.hull_coast_guard_boat.4823da",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42624,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.536,
+     0.5514,
+     0.05,
+     0.128,
+     1.4982,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_2.R.hull_coast_guard_boat.69cbe9": {
+   "id": "BTCOAST_.lining_bay.topside_2.R.hull_coast_guard_boat.69cbe9",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43200,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.456,
+     0.5914,
+     0.05,
+     0.128,
+     1.4182,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_2.L.hull_coast_guard_boat.db43a8": {
+   "id": "BTCOAST_.side_bay.topside_2.L.hull_coast_guard_boat.db43a8",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43776,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.536,
+     0.5514,
+     0.05,
+     0.128,
+     1.4982,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_2.L.hull_coast_guard_boat.38098f": {
+   "id": "BTCOAST_.lining_bay.topside_2.L.hull_coast_guard_boat.38098f",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44352,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.456,
+     0.5914,
+     0.05,
+     0.128,
+     1.4182,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_2.R.hull_coast_guard_boat.53ec6f": {
+   "id": "BTCOAST_.roof_bay.sidedeck_2.R.hull_coast_guard_boat.53ec6f",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44928,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.456,
+     1.3109,
+     0.05,
+     0.288,
+     0.0212,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_2.R.hull_coast_guard_boat.2cb758": {
+   "id": "BTCOAST_.lining_bay.sidedeck_2.R.hull_coast_guard_boat.2cb758",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45216,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.376,
+     1.2709,
+     0.05,
+     0.288,
+     0.0592,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_2.L.hull_coast_guard_boat.9e72e0": {
+   "id": "BTCOAST_.roof_bay.sidedeck_2.L.hull_coast_guard_boat.9e72e0",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45504,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.456,
+     1.3109,
+     0.05,
+     0.288,
+     0.0212,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_2.L.hull_coast_guard_boat.9bf0eb": {
+   "id": "BTCOAST_.lining_bay.sidedeck_2.L.hull_coast_guard_boat.9bf0eb",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45792,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.376,
+     1.2709,
+     0.05,
+     0.288,
+     0.0592,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_2.R.hull_coast_guard_boat.5f5404": {
+   "id": "BTCOAST_.roof_bay.deck_2.R.hull_coast_guard_boat.5f5404",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46080,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.656,
+     1.3409,
+     0.05,
+     1.312,
+     0.0392,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_2.R.hull_coast_guard_boat.9c15dd": {
+   "id": "BTCOAST_.lining_bay.deck_2.R.hull_coast_guard_boat.9c15dd",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46656,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.616,
+     1.2609,
+     0.05,
+     1.232,
+     0.0392,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_2.L.hull_coast_guard_boat.703083": {
+   "id": "BTCOAST_.roof_bay.deck_2.L.hull_coast_guard_boat.703083",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47232,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.656,
+     1.3409,
+     0.05,
+     1.312,
+     0.0392,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_2.L.hull_coast_guard_boat.c1c21a": {
+   "id": "BTCOAST_.lining_bay.deck_2.L.hull_coast_guard_boat.c1c21a",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47808,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.616,
+     1.2609,
+     0.05,
+     1.232,
+     0.0392,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_3.R.hull_coast_guard_boat.c6a268": {
+   "id": "BTCOAST_.side_bay.bottom_3.R.hull_coast_guard_boat.c6a268",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     48384,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.736,
+     -0.4988,
+     1.55,
+     1.472,
+     0.6024,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_3.R.hull_coast_guard_boat.239c9c": {
+   "id": "BTCOAST_.lining_bay.bottom_3.R.hull_coast_guard_boat.239c9c",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.696,
+     -0.4188,
+     1.55,
+     1.392,
+     0.6024,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_3.L.hull_coast_guard_boat.92d544": {
+   "id": "BTCOAST_.side_bay.bottom_3.L.hull_coast_guard_boat.92d544",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     51264,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.736,
+     -0.4988,
+     1.55,
+     1.472,
+     0.6024,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_3.L.hull_coast_guard_boat.ded7c5": {
+   "id": "BTCOAST_.lining_bay.bottom_3.L.hull_coast_guard_boat.ded7c5",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52704,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.696,
+     -0.4188,
+     1.55,
+     1.392,
+     0.6024,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_3.R.hull_coast_guard_boat.9b3ec9": {
+   "id": "BTCOAST_.side_bay.topside_3.R.hull_coast_guard_boat.9b3ec9",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     54144,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.4604,
+     0.5348,
+     1.55,
+     0.2791,
+     1.5844,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_3.R.hull_coast_guard_boat.d76cc5": {
+   "id": "BTCOAST_.lining_bay.topside_3.R.hull_coast_guard_boat.d76cc5",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55584,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.3804,
+     0.5748,
+     1.55,
+     0.2791,
+     1.5044,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_3.L.hull_coast_guard_boat.cd3ce5": {
+   "id": "BTCOAST_.side_bay.topside_3.L.hull_coast_guard_boat.cd3ce5",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57024,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.4604,
+     0.5348,
+     1.55,
+     0.2791,
+     1.5844,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_3.L.hull_coast_guard_boat.536491": {
+   "id": "BTCOAST_.lining_bay.topside_3.L.hull_coast_guard_boat.536491",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58464,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.3804,
+     0.5748,
+     1.55,
+     0.2791,
+     1.5044,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_3.R.hull_coast_guard_boat.926e5e": {
+   "id": "BTCOAST_.roof_bay.sidedeck_3.R.hull_coast_guard_boat.926e5e",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59904,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.3887,
+     1.3243,
+     1.55,
+     0.4227,
+     0.0475,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_3.R.hull_coast_guard_boat.e36a03": {
+   "id": "BTCOAST_.lining_bay.sidedeck_3.R.hull_coast_guard_boat.e36a03",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     60624,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.3087,
+     1.2843,
+     1.55,
+     0.4227,
+     0.0855,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_3.L.hull_coast_guard_boat.5a4ffc": {
+   "id": "BTCOAST_.roof_bay.sidedeck_3.L.hull_coast_guard_boat.5a4ffc",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61344,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.3887,
+     1.3243,
+     1.55,
+     0.4227,
+     0.0475,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_3.L.hull_coast_guard_boat.d94f45": {
+   "id": "BTCOAST_.lining_bay.sidedeck_3.L.hull_coast_guard_boat.d94f45",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.3087,
+     1.2843,
+     1.55,
+     0.4227,
+     0.0855,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_4.R.hull_coast_guard_boat.e40f80": {
+   "id": "BTCOAST_.side_bay.bottom_4.R.hull_coast_guard_boat.e40f80",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     62784,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6604,
+     -0.5287,
+     0.2,
+     1.3209,
+     0.5426,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_4.R.hull_coast_guard_boat.7680fa": {
+   "id": "BTCOAST_.lining_bay.bottom_4.R.hull_coast_guard_boat.7680fa",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63072,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6204,
+     -0.4487,
+     0.2,
+     1.2409,
+     0.5426,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.bottom_4.L.hull_coast_guard_boat.0ed867": {
+   "id": "BTCOAST_.side_bay.bottom_4.L.hull_coast_guard_boat.0ed867",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     63360,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6604,
+     -0.5287,
+     0.2,
+     1.3209,
+     0.5426,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.bottom_4.L.hull_coast_guard_boat.ce96b8": {
+   "id": "BTCOAST_.lining_bay.bottom_4.L.hull_coast_guard_boat.ce96b8",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63648,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6204,
+     -0.4487,
+     0.2,
+     1.2409,
+     0.5426,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_4.R.hull_coast_guard_boat.811c4f": {
+   "id": "BTCOAST_.side_bay.topside_4.R.hull_coast_guard_boat.811c4f",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.3508,
+     0.5271,
+     0.2,
+     0.1698,
+     1.6125,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_4.R.hull_coast_guard_boat.923bde": {
+   "id": "BTCOAST_.lining_bay.topside_4.R.hull_coast_guard_boat.923bde",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64224,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.2708,
+     0.5671,
+     0.2,
+     0.1698,
+     1.5325,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.side_bay.topside_4.L.hull_coast_guard_boat.2984e3": {
+   "id": "BTCOAST_.side_bay.topside_4.L.hull_coast_guard_boat.2984e3",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     64512,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.3508,
+     0.5271,
+     0.2,
+     0.1698,
+     1.6125,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.lining_bay.topside_4.L.hull_coast_guard_boat.b22a2c": {
+   "id": "BTCOAST_.lining_bay.topside_4.L.hull_coast_guard_boat.b22a2c",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64800,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.2708,
+     0.5671,
+     0.2,
+     0.1698,
+     1.5325,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_4.R.hull_coast_guard_boat.a56c2f": {
+   "id": "BTCOAST_.roof_bay.sidedeck_4.R.hull_coast_guard_boat.a56c2f",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.282,
+     1.3407,
+     0.2,
+     0.3074,
+     0.0273,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_4.R.hull_coast_guard_boat.0cf245": {
+   "id": "BTCOAST_.lining_bay.sidedeck_4.R.hull_coast_guard_boat.0cf245",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.202,
+     1.3007,
+     0.2,
+     0.3074,
+     0.0653,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.sidedeck_4.L.hull_coast_guard_boat.d5ac7c": {
+   "id": "BTCOAST_.roof_bay.sidedeck_4.L.hull_coast_guard_boat.d5ac7c",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65376,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.282,
+     1.3407,
+     0.2,
+     0.3074,
+     0.0273,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.sidedeck_4.L.hull_coast_guard_boat.93f7c6": {
+   "id": "BTCOAST_.lining_bay.sidedeck_4.L.hull_coast_guard_boat.93f7c6",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65520,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.202,
+     1.3007,
+     0.2,
+     0.3074,
+     0.0653,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_4.R.hull_coast_guard_boat.2803d2": {
+   "id": "BTCOAST_.roof_bay.deck_4.R.hull_coast_guard_boat.2803d2",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65664,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5887,
+     1.3707,
+     0.2,
+     1.1773,
+     0.0453,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_4.R.hull_coast_guard_boat.45e5a0": {
+   "id": "BTCOAST_.lining_bay.deck_4.R.hull_coast_guard_boat.45e5a0",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65952,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5487,
+     1.2907,
+     0.2,
+     1.0973,
+     0.0453,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.roof_bay.deck_4.L.hull_coast_guard_boat.24807c": {
+   "id": "BTCOAST_.roof_bay.deck_4.L.hull_coast_guard_boat.24807c",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66240,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5887,
+     1.3707,
+     0.2,
+     1.1773,
+     0.0453,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.lining_bay.deck_4.L.hull_coast_guard_boat.d1adbd": {
+   "id": "BTCOAST_.lining_bay.deck_4.L.hull_coast_guard_boat.d1adbd",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66528,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5487,
+     1.2907,
+     0.2,
+     1.0973,
+     0.0453,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.reveal.cockpit.C.hull_coast_guard_boat.e87675": {
+   "id": "BTCOAST_.reveal.cockpit.C.hull_coast_guard_boat.e87675",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66816,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3143,
+     1.55,
+     2.624,
+     0.1455,
+     3.1
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCOAST_.end_cap.transom.C.hull_coast_guard_boat.0dec38": {
+   "id": "BTCOAST_.end_cap.transom.C.hull_coast_guard_boat.0dec38",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     69408,
+     36
+    ],
+    "paint": [
+     70272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2967,
+     -0.0,
+     2.752,
+     2.1933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.end_cap.stem.C.hull_coast_guard_boat.1689b8": {
+   "id": "BTCOAST_.end_cap.stem.C.hull_coast_guard_boat.1689b8",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     71136,
+     3
+    ],
+    "paint": [
+     71208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.195,
+     -0.0,
+     0.02,
+     0.83,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCOAST_.trim.strake.C.hull_coast_guard_boat.4d4161": {
+   "id": "BTCOAST_.trim.strake.C.hull_coast_guard_boat.4d4161",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     72072,
+     1344
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3951,
+     5.015,
+     3.3042,
+     0.3192,
+     10.0301
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.7cc846": {
+   "id": "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.7cc846",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     104328,
+     108
+    ],
+    "paint2": [
+     106920,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.3556,
+     2.0,
+     2.8,
+     1.98,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.1acac7": {
+   "id": "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.1acac7",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     107784,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5436,
+     1.89,
+     2.58,
+     0.494,
+     3.78
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTCOAST_.equipment.rail.C.hull_coast_guard_boat.3fc947": {
+   "id": "BTCOAST_.equipment.rail.C.hull_coast_guard_boat.3fc947",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "equipment",
+   "slot": "rail",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/equipment/rail/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     108648,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     2.1472,
+     4.4477,
+     3.0744,
+     0.2288,
+     8.8954
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTCOAST_.equipment.lightbar_boat.C.hull_coast_guard_boat.68a620": {
+   "id": "BTCOAST_.equipment.lightbar_boat.C.hull_coast_guard_boat.68a620",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "equipment",
+   "slot": "lightbar_boat",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/equipment/lightbar_boat/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_red": [
+     137448,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.3869,
+     0.12,
+     1.2,
+     0.1,
+     0.24
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -1,0 +1,145 @@
+{
+ "_about": "utility_trailer on the TU250 standard (a trailer; remake/blender/fleet/build.py)",
+ "type": "utility_trailer",
+ "standard": "TU250",
+ "class": "utility_trailer",
+ "style": "harrow_utility_trailer",
+ "kind": "trailer",
+ "board": "harrow_tr25",
+ "stations": [
+  -1.22,
+  -0.47,
+  0.28,
+  1.03,
+  1.27
+ ],
+ "placements": [
+  [
+   "cargo_side_R",
+   "TU250.cargo_wall.cargo_side.R.harrow_utility_trailer.f830d3",
+   -1.25
+  ],
+  [
+   "cargo_lining_R",
+   "TU250.cargo_lining.cargo_side.R.harrow_utility_trailer.d8ae5c",
+   -1.25
+  ],
+  [
+   "cargo_rail_R",
+   "TU250.cargo_wall.cargo_rail.R.harrow_utility_trailer.f96538",
+   -1.25
+  ],
+  [
+   "cargo_side_L",
+   "TU250.cargo_wall.cargo_side.L.harrow_utility_trailer.0b9509",
+   -1.25
+  ],
+  [
+   "cargo_lining_L",
+   "TU250.cargo_lining.cargo_side.L.harrow_utility_trailer.4096ad",
+   -1.25
+  ],
+  [
+   "cargo_rail_L",
+   "TU250.cargo_wall.cargo_rail.L.harrow_utility_trailer.e1a014",
+   -1.25
+  ],
+  [
+   "cargo_floor",
+   "TU250.cargo_floor.cargo_floor.C.harrow_utility_trailer.476114",
+   -1.25
+  ],
+  [
+   "cargo_front",
+   "TU250.cargo_wall.cargo_front.C.harrow_utility_trailer.b50a7a",
+   -1.25
+  ],
+  [
+   "cargo_front_lining",
+   "TU250.cargo_lining.cargo_front.C.harrow_utility_trailer.623842",
+   -1.19
+  ],
+  [
+   "cargo_rear_frame",
+   "TU250.cargo_wall.cargo_rear.C.harrow_utility_trailer.cfc22b",
+   1.24
+  ],
+  [
+   "tailgate",
+   "TU250.hatch.tailgate.C.harrow_utility_trailer.71f74c",
+   1.244
+  ],
+  [
+   "tail_lamps",
+   "TU250.lamp.tail_lamp.C.harrow_utility_trailer.68880c",
+   -1.14
+  ],
+  [
+   "fenders",
+   "TU250.trim.fenders.C.harrow_utility_trailer.de86e9",
+   -0.34
+  ]
+ ],
+ "doors": [],
+ "closers": [
+  {
+   "id": "tailgate",
+   "kind": "hatch",
+   "side": "C",
+   "parts": [
+    "tailgate"
+   ],
+   "hinge": [
+    -0.6,
+    0.62,
+    1.27
+   ],
+   "axis": [
+    1.0,
+    0.0,
+    -0.0
+   ],
+   "open_deg": 90
+  }
+ ],
+ "length_front": 1.25,
+ "length_back": 1.3,
+ "platform": {
+  "half_w": 0.62,
+  "y": 0.49,
+  "z": [
+   -1.25,
+   1.25
+  ]
+ },
+ "cabin_points": [],
+ "markers": [
+  [
+   "stand_cargo",
+   [
+    0,
+    0.0,
+    2.1
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_R",
+   [
+    0.52,
+    0.77,
+    1.35
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_L",
+   [
+    -0.52,
+    0.77,
+    1.35
+   ],
+   3.1416
+  ]
+ ]
+}

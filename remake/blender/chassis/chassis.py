@@ -390,6 +390,22 @@ def harrow_module(m, b, root):
         hub = Vector((sx * b["track_m"] / 2, cy, b["wheel_r"]))
         wishbones(me, hub, sx * 0.50, cy, b["wheel_r"], sx, "oxide", "black")
         me.lathe([(-0.05, 0.0001), (-0.05, 0.15), (0.03, 0.16), (0.03, 0.0001)], "steel", n=20, xf=Matrix.Translation(hub - Vector((sx * 0.08, 0, 0))) @ X_AXIS())   # drum
+    elif k == "harrow_tongue":                     # an A-frame drawbar to a ball coupler, a jockey wheel
+        yt = cy + l / 2
+        for sx in (-1, 1):
+            me.pipe([(sx * w / 2, cy - l / 2, cz), (0, yt - 0.12, cz)], 0.04, "oxide", n=8)
+        me.box((0, yt - 0.05, cz), (0.06, 0.10, 0.05), "black")
+        me.lathe([(0.0, 0.0001), (0.0, 0.025), (0.04, 0.025), (0.045, 0.0001)], "steel", n=12, xf=Matrix.Translation((0, yt, cz - 0.02)))
+        me.pipe([(0.12, yt - 0.35, cz), (0.12, yt - 0.35, 0.12)], 0.025, "steel")
+        me.lathe([(-0.03, 0.08), (0.03, 0.08)], "black", n=14, xf=Matrix.Translation((0.12, yt - 0.35, 0.08)) @ X_AXIS())
+    elif k == "harrow_kingpin":                    # the upper coupler plate and its pin
+        me.box((cx, cy, cz), (w / 2, l / 2, h / 2), "oxide")
+        me.lathe([(0.0, 0.0001), (0.0, 0.05), (0.08, 0.05), (0.09, 0.0001)], "steel", n=12, xf=Matrix.Translation((cx, cy + l / 2 - 0.4, cz - 0.10)))
+    elif k == "harrow_legs":                       # landing gear, wound up
+        for sx in (-1, 1):
+            me.box((sx * w / 2, cy, cz + 0.1), (0.06, 0.06, h / 2), "black")
+            me.box((sx * w / 2, cy, cz - h / 2 + 0.12), (0.12, 0.12, 0.02), "black")
+        me.pipe([(-w / 2, cy, cz + 0.2), (w / 2, cy, cz + 0.2)], 0.02, "steel")
     elif k == "harrow_hub":
         sx = 1 if cx > 0 else -1
         hub = Vector((sx * b["track_m"] / 2, cy, b["wheel_r"]))

@@ -1,0 +1,4247 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BS300",
+ "class": "school_bus",
+ "style": "carrow_scholar",
+ "pack": "res://remake/vehicles/components/BS300/carrow_scholar.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9529,
+    0.6627,
+    0.0039
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.1098,
+    0.1098,
+    0.1098
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BS300.end_cap.nose.C.carrow_scholar.1f1b71": {
+   "id": "BS300.end_cap.nose.C.carrow_scholar.1f1b71",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8985,
+     0.03,
+     2.3368,
+     0.9969,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.trim.cowl.C.carrow_scholar.aa3694": {
+   "id": "BS300.trim.cowl.C.carrow_scholar.aa3694",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.451,
+     0.035,
+     2.4174,
+     0.1781,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.glazing.screen.C.carrow_scholar.118836": {
+   "id": "BS300.glazing.screen.C.carrow_scholar.118836",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.045,
+     0.21,
+     2.4174,
+     1.27,
+     0.42
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.trim.screen.C.carrow_scholar.a91eed": {
+   "id": "BS300.trim.screen.C.carrow_scholar.a91eed",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     14472,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9864,
+     0.21,
+     2.4251,
+     1.1607,
+     0.42
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.side_bay.fender.R.carrow_scholar.092ed6": {
+   "id": "BS300.side_bay.fender.R.carrow_scholar.092ed6",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19080,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     0.905,
+     0.135,
+     0.1753,
+     1.01,
+     0.27
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.trim.sail.R.carrow_scholar.04773e": {
+   "id": "BS300.trim.sail.R.carrow_scholar.04773e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21096,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2206,
+     1.6264,
+     0.1,
+     0.0389,
+     0.4729,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.trim.a_pillar.R.carrow_scholar.35298b": {
+   "id": "BS300.trim.a_pillar.R.carrow_scholar.35298b",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.1695,
+     1.97,
+     0.21,
+     0.099,
+     1.16,
+     0.42
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.side_bay.rocker_E.R.carrow_scholar.24d249": {
+   "id": "BS300.side_bay.rocker_E.R.carrow_scholar.24d249",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "rocker_E",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/rocker_E/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     23112,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.49,
+     0.43,
+     0.03,
+     0.18,
+     0.86
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.side_bay.quarter_0.R.carrow_scholar.3c691e": {
+   "id": "BS300.side_bay.quarter_0.R.carrow_scholar.3c691e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     23832,
+     606
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     3.0395,
+     0.06,
+     1.72,
+     6.079
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.side_bay.quarter_1.R.carrow_scholar.190083": {
+   "id": "BS300.side_bay.quarter_1.R.carrow_scholar.190083",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38376,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     1.2012,
+     1.26,
+     1.2255,
+     0.0777,
+     1.72,
+     2.451
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.side_bay.fender.L.carrow_scholar.a2bfdc": {
+   "id": "BS300.side_bay.fender.L.carrow_scholar.a2bfdc",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44856,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     0.905,
+     0.195,
+     0.1753,
+     1.01,
+     0.39
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.side_bay.fore_0.L.carrow_scholar.90a2fc": {
+   "id": "BS300.side_bay.fore_0.L.carrow_scholar.90a2fc",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "fore_0",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/fore_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47304,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     0.4095,
+     0.06,
+     1.72,
+     0.819
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.side_bay.fore_1.L.carrow_scholar.9df574": {
+   "id": "BS300.side_bay.fore_1.L.carrow_scholar.9df574",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "fore_1",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/fore_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50328,
+     570
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     3.0,
+     0.06,
+     1.72,
+     6.0
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.side_bay.fore_2.L.carrow_scholar.7df340": {
+   "id": "BS300.side_bay.fore_2.L.carrow_scholar.7df340",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "side_bay",
+   "slot": "fore_2",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/side_bay/fore_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     64008,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     -1.2012,
+     1.26,
+     1.2255,
+     0.0777,
+     1.72,
+     2.451
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.trim.sail.L.carrow_scholar.8892b8": {
+   "id": "BS300.trim.sail.L.carrow_scholar.8892b8",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     70488,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.16,
+     0.06,
+     0.73,
+     0.32
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.trim.a_pillar.L.carrow_scholar.870ee4": {
+   "id": "BS300.trim.a_pillar.L.carrow_scholar.870ee4",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     71784,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1695,
+     1.97,
+     0.21,
+     0.099,
+     1.16,
+     0.42
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.roof_bay.roof_0.C.carrow_scholar.43672f": {
+   "id": "BS300.roof_bay.roof_0.C.carrow_scholar.43672f",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     72936,
+     936
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.75,
+     2.36,
+     0.56,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.roof_bay.roof_1.C.carrow_scholar.da42f8": {
+   "id": "BS300.roof_bay.roof_1.C.carrow_scholar.da42f8",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     95400,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.86,
+     2.36,
+     0.56,
+     1.72
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.roof_bay.roof_2.C.carrow_scholar.0d42a3": {
+   "id": "BS300.roof_bay.roof_2.C.carrow_scholar.0d42a3",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     109224,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.683,
+     2.36,
+     0.56,
+     1.366
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.roof_bay.roof_3.C.carrow_scholar.9ad03f": {
+   "id": "BS300.roof_bay.roof_3.C.carrow_scholar.9ad03f",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     121320,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.657,
+     2.36,
+     0.56,
+     1.314
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.roof_bay.roof_4.C.carrow_scholar.7b6477": {
+   "id": "BS300.roof_bay.roof_4.C.carrow_scholar.7b6477",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "roof_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/roof_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     142056,
+     936
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.874,
+     2.36,
+     0.56,
+     1.748
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.roof_bay.roof_5.C.carrow_scholar.93d772": {
+   "id": "BS300.roof_bay.roof_5.C.carrow_scholar.93d772",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "roof_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/roof_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     164520,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.761,
+     2.36,
+     0.56,
+     1.522
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.end_cap.tail.C.carrow_scholar.aa7441": {
+   "id": "BS300.end_cap.tail.C.carrow_scholar.aa7441",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     176616,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.54,
+     0.04,
+     2.4428,
+     2.28,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BS300.floor.floor.C.carrow_scholar.e4fd8d": {
+   "id": "BS300.floor.floor.C.carrow_scholar.e4fd8d",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     186912,
+     3072
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.885,
+     4.795,
+     2.36,
+     0.67,
+     9.59
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "BS300.lining_bay.trim_0_0.R.carrow_scholar.5e24b9": {
+   "id": "BS300.lining_bay.trim_0_0.R.carrow_scholar.5e24b9",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     260640,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.1606,
+     1.2214,
+     0.1,
+     0.0389,
+     1.2829,
+     0.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.lining_bay.trim_1_0.R.carrow_scholar.e7ca29": {
+   "id": "BS300.lining_bay.trim_1_0.R.carrow_scholar.e7ca29",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     262080,
+     954
+    ]
+   },
+   "boxes": [
+    [
+     1.1416,
+     1.35,
+     4.265,
+     0.0768,
+     1.54,
+     8.53
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.lining_bay.a_pillar.R.carrow_scholar.7b1401": {
+   "id": "BS300.lining_bay.a_pillar.R.carrow_scholar.7b1401",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     284976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.1095,
+     1.9412,
+     0.21,
+     0.099,
+     1.1456,
+     0.42
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.lining_bay.trim_0_0.L.carrow_scholar.68819e": {
+   "id": "BS300.lining_bay.trim_0_0.L.carrow_scholar.68819e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     286128,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.35,
+     0.53,
+     0.06,
+     1.54,
+     1.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.lining_bay.trim_0_1.L.carrow_scholar.2c4f88": {
+   "id": "BS300.lining_bay.trim_0_1.L.carrow_scholar.2c4f88",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_1",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/lining_bay/trim_0_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     289872,
+     954
+    ]
+   },
+   "boxes": [
+    [
+     -1.1416,
+     1.35,
+     4.265,
+     0.0768,
+     1.54,
+     8.53
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.lining_bay.a_pillar.L.carrow_scholar.df810d": {
+   "id": "BS300.lining_bay.a_pillar.L.carrow_scholar.df810d",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     312768,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1095,
+     1.9412,
+     0.21,
+     0.099,
+     1.1456,
+     0.42
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.ceiling_bay.roof_0.C.carrow_scholar.b0aff0": {
+   "id": "BS300.ceiling_bay.roof_0.C.carrow_scholar.b0aff0",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     313920,
+     936
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.75,
+     2.24,
+     0.5,
+     1.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.ceiling_bay.roof_1.C.carrow_scholar.8b33d1": {
+   "id": "BS300.ceiling_bay.roof_1.C.carrow_scholar.8b33d1",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     336384,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.86,
+     2.24,
+     0.5,
+     1.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.ceiling_bay.roof_2.C.carrow_scholar.43b7b9": {
+   "id": "BS300.ceiling_bay.roof_2.C.carrow_scholar.43b7b9",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     350208,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.683,
+     2.24,
+     0.5,
+     1.366
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.ceiling_bay.roof_3.C.carrow_scholar.49efc4": {
+   "id": "BS300.ceiling_bay.roof_3.C.carrow_scholar.49efc4",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     362304,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.657,
+     2.24,
+     0.5,
+     1.314
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.ceiling_bay.roof_4.C.carrow_scholar.3d7a06": {
+   "id": "BS300.ceiling_bay.roof_4.C.carrow_scholar.3d7a06",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/ceiling_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     383040,
+     936
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.874,
+     2.24,
+     0.5,
+     1.748
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.ceiling_bay.roof_5.C.carrow_scholar.6b83ea": {
+   "id": "BS300.ceiling_bay.roof_5.C.carrow_scholar.6b83ea",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/ceiling_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     405504,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.761,
+     2.24,
+     0.5,
+     1.522
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.end_lining.firewall.C.carrow_scholar.74592b": {
+   "id": "BS300.end_lining.firewall.C.carrow_scholar.74592b",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     417600,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.015,
+     -0.0,
+     2.35,
+     0.93,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.end_lining.rear_wall.C.carrow_scholar.f1ebff": {
+   "id": "BS300.end_lining.rear_wall.C.carrow_scholar.f1ebff",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     419040,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.585,
+     0.0,
+     2.35,
+     2.07,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.rear_opening.C.carrow_scholar.560056": {
+   "id": "BS300.reveal.rear_opening.C.carrow_scholar.560056",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     422496,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.04,
+     0.8,
+     1.3,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.door_E.R.carrow_scholar.d24d08": {
+   "id": "BS300.reveal.door_E.R.carrow_scholar.d24d08",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     425376,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.35,
+     0.43,
+     0.12,
+     1.54,
+     0.86
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W0.R.carrow_scholar.644d80": {
+   "id": "BS300.reveal.window_W0.R.carrow_scholar.644d80",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     428256,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W1.R.carrow_scholar.beef1e": {
+   "id": "BS300.reveal.window_W1.R.carrow_scholar.beef1e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     431136,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W2.R.carrow_scholar.f63a3f": {
+   "id": "BS300.reveal.window_W2.R.carrow_scholar.f63a3f",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     433440,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W3.R.carrow_scholar.95c391": {
+   "id": "BS300.reveal.window_W3.R.carrow_scholar.95c391",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     434592,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W4.R.carrow_scholar.32c80d": {
+   "id": "BS300.reveal.window_W4.R.carrow_scholar.32c80d",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W4",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W4/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     435744,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W5.R.carrow_scholar.b1097f": {
+   "id": "BS300.reveal.window_W5.R.carrow_scholar.b1097f",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W5",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W5/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     438624,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W6.R.carrow_scholar.a192cb": {
+   "id": "BS300.reveal.window_W6.R.carrow_scholar.a192cb",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W6",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W6/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     441504,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W7.R.carrow_scholar.59c621": {
+   "id": "BS300.reveal.window_W7.R.carrow_scholar.59c621",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W7",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W7/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     442656,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W8.R.carrow_scholar.3095b3": {
+   "id": "BS300.reveal.window_W8.R.carrow_scholar.3095b3",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W8",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W8/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     445536,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_D.L.carrow_scholar.abc1fa": {
+   "id": "BS300.reveal.window_D.L.carrow_scholar.abc1fa",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_D",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_D/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     448128,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.35,
+     0.12,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W0.L.carrow_scholar.d4378b": {
+   "id": "BS300.reveal.window_W0.L.carrow_scholar.d4378b",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     449856,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W1.L.carrow_scholar.27ff7b": {
+   "id": "BS300.reveal.window_W1.L.carrow_scholar.27ff7b",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     452736,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W2.L.carrow_scholar.a696b5": {
+   "id": "BS300.reveal.window_W2.L.carrow_scholar.a696b5",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     455040,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W3.L.carrow_scholar.a4d857": {
+   "id": "BS300.reveal.window_W3.L.carrow_scholar.a4d857",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     456192,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W4.L.carrow_scholar.1ae9f8": {
+   "id": "BS300.reveal.window_W4.L.carrow_scholar.1ae9f8",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W4",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W4/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     457344,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W5.L.carrow_scholar.b4e915": {
+   "id": "BS300.reveal.window_W5.L.carrow_scholar.b4e915",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W5",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W5/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     460224,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W6.L.carrow_scholar.a6b65e": {
+   "id": "BS300.reveal.window_W6.L.carrow_scholar.a6b65e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W6",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W6/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     463104,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W7.L.carrow_scholar.601054": {
+   "id": "BS300.reveal.window_W7.L.carrow_scholar.601054",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W7",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W7/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     464256,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.window_W8.L.carrow_scholar.3d655e": {
+   "id": "BS300.reveal.window_W8.L.carrow_scholar.3d655e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "window_W8",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/window_W8/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     467136,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.38,
+     0.12,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.reveal.screen.C.carrow_scholar.8d76a4": {
+   "id": "BS300.reveal.screen.C.carrow_scholar.8d76a4",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     469728,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.027,
+     0.21,
+     2.4174,
+     1.306,
+     0.42
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BS300.glazing.window_D.L.carrow_scholar.580107": {
+   "id": "BS300.glazing.window_D.L.carrow_scholar.580107",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_D",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_D/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     473184,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.35,
+     0.06,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W0.R.carrow_scholar.94fe6e": {
+   "id": "BS300.glazing.window_W0.R.carrow_scholar.94fe6e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     474480,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W0.L.carrow_scholar.b8a6fc": {
+   "id": "BS300.glazing.window_W0.L.carrow_scholar.b8a6fc",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     477504,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W1.R.carrow_scholar.337ed4": {
+   "id": "BS300.glazing.window_W1.R.carrow_scholar.337ed4",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     480528,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W1.L.carrow_scholar.9bde6e": {
+   "id": "BS300.glazing.window_W1.L.carrow_scholar.9bde6e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     482688,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W2.R.carrow_scholar.2954a0": {
+   "id": "BS300.glazing.window_W2.R.carrow_scholar.2954a0",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     484848,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W2.L.carrow_scholar.9b07c8": {
+   "id": "BS300.glazing.window_W2.L.carrow_scholar.9b07c8",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     485280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W3.R.carrow_scholar.e526f9": {
+   "id": "BS300.glazing.window_W3.R.carrow_scholar.e526f9",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     485712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W3.L.carrow_scholar.84dff1": {
+   "id": "BS300.glazing.window_W3.L.carrow_scholar.84dff1",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     486144,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W4.R.carrow_scholar.cf8e0e": {
+   "id": "BS300.glazing.window_W4.R.carrow_scholar.cf8e0e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W4",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W4/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     486576,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W4.L.carrow_scholar.17536d": {
+   "id": "BS300.glazing.window_W4.L.carrow_scholar.17536d",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W4",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W4/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     489600,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W5.R.carrow_scholar.11b0cd": {
+   "id": "BS300.glazing.window_W5.R.carrow_scholar.11b0cd",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W5",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W5/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     492624,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W5.L.carrow_scholar.df44db": {
+   "id": "BS300.glazing.window_W5.L.carrow_scholar.df44db",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W5",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W5/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     495648,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W6.R.carrow_scholar.898e6e": {
+   "id": "BS300.glazing.window_W6.R.carrow_scholar.898e6e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W6",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W6/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     498672,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W6.L.carrow_scholar.141834": {
+   "id": "BS300.glazing.window_W6.L.carrow_scholar.141834",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W6",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W6/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     499104,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W7.R.carrow_scholar.4b179f": {
+   "id": "BS300.glazing.window_W7.R.carrow_scholar.4b179f",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W7",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W7/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     499536,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W7.L.carrow_scholar.a30e7a": {
+   "id": "BS300.glazing.window_W7.L.carrow_scholar.a30e7a",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W7",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W7/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     502560,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W8.R.carrow_scholar.125b42": {
+   "id": "BS300.glazing.window_W8.R.carrow_scholar.125b42",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W8",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W8/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     505584,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.glazing.window_W8.L.carrow_scholar.5e8c9e": {
+   "id": "BS300.glazing.window_W8.L.carrow_scholar.5e8c9e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "glazing",
+   "slot": "window_W8",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/glazing/window_W8/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     508176,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.38,
+     0.06,
+     0.73,
+     0.76
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.door_leaf.door_E.R.carrow_scholar.73cd3e": {
+   "id": "BS300.door_leaf.door_E.R.carrow_scholar.73cd3e",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "door_leaf",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/door_leaf/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     510768,
+     60
+    ],
+    "paint": [
+     512208,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     0.985,
+     0.43,
+     0.06,
+     0.81,
+     0.86
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.door_glass.door_E.R.carrow_scholar.cf66dd": {
+   "id": "BS300.door_glass.door_E.R.carrow_scholar.cf66dd",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "door_glass",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/door_glass/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     515664,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.43,
+     0.06,
+     0.73,
+     0.86
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.leaf_trim.handle_E.R.carrow_scholar.99d5e9": {
+   "id": "BS300.leaf_trim.handle_E.R.carrow_scholar.99d5e9",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "leaf_trim",
+   "slot": "handle_E",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/leaf_trim/handle_E/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     517824,
+     36
+    ],
+    "dash": [
+     518688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.205,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.hatch.barn_R.R.carrow_scholar.ee7288": {
+   "id": "BS300.hatch.barn_R.R.carrow_scholar.ee7288",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "hatch",
+   "slot": "barn_R",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/hatch/barn_R/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     519552,
+     24
+    ],
+    "lining": [
+     520128,
+     24
+    ],
+    "paint": [
+     520704,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.2,
+     1.27,
+     0.04,
+     0.4,
+     1.3,
+     0.08
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 24,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.hatch_glass.barn_R.R.carrow_scholar.103cc1": {
+   "id": "BS300.hatch_glass.barn_R.R.carrow_scholar.103cc1",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "hatch_glass",
+   "slot": "barn_R",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/hatch_glass/barn_R/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     521856,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.19,
+     1.64,
+     0.0,
+     0.22,
+     0.44,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.hatch.barn_L.L.carrow_scholar.cf8e5a": {
+   "id": "BS300.hatch.barn_L.L.carrow_scholar.cf8e5a",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "hatch",
+   "slot": "barn_L",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/hatch/barn_L/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     522000,
+     24
+    ],
+    "lining": [
+     522576,
+     24
+    ],
+    "paint": [
+     523152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.2,
+     1.27,
+     0.04,
+     0.4,
+     1.3,
+     0.08
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 24,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.hatch_glass.barn_L.L.carrow_scholar.0d9028": {
+   "id": "BS300.hatch_glass.barn_L.L.carrow_scholar.0d9028",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "hatch_glass",
+   "slot": "barn_L",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/hatch_glass/barn_L/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     524304,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.19,
+     1.64,
+     0.0,
+     0.22,
+     0.44,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "BS300.wheel_well.well_0.R.carrow_scholar.664bec": {
+   "id": "BS300.wheel_well.well_0.R.carrow_scholar.664bec",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     524448,
+     762
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.wheel_well.well_0.L.carrow_scholar.ea917f": {
+   "id": "BS300.wheel_well.well_0.L.carrow_scholar.ea917f",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     542736,
+     762
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.wheel_well.well_1.R.carrow_scholar.0c8359": {
+   "id": "BS300.wheel_well.well_1.R.carrow_scholar.0c8359",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     561024,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.7899,
+     0.5918,
+     0.5745,
+     0.7837,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.wheel_well.well_1.L.carrow_scholar.ea789b": {
+   "id": "BS300.wheel_well.well_1.L.carrow_scholar.ea789b",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     578160,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.7899,
+     0.5918,
+     0.5746,
+     0.7837,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.wheel_well.well_2.R.carrow_scholar.ea0b47": {
+   "id": "BS300.wheel_well.well_2.R.carrow_scholar.ea0b47",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "wheel_well",
+   "slot": "well_2",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/wheel_well/well_2/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     595296,
+     762
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.wheel_well.well_2.L.carrow_scholar.bd57a0": {
+   "id": "BS300.wheel_well.well_2.L.carrow_scholar.bd57a0",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "wheel_well",
+   "slot": "well_2",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/wheel_well/well_2/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     613584,
+     762
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.underpan.underpan.C.carrow_scholar.c16449": {
+   "id": "BS300.underpan.underpan.C.carrow_scholar.c16449",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     631872,
+     906
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     4.9,
+     2.42,
+     0.105,
+     9.8
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "BS300.seat.row_0.C.carrow_scholar.727b0a": {
+   "id": "BS300.seat.row_0.C.carrow_scholar.727b0a",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     653616,
+     36
+    ],
+    "seat": [
+     654480,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     1.1946,
+     0.4335,
+     0.46,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_1.C.carrow_scholar.681cc8": {
+   "id": "BS300.seat.row_1.C.carrow_scholar.681cc8",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     657072,
+     144
+    ],
+    "seat": [
+     660528,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_2.C.carrow_scholar.bd5330": {
+   "id": "BS300.seat.row_2.C.carrow_scholar.bd5330",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     667440,
+     144
+    ],
+    "seat": [
+     670896,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_3.C.carrow_scholar.2e5797": {
+   "id": "BS300.seat.row_3.C.carrow_scholar.2e5797",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_3",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_3/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     677808,
+     144
+    ],
+    "seat": [
+     681264,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_4.C.carrow_scholar.5ad046": {
+   "id": "BS300.seat.row_4.C.carrow_scholar.5ad046",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_4",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_4/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     688176,
+     144
+    ],
+    "seat": [
+     691632,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_5.C.carrow_scholar.39ca71": {
+   "id": "BS300.seat.row_5.C.carrow_scholar.39ca71",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_5",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_5/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     698544,
+     144
+    ],
+    "seat": [
+     702000,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_6.C.carrow_scholar.698116": {
+   "id": "BS300.seat.row_6.C.carrow_scholar.698116",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_6",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_6/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     708912,
+     144
+    ],
+    "seat": [
+     712368,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_7.C.carrow_scholar.e3fee8": {
+   "id": "BS300.seat.row_7.C.carrow_scholar.e3fee8",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_7",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_7/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     719280,
+     144
+    ],
+    "seat": [
+     722736,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_8.C.carrow_scholar.1896fb": {
+   "id": "BS300.seat.row_8.C.carrow_scholar.1896fb",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_8",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_8/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     729648,
+     144
+    ],
+    "seat": [
+     733104,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_9.C.carrow_scholar.707801": {
+   "id": "BS300.seat.row_9.C.carrow_scholar.707801",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_9",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_9/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     740016,
+     144
+    ],
+    "seat": [
+     743472,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_10.C.carrow_scholar.3b004a": {
+   "id": "BS300.seat.row_10.C.carrow_scholar.3b004a",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_10",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_10/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     750384,
+     144
+    ],
+    "seat": [
+     753840,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.seat.row_11.C.carrow_scholar.7e18d4": {
+   "id": "BS300.seat.row_11.C.carrow_scholar.7e18d4",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "seat",
+   "slot": "row_11",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/seat/row_11/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     760752,
+     144
+    ],
+    "seat": [
+     764208,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BS300.dash.dash.C.carrow_scholar.430689": {
+   "id": "BS300.dash.dash.C.carrow_scholar.430689",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     771120,
+     1236
+    ],
+    "chrome": [
+     800784,
+     120
+    ],
+    "dash": [
+     803664,
+     108
+    ],
+    "gauge": [
+     806256,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2249,
+     0.2222,
+     2.2,
+     0.3901,
+     0.4443
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BS300.dash.readout.C.carrow_scholar.2bef58": {
+   "id": "BS300.dash.readout.C.carrow_scholar.2bef58",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     815472,
+     36
+    ],
+    "lcd": [
+     816336,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     1.31,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "BS300.lamp.head_lamp.C.carrow_scholar.7d08a1": {
+   "id": "BS300.lamp.head_lamp.C.carrow_scholar.7d08a1",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     817200,
+     480
+    ],
+    "lamp_amber": [
+     828720,
+     72
+    ],
+    "lamp_drl": [
+     830448,
+     480
+    ],
+    "lamp_head": [
+     841968,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.222,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "BS300.lamp.tail_lamp.C.carrow_scholar.d97410": {
+   "id": "BS300.lamp.tail_lamp.C.carrow_scholar.d97410",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     853488,
+     12
+    ],
+    "lamp_amber": [
+     853776,
+     48
+    ],
+    "lamp_brake": [
+     854928,
+     36
+    ],
+    "lamp_reverse": [
+     855792,
+     48
+    ],
+    "lamp_tail": [
+     856944,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.421,
+     0.006,
+     2.2912,
+     1.142,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "BS300.lamp.side_marker.C.carrow_scholar.1a3f33": {
+   "id": "BS300.lamp.side_marker.C.carrow_scholar.1a3f33",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     865008,
+     72
+    ],
+    "lamp_tail": [
+     866736,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.22,
+     4.74,
+     2.496,
+     0.03,
+     9.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "BS300.lamp.id_lamp.C.carrow_scholar.528aa3": {
+   "id": "BS300.lamp.id_lamp.C.carrow_scholar.528aa3",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     868464,
+     180
+    ],
+    "lamp_tail": [
+     872784,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.626,
+     4.625,
+     2.24,
+     0.156,
+     9.25
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "BS300.trim.bumper_front.C.carrow_scholar.9258fb": {
+   "id": "BS300.trim.bumper_front.C.carrow_scholar.9258fb",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     877104,
+     108
+    ],
+    "rubber": [
+     879696,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.trim.bumper_rear.C.carrow_scholar.e79168": {
+   "id": "BS300.trim.bumper_rear.C.carrow_scholar.e79168",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     880560,
+     108
+    ],
+    "rubber": [
+     883152,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.trim.mirror.R.carrow_scholar.a206a5": {
+   "id": "BS300.trim.mirror.R.carrow_scholar.a206a5",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     884016,
+     96
+    ],
+    "glass_dark": [
+     886320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.319,
+     1.4834,
+     0.0398,
+     0.2021,
+     0.1632,
+     0.0796
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.trim.mirror.L.carrow_scholar.e9fb07": {
+   "id": "BS300.trim.mirror.L.carrow_scholar.e9fb07",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     887184,
+     96
+    ],
+    "glass_dark": [
+     889488,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.319,
+     1.4834,
+     0.0398,
+     0.2021,
+     0.1632,
+     0.0796
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BS300.leaf_trim.livery_door_E.R.carrow_scholar.8439e1": {
+   "id": "BS300.leaf_trim.livery_door_E.R.carrow_scholar.8439e1",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "leaf_trim",
+   "slot": "livery_door_E",
+   "side": "R",
+   "style": "carrow_scholar",
+   "interface": "BS300/leaf_trim/livery_door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     890352,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.95,
+     0.38,
+     0.02,
+     0.06,
+     0.76
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "BS300.equipment.stop_arm.L.carrow_scholar.aa983b": {
+   "id": "BS300.equipment.stop_arm.L.carrow_scholar.aa983b",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "equipment",
+   "slot": "stop_arm",
+   "side": "L",
+   "style": "carrow_scholar",
+   "interface": "BS300/equipment/stop_arm/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     893808,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.2925,
+     1.34,
+     0.2125,
+     0.025,
+     0.425,
+     0.425
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BS300.equipment.crossview_mirrors.C.carrow_scholar.ebe230": {
+   "id": "BS300.equipment.crossview_mirrors.C.carrow_scholar.ebe230",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "equipment",
+   "slot": "crossview_mirrors",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/equipment/crossview_mirrors/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     896112,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.39,
+     0.2532,
+     2.88,
+     0.2213,
+     0.5063
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BS300.lamp.warning_lamps.C.carrow_scholar.5f4f71": {
+   "id": "BS300.lamp.warning_lamps.C.carrow_scholar.5f4f71",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "lamp",
+   "slot": "warning_lamps",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/lamp/warning_lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     905904,
+     672
+    ],
+    "lamp_red": [
+     922032,
+     672
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.325,
+     4.668,
+     2.16,
+     0.3855,
+     9.336
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 2,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "BS300.equipment.roof_hatches.C.carrow_scholar.8ca8f4": {
+   "id": "BS300.equipment.roof_hatches.C.carrow_scholar.8ca8f4",
+   "standard": "BS300",
+   "class": "school_bus",
+   "role": "equipment",
+   "slot": "roof_hatches",
+   "side": "C",
+   "style": "carrow_scholar",
+   "interface": "BS300/equipment/roof_hatches/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     938160,
+     72
+    ],
+    "livery1": [
+     939888,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.695,
+     2.725,
+     0.6,
+     0.05,
+     5.45
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

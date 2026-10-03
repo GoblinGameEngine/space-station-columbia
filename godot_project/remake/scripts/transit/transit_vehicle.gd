@@ -10,18 +10,19 @@ class_name TransitVehicle
 ##          the street round any bend and every wheel steers. People walk about inside, moving or
 ##          standing still; at a stop the curbside doors open, riders get off and new ones get on on
 ##          that side, and the doors close before it moves on.
-##   train  three cars of remake/vehicles/passenger_train.glb, the last turned round (cab at the back).
+##   train  three of the Steward's modular coaches (FleetBodies "passenger_train"), the last turned round (cab at the back).
 ## Passengers: generated people seated on the seat_* markers and standing at stand_* holding the
 ## strap_* above (NpcRide), as many as the hour brings. The player can sit on any free seat (use it)
 ## and stand up again (use); on a train they board at a stop and get off at the next.
 
-const TRAIN := "res://remake/vehicles/passenger_train.glb"
 const CAR_LEN := 25.0
 const SEAT_H := 0.45
 const AXLE := 2.25                   # the tram board's axles, either side of a section's middle
 const WB := 4.5
 const WHEEL_R := 0.48
 const JOINT_GAP := 1.30              # between two sections' portal faces: bellows, articulation ring, bellows
+const MIN_SECTIONS := 2               # a tram: a front and a rear section, and up to two between
+const MAX_SECTIONS := 4
 const WALK := 1.2                    # m/s, people walking in and out
 const AISLE_X := 0.21
 static var _scenes := {}
@@ -72,7 +73,7 @@ func setup(p_line: Dictionary, p_index: int, hour: float) -> void:
 	name = "%s_%d" % [line.id, index]
 	_rng.seed = hash(name)
 	if line.kind == "tram":
-		var n := 2 + absi(hash("%s#%d" % [line.id, index])) % 3          # two to four sections
+		var n := MIN_SECTIONS + absi(hash("%s#%d" % [line.id, index])) % (MAX_SECTIONS - MIN_SECTIONS + 1)
 		var kinds := ["front"]
 		for k in n - 2:
 			kinds.append("mid")
@@ -116,11 +117,17 @@ func _build_tram(kinds: Array, hour: float) -> void:
 
 func _build_train(hour: float) -> void:
 	if true:
-		var sc2 := _scene(TRAIN)
+		# the cars: the Steward's modular coach (FleetBodies "passenger_train": a VehicleBody on its rail board)
+		var info := FleetBodies.of("passenger_train")
 		for k in 3:
-			if sc2 == null:
+			if info.is_empty():
 				break
-			var car: Node3D = sc2.instantiate()
+			var car := Node3D.new()
+			car.name = "Car%d" % k
+			var board := (load(FleetBodies.board_path(str(info.board))) as PackedScene).instantiate() as Node3D
+			FleetBodies.strip_board(board)
+			car.add_child(board)
+			car.add_child(VehicleBody.make(VehicleBody.prepare(str(info.blueprint))))
 			add_child(car)
 			_add_part(car, k == 2)
 		for m in find_children("seat_*", "Node3D", true, false):
@@ -452,8 +459,8 @@ func walking() -> bool:
 
 func _add_part(node: Node3D, reversed: bool) -> void:
 	## A train car: its lead and trail pivots (on the track) and a collider from its meshes.
-	var lead := node.find_child("pivot_lead*", false, false) as Node3D
-	var trail := node.find_child("pivot_trail*", false, false) as Node3D
+	var lead := node.find_child("pivot_lead*", true, false) as Node3D
+	var trail := node.find_child("pivot_trail*", true, false) as Node3D
 	var yl := -lead.position.z if lead else CAR_LEN / 2
 	var yt := -trail.position.z if trail else -CAR_LEN / 2
 	if reversed:

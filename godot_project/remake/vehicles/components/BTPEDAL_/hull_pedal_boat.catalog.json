@@ -1,0 +1,1972 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTPEDAL_",
+ "class": "pedal_boat",
+ "style": "hull_pedal_boat",
+ "pack": "res://remake/vehicles/components/BTPEDAL_/hull_pedal_boat.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.7294,
+    0.1176
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTPEDAL_.side_bay.bottom_0.R.hull_pedal_boat.7e5ca4": {
+   "id": "BTPEDAL_.side_bay.bottom_0.R.hull_pedal_boat.7e5ca4",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.345,
+     0.0646,
+     0.325,
+     0.69,
+     0.4291,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.bottom_0.R.hull_pedal_boat.dad075": {
+   "id": "BTPEDAL_.lining_bay.bottom_0.R.hull_pedal_boat.dad075",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.325,
+     0.1046,
+     0.325,
+     0.65,
+     0.4291,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.bottom_0.L.hull_pedal_boat.a9615e": {
+   "id": "BTPEDAL_.side_bay.bottom_0.L.hull_pedal_boat.a9615e",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     2304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.345,
+     0.0646,
+     0.325,
+     0.69,
+     0.4291,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.bottom_0.L.hull_pedal_boat.07145f": {
+   "id": "BTPEDAL_.lining_bay.bottom_0.L.hull_pedal_boat.07145f",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3456,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.325,
+     0.1046,
+     0.325,
+     0.65,
+     0.4291,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.topside_0.R.hull_pedal_boat.63d3d0": {
+   "id": "BTPEDAL_.side_bay.topside_0.R.hull_pedal_boat.63d3d0",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6337,
+     0.2994,
+     0.325,
+     0.2325,
+     0.7012,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.topside_0.R.hull_pedal_boat.5fa814": {
+   "id": "BTPEDAL_.lining_bay.topside_0.R.hull_pedal_boat.5fa814",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.5937,
+     0.3194,
+     0.325,
+     0.2325,
+     0.6612,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.topside_0.L.hull_pedal_boat.ac6115": {
+   "id": "BTPEDAL_.side_bay.topside_0.L.hull_pedal_boat.ac6115",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6337,
+     0.2994,
+     0.325,
+     0.2325,
+     0.7012,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.topside_0.L.hull_pedal_boat.17a831": {
+   "id": "BTPEDAL_.lining_bay.topside_0.L.hull_pedal_boat.17a831",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.5937,
+     0.3194,
+     0.325,
+     0.2325,
+     0.6612,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.sidedeck_0.R.hull_pedal_boat.c7e1da": {
+   "id": "BTPEDAL_.roof_bay.sidedeck_0.R.hull_pedal_boat.c7e1da",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     9216,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.6056,
+     0.5756,
+     0.325,
+     0.2887,
+     0.1907,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.sidedeck_0.R.hull_pedal_boat.ccf6dc": {
+   "id": "BTPEDAL_.lining_bay.sidedeck_0.R.hull_pedal_boat.ccf6dc",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9792,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.5656,
+     0.5556,
+     0.325,
+     0.2887,
+     0.1887,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.sidedeck_0.L.hull_pedal_boat.da582c": {
+   "id": "BTPEDAL_.roof_bay.sidedeck_0.L.hull_pedal_boat.da582c",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.6056,
+     0.5756,
+     0.325,
+     0.2887,
+     0.1907,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.sidedeck_0.L.hull_pedal_boat.7c566a": {
+   "id": "BTPEDAL_.lining_bay.sidedeck_0.L.hull_pedal_boat.7c566a",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10944,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.5656,
+     0.5556,
+     0.325,
+     0.2887,
+     0.1887,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.deck_0.R.hull_pedal_boat.9888fe": {
+   "id": "BTPEDAL_.roof_bay.deck_0.R.hull_pedal_boat.9888fe",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     11520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.3075,
+     0.6056,
+     0.325,
+     0.615,
+     0.2087,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.deck_0.R.hull_pedal_boat.1c6020": {
+   "id": "BTPEDAL_.lining_bay.deck_0.R.hull_pedal_boat.1c6020",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.2875,
+     0.5656,
+     0.325,
+     0.575,
+     0.2087,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.deck_0.L.hull_pedal_boat.cb63ba": {
+   "id": "BTPEDAL_.roof_bay.deck_0.L.hull_pedal_boat.cb63ba",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.3075,
+     0.6056,
+     0.325,
+     0.615,
+     0.2087,
+     0.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.deck_0.L.hull_pedal_boat.3f513d": {
+   "id": "BTPEDAL_.lining_bay.deck_0.L.hull_pedal_boat.3f513d",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.2875,
+     0.5656,
+     0.325,
+     0.575,
+     0.2087,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.bottom_1.R.hull_pedal_boat.6d7803": {
+   "id": "BTPEDAL_.side_bay.bottom_1.R.hull_pedal_boat.6d7803",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.345,
+     -0.1006,
+     0.75,
+     0.69,
+     0.0988,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.bottom_1.R.hull_pedal_boat.70c04a": {
+   "id": "BTPEDAL_.lining_bay.bottom_1.R.hull_pedal_boat.70c04a",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     19008,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.325,
+     -0.0606,
+     0.75,
+     0.65,
+     0.0988,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.bottom_1.L.hull_pedal_boat.6a60a8": {
+   "id": "BTPEDAL_.side_bay.bottom_1.L.hull_pedal_boat.6a60a8",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     21888,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.345,
+     -0.1006,
+     0.75,
+     0.69,
+     0.0988,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.bottom_1.L.hull_pedal_boat.9c811f": {
+   "id": "BTPEDAL_.lining_bay.bottom_1.L.hull_pedal_boat.9c811f",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     24768,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.325,
+     -0.0606,
+     0.75,
+     0.65,
+     0.0988,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.topside_1.R.hull_pedal_boat.7cd827": {
+   "id": "BTPEDAL_.side_bay.topside_1.R.hull_pedal_boat.7cd827",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     27648,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.72,
+     0.2146,
+     0.75,
+     0.06,
+     0.5314,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.topside_1.R.hull_pedal_boat.761433": {
+   "id": "BTPEDAL_.lining_bay.topside_1.R.hull_pedal_boat.761433",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     30528,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.68,
+     0.2346,
+     0.75,
+     0.06,
+     0.4914,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.topside_1.L.hull_pedal_boat.5ef958": {
+   "id": "BTPEDAL_.side_bay.topside_1.L.hull_pedal_boat.5ef958",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33408,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.72,
+     0.2146,
+     0.75,
+     0.06,
+     0.5314,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.topside_1.L.hull_pedal_boat.705b8e": {
+   "id": "BTPEDAL_.lining_bay.topside_1.L.hull_pedal_boat.705b8e",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     36288,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.68,
+     0.2346,
+     0.75,
+     0.06,
+     0.4914,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.sidedeck_1.R.hull_pedal_boat.9c88ec": {
+   "id": "BTPEDAL_.roof_bay.sidedeck_1.R.hull_pedal_boat.9c88ec",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     39168,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.6825,
+     0.4508,
+     0.75,
+     0.135,
+     0.1009,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.sidedeck_1.R.hull_pedal_boat.e3d073": {
+   "id": "BTPEDAL_.lining_bay.sidedeck_1.R.hull_pedal_boat.e3d073",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40608,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.6425,
+     0.4308,
+     0.75,
+     0.135,
+     0.0989,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.sidedeck_1.L.hull_pedal_boat.2fbd66": {
+   "id": "BTPEDAL_.roof_bay.sidedeck_1.L.hull_pedal_boat.2fbd66",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42048,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.6825,
+     0.4508,
+     0.75,
+     0.135,
+     0.1009,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.sidedeck_1.L.hull_pedal_boat.06b4b0": {
+   "id": "BTPEDAL_.lining_bay.sidedeck_1.L.hull_pedal_boat.06b4b0",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43488,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.6425,
+     0.4308,
+     0.75,
+     0.135,
+     0.0989,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.bottom_2.R.hull_pedal_boat.bc5438": {
+   "id": "BTPEDAL_.side_bay.bottom_2.R.hull_pedal_boat.bc5438",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44928,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.345,
+     -0.1006,
+     0.175,
+     0.69,
+     0.0988,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.bottom_2.R.hull_pedal_boat.3809f4": {
+   "id": "BTPEDAL_.lining_bay.bottom_2.R.hull_pedal_boat.3809f4",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45504,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.325,
+     -0.0606,
+     0.175,
+     0.65,
+     0.0988,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.bottom_2.L.hull_pedal_boat.5d8810": {
+   "id": "BTPEDAL_.side_bay.bottom_2.L.hull_pedal_boat.5d8810",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     46080,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.345,
+     -0.1006,
+     0.175,
+     0.69,
+     0.0988,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.bottom_2.L.hull_pedal_boat.d4e7df": {
+   "id": "BTPEDAL_.lining_bay.bottom_2.L.hull_pedal_boat.d4e7df",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46656,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.325,
+     -0.0606,
+     0.175,
+     0.65,
+     0.0988,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.topside_2.R.hull_pedal_boat.639c98": {
+   "id": "BTPEDAL_.side_bay.topside_2.R.hull_pedal_boat.639c98",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47232,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.72,
+     0.1911,
+     0.175,
+     0.06,
+     0.4845,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.topside_2.R.hull_pedal_boat.3f33fe": {
+   "id": "BTPEDAL_.lining_bay.topside_2.R.hull_pedal_boat.3f33fe",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47808,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.68,
+     0.2111,
+     0.175,
+     0.06,
+     0.4445,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.side_bay.topside_2.L.hull_pedal_boat.caa114": {
+   "id": "BTPEDAL_.side_bay.topside_2.L.hull_pedal_boat.caa114",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48384,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.72,
+     0.1911,
+     0.175,
+     0.06,
+     0.4845,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.lining_bay.topside_2.L.hull_pedal_boat.2b8c25": {
+   "id": "BTPEDAL_.lining_bay.topside_2.L.hull_pedal_boat.2b8c25",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48960,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.68,
+     0.2111,
+     0.175,
+     0.06,
+     0.4445,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.sidedeck_2.R.hull_pedal_boat.68f8b4": {
+   "id": "BTPEDAL_.roof_bay.sidedeck_2.R.hull_pedal_boat.68f8b4",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49536,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6825,
+     0.4342,
+     0.175,
+     0.135,
+     0.0403,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.sidedeck_2.R.hull_pedal_boat.03124e": {
+   "id": "BTPEDAL_.lining_bay.sidedeck_2.R.hull_pedal_boat.03124e",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6425,
+     0.4142,
+     0.175,
+     0.135,
+     0.0382,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.sidedeck_2.L.hull_pedal_boat.66f020": {
+   "id": "BTPEDAL_.roof_bay.sidedeck_2.L.hull_pedal_boat.66f020",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50112,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6825,
+     0.4342,
+     0.175,
+     0.135,
+     0.0403,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.sidedeck_2.L.hull_pedal_boat.2e7b97": {
+   "id": "BTPEDAL_.lining_bay.sidedeck_2.L.hull_pedal_boat.2e7b97",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50400,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6425,
+     0.4142,
+     0.175,
+     0.135,
+     0.0382,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.deck_2.R.hull_pedal_boat.02a700": {
+   "id": "BTPEDAL_.roof_bay.deck_2.R.hull_pedal_boat.02a700",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50688,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.3075,
+     0.4642,
+     0.175,
+     0.615,
+     0.0583,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.deck_2.R.hull_pedal_boat.fb40fd": {
+   "id": "BTPEDAL_.lining_bay.deck_2.R.hull_pedal_boat.fb40fd",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     51264,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.2875,
+     0.4242,
+     0.175,
+     0.575,
+     0.0583,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.roof_bay.deck_2.L.hull_pedal_boat.c02b8e": {
+   "id": "BTPEDAL_.roof_bay.deck_2.L.hull_pedal_boat.c02b8e",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51840,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.3075,
+     0.4642,
+     0.175,
+     0.615,
+     0.0583,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.lining_bay.deck_2.L.hull_pedal_boat.2fea63": {
+   "id": "BTPEDAL_.lining_bay.deck_2.L.hull_pedal_boat.2fea63",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52416,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.2875,
+     0.4242,
+     0.175,
+     0.575,
+     0.0583,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.reveal.cockpit.C.hull_pedal_boat.13fa75": {
+   "id": "BTPEDAL_.reveal.cockpit.C.hull_pedal_boat.13fa75",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     52992,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4608,
+     0.75,
+     1.23,
+     0.1589,
+     1.5
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPEDAL_.end_cap.transom.C.hull_pedal_boat.ce5577": {
+   "id": "BTPEDAL_.end_cap.transom.C.hull_pedal_boat.ce5577",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     57024,
+     36
+    ],
+    "paint": [
+     57888,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1717,
+     -0.0,
+     1.5,
+     0.6433,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.end_cap.stem.C.hull_pedal_boat.55ec52": {
+   "id": "BTPEDAL_.end_cap.stem.C.hull_pedal_boat.55ec52",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58752,
+     36
+    ],
+    "paint": [
+     59616,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.455,
+     -0.0,
+     1.125,
+     0.51,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPEDAL_.trim.strake.C.hull_pedal_boat.e4b675": {
+   "id": "BTPEDAL_.trim.strake.C.hull_pedal_boat.e4b675",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     60480,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     -0.0013,
+     0.4948,
+     1.2633,
+     1.6057,
+     0.3186,
+     2.5266
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTPEDAL_.equipment.paddlewheel.C.hull_pedal_boat.bebf26": {
+   "id": "BTPEDAL_.equipment.paddlewheel.C.hull_pedal_boat.bebf26",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "equipment",
+   "slot": "paddlewheel",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/equipment/paddlewheel/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     89280,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.3569,
+     0.3,
+     0.5,
+     0.6,
+     0.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPEDAL_.equipment.thwarts.C.hull_pedal_boat.a6eaa5": {
+   "id": "BTPEDAL_.equipment.thwarts.C.hull_pedal_boat.a6eaa5",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "equipment",
+   "slot": "thwarts",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/equipment/thwarts/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     91008,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2869,
+     0.65,
+     1.38,
+     0.04,
+     1.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPEDAL_.equipment.canopy_boat.C.hull_pedal_boat.64679c": {
+   "id": "BTPEDAL_.equipment.canopy_boat.C.hull_pedal_boat.64679c",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "equipment",
+   "slot": "canopy_boat",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/equipment/canopy_boat/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     92736,
+     240
+    ],
+    "paint2": [
+     98496,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0669,
+     0.6145,
+     1.3,
+     1.32,
+     1.229
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

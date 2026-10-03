@@ -58,6 +58,34 @@ static func palette(style: String) -> Dictionary:
 	return out
 
 
+static var _stamp := {}                # standard -> the newest modified time of its catalogs and packs when loaded
+
+
+static func refresh(std_id: String) -> void:
+	## A rebuilt library (its catalogs or packs newer than what was loaded) is read again -- else a body built after a
+	## rebuild asks for components (new shapes, new ids) the cached catalog has never heard of, and draws no panels.
+	var newest := 0
+	var dir := DirAccess.open(ROOT + std_id)
+	if dir == null:
+		return
+	for f in dir.get_files():
+		if f.ends_with(".catalog.json") or f.ends_with(".pack"):
+			newest = maxi(newest, FileAccess.get_modified_time(ROOT + std_id + "/" + f))
+	_mx.lock()
+	var was: int = _stamp.get(std_id, -1)
+	if was != -1 and newest != was:
+		_catalogs.erase(std_id)
+		_standards.erase(std_id)
+		for k in _packs.keys():
+			if str(k).begins_with(ROOT + std_id + "/"):
+				_packs.erase(k)
+		for k in _geo.keys():
+			if str(k).begins_with(std_id + "."):
+				_geo.erase(k)
+	_stamp[std_id] = newest
+	_mx.unlock()
+
+
 static func compatible(std_id: String, interface: String) -> Array:
 	## The components that fit this interface (any style): what can be swapped in.
 	var out: Array = []

@@ -1,0 +1,2995 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTWORKBO",
+ "class": "workboat_tug",
+ "style": "hull_workboat_tug",
+ "pack": "res://remake/vehicles/components/BTWORKBO/hull_workboat_tug.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.1569,
+    0.1647,
+    0.1804
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTWORKBO.side_bay.bottom_0.R.hull_workboat_tug.87fc56": {
+   "id": "BTWORKBO.side_bay.bottom_0.R.hull_workboat_tug.87fc56",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.0502,
+     -0.2,
+     2.0,
+     2.1005,
+     2.2443,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_0.R.hull_workboat_tug.cf7bb6": {
+   "id": "BTWORKBO.lining_bay.bottom_0.R.hull_workboat_tug.cf7bb6",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.9902,
+     -0.08,
+     2.0,
+     1.9805,
+     2.2443,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_0.L.hull_workboat_tug.b58339": {
+   "id": "BTWORKBO.side_bay.bottom_0.L.hull_workboat_tug.b58339",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     2304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.0502,
+     -0.2,
+     2.0,
+     2.1005,
+     2.2443,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_0.L.hull_workboat_tug.f0feac": {
+   "id": "BTWORKBO.lining_bay.bottom_0.L.hull_workboat_tug.f0feac",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3456,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.9902,
+     -0.08,
+     2.0,
+     1.9805,
+     2.2443,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_0.R.hull_workboat_tug.0f112a": {
+   "id": "BTWORKBO.side_bay.topside_0.R.hull_workboat_tug.0f112a",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.1462,
+     0.4665,
+     2.0,
+     2.2739,
+     2.5669,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_0.R.hull_workboat_tug.aa0b06": {
+   "id": "BTWORKBO.lining_bay.topside_0.R.hull_workboat_tug.aa0b06",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.0816,
+     0.5265,
+     2.0,
+     2.1631,
+     2.4469,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_0.L.hull_workboat_tug.f9e875": {
+   "id": "BTWORKBO.side_bay.topside_0.L.hull_workboat_tug.f9e875",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1462,
+     0.4665,
+     2.0,
+     2.2739,
+     2.5669,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_0.L.hull_workboat_tug.043142": {
+   "id": "BTWORKBO.lining_bay.topside_0.L.hull_workboat_tug.043142",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.0816,
+     0.5265,
+     2.0,
+     2.1631,
+     2.4469,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_0.R.hull_workboat_tug.1b5b1a": {
+   "id": "BTWORKBO.roof_bay.sidedeck_0.R.hull_workboat_tug.1b5b1a",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     9216,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.1457,
+     1.6741,
+     2.0,
+     2.2749,
+     0.1938,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_0.R.hull_workboat_tug.08b15e": {
+   "id": "BTWORKBO.lining_bay.sidedeck_0.R.hull_workboat_tug.08b15e",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9792,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.0816,
+     1.6141,
+     2.0,
+     2.1631,
+     0.2718,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_0.L.hull_workboat_tug.8a9067": {
+   "id": "BTWORKBO.roof_bay.sidedeck_0.L.hull_workboat_tug.8a9067",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.1457,
+     1.6741,
+     2.0,
+     2.2749,
+     0.1938,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_0.L.hull_workboat_tug.1cadf9": {
+   "id": "BTWORKBO.lining_bay.sidedeck_0.L.hull_workboat_tug.1cadf9",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10944,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.0816,
+     1.6141,
+     2.0,
+     2.1631,
+     0.2718,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_0.R.hull_workboat_tug.b31677": {
+   "id": "BTWORKBO.roof_bay.deck_0.R.hull_workboat_tug.b31677",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     11520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.9361,
+     1.7041,
+     2.0,
+     1.8722,
+     0.2118,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_0.R.hull_workboat_tug.916e6b": {
+   "id": "BTWORKBO.lining_bay.deck_0.R.hull_workboat_tug.916e6b",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.8761,
+     1.5841,
+     2.0,
+     1.7522,
+     0.2118,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_0.L.hull_workboat_tug.2301b4": {
+   "id": "BTWORKBO.roof_bay.deck_0.L.hull_workboat_tug.2301b4",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.9361,
+     1.7041,
+     2.0,
+     1.8722,
+     0.2118,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_0.L.hull_workboat_tug.c52dfb": {
+   "id": "BTWORKBO.lining_bay.deck_0.L.hull_workboat_tug.c52dfb",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.8761,
+     1.5841,
+     2.0,
+     1.7522,
+     0.2118,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_1.R.hull_workboat_tug.84e241": {
+   "id": "BTWORKBO.side_bay.bottom_1.R.hull_workboat_tug.84e241",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     -1.2085,
+     3.0,
+     2.3,
+     0.7831,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_1.R.hull_workboat_tug.b2971c": {
+   "id": "BTWORKBO.lining_bay.bottom_1.R.hull_workboat_tug.b2971c",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     18144,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.09,
+     -1.0885,
+     3.0,
+     2.18,
+     0.7831,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_1.L.hull_workboat_tug.cc1fdc": {
+   "id": "BTWORKBO.side_bay.bottom_1.L.hull_workboat_tug.cc1fdc",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     20160,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     -1.2085,
+     3.0,
+     2.3,
+     0.7831,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_1.L.hull_workboat_tug.190758": {
+   "id": "BTWORKBO.lining_bay.bottom_1.L.hull_workboat_tug.190758",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     22176,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.09,
+     -1.0885,
+     3.0,
+     2.18,
+     0.7831,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_1.R.hull_workboat_tug.78e1fe": {
+   "id": "BTWORKBO.side_bay.topside_1.R.hull_workboat_tug.78e1fe",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24192,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     2.3002,
+     0.264,
+     3.0,
+     0.3995,
+     2.6264,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_1.R.hull_workboat_tug.be9a25": {
+   "id": "BTWORKBO.lining_bay.topside_1.R.hull_workboat_tug.be9a25",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     26208,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     2.1802,
+     0.324,
+     3.0,
+     0.3995,
+     2.5064,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_1.L.hull_workboat_tug.3d34f9": {
+   "id": "BTWORKBO.side_bay.topside_1.L.hull_workboat_tug.3d34f9",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28224,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -2.3002,
+     0.264,
+     3.0,
+     0.3995,
+     2.6264,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_1.L.hull_workboat_tug.42150c": {
+   "id": "BTWORKBO.lining_bay.topside_1.L.hull_workboat_tug.42150c",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     30240,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -2.1802,
+     0.324,
+     3.0,
+     0.3995,
+     2.5064,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_1.R.hull_workboat_tug.6fa94a": {
+   "id": "BTWORKBO.roof_bay.sidedeck_1.R.hull_workboat_tug.6fa94a",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32256,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     2.1861,
+     1.5493,
+     3.0,
+     0.6278,
+     0.0978,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_1.R.hull_workboat_tug.c5f2a6": {
+   "id": "BTWORKBO.lining_bay.sidedeck_1.R.hull_workboat_tug.c5f2a6",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     33264,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     2.0661,
+     1.4893,
+     3.0,
+     0.6278,
+     0.1758,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_1.L.hull_workboat_tug.fe3b0a": {
+   "id": "BTWORKBO.roof_bay.sidedeck_1.L.hull_workboat_tug.fe3b0a",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34272,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -2.1861,
+     1.5493,
+     3.0,
+     0.6278,
+     0.0978,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_1.L.hull_workboat_tug.ddd358": {
+   "id": "BTWORKBO.lining_bay.sidedeck_1.L.hull_workboat_tug.ddd358",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     35280,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -2.0661,
+     1.4893,
+     3.0,
+     0.6278,
+     0.1758,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_1.R.hull_workboat_tug.2cb183": {
+   "id": "BTWORKBO.roof_bay.deck_1.R.hull_workboat_tug.2cb183",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36288,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.025,
+     1.5793,
+     3.0,
+     2.05,
+     0.1158,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_1.R.hull_workboat_tug.9fc5e2": {
+   "id": "BTWORKBO.lining_bay.deck_1.R.hull_workboat_tug.9fc5e2",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38304,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     1.4593,
+     3.0,
+     1.93,
+     0.1158,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_1.L.hull_workboat_tug.4fb0fe": {
+   "id": "BTWORKBO.roof_bay.deck_1.L.hull_workboat_tug.4fb0fe",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40320,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.025,
+     1.5793,
+     3.0,
+     2.05,
+     0.1158,
+     6.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_1.L.hull_workboat_tug.9162b5": {
+   "id": "BTWORKBO.lining_bay.deck_1.L.hull_workboat_tug.9162b5",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42336,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.965,
+     1.4593,
+     3.0,
+     1.93,
+     0.1158,
+     6.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_2.R.hull_workboat_tug.1e8738": {
+   "id": "BTWORKBO.side_bay.bottom_2.R.hull_workboat_tug.1e8738",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44352,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     -1.3243,
+     0.25,
+     2.3,
+     0.5514,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_2.R.hull_workboat_tug.002d69": {
+   "id": "BTWORKBO.lining_bay.bottom_2.R.hull_workboat_tug.002d69",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44640,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.09,
+     -1.2043,
+     0.25,
+     2.18,
+     0.5514,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_2.L.hull_workboat_tug.d437ad": {
+   "id": "BTWORKBO.side_bay.bottom_2.L.hull_workboat_tug.d437ad",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44928,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     -1.3243,
+     0.25,
+     2.3,
+     0.5514,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_2.L.hull_workboat_tug.8d6ce7": {
+   "id": "BTWORKBO.lining_bay.bottom_2.L.hull_workboat_tug.8d6ce7",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45216,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.09,
+     -1.2043,
+     0.25,
+     2.18,
+     0.5514,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_2.R.hull_workboat_tug.f82cad": {
+   "id": "BTWORKBO.side_bay.topside_2.R.hull_workboat_tug.f82cad",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45504,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.4,
+     0.2267,
+     0.25,
+     0.2,
+     2.5507,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_2.R.hull_workboat_tug.49f094": {
+   "id": "BTWORKBO.lining_bay.topside_2.R.hull_workboat_tug.49f094",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45792,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.28,
+     0.2867,
+     0.25,
+     0.2,
+     2.4307,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_2.L.hull_workboat_tug.c55a1e": {
+   "id": "BTWORKBO.side_bay.topside_2.L.hull_workboat_tug.c55a1e",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46080,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.4,
+     0.2267,
+     0.25,
+     0.2,
+     2.5507,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_2.L.hull_workboat_tug.dbf9da": {
+   "id": "BTWORKBO.lining_bay.topside_2.L.hull_workboat_tug.dbf9da",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46368,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.28,
+     0.2867,
+     0.25,
+     0.2,
+     2.4307,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_2.R.hull_workboat_tug.07db09": {
+   "id": "BTWORKBO.roof_bay.sidedeck_2.R.hull_workboat_tug.07db09",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46656,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     2.275,
+     1.512,
+     0.25,
+     0.45,
+     0.0222,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_2.R.hull_workboat_tug.21e979": {
+   "id": "BTWORKBO.lining_bay.sidedeck_2.R.hull_workboat_tug.21e979",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46800,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     2.155,
+     1.452,
+     0.25,
+     0.45,
+     0.1002,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_2.L.hull_workboat_tug.989f3d": {
+   "id": "BTWORKBO.roof_bay.sidedeck_2.L.hull_workboat_tug.989f3d",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46944,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -2.275,
+     1.512,
+     0.25,
+     0.45,
+     0.0222,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_2.L.hull_workboat_tug.234094": {
+   "id": "BTWORKBO.lining_bay.sidedeck_2.L.hull_workboat_tug.234094",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -2.155,
+     1.452,
+     0.25,
+     0.45,
+     0.1002,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_2.R.hull_workboat_tug.c28fb4": {
+   "id": "BTWORKBO.roof_bay.deck_2.R.hull_workboat_tug.c28fb4",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47232,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.025,
+     1.542,
+     0.25,
+     2.05,
+     0.0402,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_2.R.hull_workboat_tug.7d7a2d": {
+   "id": "BTWORKBO.lining_bay.deck_2.R.hull_workboat_tug.7d7a2d",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47520,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     1.422,
+     0.25,
+     1.93,
+     0.0402,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_2.L.hull_workboat_tug.6c0423": {
+   "id": "BTWORKBO.roof_bay.deck_2.L.hull_workboat_tug.6c0423",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47808,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.025,
+     1.542,
+     0.25,
+     2.05,
+     0.0402,
+     0.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_2.L.hull_workboat_tug.517c5f": {
+   "id": "BTWORKBO.lining_bay.deck_2.L.hull_workboat_tug.517c5f",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48096,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.965,
+     1.422,
+     0.25,
+     1.93,
+     0.0402,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_3.R.hull_workboat_tug.0cb036": {
+   "id": "BTWORKBO.side_bay.bottom_3.R.hull_workboat_tug.0cb036",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     48384,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     -1.3243,
+     2.1,
+     2.3,
+     0.5514,
+     4.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_3.R.hull_workboat_tug.8fdda8": {
+   "id": "BTWORKBO.lining_bay.bottom_3.R.hull_workboat_tug.8fdda8",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.09,
+     -1.2043,
+     2.1,
+     2.18,
+     0.5514,
+     4.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_3.L.hull_workboat_tug.493188": {
+   "id": "BTWORKBO.side_bay.bottom_3.L.hull_workboat_tug.493188",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     51264,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     -1.3243,
+     2.1,
+     2.3,
+     0.5514,
+     4.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_3.L.hull_workboat_tug.f31562": {
+   "id": "BTWORKBO.lining_bay.bottom_3.L.hull_workboat_tug.f31562",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52704,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.09,
+     -1.2043,
+     2.1,
+     2.18,
+     0.5514,
+     4.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_3.R.hull_workboat_tug.8112de": {
+   "id": "BTWORKBO.side_bay.topside_3.R.hull_workboat_tug.8112de",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     54144,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     2.2605,
+     0.2085,
+     2.1,
+     0.4791,
+     2.6432,
+     4.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_3.R.hull_workboat_tug.08d628": {
+   "id": "BTWORKBO.lining_bay.topside_3.R.hull_workboat_tug.08d628",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55584,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     2.1405,
+     0.2685,
+     2.1,
+     0.4791,
+     2.5232,
+     4.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_3.L.hull_workboat_tug.025749": {
+   "id": "BTWORKBO.side_bay.topside_3.L.hull_workboat_tug.025749",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57024,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -2.2605,
+     0.2085,
+     2.1,
+     0.4791,
+     2.6432,
+     4.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_3.L.hull_workboat_tug.a98d40": {
+   "id": "BTWORKBO.lining_bay.topside_3.L.hull_workboat_tug.a98d40",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58464,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -2.1405,
+     0.2685,
+     2.1,
+     0.4791,
+     2.5232,
+     4.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_3.R.hull_workboat_tug.292aa0": {
+   "id": "BTWORKBO.roof_bay.sidedeck_3.R.hull_workboat_tug.292aa0",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59904,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     2.1506,
+     1.5266,
+     2.1,
+     0.6987,
+     0.049,
+     4.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_3.R.hull_workboat_tug.17612e": {
+   "id": "BTWORKBO.lining_bay.sidedeck_3.R.hull_workboat_tug.17612e",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     60624,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     2.0306,
+     1.4666,
+     2.1,
+     0.6987,
+     0.127,
+     4.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_3.L.hull_workboat_tug.3db456": {
+   "id": "BTWORKBO.roof_bay.sidedeck_3.L.hull_workboat_tug.3db456",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61344,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -2.1506,
+     1.5266,
+     2.1,
+     0.6987,
+     0.049,
+     4.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_3.L.hull_workboat_tug.7cb880": {
+   "id": "BTWORKBO.lining_bay.sidedeck_3.L.hull_workboat_tug.7cb880",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -2.0306,
+     1.4666,
+     2.1,
+     0.6987,
+     0.127,
+     4.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_4.R.hull_workboat_tug.eed534": {
+   "id": "BTWORKBO.side_bay.bottom_4.R.hull_workboat_tug.eed534",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     62784,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.0105,
+     -1.3565,
+     0.15,
+     2.0209,
+     0.4869,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_4.R.hull_workboat_tug.f26fa5": {
+   "id": "BTWORKBO.lining_bay.bottom_4.R.hull_workboat_tug.f26fa5",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63072,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.9505,
+     -1.2365,
+     0.15,
+     1.9009,
+     0.4869,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.bottom_4.L.hull_workboat_tug.356ac2": {
+   "id": "BTWORKBO.side_bay.bottom_4.L.hull_workboat_tug.356ac2",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     63360,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.0105,
+     -1.3565,
+     0.15,
+     2.0209,
+     0.4869,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.bottom_4.L.hull_workboat_tug.fd0d1a": {
+   "id": "BTWORKBO.lining_bay.bottom_4.L.hull_workboat_tug.fd0d1a",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63648,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.9505,
+     -1.2365,
+     0.15,
+     1.9009,
+     0.4869,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_4.R.hull_workboat_tug.57a809": {
+   "id": "BTWORKBO.side_bay.topside_4.R.hull_workboat_tug.57a809",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.0873,
+     0.2052,
+     0.15,
+     0.2187,
+     2.6563,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_4.R.hull_workboat_tug.8fcaf0": {
+   "id": "BTWORKBO.lining_bay.topside_4.R.hull_workboat_tug.8fcaf0",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64224,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.9673,
+     0.2652,
+     0.15,
+     0.2187,
+     2.5363,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.side_bay.topside_4.L.hull_workboat_tug.852f7c": {
+   "id": "BTWORKBO.side_bay.topside_4.L.hull_workboat_tug.852f7c",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     64512,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.0873,
+     0.2052,
+     0.15,
+     0.2187,
+     2.6563,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.lining_bay.topside_4.L.hull_workboat_tug.10d7da": {
+   "id": "BTWORKBO.lining_bay.topside_4.L.hull_workboat_tug.10d7da",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64800,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.9673,
+     0.2652,
+     0.15,
+     0.2187,
+     2.5363,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_4.R.hull_workboat_tug.ee3dfb": {
+   "id": "BTWORKBO.roof_bay.sidedeck_4.R.hull_workboat_tug.ee3dfb",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.9798,
+     1.5422,
+     0.15,
+     0.4337,
+     0.0243,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_4.R.hull_workboat_tug.65c6c4": {
+   "id": "BTWORKBO.lining_bay.sidedeck_4.R.hull_workboat_tug.65c6c4",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.8598,
+     1.4822,
+     0.15,
+     0.4337,
+     0.1022,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.sidedeck_4.L.hull_workboat_tug.9f95f7": {
+   "id": "BTWORKBO.roof_bay.sidedeck_4.L.hull_workboat_tug.9f95f7",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65376,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.9798,
+     1.5422,
+     0.15,
+     0.4337,
+     0.0243,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.sidedeck_4.L.hull_workboat_tug.67237a": {
+   "id": "BTWORKBO.lining_bay.sidedeck_4.L.hull_workboat_tug.67237a",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65520,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.8598,
+     1.4822,
+     0.15,
+     0.4337,
+     0.1022,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_4.R.hull_workboat_tug.a30e05": {
+   "id": "BTWORKBO.roof_bay.deck_4.R.hull_workboat_tug.a30e05",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65664,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.9006,
+     1.5722,
+     0.15,
+     1.8013,
+     0.0423,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_4.R.hull_workboat_tug.1def4f": {
+   "id": "BTWORKBO.lining_bay.deck_4.R.hull_workboat_tug.1def4f",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65952,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.8406,
+     1.4522,
+     0.15,
+     1.6813,
+     0.0423,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.roof_bay.deck_4.L.hull_workboat_tug.b023b2": {
+   "id": "BTWORKBO.roof_bay.deck_4.L.hull_workboat_tug.b023b2",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66240,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.9006,
+     1.5722,
+     0.15,
+     1.8013,
+     0.0423,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.lining_bay.deck_4.L.hull_workboat_tug.9600ce": {
+   "id": "BTWORKBO.lining_bay.deck_4.L.hull_workboat_tug.9600ce",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66528,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.8406,
+     1.4522,
+     0.15,
+     1.6813,
+     0.0423,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.reveal.cockpit.C.hull_workboat_tug.b8b2a6": {
+   "id": "BTWORKBO.reveal.cockpit.C.hull_workboat_tug.b8b2a6",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66816,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4966,
+     2.1,
+     4.1,
+     0.187,
+     4.2
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTWORKBO.end_cap.transom.C.hull_workboat_tug.f02728": {
+   "id": "BTWORKBO.end_cap.transom.C.hull_workboat_tug.f02728",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     69408,
+     36
+    ],
+    "paint": [
+     70272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     -0.0033,
+     -0.0,
+     4.3,
+     3.1933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.end_cap.stem.C.hull_workboat_tug.19e1e1": {
+   "id": "BTWORKBO.end_cap.stem.C.hull_workboat_tug.19e1e1",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     71136,
+     3
+    ],
+    "paint": [
+     71208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.355,
+     -0.0,
+     0.02,
+     0.91,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTWORKBO.trim.strake.C.hull_workboat_tug.d5ffdd": {
+   "id": "BTWORKBO.trim.strake.C.hull_workboat_tug.d5ffdd",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     72072,
+     1344
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5952,
+     7.5153,
+     5.1051,
+     0.3189,
+     15.0307
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.5f1745": {
+   "id": "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.5f1745",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     104328,
+     108
+    ],
+    "paint2": [
+     106920,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.9023,
+     3.1,
+     4.0,
+     2.68,
+     6.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.d0dad6": {
+   "id": "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.d0dad6",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     107784,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.1743,
+     2.99,
+     3.78,
+     0.676,
+     5.98
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTWORKBO.equipment.tug_fenders.C.hull_workboat_tug.7a0eb7": {
+   "id": "BTWORKBO.equipment.tug_fenders.C.hull_workboat_tug.7a0eb7",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "equipment",
+   "slot": "tug_fenders",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/equipment/tug_fenders/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     108648,
+     1824
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     1.15,
+     7.0419,
+     5.6397,
+     0.9,
+     14.0839
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTWORKBO.equipment.towing_bitt.C.hull_workboat_tug.b73a66": {
+   "id": "BTWORKBO.equipment.towing_bitt.C.hull_workboat_tug.b73a66",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "equipment",
+   "slot": "towing_bitt",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/equipment/towing_bitt/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     152424,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8569,
+     0.3,
+     0.6,
+     0.7,
+     0.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -1,0 +1,1937 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTROWBOA",
+ "class": "rowboat_dinghy",
+ "style": "hull_rowboat_dinghy",
+ "pack": "res://remake/vehicles/components/BTROWBOA/hull_rowboat_dinghy.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.3608,
+    0.5882
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTROWBOA.side_bay.bottom_0.R.hull_rowboat_dinghy.fd80db": {
+   "id": "BTROWBOA.side_bay.bottom_0.R.hull_rowboat_dinghy.fd80db",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.2445,
+     0.1483,
+     0.275,
+     0.489,
+     0.2869,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.bottom_0.R.hull_rowboat_dinghy.a595a2": {
+   "id": "BTROWBOA.lining_bay.bottom_0.R.hull_rowboat_dinghy.a595a2",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.2245,
+     0.1883,
+     0.275,
+     0.449,
+     0.2869,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.bottom_0.L.hull_rowboat_dinghy.2381d7": {
+   "id": "BTROWBOA.side_bay.bottom_0.L.hull_rowboat_dinghy.2381d7",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     1728,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.2445,
+     0.1483,
+     0.275,
+     0.489,
+     0.2869,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.bottom_0.L.hull_rowboat_dinghy.63a299": {
+   "id": "BTROWBOA.lining_bay.bottom_0.L.hull_rowboat_dinghy.63a299",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     2592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.2245,
+     0.1883,
+     0.275,
+     0.449,
+     0.2869,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.topside_0.R.hull_rowboat_dinghy.b6ac91": {
+   "id": "BTROWBOA.side_bay.topside_0.R.hull_rowboat_dinghy.b6ac91",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     3456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.2703,
+     0.4093,
+     0.275,
+     0.5223,
+     0.5815,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.topside_0.R.hull_rowboat_dinghy.b14983": {
+   "id": "BTROWBOA.lining_bay.topside_0.R.hull_rowboat_dinghy.b14983",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.2457,
+     0.4293,
+     0.275,
+     0.4915,
+     0.5415,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.topside_0.L.hull_rowboat_dinghy.c28ffa": {
+   "id": "BTROWBOA.side_bay.topside_0.L.hull_rowboat_dinghy.c28ffa",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.2703,
+     0.4093,
+     0.275,
+     0.5223,
+     0.5815,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.topside_0.L.hull_rowboat_dinghy.e935b1": {
+   "id": "BTROWBOA.lining_bay.topside_0.L.hull_rowboat_dinghy.e935b1",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.2457,
+     0.4293,
+     0.275,
+     0.4915,
+     0.5415,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.sidedeck_0.R.hull_rowboat_dinghy.9b67b2": {
+   "id": "BTROWBOA.roof_bay.sidedeck_0.R.hull_rowboat_dinghy.9b67b2",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.2698,
+     0.6536,
+     0.275,
+     0.5233,
+     0.1348,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.sidedeck_0.R.hull_rowboat_dinghy.8a5a23": {
+   "id": "BTROWBOA.lining_bay.sidedeck_0.R.hull_rowboat_dinghy.8a5a23",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     7344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.2457,
+     0.6336,
+     0.275,
+     0.4915,
+     0.1328,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.sidedeck_0.L.hull_rowboat_dinghy.e0b0e9": {
+   "id": "BTROWBOA.roof_bay.sidedeck_0.L.hull_rowboat_dinghy.e0b0e9",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     7776,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.2698,
+     0.6536,
+     0.275,
+     0.5233,
+     0.1348,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.sidedeck_0.L.hull_rowboat_dinghy.921682": {
+   "id": "BTROWBOA.lining_bay.sidedeck_0.L.hull_rowboat_dinghy.921682",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8208,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.2457,
+     0.6336,
+     0.275,
+     0.4915,
+     0.1328,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.deck_0.R.hull_rowboat_dinghy.50d4cf": {
+   "id": "BTROWBOA.roof_bay.deck_0.R.hull_rowboat_dinghy.50d4cf",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     8640,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.2179,
+     0.6836,
+     0.275,
+     0.4358,
+     0.1528,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.deck_0.R.hull_rowboat_dinghy.005b71": {
+   "id": "BTROWBOA.lining_bay.deck_0.R.hull_rowboat_dinghy.005b71",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1979,
+     0.6436,
+     0.275,
+     0.3958,
+     0.1528,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.deck_0.L.hull_rowboat_dinghy.27deeb": {
+   "id": "BTROWBOA.roof_bay.deck_0.L.hull_rowboat_dinghy.27deeb",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.2179,
+     0.6836,
+     0.275,
+     0.4358,
+     0.1528,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.deck_0.L.hull_rowboat_dinghy.b0daeb": {
+   "id": "BTROWBOA.lining_bay.deck_0.L.hull_rowboat_dinghy.b0daeb",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     11232,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1979,
+     0.6436,
+     0.275,
+     0.3958,
+     0.1528,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.bottom_1.R.hull_rowboat_dinghy.6805ea": {
+   "id": "BTROWBOA.side_bay.bottom_1.R.hull_rowboat_dinghy.6805ea",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12096,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.322,
+     -0.0157,
+     1.375,
+     0.644,
+     0.2685,
+     2.75
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.bottom_1.R.hull_rowboat_dinghy.1d441a": {
+   "id": "BTROWBOA.lining_bay.bottom_1.R.hull_rowboat_dinghy.1d441a",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     15552,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.302,
+     0.0243,
+     1.375,
+     0.604,
+     0.2685,
+     2.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.bottom_1.L.hull_rowboat_dinghy.9b3d07": {
+   "id": "BTROWBOA.side_bay.bottom_1.L.hull_rowboat_dinghy.9b3d07",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     19008,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.322,
+     -0.0157,
+     1.375,
+     0.644,
+     0.2685,
+     2.75
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.bottom_1.L.hull_rowboat_dinghy.b4bfe7": {
+   "id": "BTROWBOA.lining_bay.bottom_1.L.hull_rowboat_dinghy.b4bfe7",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     22464,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.302,
+     0.0243,
+     1.375,
+     0.604,
+     0.2685,
+     2.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.topside_1.R.hull_rowboat_dinghy.0c1ebe": {
+   "id": "BTROWBOA.side_bay.topside_1.R.hull_rowboat_dinghy.0c1ebe",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25920,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.5945,
+     0.2845,
+     1.375,
+     0.211,
+     0.6035,
+     2.75
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.topside_1.R.hull_rowboat_dinghy.3e98a1": {
+   "id": "BTROWBOA.lining_bay.topside_1.R.hull_rowboat_dinghy.3e98a1",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     29376,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.5545,
+     0.3045,
+     1.375,
+     0.211,
+     0.5635,
+     2.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.topside_1.L.hull_rowboat_dinghy.02cadf": {
+   "id": "BTROWBOA.side_bay.topside_1.L.hull_rowboat_dinghy.02cadf",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.5945,
+     0.2845,
+     1.375,
+     0.211,
+     0.6035,
+     2.75
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.topside_1.L.hull_rowboat_dinghy.1fd724": {
+   "id": "BTROWBOA.lining_bay.topside_1.L.hull_rowboat_dinghy.1fd724",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     36288,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.5545,
+     0.3045,
+     1.375,
+     0.211,
+     0.5635,
+     2.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.sidedeck_1.R.hull_rowboat_dinghy.954b7a": {
+   "id": "BTROWBOA.roof_bay.sidedeck_1.R.hull_rowboat_dinghy.954b7a",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     39744,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.5679,
+     0.5288,
+     1.375,
+     0.2642,
+     0.1568,
+     2.75
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.sidedeck_1.R.hull_rowboat_dinghy.b3baae": {
+   "id": "BTROWBOA.lining_bay.sidedeck_1.R.hull_rowboat_dinghy.b3baae",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     41472,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.5279,
+     0.5088,
+     1.375,
+     0.2642,
+     0.1548,
+     2.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.sidedeck_1.L.hull_rowboat_dinghy.4fafe0": {
+   "id": "BTROWBOA.roof_bay.sidedeck_1.L.hull_rowboat_dinghy.4fafe0",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43200,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.5679,
+     0.5288,
+     1.375,
+     0.2642,
+     0.1568,
+     2.75
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.sidedeck_1.L.hull_rowboat_dinghy.0a1251": {
+   "id": "BTROWBOA.lining_bay.sidedeck_1.L.hull_rowboat_dinghy.0a1251",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44928,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.5279,
+     0.5088,
+     1.375,
+     0.2642,
+     0.1548,
+     2.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.bottom_2.R.hull_rowboat_dinghy.02b811": {
+   "id": "BTROWBOA.side_bay.bottom_2.R.hull_rowboat_dinghy.02b811",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     46656,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.2941,
+     -0.0836,
+     0.1,
+     0.5882,
+     0.1327,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.bottom_2.R.hull_rowboat_dinghy.fa3c30": {
+   "id": "BTROWBOA.lining_bay.bottom_2.R.hull_rowboat_dinghy.fa3c30",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46944,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.2741,
+     -0.0436,
+     0.1,
+     0.5482,
+     0.1327,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.bottom_2.L.hull_rowboat_dinghy.efcfb0": {
+   "id": "BTROWBOA.side_bay.bottom_2.L.hull_rowboat_dinghy.efcfb0",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     47232,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.2941,
+     -0.0836,
+     0.1,
+     0.5882,
+     0.1327,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.bottom_2.L.hull_rowboat_dinghy.a2f330": {
+   "id": "BTROWBOA.lining_bay.bottom_2.L.hull_rowboat_dinghy.a2f330",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47520,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.2741,
+     -0.0436,
+     0.1,
+     0.5482,
+     0.1327,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.topside_2.R.hull_rowboat_dinghy.3030ae": {
+   "id": "BTROWBOA.side_bay.topside_2.R.hull_rowboat_dinghy.3030ae",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47808,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5966,
+     0.2297,
+     0.1,
+     0.0855,
+     0.5072,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.topside_2.R.hull_rowboat_dinghy.e1b6e8": {
+   "id": "BTROWBOA.lining_bay.topside_2.R.hull_rowboat_dinghy.e1b6e8",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48096,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.5566,
+     0.2497,
+     0.1,
+     0.0855,
+     0.4672,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.side_bay.topside_2.L.hull_rowboat_dinghy.892459": {
+   "id": "BTROWBOA.side_bay.topside_2.L.hull_rowboat_dinghy.892459",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48384,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5966,
+     0.2297,
+     0.1,
+     0.0855,
+     0.5072,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.lining_bay.topside_2.L.hull_rowboat_dinghy.7b27d3": {
+   "id": "BTROWBOA.lining_bay.topside_2.L.hull_rowboat_dinghy.7b27d3",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48672,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.5566,
+     0.2497,
+     0.1,
+     0.0855,
+     0.4672,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.sidedeck_2.R.hull_rowboat_dinghy.9f8be4": {
+   "id": "BTROWBOA.roof_bay.sidedeck_2.R.hull_rowboat_dinghy.9f8be4",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48960,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.5665,
+     0.4894,
+     0.1,
+     0.1457,
+     0.0298,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.sidedeck_2.R.hull_rowboat_dinghy.be08e0": {
+   "id": "BTROWBOA.lining_bay.sidedeck_2.R.hull_rowboat_dinghy.be08e0",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49104,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.5265,
+     0.4694,
+     0.1,
+     0.1457,
+     0.0278,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.sidedeck_2.L.hull_rowboat_dinghy.31d764": {
+   "id": "BTROWBOA.roof_bay.sidedeck_2.L.hull_rowboat_dinghy.31d764",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49248,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.5665,
+     0.4894,
+     0.1,
+     0.1457,
+     0.0298,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.sidedeck_2.L.hull_rowboat_dinghy.b0f760": {
+   "id": "BTROWBOA.lining_bay.sidedeck_2.L.hull_rowboat_dinghy.b0f760",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49392,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.5265,
+     0.4694,
+     0.1,
+     0.1457,
+     0.0278,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.deck_2.R.hull_rowboat_dinghy.804e5b": {
+   "id": "BTROWBOA.roof_bay.deck_2.R.hull_rowboat_dinghy.804e5b",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49536,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.2621,
+     0.5194,
+     0.1,
+     0.5243,
+     0.0478,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.deck_2.R.hull_rowboat_dinghy.ffacc0": {
+   "id": "BTROWBOA.lining_bay.deck_2.R.hull_rowboat_dinghy.ffacc0",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.2421,
+     0.4794,
+     0.1,
+     0.4843,
+     0.0478,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.roof_bay.deck_2.L.hull_rowboat_dinghy.5b11e7": {
+   "id": "BTROWBOA.roof_bay.deck_2.L.hull_rowboat_dinghy.5b11e7",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50112,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.2621,
+     0.5194,
+     0.1,
+     0.5243,
+     0.0478,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.lining_bay.deck_2.L.hull_rowboat_dinghy.a9d23c": {
+   "id": "BTROWBOA.lining_bay.deck_2.L.hull_rowboat_dinghy.a9d23c",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50400,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.2421,
+     0.4794,
+     0.1,
+     0.4843,
+     0.0478,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.reveal.cockpit.C.hull_rowboat_dinghy.16df8f": {
+   "id": "BTROWBOA.reveal.cockpit.C.hull_rowboat_dinghy.16df8f",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50688,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5388,
+     1.375,
+     1.148,
+     0.2148,
+     2.75
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTROWBOA.end_cap.transom.C.hull_rowboat_dinghy.7ae431": {
+   "id": "BTROWBOA.end_cap.transom.C.hull_rowboat_dinghy.7ae431",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55296,
+     36
+    ],
+    "paint": [
+     56160,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1967,
+     -0.0,
+     1.204,
+     0.6933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.end_cap.stem.C.hull_rowboat_dinghy.539d09": {
+   "id": "BTROWBOA.end_cap.stem.C.hull_rowboat_dinghy.539d09",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     57024,
+     3
+    ],
+    "paint": [
+     57096,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.515,
+     -0.0,
+     0.02,
+     0.49,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTROWBOA.trim.strake.C.hull_rowboat_dinghy.c6063f": {
+   "id": "BTROWBOA.trim.strake.C.hull_rowboat_dinghy.c6063f",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     57960,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5449,
+     1.7671,
+     1.5021,
+     0.319,
+     3.5342
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTROWBOA.equipment.oars.C.hull_rowboat_dinghy.6a56a0": {
+   "id": "BTROWBOA.equipment.oars.C.hull_rowboat_dinghy.6a56a0",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "equipment",
+   "slot": "oars",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/equipment/oars/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     86760,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.3569,
+     0.3173,
+     2.8171,
+     0.2389,
+     0.6346
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTROWBOA.equipment.thwarts.C.hull_rowboat_dinghy.bfeb69": {
+   "id": "BTROWBOA.equipment.thwarts.C.hull_rowboat_dinghy.bfeb69",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "equipment",
+   "slot": "thwarts",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/equipment/thwarts/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     89640,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.3369,
+     0.65,
+     1.28,
+     0.04,
+     1.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

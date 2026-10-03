@@ -1,0 +1,3309 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "FS200",
+ "class": "full_size_suv",
+ "style": "harrow_ranger",
+ "pack": "res://remake/vehicles/components/FS200/harrow_ranger.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.4314,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.4314,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "FS200.end_cap.nose.C.harrow_ranger.c1e879": {
+   "id": "FS200.end_cap.nose.C.harrow_ranger.c1e879",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7746,
+     0.08,
+     1.9576,
+     0.8891,
+     0.16
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.trim.cowl.C.harrow_ranger.83ba3b": {
+   "id": "FS200.trim.cowl.C.harrow_ranger.83ba3b",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3539,
+     0.03,
+     1.925,
+     0.0722,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.glazing.screen.C.harrow_ranger.bf36b6": {
+   "id": "FS200.glazing.screen.C.harrow_ranger.bf36b6",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     14472,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.735,
+     0.41,
+     1.925,
+     0.81,
+     0.82
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.trim.screen.C.harrow_ranger.aab5b8": {
+   "id": "FS200.trim.screen.C.harrow_ranger.aab5b8",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     20232,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7074,
+     0.41,
+     1.925,
+     0.7628,
+     0.82
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.side_bay.fender.R.harrow_ranger.5e90e9": {
+   "id": "FS200.side_bay.fender.R.harrow_ranger.5e90e9",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25416,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     0.9245,
+     0.83,
+     0.68,
+     0.1111,
+     1.0,
+     1.36
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.trim.sail.R.harrow_ranger.833709": {
+   "id": "FS200.trim.sail.R.harrow_ranger.833709",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     37800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.9759,
+     1.3573,
+     0.09,
+     0.02,
+     0.0946,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.a_pillar.R.harrow_ranger.3a72f4": {
+   "id": "FS200.trim.a_pillar.R.harrow_ranger.3a72f4",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     39528,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.915,
+     1.695,
+     0.41,
+     0.13,
+     0.77,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.side_bay.rocker_F.R.harrow_ranger.b21941": {
+   "id": "FS200.side_bay.rocker_F.R.harrow_ranger.b21941",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40968,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     0.455,
+     0.47,
+     0.03,
+     0.25,
+     0.94
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.post_0.R.harrow_ranger.263e2a": {
+   "id": "FS200.side_bay.post_0.R.harrow_ranger.263e2a",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41256,
+     18
+    ],
+    "paint": [
+     41688,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.165,
+     0.05,
+     0.06,
+     1.67,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.rocker_B.R.harrow_ranger.2edab4": {
+   "id": "FS200.side_bay.rocker_B.R.harrow_ranger.2edab4",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/rocker_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42120,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.965,
+     0.455,
+     0.5,
+     0.03,
+     0.25,
+     1.0
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.quarter.R.harrow_ranger.321636": {
+   "id": "FS200.side_bay.quarter.R.harrow_ranger.321636",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     42264,
+     54
+    ],
+    "paint": [
+     43560,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     0.9431,
+     1.165,
+     0.78,
+     0.0738,
+     1.67,
+     1.56
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.fender.L.harrow_ranger.8d6f54": {
+   "id": "FS200.side_bay.fender.L.harrow_ranger.8d6f54",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48312,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     -0.9245,
+     0.83,
+     0.68,
+     0.1111,
+     1.0,
+     1.36
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.trim.sail.L.harrow_ranger.6d990b": {
+   "id": "FS200.trim.sail.L.harrow_ranger.6d990b",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     60696,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.9759,
+     1.3573,
+     0.09,
+     0.02,
+     0.0946,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.a_pillar.L.harrow_ranger.5bb097": {
+   "id": "FS200.trim.a_pillar.L.harrow_ranger.5bb097",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     62424,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.915,
+     1.695,
+     0.41,
+     0.13,
+     0.77,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.side_bay.rocker_F.L.harrow_ranger.52539d": {
+   "id": "FS200.side_bay.rocker_F.L.harrow_ranger.52539d",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63864,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.965,
+     0.455,
+     0.47,
+     0.03,
+     0.25,
+     0.94
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.post_0.L.harrow_ranger.9234a6": {
+   "id": "FS200.side_bay.post_0.L.harrow_ranger.9234a6",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     64152,
+     18
+    ],
+    "paint": [
+     64584,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.165,
+     0.05,
+     0.06,
+     1.67,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.rocker_B.L.harrow_ranger.769048": {
+   "id": "FS200.side_bay.rocker_B.L.harrow_ranger.769048",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/rocker_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65016,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.965,
+     0.455,
+     0.5,
+     0.03,
+     0.25,
+     1.0
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.side_bay.quarter.L.harrow_ranger.268584": {
+   "id": "FS200.side_bay.quarter.L.harrow_ranger.268584",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     65160,
+     54
+    ],
+    "paint": [
+     66456,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     -0.9431,
+     1.165,
+     0.78,
+     0.0738,
+     1.67,
+     1.56
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.roof_bay.roof_0.C.harrow_ranger.69b34b": {
+   "id": "FS200.roof_bay.roof_0.C.harrow_ranger.69b34b",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     71208,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.07,
+     0.74,
+     1.84,
+     0.14,
+     1.48
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.roof_bay.roof_1.C.harrow_ranger.f880ca": {
+   "id": "FS200.roof_bay.roof_1.C.harrow_ranger.f880ca",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     78120,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.07,
+     0.74,
+     1.84,
+     0.14,
+     1.48
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.end_cap.tail.C.harrow_ranger.7623b3": {
+   "id": "FS200.end_cap.tail.C.harrow_ranger.7623b3",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     105768,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.235,
+     0.04,
+     1.9306,
+     1.81,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FS200.floor.floor.C.harrow_ranger.bc66af": {
+   "id": "FS200.floor.floor.C.harrow_ranger.bc66af",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     116064,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.725,
+     1.89,
+     1.84,
+     0.35,
+     3.78
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "FS200.lining_bay.trim_0_0.R.harrow_ranger.56fb36": {
+   "id": "FS200.lining_bay.trim_0_0.R.harrow_ranger.56fb36",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.9159,
+     0.9923,
+     0.09,
+     0.02,
+     0.8246,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.trim_1_0.R.harrow_ranger.7971ce": {
+   "id": "FS200.lining_bay.trim_1_0.R.harrow_ranger.7971ce",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     147744,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.89,
+     1.29,
+     0.05,
+     0.06,
+     1.42,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.trim_2_0.R.harrow_ranger.255a4c": {
+   "id": "FS200.lining_bay.trim_2_0.R.harrow_ranger.255a4c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     148464,
+     258
+    ]
+   },
+   "boxes": [
+    [
+     0.8836,
+     1.29,
+     0.78,
+     0.0729,
+     1.42,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.a_pillar.R.harrow_ranger.b16303": {
+   "id": "FS200.lining_bay.a_pillar.R.harrow_ranger.b16303",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     154656,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.855,
+     1.6722,
+     0.41,
+     0.13,
+     0.7556,
+     0.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.trim_0_0.L.harrow_ranger.80ee82": {
+   "id": "FS200.lining_bay.trim_0_0.L.harrow_ranger.80ee82",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     156096,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.9159,
+     0.9923,
+     0.09,
+     0.02,
+     0.8246,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.trim_1_0.L.harrow_ranger.731de9": {
+   "id": "FS200.lining_bay.trim_1_0.L.harrow_ranger.731de9",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     158976,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -0.89,
+     1.29,
+     0.05,
+     0.06,
+     1.42,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.trim_2_0.L.harrow_ranger.625a3c": {
+   "id": "FS200.lining_bay.trim_2_0.L.harrow_ranger.625a3c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/trim_2_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     159696,
+     258
+    ]
+   },
+   "boxes": [
+    [
+     -0.8836,
+     1.29,
+     0.78,
+     0.0729,
+     1.42,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.lining_bay.a_pillar.L.harrow_ranger.665819": {
+   "id": "FS200.lining_bay.a_pillar.L.harrow_ranger.665819",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     165888,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.855,
+     1.6722,
+     0.41,
+     0.13,
+     0.7556,
+     0.82
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.ceiling_bay.roof_0.C.harrow_ranger.cc33a3": {
+   "id": "FS200.ceiling_bay.roof_0.C.harrow_ranger.cc33a3",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     167328,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.045,
+     0.74,
+     1.72,
+     0.09,
+     1.48
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.ceiling_bay.roof_1.C.harrow_ranger.a075c9": {
+   "id": "FS200.ceiling_bay.roof_1.C.harrow_ranger.a075c9",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     174240,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.045,
+     0.74,
+     1.72,
+     0.09,
+     1.48
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.end_lining.firewall.C.harrow_ranger.07a25c": {
+   "id": "FS200.end_lining.firewall.C.harrow_ranger.07a25c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     201888,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.945,
+     0.0,
+     1.84,
+     0.79,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.end_lining.rear_wall.C.harrow_ranger.4b47ea": {
+   "id": "FS200.end_lining.rear_wall.C.harrow_ranger.4b47ea",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     203328,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.32,
+     0.0,
+     1.83,
+     1.54,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.rear_opening.C.harrow_ranger.1901e2": {
+   "id": "FS200.reveal.rear_opening.C.harrow_ranger.1901e2",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     206784,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.355,
+     0.04,
+     1.52,
+     1.27,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.door_F.R.harrow_ranger.03ae9f": {
+   "id": "FS200.reveal.door_F.R.harrow_ranger.03ae9f",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     209664,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.29,
+     0.47,
+     0.12,
+     1.42,
+     0.94
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.door_B.R.harrow_ranger.4bb1e2": {
+   "id": "FS200.reveal.door_B.R.harrow_ranger.4bb1e2",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     211680,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.29,
+     0.5,
+     0.12,
+     1.42,
+     1.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.window_Q.R.harrow_ranger.d9f035": {
+   "id": "FS200.reveal.window_Q.R.harrow_ranger.d9f035",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     213408,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.655,
+     0.62,
+     0.12,
+     0.69,
+     1.24
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.door_F.L.harrow_ranger.135741": {
+   "id": "FS200.reveal.door_F.L.harrow_ranger.135741",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     218304,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.29,
+     0.47,
+     0.12,
+     1.42,
+     0.94
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.door_B.L.harrow_ranger.6f5278": {
+   "id": "FS200.reveal.door_B.L.harrow_ranger.6f5278",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     220320,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.29,
+     0.5,
+     0.12,
+     1.42,
+     1.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.window_Q.L.harrow_ranger.c0addc": {
+   "id": "FS200.reveal.window_Q.L.harrow_ranger.c0addc",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     222048,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.655,
+     0.62,
+     0.12,
+     0.69,
+     1.24
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.reveal.screen.C.harrow_ranger.b85151": {
+   "id": "FS200.reveal.screen.C.harrow_ranger.b85151",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     226944,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7196,
+     0.41,
+     1.925,
+     0.8408,
+     0.82
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FS200.glazing.window_Q.R.harrow_ranger.0b5a3b": {
+   "id": "FS200.glazing.window_Q.R.harrow_ranger.0b5a3b",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/glazing/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     230688,
+     252
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.655,
+     0.62,
+     0.06,
+     0.69,
+     1.24
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.glazing.window_Q.L.harrow_ranger.de65d1": {
+   "id": "FS200.glazing.window_Q.L.harrow_ranger.de65d1",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/glazing/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     236736,
+     252
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.655,
+     0.62,
+     0.06,
+     0.69,
+     1.24
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.door_leaf.door_F.R.harrow_ranger.e24b3c": {
+   "id": "FS200.door_leaf.door_F.R.harrow_ranger.e24b3c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     242784,
+     24
+    ],
+    "paint": [
+     243360,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     0.945,
+     0.47,
+     0.06,
+     0.73,
+     0.94
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_glass.door_F.R.harrow_ranger.8b3ef5": {
+   "id": "FS200.door_glass.door_F.R.harrow_ranger.8b3ef5",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     245088,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.655,
+     0.47,
+     0.06,
+     0.69,
+     0.94
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.leaf_trim.handle_F.R.harrow_ranger.410dfa": {
+   "id": "FS200.leaf_trim.handle_F.R.harrow_ranger.410dfa",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     245952,
+     36
+    ],
+    "dash": [
+     246816,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_leaf.door_B.R.harrow_ranger.e64d8c": {
+   "id": "FS200.door_leaf.door_B.R.harrow_ranger.e64d8c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_leaf/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     247680,
+     12
+    ],
+    "paint": [
+     247968,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     0.945,
+     0.5,
+     0.06,
+     0.73,
+     1.0
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_glass.door_B.R.harrow_ranger.151fbc": {
+   "id": "FS200.door_glass.door_B.R.harrow_ranger.151fbc",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_glass/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     249120,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.95,
+     1.655,
+     0.5,
+     0.06,
+     0.69,
+     1.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.leaf_trim.handle_B.R.harrow_ranger.59b601": {
+   "id": "FS200.leaf_trim.handle_B.R.harrow_ranger.59b601",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/handle_B/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     249552,
+     36
+    ],
+    "dash": [
+     250416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_leaf.door_F.L.harrow_ranger.f4913a": {
+   "id": "FS200.door_leaf.door_F.L.harrow_ranger.f4913a",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     251280,
+     24
+    ],
+    "paint": [
+     251856,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     0.945,
+     0.47,
+     0.06,
+     0.73,
+     0.94
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_glass.door_F.L.harrow_ranger.6d69e7": {
+   "id": "FS200.door_glass.door_F.L.harrow_ranger.6d69e7",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     253584,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.655,
+     0.47,
+     0.06,
+     0.69,
+     0.94
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.leaf_trim.handle_F.L.harrow_ranger.d43c55": {
+   "id": "FS200.leaf_trim.handle_F.L.harrow_ranger.d43c55",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     254448,
+     36
+    ],
+    "dash": [
+     255312,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_leaf.door_B.L.harrow_ranger.6e2dca": {
+   "id": "FS200.door_leaf.door_B.L.harrow_ranger.6e2dca",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_leaf/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     256176,
+     12
+    ],
+    "paint": [
+     256464,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     0.945,
+     0.5,
+     0.06,
+     0.73,
+     1.0
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.door_glass.door_B.L.harrow_ranger.c89d11": {
+   "id": "FS200.door_glass.door_B.L.harrow_ranger.c89d11",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/door_glass/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     257616,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.95,
+     1.655,
+     0.5,
+     0.06,
+     0.69,
+     1.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.leaf_trim.handle_B.L.harrow_ranger.8c099f": {
+   "id": "FS200.leaf_trim.handle_B.L.harrow_ranger.8c099f",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/handle_B/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     258048,
+     36
+    ],
+    "dash": [
+     258912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.925,
+     1.125,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.frunk_lid.lid.C.harrow_ranger.9801ba": {
+   "id": "FS200.frunk_lid.lid.C.harrow_ranger.9801ba",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     259776,
+     696
+    ],
+    "tub": [
+     276480,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2486,
+     0.557,
+     1.734,
+     0.2078,
+     1.114
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.frunk_tub.lid.C.harrow_ranger.7a7c39": {
+   "id": "FS200.frunk_tub.lid.C.harrow_ranger.7a7c39",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     288000,
+     294
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9514,
+     0.56,
+     1.74,
+     0.8028,
+     1.12
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "FS200.hatch.hatch.C.harrow_ranger.e8b512": {
+   "id": "FS200.hatch.hatch.C.harrow_ranger.e8b512",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "hatch",
+   "slot": "hatch",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/hatch/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     295056,
+     120
+    ],
+    "lining": [
+     297936,
+     120
+    ],
+    "paint": [
+     300816,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.355,
+     0.04,
+     1.52,
+     1.27,
+     0.08
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 26,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.hatch_glass.hatch.C.harrow_ranger.22b4db": {
+   "id": "FS200.hatch_glass.hatch.C.harrow_ranger.22b4db",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "hatch_glass",
+   "slot": "hatch",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/hatch_glass/hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     306576,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.67,
+     0.0,
+     1.32,
+     0.54,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 8,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FS200.leaf_trim.handle_hatch.C.harrow_ranger.38cfdb": {
+   "id": "FS200.leaf_trim.handle_hatch.C.harrow_ranger.38cfdb",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "handle_hatch",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/handle_hatch/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     307872,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.35,
+     0.01,
+     0.16,
+     0.03,
+     0.02
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.wheel_well.well_0.R.harrow_ranger.062a51": {
+   "id": "FS200.wheel_well.well_0.R.harrow_ranger.062a51",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     308736,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6663,
+     0.5953,
+     0.4318,
+     0.6625,
+     0.5333,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.wheel_well.well_0.L.harrow_ranger.2ec67f": {
+   "id": "FS200.wheel_well.well_0.L.harrow_ranger.2ec67f",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     325872,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6663,
+     0.5952,
+     0.4318,
+     0.6625,
+     0.5332,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.wheel_well.well_1.R.harrow_ranger.91c8e9": {
+   "id": "FS200.wheel_well.well_1.R.harrow_ranger.91c8e9",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     343008,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     0.6663,
+     0.5953,
+     0.4318,
+     0.6625,
+     0.5333,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.wheel_well.well_1.L.harrow_ranger.054261": {
+   "id": "FS200.wheel_well.well_1.L.harrow_ranger.054261",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     357840,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     -0.6663,
+     0.5952,
+     0.4318,
+     0.6625,
+     0.5332,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.underpan.underpan.C.harrow_ranger.4262be": {
+   "id": "FS200.underpan.underpan.C.harrow_ranger.4262be",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     372672,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4175,
+     2.6,
+     1.9,
+     0.175,
+     5.2
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "FS200.seat.row_0.C.harrow_ranger.f073c6": {
+   "id": "FS200.seat.row_0.C.harrow_ranger.f073c6",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     387072,
+     72
+    ],
+    "seat": [
+     388800,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1146,
+     0.4335,
+     1.28,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.seat.row_1.C.harrow_ranger.4326d6": {
+   "id": "FS200.seat.row_1.C.harrow_ranger.4326d6",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     393984,
+     108
+    ],
+    "seat": [
+     396576,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0377,
+     0.4023,
+     1.22,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.seat.row_2.C.harrow_ranger.7bffeb": {
+   "id": "FS200.seat.row_2.C.harrow_ranger.7bffeb",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     401760,
+     72
+    ],
+    "seat": [
+     403488,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3477,
+     0.4023,
+     1.14,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FS200.dash.dash.C.harrow_ranger.d5b5e7": {
+   "id": "FS200.dash.dash.C.harrow_ranger.d5b5e7",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     406944,
+     1236
+    ],
+    "chrome": [
+     436608,
+     120
+    ],
+    "dash": [
+     439488,
+     108
+    ],
+    "gauge": [
+     442080,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1449,
+     0.2576,
+     1.68,
+     0.3901,
+     0.5151
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "FS200.dash.readout.C.harrow_ranger.c17e50": {
+   "id": "FS200.dash.readout.C.harrow_ranger.c17e50",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     451296,
+     36
+    ],
+    "lcd": [
+     452160,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.4,
+     1.23,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "FS200.lamp.head_lamp.C.harrow_ranger.2aafc1": {
+   "id": "FS200.lamp.head_lamp.C.harrow_ranger.2aafc1",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     453024,
+     480
+    ],
+    "lamp_amber": [
+     464544,
+     72
+    ],
+    "lamp_drl": [
+     466272,
+     480
+    ],
+    "lamp_head": [
+     477792,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     0.01,
+     1.754,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FS200.trim.grille.C.harrow_ranger.bbb95e": {
+   "id": "FS200.trim.grille.C.harrow_ranger.bbb95e",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     489312,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     0.004,
+     1.124,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.lamp.tail_lamp.C.harrow_ranger.3c3beb": {
+   "id": "FS200.lamp.tail_lamp.C.harrow_ranger.3c3beb",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     492768,
+     12
+    ],
+    "lamp_amber": [
+     493056,
+     36
+    ],
+    "lamp_brake": [
+     493920,
+     36
+    ],
+    "lamp_reverse": [
+     494784,
+     36
+    ],
+    "lamp_tail": [
+     495648,
+     252
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.526,
+     0.006,
+     1.8024,
+     1.072,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FS200.lamp.side_marker.C.harrow_ranger.893ffb": {
+   "id": "FS200.lamp.side_marker.C.harrow_ranger.893ffb",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     501696,
+     72
+    ],
+    "lamp_tail": [
+     503424,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     2.44,
+     1.976,
+     0.03,
+     4.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FS200.trim.bumper_front.C.harrow_ranger.f76e0a": {
+   "id": "FS200.trim.bumper_front.C.harrow_ranger.f76e0a",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     505152,
+     108
+    ],
+    "rubber": [
+     507744,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.48,
+     0.0655,
+     1.9032,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.bumper_rear.C.harrow_ranger.bfc80d": {
+   "id": "FS200.trim.bumper_rear.C.harrow_ranger.bfc80d",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     508608,
+     108
+    ],
+    "rubber": [
+     511200,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.48,
+     0.0655,
+     1.9032,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.mirror.R.harrow_ranger.00dc83": {
+   "id": "FS200.trim.mirror.R.harrow_ranger.00dc83",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     512064,
+     96
+    ],
+    "glass_dark": [
+     514368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0663,
+     1.4033,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.mirror.L.harrow_ranger.407678": {
+   "id": "FS200.trim.mirror.L.harrow_ranger.407678",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     515232,
+     96
+    ],
+    "glass_dark": [
+     517536,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0659,
+     1.4035,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.belt_fender.R.harrow_ranger.84af2c": {
+   "id": "FS200.trim.belt_fender.R.harrow_ranger.84af2c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     518400,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     0.9855,
+     1.2278,
+     0.6765,
+     0.02,
+     0.1558,
+     1.3529
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.belt_post_0.R.harrow_ranger.880a23": {
+   "id": "FS200.trim.belt_post_0.R.harrow_ranger.880a23",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     530208,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.986,
+     1.298,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.belt_quarter.R.harrow_ranger.ecba5a": {
+   "id": "FS200.trim.belt_quarter.R.harrow_ranger.ecba5a",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     532512,
+     564
+    ]
+   },
+   "boxes": [
+    [
+     0.979,
+     1.298,
+     0.7765,
+     0.0294,
+     0.02,
+     1.553
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.belt_fender.L.harrow_ranger.92f59c": {
+   "id": "FS200.trim.belt_fender.L.harrow_ranger.92f59c",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     546048,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     -0.9855,
+     1.2278,
+     0.6764,
+     0.02,
+     0.1558,
+     1.3529
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.belt_post_0.L.harrow_ranger.5f82b0": {
+   "id": "FS200.trim.belt_post_0.L.harrow_ranger.5f82b0",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/belt_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     557856,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.986,
+     1.298,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.trim.belt_quarter.L.harrow_ranger.d567ed": {
+   "id": "FS200.trim.belt_quarter.L.harrow_ranger.d567ed",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/trim/belt_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     560160,
+     564
+    ]
+   },
+   "boxes": [
+    [
+     -0.979,
+     1.298,
+     0.7765,
+     0.0294,
+     0.02,
+     1.553
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FS200.leaf_trim.belt_door_F.R.harrow_ranger.242645": {
+   "id": "FS200.leaf_trim.belt_door_F.R.harrow_ranger.242645",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     573696,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     0.986,
+     1.298,
+     0.467,
+     0.02,
+     0.02,
+     0.934
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.leaf_trim.belt_door_B.R.harrow_ranger.0ab040": {
+   "id": "FS200.leaf_trim.belt_door_B.R.harrow_ranger.0ab040",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "R",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/belt_door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     582048,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     0.986,
+     1.298,
+     0.497,
+     0.02,
+     0.02,
+     0.994
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.leaf_trim.belt_door_F.L.harrow_ranger.cca9d7": {
+   "id": "FS200.leaf_trim.belt_door_F.L.harrow_ranger.cca9d7",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     590400,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -0.986,
+     1.298,
+     0.467,
+     0.02,
+     0.02,
+     0.934
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.leaf_trim.belt_door_B.L.harrow_ranger.e72c4f": {
+   "id": "FS200.leaf_trim.belt_door_B.L.harrow_ranger.e72c4f",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "L",
+   "style": "harrow_ranger",
+   "interface": "FS200/leaf_trim/belt_door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     598752,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -0.986,
+     1.298,
+     0.497,
+     0.02,
+     0.02,
+     0.994
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FS200.equipment.roof_rails.C.harrow_ranger.24e444": {
+   "id": "FS200.equipment.roof_rails.C.harrow_ranger.24e444",
+   "standard": "FS200",
+   "class": "full_size_suv",
+   "role": "equipment",
+   "slot": "roof_rails",
+   "side": "C",
+   "style": "harrow_ranger",
+   "interface": "FS200/equipment/roof_rails/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     607104,
+     216
+    ],
+    "chrome": [
+     612288,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1635,
+     1.36,
+     1.212,
+     0.067,
+     2.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

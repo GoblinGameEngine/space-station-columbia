@@ -1,0 +1,3324 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "LM220",
+ "class": "limousine",
+ "style": "carrow_majestic",
+ "pack": "res://remake/vehicles/components/LM220/carrow_majestic.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.0784,
+    0.0784,
+    0.0941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.0784,
+    0.0784,
+    0.0941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "LM220.end_cap.nose.C.carrow_majestic.40fe4b": {
+   "id": "LM220.end_cap.nose.C.carrow_majestic.40fe4b",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6875,
+     0.08,
+     1.8577,
+     0.775,
+     0.16
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.trim.cowl.C.carrow_majestic.e6dc33": {
+   "id": "LM220.trim.cowl.C.carrow_majestic.e6dc33",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3066,
+     0.05,
+     1.825,
+     0.0869,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.glazing.screen.C.carrow_majestic.c2e7a5": {
+   "id": "LM220.glazing.screen.C.carrow_majestic.c2e7a5",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     14472,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.665,
+     0.39,
+     1.825,
+     0.75,
+     0.78
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.trim.screen.C.carrow_majestic.78fff8": {
+   "id": "LM220.trim.screen.C.carrow_majestic.78fff8",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     20232,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6378,
+     0.39,
+     1.825,
+     0.7036,
+     0.78
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.side_bay.fender.R.carrow_majestic.147196": {
+   "id": "LM220.side_bay.fender.R.carrow_majestic.147196",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25416,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     0.8745,
+     0.795,
+     0.66,
+     0.111,
+     0.99,
+     1.32
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.trim.sail.R.carrow_majestic.f652b4": {
+   "id": "LM220.trim.sail.R.carrow_majestic.f652b4",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     37800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.9249,
+     1.3235,
+     0.1,
+     0.02,
+     0.1069,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.a_pillar.R.carrow_majestic.e6121b": {
+   "id": "LM220.trim.a_pillar.R.carrow_majestic.e6121b",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     39528,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.865,
+     1.625,
+     0.39,
+     0.13,
+     0.71,
+     0.78
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.side_bay.rocker_F.R.carrow_majestic.889c1b": {
+   "id": "LM220.side_bay.rocker_F.R.carrow_majestic.889c1b",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40968,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.915,
+     0.44,
+     0.44,
+     0.03,
+     0.28,
+     0.88
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.side_bay.post_0.R.carrow_majestic.08e851": {
+   "id": "LM220.side_bay.post_0.R.carrow_majestic.08e851",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41256,
+     36
+    ],
+    "paint": [
+     42120,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.1,
+     0.33,
+     0.06,
+     1.6,
+     0.66
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.side_bay.rocker_B.R.carrow_majestic.4b865f": {
+   "id": "LM220.side_bay.rocker_B.R.carrow_majestic.4b865f",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/rocker_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43416,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.915,
+     0.44,
+     0.47,
+     0.03,
+     0.28,
+     0.94
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.side_bay.quarter.R.carrow_majestic.714074": {
+   "id": "LM220.side_bay.quarter.R.carrow_majestic.714074",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     43704,
+     144
+    ],
+    "paint": [
+     47160,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.8715,
+     1.0178,
+     0.79,
+     0.1169,
+     1.4357,
+     1.58
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.trim.c_pillar.R.carrow_majestic.739edf": {
+   "id": "LM220.trim.c_pillar.R.carrow_majestic.739edf",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "c_pillar",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/c_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     56664,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.865,
+     1.625,
+     0.46,
+     0.13,
+     0.71,
+     0.92
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.side_bay.fender.L.carrow_majestic.1de07d": {
+   "id": "LM220.side_bay.fender.L.carrow_majestic.1de07d",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59256,
+     516
+    ]
+   },
+   "boxes": [
+    [
+     -0.8745,
+     0.795,
+     0.66,
+     0.111,
+     0.99,
+     1.32
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.trim.sail.L.carrow_majestic.ae37b3": {
+   "id": "LM220.trim.sail.L.carrow_majestic.ae37b3",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     71640,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.9249,
+     1.3235,
+     0.1,
+     0.02,
+     0.1069,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.a_pillar.L.carrow_majestic.cc6d81": {
+   "id": "LM220.trim.a_pillar.L.carrow_majestic.cc6d81",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     73368,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.865,
+     1.625,
+     0.39,
+     0.13,
+     0.71,
+     0.78
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.side_bay.rocker_F.L.carrow_majestic.20d955": {
+   "id": "LM220.side_bay.rocker_F.L.carrow_majestic.20d955",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     74808,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.915,
+     0.44,
+     0.44,
+     0.03,
+     0.28,
+     0.88
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.side_bay.post_0.L.carrow_majestic.c35177": {
+   "id": "LM220.side_bay.post_0.L.carrow_majestic.c35177",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     75096,
+     36
+    ],
+    "paint": [
+     75960,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.1,
+     0.33,
+     0.06,
+     1.6,
+     0.66
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.side_bay.rocker_B.L.carrow_majestic.8abafd": {
+   "id": "LM220.side_bay.rocker_B.L.carrow_majestic.8abafd",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "rocker_B",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/rocker_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     77256,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.915,
+     0.44,
+     0.47,
+     0.03,
+     0.28,
+     0.94
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.side_bay.quarter.L.carrow_majestic.a0600e": {
+   "id": "LM220.side_bay.quarter.L.carrow_majestic.a0600e",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     77544,
+     144
+    ],
+    "paint": [
+     81000,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     -0.8715,
+     1.0178,
+     0.79,
+     0.1169,
+     1.4357,
+     1.58
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.trim.c_pillar.L.carrow_majestic.f14648": {
+   "id": "LM220.trim.c_pillar.L.carrow_majestic.f14648",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "c_pillar",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/c_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     90504,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.865,
+     1.625,
+     0.46,
+     0.13,
+     0.71,
+     0.92
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.roof_bay.roof_0.C.carrow_majestic.7a2a70": {
+   "id": "LM220.roof_bay.roof_0.C.carrow_majestic.7a2a70",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     93096,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.97,
+     0.85,
+     1.74,
+     0.14,
+     1.7
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.glazing.backlight.C.carrow_majestic.65bcdc": {
+   "id": "LM220.glazing.backlight.C.carrow_majestic.65bcdc",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "glazing",
+   "slot": "backlight",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/glazing/backlight/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     101736,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.655,
+     0.46,
+     1.86,
+     0.77,
+     0.92
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 10,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.trim.deck.C.carrow_majestic.5b630a": {
+   "id": "LM220.trim.deck.C.carrow_majestic.5b630a",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "deck",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/deck/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     112104,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2965,
+     0.02,
+     1.86,
+     0.0671,
+     0.04
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.end_cap.tail.C.carrow_majestic.1d8792": {
+   "id": "LM220.end_cap.tail.C.carrow_majestic.1d8792",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     114408,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7776,
+     0.05,
+     1.8443,
+     0.9552,
+     0.1
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "LM220.floor.floor.C.carrow_majestic.63773d": {
+   "id": "LM220.floor.floor.C.carrow_majestic.63773d",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     123120,
+     912
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.725,
+     1.7,
+     1.74,
+     0.35,
+     3.4
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "LM220.lining_bay.trim_0_0.R.carrow_majestic.d16a45": {
+   "id": "LM220.lining_bay.trim_0_0.R.carrow_majestic.d16a45",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     145008,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.8649,
+     0.9785,
+     0.1,
+     0.02,
+     0.7969,
+     0.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.trim_1_0.R.carrow_majestic.41136c": {
+   "id": "LM220.lining_bay.trim_1_0.R.carrow_majestic.41136c",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     147888,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.84,
+     1.24,
+     0.33,
+     0.06,
+     1.32,
+     0.66
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.trim_2_0.R.carrow_majestic.07b620": {
+   "id": "LM220.lining_bay.trim_2_0.R.carrow_majestic.07b620",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     149616,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.8478,
+     1.1578,
+     0.36,
+     0.0443,
+     1.1557,
+     0.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.a_pillar.R.carrow_majestic.6911fa": {
+   "id": "LM220.lining_bay.a_pillar.R.carrow_majestic.6911fa",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     155376,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.805,
+     1.6022,
+     0.39,
+     0.13,
+     0.6956,
+     0.78
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.c_pillar.R.carrow_majestic.719523": {
+   "id": "LM220.lining_bay.c_pillar.R.carrow_majestic.719523",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "c_pillar",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/c_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     156816,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.805,
+     1.595,
+     0.46,
+     0.13,
+     0.71,
+     0.92
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.trim_0_0.L.carrow_majestic.1d8ca5": {
+   "id": "LM220.lining_bay.trim_0_0.L.carrow_majestic.1d8ca5",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     159408,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.8649,
+     0.9785,
+     0.1,
+     0.02,
+     0.7969,
+     0.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.trim_1_0.L.carrow_majestic.a06934": {
+   "id": "LM220.lining_bay.trim_1_0.L.carrow_majestic.a06934",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     162288,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.84,
+     1.24,
+     0.33,
+     0.06,
+     1.32,
+     0.66
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.trim_2_0.L.carrow_majestic.817b29": {
+   "id": "LM220.lining_bay.trim_2_0.L.carrow_majestic.817b29",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/trim_2_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     164016,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -0.8478,
+     1.1578,
+     0.36,
+     0.0443,
+     1.1557,
+     0.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.a_pillar.L.carrow_majestic.5af963": {
+   "id": "LM220.lining_bay.a_pillar.L.carrow_majestic.5af963",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     169776,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.805,
+     1.6022,
+     0.39,
+     0.13,
+     0.6956,
+     0.78
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.lining_bay.c_pillar.L.carrow_majestic.1cf062": {
+   "id": "LM220.lining_bay.c_pillar.L.carrow_majestic.1cf062",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lining_bay",
+   "slot": "c_pillar",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/lining_bay/c_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     171216,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.805,
+     1.595,
+     0.46,
+     0.13,
+     0.71,
+     0.92
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.ceiling_bay.roof_0.C.carrow_majestic.63501d": {
+   "id": "LM220.ceiling_bay.roof_0.C.carrow_majestic.63501d",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     173808,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.945,
+     0.85,
+     1.62,
+     0.09,
+     1.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.end_lining.firewall.C.carrow_majestic.e76d6a": {
+   "id": "LM220.end_lining.firewall.C.carrow_majestic.e76d6a",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     182448,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.925,
+     -0.0,
+     1.74,
+     0.75,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.end_lining.rear_wall.C.carrow_majestic.b83a29": {
+   "id": "LM220.end_lining.rear_wall.C.carrow_majestic.b83a29",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     183888,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.915,
+     0.0,
+     1.74,
+     0.73,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.door_F.R.carrow_majestic.6c938d": {
+   "id": "LM220.reveal.door_F.R.carrow_majestic.6c938d",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     185184,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.24,
+     0.44,
+     0.12,
+     1.32,
+     0.88
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.door_B.R.carrow_majestic.184497": {
+   "id": "LM220.reveal.door_B.R.carrow_majestic.184497",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     187200,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.24,
+     0.47,
+     0.12,
+     1.32,
+     0.94
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.window_M.R.carrow_majestic.846ce5": {
+   "id": "LM220.reveal.window_M.R.carrow_majestic.846ce5",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "window_M",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/window_M/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     189216,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.87,
+     1.585,
+     0.23,
+     0.12,
+     0.63,
+     0.46
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.door_F.L.carrow_majestic.499738": {
+   "id": "LM220.reveal.door_F.L.carrow_majestic.499738",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     190368,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.24,
+     0.44,
+     0.12,
+     1.32,
+     0.88
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.door_B.L.carrow_majestic.fff4a6": {
+   "id": "LM220.reveal.door_B.L.carrow_majestic.fff4a6",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "door_B",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     192384,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.24,
+     0.47,
+     0.12,
+     1.32,
+     0.94
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.window_M.L.carrow_majestic.112642": {
+   "id": "LM220.reveal.window_M.L.carrow_majestic.112642",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "window_M",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/window_M/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     194400,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.87,
+     1.585,
+     0.23,
+     0.12,
+     0.63,
+     0.46
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.screen.C.carrow_majestic.2a8a42": {
+   "id": "LM220.reveal.screen.C.carrow_majestic.2a8a42",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     195552,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6496,
+     0.39,
+     1.825,
+     0.7808,
+     0.78
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.reveal.backlight.C.carrow_majestic.ec71d0": {
+   "id": "LM220.reveal.backlight.C.carrow_majestic.ec71d0",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "reveal",
+   "slot": "backlight",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/reveal/backlight/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     199296,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6396,
+     0.46,
+     1.86,
+     0.8008,
+     0.92
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LM220.glazing.window_M.R.carrow_majestic.a99ad9": {
+   "id": "LM220.glazing.window_M.R.carrow_majestic.a99ad9",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "glazing",
+   "slot": "window_M",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/glazing/window_M/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     204192,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.585,
+     0.23,
+     0.06,
+     0.63,
+     0.46
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.glazing.window_M.L.carrow_majestic.a45278": {
+   "id": "LM220.glazing.window_M.L.carrow_majestic.a45278",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "glazing",
+   "slot": "window_M",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/glazing/window_M/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     204624,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.585,
+     0.23,
+     0.06,
+     0.63,
+     0.46
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.door_leaf.door_F.R.carrow_majestic.c0d4a4": {
+   "id": "LM220.door_leaf.door_F.R.carrow_majestic.c0d4a4",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     205056,
+     24
+    ],
+    "paint": [
+     205632,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     0.925,
+     0.44,
+     0.06,
+     0.69,
+     0.88
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_glass.door_F.R.carrow_majestic.d22466": {
+   "id": "LM220.door_glass.door_F.R.carrow_majestic.d22466",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     207360,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.585,
+     0.44,
+     0.06,
+     0.63,
+     0.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.leaf_trim.handle_F.R.carrow_majestic.88b868": {
+   "id": "LM220.leaf_trim.handle_F.R.carrow_majestic.88b868",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     208224,
+     36
+    ],
+    "dash": [
+     209088,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.875,
+     1.085,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_leaf.door_B.R.carrow_majestic.984535": {
+   "id": "LM220.door_leaf.door_B.R.carrow_majestic.984535",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_leaf/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     209952,
+     24
+    ],
+    "paint": [
+     210528,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     0.925,
+     0.47,
+     0.06,
+     0.69,
+     0.94
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_glass.door_B.R.carrow_majestic.61308a": {
+   "id": "LM220.door_glass.door_B.R.carrow_majestic.61308a",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_glass/door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     212256,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.585,
+     0.47,
+     0.06,
+     0.63,
+     0.94
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.leaf_trim.handle_B.R.carrow_majestic.1e66dc": {
+   "id": "LM220.leaf_trim.handle_B.R.carrow_majestic.1e66dc",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/handle_B/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     213120,
+     36
+    ],
+    "dash": [
+     213984,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.875,
+     1.085,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_leaf.door_F.L.carrow_majestic.5daeb0": {
+   "id": "LM220.door_leaf.door_F.L.carrow_majestic.5daeb0",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     214848,
+     24
+    ],
+    "paint": [
+     215424,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     0.925,
+     0.44,
+     0.06,
+     0.69,
+     0.88
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_glass.door_F.L.carrow_majestic.b0a654": {
+   "id": "LM220.door_glass.door_F.L.carrow_majestic.b0a654",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     217152,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.585,
+     0.44,
+     0.06,
+     0.63,
+     0.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.leaf_trim.handle_F.L.carrow_majestic.c4d5ab": {
+   "id": "LM220.leaf_trim.handle_F.L.carrow_majestic.c4d5ab",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     218016,
+     36
+    ],
+    "dash": [
+     218880,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.875,
+     1.085,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_leaf.door_B.L.carrow_majestic.279456": {
+   "id": "LM220.door_leaf.door_B.L.carrow_majestic.279456",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_leaf",
+   "slot": "door_B",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_leaf/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     219744,
+     24
+    ],
+    "paint": [
+     220320,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     0.925,
+     0.47,
+     0.06,
+     0.69,
+     0.94
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.door_glass.door_B.L.carrow_majestic.af31ff": {
+   "id": "LM220.door_glass.door_B.L.carrow_majestic.af31ff",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "door_glass",
+   "slot": "door_B",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/door_glass/door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     222048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.585,
+     0.47,
+     0.06,
+     0.63,
+     0.94
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "LM220.leaf_trim.handle_B.L.carrow_majestic.7cc4cc": {
+   "id": "LM220.leaf_trim.handle_B.L.carrow_majestic.7cc4cc",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "handle_B",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/handle_B/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     222912,
+     36
+    ],
+    "dash": [
+     223776,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.875,
+     1.085,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.frunk_lid.lid.C.carrow_majestic.43f9ee": {
+   "id": "LM220.frunk_lid.lid.C.carrow_majestic.43f9ee",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     224640,
+     696
+    ],
+    "tub": [
+     241344,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1492,
+     0.507,
+     1.634,
+     0.2966,
+     1.014
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.frunk_tub.lid.C.carrow_majestic.d8cd36": {
+   "id": "LM220.frunk_tub.lid.C.carrow_majestic.d8cd36",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     252864,
+     294
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9241,
+     0.51,
+     1.64,
+     0.7481,
+     1.02
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "LM220.trunk_lid.trunk.C.carrow_majestic.c1f2d0": {
+   "id": "LM220.trunk_lid.trunk.C.carrow_majestic.c1f2d0",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trunk_lid",
+   "slot": "trunk",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trunk_lid/trunk/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     259920,
+     168
+    ],
+    "paint2": [
+     263952,
+     288
+    ],
+    "tub": [
+     270864,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2392,
+     0.407,
+     1.634,
+     0.1172,
+     0.814
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.frunk_tub.trunk.C.carrow_majestic.b5a9a8": {
+   "id": "LM220.frunk_tub.trunk.C.carrow_majestic.b5a9a8",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "frunk_tub",
+   "slot": "trunk",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/frunk_tub/trunk/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     277776,
+     246
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.924,
+     0.41,
+     1.64,
+     0.7479,
+     0.82
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "LM220.wheel_well.well_0.R.carrow_majestic.7d863f": {
+   "id": "LM220.wheel_well.well_0.R.carrow_majestic.7d863f",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     283680,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6238,
+     0.5803,
+     0.4318,
+     0.6475,
+     0.5631,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "LM220.wheel_well.well_0.L.carrow_majestic.5e5cc6": {
+   "id": "LM220.wheel_well.well_0.L.carrow_majestic.5e5cc6",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     300816,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6238,
+     0.5803,
+     0.4318,
+     0.6475,
+     0.5631,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "LM220.wheel_well.well_1.R.carrow_majestic.1c6ed0": {
+   "id": "LM220.wheel_well.well_1.R.carrow_majestic.1c6ed0",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     317952,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6238,
+     0.5803,
+     0.4318,
+     0.6475,
+     0.5631,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "LM220.wheel_well.well_1.L.carrow_majestic.28b5bd": {
+   "id": "LM220.wheel_well.well_1.L.carrow_majestic.28b5bd",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     335088,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6238,
+     0.5803,
+     0.4318,
+     0.6475,
+     0.563,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "LM220.underpan.underpan.C.carrow_majestic.69537a": {
+   "id": "LM220.underpan.underpan.C.carrow_majestic.69537a",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     352224,
+     594
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4025,
+     2.82,
+     1.8,
+     0.205,
+     5.64
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LM220.seat.row_0.C.carrow_majestic.e90153": {
+   "id": "LM220.seat.row_0.C.carrow_majestic.e90153",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     366480,
+     72
+    ],
+    "seat": [
+     368208,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0796,
+     0.4335,
+     1.22,
+     1.1393,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "LM220.seat.row_1.C.carrow_majestic.dd53fb": {
+   "id": "LM220.seat.row_1.C.carrow_majestic.dd53fb",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     373392,
+     108
+    ],
+    "seat": [
+     375984,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9977,
+     0.4023,
+     1.18,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "LM220.dash.dash.C.carrow_majestic.a78a85": {
+   "id": "LM220.dash.dash.C.carrow_majestic.a78a85",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     381168,
+     1236
+    ],
+    "chrome": [
+     410832,
+     120
+    ],
+    "dash": [
+     413712,
+     108
+    ],
+    "gauge": [
+     416304,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1049,
+     0.2876,
+     1.58,
+     0.3901,
+     0.5751
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "LM220.dash.readout.C.carrow_majestic.c64f88": {
+   "id": "LM220.dash.readout.C.carrow_majestic.c64f88",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     425520,
+     36
+    ],
+    "lcd": [
+     426384,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.38,
+     1.19,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "LM220.lamp.head_lamp.C.carrow_majestic.c2fc83": {
+   "id": "LM220.lamp.head_lamp.C.carrow_majestic.c2fc83",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     427248,
+     960
+    ],
+    "lamp_amber": [
+     450288,
+     72
+    ],
+    "lamp_drl": [
+     452016,
+     960
+    ],
+    "lamp_head": [
+     475056,
+     960
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.78,
+     0.01,
+     1.664,
+     0.132,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "LM220.trim.grille.C.carrow_majestic.a92f4f": {
+   "id": "LM220.trim.grille.C.carrow_majestic.a92f4f",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     498096,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.78,
+     0.004,
+     1.034,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.lamp.tail_lamp.C.carrow_majestic.392402": {
+   "id": "LM220.lamp.tail_lamp.C.carrow_majestic.392402",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_brake": [
+     501552,
+     36
+    ],
+    "lamp_reverse": [
+     502416,
+     12
+    ],
+    "lamp_tail": [
+     502704,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.131,
+     0.476,
+     1.7084,
+     0.322,
+     0.952
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "LM220.lamp.side_marker.C.carrow_majestic.776ef1": {
+   "id": "LM220.lamp.side_marker.C.carrow_majestic.776ef1",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     502992,
+     72
+    ],
+    "lamp_tail": [
+     504720,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     2.66,
+     1.876,
+     0.03,
+     5.32
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "LM220.trim.bumper_front.C.carrow_majestic.7e00d5": {
+   "id": "LM220.trim.bumper_front.C.carrow_majestic.7e00d5",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     506448,
+     108
+    ],
+    "rubber": [
+     509040,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.8112,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.bumper_rear.C.carrow_majestic.de59ff": {
+   "id": "LM220.trim.bumper_rear.C.carrow_majestic.de59ff",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     509904,
+     108
+    ],
+    "rubber": [
+     512496,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.8112,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.mirror.R.carrow_majestic.136307": {
+   "id": "LM220.trim.mirror.R.carrow_majestic.136307",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     513360,
+     96
+    ],
+    "glass_dark": [
+     515664,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0163,
+     1.3633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.mirror.L.carrow_majestic.f0d230": {
+   "id": "LM220.trim.mirror.L.carrow_majestic.f0d230",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     516528,
+     96
+    ],
+    "glass_dark": [
+     518832,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0159,
+     1.3635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.belt_fender.R.carrow_majestic.45490b": {
+   "id": "LM220.trim.belt_fender.R.carrow_majestic.45490b",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     519696,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     0.9355,
+     1.136,
+     0.6568,
+     0.02,
+     0.2594,
+     1.3136
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.belt_post_0.R.carrow_majestic.3e04c3": {
+   "id": "LM220.trim.belt_post_0.R.carrow_majestic.3e04c3",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     531504,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     0.936,
+     1.258,
+     0.326,
+     0.02,
+     0.02,
+     0.652
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.belt_quarter.R.carrow_majestic.efffe2": {
+   "id": "LM220.trim.belt_quarter.R.carrow_majestic.efffe2",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     537264,
+     564
+    ]
+   },
+   "boxes": [
+    [
+     0.9323,
+     1.2257,
+     0.7863,
+     0.0228,
+     0.08,
+     1.5727
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.belt_fender.L.carrow_majestic.462c95": {
+   "id": "LM220.trim.belt_fender.L.carrow_majestic.462c95",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     550800,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     -0.9355,
+     1.136,
+     0.6569,
+     0.02,
+     0.2594,
+     1.3137
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.belt_post_0.L.carrow_majestic.223f90": {
+   "id": "LM220.trim.belt_post_0.L.carrow_majestic.223f90",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/belt_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     562608,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -0.936,
+     1.258,
+     0.326,
+     0.02,
+     0.02,
+     0.652
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.trim.belt_quarter.L.carrow_majestic.45aa0a": {
+   "id": "LM220.trim.belt_quarter.L.carrow_majestic.45aa0a",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/trim/belt_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     568368,
+     564
+    ]
+   },
+   "boxes": [
+    [
+     -0.9323,
+     1.2257,
+     0.7863,
+     0.0228,
+     0.08,
+     1.5726
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LM220.leaf_trim.belt_door_F.R.carrow_majestic.ff90bb": {
+   "id": "LM220.leaf_trim.belt_door_F.R.carrow_majestic.ff90bb",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     581904,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.936,
+     1.258,
+     0.437,
+     0.02,
+     0.02,
+     0.874
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.leaf_trim.belt_door_B.R.carrow_majestic.b889aa": {
+   "id": "LM220.leaf_trim.belt_door_B.R.carrow_majestic.b889aa",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "R",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/belt_door_B/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     589392,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     0.936,
+     1.258,
+     0.467,
+     0.02,
+     0.02,
+     0.934
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.leaf_trim.belt_door_F.L.carrow_majestic.ec6fda": {
+   "id": "LM220.leaf_trim.belt_door_F.L.carrow_majestic.ec6fda",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     597744,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -0.936,
+     1.258,
+     0.437,
+     0.02,
+     0.02,
+     0.874
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "LM220.leaf_trim.belt_door_B.L.carrow_majestic.331344": {
+   "id": "LM220.leaf_trim.belt_door_B.L.carrow_majestic.331344",
+   "standard": "LM220",
+   "class": "limousine",
+   "role": "leaf_trim",
+   "slot": "belt_door_B",
+   "side": "L",
+   "style": "carrow_majestic",
+   "interface": "LM220/leaf_trim/belt_door_B/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     605232,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -0.936,
+     1.258,
+     0.467,
+     0.02,
+     0.02,
+     0.934
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  }
+ }
+}

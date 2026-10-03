@@ -292,7 +292,13 @@ def frame_beams(bp, by_role, std):
 def tube_test(path):
     bp, by_role = load_body(path)
     std = json.load(open(os.path.join(ROOT, "remake/vehicles/standards/%s.json" % bp["standard"])))
+    if std.get("frame_shown"):                      # (an open tub -- an ATV, a boat trailer: its frame shows by design)
+        print("%-6s tubes: frame shown by design" % bp["kind"])
+        return 0
     beams = frame_beams(bp, by_role, std)
+    if std.get("frame_shown_y"):                    # (an open bed's own stretch of the frame shows by design; the cab's may not)
+        y1, y0 = std["frame_shown_y"]
+        beams = [(a, b, d) for a, b, d in beams if not (y1 - 1e-6 <= -a[2] <= y0 + 1e-6 and y1 - 1e-6 <= -b[2] <= y0 + 1e-6)]
     # everything opaque hides a tube (both shells, reveals, doors, fittings); glass is see-through -- a tube
     # in view from outside through a window counts as seen
     opaque = set(by_role) - {"glazing", "door_glass", "hatch_glass", "ramp"}
@@ -341,7 +347,7 @@ def crossing_test(path):
     std = json.load(open(os.path.join(ROOT, "remake/vehicles/standards/%s.json" % bp["standard"])))
     outer = std["outer_half_width"]
     rects = {"R": [], "L": []}          # (z0, z1, y0, y1, what)
-    for ax in std["axles"]:
+    for ax in ([] if std.get("no_arch") else std["axles"]):     # (a body clear above or inboard of its wheels has no arches)
         for sd in ("R", "L"):
             rects[sd].append((-ax - std["arch_half"], -ax + std["arch_half"], std["skirt"], std.get("arch_top", 1.0), "wheel arch"))
     for d in bp["doors"]:

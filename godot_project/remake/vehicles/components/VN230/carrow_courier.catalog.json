@@ -1,0 +1,2940 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "VN230",
+ "class": "van",
+ "style": "carrow_courier",
+ "pack": "res://remake/vehicles/components/VN230/carrow_courier.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "VN230.end_cap.nose.C.carrow_courier.05b583": {
+   "id": "VN230.end_cap.nose.C.carrow_courier.05b583",
+   "standard": "VN230",
+   "class": "van",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.86,
+     0.03,
+     2.0079,
+     1.0,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.trim.cowl.C.carrow_courier.cfe31a": {
+   "id": "VN230.trim.cowl.C.carrow_courier.cfe31a",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12168,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3975,
+     0.045,
+     2.0935,
+     0.145,
+     0.09
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.glazing.screen.C.carrow_courier.e36c58": {
+   "id": "VN230.glazing.screen.C.carrow_courier.e36c58",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     13320,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.955,
+     0.2,
+     2.0935,
+     1.13,
+     0.4
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.trim.screen.C.carrow_courier.4f3523": {
+   "id": "VN230.trim.screen.C.carrow_courier.4f3523",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     15624,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9186,
+     0.2,
+     2.0935,
+     1.0652,
+     0.4
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.side_bay.fender.R.carrow_courier.f9a1c2": {
+   "id": "VN230.side_bay.fender.R.carrow_courier.f9a1c2",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19080,
+     210
+    ]
+   },
+   "boxes": [
+    [
+     0.9799,
+     0.875,
+     0.785,
+     0.1602,
+     1.03,
+     1.57
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.trim.sail.R.carrow_courier.25257d": {
+   "id": "VN230.trim.sail.R.carrow_courier.25257d",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24120,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.74,
+     0.06,
+     0.68,
+     1.48
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.a_pillar.R.carrow_courier.2c3b77": {
+   "id": "VN230.trim.a_pillar.R.carrow_courier.2c3b77",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30600,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.0,
+     1.905,
+     0.2,
+     0.1,
+     1.07,
+     0.4
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.side_bay.rocker_F.R.carrow_courier.cb7c23": {
+   "id": "VN230.side_bay.rocker_F.R.carrow_courier.cb7c23",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31176,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.045,
+     0.47,
+     0.4,
+     0.03,
+     0.22,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.side_bay.post_0.R.carrow_courier.8e50b9": {
+   "id": "VN230.side_bay.post_0.R.carrow_courier.8e50b9",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.205,
+     0.11,
+     0.06,
+     1.69,
+     0.22
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.side_bay.rocker_S.R.carrow_courier.a2a88f": {
+   "id": "VN230.side_bay.rocker_S.R.carrow_courier.a2a88f",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/rocker_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32184,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.045,
+     0.47,
+     0.75,
+     0.03,
+     0.22,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.side_bay.quarter.R.carrow_courier.b73b81": {
+   "id": "VN230.side_bay.quarter.R.carrow_courier.b73b81",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32328,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     1.0225,
+     1.205,
+     0.985,
+     0.075,
+     1.69,
+     1.97
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.side_bay.fender.L.carrow_courier.b9aaf6": {
+   "id": "VN230.side_bay.fender.L.carrow_courier.b9aaf6",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38808,
+     210
+    ]
+   },
+   "boxes": [
+    [
+     -0.9799,
+     0.875,
+     0.785,
+     0.1602,
+     1.03,
+     1.57
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.trim.sail.L.carrow_courier.fcab3d": {
+   "id": "VN230.trim.sail.L.carrow_courier.fcab3d",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43848,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.74,
+     0.06,
+     0.68,
+     1.48
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.a_pillar.L.carrow_courier.469848": {
+   "id": "VN230.trim.a_pillar.L.carrow_courier.469848",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50328,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.0,
+     1.905,
+     0.2,
+     0.1,
+     1.07,
+     0.4
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.side_bay.rocker_F.L.carrow_courier.18d50b": {
+   "id": "VN230.side_bay.rocker_F.L.carrow_courier.18d50b",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50904,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.045,
+     0.47,
+     0.4,
+     0.03,
+     0.22,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.side_bay.quarter.L.carrow_courier.ea8772": {
+   "id": "VN230.side_bay.quarter.L.carrow_courier.ea8772",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51048,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     -1.0225,
+     1.205,
+     1.845,
+     0.075,
+     1.69,
+     3.69
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.roof_bay.roof_0.C.carrow_courier.6d3540": {
+   "id": "VN230.roof_bay.roof_0.C.carrow_courier.6d3540",
+   "standard": "VN230",
+   "class": "van",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     58824,
+     936
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.285,
+     0.54,
+     2.0,
+     0.47,
+     1.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.roof_bay.roof_1.C.carrow_courier.e821d5": {
+   "id": "VN230.roof_bay.roof_1.C.carrow_courier.e821d5",
+   "standard": "VN230",
+   "class": "van",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     81288,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.285,
+     0.51,
+     2.0,
+     0.47,
+     1.02
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.roof_bay.roof_2.C.carrow_courier.9e751d": {
+   "id": "VN230.roof_bay.roof_2.C.carrow_courier.9e751d",
+   "standard": "VN230",
+   "class": "van",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     84744,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.285,
+     1.005,
+     2.0,
+     0.47,
+     2.01
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.roof_bay.roof_3.C.carrow_courier.fa2bc2": {
+   "id": "VN230.roof_bay.roof_3.C.carrow_courier.fa2bc2",
+   "standard": "VN230",
+   "class": "van",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     98568,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.285,
+     0.73,
+     2.0,
+     0.47,
+     1.46
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.end_cap.tail.C.carrow_courier.3b69d7": {
+   "id": "VN230.end_cap.tail.C.carrow_courier.3b69d7",
+   "standard": "VN230",
+   "class": "van",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     115848,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.44,
+     0.04,
+     2.0882,
+     2.16,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.floor.floor.C.carrow_courier.725936": {
+   "id": "VN230.floor.floor.C.carrow_courier.725936",
+   "standard": "VN230",
+   "class": "van",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     126144,
+     1680
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.805,
+     2.985,
+     2.0,
+     0.51,
+     5.97
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "VN230.lining_bay.trim_0_0.R.carrow_courier.9bdb9b": {
+   "id": "VN230.lining_bay.trim_0_0.R.carrow_courier.9bdb9b",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     166464,
+     450
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.315,
+     0.74,
+     0.06,
+     1.47,
+     1.48
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.lining_bay.trim_1_0.R.carrow_courier.a50129": {
+   "id": "VN230.lining_bay.trim_1_0.R.carrow_courier.a50129",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     177264,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.315,
+     0.11,
+     0.06,
+     1.47,
+     0.22
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.lining_bay.trim_2_0.R.carrow_courier.320f6f": {
+   "id": "VN230.lining_bay.trim_2_0.R.carrow_courier.320f6f",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     177984,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     0.9629,
+     1.315,
+     0.985,
+     0.0741,
+     1.47,
+     1.97
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.lining_bay.a_pillar.R.carrow_courier.245498": {
+   "id": "VN230.lining_bay.a_pillar.R.carrow_courier.245498",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     184608,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.94,
+     1.8822,
+     0.2,
+     0.1,
+     1.0556,
+     0.4
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.lining_bay.trim_0_0.L.carrow_courier.fc5194": {
+   "id": "VN230.lining_bay.trim_0_0.L.carrow_courier.fc5194",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     185184,
+     450
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.315,
+     0.74,
+     0.06,
+     1.47,
+     1.48
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.lining_bay.trim_1_0.L.carrow_courier.358831": {
+   "id": "VN230.lining_bay.trim_1_0.L.carrow_courier.358831",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     195984,
+     318
+    ]
+   },
+   "boxes": [
+    [
+     -0.9629,
+     1.315,
+     1.845,
+     0.0741,
+     1.47,
+     3.69
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.lining_bay.a_pillar.L.carrow_courier.dac1f5": {
+   "id": "VN230.lining_bay.a_pillar.L.carrow_courier.dac1f5",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     203616,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.94,
+     1.8822,
+     0.2,
+     0.1,
+     1.0556,
+     0.4
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.ceiling_bay.roof_0.C.carrow_courier.ec7288": {
+   "id": "VN230.ceiling_bay.roof_0.C.carrow_courier.ec7288",
+   "standard": "VN230",
+   "class": "van",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     204192,
+     936
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.26,
+     0.54,
+     1.88,
+     0.42,
+     1.08
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.ceiling_bay.roof_1.C.carrow_courier.879a0e": {
+   "id": "VN230.ceiling_bay.roof_1.C.carrow_courier.879a0e",
+   "standard": "VN230",
+   "class": "van",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     226656,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.26,
+     0.51,
+     1.88,
+     0.42,
+     1.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.ceiling_bay.roof_2.C.carrow_courier.0ed631": {
+   "id": "VN230.ceiling_bay.roof_2.C.carrow_courier.0ed631",
+   "standard": "VN230",
+   "class": "van",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     230112,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.26,
+     1.005,
+     1.88,
+     0.42,
+     2.01
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.ceiling_bay.roof_3.C.carrow_courier.fc603d": {
+   "id": "VN230.ceiling_bay.roof_3.C.carrow_courier.fc603d",
+   "standard": "VN230",
+   "class": "van",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     243936,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.26,
+     0.73,
+     1.88,
+     0.42,
+     1.46
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.end_lining.firewall.C.carrow_courier.c0176f": {
+   "id": "VN230.end_lining.firewall.C.carrow_courier.c0176f",
+   "standard": "VN230",
+   "class": "van",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     261216,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.985,
+     -0.0,
+     1.99,
+     0.87,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.end_lining.rear_wall.C.carrow_courier.fa2a41": {
+   "id": "VN230.end_lining.rear_wall.C.carrow_courier.fa2a41",
+   "standard": "VN230",
+   "class": "van",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     262656,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.51,
+     -0.0,
+     1.99,
+     1.92,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.rear_opening.C.carrow_courier.c2c9c5": {
+   "id": "VN230.reveal.rear_opening.C.carrow_courier.c2c9c5",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     266112,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.46,
+     0.04,
+     1.72,
+     1.68,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.door_F.R.carrow_courier.2af1a5": {
+   "id": "VN230.reveal.door_F.R.carrow_courier.2af1a5",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     268992,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0,
+     1.315,
+     0.4,
+     0.12,
+     1.47,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.door_S.R.carrow_courier.042759": {
+   "id": "VN230.reveal.door_S.R.carrow_courier.042759",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     270720,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0,
+     1.315,
+     0.75,
+     0.12,
+     1.47,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.window_W2.R.carrow_courier.c6ae26": {
+   "id": "VN230.reveal.window_W2.R.carrow_courier.c6ae26",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     272448,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.0,
+     1.71,
+     0.8,
+     0.12,
+     0.68,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.door_F.L.carrow_courier.d623de": {
+   "id": "VN230.reveal.door_F.L.carrow_courier.d623de",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     277056,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.0,
+     1.315,
+     0.4,
+     0.12,
+     1.47,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.window_W1.L.carrow_courier.f9e856": {
+   "id": "VN230.reveal.window_W1.L.carrow_courier.f9e856",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     278784,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.0,
+     1.71,
+     0.75,
+     0.12,
+     0.68,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.window_W2.L.carrow_courier.c2bdb8": {
+   "id": "VN230.reveal.window_W2.L.carrow_courier.c2bdb8",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     279936,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.0,
+     1.71,
+     0.8,
+     0.12,
+     0.68,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.screen.C.carrow_courier.8201fe": {
+   "id": "VN230.reveal.screen.C.carrow_courier.8201fe",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     284544,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.94,
+     0.2,
+     2.0935,
+     1.16,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.side_bay.window_W1.L.carrow_courier.527b39": {
+   "id": "VN230.side_bay.window_W1.L.carrow_courier.527b39",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     287424,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.75,
+     0.06,
+     0.68,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.lining_bay.window_W1.L.carrow_courier.71eea9": {
+   "id": "VN230.lining_bay.window_W1.L.carrow_courier.71eea9",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     287856,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.71,
+     0.75,
+     0.06,
+     0.68,
+     1.5
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.side_bay.window_W2.R.carrow_courier.92151d": {
+   "id": "VN230.side_bay.window_W2.R.carrow_courier.92151d",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     288288,
+     234
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.8,
+     0.06,
+     0.68,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.lining_bay.window_W2.R.carrow_courier.e3d160": {
+   "id": "VN230.lining_bay.window_W2.R.carrow_courier.e3d160",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     293904,
+     234
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.71,
+     0.8,
+     0.06,
+     0.68,
+     1.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.side_bay.window_W2.L.carrow_courier.1047a0": {
+   "id": "VN230.side_bay.window_W2.L.carrow_courier.1047a0",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     299520,
+     234
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.8,
+     0.06,
+     0.68,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.lining_bay.window_W2.L.carrow_courier.956fca": {
+   "id": "VN230.lining_bay.window_W2.L.carrow_courier.956fca",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lining_bay",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/lining_bay/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     305136,
+     234
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.71,
+     0.8,
+     0.06,
+     0.68,
+     1.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.door_leaf.door_F.R.carrow_courier.029ebe": {
+   "id": "VN230.door_leaf.door_F.R.carrow_courier.029ebe",
+   "standard": "VN230",
+   "class": "van",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     310752,
+     12
+    ],
+    "paint": [
+     311040,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     0.975,
+     0.4,
+     0.06,
+     0.79,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.door_glass.door_F.R.carrow_courier.d69255": {
+   "id": "VN230.door_glass.door_F.R.carrow_courier.d69255",
+   "standard": "VN230",
+   "class": "van",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     312192,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.4,
+     0.06,
+     0.68,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.leaf_trim.handle_F.R.carrow_courier.aed382": {
+   "id": "VN230.leaf_trim.handle_F.R.carrow_courier.aed382",
+   "standard": "VN230",
+   "class": "van",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     312624,
+     36
+    ],
+    "dash": [
+     313488,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.005,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.door_leaf.door_S.R.carrow_courier.c482cb": {
+   "id": "VN230.door_leaf.door_S.R.carrow_courier.c482cb",
+   "standard": "VN230",
+   "class": "van",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/door_leaf/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     314352,
+     12
+    ],
+    "paint": [
+     314640,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     0.975,
+     0.75,
+     0.06,
+     0.79,
+     1.5
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.door_glass.door_S.R.carrow_courier.0fd2d1": {
+   "id": "VN230.door_glass.door_S.R.carrow_courier.0fd2d1",
+   "standard": "VN230",
+   "class": "van",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/door_glass/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     315792,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.75,
+     0.06,
+     0.68,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.leaf_trim.handle_S.R.carrow_courier.329aa5": {
+   "id": "VN230.leaf_trim.handle_S.R.carrow_courier.329aa5",
+   "standard": "VN230",
+   "class": "van",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/leaf_trim/handle_S/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     316224,
+     36
+    ],
+    "dash": [
+     317088,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.005,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.door_leaf.door_F.L.carrow_courier.298337": {
+   "id": "VN230.door_leaf.door_F.L.carrow_courier.298337",
+   "standard": "VN230",
+   "class": "van",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     317952,
+     12
+    ],
+    "paint": [
+     318240,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     0.975,
+     0.4,
+     0.06,
+     0.79,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.door_glass.door_F.L.carrow_courier.a76fd4": {
+   "id": "VN230.door_glass.door_F.L.carrow_courier.a76fd4",
+   "standard": "VN230",
+   "class": "van",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     319392,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.4,
+     0.06,
+     0.68,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.leaf_trim.handle_F.L.carrow_courier.99eea6": {
+   "id": "VN230.leaf_trim.handle_F.L.carrow_courier.99eea6",
+   "standard": "VN230",
+   "class": "van",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     319824,
+     36
+    ],
+    "dash": [
+     320688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.005,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.hatch.barn_R.R.carrow_courier.a889a3": {
+   "id": "VN230.hatch.barn_R.R.carrow_courier.a889a3",
+   "standard": "VN230",
+   "class": "van",
+   "role": "hatch",
+   "slot": "barn_R",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/hatch/barn_R/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     321552,
+     24
+    ],
+    "lining": [
+     322128,
+     24
+    ],
+    "paint": [
+     322704,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.43,
+     1.46,
+     0.04,
+     0.86,
+     1.68,
+     0.08
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 24,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.hatch_glass.barn_R.R.carrow_courier.cda180": {
+   "id": "VN230.hatch_glass.barn_R.R.carrow_courier.cda180",
+   "standard": "VN230",
+   "class": "van",
+   "role": "hatch_glass",
+   "slot": "barn_R",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/hatch_glass/barn_R/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     323856,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.42,
+     1.82,
+     -0.0,
+     0.68,
+     0.6,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.hatch.barn_L.L.carrow_courier.967eea": {
+   "id": "VN230.hatch.barn_L.L.carrow_courier.967eea",
+   "standard": "VN230",
+   "class": "van",
+   "role": "hatch",
+   "slot": "barn_L",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/hatch/barn_L/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     324000,
+     24
+    ],
+    "lining": [
+     324576,
+     24
+    ],
+    "paint": [
+     325152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.43,
+     1.46,
+     0.04,
+     0.86,
+     1.68,
+     0.08
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 24,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "VN230.hatch_glass.barn_L.L.carrow_courier.3a5ff3": {
+   "id": "VN230.hatch_glass.barn_L.L.carrow_courier.3a5ff3",
+   "standard": "VN230",
+   "class": "van",
+   "role": "hatch_glass",
+   "slot": "barn_L",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/hatch_glass/barn_L/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     326304,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.42,
+     1.82,
+     -0.0,
+     0.68,
+     0.6,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.wheel_well.well_0.R.carrow_courier.925359": {
+   "id": "VN230.wheel_well.well_0.R.carrow_courier.925359",
+   "standard": "VN230",
+   "class": "van",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     326448,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     0.8408,
+     0.6902,
+     0.5118,
+     0.4735,
+     0.6635,
+     1.0236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "VN230.wheel_well.well_0.L.carrow_courier.705acb": {
+   "id": "VN230.wheel_well.well_0.L.carrow_courier.705acb",
+   "standard": "VN230",
+   "class": "van",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     341280,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     -0.8408,
+     0.6902,
+     0.5118,
+     0.4736,
+     0.6634,
+     1.0236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "VN230.wheel_well.well_1.R.carrow_courier.f5f632": {
+   "id": "VN230.wheel_well.well_1.R.carrow_courier.f5f632",
+   "standard": "VN230",
+   "class": "van",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     356112,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     0.8408,
+     0.6902,
+     0.5118,
+     0.4735,
+     0.6635,
+     1.0236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "VN230.wheel_well.well_1.L.carrow_courier.2c2925": {
+   "id": "VN230.wheel_well.well_1.L.carrow_courier.2c2925",
+   "standard": "VN230",
+   "class": "van",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     370944,
+     618
+    ]
+   },
+   "boxes": [
+    [
+     -0.8408,
+     0.6902,
+     0.5118,
+     0.4736,
+     0.6634,
+     1.0236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "VN230.underpan.underpan.C.carrow_courier.cd7323": {
+   "id": "VN230.underpan.underpan.C.carrow_courier.cd7323",
+   "standard": "VN230",
+   "class": "van",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     385776,
+     594
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4325,
+     3.1,
+     2.06,
+     0.145,
+     6.2
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "VN230.seat.row_0.C.carrow_courier.0e2837": {
+   "id": "VN230.seat.row_0.C.carrow_courier.0e2837",
+   "standard": "VN230",
+   "class": "van",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     400032,
+     72
+    ],
+    "seat": [
+     401760,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.6046,
+     0.4335,
+     1.41,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "VN230.dash.dash.C.carrow_courier.4e9983": {
+   "id": "VN230.dash.dash.C.carrow_courier.4e9983",
+   "standard": "VN230",
+   "class": "van",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     406944,
+     1236
+    ],
+    "chrome": [
+     436608,
+     120
+    ],
+    "dash": [
+     439488,
+     108
+    ],
+    "gauge": [
+     442080,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2049,
+     0.3276,
+     1.84,
+     0.3901,
+     0.6551
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "VN230.dash.readout.C.carrow_courier.909384": {
+   "id": "VN230.dash.readout.C.carrow_courier.909384",
+   "standard": "VN230",
+   "class": "van",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     451296,
+     36
+    ],
+    "lcd": [
+     452160,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.45,
+     1.29,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "VN230.lamp.head_lamp.C.carrow_courier.6bc3d5": {
+   "id": "VN230.lamp.head_lamp.C.carrow_courier.6bc3d5",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     453024,
+     480
+    ],
+    "lamp_amber": [
+     464544,
+     72
+    ],
+    "lamp_drl": [
+     466272,
+     480
+    ],
+    "lamp_head": [
+     477792,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     1.898,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "VN230.trim.grille.C.carrow_courier.499f55": {
+   "id": "VN230.trim.grille.C.carrow_courier.499f55",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     489312,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.268,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.lamp.tail_lamp.C.carrow_courier.817473": {
+   "id": "VN230.lamp.tail_lamp.C.carrow_courier.817473",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     492768,
+     12
+    ],
+    "lamp_amber": [
+     493056,
+     24
+    ],
+    "lamp_brake": [
+     493632,
+     36
+    ],
+    "lamp_reverse": [
+     494496,
+     24
+    ],
+    "lamp_tail": [
+     495072,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.611,
+     0.006,
+     1.9528,
+     1.522,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "VN230.lamp.side_marker.C.carrow_courier.06c3d2": {
+   "id": "VN230.lamp.side_marker.C.carrow_courier.06c3d2",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     499104,
+     72
+    ],
+    "lamp_tail": [
+     500832,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.06,
+     2.94,
+     2.136,
+     0.03,
+     5.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "VN230.lamp.id_lamp.C.carrow_courier.75289f": {
+   "id": "VN230.lamp.id_lamp.C.carrow_courier.75289f",
+   "standard": "VN230",
+   "class": "van",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     502560,
+     180
+    ],
+    "lamp_tail": [
+     506880,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.491,
+     2.825,
+     1.9,
+     0.106,
+     5.65
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "VN230.trim.bumper_front.C.carrow_courier.c83d0d": {
+   "id": "VN230.trim.bumper_front.C.carrow_courier.c83d0d",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     511200,
+     108
+    ],
+    "rubber": [
+     513792,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.52,
+     0.0655,
+     2.0504,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.bumper_rear.C.carrow_courier.30b31f": {
+   "id": "VN230.trim.bumper_rear.C.carrow_courier.30b31f",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     514656,
+     108
+    ],
+    "rubber": [
+     517248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.52,
+     0.0655,
+     2.0504,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.mirror.R.carrow_courier.b09dd6": {
+   "id": "VN230.trim.mirror.R.carrow_courier.b09dd6",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     518112,
+     96
+    ],
+    "glass_dark": [
+     520416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1463,
+     1.4633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.mirror.L.carrow_courier.4916ed": {
+   "id": "VN230.trim.mirror.L.carrow_courier.4916ed",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     521280,
+     96
+    ],
+    "glass_dark": [
+     523584,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1459,
+     1.4635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  }
+ }
+}

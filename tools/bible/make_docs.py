@@ -333,6 +333,7 @@ def write_industry(D, ind, peo, history):
     L += ["### %s" % t["processors"]["name"], "", t["processors"]["what"] + ".", "",
           "- **supply:** " + t["processors"]["supply"], "- **used in:** " + "; ".join(t["processors"]["use"]),
           "- **know-how:** " + t["processors"]["know_how"], "- **the cap:** " + t["processors"]["the_cap"], "",
+          "### Dot-matrix displays", "", t["dot_matrix"]["what"] + ".", "", "- **uses:** " + "; ".join(t["dot_matrix"]["uses"]), "",
           "### Panels", "", t["panels"]["what"] + ".", "", "- **priority:** " + " > ".join(t["panels"]["priority"]), "- **vehicles:** " + t["panels"]["vehicles"], "",
           "### Gauges", "", t["gauges"]["what"] + "; made by " + t["gauges"]["makers"] + ".", "",
           "### The Wire slot", "", t["radio"]["what"] + ".", "",

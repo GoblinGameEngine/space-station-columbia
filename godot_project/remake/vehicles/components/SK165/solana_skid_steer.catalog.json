@@ -1,0 +1,973 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SK165",
+ "class": "skid_steer",
+ "style": "solana_skid_steer",
+ "pack": "res://remake/vehicles/components/SK165/solana_skid_steer.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.7294,
+    0.1176
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.1647,
+    0.1804
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SK165.cargo_wall.cargo_side.R.solana_skid_steer.b9e128": {
+   "id": "SK165.cargo_wall.cargo_side.R.solana_skid_steer.b9e128",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     324
+    ],
+    "rubber": [
+     7776,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.47,
+     0.54,
+     1.175,
+     0.26,
+     0.52,
+     2.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_lining.cargo_side.R.solana_skid_steer.f24910": {
+   "id": "SK165.cargo_lining.cargo_side.R.solana_skid_steer.f24910",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12672,
+     168
+    ],
+    "lining": [
+     16704,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.4056,
+     0.54,
+     1.175,
+     0.2688,
+     0.52,
+     2.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_wall.cargo_rail.R.solana_skid_steer.9eca51": {
+   "id": "SK165.cargo_wall.cargo_rail.R.solana_skid_steer.9eca51",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     21024,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.57,
+     0.8,
+     1.175,
+     0.06,
+     0.02,
+     2.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_wall.cargo_side.L.solana_skid_steer.cd0ecc": {
+   "id": "SK165.cargo_wall.cargo_side.L.solana_skid_steer.cd0ecc",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21168,
+     324
+    ],
+    "rubber": [
+     28944,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     -0.47,
+     0.54,
+     1.175,
+     0.26,
+     0.52,
+     2.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_lining.cargo_side.L.solana_skid_steer.1a2484": {
+   "id": "SK165.cargo_lining.cargo_side.L.solana_skid_steer.1a2484",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     33840,
+     168
+    ],
+    "lining": [
+     37872,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -0.4056,
+     0.54,
+     1.175,
+     0.2688,
+     0.52,
+     2.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_wall.cargo_rail.L.solana_skid_steer.6175d1": {
+   "id": "SK165.cargo_wall.cargo_rail.L.solana_skid_steer.6175d1",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     42192,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.57,
+     0.8,
+     1.175,
+     0.06,
+     0.02,
+     2.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_floor.cargo_floor.C.solana_skid_steer.22c698": {
+   "id": "SK165.cargo_floor.cargo_floor.C.solana_skid_steer.22c698",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     42336,
+     6
+    ],
+    "tub": [
+     42480,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.39,
+     1.175,
+     1.08,
+     0.06,
+     2.35
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "SK165.cargo_wall.cargo_front.C.solana_skid_steer.9e8b8b": {
+   "id": "SK165.cargo_wall.cargo_front.C.solana_skid_steer.9e8b8b",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     43488,
+     6
+    ],
+    "paint": [
+     43632,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.54,
+     0.03,
+     1.2,
+     0.52,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_lining.cargo_front.C.solana_skid_steer.932b05": {
+   "id": "SK165.cargo_lining.cargo_front.C.solana_skid_steer.932b05",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43776,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.61,
+     -0.0,
+     1.08,
+     0.38,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_wall.cargo_rear.C.solana_skid_steer.c65fa0": {
+   "id": "SK165.cargo_wall.cargo_rear.C.solana_skid_steer.c65fa0",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43920,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.54,
+     0.0,
+     1.2,
+     0.52,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.cargo_lining.cargo_rear.C.solana_skid_steer.dbd3c0": {
+   "id": "SK165.cargo_lining.cargo_rear.C.solana_skid_steer.dbd3c0",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44064,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.58,
+     -0.0,
+     1.08,
+     0.32,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SK165.seat.row_0.C.solana_skid_steer.d8e089": {
+   "id": "SK165.seat.row_0.C.solana_skid_steer.d8e089",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     44208,
+     36
+    ],
+    "seat": [
+     45072,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0933,
+     0.399,
+     0.46,
+     1.1666,
+     0.798
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SK165.dash.controls.C.solana_skid_steer.828997": {
+   "id": "SK165.dash.controls.C.solana_skid_steer.828997",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "dash",
+   "slot": "controls",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/dash/controls/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     47664,
+     132
+    ],
+    "chrome": [
+     50832,
+     84
+    ],
+    "rubber": [
+     52848,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8084,
+     0.1205,
+     0.7,
+     0.5901,
+     0.241
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SK165.dash.readout.C.solana_skid_steer.fa5710": {
+   "id": "SK165.dash.readout.C.solana_skid_steer.fa5710",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     54576,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.11,
+     0.004,
+     0.1,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.2,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "SK165.lamp.tail_lamp.C.solana_skid_steer.d713c9": {
+   "id": "SK165.lamp.tail_lamp.C.solana_skid_steer.d713c9",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_tail": [
+     55440,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.72,
+     0.006,
+     1.1,
+     0.06,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 1,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SK165.roof_bay.canopy.C.solana_skid_steer.a0b843": {
+   "id": "SK165.roof_bay.canopy.C.solana_skid_steer.a0b843",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "roof_bay",
+   "slot": "canopy",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/roof_bay/canopy/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     57168,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.675,
+     1.28,
+     0.05,
+     1.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SK165.equipment.canopy_posts.C.solana_skid_steer.f8f2ec": {
+   "id": "SK165.equipment.canopy_posts.C.solana_skid_steer.f8f2ec",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "equipment",
+   "slot": "canopy_posts",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/equipment/canopy_posts/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     58032,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.365,
+     0.613,
+     1.196,
+     1.1306,
+     1.226
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SK165.equipment.roll_cage.C.solana_skid_steer.d6e2cd": {
+   "id": "SK165.equipment.roll_cage.C.solana_skid_steer.d6e2cd",
+   "standard": "SK165",
+   "class": "skid_steer",
+   "role": "equipment",
+   "slot": "roll_cage",
+   "side": "C",
+   "style": "solana_skid_steer",
+   "interface": "SK165/equipment/roll_cage/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     66096,
+     528
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     1.3684,
+     0.6986,
+     1.148,
+     1.1472,
+     1.3973
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 25,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

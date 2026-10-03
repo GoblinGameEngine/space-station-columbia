@@ -1,0 +1,1000 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "LB100",
+ "class": "bumper_car",
+ "style": "solana_bumper_car",
+ "pack": "res://remake/vehicles/components/LB100/solana_bumper_car.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.1569,
+    0.4314,
+    0.7843
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.4314,
+    0.7843
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "LB100.cargo_wall.cargo_side.R.solana_bumper_car.91cb99": {
+   "id": "LB100.cargo_wall.cargo_side.R.solana_bumper_car.91cb99",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     312
+    ],
+    "rubber": [
+     7488,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.44,
+     0.36,
+     0.8,
+     0.28,
+     0.44,
+     1.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_lining.cargo_side.R.solana_bumper_car.e3d80f": {
+   "id": "LB100.cargo_lining.cargo_side.R.solana_bumper_car.e3d80f",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12096,
+     168
+    ],
+    "lining": [
+     16128,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.4089,
+     0.36,
+     0.8,
+     0.2222,
+     0.44,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_wall.cargo_rail.R.solana_bumper_car.2d1f9a": {
+   "id": "LB100.cargo_wall.cargo_rail.R.solana_bumper_car.2d1f9a",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     20160,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.55,
+     0.58,
+     0.8,
+     0.06,
+     0.02,
+     1.6
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_wall.cargo_side.L.solana_bumper_car.6a4d6b": {
+   "id": "LB100.cargo_wall.cargo_side.L.solana_bumper_car.6a4d6b",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20304,
+     312
+    ],
+    "rubber": [
+     27792,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -0.44,
+     0.36,
+     0.8,
+     0.28,
+     0.44,
+     1.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_lining.cargo_side.L.solana_bumper_car.77dd4e": {
+   "id": "LB100.cargo_lining.cargo_side.L.solana_bumper_car.77dd4e",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     32400,
+     168
+    ],
+    "lining": [
+     36432,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.4089,
+     0.36,
+     0.8,
+     0.2222,
+     0.44,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_wall.cargo_rail.L.solana_bumper_car.7c8750": {
+   "id": "LB100.cargo_wall.cargo_rail.L.solana_bumper_car.7c8750",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     40464,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.55,
+     0.58,
+     0.8,
+     0.06,
+     0.02,
+     1.6
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_floor.cargo_floor.C.solana_bumper_car.89c58e": {
+   "id": "LB100.cargo_floor.cargo_floor.C.solana_bumper_car.89c58e",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     40608,
+     6
+    ],
+    "tub": [
+     40752,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.21,
+     0.8,
+     1.04,
+     0.06,
+     1.6
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "LB100.cargo_wall.cargo_front.C.solana_bumper_car.0bc042": {
+   "id": "LB100.cargo_wall.cargo_front.C.solana_bumper_car.0bc042",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41760,
+     6
+    ],
+    "paint": [
+     41904,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.36,
+     0.03,
+     1.16,
+     0.44,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_lining.cargo_front.C.solana_bumper_car.456971": {
+   "id": "LB100.cargo_lining.cargo_front.C.solana_bumper_car.456971",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42048,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.41,
+     0.0,
+     1.04,
+     0.34,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_wall.cargo_rear.C.solana_bumper_car.5aa773": {
+   "id": "LB100.cargo_wall.cargo_rear.C.solana_bumper_car.5aa773",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42192,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.36,
+     -0.0,
+     1.16,
+     0.44,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.cargo_lining.cargo_rear.C.solana_bumper_car.310719": {
+   "id": "LB100.cargo_lining.cargo_rear.C.solana_bumper_car.310719",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42336,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.38,
+     -0.0,
+     1.04,
+     0.28,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "LB100.seat.row_0.C.solana_bumper_car.f79bd9": {
+   "id": "LB100.seat.row_0.C.solana_bumper_car.f79bd9",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     42480,
+     36
+    ],
+    "seat": [
+     43344,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7583,
+     0.399,
+     0.46,
+     1.1166,
+     0.798
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LB100.dash.controls.C.solana_bumper_car.491387": {
+   "id": "LB100.dash.controls.C.solana_bumper_car.491387",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "dash",
+   "slot": "controls",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/dash/controls/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     45936,
+     1044
+    ]
+   },
+   "boxes": [
+    [
+     0.0001,
+     0.6936,
+     0.1963,
+     0.3235,
+     0.3414,
+     0.3926
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 6,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LB100.dash.readout.C.solana_bumper_car.e6c637": {
+   "id": "LB100.dash.readout.C.solana_bumper_car.e6c637",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     70992,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.77,
+     0.004,
+     0.1,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.2,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "LB100.end_cap.nose.C.solana_bumper_car.51387a": {
+   "id": "LB100.end_cap.nose.C.solana_bumper_car.51387a",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     71856,
+     6
+    ],
+    "paint": [
+     72000,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.64,
+     0.235,
+     1.16,
+     0.12,
+     0.47
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "LB100.lamp.head_lamp.C.solana_bumper_car.dfae6e": {
+   "id": "LB100.lamp.head_lamp.C.solana_bumper_car.dfae6e",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_head": [
+     72576,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.61,
+     0.006,
+     0.8392,
+     0.12,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 1,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "LB100.lamp.tail_lamp.C.solana_bumper_car.1fcdee": {
+   "id": "LB100.lamp.tail_lamp.C.solana_bumper_car.1fcdee",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_tail": [
+     81792,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5,
+     0.006,
+     1.06,
+     0.06,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 1,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "LB100.trim.bumper_ring.C.solana_bumper_car.22983e": {
+   "id": "LB100.trim.bumper_ring.C.solana_bumper_car.22983e",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "trim",
+   "slot": "bumper_ring",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/trim/bumper_ring/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     83520,
+     1440
+    ]
+   },
+   "boxes": [
+    [
+     0.0009,
+     0.46,
+     0.9323,
+     1.3897,
+     0.14,
+     1.8647
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "LB100.equipment.pole.C.solana_bumper_car.4b175a": {
+   "id": "LB100.equipment.pole.C.solana_bumper_car.4b175a",
+   "standard": "LB100",
+   "class": "bumper_car",
+   "role": "equipment",
+   "slot": "pole",
+   "side": "C",
+   "style": "solana_bumper_car",
+   "interface": "LB100/equipment/pole/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     118080,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.49,
+     0.0476,
+     0.1,
+     1.8204,
+     0.0951
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -1,0 +1,2556 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "HY250",
+ "class": "recycling_truck",
+ "style": "harrow_recycling_truck",
+ "pack": "res://remake/vehicles/components/HY250/harrow_recycling_truck.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.1176,
+    0.3529,
+    0.5882
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1176,
+    0.3529,
+    0.5882
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "HY250.end_cap.nose.C.harrow_recycling_truck.75183a": {
+   "id": "HY250.end_cap.nose.C.harrow_recycling_truck.75183a",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.3368,
+     1.7,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.trim.cowl.C.harrow_recycling_truck.50c858": {
+   "id": "HY250.trim.cowl.C.harrow_recycling_truck.50c858",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1625,
+     0.03,
+     2.4016,
+     0.155,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.glazing.screen.C.harrow_recycling_truck.6e843e": {
+   "id": "HY250.glazing.screen.C.harrow_recycling_truck.6e843e",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.19,
+     2.4016,
+     0.82,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HY250.trim.screen.C.harrow_recycling_truck.81a145": {
+   "id": "HY250.trim.screen.C.harrow_recycling_truck.81a145",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5041,
+     0.19,
+     2.4016,
+     0.7362,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.side_bay.fender.R.harrow_recycling_truck.3da925": {
+   "id": "HY250.side_bay.fender.R.harrow_recycling_truck.3da925",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.trim.sail.R.harrow_recycling_truck.359163": {
+   "id": "HY250.trim.sail.R.harrow_recycling_truck.359163",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.trim.a_pillar.R.harrow_recycling_truck.68b9c3": {
+   "id": "HY250.trim.a_pillar.R.harrow_recycling_truck.68b9c3",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.side_bay.rocker_F.R.harrow_recycling_truck.95d8e5": {
+   "id": "HY250.side_bay.rocker_F.R.harrow_recycling_truck.95d8e5",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22824,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.side_bay.quarter.R.harrow_recycling_truck.d0c877": {
+   "id": "HY250.side_bay.quarter.R.harrow_recycling_truck.d0c877",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24408,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.side_bay.fender.L.harrow_recycling_truck.cd0280": {
+   "id": "HY250.side_bay.fender.L.harrow_recycling_truck.cd0280",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29016,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.trim.sail.L.harrow_recycling_truck.dbd6c1": {
+   "id": "HY250.trim.sail.L.harrow_recycling_truck.dbd6c1",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31896,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.trim.a_pillar.L.harrow_recycling_truck.3f9d1f": {
+   "id": "HY250.trim.a_pillar.L.harrow_recycling_truck.3f9d1f",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.side_bay.rocker_F.L.harrow_recycling_truck.ea1721": {
+   "id": "HY250.side_bay.rocker_F.L.harrow_recycling_truck.ea1721",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34488,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.side_bay.quarter.L.harrow_recycling_truck.ecd3e4": {
+   "id": "HY250.side_bay.quarter.L.harrow_recycling_truck.ecd3e4",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36072,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.roof_bay.roof_0.C.harrow_recycling_truck.33d132": {
+   "id": "HY250.roof_bay.roof_0.C.harrow_recycling_truck.33d132",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40680,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.79,
+     0.78,
+     2.36,
+     0.34,
+     1.56
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HY250.end_cap.tail.C.harrow_recycling_truck.aa1711": {
+   "id": "HY250.end_cap.tail.C.harrow_recycling_truck.aa1711",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     68328,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.69,
+     0.03,
+     2.4606,
+     2.54,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.floor.floor.C.harrow_recycling_truck.a48024": {
+   "id": "HY250.floor.floor.C.harrow_recycling_truck.a48024",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     75168,
+     1140
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.97,
+     2.36,
+     0.02,
+     1.94
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HY250.lining_bay.trim_0_0.R.harrow_recycling_truck.de61c1": {
+   "id": "HY250.lining_bay.trim_0_0.R.harrow_recycling_truck.de61c1",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102528,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.lining_bay.trim_1_0.R.harrow_recycling_truck.26cdcc": {
+   "id": "HY250.lining_bay.trim_1_0.R.harrow_recycling_truck.26cdcc",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     104832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.lining_bay.a_pillar.R.harrow_recycling_truck.c4728a": {
+   "id": "HY250.lining_bay.a_pillar.R.harrow_recycling_truck.c4728a",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     108288,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.lining_bay.trim_0_0.L.harrow_recycling_truck.852962": {
+   "id": "HY250.lining_bay.trim_0_0.L.harrow_recycling_truck.852962",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     109152,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.lining_bay.trim_1_0.L.harrow_recycling_truck.7d354c": {
+   "id": "HY250.lining_bay.trim_1_0.L.harrow_recycling_truck.7d354c",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     111456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.lining_bay.a_pillar.L.harrow_recycling_truck.c4b418": {
+   "id": "HY250.lining_bay.a_pillar.L.harrow_recycling_truck.c4b418",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     114912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.ceiling_bay.roof_0.C.harrow_recycling_truck.81620e": {
+   "id": "HY250.ceiling_bay.roof_0.C.harrow_recycling_truck.81620e",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     115776,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.76,
+     0.78,
+     2.24,
+     0.28,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.end_lining.firewall.C.harrow_recycling_truck.e68327": {
+   "id": "HY250.end_lining.firewall.C.harrow_recycling_truck.e68327",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     143424,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.74,
+     0.0,
+     2.35,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.end_lining.rear_wall.C.harrow_recycling_truck.ed273b": {
+   "id": "HY250.end_lining.rear_wall.C.harrow_recycling_truck.ed273b",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1,
+     -0.0,
+     2.35,
+     1.6,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.reveal.rear_opening.C.harrow_recycling_truck.6b8301": {
+   "id": "HY250.reveal.rear_opening.C.harrow_recycling_truck.6b8301",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     148320,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     0.03,
+     1.2,
+     0.35,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.glazing.back_window.C.harrow_recycling_truck.be9d19": {
+   "id": "HY250.glazing.back_window.C.harrow_recycling_truck.be9d19",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     151200,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     -0.0,
+     1.2,
+     0.35,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HY250.reveal.door_F.R.harrow_recycling_truck.064983": {
+   "id": "HY250.reveal.door_F.R.harrow_recycling_truck.064983",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     152496,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.reveal.door_F.L.harrow_recycling_truck.a73301": {
+   "id": "HY250.reveal.door_F.L.harrow_recycling_truck.a73301",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     156240,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.reveal.screen.C.harrow_recycling_truck.66ed77": {
+   "id": "HY250.reveal.screen.C.harrow_recycling_truck.66ed77",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     159984,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.532,
+     0.19,
+     2.4016,
+     0.856,
+     0.38
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.door_leaf.door_F.R.harrow_recycling_truck.28c301": {
+   "id": "HY250.door_leaf.door_F.R.harrow_recycling_truck.28c301",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     163152,
+     54
+    ],
+    "paint": [
+     164448,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HY250.door_glass.door_F.R.harrow_recycling_truck.57a705": {
+   "id": "HY250.door_glass.door_F.R.harrow_recycling_truck.57a705",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     168624,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HY250.leaf_trim.handle_F.R.harrow_recycling_truck.13d12a": {
+   "id": "HY250.leaf_trim.handle_F.R.harrow_recycling_truck.13d12a",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     172512,
+     36
+    ],
+    "dash": [
+     173376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HY250.door_leaf.door_F.L.harrow_recycling_truck.d1f406": {
+   "id": "HY250.door_leaf.door_F.L.harrow_recycling_truck.d1f406",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     174240,
+     54
+    ],
+    "paint": [
+     175536,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HY250.door_glass.door_F.L.harrow_recycling_truck.f83e4c": {
+   "id": "HY250.door_glass.door_F.L.harrow_recycling_truck.f83e4c",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HY250.leaf_trim.handle_F.L.harrow_recycling_truck.991378": {
+   "id": "HY250.leaf_trim.handle_F.L.harrow_recycling_truck.991378",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     183600,
+     36
+    ],
+    "dash": [
+     184464,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HY250.wheel_well.well_0.R.harrow_recycling_truck.ca25b2": {
+   "id": "HY250.wheel_well.well_0.R.harrow_recycling_truck.ca25b2",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     185328,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     0.9675,
+     0.8008,
+     0.5918,
+     0.5689,
+     0.7623,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HY250.wheel_well.well_0.L.harrow_recycling_truck.73d7ac": {
+   "id": "HY250.wheel_well.well_0.L.harrow_recycling_truck.73d7ac",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     200592,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     -0.9676,
+     0.8007,
+     0.5918,
+     0.5692,
+     0.7622,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HY250.wheel_well.steps.R.harrow_recycling_truck.b17126": {
+   "id": "HY250.wheel_well.steps.R.harrow_recycling_truck.b17126",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/wheel_well/steps/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     215856,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HY250.wheel_well.steps.L.harrow_recycling_truck.6193bc": {
+   "id": "HY250.wheel_well.steps.L.harrow_recycling_truck.6193bc",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/wheel_well/steps/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     218448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HY250.underpan.underpan.C.harrow_recycling_truck.cf30cb": {
+   "id": "HY250.underpan.underpan.C.harrow_recycling_truck.cf30cb",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     221040,
+     330
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4625,
+     1.06,
+     2.42,
+     0.085,
+     2.12
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_wall.cargo_plinth.C.harrow_recycling_truck.1e1bff": {
+   "id": "HY250.cargo_wall.cargo_plinth.C.harrow_recycling_truck.1e1bff",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     228960,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8725,
+     3.325,
+     1.68,
+     0.735,
+     6.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_wall.cargo_side.R.harrow_recycling_truck.0cc256": {
+   "id": "HY250.cargo_wall.cargo_side.R.harrow_recycling_truck.0cc256",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     229680,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.24,
+     2.22,
+     3.325,
+     0.02,
+     1.96,
+     6.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_lining.cargo_side.R.harrow_recycling_truck.272442": {
+   "id": "HY250.cargo_lining.cargo_side.R.harrow_recycling_truck.272442",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     233712,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.22,
+     3.325,
+     0.02,
+     1.84,
+     6.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_wall.cargo_side.L.harrow_recycling_truck.e434d5": {
+   "id": "HY250.cargo_wall.cargo_side.L.harrow_recycling_truck.e434d5",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     237744,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.24,
+     2.22,
+     3.325,
+     0.02,
+     1.96,
+     6.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_lining.cargo_side.L.harrow_recycling_truck.9fd159": {
+   "id": "HY250.cargo_lining.cargo_side.L.harrow_recycling_truck.9fd159",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     241776,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.22,
+     3.325,
+     0.02,
+     1.84,
+     6.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_floor.cargo_floor.C.harrow_recycling_truck.d953e9": {
+   "id": "HY250.cargo_floor.cargo_floor.C.harrow_recycling_truck.d953e9",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     245808,
+     18
+    ],
+    "tub": [
+     246240,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     3.325,
+     2.48,
+     0.06,
+     6.65
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HY250.cargo_wall.cargo_front.C.harrow_recycling_truck.c50af8": {
+   "id": "HY250.cargo_wall.cargo_front.C.harrow_recycling_truck.c50af8",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     246384,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.22,
+     -0.0,
+     2.48,
+     1.96,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_lining.cargo_front.C.harrow_recycling_truck.2ac1c7": {
+   "id": "HY250.cargo_lining.cargo_front.C.harrow_recycling_truck.2ac1c7",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     246528,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.22,
+     0.0,
+     2.36,
+     1.84,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_wall.cargo_roof.C.harrow_recycling_truck.5dc149": {
+   "id": "HY250.cargo_wall.cargo_roof.C.harrow_recycling_truck.5dc149",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     246672,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.2,
+     3.325,
+     2.48,
+     0.02,
+     6.65
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_lining.cargo_roof.C.harrow_recycling_truck.c50e43": {
+   "id": "HY250.cargo_lining.cargo_roof.C.harrow_recycling_truck.c50e43",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     246816,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.14,
+     3.295,
+     2.36,
+     0.02,
+     6.59
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.cargo_wall.cargo_rear.C.harrow_recycling_truck.816fae": {
+   "id": "HY250.cargo_wall.cargo_rear.C.harrow_recycling_truck.816fae",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     246960,
+     24
+    ],
+    "paint2": [
+     247536,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.22,
+     0.03,
+     2.48,
+     1.96,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HY250.hatch.hopper.C.harrow_recycling_truck.ac69e8": {
+   "id": "HY250.hatch.hopper.C.harrow_recycling_truck.ac69e8",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "hatch",
+   "slot": "hopper",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/hatch/hopper/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     248112,
+     36
+    ],
+    "paint2": [
+     248976,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.2,
+     0.315,
+     2.44,
+     1.8,
+     0.63
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HY250.seat.row_0.C.harrow_recycling_truck.919ee2": {
+   "id": "HY250.seat.row_0.C.harrow_recycling_truck.919ee2",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     249840,
+     108
+    ],
+    "seat": [
+     252432,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9246,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HY250.dash.dash.C.harrow_recycling_truck.8c44ba": {
+   "id": "HY250.dash.dash.C.harrow_recycling_truck.8c44ba",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     260208,
+     1236
+    ],
+    "chrome": [
+     289872,
+     120
+    ],
+    "dash": [
+     292752,
+     108
+    ],
+    "gauge": [
+     295344,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.3676,
+     2.2,
+     0.3901,
+     0.7351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "HY250.dash.readout.C.harrow_recycling_truck.52ffc0": {
+   "id": "HY250.dash.readout.C.harrow_recycling_truck.52ffc0",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     304560,
+     36
+    ],
+    "lcd": [
+     305424,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "HY250.lamp.head_lamp.C.harrow_recycling_truck.3de697": {
+   "id": "HY250.lamp.head_lamp.C.harrow_recycling_truck.3de697",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     306288,
+     72
+    ],
+    "lamp_amber": [
+     308016,
+     72
+    ],
+    "lamp_head": [
+     309744,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.007,
+     2.1998,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HY250.trim.grille.C.harrow_recycling_truck.1bdf88": {
+   "id": "HY250.trim.grille.C.harrow_recycling_truck.1bdf88",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     311472,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.5698,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.lamp.tail_lamp.C.harrow_recycling_truck.5cb7d6": {
+   "id": "HY250.lamp.tail_lamp.C.harrow_recycling_truck.5cb7d6",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     314928,
+     12
+    ],
+    "lamp_amber": [
+     315216,
+     48
+    ],
+    "lamp_brake": [
+     316368,
+     36
+    ],
+    "lamp_reverse": [
+     317232,
+     48
+    ],
+    "lamp_tail": [
+     318384,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.041,
+     0.006,
+     2.44,
+     2.182,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HY250.lamp.side_marker.C.harrow_recycling_truck.ee882e": {
+   "id": "HY250.lamp.side_marker.C.harrow_recycling_truck.ee882e",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     326448,
+     72
+    ],
+    "lamp_tail": [
+     328176,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     4.225,
+     2.496,
+     0.21,
+     8.45
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HY250.lamp.id_lamp.C.harrow_recycling_truck.24d9cc": {
+   "id": "HY250.lamp.id_lamp.C.harrow_recycling_truck.24d9cc",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     329904,
+     180
+    ],
+    "lamp_tail": [
+     334224,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.01,
+     4.155,
+     2.44,
+     0.304,
+     8.31
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HY250.trim.bumper_front.C.harrow_recycling_truck.8d1252": {
+   "id": "HY250.trim.bumper_front.C.harrow_recycling_truck.8d1252",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     338544,
+     108
+    ],
+    "rubber": [
+     341136,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.trim.bumper_rear.C.harrow_recycling_truck.8cf866": {
+   "id": "HY250.trim.bumper_rear.C.harrow_recycling_truck.8cf866",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     342000,
+     108
+    ],
+    "rubber": [
+     344592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.trim.mirror.R.harrow_recycling_truck.1ae6ae": {
+   "id": "HY250.trim.mirror.R.harrow_recycling_truck.1ae6ae",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     345456,
+     96
+    ],
+    "glass_dark": [
+     347760,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.trim.mirror.L.harrow_recycling_truck.7af42f": {
+   "id": "HY250.trim.mirror.L.harrow_recycling_truck.7af42f",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     348624,
+     96
+    ],
+    "glass_dark": [
+     350928,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HY250.equipment.side_arm.R.harrow_recycling_truck.90a32a": {
+   "id": "HY250.equipment.side_arm.R.harrow_recycling_truck.90a32a",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "equipment",
+   "slot": "side_arm",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/equipment/side_arm/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     351792,
+     36
+    ],
+    "chrome": [
+     352656,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.345,
+     2.225,
+     0.25,
+     0.21,
+     1.75,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 300,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

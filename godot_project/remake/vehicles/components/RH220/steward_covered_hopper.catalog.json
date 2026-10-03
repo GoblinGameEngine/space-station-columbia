@@ -1,0 +1,856 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "RH220",
+ "class": "covered_hopper",
+ "style": "steward_covered_hopper",
+ "pack": "res://remake/vehicles/components/RH220/steward_covered_hopper.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.5882,
+    0.5961,
+    0.6118
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.5882,
+    0.5961,
+    0.6118
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "RH220.cargo_wall.cargo_plinth.C.steward_covered_hopper.0422e8": {
+   "id": "RH220.cargo_wall.cargo_plinth.C.steward_covered_hopper.0422e8",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8475,
+     8.45,
+     1.135,
+     0.685,
+     16.9
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_wall.cargo_side.R.steward_covered_hopper.a202bf": {
+   "id": "RH220.cargo_wall.cargo_side.R.steward_covered_hopper.a202bf",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     720,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     1.55,
+     2.695,
+     8.45,
+     0.02,
+     3.01,
+     16.9
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_lining.cargo_side.R.steward_covered_hopper.42a010": {
+   "id": "RH220.cargo_lining.cargo_side.R.steward_covered_hopper.42a010",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10512,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     1.49,
+     2.695,
+     8.45,
+     0.02,
+     2.89,
+     16.9
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_wall.cargo_side.L.steward_covered_hopper.570aac": {
+   "id": "RH220.cargo_wall.cargo_side.L.steward_covered_hopper.570aac",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20304,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     -1.55,
+     2.695,
+     8.45,
+     0.02,
+     3.01,
+     16.9
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_lining.cargo_side.L.steward_covered_hopper.0a46bd": {
+   "id": "RH220.cargo_lining.cargo_side.L.steward_covered_hopper.0a46bd",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     30096,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     -1.49,
+     2.695,
+     8.45,
+     0.02,
+     2.89,
+     16.9
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_floor.cargo_floor.C.steward_covered_hopper.432501": {
+   "id": "RH220.cargo_floor.cargo_floor.C.steward_covered_hopper.432501",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     39888,
+     18
+    ],
+    "tub": [
+     40320,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.22,
+     8.45,
+     3.1,
+     0.06,
+     16.9
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "RH220.cargo_wall.cargo_front.C.steward_covered_hopper.73c79d": {
+   "id": "RH220.cargo_wall.cargo_front.C.steward_covered_hopper.73c79d",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40464,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.695,
+     -0.0,
+     3.1,
+     3.01,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_lining.cargo_front.C.steward_covered_hopper.365284": {
+   "id": "RH220.cargo_lining.cargo_front.C.steward_covered_hopper.365284",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40608,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.695,
+     0.0,
+     2.98,
+     2.89,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_wall.cargo_roof.C.steward_covered_hopper.d26f5e": {
+   "id": "RH220.cargo_wall.cargo_roof.C.steward_covered_hopper.d26f5e",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40752,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.2,
+     8.45,
+     3.1,
+     0.02,
+     16.9
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_lining.cargo_roof.C.steward_covered_hopper.2c2eae": {
+   "id": "RH220.cargo_lining.cargo_roof.C.steward_covered_hopper.2c2eae",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40896,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.14,
+     8.42,
+     2.98,
+     0.02,
+     16.84
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_wall.cargo_rear.C.steward_covered_hopper.4f6446": {
+   "id": "RH220.cargo_wall.cargo_rear.C.steward_covered_hopper.4f6446",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     41040,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.695,
+     0.0,
+     3.1,
+     3.01,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.cargo_lining.cargo_rear.C.steward_covered_hopper.71b42f": {
+   "id": "RH220.cargo_lining.cargo_rear.C.steward_covered_hopper.71b42f",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     41184,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.695,
+     -0.0,
+     2.98,
+     2.89,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "RH220.lamp.tail_lamp.C.steward_covered_hopper.d9f7d1": {
+   "id": "RH220.lamp.tail_lamp.C.steward_covered_hopper.d9f7d1",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     41328,
+     216
+    ],
+    "lamp_tail": [
+     46512,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.501,
+     8.47,
+     3.116,
+     3.302,
+     16.94
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "RH220.trim.bumper_rear.C.steward_covered_hopper.ec9682": {
+   "id": "RH220.trim.bumper_rear.C.steward_covered_hopper.ec9682",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     56016,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.845,
+     0.05,
+     2.9,
+     0.81,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "RH220.equipment.roof_hatches.C.steward_covered_hopper.eb7acb": {
+   "id": "RH220.equipment.roof_hatches.C.steward_covered_hopper.eb7acb",
+   "standard": "RH220",
+   "class": "covered_hopper",
+   "role": "equipment",
+   "slot": "roof_hatches",
+   "side": "C",
+   "style": "steward_covered_hopper",
+   "interface": "RH220/equipment/roof_hatches/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     58608,
+     864
+    ],
+    "paint": [
+     79344,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.425,
+     7.25,
+     1.0,
+     3.55,
+     14.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

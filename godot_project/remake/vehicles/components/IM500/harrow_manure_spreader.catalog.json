@@ -1,0 +1,814 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "IM500",
+ "class": "manure_spreader",
+ "style": "harrow_manure_spreader",
+ "pack": "res://remake/vehicles/components/IM500/harrow_manure_spreader.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "IM500.cargo_wall.cargo_plinth.C.harrow_manure_spreader.5cb351": {
+   "id": "IM500.cargo_wall.cargo_plinth.C.harrow_manure_spreader.5cb351",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     0,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5725,
+     2.4,
+     1.48,
+     0.135,
+     4.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_wall.cargo_side.R.harrow_manure_spreader.080e9a": {
+   "id": "IM500.cargo_wall.cargo_side.R.harrow_manure_spreader.080e9a",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     720,
+     372
+    ],
+    "rubber": [
+     9648,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.02,
+     1.0856,
+     2.4,
+     0.06,
+     0.9287,
+     4.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_lining.cargo_side.R.harrow_manure_spreader.6a68c2": {
+   "id": "IM500.cargo_lining.cargo_side.R.harrow_manure_spreader.6a68c2",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13104,
+     156
+    ],
+    "lining": [
+     16848,
+     228
+    ]
+   },
+   "boxes": [
+    [
+     0.8173,
+     0.955,
+     2.4,
+     0.3455,
+     1.19,
+     4.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_wall.cargo_rail.R.harrow_manure_spreader.6d0427": {
+   "id": "IM500.cargo_wall.cargo_rail.R.harrow_manure_spreader.6d0427",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     22320,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.02,
+     1.55,
+     2.4,
+     0.06,
+     0.02,
+     4.8
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_wall.cargo_side.L.harrow_manure_spreader.59aeb2": {
+   "id": "IM500.cargo_wall.cargo_side.L.harrow_manure_spreader.59aeb2",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22464,
+     372
+    ],
+    "rubber": [
+     31392,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.02,
+     1.0856,
+     2.4,
+     0.06,
+     0.9287,
+     4.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_lining.cargo_side.L.harrow_manure_spreader.250813": {
+   "id": "IM500.cargo_lining.cargo_side.L.harrow_manure_spreader.250813",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     34848,
+     156
+    ],
+    "lining": [
+     38592,
+     228
+    ]
+   },
+   "boxes": [
+    [
+     -0.8173,
+     0.955,
+     2.4,
+     0.3455,
+     1.19,
+     4.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_wall.cargo_rail.L.harrow_manure_spreader.7e1dc6": {
+   "id": "IM500.cargo_wall.cargo_rail.L.harrow_manure_spreader.7e1dc6",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     44064,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.02,
+     1.55,
+     2.4,
+     0.06,
+     0.02,
+     4.8
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_floor.cargo_floor.C.harrow_manure_spreader.a87c5e": {
+   "id": "IM500.cargo_floor.cargo_floor.C.harrow_manure_spreader.a87c5e",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     44208,
+     18
+    ],
+    "tub": [
+     44640,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.67,
+     2.4,
+     2.1,
+     0.06,
+     4.8
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "IM500.cargo_wall.cargo_front.C.harrow_manure_spreader.4c5481": {
+   "id": "IM500.cargo_wall.cargo_front.C.harrow_manure_spreader.4c5481",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     45360,
+     6
+    ],
+    "paint": [
+     45504,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.095,
+     0.03,
+     2.1,
+     0.91,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_lining.cargo_front.C.harrow_manure_spreader.a20be7": {
+   "id": "IM500.cargo_lining.cargo_front.C.harrow_manure_spreader.a20be7",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45648,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.125,
+     -0.0,
+     1.98,
+     0.85,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.cargo_wall.cargo_rear.C.harrow_manure_spreader.95cc02": {
+   "id": "IM500.cargo_wall.cargo_rear.C.harrow_manure_spreader.95cc02",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     45792,
+     24
+    ],
+    "paint": [
+     46368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.095,
+     0.03,
+     2.1,
+     0.91,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "IM500.lamp.tail_lamp.C.harrow_manure_spreader.3b690d": {
+   "id": "IM500.lamp.tail_lamp.C.harrow_manure_spreader.3b690d",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     46944,
+     216
+    ],
+    "lamp_tail": [
+     52128,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.101,
+     2.42,
+     2.116,
+     0.802,
+     4.84
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "IM500.equipment.beaters.C.harrow_manure_spreader.a294f7": {
+   "id": "IM500.equipment.beaters.C.harrow_manure_spreader.a294f7",
+   "standard": "IM500",
+   "class": "manure_spreader",
+   "role": "equipment",
+   "slot": "beaters",
+   "side": "C",
+   "style": "harrow_manure_spreader",
+   "interface": "IM500/equipment/beaters/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     61632,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.22,
+     1.94,
+     0.94,
+     0.44
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 150,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

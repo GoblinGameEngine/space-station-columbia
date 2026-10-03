@@ -1,0 +1,2995 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTTRAWLE",
+ "class": "trawler",
+ "style": "hull_trawler",
+ "pack": "res://remake/vehicles/components/BTTRAWLE/hull_trawler.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.1176,
+    0.2353,
+    0.4314
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTTRAWLE.side_bay.bottom_0.R.hull_trawler.9fa9ad": {
+   "id": "BTTRAWLE.side_bay.bottom_0.R.hull_trawler.9fa9ad",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1474,
+     -0.0636,
+     2.0,
+     2.2949,
+     2.8129,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_0.R.hull_trawler.b30e8a": {
+   "id": "BTTRAWLE.lining_bay.bottom_0.R.hull_trawler.b30e8a",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0874,
+     0.0564,
+     2.0,
+     2.1749,
+     2.8129,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_0.L.hull_trawler.d8222d": {
+   "id": "BTTRAWLE.side_bay.bottom_0.L.hull_trawler.d8222d",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     1728,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1474,
+     -0.0636,
+     2.0,
+     2.2949,
+     2.8129,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_0.L.hull_trawler.177cda": {
+   "id": "BTTRAWLE.lining_bay.bottom_0.L.hull_trawler.177cda",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     2592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0874,
+     0.0564,
+     2.0,
+     2.1749,
+     2.8129,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_0.R.hull_trawler.54f4b1": {
+   "id": "BTTRAWLE.side_bay.topside_0.R.hull_trawler.54f4b1",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     3456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2518,
+     0.8576,
+     2.0,
+     2.4852,
+     3.1847,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_0.R.hull_trawler.873b08": {
+   "id": "BTTRAWLE.lining_bay.topside_0.R.hull_trawler.873b08",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1872,
+     0.9176,
+     2.0,
+     2.3744,
+     3.0647,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_0.L.hull_trawler.08ab14": {
+   "id": "BTTRAWLE.side_bay.topside_0.L.hull_trawler.08ab14",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.2518,
+     0.8576,
+     2.0,
+     2.4852,
+     3.1847,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_0.L.hull_trawler.d2464a": {
+   "id": "BTTRAWLE.lining_bay.topside_0.L.hull_trawler.d2464a",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1872,
+     0.9176,
+     2.0,
+     2.3744,
+     3.0647,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_0.R.hull_trawler.d8ee56": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_0.R.hull_trawler.d8ee56",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.2513,
+     2.3911,
+     2.0,
+     2.4862,
+     0.1599,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_0.R.hull_trawler.8f4be7": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_0.R.hull_trawler.8f4be7",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     7344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.1872,
+     2.3311,
+     2.0,
+     2.3744,
+     0.2379,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_0.L.hull_trawler.ce2cef": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_0.L.hull_trawler.ce2cef",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     7776,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.2513,
+     2.3911,
+     2.0,
+     2.4862,
+     0.1599,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_0.L.hull_trawler.7d0575": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_0.L.hull_trawler.7d0575",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8208,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.1872,
+     2.3311,
+     2.0,
+     2.3744,
+     0.2379,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_0.R.hull_trawler.11cb6c": {
+   "id": "BTTRAWLE.roof_bay.deck_0.R.hull_trawler.11cb6c",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     8640,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0227,
+     2.4211,
+     2.0,
+     2.0454,
+     0.1779,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_0.R.hull_trawler.9f7f7d": {
+   "id": "BTTRAWLE.lining_bay.deck_0.R.hull_trawler.9f7f7d",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.9627,
+     2.3011,
+     2.0,
+     1.9254,
+     0.1779,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_0.L.hull_trawler.9f56a6": {
+   "id": "BTTRAWLE.roof_bay.deck_0.L.hull_trawler.9f56a6",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0227,
+     2.4211,
+     2.0,
+     2.0454,
+     0.1779,
+     4.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_0.L.hull_trawler.def2ce": {
+   "id": "BTTRAWLE.lining_bay.deck_0.L.hull_trawler.def2ce",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     11232,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.9627,
+     2.3011,
+     2.0,
+     1.9254,
+     0.1779,
+     4.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_1.R.hull_trawler.7cf55e": {
+   "id": "BTTRAWLE.side_bay.bottom_1.R.hull_trawler.7cf55e",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12096,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.38,
+     -1.5674,
+     4.4,
+     2.76,
+     1.6653,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_1.R.hull_trawler.c874d5": {
+   "id": "BTTRAWLE.lining_bay.bottom_1.R.hull_trawler.c874d5",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14112,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.32,
+     -1.4474,
+     4.4,
+     2.64,
+     1.6653,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_1.L.hull_trawler.e8f1e1": {
+   "id": "BTTRAWLE.side_bay.bottom_1.L.hull_trawler.e8f1e1",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.38,
+     -1.5674,
+     4.4,
+     2.76,
+     1.6653,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_1.L.hull_trawler.d5e707": {
+   "id": "BTTRAWLE.lining_bay.bottom_1.L.hull_trawler.d5e707",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     18144,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.32,
+     -1.4474,
+     4.4,
+     2.64,
+     1.6653,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_1.R.hull_trawler.52c743": {
+   "id": "BTTRAWLE.side_bay.topside_1.R.hull_trawler.52c743",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20160,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     2.6474,
+     0.3952,
+     4.4,
+     0.7051,
+     3.8319,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_1.R.hull_trawler.29eab7": {
+   "id": "BTTRAWLE.lining_bay.topside_1.R.hull_trawler.29eab7",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     22176,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     2.5274,
+     0.4552,
+     4.4,
+     0.7051,
+     3.7119,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_1.L.hull_trawler.1c740d": {
+   "id": "BTTRAWLE.side_bay.topside_1.L.hull_trawler.1c740d",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24192,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -2.6474,
+     0.3952,
+     4.4,
+     0.7051,
+     3.8319,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_1.L.hull_trawler.908754": {
+   "id": "BTTRAWLE.lining_bay.topside_1.L.hull_trawler.908754",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     26208,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -2.5274,
+     0.4552,
+     4.4,
+     0.7051,
+     3.7119,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_1.R.hull_trawler.36403b": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_1.R.hull_trawler.36403b",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28224,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     2.5227,
+     2.2662,
+     4.4,
+     0.9546,
+     0.1318,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_1.R.hull_trawler.432e3e": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_1.R.hull_trawler.432e3e",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     29232,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     2.4027,
+     2.2062,
+     4.4,
+     0.9546,
+     0.2098,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_1.L.hull_trawler.75d716": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_1.L.hull_trawler.75d716",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30240,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -2.5227,
+     2.2662,
+     4.4,
+     0.9546,
+     0.1318,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_1.L.hull_trawler.8e9eb4": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_1.L.hull_trawler.8e9eb4",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     31248,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -2.4027,
+     2.2062,
+     4.4,
+     0.9546,
+     0.2098,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_1.R.hull_trawler.433f06": {
+   "id": "BTTRAWLE.roof_bay.deck_1.R.hull_trawler.433f06",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32256,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.23,
+     2.2962,
+     4.4,
+     2.46,
+     0.1498,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_1.R.hull_trawler.c6ce84": {
+   "id": "BTTRAWLE.lining_bay.deck_1.R.hull_trawler.c6ce84",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     34272,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.17,
+     2.1762,
+     4.4,
+     2.34,
+     0.1498,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_1.L.hull_trawler.8daabe": {
+   "id": "BTTRAWLE.roof_bay.deck_1.L.hull_trawler.8daabe",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36288,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.23,
+     2.2962,
+     4.4,
+     2.46,
+     0.1498,
+     8.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_1.L.hull_trawler.2e0612": {
+   "id": "BTTRAWLE.lining_bay.deck_1.L.hull_trawler.2e0612",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38304,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.17,
+     2.1762,
+     4.4,
+     2.34,
+     0.1498,
+     8.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_2.R.hull_trawler.7cd868": {
+   "id": "BTTRAWLE.side_bay.bottom_2.R.hull_trawler.7cd868",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40320,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.38,
+     -1.9599,
+     0.1,
+     2.76,
+     0.8802,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_2.R.hull_trawler.32385b": {
+   "id": "BTTRAWLE.lining_bay.bottom_2.R.hull_trawler.32385b",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40896,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.32,
+     -1.8399,
+     0.1,
+     2.64,
+     0.8802,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_2.L.hull_trawler.065104": {
+   "id": "BTTRAWLE.side_bay.bottom_2.L.hull_trawler.065104",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     41472,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.38,
+     -1.9599,
+     0.1,
+     2.76,
+     0.8802,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_2.L.hull_trawler.2ad21d": {
+   "id": "BTTRAWLE.lining_bay.bottom_2.L.hull_trawler.2ad21d",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42048,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.32,
+     -1.8399,
+     0.1,
+     2.64,
+     0.8802,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_2.R.hull_trawler.d83c94": {
+   "id": "BTTRAWLE.side_bay.topside_2.R.hull_trawler.d83c94",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42624,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     2.88,
+     0.3404,
+     0.1,
+     0.24,
+     3.7203,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_2.R.hull_trawler.ae6e9c": {
+   "id": "BTTRAWLE.lining_bay.topside_2.R.hull_trawler.ae6e9c",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43200,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     2.76,
+     0.4004,
+     0.1,
+     0.24,
+     3.6003,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_2.L.hull_trawler.196f86": {
+   "id": "BTTRAWLE.side_bay.topside_2.L.hull_trawler.196f86",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43776,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -2.88,
+     0.3404,
+     0.1,
+     0.24,
+     3.7203,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_2.L.hull_trawler.2685c6": {
+   "id": "BTTRAWLE.lining_bay.topside_2.L.hull_trawler.2685c6",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44352,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -2.76,
+     0.4004,
+     0.1,
+     0.24,
+     3.6003,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_2.R.hull_trawler.049a7b": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_2.R.hull_trawler.049a7b",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44928,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.73,
+     2.2109,
+     0.1,
+     0.54,
+     0.0212,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_2.R.hull_trawler.e8d278": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_2.R.hull_trawler.e8d278",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45216,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.61,
+     2.1509,
+     0.1,
+     0.54,
+     0.0992,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_2.L.hull_trawler.724b5e": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_2.L.hull_trawler.724b5e",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45504,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.73,
+     2.2109,
+     0.1,
+     0.54,
+     0.0212,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_2.L.hull_trawler.f3bf5d": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_2.L.hull_trawler.f3bf5d",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45792,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.61,
+     2.1509,
+     0.1,
+     0.54,
+     0.0992,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_2.R.hull_trawler.35197c": {
+   "id": "BTTRAWLE.roof_bay.deck_2.R.hull_trawler.35197c",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46080,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.23,
+     2.2409,
+     0.1,
+     2.46,
+     0.0392,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_2.R.hull_trawler.8d6efa": {
+   "id": "BTTRAWLE.lining_bay.deck_2.R.hull_trawler.8d6efa",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46656,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.17,
+     2.1209,
+     0.1,
+     2.34,
+     0.0392,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_2.L.hull_trawler.c56500": {
+   "id": "BTTRAWLE.roof_bay.deck_2.L.hull_trawler.c56500",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47232,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.23,
+     2.2409,
+     0.1,
+     2.46,
+     0.0392,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_2.L.hull_trawler.9dc8b8": {
+   "id": "BTTRAWLE.lining_bay.deck_2.L.hull_trawler.9dc8b8",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47808,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.17,
+     2.1209,
+     0.1,
+     2.34,
+     0.0392,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_3.R.hull_trawler.40a2de": {
+   "id": "BTTRAWLE.side_bay.bottom_3.R.hull_trawler.40a2de",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     48384,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.38,
+     -1.9599,
+     3.3,
+     2.76,
+     0.8802,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_3.R.hull_trawler.b8bac8": {
+   "id": "BTTRAWLE.lining_bay.bottom_3.R.hull_trawler.b8bac8",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.32,
+     -1.8399,
+     3.3,
+     2.64,
+     0.8802,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_3.L.hull_trawler.873dd6": {
+   "id": "BTTRAWLE.side_bay.bottom_3.L.hull_trawler.873dd6",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     51264,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.38,
+     -1.9599,
+     3.3,
+     2.76,
+     0.8802,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_3.L.hull_trawler.b8456b": {
+   "id": "BTTRAWLE.lining_bay.bottom_3.L.hull_trawler.b8456b",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52704,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.32,
+     -1.8399,
+     3.3,
+     2.64,
+     0.8802,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_3.R.hull_trawler.3cedfd": {
+   "id": "BTTRAWLE.side_bay.topside_3.R.hull_trawler.3cedfd",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     54144,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     2.7126,
+     0.303,
+     3.3,
+     0.5749,
+     3.8542,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_3.R.hull_trawler.b4a51c": {
+   "id": "BTTRAWLE.lining_bay.topside_3.R.hull_trawler.b4a51c",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55584,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     2.5926,
+     0.363,
+     3.3,
+     0.5749,
+     3.7342,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_3.L.hull_trawler.4793c2": {
+   "id": "BTTRAWLE.side_bay.topside_3.L.hull_trawler.4793c2",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57024,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -2.7126,
+     0.303,
+     3.3,
+     0.5749,
+     3.8542,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_3.L.hull_trawler.daf190": {
+   "id": "BTTRAWLE.lining_bay.topside_3.L.hull_trawler.daf190",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58464,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -2.5926,
+     0.363,
+     3.3,
+     0.5749,
+     3.7342,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_3.R.hull_trawler.70ec10": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_3.R.hull_trawler.70ec10",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59904,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     2.5808,
+     2.2258,
+     3.3,
+     0.8385,
+     0.0506,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_3.R.hull_trawler.03c722": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_3.R.hull_trawler.03c722",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     60624,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     2.4608,
+     2.1658,
+     3.3,
+     0.8385,
+     0.1286,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_3.L.hull_trawler.f6bf9d": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_3.L.hull_trawler.f6bf9d",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61344,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -2.5808,
+     2.2258,
+     3.3,
+     0.8385,
+     0.0506,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_3.L.hull_trawler.124bd8": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_3.L.hull_trawler.124bd8",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -2.4608,
+     2.1658,
+     3.3,
+     0.8385,
+     0.1286,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_4.R.hull_trawler.48fa78": {
+   "id": "BTTRAWLE.side_bay.bottom_4.R.hull_trawler.48fa78",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     62784,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.2126,
+     -2.0121,
+     0.2,
+     2.4251,
+     0.7759,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_4.R.hull_trawler.accefd": {
+   "id": "BTTRAWLE.lining_bay.bottom_4.R.hull_trawler.accefd",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63072,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.1526,
+     -1.8921,
+     0.2,
+     2.3051,
+     0.7759,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.bottom_4.L.hull_trawler.ba31e2": {
+   "id": "BTTRAWLE.side_bay.bottom_4.L.hull_trawler.ba31e2",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     63360,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.2126,
+     -2.0121,
+     0.2,
+     2.4251,
+     0.7759,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.bottom_4.L.hull_trawler.3eb240": {
+   "id": "BTTRAWLE.lining_bay.bottom_4.L.hull_trawler.3eb240",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63648,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.1526,
+     -1.8921,
+     0.2,
+     2.3051,
+     0.7759,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_4.R.hull_trawler.a670f1": {
+   "id": "BTTRAWLE.side_bay.topside_4.R.hull_trawler.a670f1",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.5048,
+     0.2966,
+     0.2,
+     0.2624,
+     3.8735,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_4.R.hull_trawler.345ac8": {
+   "id": "BTTRAWLE.lining_bay.topside_4.R.hull_trawler.345ac8",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64224,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     2.3848,
+     0.3566,
+     0.2,
+     0.2624,
+     3.7535,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.side_bay.topside_4.L.hull_trawler.e4f6e5": {
+   "id": "BTTRAWLE.side_bay.topside_4.L.hull_trawler.e4f6e5",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     64512,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.5048,
+     0.2966,
+     0.2,
+     0.2624,
+     3.8735,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.lining_bay.topside_4.L.hull_trawler.7b9b9e": {
+   "id": "BTTRAWLE.lining_bay.topside_4.L.hull_trawler.7b9b9e",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64800,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -2.3848,
+     0.3566,
+     0.2,
+     0.2624,
+     3.7535,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_4.R.hull_trawler.a6e4b7": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_4.R.hull_trawler.a6e4b7",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     2.3758,
+     2.2422,
+     0.2,
+     0.5204,
+     0.0243,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_4.R.hull_trawler.20c0c7": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_4.R.hull_trawler.20c0c7",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     2.2558,
+     2.1822,
+     0.2,
+     0.5204,
+     0.1023,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.sidedeck_4.L.hull_trawler.d01e33": {
+   "id": "BTTRAWLE.roof_bay.sidedeck_4.L.hull_trawler.d01e33",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65376,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -2.3758,
+     2.2422,
+     0.2,
+     0.5204,
+     0.0243,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.sidedeck_4.L.hull_trawler.2a11f2": {
+   "id": "BTTRAWLE.lining_bay.sidedeck_4.L.hull_trawler.2a11f2",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65520,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -2.2558,
+     2.1822,
+     0.2,
+     0.5204,
+     0.1023,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_4.R.hull_trawler.b5a49a": {
+   "id": "BTTRAWLE.roof_bay.deck_4.R.hull_trawler.b5a49a",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65664,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.0808,
+     2.2722,
+     0.2,
+     2.1615,
+     0.0422,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_4.R.hull_trawler.104ca0": {
+   "id": "BTTRAWLE.lining_bay.deck_4.R.hull_trawler.104ca0",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65952,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.0208,
+     2.1522,
+     0.2,
+     2.0415,
+     0.0423,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.roof_bay.deck_4.L.hull_trawler.0e224b": {
+   "id": "BTTRAWLE.roof_bay.deck_4.L.hull_trawler.0e224b",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66240,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.0808,
+     2.2722,
+     0.2,
+     2.1615,
+     0.0422,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.lining_bay.deck_4.L.hull_trawler.98657f": {
+   "id": "BTTRAWLE.lining_bay.deck_4.L.hull_trawler.98657f",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66528,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.0208,
+     2.1522,
+     0.2,
+     2.0415,
+     0.0423,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.reveal.cockpit.C.hull_trawler.c3f254": {
+   "id": "BTTRAWLE.reveal.cockpit.C.hull_trawler.c3f254",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66816,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1958,
+     3.3,
+     4.92,
+     0.1886,
+     6.6
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTTRAWLE.end_cap.transom.C.hull_trawler.8b47dd": {
+   "id": "BTTRAWLE.end_cap.transom.C.hull_trawler.8b47dd",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     69408,
+     36
+    ],
+    "paint": [
+     70272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     -0.0533,
+     -0.0,
+     5.16,
+     4.6933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.end_cap.stem.C.hull_trawler.e52159": {
+   "id": "BTTRAWLE.end_cap.stem.C.hull_trawler.e52159",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     71136,
+     3
+    ],
+    "paint": [
+     71208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.915,
+     -0.0,
+     0.02,
+     1.19,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTTRAWLE.trim.strake.C.hull_trawler.0aa41e": {
+   "id": "BTTRAWLE.trim.strake.C.hull_trawler.0aa41e",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     72072,
+     1344
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.2952,
+     10.0144,
+     6.1046,
+     0.3192,
+     20.0288
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTTRAWLE.cab.wheelhouse.C.hull_trawler.b93f82": {
+   "id": "BTTRAWLE.cab.wheelhouse.C.hull_trawler.b93f82",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     104328,
+     108
+    ],
+    "paint2": [
+     106920,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.8125,
+     4.5,
+     5.0,
+     3.08,
+     9.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTTRAWLE.glazing.wheelhouse.C.hull_trawler.5ce0f1": {
+   "id": "BTTRAWLE.glazing.wheelhouse.C.hull_trawler.5ce0f1",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     107784,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.1325,
+     4.39,
+     4.78,
+     0.78,
+     8.78
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTTRAWLE.equipment.gallows.C.hull_trawler.1a6cee": {
+   "id": "BTTRAWLE.equipment.gallows.C.hull_trawler.1a6cee",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "equipment",
+   "slot": "gallows",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/equipment/gallows/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     108648,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.4598,
+     0.12,
+     5.64,
+     4.5057,
+     0.24
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTTRAWLE.equipment.net_drum.C.hull_trawler.fa9f09": {
+   "id": "BTTRAWLE.equipment.net_drum.C.hull_trawler.fa9f09",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "equipment",
+   "slot": "net_drum",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/equipment/net_drum/C",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     114984,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.2069,
+     0.6,
+     3.2,
+     1.1699,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -1,0 +1,226 @@
+{
+ "_about": "boxcar on the RB220 standard (a trailer; remake/blender/fleet/build.py)",
+ "type": "boxcar",
+ "standard": "RB220",
+ "class": "boxcar",
+ "style": "steward_boxcar",
+ "kind": "trailer",
+ "board": "steward_rail22",
+ "stations": [
+  -8.42,
+  -7.67,
+  -6.92,
+  -6.17,
+  -5.42,
+  -4.67,
+  -3.92,
+  -3.17,
+  -2.42,
+  -1.67,
+  -1.035,
+  -0.92,
+  -0.17,
+  0.58,
+  1.035,
+  1.33,
+  2.08,
+  2.83,
+  3.58,
+  4.33,
+  5.08,
+  5.83,
+  6.58,
+  7.33,
+  8.08,
+  8.42
+ ],
+ "placements": [
+  [
+   "cargo_plinth",
+   "RB220.cargo_wall.cargo_plinth.C.steward_boxcar.55ef6a",
+   -8.45
+  ],
+  [
+   "cargo_side_R",
+   "RB220.cargo_wall.cargo_side.R.steward_boxcar.c7341f",
+   -8.45
+  ],
+  [
+   "cargo_lining_R",
+   "RB220.cargo_lining.cargo_side.R.steward_boxcar.8e2b23",
+   -8.45
+  ],
+  [
+   "cargo_side_L",
+   "RB220.cargo_wall.cargo_side.L.steward_boxcar.1ab8a0",
+   -8.45
+  ],
+  [
+   "cargo_lining_L",
+   "RB220.cargo_lining.cargo_side.L.steward_boxcar.ebd0c1",
+   -8.45
+  ],
+  [
+   "cargo_floor",
+   "RB220.cargo_floor.cargo_floor.C.steward_boxcar.3fb65e",
+   -8.45
+  ],
+  [
+   "cargo_front",
+   "RB220.cargo_wall.cargo_front.C.steward_boxcar.a74b34",
+   -8.45
+  ],
+  [
+   "cargo_front_lining",
+   "RB220.cargo_lining.cargo_front.C.steward_boxcar.2aa684",
+   -8.39
+  ],
+  [
+   "cargo_roof",
+   "RB220.cargo_wall.cargo_roof.C.steward_boxcar.968157",
+   -8.45
+  ],
+  [
+   "cargo_ceiling",
+   "RB220.cargo_lining.cargo_roof.C.steward_boxcar.b254f7",
+   -8.39
+  ],
+  [
+   "cargo_rear_frame",
+   "RB220.cargo_wall.cargo_rear.C.steward_boxcar.8305da",
+   8.45
+  ],
+  [
+   "cargo_rear_lining",
+   "RB220.cargo_lining.cargo_rear.C.steward_boxcar.ca2062",
+   8.39
+  ],
+  [
+   "cdoor_S_R",
+   "RB220.hatch.cdoor_S.R.steward_boxcar.314ec1",
+   -0.997
+  ],
+  [
+   "cdoor_S_L",
+   "RB220.hatch.cdoor_S.L.steward_boxcar.ecb6bf",
+   -0.997
+  ],
+  [
+   "tail_lamps",
+   "RB220.lamp.tail_lamp.C.steward_boxcar.e292a8",
+   -8.47
+  ],
+  [
+   "underride_guard",
+   "RB220.trim.bumper_rear.C.steward_boxcar.a5641b",
+   8.25
+  ]
+ ],
+ "doors": [
+  {
+   "id": "cdoor_S_R",
+   "side": "R",
+   "z": -0.0,
+   "width": 2.0,
+   "sill": 1.4,
+   "head": 4.3
+  },
+  {
+   "id": "cdoor_S_L",
+   "side": "L",
+   "z": -0.0,
+   "width": 2.0,
+   "sill": 1.4,
+   "head": 4.3
+  }
+ ],
+ "closers": [
+  {
+   "id": "cdoor_S_R",
+   "kind": "roll",
+   "side": "R",
+   "parts": [
+    "cdoor_S_R"
+   ],
+   "hinge": [
+    1.47,
+    4.297,
+    -1.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "open_deg": 0
+  },
+  {
+   "id": "cdoor_S_L",
+   "kind": "roll",
+   "side": "L",
+   "parts": [
+    "cdoor_S_L"
+   ],
+   "hinge": [
+    -1.47,
+    4.297,
+    -1.0
+   ],
+   "axis": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "open_deg": 0
+  }
+ ],
+ "length_front": 8.45,
+ "length_back": 8.45,
+ "platform": {
+  "half_w": 0.57,
+  "y": 0.49,
+  "z": [
+   -8.6,
+   8.6
+  ]
+ },
+ "cabin_points": [],
+ "markers": [
+  [
+   "pivot_lead",
+   [
+    0,
+    0.5,
+    -6.0
+   ],
+   0.0
+  ],
+  [
+   "pivot_trail",
+   [
+    0,
+    0.5,
+    6.0
+   ],
+   0.0
+  ],
+  [
+   "light_tail_R",
+   [
+    1.36,
+    1.0,
+    8.5
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_L",
+   [
+    -1.36,
+    1.0,
+    8.5
+   ],
+   3.1416
+  ]
+ ]
+}

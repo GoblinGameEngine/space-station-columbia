@@ -100,17 +100,24 @@ class Library:
         return cid
 
     def write(self):
-        with open(os.path.join(self.dir, self.style + ".pack"), "wb") as f:
+        # (each file written whole, then moved into place: a game reading the library never sees half of one)
+        tmp = os.path.join(self.dir, "." + self.style + ".pack.tmp")
+        with open(tmp, "wb") as f:
             f.write(bytes(self.data))
+        os.replace(tmp, os.path.join(self.dir, self.style + ".pack"))
         cat = {"_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
                "standard": self.std["id"], "class": self.std["class"], "style": self.style,
                "pack": "res://remake/vehicles/components/%s/%s.pack" % (self.std["id"], self.style),
                "palette": self.palette, "components": self.comps}
-        with open(os.path.join(self.dir, self.style + ".catalog.json"), "w") as f:
+        tmp = os.path.join(self.dir, "." + self.style + ".catalog.tmp")
+        with open(tmp, "w") as f:
             json.dump(cat, f, indent=1)
+        os.replace(tmp, os.path.join(self.dir, self.style + ".catalog.json"))
         return len(self.comps), len(self.data)
 
 
 def write_blueprint(path, bp):
-    with open(path, "w") as f:
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
         json.dump(bp, f, indent=1)
+    os.replace(tmp, path)

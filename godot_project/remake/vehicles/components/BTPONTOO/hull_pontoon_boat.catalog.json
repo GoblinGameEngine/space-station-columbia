@@ -1,0 +1,2003 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTPONTOO",
+ "class": "pontoon_boat",
+ "style": "hull_pontoon_boat",
+ "pack": "res://remake/vehicles/components/BTPONTOO/hull_pontoon_boat.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.4314,
+    0.3529
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTPONTOO.side_bay.bottom_0.R.hull_pontoon_boat.c9f289": {
+   "id": "BTPONTOO.side_bay.bottom_0.R.hull_pontoon_boat.c9f289",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.5855,
+     -0.008,
+     0.275,
+     1.1711,
+     0.5923,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.bottom_0.R.hull_pontoon_boat.c0352d": {
+   "id": "BTPONTOO.lining_bay.bottom_0.R.hull_pontoon_boat.c0352d",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     576,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.5555,
+     0.052,
+     0.275,
+     1.1111,
+     0.5923,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.bottom_0.L.hull_pontoon_boat.5f1744": {
+   "id": "BTPONTOO.side_bay.bottom_0.L.hull_pontoon_boat.5f1744",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     1152,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.5855,
+     -0.008,
+     0.275,
+     1.1711,
+     0.5923,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.bottom_0.L.hull_pontoon_boat.8bae66": {
+   "id": "BTPONTOO.lining_bay.bottom_0.L.hull_pontoon_boat.8bae66",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1728,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.5555,
+     0.052,
+     0.275,
+     1.1111,
+     0.5923,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.topside_0.R.hull_pontoon_boat.72afa5": {
+   "id": "BTPONTOO.side_bay.topside_0.R.hull_pontoon_boat.72afa5",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     2304,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.085,
+     0.3274,
+     0.275,
+     0.3759,
+     1.0452,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.topside_0.R.hull_pontoon_boat.f606ca": {
+   "id": "BTPONTOO.lining_bay.topside_0.R.hull_pontoon_boat.f606ca",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     2880,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     1.025,
+     0.3574,
+     0.275,
+     0.3759,
+     0.9852,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.topside_0.L.hull_pontoon_boat.95b901": {
+   "id": "BTPONTOO.side_bay.topside_0.L.hull_pontoon_boat.95b901",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     3456,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.085,
+     0.3274,
+     0.275,
+     0.3759,
+     1.0452,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.topside_0.L.hull_pontoon_boat.4a8d7a": {
+   "id": "BTPONTOO.lining_bay.topside_0.L.hull_pontoon_boat.4a8d7a",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4032,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -1.025,
+     0.3574,
+     0.275,
+     0.3759,
+     0.9852,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.sidedeck_0.R.hull_pontoon_boat.9199f2": {
+   "id": "BTPONTOO.roof_bay.sidedeck_0.R.hull_pontoon_boat.9199f2",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.0362,
+     0.8318,
+     0.275,
+     0.4734,
+     0.0784,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.sidedeck_0.R.hull_pontoon_boat.e66f1f": {
+   "id": "BTPONTOO.lining_bay.sidedeck_0.R.hull_pontoon_boat.e66f1f",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4896,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.9762,
+     0.8018,
+     0.275,
+     0.4734,
+     0.0964,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.sidedeck_0.L.hull_pontoon_boat.4b6ceb": {
+   "id": "BTPONTOO.roof_bay.sidedeck_0.L.hull_pontoon_boat.4b6ceb",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5184,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.0362,
+     0.8318,
+     0.275,
+     0.4734,
+     0.0784,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.sidedeck_0.L.hull_pontoon_boat.37b318": {
+   "id": "BTPONTOO.lining_bay.sidedeck_0.L.hull_pontoon_boat.37b318",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5472,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.9762,
+     0.8018,
+     0.275,
+     0.4734,
+     0.0964,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.deck_0.R.hull_pontoon_boat.9e0995": {
+   "id": "BTPONTOO.roof_bay.deck_0.R.hull_pontoon_boat.9e0995",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5760,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.5219,
+     0.8618,
+     0.275,
+     1.0438,
+     0.0964,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.deck_0.R.hull_pontoon_boat.11a08e": {
+   "id": "BTPONTOO.lining_bay.deck_0.R.hull_pontoon_boat.11a08e",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     6336,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.4919,
+     0.8018,
+     0.275,
+     0.9838,
+     0.0964,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.deck_0.L.hull_pontoon_boat.af4477": {
+   "id": "BTPONTOO.roof_bay.deck_0.L.hull_pontoon_boat.af4477",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.5219,
+     0.8618,
+     0.275,
+     1.0438,
+     0.0964,
+     0.55
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.deck_0.L.hull_pontoon_boat.b9e489": {
+   "id": "BTPONTOO.lining_bay.deck_0.L.hull_pontoon_boat.b9e489",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     7488,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.4919,
+     0.8018,
+     0.275,
+     0.9838,
+     0.0964,
+     0.55
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.bottom_1.R.hull_pontoon_boat.1f285f": {
+   "id": "BTPONTOO.side_bay.bottom_1.R.hull_pontoon_boat.1f285f",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8064,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.598,
+     -0.2726,
+     3.3,
+     1.196,
+     0.1548,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.bottom_1.R.hull_pontoon_boat.ec7d2b": {
+   "id": "BTPONTOO.lining_bay.bottom_1.R.hull_pontoon_boat.ec7d2b",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     11808,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.568,
+     -0.2126,
+     3.3,
+     1.136,
+     0.1548,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.bottom_1.L.hull_pontoon_boat.848518": {
+   "id": "BTPONTOO.side_bay.bottom_1.L.hull_pontoon_boat.848518",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     15552,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -0.598,
+     -0.2726,
+     3.3,
+     1.196,
+     0.1548,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.bottom_1.L.hull_pontoon_boat.6b01e9": {
+   "id": "BTPONTOO.lining_bay.bottom_1.L.hull_pontoon_boat.6b01e9",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     19296,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -0.568,
+     -0.2126,
+     3.3,
+     1.136,
+     0.1548,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.topside_1.R.hull_pontoon_boat.c70b00": {
+   "id": "BTPONTOO.side_bay.topside_1.R.hull_pontoon_boat.c70b00",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     23040,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.2355,
+     0.2768,
+     3.3,
+     0.1289,
+     1.0317,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.topside_1.R.hull_pontoon_boat.d4ce9f": {
+   "id": "BTPONTOO.lining_bay.topside_1.R.hull_pontoon_boat.d4ce9f",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     26784,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.1755,
+     0.3068,
+     3.3,
+     0.1289,
+     0.9717,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.topside_1.L.hull_pontoon_boat.e76d10": {
+   "id": "BTPONTOO.side_bay.topside_1.L.hull_pontoon_boat.e76d10",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30528,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.2355,
+     0.2768,
+     3.3,
+     0.1289,
+     1.0317,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.topside_1.L.hull_pontoon_boat.410407": {
+   "id": "BTPONTOO.lining_bay.topside_1.L.hull_pontoon_boat.410407",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     34272,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.1755,
+     0.3068,
+     3.3,
+     0.1289,
+     0.9717,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.sidedeck_1.R.hull_pontoon_boat.685e69": {
+   "id": "BTPONTOO.roof_bay.sidedeck_1.R.hull_pontoon_boat.685e69",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38016,
+     78
+    ]
+   },
+   "boxes": [
+    [
+     1.1719,
+     0.707,
+     3.3,
+     0.2562,
+     0.2132,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.sidedeck_1.R.hull_pontoon_boat.2420d4": {
+   "id": "BTPONTOO.lining_bay.sidedeck_1.R.hull_pontoon_boat.2420d4",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     39888,
+     78
+    ]
+   },
+   "boxes": [
+    [
+     1.1119,
+     0.677,
+     3.3,
+     0.2562,
+     0.2312,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.sidedeck_1.L.hull_pontoon_boat.3e56d9": {
+   "id": "BTPONTOO.roof_bay.sidedeck_1.L.hull_pontoon_boat.3e56d9",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     41760,
+     78
+    ]
+   },
+   "boxes": [
+    [
+     -1.1719,
+     0.707,
+     3.3,
+     0.2562,
+     0.2132,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.sidedeck_1.L.hull_pontoon_boat.02aab8": {
+   "id": "BTPONTOO.lining_bay.sidedeck_1.L.hull_pontoon_boat.02aab8",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43632,
+     78
+    ]
+   },
+   "boxes": [
+    [
+     -1.1119,
+     0.677,
+     3.3,
+     0.2562,
+     0.2312,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.bottom_2.R.hull_pontoon_boat.0bbffa": {
+   "id": "BTPONTOO.side_bay.bottom_2.R.hull_pontoon_boat.0bbffa",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     45504,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.598,
+     -0.2945,
+     0.175,
+     1.196,
+     0.1109,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.bottom_2.R.hull_pontoon_boat.260f08": {
+   "id": "BTPONTOO.lining_bay.bottom_2.R.hull_pontoon_boat.260f08",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45792,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.568,
+     -0.2345,
+     0.175,
+     1.136,
+     0.1109,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.bottom_2.L.hull_pontoon_boat.0ef5b3": {
+   "id": "BTPONTOO.side_bay.bottom_2.L.hull_pontoon_boat.0ef5b3",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     46080,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.598,
+     -0.2945,
+     0.175,
+     1.196,
+     0.1109,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.bottom_2.L.hull_pontoon_boat.19ddd7": {
+   "id": "BTPONTOO.lining_bay.bottom_2.L.hull_pontoon_boat.19ddd7",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46368,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.568,
+     -0.2345,
+     0.175,
+     1.136,
+     0.1109,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.topside_2.R.hull_pontoon_boat.44e401": {
+   "id": "BTPONTOO.side_bay.topside_2.R.hull_pontoon_boat.44e401",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46656,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.248,
+     0.1971,
+     0.175,
+     0.104,
+     0.8724,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.topside_2.R.hull_pontoon_boat.6a7464": {
+   "id": "BTPONTOO.lining_bay.topside_2.R.hull_pontoon_boat.6a7464",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46944,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.188,
+     0.2271,
+     0.175,
+     0.104,
+     0.8124,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.side_bay.topside_2.L.hull_pontoon_boat.834eef": {
+   "id": "BTPONTOO.side_bay.topside_2.L.hull_pontoon_boat.834eef",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47232,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.248,
+     0.1971,
+     0.175,
+     0.104,
+     0.8724,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.lining_bay.topside_2.L.hull_pontoon_boat.3c37e0": {
+   "id": "BTPONTOO.lining_bay.topside_2.L.hull_pontoon_boat.3c37e0",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47520,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.188,
+     0.2271,
+     0.175,
+     0.104,
+     0.8124,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.sidedeck_2.R.hull_pontoon_boat.e94000": {
+   "id": "BTPONTOO.roof_bay.sidedeck_2.R.hull_pontoon_boat.e94000",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47808,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.183,
+     0.6402,
+     0.175,
+     0.234,
+     0.0283,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.sidedeck_2.R.hull_pontoon_boat.6aec99": {
+   "id": "BTPONTOO.lining_bay.sidedeck_2.R.hull_pontoon_boat.6aec99",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47952,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.123,
+     0.6102,
+     0.175,
+     0.234,
+     0.0463,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.sidedeck_2.L.hull_pontoon_boat.7e51c9": {
+   "id": "BTPONTOO.roof_bay.sidedeck_2.L.hull_pontoon_boat.7e51c9",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48096,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.183,
+     0.6402,
+     0.175,
+     0.234,
+     0.0283,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.sidedeck_2.L.hull_pontoon_boat.1a47f7": {
+   "id": "BTPONTOO.lining_bay.sidedeck_2.L.hull_pontoon_boat.1a47f7",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48240,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.123,
+     0.6102,
+     0.175,
+     0.234,
+     0.0463,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.deck_2.R.hull_pontoon_boat.93a249": {
+   "id": "BTPONTOO.roof_bay.deck_2.R.hull_pontoon_boat.93a249",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48384,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.533,
+     0.6702,
+     0.175,
+     1.066,
+     0.0463,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.deck_2.R.hull_pontoon_boat.1569d2": {
+   "id": "BTPONTOO.lining_bay.deck_2.R.hull_pontoon_boat.1569d2",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48672,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.503,
+     0.6102,
+     0.175,
+     1.006,
+     0.0463,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.roof_bay.deck_2.L.hull_pontoon_boat.680162": {
+   "id": "BTPONTOO.roof_bay.deck_2.L.hull_pontoon_boat.680162",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48960,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.533,
+     0.6702,
+     0.175,
+     1.066,
+     0.0463,
+     0.35
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.lining_bay.deck_2.L.hull_pontoon_boat.5db357": {
+   "id": "BTPONTOO.lining_bay.deck_2.L.hull_pontoon_boat.5db357",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49248,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.503,
+     0.6102,
+     0.175,
+     1.006,
+     0.0463,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.reveal.cockpit.C.hull_pontoon_boat.d133fa": {
+   "id": "BTPONTOO.reveal.cockpit.C.hull_pontoon_boat.d133fa",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49536,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.707,
+     3.3,
+     2.132,
+     0.2912,
+     6.6
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPONTOO.end_cap.transom.C.hull_pontoon_boat.8b4a6e": {
+   "id": "BTPONTOO.end_cap.transom.C.hull_pontoon_boat.8b4a6e",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     54432,
+     36
+    ],
+    "paint": [
+     55296,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1717,
+     -0.0,
+     2.6,
+     1.0433,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.end_cap.stem.C.hull_pontoon_boat.5e7fd8": {
+   "id": "BTPONTOO.end_cap.stem.C.hull_pontoon_boat.5e7fd8",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     56160,
+     36
+    ],
+    "paint": [
+     57024,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.555,
+     -0.0,
+     1.95,
+     0.71,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPONTOO.trim.strake.C.hull_pontoon_boat.a47751": {
+   "id": "BTPONTOO.trim.strake.C.hull_pontoon_boat.a47751",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     57888,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     -0.0002,
+     0.6953,
+     3.7588,
+     2.7073,
+     0.318,
+     7.5175
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTPONTOO.equipment.pontoons.C.hull_pontoon_boat.185368": {
+   "id": "BTPONTOO.equipment.pontoons.C.hull_pontoon_boat.185368",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "equipment",
+   "slot": "pontoons",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/equipment/pontoons/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     86688,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     -0.05,
+     3.6,
+     2.5,
+     0.6,
+     7.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPONTOO.equipment.fence.C.hull_pontoon_boat.5b7ba9": {
+   "id": "BTPONTOO.equipment.fence.C.hull_pontoon_boat.5b7ba9",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "equipment",
+   "slot": "fence",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/equipment/fence/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     100512,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0569,
+     3.35,
+     2.54,
+     0.8,
+     6.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPONTOO.equipment.bimini.C.hull_pontoon_boat.4c5ff6": {
+   "id": "BTPONTOO.equipment.bimini.C.hull_pontoon_boat.4c5ff6",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "equipment",
+   "slot": "bimini",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/equipment/bimini/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     102240,
+     240
+    ],
+    "paint2": [
+     108000,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2669,
+     1.2645,
+     2.4,
+     1.32,
+     2.529
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPONTOO.equipment.outboard.C.hull_pontoon_boat.a56af0": {
+   "id": "BTPONTOO.equipment.outboard.C.hull_pontoon_boat.a56af0",
+   "standard": "BTPONTOO",
+   "class": "pontoon_boat",
+   "role": "equipment",
+   "slot": "outboard",
+   "side": "C",
+   "style": "hull_pontoon_boat",
+   "interface": "BTPONTOO/equipment/outboard/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     108864,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2819,
+     0.18,
+     0.3,
+     1.25,
+     0.36
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

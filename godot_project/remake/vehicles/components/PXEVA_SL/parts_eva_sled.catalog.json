@@ -1,0 +1,534 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "PXEVA_SL",
+ "class": "eva_sled",
+ "style": "parts_eva_sled",
+ "pack": "res://remake/vehicles/components/PXEVA_SL/parts_eva_sled.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.7294,
+    0.1176
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "PXEVA_SL.frame_shown.frame.C.parts_eva_sled.111cd7": {
+   "id": "PXEVA_SL.frame_shown.frame.C.parts_eva_sled.111cd7",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "frame_shown",
+   "slot": "frame",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/frame_shown/frame/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     0,
+     672
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.05,
+     1.34,
+     1.68,
+     1.58,
+     2.68
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXEVA_SL.cargo_floor.deck.C.parts_eva_sled.aecadc": {
+   "id": "PXEVA_SL.cargo_floor.deck.C.parts_eva_sled.aecadc",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "cargo_floor",
+   "slot": "deck",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/cargo_floor/deck/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     16128,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.32,
+     1.3,
+     1.6,
+     0.06,
+     2.6
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PXEVA_SL.equipment.thrusters.C.parts_eva_sled.7dd299": {
+   "id": "PXEVA_SL.equipment.thrusters.C.parts_eva_sled.7dd299",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "equipment",
+   "slot": "thrusters",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/equipment/thrusters/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     16992,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.05,
+     1.43,
+     1.86,
+     1.66,
+     2.86
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXEVA_SL.seat.saddle.C.parts_eva_sled.8d1fc7": {
+   "id": "PXEVA_SL.seat.saddle.C.parts_eva_sled.8d1fc7",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "seat",
+   "slot": "saddle",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/seat/saddle/C",
+   "reach": 0.0,
+   "mats": {
+    "seat": [
+     23904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.4,
+     0.6,
+     0.5,
+     0.8
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXEVA_SL.equipment.tanks.C.parts_eva_sled.a17503": {
+   "id": "PXEVA_SL.equipment.tanks.C.parts_eva_sled.a17503",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "equipment",
+   "slot": "tanks",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/equipment/tanks/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     24768,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5,
+     0.4,
+     1.1,
+     0.3,
+     0.8
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  }
+ }
+}

@@ -1,0 +1,2999 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTLOBSTE",
+ "class": "lobster_boat",
+ "style": "hull_lobster_boat",
+ "pack": "res://remake/vehicles/components/BTLOBSTE/hull_lobster_boat.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.3608,
+    0.5882
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTLOBSTE.side_bay.bottom_0.R.hull_lobster_boat.77ee33": {
+   "id": "BTLOBSTE.side_bay.bottom_0.R.hull_lobster_boat.77ee33",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.7785,
+     0.0341,
+     1.35,
+     1.557,
+     1.5368,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_0.R.hull_lobster_boat.76c505": {
+   "id": "BTLOBSTE.lining_bay.bottom_0.R.hull_lobster_boat.76c505",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.7345,
+     0.1221,
+     1.35,
+     1.469,
+     1.5368,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_0.L.hull_lobster_boat.5b44d0": {
+   "id": "BTLOBSTE.side_bay.bottom_0.L.hull_lobster_boat.5b44d0",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     2304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.7785,
+     0.0341,
+     1.35,
+     1.557,
+     1.5368,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_0.L.hull_lobster_boat.79e3de": {
+   "id": "BTLOBSTE.lining_bay.bottom_0.L.hull_lobster_boat.79e3de",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3456,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.7345,
+     0.1221,
+     1.35,
+     1.469,
+     1.5368,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_0.R.hull_lobster_boat.e57994": {
+   "id": "BTLOBSTE.side_bay.topside_0.R.hull_lobster_boat.e57994",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.8508,
+     0.6288,
+     1.35,
+     1.6832,
+     1.8423,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_0.R.hull_lobster_boat.528701": {
+   "id": "BTLOBSTE.lining_bay.topside_0.R.hull_lobster_boat.528701",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.8022,
+     0.6728,
+     1.35,
+     1.6044,
+     1.7543,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_0.L.hull_lobster_boat.677a4c": {
+   "id": "BTLOBSTE.side_bay.topside_0.L.hull_lobster_boat.677a4c",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.8508,
+     0.6288,
+     1.35,
+     1.6832,
+     1.8423,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_0.L.hull_lobster_boat.80e794": {
+   "id": "BTLOBSTE.lining_bay.topside_0.L.hull_lobster_boat.80e794",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.8022,
+     0.6728,
+     1.35,
+     1.6044,
+     1.7543,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_0.R.hull_lobster_boat.207b2d": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_0.R.hull_lobster_boat.207b2d",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     9216,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.8503,
+     1.4791,
+     1.35,
+     1.6842,
+     0.1837,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_0.R.hull_lobster_boat.a731c1": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_0.R.hull_lobster_boat.a731c1",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9792,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.8022,
+     1.4351,
+     1.35,
+     1.6044,
+     0.2297,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_0.L.hull_lobster_boat.f8b1be": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_0.L.hull_lobster_boat.f8b1be",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.8503,
+     1.4791,
+     1.35,
+     1.6842,
+     0.1837,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_0.L.hull_lobster_boat.4f18e1": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_0.L.hull_lobster_boat.4f18e1",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10944,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.8022,
+     1.4351,
+     1.35,
+     1.6044,
+     0.2297,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_0.R.hull_lobster_boat.1fe6ee": {
+   "id": "BTLOBSTE.roof_bay.deck_0.R.hull_lobster_boat.1fe6ee",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     11520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6939,
+     1.5091,
+     1.35,
+     1.3877,
+     0.2017,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_0.R.hull_lobster_boat.8bca6c": {
+   "id": "BTLOBSTE.lining_bay.deck_0.R.hull_lobster_boat.8bca6c",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6499,
+     1.4211,
+     1.35,
+     1.2997,
+     0.2017,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_0.L.hull_lobster_boat.874ce1": {
+   "id": "BTLOBSTE.roof_bay.deck_0.L.hull_lobster_boat.874ce1",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6939,
+     1.5091,
+     1.35,
+     1.3877,
+     0.2017,
+     2.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_0.L.hull_lobster_boat.f9c2ee": {
+   "id": "BTLOBSTE.lining_bay.deck_0.L.hull_lobster_boat.f9c2ee",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6499,
+     1.4211,
+     1.35,
+     1.2997,
+     0.2017,
+     2.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_1.R.hull_lobster_boat.4d86cd": {
+   "id": "BTLOBSTE.side_bay.bottom_1.R.hull_lobster_boat.4d86cd",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.874,
+     -0.6462,
+     1.6,
+     1.748,
+     0.7077,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_1.R.hull_lobster_boat.d9aa2d": {
+   "id": "BTLOBSTE.lining_bay.bottom_1.R.hull_lobster_boat.d9aa2d",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     17568,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.83,
+     -0.5582,
+     1.6,
+     1.66,
+     0.7077,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_1.L.hull_lobster_boat.f8d404": {
+   "id": "BTLOBSTE.side_bay.bottom_1.L.hull_lobster_boat.f8d404",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     19008,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.874,
+     -0.6462,
+     1.6,
+     1.748,
+     0.7077,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_1.L.hull_lobster_boat.7c285a": {
+   "id": "BTLOBSTE.lining_bay.bottom_1.L.hull_lobster_boat.7c285a",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     20448,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.83,
+     -0.5582,
+     1.6,
+     1.66,
+     0.7077,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_1.R.hull_lobster_boat.40877b": {
+   "id": "BTLOBSTE.side_bay.topside_1.R.hull_lobster_boat.40877b",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21888,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.7285,
+     0.4402,
+     1.6,
+     0.343,
+     1.8941,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_1.R.hull_lobster_boat.f25085": {
+   "id": "BTLOBSTE.lining_bay.topside_1.R.hull_lobster_boat.f25085",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     23328,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.6405,
+     0.4842,
+     1.6,
+     0.343,
+     1.8061,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_1.L.hull_lobster_boat.841ae2": {
+   "id": "BTLOBSTE.side_bay.topside_1.L.hull_lobster_boat.841ae2",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24768,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.7285,
+     0.4402,
+     1.6,
+     0.343,
+     1.8941,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_1.L.hull_lobster_boat.9af7dc": {
+   "id": "BTLOBSTE.lining_bay.topside_1.L.hull_lobster_boat.9af7dc",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     26208,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.6405,
+     0.4842,
+     1.6,
+     0.343,
+     1.8061,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_1.R.hull_lobster_boat.88e55f": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_1.R.hull_lobster_boat.88e55f",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     27648,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.6439,
+     1.3556,
+     1.6,
+     0.5123,
+     0.1055,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_1.R.hull_lobster_boat.3c6f2b": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_1.R.hull_lobster_boat.3c6f2b",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     28368,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.5559,
+     1.3116,
+     1.6,
+     0.5123,
+     0.1515,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_1.L.hull_lobster_boat.b6f853": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_1.L.hull_lobster_boat.b6f853",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29088,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.6439,
+     1.3556,
+     1.6,
+     0.5123,
+     0.1055,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_1.L.hull_lobster_boat.3e3ca3": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_1.L.hull_lobster_boat.3e3ca3",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     29808,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.5559,
+     1.3116,
+     1.6,
+     0.5123,
+     0.1515,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_1.R.hull_lobster_boat.b9f010": {
+   "id": "BTLOBSTE.roof_bay.deck_1.R.hull_lobster_boat.b9f010",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30528,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.779,
+     1.3856,
+     1.6,
+     1.558,
+     0.1235,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_1.R.hull_lobster_boat.3cc9b8": {
+   "id": "BTLOBSTE.lining_bay.deck_1.R.hull_lobster_boat.3cc9b8",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     31968,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.735,
+     1.2976,
+     1.6,
+     1.47,
+     0.1235,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_1.L.hull_lobster_boat.46db07": {
+   "id": "BTLOBSTE.roof_bay.deck_1.L.hull_lobster_boat.46db07",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33408,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.779,
+     1.3856,
+     1.6,
+     1.558,
+     0.1235,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_1.L.hull_lobster_boat.cb4925": {
+   "id": "BTLOBSTE.lining_bay.deck_1.L.hull_lobster_boat.cb4925",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     34848,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.735,
+     1.2976,
+     1.6,
+     1.47,
+     0.1235,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_2.R.hull_lobster_boat.f5dff7": {
+   "id": "BTLOBSTE.side_bay.bottom_2.R.hull_lobster_boat.f5dff7",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     36288,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.874,
+     -0.7531,
+     0.05,
+     1.748,
+     0.4937,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_2.R.hull_lobster_boat.fe092a": {
+   "id": "BTLOBSTE.lining_bay.bottom_2.R.hull_lobster_boat.fe092a",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     36576,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.83,
+     -0.6651,
+     0.05,
+     1.66,
+     0.4937,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_2.L.hull_lobster_boat.f35b91": {
+   "id": "BTLOBSTE.side_bay.bottom_2.L.hull_lobster_boat.f35b91",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     36864,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.874,
+     -0.7531,
+     0.05,
+     1.748,
+     0.4937,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_2.L.hull_lobster_boat.d347cd": {
+   "id": "BTLOBSTE.lining_bay.bottom_2.L.hull_lobster_boat.d347cd",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     37152,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.83,
+     -0.6651,
+     0.05,
+     1.66,
+     0.4937,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_2.R.hull_lobster_boat.3becb8": {
+   "id": "BTLOBSTE.side_bay.topside_2.R.hull_lobster_boat.3becb8",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     37440,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.824,
+     0.3983,
+     0.05,
+     0.152,
+     1.8091,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_2.R.hull_lobster_boat.c17a6b": {
+   "id": "BTLOBSTE.lining_bay.topside_2.R.hull_lobster_boat.c17a6b",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     37728,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.736,
+     0.4423,
+     0.05,
+     0.152,
+     1.7211,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_2.L.hull_lobster_boat.ddefd3": {
+   "id": "BTLOBSTE.side_bay.topside_2.L.hull_lobster_boat.ddefd3",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38016,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.824,
+     0.3983,
+     0.05,
+     0.152,
+     1.8091,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_2.L.hull_lobster_boat.f5ee86": {
+   "id": "BTLOBSTE.lining_bay.topside_2.L.hull_lobster_boat.f5ee86",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38304,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.736,
+     0.4423,
+     0.05,
+     0.152,
+     1.7211,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_2.R.hull_lobster_boat.9c0da2": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_2.R.hull_lobster_boat.9c0da2",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38592,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.729,
+     1.3129,
+     0.05,
+     0.342,
+     0.0217,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_2.R.hull_lobster_boat.33cfe3": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_2.R.hull_lobster_boat.33cfe3",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38736,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.641,
+     1.2689,
+     0.05,
+     0.342,
+     0.0677,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_2.L.hull_lobster_boat.870799": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_2.L.hull_lobster_boat.870799",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38880,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.729,
+     1.3129,
+     0.05,
+     0.342,
+     0.0217,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_2.L.hull_lobster_boat.d1e06e": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_2.L.hull_lobster_boat.d1e06e",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     39024,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.641,
+     1.2689,
+     0.05,
+     0.342,
+     0.0677,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_2.R.hull_lobster_boat.1d1911": {
+   "id": "BTLOBSTE.roof_bay.deck_2.R.hull_lobster_boat.1d1911",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     39168,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.779,
+     1.3429,
+     0.05,
+     1.558,
+     0.0397,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_2.R.hull_lobster_boat.c618fa": {
+   "id": "BTLOBSTE.lining_bay.deck_2.R.hull_lobster_boat.c618fa",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     39456,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.735,
+     1.2549,
+     0.05,
+     1.47,
+     0.0397,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_2.L.hull_lobster_boat.d2623b": {
+   "id": "BTLOBSTE.roof_bay.deck_2.L.hull_lobster_boat.d2623b",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     39744,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.779,
+     1.3429,
+     0.05,
+     1.558,
+     0.0397,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_2.L.hull_lobster_boat.cda6c1": {
+   "id": "BTLOBSTE.lining_bay.deck_2.L.hull_lobster_boat.cda6c1",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40032,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.735,
+     1.2549,
+     0.05,
+     1.47,
+     0.0397,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_3.R.hull_lobster_boat.17f6b8": {
+   "id": "BTLOBSTE.side_bay.bottom_3.R.hull_lobster_boat.17f6b8",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40320,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.874,
+     -0.7531,
+     2.35,
+     1.748,
+     0.4937,
+     4.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_3.R.hull_lobster_boat.479229": {
+   "id": "BTLOBSTE.lining_bay.bottom_3.R.hull_lobster_boat.479229",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42336,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.83,
+     -0.6651,
+     2.35,
+     1.66,
+     0.4937,
+     4.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_3.L.hull_lobster_boat.64cbbe": {
+   "id": "BTLOBSTE.side_bay.bottom_3.L.hull_lobster_boat.64cbbe",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44352,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.874,
+     -0.7531,
+     2.35,
+     1.748,
+     0.4937,
+     4.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_3.L.hull_lobster_boat.61fd4e": {
+   "id": "BTLOBSTE.lining_bay.bottom_3.L.hull_lobster_boat.61fd4e",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46368,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.83,
+     -0.6651,
+     2.35,
+     1.66,
+     0.4937,
+     4.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_3.R.hull_lobster_boat.72ecf4": {
+   "id": "BTLOBSTE.side_bay.topside_3.R.hull_lobster_boat.72ecf4",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48384,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.7239,
+     0.3842,
+     2.35,
+     0.3522,
+     1.8895,
+     4.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_3.R.hull_lobster_boat.214887": {
+   "id": "BTLOBSTE.lining_bay.topside_3.R.hull_lobster_boat.214887",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50400,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.6359,
+     0.4282,
+     2.35,
+     0.3522,
+     1.8015,
+     4.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_3.L.hull_lobster_boat.f37b67": {
+   "id": "BTLOBSTE.side_bay.topside_3.L.hull_lobster_boat.f37b67",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     52416,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.7239,
+     0.3842,
+     2.35,
+     0.3522,
+     1.8895,
+     4.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_3.L.hull_lobster_boat.2d89d0": {
+   "id": "BTLOBSTE.lining_bay.topside_3.L.hull_lobster_boat.2d89d0",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     54432,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.6359,
+     0.4282,
+     2.35,
+     0.3522,
+     1.8015,
+     4.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_3.R.hull_lobster_boat.bec2ff": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_3.R.hull_lobster_boat.bec2ff",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     56448,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     1.6398,
+     1.3252,
+     2.35,
+     0.5205,
+     0.0496,
+     4.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_3.R.hull_lobster_boat.9be86d": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_3.R.hull_lobster_boat.9be86d",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     57456,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     1.5518,
+     1.2812,
+     2.35,
+     0.5205,
+     0.0956,
+     4.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_3.L.hull_lobster_boat.80033a": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_3.L.hull_lobster_boat.80033a",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     58464,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -1.6398,
+     1.3252,
+     2.35,
+     0.5205,
+     0.0496,
+     4.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_3.L.hull_lobster_boat.eef2f3": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_3.L.hull_lobster_boat.eef2f3",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     59472,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -1.5518,
+     1.2812,
+     2.35,
+     0.5205,
+     0.0956,
+     4.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_4.R.hull_lobster_boat.fadb10": {
+   "id": "BTLOBSTE.side_bay.bottom_4.R.hull_lobster_boat.fadb10",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     60480,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.7739,
+     -0.7803,
+     0.15,
+     1.5478,
+     0.4395,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_4.R.hull_lobster_boat.014ec0": {
+   "id": "BTLOBSTE.lining_bay.bottom_4.R.hull_lobster_boat.014ec0",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     60768,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.7299,
+     -0.6923,
+     0.15,
+     1.4598,
+     0.4395,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.bottom_4.L.hull_lobster_boat.cb9eae": {
+   "id": "BTLOBSTE.side_bay.bottom_4.L.hull_lobster_boat.cb9eae",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     61056,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.7739,
+     -0.7803,
+     0.15,
+     1.5478,
+     0.4395,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.bottom_4.L.hull_lobster_boat.99fad5": {
+   "id": "BTLOBSTE.lining_bay.bottom_4.L.hull_lobster_boat.99fad5",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     61344,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.7299,
+     -0.6923,
+     0.15,
+     1.4598,
+     0.4395,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_4.R.hull_lobster_boat.eeb85f": {
+   "id": "BTLOBSTE.side_bay.topside_4.R.hull_lobster_boat.eeb85f",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61632,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.5928,
+     0.3804,
+     0.15,
+     0.1791,
+     1.9059,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_4.R.hull_lobster_boat.7197df": {
+   "id": "BTLOBSTE.lining_bay.topside_4.R.hull_lobster_boat.7197df",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     61920,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.5048,
+     0.4244,
+     0.15,
+     0.1791,
+     1.8179,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.side_bay.topside_4.L.hull_lobster_boat.7661c2": {
+   "id": "BTLOBSTE.side_bay.topside_4.L.hull_lobster_boat.7661c2",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     62208,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.5928,
+     0.3804,
+     0.15,
+     0.1791,
+     1.9059,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.lining_bay.topside_4.L.hull_lobster_boat.701dc0": {
+   "id": "BTLOBSTE.lining_bay.topside_4.L.hull_lobster_boat.701dc0",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62496,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.5048,
+     0.4244,
+     0.15,
+     0.1791,
+     1.8179,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_4.R.hull_lobster_boat.cae5d9": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_4.R.hull_lobster_boat.cae5d9",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     62784,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.5111,
+     1.3416,
+     0.15,
+     0.3425,
+     0.0254,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_4.R.hull_lobster_boat.69db44": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_4.R.hull_lobster_boat.69db44",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62928,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.4231,
+     1.2976,
+     0.15,
+     0.3425,
+     0.0714,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.sidedeck_4.L.hull_lobster_boat.e2be70": {
+   "id": "BTLOBSTE.roof_bay.sidedeck_4.L.hull_lobster_boat.e2be70",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63072,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.5111,
+     1.3416,
+     0.15,
+     0.3425,
+     0.0254,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.sidedeck_4.L.hull_lobster_boat.1430b0": {
+   "id": "BTLOBSTE.lining_bay.sidedeck_4.L.hull_lobster_boat.1430b0",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63216,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.4231,
+     1.2976,
+     0.15,
+     0.3425,
+     0.0714,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_4.R.hull_lobster_boat.f6fe05": {
+   "id": "BTLOBSTE.roof_bay.deck_4.R.hull_lobster_boat.f6fe05",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63360,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6898,
+     1.3716,
+     0.15,
+     1.3795,
+     0.0434,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_4.R.hull_lobster_boat.ab0a88": {
+   "id": "BTLOBSTE.lining_bay.deck_4.R.hull_lobster_boat.ab0a88",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63648,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6458,
+     1.2836,
+     0.15,
+     1.2915,
+     0.0434,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.roof_bay.deck_4.L.hull_lobster_boat.c1feca": {
+   "id": "BTLOBSTE.roof_bay.deck_4.L.hull_lobster_boat.c1feca",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6898,
+     1.3716,
+     0.15,
+     1.3795,
+     0.0434,
+     0.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.lining_bay.deck_4.L.hull_lobster_boat.7c7222": {
+   "id": "BTLOBSTE.lining_bay.deck_4.L.hull_lobster_boat.7c7222",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64224,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6458,
+     1.2836,
+     0.15,
+     1.2915,
+     0.0434,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.reveal.cockpit.C.hull_lobster_boat.492e86": {
+   "id": "BTLOBSTE.reveal.cockpit.C.hull_lobster_boat.492e86",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     64512,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3112,
+     2.35,
+     3.116,
+     0.1556,
+     4.7
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTLOBSTE.end_cap.transom.C.hull_lobster_boat.0f3f2b": {
+   "id": "BTLOBSTE.end_cap.transom.C.hull_lobster_boat.0f3f2b",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     67680,
+     36
+    ],
+    "paint": [
+     68544,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1967,
+     -0.0,
+     3.268,
+     2.3933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.end_cap.stem.C.hull_lobster_boat.ff39fa": {
+   "id": "BTLOBSTE.end_cap.stem.C.hull_lobster_boat.ff39fa",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     69408,
+     3
+    ],
+    "paint": [
+     69480,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.195,
+     -0.0,
+     0.02,
+     0.83,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTLOBSTE.trim.strake.C.hull_lobster_boat.b20021": {
+   "id": "BTLOBSTE.trim.strake.C.hull_lobster_boat.b20021",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     70344,
+     1344
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3952,
+     5.5157,
+     3.9049,
+     0.3189,
+     11.0313
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTLOBSTE.cab.wheelhouse.C.hull_lobster_boat.8afce1": {
+   "id": "BTLOBSTE.cab.wheelhouse.C.hull_lobster_boat.8afce1",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     102600,
+     108
+    ],
+    "paint2": [
+     105192,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.3704,
+     1.7,
+     3.0,
+     1.98,
+     3.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTLOBSTE.glazing.wheelhouse.C.hull_lobster_boat.5b781c": {
+   "id": "BTLOBSTE.glazing.wheelhouse.C.hull_lobster_boat.5b781c",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     106056,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5584,
+     1.59,
+     2.78,
+     0.494,
+     3.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTLOBSTE.equipment.pot_hauler.C.hull_lobster_boat.af8f3f": {
+   "id": "BTLOBSTE.equipment.pot_hauler.C.hull_lobster_boat.af8f3f",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "equipment",
+   "slot": "pot_hauler",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/equipment/pot_hauler/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     106920,
+     72
+    ],
+    "chrome": [
+     108648,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     1.7278,
+     2.2288,
+     0.218,
+     0.6156,
+     1.8468,
+     0.4359
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTLOBSTE.equipment.traps.C.hull_lobster_boat.49ceae": {
+   "id": "BTLOBSTE.equipment.traps.C.hull_lobster_boat.49ceae",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "equipment",
+   "slot": "traps",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/equipment/traps/C",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     111816,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9569,
+     0.695,
+     1.86,
+     0.4,
+     1.39
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

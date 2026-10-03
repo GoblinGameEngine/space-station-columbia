@@ -1,0 +1,4197 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "TB300",
+ "class": "transit_bus",
+ "style": "carrow_metro",
+ "pack": "res://remake/vehicles/components/TB300/carrow_metro.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.1176,
+    0.4314,
+    0.3529
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "TB300.end_cap.nose.C.carrow_metro.ee6e4b": {
+   "id": "TB300.end_cap.nose.C.carrow_metro.ee6e4b",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8985,
+     0.03,
+     2.3368,
+     0.9969,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.trim.cowl.C.carrow_metro.251bbf": {
+   "id": "TB300.trim.cowl.C.carrow_metro.251bbf",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.451,
+     0.035,
+     2.4174,
+     0.1781,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.glazing.screen.C.carrow_metro.2605d6": {
+   "id": "TB300.glazing.screen.C.carrow_metro.2605d6",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.045,
+     0.21,
+     2.4174,
+     1.27,
+     0.42
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.trim.screen.C.carrow_metro.4d98fb": {
+   "id": "TB300.trim.screen.C.carrow_metro.4d98fb",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     14472,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9864,
+     0.21,
+     2.4251,
+     1.1607,
+     0.42
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.side_bay.fender.R.carrow_metro.451283": {
+   "id": "TB300.side_bay.fender.R.carrow_metro.451283",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19080,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     0.905,
+     0.135,
+     0.1753,
+     1.01,
+     0.27
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.trim.sail.R.carrow_metro.5c2a15": {
+   "id": "TB300.trim.sail.R.carrow_metro.5c2a15",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     21096,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.2206,
+     1.6264,
+     0.1,
+     0.0389,
+     0.4729,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.a_pillar.R.carrow_metro.990eda": {
+   "id": "TB300.trim.a_pillar.R.carrow_metro.990eda",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     21960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.1695,
+     1.97,
+     0.21,
+     0.099,
+     1.16,
+     0.42
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.side_bay.rocker_E.R.carrow_metro.8b9404": {
+   "id": "TB300.side_bay.rocker_E.R.carrow_metro.8b9404",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "rocker_E",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/rocker_E/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     23112,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.49,
+     0.43,
+     0.03,
+     0.18,
+     0.86
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.post_0.R.carrow_metro.0f637a": {
+   "id": "TB300.side_bay.post_0.R.carrow_metro.0f637a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     23832,
+     126
+    ],
+    "paint": [
+     26856,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     0.88,
+     0.06,
+     1.72,
+     1.76
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.rocker_M.R.carrow_metro.439286": {
+   "id": "TB300.side_bay.rocker_M.R.carrow_metro.439286",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "rocker_M",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/rocker_M/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30600,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.49,
+     0.62,
+     0.03,
+     0.18,
+     1.24
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.quarter_0.R.carrow_metro.20456a": {
+   "id": "TB300.side_bay.quarter_0.R.carrow_metro.20456a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     31032,
+     90
+    ],
+    "paint": [
+     33192,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     1.5395,
+     0.06,
+     1.72,
+     3.079
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.quarter_1.R.carrow_metro.e949a3": {
+   "id": "TB300.side_bay.quarter_1.R.carrow_metro.e949a3",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     37800,
+     72
+    ],
+    "paint": [
+     39528,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.26,
+     0.581,
+     0.06,
+     1.72,
+     1.162
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.quarter_2.R.carrow_metro.525acd": {
+   "id": "TB300.side_bay.quarter_2.R.carrow_metro.525acd",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "quarter_2",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/quarter_2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     41976,
+     54
+    ],
+    "paint": [
+     43272,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.2012,
+     1.26,
+     0.6445,
+     0.0777,
+     1.72,
+     1.289
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.fender.L.carrow_metro.7fe451": {
+   "id": "TB300.side_bay.fender.L.carrow_metro.7fe451",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44568,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     0.905,
+     0.195,
+     0.1753,
+     1.01,
+     0.39
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.fore_0.L.carrow_metro.04c4ab": {
+   "id": "TB300.side_bay.fore_0.L.carrow_metro.04c4ab",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "fore_0",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/fore_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     47016,
+     108
+    ],
+    "paint": [
+     49608,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     0.9905,
+     0.06,
+     1.72,
+     1.981
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.fore_1.L.carrow_metro.af126d": {
+   "id": "TB300.side_bay.fore_1.L.carrow_metro.af126d",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "fore_1",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/fore_1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     54216,
+     108
+    ],
+    "paint": [
+     56808,
+     282
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     2.419,
+     0.06,
+     1.72,
+     4.838
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.fore_2.L.carrow_metro.cbc104": {
+   "id": "TB300.side_bay.fore_2.L.carrow_metro.cbc104",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "fore_2",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/fore_2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     63576,
+     72
+    ],
+    "paint": [
+     65304,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.26,
+     0.581,
+     0.06,
+     1.72,
+     1.162
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.side_bay.fore_3.L.carrow_metro.8b83ab": {
+   "id": "TB300.side_bay.fore_3.L.carrow_metro.8b83ab",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "side_bay",
+   "slot": "fore_3",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/side_bay/fore_3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     67752,
+     54
+    ],
+    "paint": [
+     69048,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.2012,
+     1.26,
+     0.6445,
+     0.0777,
+     1.72,
+     1.289
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.trim.sail.L.carrow_metro.cb5691": {
+   "id": "TB300.trim.sail.L.carrow_metro.cb5691",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     70344,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.16,
+     0.06,
+     0.73,
+     0.32
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.a_pillar.L.carrow_metro.a6c31b": {
+   "id": "TB300.trim.a_pillar.L.carrow_metro.a6c31b",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     71640,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1695,
+     1.97,
+     0.21,
+     0.099,
+     1.16,
+     0.42
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.roof_bay.roof_0.C.carrow_metro.4e7d6a": {
+   "id": "TB300.roof_bay.roof_0.C.carrow_metro.4e7d6a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     72792,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.7457,
+     2.36,
+     0.56,
+     1.4914
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.roof_bay.roof_1.C.carrow_metro.a58e4c": {
+   "id": "TB300.roof_bay.roof_1.C.carrow_metro.a58e4c",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     93528,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.7743,
+     2.36,
+     0.56,
+     1.5486
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.roof_bay.roof_2.C.carrow_metro.2d4029": {
+   "id": "TB300.roof_bay.roof_2.C.carrow_metro.2d4029",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     107352,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.773,
+     2.36,
+     0.56,
+     1.546
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.roof_bay.roof_3.C.carrow_metro.a81d5c": {
+   "id": "TB300.roof_bay.roof_3.C.carrow_metro.a81d5c",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     121176,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.5225,
+     2.36,
+     0.56,
+     1.045
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.roof_bay.roof_4.C.carrow_metro.2d428e": {
+   "id": "TB300.roof_bay.roof_4.C.carrow_metro.2d428e",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "roof_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/roof_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     138456,
+     792
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     1.0085,
+     2.36,
+     0.56,
+     2.017
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.roof_bay.roof_5.C.carrow_metro.06e6b2": {
+   "id": "TB300.roof_bay.roof_5.C.carrow_metro.06e6b2",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "roof_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/roof_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     157464,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     0.761,
+     2.36,
+     0.56,
+     1.522
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.end_cap.tail.C.carrow_metro.3a0332": {
+   "id": "TB300.end_cap.tail.C.carrow_metro.3a0332",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     169560,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.54,
+     0.04,
+     2.4428,
+     2.28,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "TB300.floor.floor.C.carrow_metro.4fd5a9": {
+   "id": "TB300.floor.floor.C.carrow_metro.4fd5a9",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     179856,
+     2880
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.885,
+     4.795,
+     2.36,
+     0.67,
+     9.59
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "TB300.lining_bay.trim_0_0.R.carrow_metro.1c0bde": {
+   "id": "TB300.lining_bay.trim_0_0.R.carrow_metro.1c0bde",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     248976,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.1606,
+     1.2214,
+     0.1,
+     0.0389,
+     1.2829,
+     0.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.trim_1_0.R.carrow_metro.d5bd52": {
+   "id": "TB300.lining_bay.trim_1_0.R.carrow_metro.d5bd52",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     250416,
+     318
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.35,
+     0.88,
+     0.06,
+     1.54,
+     1.76
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.trim_2_0.R.carrow_metro.e12001": {
+   "id": "TB300.lining_bay.trim_2_0.R.carrow_metro.e12001",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     258048,
+     564
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.35,
+     2.36,
+     0.06,
+     1.54,
+     4.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.trim_2_1.R.carrow_metro.ab89c7": {
+   "id": "TB300.lining_bay.trim_2_1.R.carrow_metro.ab89c7",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_2_1",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_2_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     271584,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.1416,
+     1.35,
+     0.405,
+     0.0768,
+     1.54,
+     0.81
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.a_pillar.R.carrow_metro.162785": {
+   "id": "TB300.lining_bay.a_pillar.R.carrow_metro.162785",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     273024,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.1095,
+     1.9412,
+     0.21,
+     0.099,
+     1.1456,
+     0.42
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.trim_0_0.L.carrow_metro.d6eb99": {
+   "id": "TB300.lining_bay.trim_0_0.L.carrow_metro.d6eb99",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     274176,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.35,
+     0.53,
+     0.06,
+     1.54,
+     1.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.trim_0_1.L.carrow_metro.808018": {
+   "id": "TB300.lining_bay.trim_0_1.L.carrow_metro.808018",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_1",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_0_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     277920,
+     900
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.35,
+     3.86,
+     0.06,
+     1.54,
+     7.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.trim_0_2.L.carrow_metro.895196": {
+   "id": "TB300.lining_bay.trim_0_2.L.carrow_metro.895196",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "trim_0_2",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/trim_0_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     299520,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.1416,
+     1.35,
+     0.405,
+     0.0768,
+     1.54,
+     0.81
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.lining_bay.a_pillar.L.carrow_metro.597a92": {
+   "id": "TB300.lining_bay.a_pillar.L.carrow_metro.597a92",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     300960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1095,
+     1.9412,
+     0.21,
+     0.099,
+     1.1456,
+     0.42
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.ceiling_bay.roof_0.C.carrow_metro.b60290": {
+   "id": "TB300.ceiling_bay.roof_0.C.carrow_metro.b60290",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     302112,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.7457,
+     2.24,
+     0.5,
+     1.4914
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.ceiling_bay.roof_1.C.carrow_metro.0d631a": {
+   "id": "TB300.ceiling_bay.roof_1.C.carrow_metro.0d631a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     322848,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.7743,
+     2.24,
+     0.5,
+     1.5486
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.ceiling_bay.roof_2.C.carrow_metro.db7989": {
+   "id": "TB300.ceiling_bay.roof_2.C.carrow_metro.db7989",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     336672,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.773,
+     2.24,
+     0.5,
+     1.546
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.ceiling_bay.roof_3.C.carrow_metro.6f573a": {
+   "id": "TB300.ceiling_bay.roof_3.C.carrow_metro.6f573a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     350496,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.5225,
+     2.24,
+     0.5,
+     1.045
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.ceiling_bay.roof_4.C.carrow_metro.2948fc": {
+   "id": "TB300.ceiling_bay.roof_4.C.carrow_metro.2948fc",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/ceiling_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     367776,
+     792
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     1.0085,
+     2.24,
+     0.5,
+     2.017
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.ceiling_bay.roof_5.C.carrow_metro.58bee6": {
+   "id": "TB300.ceiling_bay.roof_5.C.carrow_metro.58bee6",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "ceiling_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/ceiling_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     386784,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.37,
+     0.761,
+     2.24,
+     0.5,
+     1.522
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.end_lining.firewall.C.carrow_metro.786d46": {
+   "id": "TB300.end_lining.firewall.C.carrow_metro.786d46",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     398880,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.015,
+     -0.0,
+     2.35,
+     0.93,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.end_lining.rear_wall.C.carrow_metro.16d229": {
+   "id": "TB300.end_lining.rear_wall.C.carrow_metro.16d229",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     400320,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.585,
+     0.0,
+     2.35,
+     2.07,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.rear_opening.C.carrow_metro.3d68b2": {
+   "id": "TB300.reveal.rear_opening.C.carrow_metro.3d68b2",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     403776,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.04,
+     1.8,
+     0.5,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.glazing.back_window.C.carrow_metro.f99c9e": {
+   "id": "TB300.glazing.back_window.C.carrow_metro.f99c9e",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     406656,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.0,
+     1.8,
+     0.5,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.reveal.door_E.R.carrow_metro.da07ab": {
+   "id": "TB300.reveal.door_E.R.carrow_metro.da07ab",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     407952,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.35,
+     0.43,
+     0.12,
+     1.54,
+     0.86
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.door_M.R.carrow_metro.686f62": {
+   "id": "TB300.reveal.door_M.R.carrow_metro.686f62",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "door_M",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/door_M/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     410832,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.35,
+     0.62,
+     0.12,
+     1.54,
+     1.24
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W0.R.carrow_metro.e87e32": {
+   "id": "TB300.reveal.window_W0.R.carrow_metro.e87e32",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     413136,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W3.R.carrow_metro.c686b1": {
+   "id": "TB300.reveal.window_W3.R.carrow_metro.c686b1",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     416592,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W4.R.carrow_metro.4d2ce3": {
+   "id": "TB300.reveal.window_W4.R.carrow_metro.4d2ce3",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W4",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W4/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     420336,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W5.R.carrow_metro.4fa0db": {
+   "id": "TB300.reveal.window_W5.R.carrow_metro.4fa0db",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W5",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W5/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     422064,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_D.L.carrow_metro.a812a0": {
+   "id": "TB300.reveal.window_D.L.carrow_metro.a812a0",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_D",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_D/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     425520,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.35,
+     0.12,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W0.L.carrow_metro.a9e7e1": {
+   "id": "TB300.reveal.window_W0.L.carrow_metro.a9e7e1",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     427248,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W1.L.carrow_metro.71993e": {
+   "id": "TB300.reveal.window_W1.L.carrow_metro.71993e",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     430704,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W2.L.carrow_metro.73edfd": {
+   "id": "TB300.reveal.window_W2.L.carrow_metro.73edfd",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     432144,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W3.L.carrow_metro.b5f521": {
+   "id": "TB300.reveal.window_W3.L.carrow_metro.b5f521",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     433584,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W4.L.carrow_metro.0567e1": {
+   "id": "TB300.reveal.window_W4.L.carrow_metro.0567e1",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W4",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W4/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     437328,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.window_W5.L.carrow_metro.90d938": {
+   "id": "TB300.reveal.window_W5.L.carrow_metro.90d938",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "window_W5",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/window_W5/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     439056,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.755,
+     0.55,
+     0.12,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.reveal.screen.C.carrow_metro.b788f5": {
+   "id": "TB300.reveal.screen.C.carrow_metro.b788f5",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     442512,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.027,
+     0.21,
+     2.4174,
+     1.306,
+     0.42
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TB300.glazing.window_D.L.carrow_metro.d316f4": {
+   "id": "TB300.glazing.window_D.L.carrow_metro.d316f4",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_D",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_D/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     445968,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.35,
+     0.06,
+     0.73,
+     0.7
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W0.R.carrow_metro.505cba": {
+   "id": "TB300.glazing.window_W0.R.carrow_metro.505cba",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     447264,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W0.L.carrow_metro.dc5e93": {
+   "id": "TB300.glazing.window_W0.L.carrow_metro.dc5e93",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     451152,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W1.L.carrow_metro.3ece2d": {
+   "id": "TB300.glazing.window_W1.L.carrow_metro.3ece2d",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     455040,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W2.L.carrow_metro.a2d0d3": {
+   "id": "TB300.glazing.window_W2.L.carrow_metro.a2d0d3",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     455904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W3.R.carrow_metro.e6e00a": {
+   "id": "TB300.glazing.window_W3.R.carrow_metro.e6e00a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     456768,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W3.L.carrow_metro.a080c1": {
+   "id": "TB300.glazing.window_W3.L.carrow_metro.a080c1",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     461088,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W4.R.carrow_metro.2b02b0": {
+   "id": "TB300.glazing.window_W4.R.carrow_metro.2b02b0",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W4",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W4/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     465408,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W4.L.carrow_metro.98335b": {
+   "id": "TB300.glazing.window_W4.L.carrow_metro.98335b",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W4",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W4/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     466704,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W5.R.carrow_metro.0bf5f3": {
+   "id": "TB300.glazing.window_W5.R.carrow_metro.0bf5f3",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W5",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W5/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     468000,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.glazing.window_W5.L.carrow_metro.2ecfda": {
+   "id": "TB300.glazing.window_W5.L.carrow_metro.2ecfda",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "glazing",
+   "slot": "window_W5",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/glazing/window_W5/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     471888,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.755,
+     0.55,
+     0.06,
+     0.73,
+     1.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.door_leaf.door_E.R.carrow_metro.e24fe7": {
+   "id": "TB300.door_leaf.door_E.R.carrow_metro.e24fe7",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "door_leaf",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/door_leaf/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     475776,
+     60
+    ],
+    "paint": [
+     477216,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     0.985,
+     0.43,
+     0.06,
+     0.81,
+     0.86
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.door_glass.door_E.R.carrow_metro.457106": {
+   "id": "TB300.door_glass.door_E.R.carrow_metro.457106",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "door_glass",
+   "slot": "door_E",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/door_glass/door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     480672,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.43,
+     0.06,
+     0.73,
+     0.86
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.leaf_trim.handle_E.R.carrow_metro.42c5f6": {
+   "id": "TB300.leaf_trim.handle_E.R.carrow_metro.42c5f6",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "leaf_trim",
+   "slot": "handle_E",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/leaf_trim/handle_E/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     482832,
+     36
+    ],
+    "dash": [
+     483696,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.205,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.door_leaf.door_M.R.carrow_metro.4fbbdb": {
+   "id": "TB300.door_leaf.door_M.R.carrow_metro.4fbbdb",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "door_leaf",
+   "slot": "door_M",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/door_leaf/door_M/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     484560,
+     36
+    ],
+    "paint": [
+     485424,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     0.985,
+     0.62,
+     0.06,
+     0.81,
+     1.24
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.door_glass.door_M.R.carrow_metro.cd9082": {
+   "id": "TB300.door_glass.door_M.R.carrow_metro.cd9082",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "door_glass",
+   "slot": "door_M",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/door_glass/door_M/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     487728,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.755,
+     0.62,
+     0.06,
+     0.73,
+     1.24
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "TB300.leaf_trim.handle_M.R.carrow_metro.586778": {
+   "id": "TB300.leaf_trim.handle_M.R.carrow_metro.586778",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "leaf_trim",
+   "slot": "handle_M",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/leaf_trim/handle_M/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     489024,
+     36
+    ],
+    "dash": [
+     489888,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.205,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.wheel_well.well_0.R.carrow_metro.978bbb": {
+   "id": "TB300.wheel_well.well_0.R.carrow_metro.978bbb",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     490752,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.wheel_well.well_0.L.carrow_metro.48bf1c": {
+   "id": "TB300.wheel_well.well_0.L.carrow_metro.48bf1c",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     507888,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.wheel_well.well_1.R.carrow_metro.06e8f5": {
+   "id": "TB300.wheel_well.well_1.R.carrow_metro.06e8f5",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     525024,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5745,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.wheel_well.well_1.L.carrow_metro.2ef214": {
+   "id": "TB300.wheel_well.well_1.L.carrow_metro.2ef214",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     542160,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.wheel_well.well_2.R.carrow_metro.de2d78": {
+   "id": "TB300.wheel_well.well_2.R.carrow_metro.de2d78",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "wheel_well",
+   "slot": "well_2",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/wheel_well/well_2/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     559296,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.wheel_well.well_2.L.carrow_metro.540145": {
+   "id": "TB300.wheel_well.well_2.L.carrow_metro.540145",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "wheel_well",
+   "slot": "well_2",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/wheel_well/well_2/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     576432,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.9703,
+     0.79,
+     0.5918,
+     0.5746,
+     0.7838,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.underpan.underpan.C.carrow_metro.7021a4": {
+   "id": "TB300.underpan.underpan.C.carrow_metro.7021a4",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     593568,
+     852
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     4.9,
+     2.42,
+     0.105,
+     9.8
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TB300.seat.row_0.C.carrow_metro.ff0ec1": {
+   "id": "TB300.seat.row_0.C.carrow_metro.ff0ec1",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     614016,
+     36
+    ],
+    "seat": [
+     614880,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     1.1946,
+     0.4335,
+     0.46,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_1.C.carrow_metro.5cc583": {
+   "id": "TB300.seat.row_1.C.carrow_metro.5cc583",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     617472,
+     144
+    ],
+    "seat": [
+     620928,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_2.C.carrow_metro.1d14d6": {
+   "id": "TB300.seat.row_2.C.carrow_metro.1d14d6",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     627840,
+     144
+    ],
+    "seat": [
+     631296,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_3.C.carrow_metro.fb386b": {
+   "id": "TB300.seat.row_3.C.carrow_metro.fb386b",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_3",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_3/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     638208,
+     144
+    ],
+    "seat": [
+     641664,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_4.C.carrow_metro.2558b9": {
+   "id": "TB300.seat.row_4.C.carrow_metro.2558b9",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_4",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_4/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     648576,
+     144
+    ],
+    "seat": [
+     652032,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0977,
+     0.4023,
+     1.92,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_5.C.carrow_metro.7184f5": {
+   "id": "TB300.seat.row_5.C.carrow_metro.7184f5",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_5",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_5/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     658944,
+     144
+    ],
+    "seat": [
+     662400,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_6.C.carrow_metro.bc0e7f": {
+   "id": "TB300.seat.row_6.C.carrow_metro.bc0e7f",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_6",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_6/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     669312,
+     144
+    ],
+    "seat": [
+     672768,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3827,
+     0.4023,
+     1.92,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_7.C.carrow_metro.14ebbc": {
+   "id": "TB300.seat.row_7.C.carrow_metro.14ebbc",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_7",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_7/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     679680,
+     72
+    ],
+    "seat": [
+     681408,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.57,
+     1.3827,
+     0.4023,
+     0.78,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.seat.row_8.C.carrow_metro.a286f7": {
+   "id": "TB300.seat.row_8.C.carrow_metro.a286f7",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "seat",
+   "slot": "row_8",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/seat/row_8/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     684864,
+     72
+    ],
+    "seat": [
+     686592,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.57,
+     1.3827,
+     0.4023,
+     0.78,
+     1.5253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "TB300.dash.dash.C.carrow_metro.e79ba3": {
+   "id": "TB300.dash.dash.C.carrow_metro.e79ba3",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     690048,
+     1236
+    ],
+    "chrome": [
+     719712,
+     120
+    ],
+    "dash": [
+     722592,
+     108
+    ],
+    "gauge": [
+     725184,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2249,
+     0.2222,
+     2.2,
+     0.3901,
+     0.4443
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "TB300.dash.readout.C.carrow_metro.ed0677": {
+   "id": "TB300.dash.readout.C.carrow_metro.ed0677",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     734400,
+     36
+    ],
+    "lcd": [
+     735264,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.7,
+     1.31,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "TB300.lamp.head_lamp.C.carrow_metro.abaef0": {
+   "id": "TB300.lamp.head_lamp.C.carrow_metro.abaef0",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     736128,
+     480
+    ],
+    "lamp_amber": [
+     747648,
+     72
+    ],
+    "lamp_drl": [
+     749376,
+     480
+    ],
+    "lamp_head": [
+     760896,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.222,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "TB300.lamp.tail_lamp.C.carrow_metro.bac462": {
+   "id": "TB300.lamp.tail_lamp.C.carrow_metro.bac462",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     772416,
+     12
+    ],
+    "lamp_amber": [
+     772704,
+     48
+    ],
+    "lamp_brake": [
+     773856,
+     36
+    ],
+    "lamp_reverse": [
+     774720,
+     48
+    ],
+    "lamp_tail": [
+     775872,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.561,
+     0.006,
+     2.2912,
+     1.422,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "TB300.lamp.side_marker.C.carrow_metro.6c91df": {
+   "id": "TB300.lamp.side_marker.C.carrow_metro.6c91df",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     783936,
+     72
+    ],
+    "lamp_tail": [
+     785664,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.22,
+     4.74,
+     2.496,
+     0.03,
+     9.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "TB300.lamp.id_lamp.C.carrow_metro.127b94": {
+   "id": "TB300.lamp.id_lamp.C.carrow_metro.127b94",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     787392,
+     180
+    ],
+    "lamp_tail": [
+     791712,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.626,
+     4.625,
+     2.24,
+     0.156,
+     9.25
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "TB300.trim.bumper_front.C.carrow_metro.c3f348": {
+   "id": "TB300.trim.bumper_front.C.carrow_metro.c3f348",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     796032,
+     108
+    ],
+    "rubber": [
+     798624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.bumper_rear.C.carrow_metro.5a36f8": {
+   "id": "TB300.trim.bumper_rear.C.carrow_metro.5a36f8",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     799488,
+     108
+    ],
+    "rubber": [
+     802080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.mirror.R.carrow_metro.df8f4a": {
+   "id": "TB300.trim.mirror.R.carrow_metro.df8f4a",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     802944,
+     96
+    ],
+    "glass_dark": [
+     805248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.319,
+     1.4834,
+     0.0398,
+     0.2021,
+     0.1632,
+     0.0796
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.mirror.L.carrow_metro.23029c": {
+   "id": "TB300.trim.mirror.L.carrow_metro.23029c",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     806112,
+     96
+    ],
+    "glass_dark": [
+     808416,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.319,
+     1.4834,
+     0.0398,
+     0.2021,
+     0.1632,
+     0.0796
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_fender.R.carrow_metro.c8ec53": {
+   "id": "TB300.trim.livery_fender.R.carrow_metro.c8ec53",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     809280,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.2236,
+     0.96,
+     0.085,
+     0.0409,
+     0.68,
+     0.17
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_post_0.R.carrow_metro.59e937": {
+   "id": "TB300.trim.livery_post_0.R.carrow_metro.59e937",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_post_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     810432,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.96,
+     0.83,
+     0.02,
+     0.68,
+     1.66
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_quarter_0.R.carrow_metro.185619": {
+   "id": "TB300.trim.livery_quarter_0.R.carrow_metro.185619",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_quarter_0",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     817920,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.96,
+     1.4895,
+     0.02,
+     0.68,
+     2.979
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_quarter_1.R.carrow_metro.04b59b": {
+   "id": "TB300.trim.livery_quarter_1.R.carrow_metro.04b59b",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_quarter_1",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     831744,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     1.255,
+     0.531,
+     0.02,
+     0.09,
+     1.062
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_quarter_2.R.carrow_metro.c2b435": {
+   "id": "TB300.trim.livery_quarter_2.R.carrow_metro.c2b435",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_quarter_2",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_quarter_2/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     836352,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     1.2405,
+     0.96,
+     0.5945,
+     0.02,
+     0.68,
+     1.189
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.leaf_trim.livery_door_E.R.carrow_metro.57d758": {
+   "id": "TB300.leaf_trim.livery_door_E.R.carrow_metro.57d758",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "leaf_trim",
+   "slot": "livery_door_E",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/leaf_trim/livery_door_E/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     841536,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.97,
+     0.38,
+     0.02,
+     0.66,
+     0.76
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.leaf_trim.livery_door_M.R.carrow_metro.c3cecc": {
+   "id": "TB300.leaf_trim.livery_door_M.R.carrow_metro.c3cecc",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "leaf_trim",
+   "slot": "livery_door_M",
+   "side": "R",
+   "style": "carrow_metro",
+   "interface": "TB300/leaf_trim/livery_door_M/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     844992,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     1.244,
+     0.97,
+     0.57,
+     0.02,
+     0.66,
+     1.14
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TB300.trim.livery_fender.L.carrow_metro.570ee0": {
+   "id": "TB300.trim.livery_fender.L.carrow_metro.570ee0",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     850176,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.2236,
+     0.96,
+     0.145,
+     0.0409,
+     0.68,
+     0.29
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_fore_0.L.carrow_metro.beed02": {
+   "id": "TB300.trim.livery_fore_0.L.carrow_metro.beed02",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_fore_0",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_fore_0/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     851328,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     0.96,
+     0.9405,
+     0.02,
+     0.68,
+     1.881
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_fore_1.L.carrow_metro.32c174": {
+   "id": "TB300.trim.livery_fore_1.L.carrow_metro.32c174",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_fore_1",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_fore_1/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     859968,
+     912
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     0.96,
+     2.369,
+     0.02,
+     0.68,
+     4.738
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_fore_2.L.carrow_metro.cb6b7b": {
+   "id": "TB300.trim.livery_fore_2.L.carrow_metro.cb6b7b",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_fore_2",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_fore_2/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     881856,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.244,
+     1.255,
+     0.531,
+     0.02,
+     0.09,
+     1.062
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.trim.livery_fore_3.L.carrow_metro.df9818": {
+   "id": "TB300.trim.livery_fore_3.L.carrow_metro.df9818",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "trim",
+   "slot": "livery_fore_3",
+   "side": "L",
+   "style": "carrow_metro",
+   "interface": "TB300/trim/livery_fore_3/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     886464,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -1.2405,
+     0.96,
+     0.5945,
+     0.02,
+     0.68,
+     1.189
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "TB300.equipment.dest_sign.C.carrow_metro.18e4ad": {
+   "id": "TB300.equipment.dest_sign.C.carrow_metro.18e4ad",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "equipment",
+   "slot": "dest_sign",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/equipment/dest_sign/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     891648,
+     36
+    ],
+    "lcd": [
+     892512,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.555,
+     0.032,
+     1.6,
+     0.2,
+     0.064
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.25
+  },
+  "TB300.equipment.roof_ac.C.carrow_metro.4f60c0": {
+   "id": "TB300.equipment.roof_ac.C.carrow_metro.4f60c0",
+   "standard": "TB300",
+   "class": "transit_bus",
+   "role": "equipment",
+   "slot": "roof_ac",
+   "side": "C",
+   "style": "carrow_metro",
+   "interface": "TB300/equipment/roof_ac/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     893376,
+     108
+    ],
+    "paint2": [
+     895968,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.805,
+     3.425,
+     0.9,
+     0.25,
+     6.85
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

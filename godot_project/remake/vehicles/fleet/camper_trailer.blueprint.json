@@ -1,0 +1,179 @@
+{
+ "_about": "camper_trailer on the TC500 standard (a trailer; remake/blender/fleet/build.py)",
+ "type": "camper_trailer",
+ "standard": "TC500",
+ "class": "camper_trailer",
+ "style": "harrow_camper_trailer",
+ "kind": "trailer",
+ "board": "harrow_tr50",
+ "stations": [
+  -2.47,
+  -1.72,
+  -0.97,
+  -0.8,
+  0.8,
+  1.28,
+  1.715,
+  2.03,
+  2.47
+ ],
+ "placements": [
+  [
+   "cargo_side_R",
+   "TC500.cargo_wall.cargo_side.R.harrow_camper_trailer.a77fe8",
+   -2.5
+  ],
+  [
+   "cargo_lining_R",
+   "TC500.cargo_lining.cargo_side.R.harrow_camper_trailer.efe7ca",
+   -2.5
+  ],
+  [
+   "cargo_reveal_W1_R",
+   "TC500.reveal.cargo_window_W1.R.harrow_camper_trailer.09f201",
+   -1.9
+  ],
+  [
+   "cargo_pane_W1_R",
+   "TC500.glazing.cargo_window_W1.R.harrow_camper_trailer.089c9f",
+   -1.9
+  ],
+  [
+   "cargo_side_L",
+   "TC500.cargo_wall.cargo_side.L.harrow_camper_trailer.59b2f9",
+   -2.5
+  ],
+  [
+   "cargo_lining_L",
+   "TC500.cargo_lining.cargo_side.L.harrow_camper_trailer.8cb76c",
+   -2.5
+  ],
+  [
+   "cargo_reveal_W1_L",
+   "TC500.reveal.cargo_window_W1.L.harrow_camper_trailer.e4926c",
+   -1.9
+  ],
+  [
+   "cargo_pane_W1_L",
+   "TC500.glazing.cargo_window_W1.L.harrow_camper_trailer.cc46fa",
+   -1.9
+  ],
+  [
+   "cargo_reveal_W2_L",
+   "TC500.reveal.cargo_window_W2.L.harrow_camper_trailer.16b1cb",
+   0.9
+  ],
+  [
+   "cargo_pane_W2_L",
+   "TC500.glazing.cargo_window_W2.L.harrow_camper_trailer.a41b37",
+   0.9
+  ],
+  [
+   "cargo_floor",
+   "TC500.cargo_floor.cargo_floor.C.harrow_camper_trailer.3c4676",
+   -2.5
+  ],
+  [
+   "cargo_front",
+   "TC500.cargo_wall.cargo_front.C.harrow_camper_trailer.7b9002",
+   -2.5
+  ],
+  [
+   "cargo_front_lining",
+   "TC500.cargo_lining.cargo_front.C.harrow_camper_trailer.cdc4b1",
+   -2.44
+  ],
+  [
+   "cargo_roof",
+   "TC500.cargo_wall.cargo_roof.C.harrow_camper_trailer.473391",
+   -2.5
+  ],
+  [
+   "cargo_ceiling",
+   "TC500.cargo_lining.cargo_roof.C.harrow_camper_trailer.913910",
+   -2.44
+  ],
+  [
+   "cargo_rear_frame",
+   "TC500.cargo_wall.cargo_rear.C.harrow_camper_trailer.b7d770",
+   2.5
+  ],
+  [
+   "cargo_rear_lining",
+   "TC500.cargo_lining.cargo_rear.C.harrow_camper_trailer.c3f605",
+   2.44
+  ],
+  [
+   "cdoor_E_R",
+   "TC500.door_leaf.cdoor_E.R.harrow_camper_trailer.06e0a1",
+   0.883
+  ],
+  [
+   "tail_lamps",
+   "TC500.lamp.tail_lamp.C.harrow_camper_trailer.baa637",
+   -2.52
+  ]
+ ],
+ "doors": [
+  {
+   "id": "cdoor_E_R",
+   "side": "R",
+   "z": 1.28,
+   "width": 0.8,
+   "sill": 0.77,
+   "head": 2.75
+  }
+ ],
+ "closers": [
+  {
+   "id": "cdoor_E_R",
+   "kind": "door",
+   "side": "R",
+   "parts": [
+    "cdoor_E_R"
+   ],
+   "hinge": [
+    1.15,
+    0.77,
+    0.88
+   ],
+   "axis": [
+    0.0,
+    1.0,
+    -0.0
+   ],
+   "open_deg": 95
+  }
+ ],
+ "length_front": 2.5,
+ "length_back": 2.5,
+ "platform": {
+  "half_w": 0.72,
+  "y": 0.49,
+  "z": [
+   -2.5,
+   2.5
+  ]
+ },
+ "cabin_points": [],
+ "markers": [
+  [
+   "light_tail_R",
+   [
+    1.01,
+    0.77,
+    2.55
+   ],
+   3.1416
+  ],
+  [
+   "light_tail_L",
+   [
+    -1.01,
+    0.77,
+    2.55
+   ],
+   3.1416
+  ]
+ ]
+}

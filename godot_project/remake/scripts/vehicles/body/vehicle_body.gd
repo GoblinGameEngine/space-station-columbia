@@ -50,7 +50,17 @@ static func warm(bp_path: String) -> void:
 	_plans_mx.unlock()
 
 
+static var _bp_time := {}
+
+
 static func prepare(bp_path: String, from_task := false) -> Dictionary:
+	# (a blueprint rebuilt since its plan was made: plan it again, from a refreshed library)
+	var mt := FileAccess.get_modified_time(bp_path)
+	_plans_mx.lock()
+	if _plans.has(bp_path) and int(_bp_time.get(bp_path, mt)) != mt:
+		_plans.erase(bp_path)
+	_bp_time[bp_path] = mt
+	_plans_mx.unlock()
 	_plans_mx.lock()
 	var got = _plans.get(bp_path)
 	var task: int = _tasks.get(bp_path, -1)
@@ -68,6 +78,7 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 	var bp = JSON.parse_string(FileAccess.get_file_as_string(bp_path))
 	if not bp is Dictionary:
 		return {}
+	VehicleLibrary.refresh(str(bp.standard))
 	var std := VehicleLibrary.standard(str(bp.standard))
 	var cat := VehicleLibrary.catalog(str(bp.standard))
 	# where the sides are open: the doors (from the blueprint) and the windows (the glazing's extent)

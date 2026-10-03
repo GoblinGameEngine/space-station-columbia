@@ -1,0 +1,2521 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "HX250",
+ "class": "semi_truck",
+ "style": "harrow_semi_truck",
+ "pack": "res://remake/vehicles/components/HX250/harrow_semi_truck.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.1176,
+    0.2353,
+    0.4314
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1176,
+    0.2353,
+    0.4314
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "HX250.end_cap.nose.C.harrow_semi_truck.e8a142": {
+   "id": "HX250.end_cap.nose.C.harrow_semi_truck.e8a142",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.3368,
+     1.7,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.trim.cowl.C.harrow_semi_truck.ab6430": {
+   "id": "HX250.trim.cowl.C.harrow_semi_truck.ab6430",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1625,
+     0.03,
+     2.4016,
+     0.155,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.glazing.screen.C.harrow_semi_truck.ddade5": {
+   "id": "HX250.glazing.screen.C.harrow_semi_truck.ddade5",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.19,
+     2.4016,
+     0.82,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HX250.trim.screen.C.harrow_semi_truck.595a2a": {
+   "id": "HX250.trim.screen.C.harrow_semi_truck.595a2a",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5041,
+     0.19,
+     2.4016,
+     0.7362,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.side_bay.fender.R.harrow_semi_truck.134711": {
+   "id": "HX250.side_bay.fender.R.harrow_semi_truck.134711",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.trim.sail.R.harrow_semi_truck.1df8e6": {
+   "id": "HX250.trim.sail.R.harrow_semi_truck.1df8e6",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.trim.a_pillar.R.harrow_semi_truck.8817db": {
+   "id": "HX250.trim.a_pillar.R.harrow_semi_truck.8817db",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.side_bay.rocker_F.R.harrow_semi_truck.2b3fa7": {
+   "id": "HX250.side_bay.rocker_F.R.harrow_semi_truck.2b3fa7",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22824,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.side_bay.quarter.R.harrow_semi_truck.87f3bb": {
+   "id": "HX250.side_bay.quarter.R.harrow_semi_truck.87f3bb",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24408,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.side_bay.fender.L.harrow_semi_truck.11794d": {
+   "id": "HX250.side_bay.fender.L.harrow_semi_truck.11794d",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29016,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.trim.sail.L.harrow_semi_truck.e655ea": {
+   "id": "HX250.trim.sail.L.harrow_semi_truck.e655ea",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31896,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.trim.a_pillar.L.harrow_semi_truck.29f708": {
+   "id": "HX250.trim.a_pillar.L.harrow_semi_truck.29f708",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.side_bay.rocker_F.L.harrow_semi_truck.6de05f": {
+   "id": "HX250.side_bay.rocker_F.L.harrow_semi_truck.6de05f",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34488,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.side_bay.quarter.L.harrow_semi_truck.cbdc15": {
+   "id": "HX250.side_bay.quarter.L.harrow_semi_truck.cbdc15",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36072,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.roof_bay.roof_0.C.harrow_semi_truck.1ee1c7": {
+   "id": "HX250.roof_bay.roof_0.C.harrow_semi_truck.1ee1c7",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40680,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.79,
+     0.78,
+     2.36,
+     0.34,
+     1.56
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HX250.end_cap.tail.C.harrow_semi_truck.35d74e": {
+   "id": "HX250.end_cap.tail.C.harrow_semi_truck.35d74e",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     68328,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.69,
+     0.03,
+     2.4606,
+     2.54,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HX250.floor.floor.C.harrow_semi_truck.83a79b": {
+   "id": "HX250.floor.floor.C.harrow_semi_truck.83a79b",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     75168,
+     1140
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.97,
+     2.36,
+     0.02,
+     1.94
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HX250.lining_bay.trim_0_0.R.harrow_semi_truck.7955a8": {
+   "id": "HX250.lining_bay.trim_0_0.R.harrow_semi_truck.7955a8",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102528,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.lining_bay.trim_1_0.R.harrow_semi_truck.94d875": {
+   "id": "HX250.lining_bay.trim_1_0.R.harrow_semi_truck.94d875",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     104832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.lining_bay.a_pillar.R.harrow_semi_truck.8d3261": {
+   "id": "HX250.lining_bay.a_pillar.R.harrow_semi_truck.8d3261",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     108288,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.lining_bay.trim_0_0.L.harrow_semi_truck.f02dc8": {
+   "id": "HX250.lining_bay.trim_0_0.L.harrow_semi_truck.f02dc8",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     109152,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.lining_bay.trim_1_0.L.harrow_semi_truck.ade088": {
+   "id": "HX250.lining_bay.trim_1_0.L.harrow_semi_truck.ade088",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     111456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.lining_bay.a_pillar.L.harrow_semi_truck.0b5598": {
+   "id": "HX250.lining_bay.a_pillar.L.harrow_semi_truck.0b5598",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     114912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.ceiling_bay.roof_0.C.harrow_semi_truck.ac1574": {
+   "id": "HX250.ceiling_bay.roof_0.C.harrow_semi_truck.ac1574",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     115776,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.76,
+     0.78,
+     2.24,
+     0.28,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.end_lining.firewall.C.harrow_semi_truck.e7dd14": {
+   "id": "HX250.end_lining.firewall.C.harrow_semi_truck.e7dd14",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     143424,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.74,
+     0.0,
+     2.35,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.end_lining.rear_wall.C.harrow_semi_truck.b7b51e": {
+   "id": "HX250.end_lining.rear_wall.C.harrow_semi_truck.b7b51e",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1,
+     -0.0,
+     2.35,
+     1.6,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.reveal.rear_opening.C.harrow_semi_truck.0e69b0": {
+   "id": "HX250.reveal.rear_opening.C.harrow_semi_truck.0e69b0",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     148320,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     0.03,
+     1.2,
+     0.35,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.glazing.back_window.C.harrow_semi_truck.50932f": {
+   "id": "HX250.glazing.back_window.C.harrow_semi_truck.50932f",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     151200,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     -0.0,
+     1.2,
+     0.35,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HX250.reveal.door_F.R.harrow_semi_truck.313e92": {
+   "id": "HX250.reveal.door_F.R.harrow_semi_truck.313e92",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     152496,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.reveal.door_F.L.harrow_semi_truck.5ec1ed": {
+   "id": "HX250.reveal.door_F.L.harrow_semi_truck.5ec1ed",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     156240,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.reveal.screen.C.harrow_semi_truck.96a153": {
+   "id": "HX250.reveal.screen.C.harrow_semi_truck.96a153",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     159984,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.532,
+     0.19,
+     2.4016,
+     0.856,
+     0.38
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HX250.door_leaf.door_F.R.harrow_semi_truck.69b437": {
+   "id": "HX250.door_leaf.door_F.R.harrow_semi_truck.69b437",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     163152,
+     54
+    ],
+    "paint": [
+     164448,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HX250.door_glass.door_F.R.harrow_semi_truck.df70b4": {
+   "id": "HX250.door_glass.door_F.R.harrow_semi_truck.df70b4",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     168624,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HX250.leaf_trim.handle_F.R.harrow_semi_truck.355d68": {
+   "id": "HX250.leaf_trim.handle_F.R.harrow_semi_truck.355d68",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     172512,
+     36
+    ],
+    "dash": [
+     173376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HX250.door_leaf.door_F.L.harrow_semi_truck.da5cd6": {
+   "id": "HX250.door_leaf.door_F.L.harrow_semi_truck.da5cd6",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     174240,
+     54
+    ],
+    "paint": [
+     175536,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HX250.door_glass.door_F.L.harrow_semi_truck.562223": {
+   "id": "HX250.door_glass.door_F.L.harrow_semi_truck.562223",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HX250.leaf_trim.handle_F.L.harrow_semi_truck.26797b": {
+   "id": "HX250.leaf_trim.handle_F.L.harrow_semi_truck.26797b",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     183600,
+     36
+    ],
+    "dash": [
+     184464,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HX250.wheel_well.well_0.R.harrow_semi_truck.bf3ef5": {
+   "id": "HX250.wheel_well.well_0.R.harrow_semi_truck.bf3ef5",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     185328,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     0.9675,
+     0.8008,
+     0.5918,
+     0.5689,
+     0.7623,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HX250.wheel_well.well_0.L.harrow_semi_truck.ddfe78": {
+   "id": "HX250.wheel_well.well_0.L.harrow_semi_truck.ddfe78",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     200592,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     -0.9676,
+     0.8007,
+     0.5918,
+     0.5692,
+     0.7622,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HX250.wheel_well.steps.R.harrow_semi_truck.678b2e": {
+   "id": "HX250.wheel_well.steps.R.harrow_semi_truck.678b2e",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/wheel_well/steps/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     215856,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HX250.wheel_well.steps.L.harrow_semi_truck.7f9700": {
+   "id": "HX250.wheel_well.steps.L.harrow_semi_truck.7f9700",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/wheel_well/steps/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     218448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HX250.underpan.underpan.C.harrow_semi_truck.dbfced": {
+   "id": "HX250.underpan.underpan.C.harrow_semi_truck.dbfced",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     221040,
+     330
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4625,
+     1.06,
+     2.42,
+     0.085,
+     2.12
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_wall.cargo_plinth.C.harrow_semi_truck.eee04d": {
+   "id": "HX250.cargo_wall.cargo_plinth.C.harrow_semi_truck.eee04d",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     228960,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8725,
+     3.3,
+     1.68,
+     0.735,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_wall.cargo_side.R.harrow_semi_truck.84a735": {
+   "id": "HX250.cargo_wall.cargo_side.R.harrow_semi_truck.84a735",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     229680,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.1,
+     1.345,
+     3.3,
+     0.02,
+     0.21,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_lining.cargo_side.R.harrow_semi_truck.9fe848": {
+   "id": "HX250.cargo_lining.cargo_side.R.harrow_semi_truck.9fe848",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     233712,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.04,
+     1.375,
+     3.3,
+     0.02,
+     0.15,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_wall.cargo_rail.R.harrow_semi_truck.cab7c9": {
+   "id": "HX250.cargo_wall.cargo_rail.R.harrow_semi_truck.cab7c9",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_rail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     237744,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     1.3,
+     3.3,
+     0.06,
+     0.02,
+     6.6
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_wall.cargo_side.L.harrow_semi_truck.b07c8d": {
+   "id": "HX250.cargo_wall.cargo_side.L.harrow_semi_truck.b07c8d",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     237888,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.1,
+     1.345,
+     3.3,
+     0.02,
+     0.21,
+     6.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_lining.cargo_side.L.harrow_semi_truck.97c5f4": {
+   "id": "HX250.cargo_lining.cargo_side.L.harrow_semi_truck.97c5f4",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     241920,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.04,
+     1.375,
+     3.3,
+     0.02,
+     0.15,
+     6.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_wall.cargo_rail.L.harrow_semi_truck.d513cb": {
+   "id": "HX250.cargo_wall.cargo_rail.L.harrow_semi_truck.d513cb",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_rail",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_rail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     245952,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     1.3,
+     3.3,
+     0.06,
+     0.02,
+     6.6
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_floor.cargo_floor.C.harrow_semi_truck.b0afcb": {
+   "id": "HX250.cargo_floor.cargo_floor.C.harrow_semi_truck.b0afcb",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     246096,
+     18
+    ],
+    "tub": [
+     246528,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     3.3,
+     2.2,
+     0.06,
+     6.6
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HX250.cargo_wall.cargo_front.C.harrow_semi_truck.a0748b": {
+   "id": "HX250.cargo_wall.cargo_front.C.harrow_semi_truck.a0748b",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     246672,
+     6
+    ],
+    "paint2": [
+     246816,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.2,
+     0.06,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_lining.cargo_front.C.harrow_semi_truck.3592ce": {
+   "id": "HX250.cargo_lining.cargo_front.C.harrow_semi_truck.3592ce",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     246960,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.0,
+     2.08,
+     0.02,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.cargo_wall.cargo_rear.C.harrow_semi_truck.c7ef31": {
+   "id": "HX250.cargo_wall.cargo_rear.C.harrow_semi_truck.c7ef31",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     247104,
+     24
+    ],
+    "paint2": [
+     247680,
+     9
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.2,
+     0.06,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HX250.seat.row_0.C.harrow_semi_truck.99ac7a": {
+   "id": "HX250.seat.row_0.C.harrow_semi_truck.99ac7a",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     247896,
+     108
+    ],
+    "seat": [
+     250488,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9246,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HX250.dash.dash.C.harrow_semi_truck.fc68d2": {
+   "id": "HX250.dash.dash.C.harrow_semi_truck.fc68d2",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     258264,
+     1236
+    ],
+    "chrome": [
+     287928,
+     120
+    ],
+    "dash": [
+     290808,
+     108
+    ],
+    "gauge": [
+     293400,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.3676,
+     2.2,
+     0.3901,
+     0.7351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "HX250.dash.readout.C.harrow_semi_truck.1447b4": {
+   "id": "HX250.dash.readout.C.harrow_semi_truck.1447b4",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     302616,
+     36
+    ],
+    "lcd": [
+     303480,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "HX250.lamp.head_lamp.C.harrow_semi_truck.387449": {
+   "id": "HX250.lamp.head_lamp.C.harrow_semi_truck.387449",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     304344,
+     72
+    ],
+    "lamp_amber": [
+     306072,
+     72
+    ],
+    "lamp_head": [
+     307800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.007,
+     2.1998,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HX250.trim.grille.C.harrow_semi_truck.47ae9c": {
+   "id": "HX250.trim.grille.C.harrow_semi_truck.47ae9c",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     309528,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.5698,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.lamp.tail_lamp.C.harrow_semi_truck.714cf7": {
+   "id": "HX250.lamp.tail_lamp.C.harrow_semi_truck.714cf7",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     312984,
+     12
+    ],
+    "lamp_amber": [
+     313272,
+     48
+    ],
+    "lamp_brake": [
+     314424,
+     36
+    ],
+    "lamp_reverse": [
+     315288,
+     48
+    ],
+    "lamp_tail": [
+     316440,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.801,
+     3.3035,
+     2.16,
+     1.702,
+     6.607
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HX250.lamp.side_marker.C.harrow_semi_truck.570188": {
+   "id": "HX250.lamp.side_marker.C.harrow_semi_truck.570188",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     324504,
+     72
+    ],
+    "lamp_tail": [
+     326232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     4.2,
+     2.4636,
+     0.21,
+     8.4
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HX250.lamp.id_lamp.C.harrow_semi_truck.238293": {
+   "id": "HX250.lamp.id_lamp.C.harrow_semi_truck.238293",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     327960,
+     180
+    ],
+    "lamp_tail": [
+     332280,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.921,
+     0.81,
+     2.22,
+     0.126,
+     1.62
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HX250.trim.bumper_front.C.harrow_semi_truck.b23fd7": {
+   "id": "HX250.trim.bumper_front.C.harrow_semi_truck.b23fd7",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     336600,
+     108
+    ],
+    "rubber": [
+     339192,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.trim.bumper_rear.C.harrow_semi_truck.940610": {
+   "id": "HX250.trim.bumper_rear.C.harrow_semi_truck.940610",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     340056,
+     108
+    ],
+    "rubber": [
+     342648,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.trim.mirror.R.harrow_semi_truck.5b90cb": {
+   "id": "HX250.trim.mirror.R.harrow_semi_truck.5b90cb",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     343512,
+     96
+    ],
+    "glass_dark": [
+     345816,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.trim.mirror.L.harrow_semi_truck.72e9a5": {
+   "id": "HX250.trim.mirror.L.harrow_semi_truck.72e9a5",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     346680,
+     96
+    ],
+    "glass_dark": [
+     348984,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HX250.equipment.fifth_wheel.C.harrow_semi_truck.c9ebd1": {
+   "id": "HX250.equipment.fifth_wheel.C.harrow_semi_truck.c9ebd1",
+   "standard": "HX250",
+   "class": "semi_truck",
+   "role": "equipment",
+   "slot": "fifth_wheel",
+   "side": "C",
+   "style": "harrow_semi_truck",
+   "interface": "HX250/equipment/fifth_wheel/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     349848,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.445,
+     1.635,
+     1.24,
+     0.51,
+     3.27
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 300,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

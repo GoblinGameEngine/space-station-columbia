@@ -31,6 +31,14 @@ RING_NAMES = ["skirt_R", "sill_R", "belt_R", "head_R", "cant_R", "roof_R", "crow
 _ARC = [0.92, 0.80, 0.60, 0.33, 0.0, -0.33, -0.60, -0.80]          # (fractions of arch_half: the round arches)
 
 
+def tyre_w(B):
+    """The board's tyre width (its wheel modules' size)."""
+    for m in B["modules"]:
+        if m["id"].startswith("wheel_"):
+            return 0.32 if B.get("family") == "steward" and B["wheel_r"] >= 0.35 else (0.24 if B.get("family") == "steward" else m["size"][0])
+    return 0.2
+
+
 def board(bid):
     for b in json.load(open(PLATFORMS))["boards"]:
         if b["id"] == bid:
@@ -38,9 +46,14 @@ def board(bid):
     raise KeyError(bid)
 
 
+E_HIGH = {"skirt": 0, "arch": 1, "sill": 2, "belt": 3, "head": 6, "cant": 8, "roof": 10, "crown": 12}
+
+
 class Loft:
     def __init__(self, spec):
         S = self.spec = spec
+        self.high = S.get("high_floor", False)               # (a cab over its wheels: the arch is below the door sill)
+        self.E = E_HIGH if self.high else E
         self.id = S["id"]
         B = self.board = board(S["board"])
         self.deck = 0.50
@@ -48,15 +61,22 @@ class Loft:
         self.wheel_r = B["wheel_r"]
         self.axles = [a["y"] for a in B["axles"]]
         self.track = B["track_m"]
+        self.tyre_w = tyre_w(B)
         # the wheel well's inner wall: clear of the pods / corners (their inner faces)
         pods = [m for m in B["modules"] if m["id"].startswith(("pod_", "corner_")) and m["id"][-1] in "LR"]
         inner = min(abs(m["pos"][0]) - m["size"][0] / 2 for m in pods) if pods else self.track / 2 - 0.30
-        self.well_x = S.get("well_x", round(min(inner - 0.03, self.track / 2 - self.wheel_r * 0.45 - 0.16), 3))
+        tw = tyre_w(B)
+        sweep = self.track / 2 - (tw / 2 * math.cos(math.radians(35)) + self.wheel_r * math.sin(math.radians(35))) - 0.06   # (a steered tyre's inner corner)
+        steers = any(a.get("steer") for a in B["axles"])
+        self.well_x = S.get("well_x", round(min(inner - 0.03, self.track / 2 - self.wheel_r * 0.45 - 0.16, sweep if steers else 9.0), 3))
         self.arch_half = S.get("arch_half", round(self.wheel_r + 0.10, 3))
         self.arch_r = S.get("arch_r", round(self.wheel_r + 0.18, 3))
         for k in ("nose", "tail", "half_w", "skirt", "sill", "floor", "belt", "head", "cant", "crown", "headliner"):
             setattr(self, k, S[k])
         self.arch_top = S.get("arch_top", round(self.wheel_r * 2 + 0.21, 3))
+        self.wheels_out = S.get("wheels_outside", False)    # (a body narrower than its track: no arches, no wells -- a tractor's)
+        if self.wheels_out:
+            self.arch_top = round(S["sill"] + 0.002, 4)
         self.arch_zc = self.arch_top - self.arch_r
         self.int_off = S.get("int_off", 0.06)
         self.tumble = S.get("tumble", 0.06)                   # the side leans in this much from the belt to the head
@@ -75,6 +95,8 @@ class Loft:
 
     # ------------------------------------------------------------ the shape
     def arch_z(self, y):
+        if getattr(self, "wheels_out", False):
+            return self.arch_top
         for ax in self.axles:
             d = abs(y - ax)
             if d <= self.arch_half + 1e-6:
@@ -135,7 +157,11 @@ class Loft:
     def ext_half(self, y):
         s = self.plan(y)
         az = self.arch_z(y)
-        pts = [(self.side_x(self.skirt), self.skirt), (self.side_x(self.sill), self.sill), (self.side_x(az), az)]
+        if self.high:
+            pts = [(self.side_x(self.skirt), self.skirt), (self.side_x(az), az), (self.side_x(self.sill), self.sill)]
+        else:
+            pts = [(self.side_x(self.skirt), self.skirt), (self.side_x(self.sill), self.sill), (self.side_x(az), az)]
+        E = self.E
         zn = self.zone(y)
         if zn != "green":                                     # a bonnet or a deck: the top is a lid over a tub
             hz = self.hood_z(y) if zn == "hood" else self.deck_z(y)
@@ -172,10 +198,12 @@ class Loft:
         return h + [(-x, z) for x, z in reversed(h[:-1])]
 
     def in_well(self, y):
+        if getattr(self, "wheels_out", False):
+            return False
         return any(ax - self.arch_half - 1e-6 <= y <= ax + self.arch_half + 1e-6 for ax in self.axles)
 
     def hump_z(self):
-        return round(self.arch_top + 0.05, 3)
+        return round(max(self.floor, self.arch_top + 0.05), 3)
 
     def int_half(self, y):
         hump = self.hump_z() if self.in_well(y) else self.floor
@@ -184,6 +212,7 @@ class Loft:
         eh = self.ext_half(y)
         s = self.plan(y)
         drop = self.crown - self.headliner
+        E = self.E
         for k in range(1, NE):
             x, z = eh[k]
             x /= s
@@ -196,6 +225,8 @@ class Loft:
                 zi = z - drop * (0.6 if k <= E["cant"] else 1.0)
             if k <= E["arch"]:
                 zi = max(zi, hump)
+            if self.high and k == E["sill"]:                  # (a cab-over cab's lining meets its floor's edge: no slot under the sill)
+                zi = hump
             out.append((xi * s, zi))
         return out
 
@@ -226,7 +257,7 @@ class Loft:
             ys |= {d["y0"], d["y1"]}
         for w in self.windows:
             ys |= {w["y0"], w["y1"]}
-        for ax in self.axles:
+        for ax in ([] if self.wheels_out else self.axles):
             if self.nose > ax > self.tail:
                 ys |= {ax + self.arch_half * f for f in _ARC} | {ax + self.arch_half, ax - self.arch_half}
                 for e in (ax + self.arch_half + 0.001, ax - self.arch_half - 0.001):     # (the hump's upright end walls)
@@ -248,7 +279,7 @@ class Loft:
         want = [self.nose - 0.03, self.toe + 0.025, self.header + 0.03, self.header - 0.02, self.tail_in - 0.03, self.tail + 0.03]
         if self.lid:
             want.append(self.lid[0] - 0.03)
-        for ax in self.axles:
+        for ax in ([] if self.wheels_out else self.axles):
             want += [ax + self.arch_half + 0.02, ax - self.arch_half - 0.02]
         for d in self.doors:
             want += [d["y0"] + 0.035, d["y1"] - 0.035]
@@ -288,6 +319,7 @@ class Loft:
         has_in = self.cab_end - (0.0 if self.rear["kind"] == "trunk" else 0.05) <= y <= self.toe   # (a trunk is outside)
         i = self.int_half(min(self.toe, max(self.cab_end, y))) if has_in else None
         R = self.rear
+        E = self.E
         in_a = self.header < y <= self.toe
         in_c = R["kind"] == "trunk" and R["c_foot"] + 0.05 <= y < R["c_top"]
         c_foot = R["kind"] == "trunk" and R["c_foot"] <= y < R["c_foot"] + 0.05      # (the C-pillar's foot: under the deck edge)
@@ -304,13 +336,15 @@ class Loft:
             if k in (E["head"], E["cant"]) and (in_a or in_c):
                 return pillar()
             if k in (E["head"], E["cant"]) and (self.toe < y < self.toe + 0.05 or c_foot):
-                return [round(e[E["belt"]][0] - 0.04, 4), round(self.belt - 0.06, 4)]
+                return [round(e[E["belt"]][0] - 0.03, 4), round(self.belt - 0.06, 4)]   # (clear of the pillar's lining too)
             if i is None and k > E["belt"]:
                 if k <= E["cant"]:
                     return [round(e[E["belt"]][0] - 0.05, 4), round(e[E["belt"]][1] - 0.02, 4)]
                 return [round(xe, 4), round(ze - 0.04, 4)]
             if k == E["skirt"]:
                 return [round(xe - 0.035, 4), round(ze + 0.035, 4)]
+            if self.high and k == E["sill"]:                     # (the cab's floor edge: in the floor slab)
+                return [round(xe - 0.035, 4), round(self.floor - 0.025, 4)]
             if i is None and k == E["belt"]:
                 return [round(xe - 0.035, 4), round(ze - 0.03, 4)]
             if i is None or k < E["belt"]:
@@ -329,6 +363,10 @@ class Loft:
             sl[1] = round(self.floor - 0.025, 4)
         pts = {"skirt": mid(E["skirt"]), "sill": sl, "belt": b, "head": h,
                "cant": mid(E["cant"]), "roof": mid(E["roof"]), "crown": mid(E["crown"])}
+        # (a side joint at least 2.2 cm inside the skin -- a tube's radius and a little -- where the ends taper)
+        for base in ("skirt", "sill", "belt", "head"):
+            xe = e[E[base]][0]
+            pts[base] = [round(min(pts[base][0], xe - 0.022), 4), pts[base][1]]
         out = []
         for nm in RING_NAMES:
             if nm == "floor_C":
@@ -382,3 +420,69 @@ class Loft:
                           "lamp": 0.02, "frunk_tub": 0.35, "cargo_wall": 0.12, "cargo_lining": 0.12, "cargo_floor": 1.0,
                           "equipment": 0.25, "leaf_trim": 0.06},
         }
+
+
+class TrailerLoft(Loft):
+    """A trailer: no cab, only a cargo module on unpowered running gear (the Harrow trailer boards). It stands in for
+    the loft wherever the builder's cargo, lamps and equipment ask for the board's numbers."""
+
+    def __init__(self, spec):
+        self.spec = S = spec
+        self.id = S["id"]
+        self.high = False
+        self.E = E
+        B = self.board = board(S["board"])
+        self.deck = B.get("deck_top_m", 0.50)                # (a micro board has its own, lower deck)
+        self.mount_x = B["mount_x_m"]
+        self.wheel_r = B["wheel_r"]
+        self.axles = [a["y"] for a in B["axles"]]
+        self.track = B["track_m"]
+        self.tyre_w = tyre_w(B)
+        self.well_x = max(0.08, self.track / 2 - self.wheel_r * 0.4 - 0.16)
+        if str(S["board"]).startswith("solana_m"):          # (a micro board's little wheels: a car's 21 cm of travel over them
+            self.arch_half = round(self.wheel_r + 0.06, 3)  #  put the arch above a kart's or a chair's whole body)
+            self.arch_r = round(self.wheel_r + 0.08, 3)
+            self.arch_top = round(self.wheel_r * 2 + 0.08, 3)
+        else:
+            self.arch_half = round(self.wheel_r + 0.10, 3)
+            self.arch_r = round(self.wheel_r + 0.18, 3)
+            self.arch_top = round(self.wheel_r * 2 + 0.21, 3)
+        self.arch_zc = self.arch_top - self.arch_r
+        C = S["cargo"]
+        self.half_w = C["half_w"]
+        self.skirt = C.get("skirt", 0.36)
+        self.floor = C["floor_z"]
+        self.nose = C["y0"]
+        self.tail = C["y1"]
+        self.crown = C.get("top_z") or C.get("rail_z") or (C.get("tank_z", 1.0) + C.get("tank_r", 0.5))
+        self.no_cab = True
+        self.doors, self.windows = [], []
+        self.stations, self.int_stations = [], []
+        self.front = {"kind": "none"}
+        self.rear = {"kind": "none"}
+        self.toe = self.header = self.nose
+        self.tail_in = self.cab_end = self.tail
+
+    def arch_z(self, y):
+        for ax in self.axles:
+            d = abs(y - ax)
+            if d <= self.arch_half + 1e-6:
+                return self.arch_zc + math.sqrt(max(0.0, self.arch_r ** 2 - d * d))
+        return self.arch_top
+
+    def standard(self):
+        S = self.spec
+        return {"id": self.id, "class": S["cls"], "about": S.get("about", ""), "board": S["board"], "trailer": True,
+                "outer_half_width": self.half_w, "inner_half_width": self.half_w - 0.06, "deck": self.deck, "floor": self.floor,
+                "skirt": self.skirt, "sill": self.floor, "belt": self.floor, "window": [self.floor, self.crown], "cant": self.crown,
+                "crown": self.crown, "arch_top": self.arch_top, "door": {"head": self.crown, "apertures": {}}, "axles": list(self.axles),
+                "arch_half": self.arch_half, "arch_r": self.arch_r, "arch_zc": self.arch_zc, "nose": self.nose, "tail": self.tail,
+                "toe": self.nose, "header": self.nose, "front": self.front, "rear": self.rear, "stations": [], "ring": [], "rings": [],
+                "end_inset": 0.0, "top_openings": [], "slots": {}, "no_arch": bool(S["cargo"].get("no_arch")),
+                "frame_shown": bool(S.get("open")) or S["cargo"]["kind"] in ("bed", "dump", "deck"),   # (an open tub's frame shows by design: the user, 2026-10-02)
+                "tubes": {"main_d": 0.030, "brace_d": 0.024, "material": "frame_tube", "exposed_inside": [], "exposed_outside": []},
+                "bolted": ["sill_R", "sill_L", "floor_C"], "stringers": RING_NAMES,
+                "frame": {"yield_strain": 0.012, "plastic": 0.85, "dent_stiffness": 120000.0, "min_energy": 3000.0, "max_dent": 0.35},
+                "detach_count": 3, "detach_share": 0.3, "pair_min": 0.25,
+                "tolerance": {"cargo_wall": 0.12, "cargo_lining": 0.12, "cargo_floor": 1.0, "equipment": 0.25, "lamp": 0.02, "trim": 0.20,
+                              "hatch": 0.06, "hatch_glass": 0.012, "glazing": 0.012, "door_leaf": 0.06, "leaf_trim": 0.06}}

@@ -1,0 +1,2964 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTCABIN_",
+ "class": "cabin_cruiser",
+ "style": "hull_cabin_cruiser",
+ "pack": "res://remake/vehicles/components/BTCABIN_/hull_cabin_cruiser.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.1647,
+    0.1804
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTCABIN_.side_bay.bottom_0.R.hull_cabin_cruiser.e5fe26": {
+   "id": "BTCABIN_.side_bay.bottom_0.R.hull_cabin_cruiser.e5fe26",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.8241,
+     0.104,
+     1.5,
+     1.6483,
+     1.5186,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_0.R.hull_cabin_cruiser.1fb2ab": {
+   "id": "BTCABIN_.lining_bay.bottom_0.R.hull_cabin_cruiser.1fb2ab",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.7761,
+     0.2,
+     1.5,
+     1.5523,
+     1.5186,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_0.L.hull_cabin_cruiser.1efa1f": {
+   "id": "BTCABIN_.side_bay.bottom_0.L.hull_cabin_cruiser.1efa1f",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     2304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.8241,
+     0.104,
+     1.5,
+     1.6483,
+     1.5186,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_0.L.hull_cabin_cruiser.dfafda": {
+   "id": "BTCABIN_.lining_bay.bottom_0.L.hull_cabin_cruiser.dfafda",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3456,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.7761,
+     0.2,
+     1.5,
+     1.5523,
+     1.5186,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_0.R.hull_cabin_cruiser.83f3d1": {
+   "id": "BTCABIN_.side_bay.topside_0.R.hull_cabin_cruiser.83f3d1",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.9004,
+     0.7984,
+     1.5,
+     1.7824,
+     1.7032,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_0.R.hull_cabin_cruiser.b9043d": {
+   "id": "BTCABIN_.lining_bay.topside_0.R.hull_cabin_cruiser.b9043d",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.8478,
+     0.8464,
+     1.5,
+     1.6956,
+     1.6072,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_0.L.hull_cabin_cruiser.c2df20": {
+   "id": "BTCABIN_.side_bay.topside_0.L.hull_cabin_cruiser.c2df20",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.9004,
+     0.7984,
+     1.5,
+     1.7824,
+     1.7032,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_0.L.hull_cabin_cruiser.f902f0": {
+   "id": "BTCABIN_.lining_bay.topside_0.L.hull_cabin_cruiser.f902f0",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.8478,
+     0.8464,
+     1.5,
+     1.6956,
+     1.6072,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_0.R.hull_cabin_cruiser.ed7feb": {
+   "id": "BTCABIN_.roof_bay.sidedeck_0.R.hull_cabin_cruiser.ed7feb",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     9216,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.8999,
+     1.578,
+     1.5,
+     1.7834,
+     0.1859,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_0.R.hull_cabin_cruiser.9f717b": {
+   "id": "BTCABIN_.lining_bay.sidedeck_0.R.hull_cabin_cruiser.9f717b",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9792,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.8478,
+     1.53,
+     1.5,
+     1.6956,
+     0.2399,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_0.L.hull_cabin_cruiser.9df72c": {
+   "id": "BTCABIN_.roof_bay.sidedeck_0.L.hull_cabin_cruiser.9df72c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.8999,
+     1.578,
+     1.5,
+     1.7834,
+     0.1859,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_0.L.hull_cabin_cruiser.3257cf": {
+   "id": "BTCABIN_.lining_bay.sidedeck_0.L.hull_cabin_cruiser.3257cf",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10944,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.8478,
+     1.53,
+     1.5,
+     1.6956,
+     0.2399,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_0.R.hull_cabin_cruiser.aeee63": {
+   "id": "BTCABIN_.roof_bay.deck_0.R.hull_cabin_cruiser.aeee63",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     11520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.7346,
+     1.608,
+     1.5,
+     1.4691,
+     0.2039,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_0.R.hull_cabin_cruiser.119613": {
+   "id": "BTCABIN_.lining_bay.deck_0.R.hull_cabin_cruiser.119613",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.6866,
+     1.512,
+     1.5,
+     1.3731,
+     0.2039,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_0.L.hull_cabin_cruiser.767152": {
+   "id": "BTCABIN_.roof_bay.deck_0.L.hull_cabin_cruiser.767152",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.7346,
+     1.608,
+     1.5,
+     1.4691,
+     0.2039,
+     3.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_0.L.hull_cabin_cruiser.5c95c6": {
+   "id": "BTCABIN_.lining_bay.deck_0.L.hull_cabin_cruiser.5c95c6",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.6866,
+     1.512,
+     1.5,
+     1.3731,
+     0.2039,
+     3.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_1.R.hull_cabin_cruiser.148453": {
+   "id": "BTCABIN_.side_bay.bottom_1.R.hull_cabin_cruiser.148453",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     -0.4766,
+     2.7,
+     1.84,
+     0.8468,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_1.R.hull_cabin_cruiser.88a80a": {
+   "id": "BTCABIN_.lining_bay.bottom_1.R.hull_cabin_cruiser.88a80a",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     18144,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.872,
+     -0.3806,
+     2.7,
+     1.744,
+     0.8468,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_1.L.hull_cabin_cruiser.b19339": {
+   "id": "BTCABIN_.side_bay.bottom_1.L.hull_cabin_cruiser.b19339",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     20160,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     -0.4766,
+     2.7,
+     1.84,
+     0.8468,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_1.L.hull_cabin_cruiser.bba034": {
+   "id": "BTCABIN_.lining_bay.bottom_1.L.hull_cabin_cruiser.bba034",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     22176,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.872,
+     -0.3806,
+     2.7,
+     1.744,
+     0.8468,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_1.R.hull_cabin_cruiser.0f4934": {
+   "id": "BTCABIN_.side_bay.topside_1.R.hull_cabin_cruiser.0f4934",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24192,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.8241,
+     0.6271,
+     2.7,
+     0.3517,
+     1.716,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_1.R.hull_cabin_cruiser.e37b0c": {
+   "id": "BTCABIN_.lining_bay.topside_1.R.hull_cabin_cruiser.e37b0c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     26208,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     1.7281,
+     0.6751,
+     2.7,
+     0.3517,
+     1.62,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_1.L.hull_cabin_cruiser.562622": {
+   "id": "BTCABIN_.side_bay.topside_1.L.hull_cabin_cruiser.562622",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28224,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.8241,
+     0.6271,
+     2.7,
+     0.3517,
+     1.716,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_1.L.hull_cabin_cruiser.79bbdd": {
+   "id": "BTCABIN_.lining_bay.topside_1.L.hull_cabin_cruiser.79bbdd",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     30240,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -1.7281,
+     0.6751,
+     2.7,
+     0.3517,
+     1.62,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_1.R.hull_cabin_cruiser.eee364": {
+   "id": "BTCABIN_.roof_bay.sidedeck_1.R.hull_cabin_cruiser.eee364",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32256,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     1.7346,
+     1.4532,
+     2.7,
+     0.5309,
+     0.1057,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_1.R.hull_cabin_cruiser.1bbfdb": {
+   "id": "BTCABIN_.lining_bay.sidedeck_1.R.hull_cabin_cruiser.1bbfdb",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     33264,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     1.6386,
+     1.4052,
+     2.7,
+     0.5309,
+     0.1597,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_1.L.hull_cabin_cruiser.e3608b": {
+   "id": "BTCABIN_.roof_bay.sidedeck_1.L.hull_cabin_cruiser.e3608b",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34272,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -1.7346,
+     1.4532,
+     2.7,
+     0.5309,
+     0.1057,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_1.L.hull_cabin_cruiser.67c4f3": {
+   "id": "BTCABIN_.lining_bay.sidedeck_1.L.hull_cabin_cruiser.67c4f3",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     35280,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     -1.6386,
+     1.4052,
+     2.7,
+     0.5309,
+     0.1597,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_1.R.hull_cabin_cruiser.ea621c": {
+   "id": "BTCABIN_.roof_bay.deck_1.R.hull_cabin_cruiser.ea621c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36288,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.82,
+     1.4832,
+     2.7,
+     1.64,
+     0.1237,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_1.R.hull_cabin_cruiser.da6f0b": {
+   "id": "BTCABIN_.lining_bay.deck_1.R.hull_cabin_cruiser.da6f0b",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38304,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.772,
+     1.3872,
+     2.7,
+     1.544,
+     0.1237,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_1.L.hull_cabin_cruiser.193b44": {
+   "id": "BTCABIN_.roof_bay.deck_1.L.hull_cabin_cruiser.193b44",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40320,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.82,
+     1.4832,
+     2.7,
+     1.64,
+     0.1237,
+     5.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_1.L.hull_cabin_cruiser.9c1e77": {
+   "id": "BTCABIN_.lining_bay.deck_1.L.hull_cabin_cruiser.9c1e77",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_1",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     42336,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.772,
+     1.3872,
+     2.7,
+     1.544,
+     0.1237,
+     5.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_2.R.hull_cabin_cruiser.11a951": {
+   "id": "BTCABIN_.side_bay.bottom_2.R.hull_cabin_cruiser.11a951",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44352,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     -0.5651,
+     0.05,
+     1.84,
+     0.6698,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_2.R.hull_cabin_cruiser.445938": {
+   "id": "BTCABIN_.lining_bay.bottom_2.R.hull_cabin_cruiser.445938",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44640,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.872,
+     -0.4691,
+     0.05,
+     1.744,
+     0.6698,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_2.L.hull_cabin_cruiser.d86f33": {
+   "id": "BTCABIN_.side_bay.bottom_2.L.hull_cabin_cruiser.d86f33",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44928,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     -0.5651,
+     0.05,
+     1.84,
+     0.6698,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_2.L.hull_cabin_cruiser.722f19": {
+   "id": "BTCABIN_.lining_bay.bottom_2.L.hull_cabin_cruiser.722f19",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45216,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.872,
+     -0.4691,
+     0.05,
+     1.744,
+     0.6698,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_2.R.hull_cabin_cruiser.4a1054": {
+   "id": "BTCABIN_.side_bay.topside_2.R.hull_cabin_cruiser.4a1054",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45504,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.92,
+     0.5861,
+     0.05,
+     0.16,
+     1.6326,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_2.R.hull_cabin_cruiser.3ef8b0": {
+   "id": "BTCABIN_.lining_bay.topside_2.R.hull_cabin_cruiser.3ef8b0",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45792,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.824,
+     0.6341,
+     0.05,
+     0.16,
+     1.5366,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_2.L.hull_cabin_cruiser.8d223c": {
+   "id": "BTCABIN_.side_bay.topside_2.L.hull_cabin_cruiser.8d223c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46080,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.92,
+     0.5861,
+     0.05,
+     0.16,
+     1.6326,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_2.L.hull_cabin_cruiser.225f82": {
+   "id": "BTCABIN_.lining_bay.topside_2.L.hull_cabin_cruiser.225f82",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46368,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.824,
+     0.6341,
+     0.05,
+     0.16,
+     1.5366,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_2.R.hull_cabin_cruiser.3047e5": {
+   "id": "BTCABIN_.roof_bay.sidedeck_2.R.hull_cabin_cruiser.3047e5",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46656,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.82,
+     1.4128,
+     0.05,
+     0.36,
+     0.0214,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_2.R.hull_cabin_cruiser.3d5ce8": {
+   "id": "BTCABIN_.lining_bay.sidedeck_2.R.hull_cabin_cruiser.3d5ce8",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46800,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.724,
+     1.3648,
+     0.05,
+     0.36,
+     0.0754,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_2.L.hull_cabin_cruiser.13090c": {
+   "id": "BTCABIN_.roof_bay.sidedeck_2.L.hull_cabin_cruiser.13090c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46944,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.82,
+     1.4128,
+     0.05,
+     0.36,
+     0.0214,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_2.L.hull_cabin_cruiser.01c12c": {
+   "id": "BTCABIN_.lining_bay.sidedeck_2.L.hull_cabin_cruiser.01c12c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.724,
+     1.3648,
+     0.05,
+     0.36,
+     0.0754,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_2.R.hull_cabin_cruiser.e50747": {
+   "id": "BTCABIN_.roof_bay.deck_2.R.hull_cabin_cruiser.e50747",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47232,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.82,
+     1.4428,
+     0.05,
+     1.64,
+     0.0394,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_2.R.hull_cabin_cruiser.b0ca3b": {
+   "id": "BTCABIN_.lining_bay.deck_2.R.hull_cabin_cruiser.b0ca3b",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47520,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.772,
+     1.3468,
+     0.05,
+     1.544,
+     0.0394,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_2.L.hull_cabin_cruiser.c8b8dc": {
+   "id": "BTCABIN_.roof_bay.deck_2.L.hull_cabin_cruiser.c8b8dc",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47808,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.82,
+     1.4428,
+     0.05,
+     1.64,
+     0.0394,
+     0.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_2.L.hull_cabin_cruiser.e25e54": {
+   "id": "BTCABIN_.lining_bay.deck_2.L.hull_cabin_cruiser.e25e54",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48096,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.772,
+     1.3468,
+     0.05,
+     1.544,
+     0.0394,
+     0.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_3.R.hull_cabin_cruiser.ee071a": {
+   "id": "BTCABIN_.side_bay.bottom_3.R.hull_cabin_cruiser.ee071a",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     48384,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     -0.5651,
+     1.55,
+     1.84,
+     0.6698,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_3.R.hull_cabin_cruiser.05e44b": {
+   "id": "BTCABIN_.lining_bay.bottom_3.R.hull_cabin_cruiser.05e44b",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.872,
+     -0.4691,
+     1.55,
+     1.744,
+     0.6698,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_3.L.hull_cabin_cruiser.fa19da": {
+   "id": "BTCABIN_.side_bay.bottom_3.L.hull_cabin_cruiser.fa19da",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     51264,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     -0.5651,
+     1.55,
+     1.84,
+     0.6698,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_3.L.hull_cabin_cruiser.daff36": {
+   "id": "BTCABIN_.lining_bay.bottom_3.L.hull_cabin_cruiser.daff36",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52704,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.872,
+     -0.4691,
+     1.55,
+     1.744,
+     0.6698,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_3.R.hull_cabin_cruiser.ec1d26": {
+   "id": "BTCABIN_.side_bay.topside_3.R.hull_cabin_cruiser.ec1d26",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     54144,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.8198,
+     0.5635,
+     1.55,
+     0.3604,
+     1.7289,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_3.R.hull_cabin_cruiser.1c0219": {
+   "id": "BTCABIN_.lining_bay.topside_3.R.hull_cabin_cruiser.1c0219",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     55584,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.7238,
+     0.6115,
+     1.55,
+     0.3604,
+     1.6329,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_3.L.hull_cabin_cruiser.72a0bd": {
+   "id": "BTCABIN_.side_bay.topside_3.L.hull_cabin_cruiser.72a0bd",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57024,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.8198,
+     0.5635,
+     1.55,
+     0.3604,
+     1.7289,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_3.L.hull_cabin_cruiser.3f6e7e": {
+   "id": "BTCABIN_.lining_bay.topside_3.L.hull_cabin_cruiser.3f6e7e",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58464,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.7238,
+     0.6115,
+     1.55,
+     0.3604,
+     1.6329,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_3.R.hull_cabin_cruiser.57e32d": {
+   "id": "BTCABIN_.roof_bay.sidedeck_3.R.hull_cabin_cruiser.57e32d",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59904,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.7307,
+     1.4257,
+     1.55,
+     0.5386,
+     0.0466,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_3.R.hull_cabin_cruiser.7184f4": {
+   "id": "BTCABIN_.lining_bay.sidedeck_3.R.hull_cabin_cruiser.7184f4",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     60624,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.6347,
+     1.3777,
+     1.55,
+     0.5386,
+     0.1006,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_3.L.hull_cabin_cruiser.1b3bb2": {
+   "id": "BTCABIN_.roof_bay.sidedeck_3.L.hull_cabin_cruiser.1b3bb2",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61344,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.7307,
+     1.4257,
+     1.55,
+     0.5386,
+     0.0466,
+     3.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_3.L.hull_cabin_cruiser.8d427a": {
+   "id": "BTCABIN_.lining_bay.sidedeck_3.L.hull_cabin_cruiser.8d427a",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.6347,
+     1.3777,
+     1.55,
+     0.5386,
+     0.1006,
+     3.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_4.R.hull_cabin_cruiser.0c50ef": {
+   "id": "BTCABIN_.side_bay.bottom_4.R.hull_cabin_cruiser.0c50ef",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     62784,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.8198,
+     -0.6005,
+     0.2,
+     1.6396,
+     0.5991,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_4.R.hull_cabin_cruiser.05f5cf": {
+   "id": "BTCABIN_.lining_bay.bottom_4.R.hull_cabin_cruiser.05f5cf",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63072,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.7718,
+     -0.5045,
+     0.2,
+     1.5436,
+     0.5991,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.bottom_4.L.hull_cabin_cruiser.c801d5": {
+   "id": "BTCABIN_.side_bay.bottom_4.L.hull_cabin_cruiser.c801d5",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     63360,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.8198,
+     -0.6005,
+     0.2,
+     1.6396,
+     0.5991,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.bottom_4.L.hull_cabin_cruiser.d0b145": {
+   "id": "BTCABIN_.lining_bay.bottom_4.L.hull_cabin_cruiser.d0b145",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63648,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.7718,
+     -0.5045,
+     0.2,
+     1.5436,
+     0.5991,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_4.R.hull_cabin_cruiser.d0ce23": {
+   "id": "BTCABIN_.side_bay.topside_4.R.hull_cabin_cruiser.d0ce23",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63936,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.6823,
+     0.5561,
+     0.2,
+     0.1998,
+     1.7545,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_4.R.hull_cabin_cruiser.bd1e1b": {
+   "id": "BTCABIN_.lining_bay.topside_4.R.hull_cabin_cruiser.bd1e1b",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64224,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.5863,
+     0.6041,
+     0.2,
+     0.1998,
+     1.6585,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.side_bay.topside_4.L.hull_cabin_cruiser.ac8ed6": {
+   "id": "BTCABIN_.side_bay.topside_4.L.hull_cabin_cruiser.ac8ed6",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     64512,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.6823,
+     0.5561,
+     0.2,
+     0.1998,
+     1.7545,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.lining_bay.topside_4.L.hull_cabin_cruiser.83570e": {
+   "id": "BTCABIN_.lining_bay.topside_4.L.hull_cabin_cruiser.83570e",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     64800,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.5863,
+     0.6041,
+     0.2,
+     0.1998,
+     1.6585,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_4.R.hull_cabin_cruiser.8a7e87": {
+   "id": "BTCABIN_.roof_bay.sidedeck_4.R.hull_cabin_cruiser.8a7e87",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.5963,
+     1.4412,
+     0.2,
+     0.3718,
+     0.0263,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_4.R.hull_cabin_cruiser.3bf5b8": {
+   "id": "BTCABIN_.lining_bay.sidedeck_4.R.hull_cabin_cruiser.3bf5b8",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.5003,
+     1.3932,
+     0.2,
+     0.3718,
+     0.0803,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.sidedeck_4.L.hull_cabin_cruiser.234f1f": {
+   "id": "BTCABIN_.roof_bay.sidedeck_4.L.hull_cabin_cruiser.234f1f",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65376,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.5963,
+     1.4412,
+     0.2,
+     0.3718,
+     0.0263,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.sidedeck_4.L.hull_cabin_cruiser.601811": {
+   "id": "BTCABIN_.lining_bay.sidedeck_4.L.hull_cabin_cruiser.601811",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65520,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.5003,
+     1.3932,
+     0.2,
+     0.3718,
+     0.0803,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_4.R.hull_cabin_cruiser.63372d": {
+   "id": "BTCABIN_.roof_bay.deck_4.R.hull_cabin_cruiser.63372d",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     65664,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.7307,
+     1.4712,
+     0.2,
+     1.4614,
+     0.0443,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_4.R.hull_cabin_cruiser.c40d9c": {
+   "id": "BTCABIN_.lining_bay.deck_4.R.hull_cabin_cruiser.c40d9c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65952,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.6827,
+     1.3752,
+     0.2,
+     1.3654,
+     0.0443,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.roof_bay.deck_4.L.hull_cabin_cruiser.08c33a": {
+   "id": "BTCABIN_.roof_bay.deck_4.L.hull_cabin_cruiser.08c33a",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66240,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.7307,
+     1.4712,
+     0.2,
+     1.4614,
+     0.0443,
+     0.4
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.lining_bay.deck_4.L.hull_cabin_cruiser.887b52": {
+   "id": "BTCABIN_.lining_bay.deck_4.L.hull_cabin_cruiser.887b52",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66528,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.6827,
+     1.3752,
+     0.2,
+     1.3654,
+     0.0443,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.reveal.cockpit.C.hull_cabin_cruiser.17e37f": {
+   "id": "BTCABIN_.reveal.cockpit.C.hull_cabin_cruiser.17e37f",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66816,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4077,
+     1.55,
+     3.28,
+     0.1606,
+     3.1
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCABIN_.end_cap.transom.C.hull_cabin_cruiser.1cc6b0": {
+   "id": "BTCABIN_.end_cap.transom.C.hull_cabin_cruiser.1cc6b0",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     69408,
+     36
+    ],
+    "paint": [
+     70272,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2967,
+     -0.0,
+     3.44,
+     2.3933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.end_cap.stem.C.hull_cabin_cruiser.3ce188": {
+   "id": "BTCABIN_.end_cap.stem.C.hull_cabin_cruiser.3ce188",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     71136,
+     3
+    ],
+    "paint": [
+     71208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.275,
+     -0.0,
+     0.02,
+     0.87,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCABIN_.trim.strake.C.hull_cabin_cruiser.522f35": {
+   "id": "BTCABIN_.trim.strake.C.hull_cabin_cruiser.522f35",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     72072,
+     1344
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4952,
+     6.0154,
+     4.1048,
+     0.319,
+     12.0307
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTCABIN_.cab.wheelhouse.C.hull_cabin_cruiser.f0d394": {
+   "id": "BTCABIN_.cab.wheelhouse.C.hull_cabin_cruiser.f0d394",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     104328,
+     108
+    ],
+    "paint2": [
+     106920,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.3509,
+     2.8,
+     3.2,
+     1.78,
+     5.6
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTCABIN_.glazing.wheelhouse.C.hull_cabin_cruiser.b72eb3": {
+   "id": "BTCABIN_.glazing.wheelhouse.C.hull_cabin_cruiser.b72eb3",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     107784,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5149,
+     2.69,
+     2.98,
+     0.442,
+     5.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTCABIN_.equipment.rail.C.hull_cabin_cruiser.b8e738": {
+   "id": "BTCABIN_.equipment.rail.C.hull_cabin_cruiser.b8e738",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "equipment",
+   "slot": "rail",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/equipment/rail/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     108648,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     2.2472,
+     5.3764,
+     3.8744,
+     0.2288,
+     10.7528
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

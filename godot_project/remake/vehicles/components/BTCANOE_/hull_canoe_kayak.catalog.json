@@ -1,0 +1,1937 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTCANOE_",
+ "class": "canoe_kayak",
+ "style": "hull_canoe_kayak",
+ "pack": "res://remake/vehicles/components/BTCANOE_/hull_canoe_kayak.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTCANOE_.side_bay.bottom_0.R.hull_canoe_kayak.7843c3": {
+   "id": "BTCANOE_.side_bay.bottom_0.R.hull_canoe_kayak.7843c3",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1608,
+     0.0917,
+     0.4,
+     0.3216,
+     0.2193,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.bottom_0.R.hull_canoe_kayak.7be31a": {
+   "id": "BTCANOE_.lining_bay.bottom_0.R.hull_canoe_kayak.7be31a",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1408,
+     0.1317,
+     0.4,
+     0.2816,
+     0.2193,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.bottom_0.L.hull_canoe_kayak.f2fd82": {
+   "id": "BTCANOE_.side_bay.bottom_0.L.hull_canoe_kayak.f2fd82",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     1728,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1608,
+     0.0917,
+     0.4,
+     0.3216,
+     0.2193,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.bottom_0.L.hull_canoe_kayak.7e59d3": {
+   "id": "BTCANOE_.lining_bay.bottom_0.L.hull_canoe_kayak.7e59d3",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     2592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1408,
+     0.1317,
+     0.4,
+     0.2816,
+     0.2193,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.topside_0.R.hull_canoe_kayak.88dded": {
+   "id": "BTCANOE_.side_bay.topside_0.R.hull_canoe_kayak.88dded",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     3456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1794,
+     0.3006,
+     0.4,
+     0.3404,
+     0.4988,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.topside_0.R.hull_canoe_kayak.7493ff": {
+   "id": "BTCANOE_.lining_bay.topside_0.R.hull_canoe_kayak.7493ff",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1548,
+     0.3206,
+     0.4,
+     0.3096,
+     0.4588,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.topside_0.L.hull_canoe_kayak.51a12f": {
+   "id": "BTCANOE_.side_bay.topside_0.L.hull_canoe_kayak.51a12f",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1794,
+     0.3006,
+     0.4,
+     0.3404,
+     0.4988,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.topside_0.L.hull_canoe_kayak.fc9e6a": {
+   "id": "BTCANOE_.lining_bay.topside_0.L.hull_canoe_kayak.fc9e6a",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1548,
+     0.3206,
+     0.4,
+     0.3096,
+     0.4588,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.sidedeck_0.R.hull_canoe_kayak.b7fa1e": {
+   "id": "BTCANOE_.roof_bay.sidedeck_0.R.hull_canoe_kayak.b7fa1e",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.1789,
+     0.5007,
+     0.4,
+     0.3414,
+     0.1406,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.sidedeck_0.R.hull_canoe_kayak.00c0b3": {
+   "id": "BTCANOE_.lining_bay.sidedeck_0.R.hull_canoe_kayak.00c0b3",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     7344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.1548,
+     0.4807,
+     0.4,
+     0.3096,
+     0.1386,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.sidedeck_0.L.hull_canoe_kayak.17fe9e": {
+   "id": "BTCANOE_.roof_bay.sidedeck_0.L.hull_canoe_kayak.17fe9e",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     7776,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.1789,
+     0.5007,
+     0.4,
+     0.3414,
+     0.1406,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.sidedeck_0.L.hull_canoe_kayak.b20eec": {
+   "id": "BTCANOE_.lining_bay.sidedeck_0.L.hull_canoe_kayak.b20eec",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8208,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.1548,
+     0.4807,
+     0.4,
+     0.3096,
+     0.1386,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.deck_0.R.hull_canoe_kayak.2d6bcc": {
+   "id": "BTCANOE_.roof_bay.deck_0.R.hull_canoe_kayak.2d6bcc",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     8640,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1433,
+     0.5307,
+     0.4,
+     0.2867,
+     0.1586,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.deck_0.R.hull_canoe_kayak.c2bf32": {
+   "id": "BTCANOE_.lining_bay.deck_0.R.hull_canoe_kayak.c2bf32",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1233,
+     0.4907,
+     0.4,
+     0.2467,
+     0.1586,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.deck_0.L.hull_canoe_kayak.3b4657": {
+   "id": "BTCANOE_.roof_bay.deck_0.L.hull_canoe_kayak.3b4657",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1433,
+     0.5307,
+     0.4,
+     0.2867,
+     0.1586,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.deck_0.L.hull_canoe_kayak.99fdc9": {
+   "id": "BTCANOE_.lining_bay.deck_0.L.hull_canoe_kayak.99fdc9",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     11232,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1233,
+     0.4907,
+     0.4,
+     0.2467,
+     0.1586,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.bottom_1.R.hull_canoe_kayak.910a69": {
+   "id": "BTCANOE_.side_bay.bottom_1.R.hull_canoe_kayak.910a69",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12096,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.207,
+     -0.0344,
+     1.6,
+     0.414,
+     0.1712,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.bottom_1.R.hull_canoe_kayak.643f3a": {
+   "id": "BTCANOE_.lining_bay.bottom_1.R.hull_canoe_kayak.643f3a",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.187,
+     0.0056,
+     1.6,
+     0.374,
+     0.1712,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.bottom_1.L.hull_canoe_kayak.147584": {
+   "id": "BTCANOE_.side_bay.bottom_1.L.hull_canoe_kayak.147584",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     17856,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.207,
+     -0.0344,
+     1.6,
+     0.414,
+     0.1712,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.bottom_1.L.hull_canoe_kayak.b71e6d": {
+   "id": "BTCANOE_.lining_bay.bottom_1.L.hull_canoe_kayak.b71e6d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     20736,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.187,
+     0.0056,
+     1.6,
+     0.374,
+     0.1712,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.topside_1.R.hull_canoe_kayak.46353d": {
+   "id": "BTCANOE_.side_bay.topside_1.R.hull_canoe_kayak.46353d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     23616,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.3858,
+     0.1968,
+     1.6,
+     0.1284,
+     0.4672,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.topside_1.R.hull_canoe_kayak.47e872": {
+   "id": "BTCANOE_.lining_bay.topside_1.R.hull_canoe_kayak.47e872",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     26496,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.3458,
+     0.2168,
+     1.6,
+     0.1284,
+     0.4272,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.topside_1.L.hull_canoe_kayak.4ac0f0": {
+   "id": "BTCANOE_.side_bay.topside_1.L.hull_canoe_kayak.4ac0f0",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29376,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.3858,
+     0.1968,
+     1.6,
+     0.1284,
+     0.4672,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.topside_1.L.hull_canoe_kayak.0729fd": {
+   "id": "BTCANOE_.lining_bay.topside_1.L.hull_canoe_kayak.0729fd",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     32256,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -0.3458,
+     0.2168,
+     1.6,
+     0.1284,
+     0.4272,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.sidedeck_1.R.hull_canoe_kayak.eaeb9d": {
+   "id": "BTCANOE_.roof_bay.sidedeck_1.R.hull_canoe_kayak.eaeb9d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     35136,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.3683,
+     0.3759,
+     1.6,
+     0.1633,
+     0.151,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.sidedeck_1.R.hull_canoe_kayak.03d28a": {
+   "id": "BTCANOE_.lining_bay.sidedeck_1.R.hull_canoe_kayak.03d28a",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     36576,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.3283,
+     0.3559,
+     1.6,
+     0.1633,
+     0.149,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.sidedeck_1.L.hull_canoe_kayak.a8fd71": {
+   "id": "BTCANOE_.roof_bay.sidedeck_1.L.hull_canoe_kayak.a8fd71",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     38016,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.3683,
+     0.3759,
+     1.6,
+     0.1633,
+     0.151,
+     3.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.sidedeck_1.L.hull_canoe_kayak.0a73ae": {
+   "id": "BTCANOE_.lining_bay.sidedeck_1.L.hull_canoe_kayak.0a73ae",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     39456,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -0.3283,
+     0.3559,
+     1.6,
+     0.1633,
+     0.149,
+     3.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.bottom_2.R.hull_canoe_kayak.725db4": {
+   "id": "BTCANOE_.side_bay.bottom_2.R.hull_canoe_kayak.725db4",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40896,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1608,
+     0.0716,
+     0.4,
+     0.3216,
+     0.1995,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.bottom_2.R.hull_canoe_kayak.c8c0da": {
+   "id": "BTCANOE_.lining_bay.bottom_2.R.hull_canoe_kayak.c8c0da",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     41760,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1408,
+     0.1116,
+     0.4,
+     0.2816,
+     0.1995,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.bottom_2.L.hull_canoe_kayak.486b4d": {
+   "id": "BTCANOE_.side_bay.bottom_2.L.hull_canoe_kayak.486b4d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     42624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1608,
+     0.0716,
+     0.4,
+     0.3216,
+     0.1995,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.bottom_2.L.hull_canoe_kayak.7a367b": {
+   "id": "BTCANOE_.lining_bay.bottom_2.L.hull_canoe_kayak.7a367b",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43488,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1408,
+     0.1116,
+     0.4,
+     0.2816,
+     0.1995,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.topside_2.R.hull_canoe_kayak.8b2e28": {
+   "id": "BTCANOE_.side_bay.topside_2.R.hull_canoe_kayak.8b2e28",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44352,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1794,
+     0.1872,
+     0.4,
+     0.3404,
+     0.2923,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.topside_2.R.hull_canoe_kayak.bcb00e": {
+   "id": "BTCANOE_.lining_bay.topside_2.R.hull_canoe_kayak.bcb00e",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     45216,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1548,
+     0.2072,
+     0.4,
+     0.3096,
+     0.2523,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.side_bay.topside_2.L.hull_canoe_kayak.2a54fa": {
+   "id": "BTCANOE_.side_bay.topside_2.L.hull_canoe_kayak.2a54fa",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     46080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1794,
+     0.1872,
+     0.4,
+     0.3404,
+     0.2923,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.lining_bay.topside_2.L.hull_canoe_kayak.06fb53": {
+   "id": "BTCANOE_.lining_bay.topside_2.L.hull_canoe_kayak.06fb53",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46944,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1548,
+     0.2072,
+     0.4,
+     0.3096,
+     0.2523,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.sidedeck_2.R.hull_canoe_kayak.13778d": {
+   "id": "BTCANOE_.roof_bay.sidedeck_2.R.hull_canoe_kayak.13778d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47808,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.1789,
+     0.3328,
+     0.4,
+     0.3414,
+     0.043,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.sidedeck_2.R.hull_canoe_kayak.7441c2": {
+   "id": "BTCANOE_.lining_bay.sidedeck_2.R.hull_canoe_kayak.7441c2",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48240,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.1548,
+     0.3128,
+     0.4,
+     0.3096,
+     0.041,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.sidedeck_2.L.hull_canoe_kayak.2b9ce8": {
+   "id": "BTCANOE_.roof_bay.sidedeck_2.L.hull_canoe_kayak.2b9ce8",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48672,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.1789,
+     0.3328,
+     0.4,
+     0.3414,
+     0.043,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.sidedeck_2.L.hull_canoe_kayak.8c4b87": {
+   "id": "BTCANOE_.lining_bay.sidedeck_2.L.hull_canoe_kayak.8c4b87",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49104,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.1548,
+     0.3128,
+     0.4,
+     0.3096,
+     0.041,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.deck_2.R.hull_canoe_kayak.58b93d": {
+   "id": "BTCANOE_.roof_bay.deck_2.R.hull_canoe_kayak.58b93d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49536,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1433,
+     0.3628,
+     0.4,
+     0.2867,
+     0.061,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.deck_2.R.hull_canoe_kayak.5be0d1": {
+   "id": "BTCANOE_.lining_bay.deck_2.R.hull_canoe_kayak.5be0d1",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50400,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.1233,
+     0.3228,
+     0.4,
+     0.2467,
+     0.061,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.roof_bay.deck_2.L.hull_canoe_kayak.20eb79": {
+   "id": "BTCANOE_.roof_bay.deck_2.L.hull_canoe_kayak.20eb79",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51264,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1433,
+     0.3628,
+     0.4,
+     0.2867,
+     0.061,
+     0.8
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.lining_bay.deck_2.L.hull_canoe_kayak.c1a42d": {
+   "id": "BTCANOE_.lining_bay.deck_2.L.hull_canoe_kayak.c1a42d",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52128,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.1233,
+     0.3228,
+     0.4,
+     0.2467,
+     0.061,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.reveal.cockpit.C.hull_canoe_kayak.2da1d5": {
+   "id": "BTCANOE_.reveal.cockpit.C.hull_canoe_kayak.2da1d5",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     52992,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.3859,
+     1.6,
+     0.738,
+     0.209,
+     3.2
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTCANOE_.end_cap.transom.C.hull_canoe_kayak.d12605": {
+   "id": "BTCANOE_.end_cap.transom.C.hull_canoe_kayak.d12605",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     57024,
+     3
+    ],
+    "paint": [
+     57096,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2717,
+     -0.0,
+     0.02,
+     0.2433,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.end_cap.stem.C.hull_canoe_kayak.e8de5a": {
+   "id": "BTCANOE_.end_cap.stem.C.hull_canoe_kayak.e8de5a",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     57960,
+     3
+    ],
+    "paint": [
+     58032,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.395,
+     0.0,
+     0.02,
+     0.43,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTCANOE_.trim.strake.C.hull_canoe_kayak.fe09a9": {
+   "id": "BTCANOE_.trim.strake.C.hull_canoe_kayak.fe09a9",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     58896,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     -0.0004,
+     0.3951,
+     2.4194,
+     1.0062,
+     0.3185,
+     4.8388
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTCANOE_.equipment.paddles.C.hull_canoe_kayak.79e40b": {
+   "id": "BTCANOE_.equipment.paddles.C.hull_canoe_kayak.79e40b",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "equipment",
+   "slot": "paddles",
+   "side": "C",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/equipment/paddles/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     87696,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4069,
+     0.0174,
+     2.14,
+     0.12,
+     0.0348
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTCANOE_.equipment.thwarts.C.hull_canoe_kayak.df0b4f": {
+   "id": "BTCANOE_.equipment.thwarts.C.hull_canoe_kayak.df0b4f",
+   "standard": "BTCANOE_",
+   "class": "canoe_kayak",
+   "role": "equipment",
+   "slot": "thwarts",
+   "side": "C",
+   "style": "hull_canoe_kayak",
+   "interface": "BTCANOE_/equipment/thwarts/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     90864,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1869,
+     1.1,
+     0.78,
+     0.04,
+     2.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

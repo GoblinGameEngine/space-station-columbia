@@ -1,0 +1,1168 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "TL500",
+ "class": "livestock_trailer",
+ "style": "harrow_livestock_trailer",
+ "pack": "res://remake/vehicles/components/TL500/harrow_livestock_trailer.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7451,
+    0.7529,
+    0.7686
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.7451,
+    0.7529,
+    0.7686
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "TL500.cargo_wall.cargo_side.R.harrow_livestock_trailer.f9bccb": {
+   "id": "TL500.cargo_wall.cargo_side.R.harrow_livestock_trailer.f9bccb",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     750
+    ],
+    "rubber": [
+     18000,
+     342
+    ]
+   },
+   "boxes": [
+    [
+     0.9,
+     1.38,
+     2.55,
+     0.4,
+     2.04,
+     5.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.cargo_lining.cargo_side.R.harrow_livestock_trailer.cd076d": {
+   "id": "TL500.cargo_lining.cargo_side.R.harrow_livestock_trailer.cd076d",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26208,
+     186
+    ],
+    "lining": [
+     30672,
+     654
+    ]
+   },
+   "boxes": [
+    [
+     0.8423,
+     1.35,
+     2.55,
+     0.3955,
+     1.98,
+     5.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.reveal.cargo_window_V0.R.harrow_livestock_trailer.4d0eb2": {
+   "id": "TL500.reveal.cargo_window_V0.R.harrow_livestock_trailer.4d0eb2",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V0",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     46368,
+     24
+    ],
+    "paint": [
+     46944,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V1.R.harrow_livestock_trailer.fcc648": {
+   "id": "TL500.reveal.cargo_window_V1.R.harrow_livestock_trailer.fcc648",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V1",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     49536,
+     24
+    ],
+    "paint": [
+     50112,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V2.R.harrow_livestock_trailer.ca2b65": {
+   "id": "TL500.reveal.cargo_window_V2.R.harrow_livestock_trailer.ca2b65",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V2",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     52704,
+     24
+    ],
+    "paint": [
+     53280,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V3.R.harrow_livestock_trailer.076836": {
+   "id": "TL500.reveal.cargo_window_V3.R.harrow_livestock_trailer.076836",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V3",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     55872,
+     24
+    ],
+    "paint": [
+     56448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V4.R.harrow_livestock_trailer.a6a3df": {
+   "id": "TL500.reveal.cargo_window_V4.R.harrow_livestock_trailer.a6a3df",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V4",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V4/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     59040,
+     24
+    ],
+    "paint": [
+     59616,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.cargo_wall.cargo_side.L.harrow_livestock_trailer.b7034d": {
+   "id": "TL500.cargo_wall.cargo_side.L.harrow_livestock_trailer.b7034d",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     62208,
+     750
+    ],
+    "rubber": [
+     80208,
+     342
+    ]
+   },
+   "boxes": [
+    [
+     -0.9,
+     1.38,
+     2.55,
+     0.4,
+     2.04,
+     5.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.cargo_lining.cargo_side.L.harrow_livestock_trailer.843c22": {
+   "id": "TL500.cargo_lining.cargo_side.L.harrow_livestock_trailer.843c22",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     88416,
+     186
+    ],
+    "lining": [
+     92880,
+     654
+    ]
+   },
+   "boxes": [
+    [
+     -0.8423,
+     1.35,
+     2.55,
+     0.3955,
+     1.98,
+     5.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.reveal.cargo_window_V0.L.harrow_livestock_trailer.e69f08": {
+   "id": "TL500.reveal.cargo_window_V0.L.harrow_livestock_trailer.e69f08",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V0",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     108576,
+     24
+    ],
+    "paint": [
+     109152,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V1.L.harrow_livestock_trailer.290d2b": {
+   "id": "TL500.reveal.cargo_window_V1.L.harrow_livestock_trailer.290d2b",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V1",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     111744,
+     24
+    ],
+    "paint": [
+     112320,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V2.L.harrow_livestock_trailer.819133": {
+   "id": "TL500.reveal.cargo_window_V2.L.harrow_livestock_trailer.819133",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V2",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     114912,
+     24
+    ],
+    "paint": [
+     115488,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V3.L.harrow_livestock_trailer.b6fe7e": {
+   "id": "TL500.reveal.cargo_window_V3.L.harrow_livestock_trailer.b6fe7e",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V3",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     118080,
+     24
+    ],
+    "paint": [
+     118656,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.reveal.cargo_window_V4.L.harrow_livestock_trailer.704752": {
+   "id": "TL500.reveal.cargo_window_V4.L.harrow_livestock_trailer.704752",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "reveal",
+   "slot": "cargo_window_V4",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/reveal/cargo_window_V4/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     121248,
+     24
+    ],
+    "paint": [
+     121824,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.07,
+     1.85,
+     0.35,
+     0.06,
+     0.6,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "TL500.cargo_floor.cargo_floor.C.harrow_livestock_trailer.a49942": {
+   "id": "TL500.cargo_floor.cargo_floor.C.harrow_livestock_trailer.a49942",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     124416,
+     6
+    ],
+    "tub": [
+     124560,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.59,
+     2.55,
+     2.08,
+     0.06,
+     5.1
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "TL500.cargo_wall.cargo_front.C.harrow_livestock_trailer.074686": {
+   "id": "TL500.cargo_wall.cargo_front.C.harrow_livestock_trailer.074686",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     125280,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.38,
+     -0.0,
+     2.2,
+     2.04,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.cargo_lining.cargo_front.C.harrow_livestock_trailer.4ff13c": {
+   "id": "TL500.cargo_lining.cargo_front.C.harrow_livestock_trailer.4ff13c",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     125424,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.48,
+     0.0,
+     2.08,
+     1.72,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.cargo_wall.cargo_roof.C.harrow_livestock_trailer.745c38": {
+   "id": "TL500.cargo_wall.cargo_roof.C.harrow_livestock_trailer.745c38",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     125568,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4,
+     2.55,
+     2.2,
+     0.02,
+     5.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.cargo_lining.cargo_roof.C.harrow_livestock_trailer.ccf316": {
+   "id": "TL500.cargo_lining.cargo_roof.C.harrow_livestock_trailer.ccf316",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     125712,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.34,
+     2.52,
+     2.08,
+     0.02,
+     5.04
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.cargo_wall.cargo_rear.C.harrow_livestock_trailer.da442f": {
+   "id": "TL500.cargo_wall.cargo_rear.C.harrow_livestock_trailer.da442f",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     125856,
+     24
+    ],
+    "paint": [
+     126432,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.38,
+     0.03,
+     2.2,
+     2.04,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "TL500.hatch.cargo_barn_R.R.harrow_livestock_trailer.b7213e": {
+   "id": "TL500.hatch.cargo_barn_R.R.harrow_livestock_trailer.b7213e",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "hatch",
+   "slot": "cargo_barn_R",
+   "side": "R",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/hatch/cargo_barn_R/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     127008,
+     36
+    ],
+    "paint": [
+     127872,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.51,
+     1.46,
+     0.032,
+     1.014,
+     1.674,
+     0.064
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TL500.hatch.cargo_barn_L.L.harrow_livestock_trailer.30d1aa": {
+   "id": "TL500.hatch.cargo_barn_L.L.harrow_livestock_trailer.30d1aa",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "hatch",
+   "slot": "cargo_barn_L",
+   "side": "L",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/hatch/cargo_barn_L/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     128736,
+     36
+    ],
+    "paint": [
+     129600,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.51,
+     1.46,
+     0.032,
+     1.014,
+     1.674,
+     0.064
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "TL500.lamp.tail_lamp.C.harrow_livestock_trailer.21d43d": {
+   "id": "TL500.lamp.tail_lamp.C.harrow_livestock_trailer.21d43d",
+   "standard": "TL500",
+   "class": "livestock_trailer",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "harrow_livestock_trailer",
+   "interface": "TL500/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     130464,
+     216
+    ],
+    "lamp_tail": [
+     135648,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.486,
+     2.57,
+     2.216,
+     1.732,
+     5.14
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  }
+ }
+}

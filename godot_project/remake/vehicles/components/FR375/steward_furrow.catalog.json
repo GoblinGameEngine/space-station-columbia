@@ -1,0 +1,2331 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "FR375",
+ "class": "row_crop_tractor",
+ "style": "steward_furrow",
+ "pack": "res://remake/vehicles/components/FR375/steward_furrow.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7451,
+    0.1569,
+    0.1176
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "FR375.end_cap.nose.C.steward_furrow.796ac9": {
+   "id": "FR375.end_cap.nose.C.steward_furrow.796ac9",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     651
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8025,
+     0.075,
+     1.1,
+     0.8049,
+     0.15
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.trim.cowl.C.steward_furrow.ad107a": {
+   "id": "FR375.trim.cowl.C.steward_furrow.ad107a",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     15624,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4213,
+     0.075,
+     0.9867,
+     0.0975,
+     0.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.glazing.screen.C.steward_furrow.5fc50d": {
+   "id": "FR375.glazing.screen.C.steward_furrow.5fc50d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     16776,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.935,
+     0.19,
+     0.9867,
+     1.09,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FR375.trim.screen.C.steward_furrow.99451d": {
+   "id": "FR375.trim.screen.C.steward_furrow.99451d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     19080,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9074,
+     0.19,
+     0.9867,
+     1.0428,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.side_bay.fender.R.steward_furrow.f53068": {
+   "id": "FR375.side_bay.fender.R.steward_furrow.f53068",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22536,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     0.4438,
+     0.895,
+     1.285,
+     0.1124,
+     0.99,
+     2.57
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.trim.sail.R.steward_furrow.4bf320": {
+   "id": "FR375.trim.sail.R.steward_furrow.4bf320",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26424,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.498,
+     1.428,
+     0.035,
+     0.02,
+     0.1161,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.trim.a_pillar.R.steward_furrow.7884be": {
+   "id": "FR375.trim.a_pillar.R.steward_furrow.7884be",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     26856,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.46,
+     1.885,
+     0.19,
+     0.08,
+     1.03,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.side_bay.rocker_F.R.steward_furrow.b159b5": {
+   "id": "FR375.side_bay.rocker_F.R.steward_furrow.b159b5",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     27432,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.485,
+     0.49,
+     0.465,
+     0.03,
+     0.18,
+     0.93
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.side_bay.quarter.R.steward_furrow.1e78d5": {
+   "id": "FR375.side_bay.quarter.R.steward_furrow.1e78d5",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     27720,
+     54
+    ],
+    "paint": [
+     29016,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.4795,
+     1.325,
+     0.82,
+     0.041,
+     1.85,
+     1.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.side_bay.fender.L.steward_furrow.d95510": {
+   "id": "FR375.side_bay.fender.L.steward_furrow.d95510",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30744,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -0.4438,
+     0.895,
+     1.285,
+     0.1124,
+     0.99,
+     2.57
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.trim.sail.L.steward_furrow.1e055d": {
+   "id": "FR375.trim.sail.L.steward_furrow.1e055d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     34632,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.498,
+     1.428,
+     0.035,
+     0.02,
+     0.1161,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.trim.a_pillar.L.steward_furrow.8955dd": {
+   "id": "FR375.trim.a_pillar.L.steward_furrow.8955dd",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     35064,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.46,
+     1.885,
+     0.19,
+     0.08,
+     1.03,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.side_bay.rocker_F.L.steward_furrow.afa264": {
+   "id": "FR375.side_bay.rocker_F.L.steward_furrow.afa264",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     35640,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.485,
+     0.49,
+     0.465,
+     0.03,
+     0.18,
+     0.93
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.side_bay.quarter.L.steward_furrow.e068f8": {
+   "id": "FR375.side_bay.quarter.L.steward_furrow.e068f8",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     35928,
+     54
+    ],
+    "paint": [
+     37224,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.4795,
+     1.325,
+     0.82,
+     0.041,
+     1.85,
+     1.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.roof_bay.roof_0.C.steward_furrow.624b4d": {
+   "id": "FR375.roof_bay.roof_0.C.steward_furrow.624b4d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     38952,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.365,
+     0.36,
+     0.94,
+     0.23,
+     0.72
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.roof_bay.roof_1.C.steward_furrow.512759": {
+   "id": "FR375.roof_bay.roof_1.C.steward_furrow.512759",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     42408,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.365,
+     0.77,
+     0.94,
+     0.23,
+     1.54
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.end_cap.tail.C.steward_furrow.60b7c0": {
+   "id": "FR375.end_cap.tail.C.steward_furrow.60b7c0",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47592,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.44,
+     0.03,
+     1.1,
+     2.08,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "FR375.floor.floor.C.steward_furrow.18714c": {
+   "id": "FR375.floor.floor.C.steward_furrow.18714c",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     54432,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     1.32,
+     0.944,
+     0.03,
+     2.64
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "FR375.lining_bay.trim_0_0.R.steward_furrow.34689a": {
+   "id": "FR375.lining_bay.trim_0_0.R.steward_furrow.34689a",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     62496,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.438,
+     1.033,
+     0.035,
+     0.02,
+     0.9061,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.lining_bay.trim_1_0.R.steward_furrow.e174ab": {
+   "id": "FR375.lining_bay.trim_1_0.R.steward_furrow.e174ab",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63216,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     0.4202,
+     1.415,
+     0.82,
+     0.0396,
+     1.67,
+     1.64
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.lining_bay.a_pillar.R.steward_furrow.192f55": {
+   "id": "FR375.lining_bay.a_pillar.R.steward_furrow.192f55",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     65664,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.4,
+     1.8622,
+     0.19,
+     0.08,
+     1.0156,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.lining_bay.trim_0_0.L.steward_furrow.4b81ef": {
+   "id": "FR375.lining_bay.trim_0_0.L.steward_furrow.4b81ef",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66240,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -0.438,
+     1.033,
+     0.035,
+     0.02,
+     0.9061,
+     0.07
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.lining_bay.trim_1_0.L.steward_furrow.87b8a3": {
+   "id": "FR375.lining_bay.trim_1_0.L.steward_furrow.87b8a3",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     66960,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -0.4202,
+     1.415,
+     0.82,
+     0.0396,
+     1.67,
+     1.64
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.lining_bay.a_pillar.L.steward_furrow.cb32d0": {
+   "id": "FR375.lining_bay.a_pillar.L.steward_furrow.cb32d0",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     69408,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.4,
+     1.8622,
+     0.19,
+     0.08,
+     1.0156,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.ceiling_bay.roof_0.C.steward_furrow.6423f8": {
+   "id": "FR375.ceiling_bay.roof_0.C.steward_furrow.6423f8",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     69984,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.34,
+     0.36,
+     0.82,
+     0.18,
+     0.72
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.ceiling_bay.roof_1.C.steward_furrow.8618e1": {
+   "id": "FR375.ceiling_bay.roof_1.C.steward_furrow.8618e1",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     73440,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.34,
+     0.77,
+     0.82,
+     0.18,
+     1.54
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.end_lining.firewall.C.steward_furrow.8e8ca7": {
+   "id": "FR375.end_lining.firewall.C.steward_furrow.8e8ca7",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     78624,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.985,
+     0.0,
+     0.944,
+     0.87,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.end_lining.rear_wall.C.steward_furrow.263a2c": {
+   "id": "FR375.end_lining.rear_wall.C.steward_furrow.263a2c",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     80064,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.49,
+     -0.0,
+     1.0,
+     1.88,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.reveal.rear_opening.C.steward_furrow.379975": {
+   "id": "FR375.reveal.rear_opening.C.steward_furrow.379975",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     83520,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.03,
+     1.0,
+     0.65,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.glazing.back_window.C.steward_furrow.92feec": {
+   "id": "FR375.glazing.back_window.C.steward_furrow.92feec",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     86400,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.0,
+     1.0,
+     0.65,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FR375.reveal.door_F.R.steward_furrow.fc3be2": {
+   "id": "FR375.reveal.door_F.R.steward_furrow.fc3be2",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     87696,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.455,
+     1.415,
+     0.465,
+     0.09,
+     1.67,
+     0.93
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.reveal.window_Q.R.steward_furrow.1e3842": {
+   "id": "FR375.reveal.window_Q.R.steward_furrow.1e3842",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/reveal/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     89712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.455,
+     1.81,
+     0.7,
+     0.09,
+     0.88,
+     1.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.reveal.door_F.L.steward_furrow.7b0f96": {
+   "id": "FR375.reveal.door_F.L.steward_furrow.7b0f96",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     90864,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.455,
+     1.415,
+     0.465,
+     0.09,
+     1.67,
+     0.93
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.reveal.window_Q.L.steward_furrow.c4953d": {
+   "id": "FR375.reveal.window_Q.L.steward_furrow.c4953d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "reveal",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/reveal/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     92880,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.455,
+     1.81,
+     0.7,
+     0.09,
+     0.88,
+     1.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.reveal.screen.C.steward_furrow.720e95": {
+   "id": "FR375.reveal.screen.C.steward_furrow.720e95",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     94032,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.92,
+     0.19,
+     0.9867,
+     1.12,
+     0.38
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "FR375.glazing.window_Q.R.steward_furrow.60f5cd": {
+   "id": "FR375.glazing.window_Q.R.steward_furrow.60f5cd",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/glazing/window_Q/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     96912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.485,
+     1.81,
+     0.7,
+     0.03,
+     0.88,
+     1.4
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FR375.glazing.window_Q.L.steward_furrow.4c31d7": {
+   "id": "FR375.glazing.window_Q.L.steward_furrow.4c31d7",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "glazing",
+   "slot": "window_Q",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/glazing/window_Q/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     97344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.485,
+     1.81,
+     0.7,
+     0.03,
+     0.88,
+     1.4
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FR375.door_leaf.door_F.R.steward_furrow.61282e": {
+   "id": "FR375.door_leaf.door_F.R.steward_furrow.61282e",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     97776,
+     24
+    ],
+    "paint": [
+     98352,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.47,
+     0.975,
+     0.465,
+     0.06,
+     0.79,
+     0.93
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.door_glass.door_F.R.steward_furrow.1d5250": {
+   "id": "FR375.door_glass.door_F.R.steward_furrow.1d5250",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     100080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.485,
+     1.81,
+     0.465,
+     0.03,
+     0.88,
+     0.93
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FR375.leaf_trim.handle_F.R.steward_furrow.0abd4a": {
+   "id": "FR375.leaf_trim.handle_F.R.steward_furrow.0abd4a",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     100944,
+     36
+    ],
+    "dash": [
+     101808,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.445,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.door_leaf.door_F.L.steward_furrow.d01218": {
+   "id": "FR375.door_leaf.door_F.L.steward_furrow.d01218",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102672,
+     24
+    ],
+    "paint": [
+     103248,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.47,
+     0.975,
+     0.465,
+     0.06,
+     0.79,
+     0.93
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.door_glass.door_F.L.steward_furrow.757a85": {
+   "id": "FR375.door_glass.door_F.L.steward_furrow.757a85",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     104976,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.485,
+     1.81,
+     0.465,
+     0.03,
+     0.88,
+     0.93
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "FR375.leaf_trim.handle_F.L.steward_furrow.c2755d": {
+   "id": "FR375.leaf_trim.handle_F.L.steward_furrow.c2755d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     105840,
+     36
+    ],
+    "dash": [
+     106704,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.445,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.frunk_lid.lid.C.steward_furrow.60caaa": {
+   "id": "FR375.frunk_lid.lid.C.steward_furrow.60caaa",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "frunk_lid",
+   "slot": "lid",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/frunk_lid/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     107568,
+     216
+    ],
+    "tub": [
+     112752,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2691,
+     1.172,
+     0.7741,
+     0.2763,
+     2.344
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "FR375.frunk_tub.lid.C.steward_furrow.53631f": {
+   "id": "FR375.frunk_tub.lid.C.steward_furrow.53631f",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "frunk_tub",
+   "slot": "lid",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/frunk_tub/lid/C",
+   "reach": 0.0,
+   "mats": {
+    "tub": [
+     115056,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9788,
+     1.175,
+     0.944,
+     0.8575,
+     2.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.35
+  },
+  "FR375.underpan.underpan.C.steward_furrow.f3c732": {
+   "id": "FR375.underpan.underpan.C.steward_furrow.f3c732",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     119808,
+     390
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     2.675,
+     1.1,
+     0.105,
+     5.35
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "FR375.seat.row_0.C.steward_furrow.5a6f50": {
+   "id": "FR375.seat.row_0.C.steward_furrow.5a6f50",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     129168,
+     36
+    ],
+    "seat": [
+     130032,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     0.48,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 18,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "FR375.dash.dash.C.steward_furrow.c7fd87": {
+   "id": "FR375.dash.dash.C.steward_furrow.c7fd87",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     132624,
+     1236
+    ],
+    "chrome": [
+     162288,
+     120
+    ],
+    "dash": [
+     165168,
+     108
+    ],
+    "gauge": [
+     167760,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2049,
+     0.2176,
+     0.72,
+     0.3901,
+     0.4351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "FR375.dash.readout.C.steward_furrow.b7cac2": {
+   "id": "FR375.dash.readout.C.steward_furrow.b7cac2",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     176976,
+     36
+    ],
+    "lcd": [
+     177840,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.29,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "FR375.lamp.head_lamp.C.steward_furrow.15179d": {
+   "id": "FR375.lamp.head_lamp.C.steward_furrow.15179d",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     178704,
+     72
+    ],
+    "lamp_amber": [
+     180432,
+     72
+    ],
+    "lamp_head": [
+     182160,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0,
+     0.007,
+     0.89,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FR375.trim.grille.C.steward_furrow.641865": {
+   "id": "FR375.trim.grille.C.steward_furrow.641865",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     183888,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0,
+     0.004,
+     0.26,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.lamp.tail_lamp.C.steward_furrow.57ac22": {
+   "id": "FR375.lamp.tail_lamp.C.steward_furrow.57ac22",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     187344,
+     12
+    ],
+    "lamp_amber": [
+     187632,
+     48
+    ],
+    "lamp_brake": [
+     188784,
+     36
+    ],
+    "lamp_reverse": [
+     189648,
+     48
+    ],
+    "lamp_tail": [
+     190800,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.586,
+     0.006,
+     0.9,
+     1.272,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FR375.lamp.side_marker.C.steward_furrow.354ab0": {
+   "id": "FR375.lamp.side_marker.C.steward_furrow.354ab0",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     198864,
+     72
+    ],
+    "lamp_tail": [
+     200592,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     2.515,
+     1.016,
+     0.03,
+     5.03
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "FR375.trim.bumper_front.C.steward_furrow.3257ac": {
+   "id": "FR375.trim.bumper_front.C.steward_furrow.3257ac",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     202320,
+     108
+    ],
+    "rubber": [
+     204912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     1.02,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.trim.bumper_rear.C.steward_furrow.8f2e5f": {
+   "id": "FR375.trim.bumper_rear.C.steward_furrow.8f2e5f",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     205776,
+     108
+    ],
+    "rubber": [
+     208368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.55,
+     0.0655,
+     1.02,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.trim.mirror.R.steward_furrow.f3bfa6": {
+   "id": "FR375.trim.mirror.R.steward_furrow.f3bfa6",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     209232,
+     96
+    ],
+    "glass_dark": [
+     211536,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.5863,
+     1.4633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.trim.mirror.L.steward_furrow.65ac31": {
+   "id": "FR375.trim.mirror.L.steward_furrow.65ac31",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     212400,
+     96
+    ],
+    "glass_dark": [
+     214704,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.5859,
+     1.4635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.trim.fenders.C.steward_furrow.6cf7a1": {
+   "id": "FR375.trim.fenders.C.steward_furrow.6cf7a1",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "trim",
+   "slot": "fenders",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/trim/fenders/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     215568,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1179,
+     2.5094,
+     2.4,
+     0.4042,
+     5.0188
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "FR375.equipment.hitch.C.steward_furrow.5d27a5": {
+   "id": "FR375.equipment.hitch.C.steward_furrow.5d27a5",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "equipment",
+   "slot": "hitch",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/equipment/hitch/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     220176,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7,
+     0.3176,
+     0.8598,
+     0.5591,
+     0.6352
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "FR375.equipment.roof_beacon.C.steward_furrow.241870": {
+   "id": "FR375.equipment.roof_beacon.C.steward_furrow.241870",
+   "standard": "FR375",
+   "class": "row_crop_tractor",
+   "role": "equipment",
+   "slot": "roof_beacon",
+   "side": "C",
+   "style": "steward_furrow",
+   "interface": "FR375/equipment/roof_beacon/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     227088,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.41,
+     0.09,
+     0.18,
+     0.14,
+     0.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

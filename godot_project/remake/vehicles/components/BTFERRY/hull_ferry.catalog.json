@@ -1,0 +1,2747 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTFERRY",
+ "class": "ferry",
+ "style": "hull_ferry",
+ "pack": "res://remake/vehicles/components/BTFERRY/hull_ferry.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.3608,
+    0.5882
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTFERRY.side_bay.bottom_0.R.hull_ferry.828543": {
+   "id": "BTFERRY.side_bay.bottom_0.R.hull_ferry.828543",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.76,
+     -0.8535,
+     2.25,
+     5.52,
+     3.093,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_0.R.hull_ferry.5c3a09": {
+   "id": "BTFERRY.lining_bay.bottom_0.R.hull_ferry.5c3a09",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     864,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.7,
+     -0.7335,
+     2.25,
+     5.4,
+     3.093,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_0.L.hull_ferry.46405a": {
+   "id": "BTFERRY.side_bay.bottom_0.L.hull_ferry.46405a",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     1728,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.76,
+     -0.8535,
+     2.25,
+     5.52,
+     3.093,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_0.L.hull_ferry.26e92d": {
+   "id": "BTFERRY.lining_bay.bottom_0.L.hull_ferry.26e92d",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     2592,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.7,
+     -0.7335,
+     2.25,
+     5.4,
+     3.093,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_0.R.hull_ferry.d553bb": {
+   "id": "BTFERRY.side_bay.topside_0.R.hull_ferry.d553bb",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     3456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     5.07,
+     0.4503,
+     2.25,
+     1.86,
+     4.3994,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_0.R.hull_ferry.344b4d": {
+   "id": "BTFERRY.lining_bay.topside_0.R.hull_ferry.344b4d",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     4.95,
+     0.5103,
+     2.25,
+     1.86,
+     4.2794,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_0.L.hull_ferry.00cb4f": {
+   "id": "BTFERRY.side_bay.topside_0.L.hull_ferry.00cb4f",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     5184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -5.07,
+     0.4503,
+     2.25,
+     1.86,
+     4.3994,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_0.L.hull_ferry.946b98": {
+   "id": "BTFERRY.lining_bay.topside_0.L.hull_ferry.946b98",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     6048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -4.95,
+     0.5103,
+     2.25,
+     1.86,
+     4.2794,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_0.R.hull_ferry.36d469": {
+   "id": "BTFERRY.roof_bay.sidedeck_0.R.hull_ferry.36d469",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     4.845,
+     2.6223,
+     2.25,
+     2.31,
+     0.0974,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_0.R.hull_ferry.cc80a1": {
+   "id": "BTFERRY.lining_bay.sidedeck_0.R.hull_ferry.cc80a1",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     7344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     4.725,
+     2.5623,
+     2.25,
+     2.31,
+     0.1754,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_0.L.hull_ferry.6e4243": {
+   "id": "BTFERRY.roof_bay.sidedeck_0.L.hull_ferry.6e4243",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     7776,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -4.845,
+     2.6223,
+     2.25,
+     2.31,
+     0.0974,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_0.L.hull_ferry.b813af": {
+   "id": "BTFERRY.lining_bay.sidedeck_0.L.hull_ferry.b813af",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8208,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -4.725,
+     2.5623,
+     2.25,
+     2.31,
+     0.1754,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.deck_0.R.hull_ferry.f1da3e": {
+   "id": "BTFERRY.roof_bay.deck_0.R.hull_ferry.f1da3e",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     8640,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.46,
+     2.6523,
+     2.25,
+     4.92,
+     0.1154,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.deck_0.R.hull_ferry.0d98c8": {
+   "id": "BTFERRY.lining_bay.deck_0.R.hull_ferry.0d98c8",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.4,
+     2.5323,
+     2.25,
+     4.8,
+     0.1154,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.deck_0.L.hull_ferry.13d24b": {
+   "id": "BTFERRY.roof_bay.deck_0.L.hull_ferry.13d24b",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.46,
+     2.6523,
+     2.25,
+     4.92,
+     0.1154,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.deck_0.L.hull_ferry.210c2d": {
+   "id": "BTFERRY.lining_bay.deck_0.L.hull_ferry.210c2d",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     11232,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.4,
+     2.5323,
+     2.25,
+     4.8,
+     0.1154,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_1.R.hull_ferry.79d8d1": {
+   "id": "BTFERRY.side_bay.bottom_1.R.hull_ferry.79d8d1",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12096,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.76,
+     -2.0747,
+     7.0,
+     5.52,
+     0.6506,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_1.R.hull_ferry.1e1788": {
+   "id": "BTFERRY.lining_bay.bottom_1.R.hull_ferry.1e1788",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14400,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.7,
+     -1.9547,
+     7.0,
+     5.4,
+     0.6506,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_1.L.hull_ferry.8cf2c8": {
+   "id": "BTFERRY.side_bay.bottom_1.L.hull_ferry.8cf2c8",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16704,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.76,
+     -2.0747,
+     7.0,
+     5.52,
+     0.6506,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_1.L.hull_ferry.310276": {
+   "id": "BTFERRY.lining_bay.bottom_1.L.hull_ferry.310276",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     19008,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.7,
+     -1.9547,
+     7.0,
+     5.4,
+     0.6506,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_1.R.hull_ferry.f32897": {
+   "id": "BTFERRY.side_bay.topside_1.R.hull_ferry.f32897",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21312,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     5.76,
+     0.4121,
+     7.0,
+     0.48,
+     4.323,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_1.R.hull_ferry.05fb26": {
+   "id": "BTFERRY.lining_bay.topside_1.R.hull_ferry.05fb26",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     23616,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     5.64,
+     0.4721,
+     7.0,
+     0.48,
+     4.203,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_1.L.hull_ferry.0a2203": {
+   "id": "BTFERRY.side_bay.topside_1.L.hull_ferry.0a2203",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     25920,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -5.76,
+     0.4121,
+     7.0,
+     0.48,
+     4.323,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_1.L.hull_ferry.a848b0": {
+   "id": "BTFERRY.lining_bay.topside_1.L.hull_ferry.a848b0",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     28224,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -5.64,
+     0.4721,
+     7.0,
+     0.48,
+     4.203,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_1.R.hull_ferry.96c327": {
+   "id": "BTFERRY.roof_bay.sidedeck_1.R.hull_ferry.96c327",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30528,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     5.46,
+     2.5097,
+     7.0,
+     1.08,
+     0.1698,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_1.R.hull_ferry.574546": {
+   "id": "BTFERRY.lining_bay.sidedeck_1.R.hull_ferry.574546",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     31680,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     5.34,
+     2.4497,
+     7.0,
+     1.08,
+     0.2478,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_1.L.hull_ferry.646435": {
+   "id": "BTFERRY.roof_bay.sidedeck_1.L.hull_ferry.646435",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32832,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -5.46,
+     2.5097,
+     7.0,
+     1.08,
+     0.1698,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_1.L.hull_ferry.d8cd3c": {
+   "id": "BTFERRY.lining_bay.sidedeck_1.L.hull_ferry.d8cd3c",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     33984,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -5.34,
+     2.4497,
+     7.0,
+     1.08,
+     0.2478,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_2.R.hull_ferry.8294f8": {
+   "id": "BTFERRY.side_bay.bottom_2.R.hull_ferry.8294f8",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     35136,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     2.76,
+     -2.0747,
+     4.0,
+     5.52,
+     0.6506,
+     8.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_2.R.hull_ferry.b5ee77": {
+   "id": "BTFERRY.lining_bay.bottom_2.R.hull_ferry.b5ee77",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     36864,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     2.7,
+     -1.9547,
+     4.0,
+     5.4,
+     0.6506,
+     8.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_2.L.hull_ferry.89937d": {
+   "id": "BTFERRY.side_bay.bottom_2.L.hull_ferry.89937d",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     38592,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -2.76,
+     -2.0747,
+     4.0,
+     5.52,
+     0.6506,
+     8.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_2.L.hull_ferry.0362c3": {
+   "id": "BTFERRY.lining_bay.bottom_2.L.hull_ferry.0362c3",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     40320,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -2.7,
+     -1.9547,
+     4.0,
+     5.4,
+     0.6506,
+     8.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_2.R.hull_ferry.30dbf9": {
+   "id": "BTFERRY.side_bay.topside_2.R.hull_ferry.30dbf9",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42048,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     5.76,
+     0.3377,
+     4.0,
+     0.48,
+     4.1742,
+     8.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_2.R.hull_ferry.e748bc": {
+   "id": "BTFERRY.lining_bay.topside_2.R.hull_ferry.e748bc",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43776,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     5.64,
+     0.3977,
+     4.0,
+     0.48,
+     4.0542,
+     8.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_2.L.hull_ferry.81c154": {
+   "id": "BTFERRY.side_bay.topside_2.L.hull_ferry.81c154",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45504,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -5.76,
+     0.3377,
+     4.0,
+     0.48,
+     4.1742,
+     8.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_2.L.hull_ferry.3d9e7d": {
+   "id": "BTFERRY.lining_bay.topside_2.L.hull_ferry.3d9e7d",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     47232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -5.64,
+     0.3977,
+     4.0,
+     0.48,
+     4.0542,
+     8.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_2.R.hull_ferry.8d6e10": {
+   "id": "BTFERRY.roof_bay.sidedeck_2.R.hull_ferry.8d6e10",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     5.46,
+     2.4229,
+     4.0,
+     1.08,
+     0.0457,
+     8.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_2.R.hull_ferry.d2890c": {
+   "id": "BTFERRY.lining_bay.sidedeck_2.R.hull_ferry.d2890c",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     5.34,
+     2.3629,
+     4.0,
+     1.08,
+     0.1237,
+     8.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_2.L.hull_ferry.5f2527": {
+   "id": "BTFERRY.roof_bay.sidedeck_2.L.hull_ferry.5f2527",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -5.46,
+     2.4229,
+     4.0,
+     1.08,
+     0.0457,
+     8.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_2.L.hull_ferry.01e074": {
+   "id": "BTFERRY.lining_bay.sidedeck_2.L.hull_ferry.01e074",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     51552,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -5.34,
+     2.3629,
+     4.0,
+     1.08,
+     0.1237,
+     8.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_3.R.hull_ferry.570d10": {
+   "id": "BTFERRY.side_bay.bottom_3.R.hull_ferry.570d10",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     52416,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.76,
+     -1.0622,
+     7.0,
+     5.52,
+     2.6756,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_3.R.hull_ferry.88f77e": {
+   "id": "BTFERRY.lining_bay.bottom_3.R.hull_ferry.88f77e",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     54720,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.7,
+     -0.9422,
+     7.0,
+     5.4,
+     2.6756,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_3.L.hull_ferry.17f9a4": {
+   "id": "BTFERRY.side_bay.bottom_3.L.hull_ferry.17f9a4",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     57024,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.76,
+     -1.0622,
+     7.0,
+     5.52,
+     2.6756,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_3.L.hull_ferry.dd20de": {
+   "id": "BTFERRY.lining_bay.bottom_3.L.hull_ferry.dd20de",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_3",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     59328,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.7,
+     -0.9422,
+     7.0,
+     5.4,
+     2.6756,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_3.R.hull_ferry.87515e": {
+   "id": "BTFERRY.side_bay.topside_3.R.hull_ferry.87515e",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61632,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     5.76,
+     0.3347,
+     7.0,
+     0.48,
+     4.1681,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_3.R.hull_ferry.d72cfb": {
+   "id": "BTFERRY.lining_bay.topside_3.R.hull_ferry.d72cfb",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     63936,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     5.64,
+     0.3947,
+     7.0,
+     0.48,
+     4.0481,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_3.L.hull_ferry.d87265": {
+   "id": "BTFERRY.side_bay.topside_3.L.hull_ferry.d87265",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     66240,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -5.76,
+     0.3347,
+     7.0,
+     0.48,
+     4.1681,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_3.L.hull_ferry.5516c7": {
+   "id": "BTFERRY.lining_bay.topside_3.L.hull_ferry.5516c7",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_3",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     68544,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -5.64,
+     0.3947,
+     7.0,
+     0.48,
+     4.0481,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_3.R.hull_ferry.498472": {
+   "id": "BTFERRY.roof_bay.sidedeck_3.R.hull_ferry.498472",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     70848,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     5.46,
+     2.4199,
+     7.0,
+     1.08,
+     0.0397,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_3.R.hull_ferry.4c2e62": {
+   "id": "BTFERRY.lining_bay.sidedeck_3.R.hull_ferry.4c2e62",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_3/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     72000,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     5.34,
+     2.3599,
+     7.0,
+     1.08,
+     0.1177,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_3.L.hull_ferry.0892fc": {
+   "id": "BTFERRY.roof_bay.sidedeck_3.L.hull_ferry.0892fc",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     73152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -5.46,
+     2.4199,
+     7.0,
+     1.08,
+     0.0397,
+     14.0
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_3.L.hull_ferry.789506": {
+   "id": "BTFERRY.lining_bay.sidedeck_3.L.hull_ferry.789506",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_3",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_3/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     74304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -5.34,
+     2.3599,
+     7.0,
+     1.08,
+     0.1177,
+     14.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_4.R.hull_ferry.b7801a": {
+   "id": "BTFERRY.side_bay.bottom_4.R.hull_ferry.b7801a",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     75456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.76,
+     0.7378,
+     2.25,
+     5.52,
+     2.2256,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_4.R.hull_ferry.9b5869": {
+   "id": "BTFERRY.lining_bay.bottom_4.R.hull_ferry.9b5869",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     76320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.7,
+     0.8578,
+     2.25,
+     5.4,
+     2.2256,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.bottom_4.L.hull_ferry.1741f6": {
+   "id": "BTFERRY.side_bay.bottom_4.L.hull_ferry.1741f6",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     77184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.76,
+     0.7378,
+     2.25,
+     5.52,
+     2.2256,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.bottom_4.L.hull_ferry.4a4b9f": {
+   "id": "BTFERRY.lining_bay.bottom_4.L.hull_ferry.4a4b9f",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "bottom_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/bottom_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     78048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.7,
+     0.8578,
+     2.25,
+     5.4,
+     2.2256,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_4.R.hull_ferry.76355a": {
+   "id": "BTFERRY.side_bay.topside_4.R.hull_ferry.76355a",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     78912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     5.76,
+     1.3545,
+     2.25,
+     0.48,
+     2.1577,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_4.R.hull_ferry.3c1d56": {
+   "id": "BTFERRY.lining_bay.topside_4.R.hull_ferry.3c1d56",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     79776,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     5.64,
+     1.4145,
+     2.25,
+     0.48,
+     2.0377,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.side_bay.topside_4.L.hull_ferry.a58f18": {
+   "id": "BTFERRY.side_bay.topside_4.L.hull_ferry.a58f18",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "side_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/side_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     80640,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -5.76,
+     1.3545,
+     2.25,
+     0.48,
+     2.1577,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.lining_bay.topside_4.L.hull_ferry.7f31f5": {
+   "id": "BTFERRY.lining_bay.topside_4.L.hull_ferry.7f31f5",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "topside_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/topside_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     81504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -5.64,
+     1.4145,
+     2.25,
+     0.48,
+     2.0377,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_4.R.hull_ferry.cf3722": {
+   "id": "BTFERRY.roof_bay.sidedeck_4.R.hull_ferry.cf3722",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     82368,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     5.46,
+     2.4365,
+     2.25,
+     1.08,
+     0.0356,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_4.R.hull_ferry.417659": {
+   "id": "BTFERRY.lining_bay.sidedeck_4.R.hull_ferry.417659",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     82800,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     5.34,
+     2.3765,
+     2.25,
+     1.08,
+     0.1136,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.sidedeck_4.L.hull_ferry.239ea8": {
+   "id": "BTFERRY.roof_bay.sidedeck_4.L.hull_ferry.239ea8",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     83232,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -5.46,
+     2.4365,
+     2.25,
+     1.08,
+     0.0356,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.sidedeck_4.L.hull_ferry.e77c67": {
+   "id": "BTFERRY.lining_bay.sidedeck_4.L.hull_ferry.e77c67",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "sidedeck_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/sidedeck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     83664,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -5.34,
+     2.3765,
+     2.25,
+     1.08,
+     0.1136,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.deck_4.R.hull_ferry.61349e": {
+   "id": "BTFERRY.roof_bay.deck_4.R.hull_ferry.61349e",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     84096,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.46,
+     2.4665,
+     2.25,
+     4.92,
+     0.0536,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.deck_4.R.hull_ferry.7f9d41": {
+   "id": "BTFERRY.lining_bay.deck_4.R.hull_ferry.7f9d41",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "R",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/deck_4/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     84960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.4,
+     2.3465,
+     2.25,
+     4.8,
+     0.0536,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.roof_bay.deck_4.L.hull_ferry.61cfe8": {
+   "id": "BTFERRY.roof_bay.deck_4.L.hull_ferry.61cfe8",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "roof_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/roof_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     85824,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.46,
+     2.4665,
+     2.25,
+     4.92,
+     0.0536,
+     4.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.lining_bay.deck_4.L.hull_ferry.63a7e2": {
+   "id": "BTFERRY.lining_bay.deck_4.L.hull_ferry.63a7e2",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "lining_bay",
+   "slot": "deck_4",
+   "side": "L",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/lining_bay/deck_4/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     86688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.4,
+     2.3465,
+     2.25,
+     4.8,
+     0.0536,
+     4.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.reveal.cockpit.C.hull_ferry.afc636": {
+   "id": "BTFERRY.reveal.cockpit.C.hull_ferry.afc636",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     87552,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4673,
+     18.0,
+     9.84,
+     0.3325,
+     36.0
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFERRY.end_cap.transom.C.hull_ferry.aadef9": {
+   "id": "BTFERRY.end_cap.transom.C.hull_ferry.aadef9",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     95040,
+     36
+    ],
+    "paint": [
+     95904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8467,
+     -0.0,
+     12.0,
+     1.2933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.end_cap.stem.C.hull_ferry.3e65a4": {
+   "id": "BTFERRY.end_cap.stem.C.hull_ferry.3e65a4",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     96768,
+     36
+    ],
+    "paint": [
+     97632,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.455,
+     -0.0,
+     9.0,
+     2.51,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFERRY.trim.strake.C.hull_ferry.89aac5": {
+   "id": "BTFERRY.trim.strake.C.hull_ferry.89aac5",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     98496,
+     2064
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     2.4951,
+     22.5065,
+     12.1073,
+     0.3181,
+     45.0131
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTFERRY.cab.wheelhouse.C.hull_ferry.645574": {
+   "id": "BTFERRY.cab.wheelhouse.C.hull_ferry.645574",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "cab",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/cab/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     148032,
+     108
+    ],
+    "paint2": [
+     150624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.9969,
+     4.1,
+     7.2,
+     3.08,
+     8.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "BTFERRY.glazing.wheelhouse.C.hull_ferry.59c0a1": {
+   "id": "BTFERRY.glazing.wheelhouse.C.hull_ferry.59c0a1",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "glazing",
+   "slot": "wheelhouse",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/glazing/wheelhouse/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     151488,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.3169,
+     3.99,
+     6.98,
+     0.78,
+     7.98
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.012
+  },
+  "BTFERRY.equipment.ferry_ramps.C.hull_ferry.21abd3": {
+   "id": "BTFERRY.equipment.ferry_ramps.C.hull_ferry.21abd3",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "equipment",
+   "slot": "ferry_ramps",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/equipment/ferry_ramps/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     152352,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.3417,
+     24.1,
+     7.0,
+     0.3767,
+     48.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTFERRY.equipment.rail.C.hull_ferry.b5a3a0": {
+   "id": "BTFERRY.equipment.rail.C.hull_ferry.b5a3a0",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "equipment",
+   "slot": "rail",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/equipment/rail/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     154080,
+     1920
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     3.2583,
+     20.6281,
+     11.8746,
+     0.2514,
+     41.2563
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -1,0 +1,1042 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTPERSON",
+ "class": "personal_watercraft",
+ "style": "hull_personal_watercraft",
+ "pack": "res://remake/vehicles/components/BTPERSON/hull_personal_watercraft.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.1569,
+    0.4314,
+    0.7843
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTPERSON.side_bay.bottom_0.R.hull_personal_watercraft.de8248": {
+   "id": "BTPERSON.side_bay.bottom_0.R.hull_personal_watercraft.de8248",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.276,
+     0.0316,
+     1.65,
+     0.552,
+     0.4632,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPERSON.lining_bay.bottom_0.R.hull_personal_watercraft.948e6c": {
+   "id": "BTPERSON.lining_bay.bottom_0.R.hull_personal_watercraft.948e6c",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     4032,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.256,
+     0.0716,
+     1.65,
+     0.512,
+     0.4632,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.side_bay.bottom_0.L.hull_personal_watercraft.11cc6b": {
+   "id": "BTPERSON.side_bay.bottom_0.L.hull_personal_watercraft.11cc6b",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8064,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.276,
+     0.0316,
+     1.65,
+     0.552,
+     0.4632,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPERSON.lining_bay.bottom_0.L.hull_personal_watercraft.486e1b": {
+   "id": "BTPERSON.lining_bay.bottom_0.L.hull_personal_watercraft.486e1b",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12096,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.256,
+     0.0716,
+     1.65,
+     0.512,
+     0.4632,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.side_bay.topside_0.R.hull_personal_watercraft.740666": {
+   "id": "BTPERSON.side_bay.topside_0.R.hull_personal_watercraft.740666",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     16128,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.3046,
+     0.3188,
+     1.65,
+     0.5908,
+     0.6623,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPERSON.lining_bay.topside_0.R.hull_personal_watercraft.8e6ad5": {
+   "id": "BTPERSON.lining_bay.topside_0.R.hull_personal_watercraft.8e6ad5",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     20160,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.28,
+     0.3388,
+     1.65,
+     0.56,
+     0.6223,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.side_bay.topside_0.L.hull_personal_watercraft.cb0c04": {
+   "id": "BTPERSON.side_bay.topside_0.L.hull_personal_watercraft.cb0c04",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24192,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.3046,
+     0.3188,
+     1.65,
+     0.5908,
+     0.6623,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPERSON.lining_bay.topside_0.L.hull_personal_watercraft.d5ecf3": {
+   "id": "BTPERSON.lining_bay.topside_0.L.hull_personal_watercraft.d5ecf3",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     28224,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.28,
+     0.3388,
+     1.65,
+     0.56,
+     0.6223,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.roof_bay.sidedeck_0.R.hull_personal_watercraft.bec340": {
+   "id": "BTPERSON.roof_bay.sidedeck_0.R.hull_personal_watercraft.bec340",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32256,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.3041,
+     0.5357,
+     1.65,
+     0.5918,
+     0.2706,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.lining_bay.sidedeck_0.R.hull_personal_watercraft.637b54": {
+   "id": "BTPERSON.lining_bay.sidedeck_0.R.hull_personal_watercraft.637b54",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     34272,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.28,
+     0.5157,
+     1.65,
+     0.56,
+     0.2686,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.roof_bay.sidedeck_0.L.hull_personal_watercraft.54fbb0": {
+   "id": "BTPERSON.roof_bay.sidedeck_0.L.hull_personal_watercraft.54fbb0",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36288,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.3041,
+     0.5357,
+     1.65,
+     0.5918,
+     0.2706,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.lining_bay.sidedeck_0.L.hull_personal_watercraft.2715ef": {
+   "id": "BTPERSON.lining_bay.sidedeck_0.L.hull_personal_watercraft.2715ef",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38304,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.28,
+     0.5157,
+     1.65,
+     0.56,
+     0.2686,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.roof_bay.deck_0.R.hull_personal_watercraft.22bbd9": {
+   "id": "BTPERSON.roof_bay.deck_0.R.hull_personal_watercraft.22bbd9",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.246,
+     0.5657,
+     1.65,
+     0.492,
+     0.2886,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.lining_bay.deck_0.R.hull_personal_watercraft.8ad75f": {
+   "id": "BTPERSON.lining_bay.deck_0.R.hull_personal_watercraft.8ad75f",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     44352,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.226,
+     0.5257,
+     1.65,
+     0.452,
+     0.2886,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.roof_bay.deck_0.L.hull_personal_watercraft.6b8732": {
+   "id": "BTPERSON.roof_bay.deck_0.L.hull_personal_watercraft.6b8732",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48384,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.246,
+     0.5657,
+     1.65,
+     0.492,
+     0.2886,
+     3.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.lining_bay.deck_0.L.hull_personal_watercraft.da0da1": {
+   "id": "BTPERSON.lining_bay.deck_0.L.hull_personal_watercraft.da0da1",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     52416,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.226,
+     0.5257,
+     1.65,
+     0.452,
+     0.2886,
+     3.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTPERSON.end_cap.transom.C.hull_personal_watercraft.9dd0b6": {
+   "id": "BTPERSON.end_cap.transom.C.hull_personal_watercraft.9dd0b6",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     56448,
+     36
+    ],
+    "paint": [
+     57312,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1467,
+     0.0,
+     1.032,
+     0.6933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPERSON.end_cap.stem.C.hull_personal_watercraft.2d367e": {
+   "id": "BTPERSON.end_cap.stem.C.hull_personal_watercraft.2d367e",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     58176,
+     3
+    ],
+    "paint": [
+     58248,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.475,
+     -0.0,
+     0.02,
+     0.47,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTPERSON.trim.strake.C.hull_personal_watercraft.73a9f9": {
+   "id": "BTPERSON.trim.strake.C.hull_personal_watercraft.73a9f9",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     59112,
+     1056
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4949,
+     1.6664,
+     1.3014,
+     0.319,
+     3.3328
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTPERSON.equipment.saddle_boat.C.hull_personal_watercraft.ff49e7": {
+   "id": "BTPERSON.equipment.saddle_boat.C.hull_personal_watercraft.ff49e7",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "equipment",
+   "slot": "saddle_boat",
+   "side": "C",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/equipment/saddle_boat/C",
+   "reach": 0.0,
+   "mats": {
+    "seat": [
+     84456,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6069,
+     0.55,
+     0.36,
+     0.2,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPERSON.equipment.handlebar_boat.C.hull_personal_watercraft.8633c1": {
+   "id": "BTPERSON.equipment.handlebar_boat.C.hull_personal_watercraft.8633c1",
+   "standard": "BTPERSON",
+   "class": "personal_watercraft",
+   "role": "equipment",
+   "slot": "handlebar_boat",
+   "side": "C",
+   "style": "hull_personal_watercraft",
+   "interface": "BTPERSON/equipment/handlebar_boat/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     85320,
+     60
+    ],
+    "paint2": [
+     86760,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6747,
+     0.15,
+     0.6,
+     0.3955,
+     0.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

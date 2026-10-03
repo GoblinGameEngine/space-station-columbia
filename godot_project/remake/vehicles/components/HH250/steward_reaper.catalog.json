@@ -1,0 +1,2591 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "HH250",
+ "class": "combine_harvester",
+ "style": "steward_reaper",
+ "pack": "res://remake/vehicles/components/HH250/steward_reaper.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.2353,
+    0.4706,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "HH250.end_cap.nose.C.steward_reaper.3073fe": {
+   "id": "HH250.end_cap.nose.C.steward_reaper.3073fe",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     0.03,
+     2.3368,
+     1.7,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.trim.cowl.C.steward_reaper.c96761": {
+   "id": "HH250.trim.cowl.C.steward_reaper.c96761",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1625,
+     0.03,
+     2.4016,
+     0.155,
+     0.06
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.glazing.screen.C.steward_reaper.b90a90": {
+   "id": "HH250.glazing.screen.C.steward_reaper.b90a90",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.55,
+     0.19,
+     2.4016,
+     0.82,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HH250.trim.screen.C.steward_reaper.da8ece": {
+   "id": "HH250.trim.screen.C.steward_reaper.da8ece",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5041,
+     0.19,
+     2.4016,
+     0.7362,
+     0.38
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.side_bay.fender.R.steward_reaper.84a37c": {
+   "id": "HH250.side_bay.fender.R.steward_reaper.84a37c",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.trim.sail.R.steward_reaper.c83f38": {
+   "id": "HH250.trim.sail.R.steward_reaper.c83f38",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.trim.a_pillar.R.steward_reaper.cab058": {
+   "id": "HH250.trim.a_pillar.R.steward_reaper.cab058",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.side_bay.rocker_F.R.steward_reaper.083c4a": {
+   "id": "HH250.side_bay.rocker_F.R.steward_reaper.083c4a",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22824,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.side_bay.quarter.R.steward_reaper.d72e56": {
+   "id": "HH250.side_bay.quarter.R.steward_reaper.d72e56",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24408,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.side_bay.fender.L.steward_reaper.863cf4": {
+   "id": "HH250.side_bay.fender.L.steward_reaper.863cf4",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29016,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.1524,
+     1.28,
+     0.37,
+     0.1753,
+     1.72,
+     0.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.trim.sail.L.steward_reaper.b4f145": {
+   "id": "HH250.trim.sail.L.steward_reaper.b4f145",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31896,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.34,
+     0.06,
+     0.5,
+     0.68
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.trim.a_pillar.L.steward_reaper.cb7df0": {
+   "id": "HH250.trim.a_pillar.L.steward_reaper.cb7df0",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33624,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1644,
+     2.49,
+     0.19,
+     0.1088,
+     0.74,
+     0.38
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.side_bay.rocker_F.L.steward_reaper.447912": {
+   "id": "HH250.side_bay.rocker_F.L.steward_reaper.447912",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34488,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -1.225,
+     0.87,
+     0.48,
+     0.03,
+     0.9,
+     0.96
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.side_bay.quarter.L.steward_reaper.d58401": {
+   "id": "HH250.side_bay.quarter.L.steward_reaper.d58401",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36072,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.2054,
+     1.52,
+     0.15,
+     0.0692,
+     2.2,
+     0.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.roof_bay.roof_0.C.steward_reaper.789235": {
+   "id": "HH250.roof_bay.roof_0.C.steward_reaper.789235",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     40680,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.79,
+     0.78,
+     2.36,
+     0.34,
+     1.56
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HH250.end_cap.tail.C.steward_reaper.5779d2": {
+   "id": "HH250.end_cap.tail.C.steward_reaper.5779d2",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     68328,
+     285
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.69,
+     0.03,
+     2.4606,
+     2.54,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.floor.floor.C.steward_reaper.7a75ca": {
+   "id": "HH250.floor.floor.C.steward_reaper.7a75ca",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     75168,
+     1140
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3,
+     0.97,
+     2.36,
+     0.02,
+     1.94
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HH250.lining_bay.trim_0_0.R.steward_reaper.1afa5c": {
+   "id": "HH250.lining_bay.trim_0_0.R.steward_reaper.1afa5c",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     102528,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.lining_bay.trim_1_0.R.steward_reaper.1a7b7c": {
+   "id": "HH250.lining_bay.trim_1_0.R.steward_reaper.1a7b7c",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     104832,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.lining_bay.a_pillar.R.steward_reaper.17dae3": {
+   "id": "HH250.lining_bay.a_pillar.R.steward_reaper.17dae3",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     108288,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.lining_bay.trim_0_0.L.steward_reaper.8b09ce": {
+   "id": "HH250.lining_bay.trim_0_0.L.steward_reaper.8b09ce",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     109152,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.96,
+     0.34,
+     0.06,
+     1.32,
+     0.68
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.lining_bay.trim_1_0.L.steward_reaper.883e86": {
+   "id": "HH250.lining_bay.trim_1_0.L.steward_reaper.883e86",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     111456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.1456,
+     1.96,
+     0.15,
+     0.0687,
+     1.32,
+     0.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.lining_bay.a_pillar.L.steward_reaper.3743b9": {
+   "id": "HH250.lining_bay.a_pillar.L.steward_reaper.3743b9",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     114912,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1044,
+     2.4612,
+     0.19,
+     0.1088,
+     0.7256,
+     0.38
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.ceiling_bay.roof_0.C.steward_reaper.88060f": {
+   "id": "HH250.ceiling_bay.roof_0.C.steward_reaper.88060f",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     115776,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.76,
+     0.78,
+     2.24,
+     0.28,
+     1.56
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.end_lining.firewall.C.steward_reaper.2f11ff": {
+   "id": "HH250.end_lining.firewall.C.steward_reaper.2f11ff",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     143424,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.74,
+     0.0,
+     2.35,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.end_lining.rear_wall.C.steward_reaper.7bc4d4": {
+   "id": "HH250.end_lining.rear_wall.C.steward_reaper.7bc4d4",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1,
+     -0.0,
+     2.35,
+     1.6,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.reveal.rear_opening.C.steward_reaper.2b175b": {
+   "id": "HH250.reveal.rear_opening.C.steward_reaper.2b175b",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     148320,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     0.03,
+     1.2,
+     0.35,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.glazing.back_window.C.steward_reaper.323c66": {
+   "id": "HH250.glazing.back_window.C.steward_reaper.323c66",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     151200,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.375,
+     -0.0,
+     1.2,
+     0.35,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HH250.reveal.door_F.R.steward_reaper.11ecba": {
+   "id": "HH250.reveal.door_F.R.steward_reaper.11ecba",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     152496,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.reveal.door_F.L.steward_reaper.7d56a9": {
+   "id": "HH250.reveal.door_F.L.steward_reaper.7d56a9",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     156240,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     1.96,
+     0.48,
+     0.12,
+     1.32,
+     0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.reveal.screen.C.steward_reaper.d78b93": {
+   "id": "HH250.reveal.screen.C.steward_reaper.d78b93",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     159984,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.532,
+     0.19,
+     2.4016,
+     0.856,
+     0.38
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.door_leaf.door_F.R.steward_reaper.de38a1": {
+   "id": "HH250.door_leaf.door_F.R.steward_reaper.de38a1",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     163152,
+     54
+    ],
+    "paint": [
+     164448,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HH250.door_glass.door_F.R.steward_reaper.ca6be5": {
+   "id": "HH250.door_glass.door_F.R.steward_reaper.ca6be5",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     168624,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HH250.leaf_trim.handle_F.R.steward_reaper.16a34b": {
+   "id": "HH250.leaf_trim.handle_F.R.steward_reaper.16a34b",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     172512,
+     36
+    ],
+    "dash": [
+     173376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HH250.door_leaf.door_F.L.steward_reaper.5349a7": {
+   "id": "HH250.door_leaf.door_F.L.steward_reaper.5349a7",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     174240,
+     54
+    ],
+    "paint": [
+     175536,
+     174
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.71,
+     0.48,
+     0.06,
+     0.82,
+     0.96
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HH250.door_glass.door_F.L.steward_reaper.89ca9f": {
+   "id": "HH250.door_glass.door_F.L.steward_reaper.89ca9f",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.48,
+     0.06,
+     0.5,
+     0.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HH250.leaf_trim.handle_F.L.steward_reaper.f25269": {
+   "id": "HH250.leaf_trim.handle_F.L.steward_reaper.f25269",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     183600,
+     36
+    ],
+    "dash": [
+     184464,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.185,
+     1.935,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "HH250.wheel_well.well_0.R.steward_reaper.b965d0": {
+   "id": "HH250.wheel_well.well_0.R.steward_reaper.b965d0",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     185328,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     0.9675,
+     0.8008,
+     0.5918,
+     0.5689,
+     0.7623,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HH250.wheel_well.well_0.L.steward_reaper.d7df91": {
+   "id": "HH250.wheel_well.well_0.L.steward_reaper.d7df91",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     200592,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     -0.9676,
+     0.8007,
+     0.5918,
+     0.5692,
+     0.7622,
+     1.1836
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HH250.wheel_well.steps.R.steward_reaper.fc9fb3": {
+   "id": "HH250.wheel_well.steps.R.steward_reaper.fc9fb3",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/wheel_well/steps/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     215856,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HH250.wheel_well.steps.L.steward_reaper.f9aab2": {
+   "id": "HH250.wheel_well.steps.L.steward_reaper.f9aab2",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "wheel_well",
+   "slot": "steps",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/wheel_well/steps/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     218448,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.9775,
+     1.4025,
+     0.066,
+     0.589,
+     1.595,
+     0.132
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HH250.underpan.underpan.C.steward_reaper.9d7285": {
+   "id": "HH250.underpan.underpan.C.steward_reaper.9d7285",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     221040,
+     330
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4625,
+     1.06,
+     2.42,
+     0.085,
+     2.12
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_wall.cargo_plinth.C.steward_reaper.ba4a09": {
+   "id": "HH250.cargo_wall.cargo_plinth.C.steward_reaper.ba4a09",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_wall",
+   "slot": "cargo_plinth",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_wall/cargo_plinth/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     228960,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8725,
+     3.15,
+     1.68,
+     0.735,
+     6.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_wall.cargo_side.R.steward_reaper.389154": {
+   "id": "HH250.cargo_wall.cargo_side.R.steward_reaper.389154",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_wall/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     229680,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.24,
+     2.47,
+     3.15,
+     0.02,
+     2.46,
+     6.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_lining.cargo_side.R.steward_reaper.53cbbc": {
+   "id": "HH250.cargo_lining.cargo_side.R.steward_reaper.53cbbc",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_lining/cargo_side/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     233424,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.47,
+     3.15,
+     0.02,
+     2.34,
+     6.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_wall.cargo_side.L.steward_reaper.18cc82": {
+   "id": "HH250.cargo_wall.cargo_side.L.steward_reaper.18cc82",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_wall",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_wall/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     237168,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.24,
+     2.47,
+     3.15,
+     0.02,
+     2.46,
+     6.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_lining.cargo_side.L.steward_reaper.b2b449": {
+   "id": "HH250.cargo_lining.cargo_side.L.steward_reaper.b2b449",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_lining",
+   "slot": "cargo_side",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_lining/cargo_side/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     240912,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.47,
+     3.15,
+     0.02,
+     2.34,
+     6.3
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_floor.cargo_floor.C.steward_reaper.e2e3e5": {
+   "id": "HH250.cargo_floor.cargo_floor.C.steward_reaper.e2e3e5",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_floor",
+   "slot": "cargo_floor",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_floor/cargo_floor/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     244656,
+     18
+    ],
+    "tub": [
+     245088,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.27,
+     3.15,
+     2.48,
+     0.06,
+     6.3
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "HH250.cargo_wall.cargo_front.C.steward_reaper.bf1e40": {
+   "id": "HH250.cargo_wall.cargo_front.C.steward_reaper.bf1e40",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_wall",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_wall/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     245232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     -0.0,
+     2.48,
+     2.46,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_lining.cargo_front.C.steward_reaper.277dfb": {
+   "id": "HH250.cargo_lining.cargo_front.C.steward_reaper.277dfb",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_lining",
+   "slot": "cargo_front",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_lining/cargo_front/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     245376,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     0.0,
+     2.36,
+     2.34,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_wall.cargo_roof.C.steward_reaper.65f695": {
+   "id": "HH250.cargo_wall.cargo_roof.C.steward_reaper.65f695",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_wall",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_wall/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     245520,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.7,
+     3.15,
+     2.48,
+     0.02,
+     6.3
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_lining.cargo_roof.C.steward_reaper.414517": {
+   "id": "HH250.cargo_lining.cargo_roof.C.steward_reaper.414517",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_lining",
+   "slot": "cargo_roof",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_lining/cargo_roof/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     245664,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.64,
+     3.12,
+     2.36,
+     0.02,
+     6.24
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_wall.cargo_rear.C.steward_reaper.a1c855": {
+   "id": "HH250.cargo_wall.cargo_rear.C.steward_reaper.a1c855",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_wall",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_wall/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     245808,
+     24
+    ],
+    "paint": [
+     246384,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     0.03,
+     2.48,
+     2.46,
+     0.06
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.seat.row_0.C.steward_reaper.e9de14": {
+   "id": "HH250.seat.row_0.C.steward_reaper.e9de14",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     246960,
+     108
+    ],
+    "seat": [
+     249552,
+     324
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9246,
+     0.4335,
+     1.75,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "HH250.dash.dash.C.steward_reaper.282044": {
+   "id": "HH250.dash.dash.C.steward_reaper.282044",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     257328,
+     1236
+    ],
+    "chrome": [
+     286992,
+     120
+    ],
+    "dash": [
+     289872,
+     108
+    ],
+    "gauge": [
+     292464,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9549,
+     0.3676,
+     2.2,
+     0.3901,
+     0.7351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "HH250.dash.readout.C.steward_reaper.1e3b34": {
+   "id": "HH250.dash.readout.C.steward_reaper.1e3b34",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     301680,
+     36
+    ],
+    "lcd": [
+     302544,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.62,
+     2.04,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "HH250.lamp.head_lamp.C.steward_reaper.e7bf79": {
+   "id": "HH250.lamp.head_lamp.C.steward_reaper.e7bf79",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     303408,
+     72
+    ],
+    "lamp_amber": [
+     305136,
+     72
+    ],
+    "lamp_head": [
+     306864,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.007,
+     2.1998,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HH250.trim.grille.C.steward_reaper.35fcf7": {
+   "id": "HH250.trim.grille.C.steward_reaper.35fcf7",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "grille",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/grille/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     308592,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.004,
+     1.5698,
+     0.136,
+     0.02
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.lamp.tail_lamp.C.steward_reaper.2e4ef7": {
+   "id": "HH250.lamp.tail_lamp.C.steward_reaper.2e4ef7",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     312048,
+     12
+    ],
+    "lamp_amber": [
+     312336,
+     48
+    ],
+    "lamp_brake": [
+     313488,
+     36
+    ],
+    "lamp_reverse": [
+     314352,
+     48
+    ],
+    "lamp_tail": [
+     315504,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.291,
+     0.006,
+     2.44,
+     2.682,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HH250.lamp.side_marker.C.steward_reaper.5c2153": {
+   "id": "HH250.lamp.side_marker.C.steward_reaper.5c2153",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     323568,
+     72
+    ],
+    "lamp_tail": [
+     325296,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.31,
+     4.05,
+     2.496,
+     0.21,
+     8.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HH250.lamp.id_lamp.C.steward_reaper.af2db9": {
+   "id": "HH250.lamp.id_lamp.C.steward_reaper.af2db9",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     327024,
+     180
+    ],
+    "lamp_tail": [
+     331344,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.26,
+     3.98,
+     2.44,
+     0.804,
+     7.96
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "HH250.trim.bumper_front.C.steward_reaper.5dbab6": {
+   "id": "HH250.trim.bumper_front.C.steward_reaper.5dbab6",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     335664,
+     108
+    ],
+    "rubber": [
+     338256,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.trim.bumper_rear.C.steward_reaper.f0d635": {
+   "id": "HH250.trim.bumper_rear.C.steward_reaper.f0d635",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     339120,
+     108
+    ],
+    "rubber": [
+     341712,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6,
+     0.0655,
+     2.3816,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.trim.mirror.R.steward_reaper.222ba0": {
+   "id": "HH250.trim.mirror.R.steward_reaper.222ba0",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     342576,
+     96
+    ],
+    "glass_dark": [
+     344880,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.trim.mirror.L.steward_reaper.c22ec2": {
+   "id": "HH250.trim.mirror.L.steward_reaper.c22ec2",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     345744,
+     96
+    ],
+    "glass_dark": [
+     348048,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.3258,
+     2.2138,
+     0.0399,
+     0.1885,
+     0.1625,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HH250.equipment.header.C.steward_reaper.c0e1df": {
+   "id": "HH250.equipment.header.C.steward_reaper.c0e1df",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "equipment",
+   "slot": "header",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/equipment/header/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     348912,
+     36
+    ],
+    "chrome": [
+     349776,
+     36
+    ],
+    "lamp_amber": [
+     350640,
+     60
+    ],
+    "paint": [
+     352080,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8652,
+     0.75,
+     5.3,
+     1.3304,
+     1.5
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 1500,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "HH250.equipment.auger.L.steward_reaper.552277": {
+   "id": "HH250.equipment.auger.L.steward_reaper.552277",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "equipment",
+   "slot": "auger",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/equipment/auger/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     354672,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.265,
+     3.6,
+     2.8669,
+     0.546,
+     0.8949,
+     5.7339
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 200,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "HH250.equipment.roof_beacon.C.steward_reaper.a32179": {
+   "id": "HH250.equipment.roof_beacon.C.steward_reaper.a32179",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "equipment",
+   "slot": "roof_beacon",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/equipment/roof_beacon/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     357264,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.89,
+     0.09,
+     0.18,
+     0.14,
+     0.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

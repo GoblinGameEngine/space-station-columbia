@@ -1,0 +1,1972 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "BTFISHIN",
+ "class": "fishing_skiff",
+ "style": "hull_fishing_skiff",
+ "pack": "res://remake/vehicles/components/BTFISHIN/hull_fishing_skiff.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9176,
+    0.8941
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.2353,
+    0.4706,
+    0.2353
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "BTFISHIN.side_bay.bottom_0.R.hull_fishing_skiff.0eb794": {
+   "id": "BTFISHIN.side_bay.bottom_0.R.hull_fishing_skiff.0eb794",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.3756,
+     0.1098,
+     0.55,
+     0.7512,
+     0.4847,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.bottom_0.R.hull_fishing_skiff.37c8d0": {
+   "id": "BTFISHIN.lining_bay.bottom_0.R.hull_fishing_skiff.37c8d0",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/bottom_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     1152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.3556,
+     0.1498,
+     0.55,
+     0.7112,
+     0.4847,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.bottom_0.L.hull_fishing_skiff.58544d": {
+   "id": "BTFISHIN.side_bay.bottom_0.L.hull_fishing_skiff.58544d",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     2304,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.3756,
+     0.1098,
+     0.55,
+     0.7512,
+     0.4847,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.bottom_0.L.hull_fishing_skiff.bd582e": {
+   "id": "BTFISHIN.lining_bay.bottom_0.L.hull_fishing_skiff.bd582e",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "bottom_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/bottom_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     3456,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.3556,
+     0.1498,
+     0.55,
+     0.7112,
+     0.4847,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.topside_0.R.hull_fishing_skiff.f09f56": {
+   "id": "BTFISHIN.side_bay.topside_0.R.hull_fishing_skiff.f09f56",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     4608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.4129,
+     0.4305,
+     0.55,
+     0.8073,
+     0.739,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.topside_0.R.hull_fishing_skiff.8735f3": {
+   "id": "BTFISHIN.lining_bay.topside_0.R.hull_fishing_skiff.8735f3",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/topside_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     5760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.3883,
+     0.4505,
+     0.55,
+     0.7765,
+     0.699,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.topside_0.L.hull_fishing_skiff.0a6e31": {
+   "id": "BTFISHIN.side_bay.topside_0.L.hull_fishing_skiff.0a6e31",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     6912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.4129,
+     0.4305,
+     0.55,
+     0.8073,
+     0.739,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.topside_0.L.hull_fishing_skiff.e5184d": {
+   "id": "BTFISHIN.lining_bay.topside_0.L.hull_fishing_skiff.e5184d",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "topside_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/topside_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     8064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.3883,
+     0.4505,
+     0.55,
+     0.7765,
+     0.699,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.sidedeck_0.R.hull_fishing_skiff.a8bda7": {
+   "id": "BTFISHIN.roof_bay.sidedeck_0.R.hull_fishing_skiff.a8bda7",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     9216,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.4124,
+     0.7356,
+     0.55,
+     0.8083,
+     0.1707,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.sidedeck_0.R.hull_fishing_skiff.b06cce": {
+   "id": "BTFISHIN.lining_bay.sidedeck_0.R.hull_fishing_skiff.b06cce",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/sidedeck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     9792,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.3883,
+     0.7156,
+     0.55,
+     0.7765,
+     0.1687,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.sidedeck_0.L.hull_fishing_skiff.329317": {
+   "id": "BTFISHIN.roof_bay.sidedeck_0.L.hull_fishing_skiff.329317",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     10368,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.4124,
+     0.7356,
+     0.55,
+     0.8083,
+     0.1707,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.sidedeck_0.L.hull_fishing_skiff.286e90": {
+   "id": "BTFISHIN.lining_bay.sidedeck_0.L.hull_fishing_skiff.286e90",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "sidedeck_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/sidedeck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     10944,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     -0.3883,
+     0.7156,
+     0.55,
+     0.7765,
+     0.1687,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.deck_0.R.hull_fishing_skiff.4af6a9": {
+   "id": "BTFISHIN.roof_bay.deck_0.R.hull_fishing_skiff.4af6a9",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     11520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.3348,
+     0.7656,
+     0.55,
+     0.6696,
+     0.1887,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.deck_0.R.hull_fishing_skiff.a5ce83": {
+   "id": "BTFISHIN.lining_bay.deck_0.R.hull_fishing_skiff.a5ce83",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/deck_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     12672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.3148,
+     0.7256,
+     0.55,
+     0.6296,
+     0.1887,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.deck_0.L.hull_fishing_skiff.17ad9f": {
+   "id": "BTFISHIN.roof_bay.deck_0.L.hull_fishing_skiff.17ad9f",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     13824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.3348,
+     0.7656,
+     0.55,
+     0.6696,
+     0.1887,
+     1.1
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.deck_0.L.hull_fishing_skiff.1e516f": {
+   "id": "BTFISHIN.lining_bay.deck_0.L.hull_fishing_skiff.1e516f",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "deck_0",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/deck_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     14976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.3148,
+     0.7256,
+     0.55,
+     0.6296,
+     0.1887,
+     1.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.bottom_1.R.hull_fishing_skiff.b9357b": {
+   "id": "BTFISHIN.side_bay.bottom_1.R.hull_fishing_skiff.b9357b",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     16128,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.437,
+     -0.0945,
+     1.85,
+     0.874,
+     0.311,
+     3.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.bottom_1.R.hull_fishing_skiff.49ce4b": {
+   "id": "BTFISHIN.lining_bay.bottom_1.R.hull_fishing_skiff.49ce4b",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/bottom_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     19296,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.417,
+     -0.0545,
+     1.85,
+     0.834,
+     0.311,
+     3.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.bottom_1.L.hull_fishing_skiff.41b8d7": {
+   "id": "BTFISHIN.side_bay.bottom_1.L.hull_fishing_skiff.41b8d7",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     22464,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -0.437,
+     -0.0945,
+     1.85,
+     0.874,
+     0.311,
+     3.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.bottom_1.L.hull_fishing_skiff.36816a": {
+   "id": "BTFISHIN.lining_bay.bottom_1.L.hull_fishing_skiff.36816a",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "bottom_1",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/bottom_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     25632,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -0.417,
+     -0.0545,
+     1.85,
+     0.834,
+     0.311,
+     3.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.topside_1.R.hull_fishing_skiff.ea863a": {
+   "id": "BTFISHIN.side_bay.topside_1.R.hull_fishing_skiff.ea863a",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28800,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.8506,
+     0.3007,
+     1.85,
+     0.1988,
+     0.6991,
+     3.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.topside_1.R.hull_fishing_skiff.d60f59": {
+   "id": "BTFISHIN.lining_bay.topside_1.R.hull_fishing_skiff.d60f59",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/topside_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     31968,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.8106,
+     0.3207,
+     1.85,
+     0.1988,
+     0.6591,
+     3.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.topside_1.L.hull_fishing_skiff.97408e": {
+   "id": "BTFISHIN.side_bay.topside_1.L.hull_fishing_skiff.97408e",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     35136,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -0.8506,
+     0.3007,
+     1.85,
+     0.1988,
+     0.6991,
+     3.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.topside_1.L.hull_fishing_skiff.c66abf": {
+   "id": "BTFISHIN.lining_bay.topside_1.L.hull_fishing_skiff.c66abf",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "topside_1",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/topside_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     38304,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -0.8106,
+     0.3207,
+     1.85,
+     0.1988,
+     0.6591,
+     3.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.sidedeck_1.R.hull_fishing_skiff.68afbd": {
+   "id": "BTFISHIN.roof_bay.sidedeck_1.R.hull_fishing_skiff.68afbd",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     41472,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     0.8098,
+     0.6108,
+     1.85,
+     0.2804,
+     0.1209,
+     3.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.sidedeck_1.R.hull_fishing_skiff.d596b8": {
+   "id": "BTFISHIN.lining_bay.sidedeck_1.R.hull_fishing_skiff.d596b8",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/sidedeck_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     43056,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     0.7698,
+     0.5908,
+     1.85,
+     0.2804,
+     0.1189,
+     3.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.sidedeck_1.L.hull_fishing_skiff.a00969": {
+   "id": "BTFISHIN.roof_bay.sidedeck_1.L.hull_fishing_skiff.a00969",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44640,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -0.8098,
+     0.6108,
+     1.85,
+     0.2804,
+     0.1209,
+     3.7
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.sidedeck_1.L.hull_fishing_skiff.5e3eb4": {
+   "id": "BTFISHIN.lining_bay.sidedeck_1.L.hull_fishing_skiff.5e3eb4",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "sidedeck_1",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/sidedeck_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     46224,
+     66
+    ]
+   },
+   "boxes": [
+    [
+     -0.7698,
+     0.5908,
+     1.85,
+     0.2804,
+     0.1189,
+     3.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.bottom_2.R.hull_fishing_skiff.9bb5e5": {
+   "id": "BTFISHIN.side_bay.bottom_2.R.hull_fishing_skiff.9bb5e5",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     47808,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.3921,
+     -0.1494,
+     0.1,
+     0.7843,
+     0.2012,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.bottom_2.R.hull_fishing_skiff.139ab0": {
+   "id": "BTFISHIN.lining_bay.bottom_2.R.hull_fishing_skiff.139ab0",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/bottom_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48096,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.3721,
+     -0.1094,
+     0.1,
+     0.7443,
+     0.2012,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.bottom_2.L.hull_fishing_skiff.d389d4": {
+   "id": "BTFISHIN.side_bay.bottom_2.L.hull_fishing_skiff.d389d4",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     48384,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.3921,
+     -0.1494,
+     0.1,
+     0.7843,
+     0.2012,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.bottom_2.L.hull_fishing_skiff.e8d945": {
+   "id": "BTFISHIN.lining_bay.bottom_2.L.hull_fishing_skiff.e8d945",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "bottom_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/bottom_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     48672,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.3721,
+     -0.1094,
+     0.1,
+     0.7443,
+     0.2012,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.topside_2.R.hull_fishing_skiff.332300": {
+   "id": "BTFISHIN.side_bay.topside_2.R.hull_fishing_skiff.332300",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48960,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.8021,
+     0.2635,
+     0.1,
+     0.1008,
+     0.6397,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.topside_2.R.hull_fishing_skiff.15c710": {
+   "id": "BTFISHIN.lining_bay.topside_2.R.hull_fishing_skiff.15c710",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/topside_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49248,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.7621,
+     0.2835,
+     0.1,
+     0.1008,
+     0.5997,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.side_bay.topside_2.L.hull_fishing_skiff.999aa0": {
+   "id": "BTFISHIN.side_bay.topside_2.L.hull_fishing_skiff.999aa0",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "side_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/side_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49536,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.8021,
+     0.2635,
+     0.1,
+     0.1008,
+     0.6397,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.lining_bay.topside_2.L.hull_fishing_skiff.379184": {
+   "id": "BTFISHIN.lining_bay.topside_2.L.hull_fishing_skiff.379184",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "topside_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/topside_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     49824,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.7621,
+     0.2835,
+     0.1,
+     0.1008,
+     0.5997,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.sidedeck_2.R.hull_fishing_skiff.3f4172": {
+   "id": "BTFISHIN.roof_bay.sidedeck_2.R.hull_fishing_skiff.3f4172",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50112,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.7612,
+     0.5907,
+     0.1,
+     0.1825,
+     0.0273,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.sidedeck_2.R.hull_fishing_skiff.d4fd76": {
+   "id": "BTFISHIN.lining_bay.sidedeck_2.R.hull_fishing_skiff.d4fd76",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/sidedeck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50256,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.7212,
+     0.5707,
+     0.1,
+     0.1825,
+     0.0253,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.sidedeck_2.L.hull_fishing_skiff.04a463": {
+   "id": "BTFISHIN.roof_bay.sidedeck_2.L.hull_fishing_skiff.04a463",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50400,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.7612,
+     0.5907,
+     0.1,
+     0.1825,
+     0.0273,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.sidedeck_2.L.hull_fishing_skiff.bc2fab": {
+   "id": "BTFISHIN.lining_bay.sidedeck_2.L.hull_fishing_skiff.bc2fab",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "sidedeck_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/sidedeck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50544,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.7212,
+     0.5707,
+     0.1,
+     0.1825,
+     0.0253,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.deck_2.R.hull_fishing_skiff.768360": {
+   "id": "BTFISHIN.roof_bay.deck_2.R.hull_fishing_skiff.768360",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50688,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.3495,
+     0.6207,
+     0.1,
+     0.699,
+     0.0453,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.deck_2.R.hull_fishing_skiff.a2f000": {
+   "id": "BTFISHIN.lining_bay.deck_2.R.hull_fishing_skiff.a2f000",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "R",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/deck_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     50976,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.3295,
+     0.5807,
+     0.1,
+     0.659,
+     0.0453,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.roof_bay.deck_2.L.hull_fishing_skiff.14eb33": {
+   "id": "BTFISHIN.roof_bay.deck_2.L.hull_fishing_skiff.14eb33",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "roof_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/roof_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51264,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.3495,
+     0.6207,
+     0.1,
+     0.699,
+     0.0453,
+     0.2
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.lining_bay.deck_2.L.hull_fishing_skiff.73f8e9": {
+   "id": "BTFISHIN.lining_bay.deck_2.L.hull_fishing_skiff.73f8e9",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "lining_bay",
+   "slot": "deck_2",
+   "side": "L",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/lining_bay/deck_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     51552,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.3295,
+     0.5807,
+     0.1,
+     0.659,
+     0.0453,
+     0.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.reveal.cockpit.C.hull_fishing_skiff.b2b80f": {
+   "id": "BTFISHIN.reveal.cockpit.C.hull_fishing_skiff.b2b80f",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "reveal",
+   "slot": "cockpit",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/reveal/cockpit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51840,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6208,
+     1.85,
+     1.558,
+     0.1789,
+     3.7
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 15,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "BTFISHIN.end_cap.transom.C.hull_fishing_skiff.16ab54": {
+   "id": "BTFISHIN.end_cap.transom.C.hull_fishing_skiff.16ab54",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "end_cap",
+   "slot": "transom",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/end_cap/transom/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     56160,
+     36
+    ],
+    "paint": [
+     57024,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.1967,
+     -0.0,
+     1.634,
+     0.8933,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.end_cap.stem.C.hull_fishing_skiff.abce5c": {
+   "id": "BTFISHIN.end_cap.stem.C.hull_fishing_skiff.abce5c",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "end_cap",
+   "slot": "stem",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/end_cap/stem/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     57888,
+     3
+    ],
+    "paint": [
+     57960,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.595,
+     -0.0,
+     0.02,
+     0.53,
+     0.02
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 30,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "BTFISHIN.trim.strake.C.hull_fishing_skiff.438201": {
+   "id": "BTFISHIN.trim.strake.C.hull_fishing_skiff.438201",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "trim",
+   "slot": "strake",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/trim/strake/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     58824,
+     1200
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.645,
+     2.5165,
+     2.0036,
+     0.319,
+     5.0331
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "BTFISHIN.equipment.outboard.C.hull_fishing_skiff.e081a2": {
+   "id": "BTFISHIN.equipment.outboard.C.hull_fishing_skiff.e081a2",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "equipment",
+   "slot": "outboard",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/equipment/outboard/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     87624,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.2319,
+     0.18,
+     0.3,
+     1.25,
+     0.36
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTFISHIN.equipment.console.C.hull_fishing_skiff.c83c32": {
+   "id": "BTFISHIN.equipment.console.C.hull_fishing_skiff.c83c32",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "equipment",
+   "slot": "console",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/equipment/console/C",
+   "reach": 0.0,
+   "mats": {
+    "glass_dark": [
+     89352,
+     36
+    ],
+    "paint2": [
+     90216,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6069,
+     0.25,
+     0.6,
+     1.1,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTFISHIN.equipment.thwarts.C.hull_fishing_skiff.438845": {
+   "id": "BTFISHIN.equipment.thwarts.C.hull_fishing_skiff.438845",
+   "standard": "BTFISHIN",
+   "class": "fishing_skiff",
+   "role": "equipment",
+   "slot": "thwarts",
+   "side": "C",
+   "style": "hull_fishing_skiff",
+   "interface": "BTFISHIN/equipment/thwarts/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     91080,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4369,
+     1.1,
+     1.78,
+     0.04,
+     2.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}
