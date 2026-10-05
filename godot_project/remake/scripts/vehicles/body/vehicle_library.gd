@@ -154,9 +154,8 @@ static func _surface(m: StandardMaterial3D, name: String) -> void:
 	if t.albedo == null:
 		return
 	m.albedo_texture = t.albedo
-	if t.normal:
-		m.normal_enabled = true
-		m.normal_texture = t.normal
+	# (no normal maps: the toon outline finds edges in the normals, and a surface's fine bumps came out as black speckle
+	#  over every panel -- the albedo and roughness carry the surface; the normal maps stay in the set for later)
 	if t.rough:
 		m.roughness_texture = t.rough
 		m.roughness_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_RED

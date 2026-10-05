@@ -203,6 +203,7 @@ func hitch_to(v: PhysicsBody3D) -> bool:
 	v.add_collision_exception_with(self)
 	_hitch = j
 	towed_by = v
+	drive_input = {"throttle": 0.0, "steer": 0.0}        # (rolling free: a parked body holds its parking brake)
 	sleeping = false
 	return true
 
@@ -215,6 +216,7 @@ func unhitch() -> bool:
 	_hitch.queue_free()
 	_hitch = null
 	towed_by = null
+	drive_input = {}                                      # (parked again: the brake on)
 	return true
 
 
