@@ -4,7 +4,7 @@ grey surfaces that every vehicle shares, tinted in the game by each style's pale
 vehicle's own frame (object-space triplanar: no UVs), the way large-world games reuse a few tiling materials across
 thousands of assets instead of painting each one.
 
-    ~/.venvs/ssc-assets/bin/python tools/assets/surfaces.py     # -> godot_project/remake/textures/surfaces/
+    ~/.venvs/ssc-assets/bin/python tools/assets/surfaces.py     # -> godot_project/remake/vehicles/surfaces/
 
 Each surface: <name>_albedo.png (grey, around mid-light so the palette's colour reads true), <name>_normal.png (from
 its height field, OpenGL convention), <name>_rough.png (a multiplier on the material's roughness). 512 px, tiling:
@@ -16,7 +16,7 @@ import numpy as np
 from PIL import Image
 
 N = 512
-OUT = os.path.join(os.path.dirname(__file__), "..", "..", "godot_project", "remake", "textures", "surfaces")
+OUT = os.path.join(os.path.dirname(__file__), "..", "..", "godot_project", "remake", "vehicles", "surfaces")
 rng = np.random.default_rng(2752)
 
 
