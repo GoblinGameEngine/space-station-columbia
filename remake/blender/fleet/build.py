@@ -200,7 +200,8 @@ def build_trailer(sid, registry):
         "length_front": L.nose, "length_back": -L.tail,
         "platform": {"half_w": round(L.mount_x + 0.02, 3), "y": round(L.board.get("deck_top_m", 0.50) - 0.01, 3), "z": [-L.board["length_m"] / 2, L.board["length_m"] / 2]},
         "cabin_points": [], "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in b.MARKERS],
-        "decals": decals_out(DC.place(b, vtype))})
+        "decals": decals_out(DC.place(b, vtype)),
+        "gauges": [[k, g(pc), g(n), g(u), round(r, 3)] for k, pc, n, u, r in b.GAUGES]})
     registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": st["name"],
                        "board": spec["board"], "phys": vtype, "half_w": C["half_w"], "height": L.crown, "nose": L.nose, "tail": L.tail,
                        "floor": C["floor_z"], "driver": O.get("driver", "L") if O else "none", "trailer": not O}
@@ -260,7 +261,8 @@ def build_class(sid, registry):
               "platform": {"half_w": round(L.mount_x + 0.02, 3), "y": round(L.board.get("deck_top_m", 0.50) - 0.01, 3), "z": [-L.board["length_m"] / 2, L.board["length_m"] / 2]},
               "cabin_points": b.cabin_points(),
               "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in mk],
-              "decals": decals_out(DC.place(b, vtype))}
+              "decals": decals_out(DC.place(b, vtype)),
+              "gauges": [[k, g(pc), g(n), g(u), round(r, 3)] for k, pc, n, u, r in b.GAUGES]}
         path = os.path.join(fleet_dir, vtype + ".blueprint.json")
         components.write_blueprint(path, bp)
         registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": style,
@@ -623,10 +625,11 @@ def build_boat(vtype, registry):
             me.lathe([(-0.25, 0.30), (0.25, 0.30)], "paint2", n=12, xf=X((0, ys[-1] + 0.2, sz - 0.05)) @ R(math.pi / 2, 4, "Z"))
         elif gname == "canopy_boat" or gname == "bimini":
             yy0, yy1 = (0.4, -0.8) if gname == "canopy_boat" else (1.0, -1.5)
-            me.box((0, (yy0 + yy1) / 2, sz + 1.3), (H.beam - 0.1, (yy0 - yy1) / 2, 0.02), "paint2")
+            hb = 1.3 if gname == "canopy_boat" else 1.75          # (a bimini high enough for the helm to see under it)
+            me.box((0, (yy0 + yy1) / 2, sz + hb), (H.beam - 0.1, (yy0 - yy1) / 2, 0.02), "paint2")
             for sx in (1, -1):
                 for yy in (yy0, yy1):
-                    me.pipe([Vector((sx * (H.beam - 0.12), yy, sz)), Vector((sx * (H.beam - 0.12), yy, sz + 1.3))], 0.015, "chrome", n=6)
+                    me.pipe([Vector((sx * (H.beam - 0.12), yy, sz)), Vector((sx * (H.beam - 0.12), yy, sz + hb))], 0.015, "chrome", n=6)
         elif gname == "saddle_boat":
             me.box((0, -0.4, sz + 0.20), (0.18, 0.55, 0.10), "seat")
         elif gname == "handlebar_boat":
@@ -710,7 +713,7 @@ def build_boat(vtype, registry):
                                 [0.0, round(H.sheer_z(H.stern + 0.7) - 0.25, 3), round(-(H.stern + 0.7), 3)] if S.get("helm") == "paddle" else
                                 [-0.35, round(H.sheer_z(0) - 0.15, 3), 0.0] if S.get("helm") == "lever" else
                                 [0.0, round(H.sheer_z(0) + 0.5, 3), round(-(wh[0] - 0.6), 3)] if wh else
-                                [0.0, round(H.sheer_z(0) + (0.15 if "fence" in S.get("gear", []) else -0.25), 3),
+                                [0.0, round(H.sheer_z(0) + (0.28 if "fence" in S.get("gear", []) else -0.25), 3),
                                  round(-((ck[1] + 0.6) if ck else 0.0), 3)])}
     root = core.empty(vtype, (0, 0, 0))
     for mid, me in b.MESH.items():

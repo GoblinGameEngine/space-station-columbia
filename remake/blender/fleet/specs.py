@@ -761,7 +761,7 @@ SHUTTLE = dict(SPACE_BODY, **{
     "rear": {"kind": "wall", "tail_in": -14.52, "back_window": {"half_w": 0.30, "z": (2.30, 2.55), "corner": 0.05}},
     "doors": [{"id": "F", "y0": 10.9, "y1": 10.2}, {"id": "P", "y0": 9.7, "y1": 8.75}],
     "windows": [{"id": "P%02d" % k, "y0": round(8.25 - k * 1.05, 3), "y1": round(8.25 - k * 1.05 - 0.50, 3)} for k in range(15)],
-    "seats": [{"y": 11.0, "z": 1.10, "xs": [-0.55, 0.55], "w": 0.55}] +
+    "seats": [{"y": 10.55, "z": 1.10, "xs": [-0.55, 0.55], "w": 0.55}] +
              [{"y": round(7.9 - k * 0.95, 3), "z": 0.95, "xs": [-1.45, -0.85, 0.85, 1.45], "w": 0.50} for k in range(12)],
     "dash_y": 11.6,
     "render": (-15.5, 8.2),
@@ -789,11 +789,11 @@ MULE = dict(SPACE_BODY, **{
     "front": {"kind": "hood", "toe": 2.00, "header": 1.50, "screen_base": 1.17, "hood_drop": 0.20},
     "rear": {"kind": "wall", "tail_in": -3.23, "back_window": {"half_w": 0.40, "z": (1.70, 2.20), "corner": 0.05}},
     "doors": [{"id": "F", "y0": 1.20, "y1": 0.40, "sides": "L"}],
-    "windows": [{"id": "W1", "y0": 0.30, "y1": -1.20, "sides": "L"}],
+    "windows": [{"id": "W1", "y0": 0.30, "y1": -1.20}],
     "seats": [{"y": 0.90, "z": 0.95, "xs": [-0.45, 0.45], "w": 0.55}],
     "dash_y": 1.75,
     "space": {"thrusters": [(1.80, 2.20, 0.45, 1.4), (1.75, 0.85, 0.40, 2.4)],
-              "arms": [((0.2, 1.9), (1.4, 2.4), (2.6, 1.5)), ((0.0, 1.2), (1.4, 0.8), (2.5, 0.95))],
+              "arms": [((0.2, 1.0), (1.4, 1.08), (2.6, 0.95)), ((0.0, 0.75), (1.4, 0.65), (2.5, 0.70))],   # (stowed under the belt)
               "lamps": [(0.55, 1.0, 0.13, "lamp_head"), (0.0, 1.15, 0.18, "lamp_head"), (0.32, 0.75, 0.08, "lamp_amber")]},
 })
 ELEVATOR = dict(SPACE_BODY, **{
@@ -834,10 +834,10 @@ CITY_POD = {
     "about": "city cars (pods) on the Solana Light L-25: 1.90 m wide, 3.98 m long, 2.35 m tall, four seats, sliding doors both sides",
     "nose": 2.00, "tail": -1.98, "half_w": 0.95, "skirt": 0.30, "sill": 0.58, "floor": 0.55,
     "belt": belt_for(), "head": 2.06, "cant": 2.24, "crown": 2.35, "headliner": 2.29, "nose_round": 0.35, "tail_round": 0.30, "cant_in": 0.06,
-    "front": {"kind": "flat", "toe": 1.80, "header": 1.10, "screen_base": belt_for() + 0.02, "hood_drop": 0.12},
+    "front": {"kind": "flat", "toe": 1.80, "header": 1.45, "screen_base": belt_for() + 0.02, "hood_drop": 0.12},
     "rear": {"kind": "wall", "tail_in": -1.90, "back_window": {"half_w": 0.62, "z": (1.40, 2.00), "corner": 0.06}},
     "doors": [{"id": "S", "y0": 0.50, "y1": -0.75, "kind": "slide"}],
-    "windows": [{"id": "WF", "y0": 1.00, "y1": 0.60}, {"id": "W2", "y0": -0.85, "y1": -1.62}],
+    "windows": [{"id": "WF", "y0": 1.41, "y1": 0.60}, {"id": "W2", "y0": -0.85, "y1": -1.62}],   # (glass up to the pillar)
     "seats": [{"y": 0.80, "z": 0.85, "xs": [-0.40, 0.40], "w": 0.50}, {"y": -1.20, "z": 0.87, "xs": [-0.38, 0.38], "w": 0.48, "bench": True}],
     "dash_y": 1.55, "head_lamp_z": 0.78, "tail_lamp_z": 1.02, "bumper_z": 0.46,
 }
@@ -893,3 +893,51 @@ STYLES["AP460"] = {"name": "steward_errand", "type": "personal_aerostat",
                    "equipment": ["envelope", "ducted_fans", "suspension", "aero_lamps"]}
 VARIANTS["AP460"] = [{"type": "summoned_aerostat", "name": "steward_errand_red",
                       "palette": dict(paint=(150, 24, 20), livery2=(150, 24, 20))}]
+
+
+
+# ======================================================================== the driver's side view (2026-10-05)
+def fill_front_windows(c):
+    """Glass all round the front (the user): where a solid side panel runs from the A-pillar (the header) back to the
+    first door or window, a fixed quarter window fills it -- both sides, or the sides the openings leave bare."""
+    F = c.get("front", {})
+    if "header" not in F or c.get("trailer") or not c.get("doors"):
+        return
+    hdr = F["header"]
+    for sd in ("R", "L"):
+        side_ops = [o for o in c.get("doors", []) + c.get("windows", []) if sd in o.get("sides", "RL")]
+        if any(o["y0"] >= hdr - 0.25 and o["y1"] < hdr for o in side_ops):
+            continue                                   # (a door or window already runs up to the pillar: a car's front door)
+        ops = [o["y0"] for o in side_ops if o["y0"] < hdr + 1e-6]
+        first = max(ops) if ops else None
+        if first is None or hdr - 0.04 - (first + 0.08) < 0.22:
+            continue
+        w = {"id": "WQ%s" % sd, "y0": round(hdr - 0.04, 3), "y1": round(first + 0.08, 3), "sides": sd}
+        if any(abs(x["y0"] - w["y0"]) < 0.05 and sd in x.get("sides", "RL") for x in c.get("windows", [])):
+            continue
+        c["windows"] = c.get("windows", []) + [w]
+
+
+def corner_glass(c):
+    """A flat-fronted cab's corner windows (a van's, a bus's, a gondola's): side glass under the windscreen's sloping
+    edge, from the toe back to the A-pillar's foot -- the wrap-round view a forward-control driver needs."""
+    F = c.get("front", {})
+    if F.get("kind") != "flat" or c.get("trailer") or "toe" not in F:
+        return
+    toe, hdr = F["toe"], F["header"]
+    if toe - hdr < 0.25:
+        return
+    for sd in ("R", "L"):
+        ops = [o for o in c.get("doors", []) + c.get("windows", []) if sd in o.get("sides", "RL")]
+        if any(o["y0"] > hdr + 0.02 for o in ops):
+            continue                                   # (a door already reaches under the screen's edge)
+        nxt = max([o["y0"] for o in ops if o["y0"] <= hdr + 0.02], default=None)
+        y1 = max(hdr + 0.03, (nxt + 0.08) if nxt is not None else hdr + 0.03)
+        if toe - 0.04 - y1 < 0.2:
+            continue
+        c["windows"] = c.get("windows", []) + [{"id": "WA%s" % sd, "y0": round(toe - 0.04, 3), "y1": round(y1, 3), "sides": sd}]
+
+
+for _c in CLASSES.values():
+    fill_front_windows(_c)
+    corner_glass(_c)

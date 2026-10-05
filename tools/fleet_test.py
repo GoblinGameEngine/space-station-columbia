@@ -42,10 +42,20 @@ def main():
             if r is None:
                 print("%-24s no driver's seat" % os.path.basename(p)[:-15], flush=True)
                 continue
-            ok = r[0] >= VIEW_ALL and r[1] >= VIEW_CORE
+            ok = r[0] >= VIEW_CORE and r[1] >= VIEW_FWD and r[2] >= VIEW_SIDE and r[3] >= VIEW_SIDE
             bad += not ok
-            print("%-24s %s  forward view clear %3.0f %%, ahead %3.0f %%  (eye %s)" % (os.path.basename(p)[:-15], "ok  " if ok else "POOR",
-                  r[0] * 100, r[1] * 100, r[2]), flush=True)
+            print("%-24s %s  clear: ahead %3.0f %%, forward %3.0f %%, left %3.0f %%, right %3.0f %%  (eye %s)" % (
+                os.path.basename(p)[:-15], "ok  " if ok else "POOR", r[0] * 100, r[1] * 100, r[2] * 100, r[3] * 100, r[4]), flush=True)
+        print("%d of %d clear" % (len(paths) - bad, len(paths)))
+        sys.exit(1 if bad else 0)
+    if "--doors" in sys.argv:                              # (what stays in a doorway when its door opens)
+        paths = [os.path.join(FLEET, n + ".blueprint.json") for n in names] if names else sorted(glob.glob(os.path.join(FLEET, "*.blueprint.json")))
+        bad = 0
+        for p in paths:
+            left = doorway_leftovers(p)
+            bad += bool(left)
+            if left:
+                print("%-24s LEFT IN DOORWAYS  %s" % (os.path.basename(p)[:-15], ", ".join("%s:%s" % x for x in left[:8])), flush=True)
         print("%d of %d clear" % (len(paths) - bad, len(paths)))
         sys.exit(1 if bad else 0)
     if "--wheels" in sys.argv:                             # (just the wheel check: fast)
@@ -126,14 +136,16 @@ def wheel_clash(path, margin=0.02, steer_deg=35.0):
 
 # ---------------------------------------------------------------- the driver's forward view (the user, 2026-10-05: "a usable,
 # largely unobstructed forward view from the driver's seat")
-VIEW_ALL, VIEW_CORE = 0.70, 0.90      # clear shares needed: across the whole fan (side pillars count), and straight ahead
-EYE = 0.72                            # m from the seat marker (the H-point) up to the eye (RemakeAirVehicle.seat_eye)
+# (2026-10-05, the user: "windows all around the front ... a clear view forward and to the sides")
+VIEW_CORE, VIEW_FWD, VIEW_SIDE = 0.90, 0.65, 0.55   # clear shares: ahead (+-15 deg), forward (+-60), each side (60..100,
+                                                    # 8 down to 6 up); a cab's real A-pillars and window frames count
+EYE = (0.68, 0.05)                                  # m over the H-point, behind it (Builder.station; SAE J941's centroid)
 REGISTRY = os.path.join(FLEET, "fleet_bodies.json")
 
 
 def forward_view(path):
-    """From the driver's eye: a fan of rays ahead -- 40 deg either side, 6 deg down to 10 up -- against everything opaque
-    (glass is clear) out to 8 m. (clear share of the fan, clear share of the core: 20 deg either side, 3 down to 6 up)."""
+    """From the driver's eye: a fan of rays out to 100 deg either side, 8 deg down to 10 up, against everything opaque
+    (glass is clear) out to 8 m. (clear ahead, clear forward, clear left side, clear right side, the eye)."""
     bp, by = v.load_body(path)
     eye = None
     for nm, loc, *_ in bp.get("markers", []):
@@ -146,20 +158,59 @@ def forward_view(path):
             eye = np.array(info["seat"], np.float32)
     if eye is None:
         return None
-    eye = eye + np.array([0, EYE, 0], np.float32)
-    opaque = set(by) - {"glazing", "door_glass", "hatch_glass", "ramp"}
-    tri = v.gather(by, opaque)
-    dirs, core = [], []
-    for el in np.linspace(-6, 10, 9):
-        for az in np.linspace(-40, 40, 21):
+    eye = eye + np.array([0, EYE[0], EYE[1]], np.float32)
+    opaque = set(by) - {"glazing", "door_glass", "hatch_glass", "ramp", "seat"}   # (a passenger's headrest: the driver
+    tri = v.gather(by, opaque)                                                      #  looks round it)
+    dirs, azs, els = [], [], []
+    for el in np.linspace(-8, 10, 10):
+        for az in np.linspace(-100, 100, 41):
             e, a = math.radians(el), math.radians(az)
             dirs.append([math.sin(a) * math.cos(e), math.sin(e), -math.cos(a) * math.cos(e)])
-            core.append(abs(az) <= 20 and -3 <= el <= 6)
-    dirs = np.array(dirs, np.float32)
+            azs.append(az)
+            els.append(el)
+    dirs, azs, els = np.array(dirs, np.float32), np.array(azs), np.array(els)
     hit = v.first_hit(eye, dirs, tri)
     clear = ~(hit < 8.0)
-    core = np.array(core)
-    return float(clear.mean()), float(clear[core].mean()), [round(float(c), 2) for c in eye]
+    core = (np.abs(azs) <= 15) & (els >= -4) & (els <= 6)
+    fwd = np.abs(azs) <= 60
+    left, right = (azs < -60) & (els >= -5) & (els <= 6), (azs > 60) & (els >= -5) & (els <= 6)
+    return (float(clear[core].mean()), float(clear[fwd].mean()), float(clear[left].mean()), float(clear[right].mean()),
+            [round(float(c), 2) for c in eye])
+
+
+# ---------------------------------------------------------------- doorways (the user, 2026-10-05: "the doors leave handles and trim
+# in the openings when they are opened")
+DOORWAY_OK = {"reveal", "ceiling_bay", "floor", "seat", "dash", "end_lining", "cap_lining", "wheel_well", "underpan"}
+
+
+def doorway_leftovers(path):
+    """Parts not on a door's closer that sit (mostly) in its doorway: in the opening's span and height, out from the
+    inner lining to beyond the skin. [(door, part)]."""
+    bp, by = v.load_body(path)
+    std = json.load(open(os.path.join(v.ROOT, "remake/vehicles/standards/%s.json" % bp["standard"])))
+    outer = std["outer_half_width"]
+    parts = {c["id"]: set(c.get("parts", [])) for c in bp.get("closers", [])}
+    out = []
+    for d in bp.get("doors", []):
+        mine = set()
+        for cid, ps in parts.items():
+            if cid == d["id"] or cid.startswith(d["id"]):
+                mine |= ps
+        sgn = 1 if d["side"] == "R" else -1
+        z0, z1 = d["z"] - d["width"] / 2 + 0.03, d["z"] + d["width"] / 2 - 0.03
+        y0, y1 = d.get("sill", std["floor"]) + 0.03, d.get("head", std["door"]["head"]) - 0.03
+        for role, items in by.items():
+            if role in DOORWAY_OK:
+                continue
+            for mid, tris in items:
+                if mid in mine:
+                    continue
+                pts = tris.reshape(-1, 3)
+                inn = (pts[:, 0] * sgn > outer - 0.16) & (pts[:, 0] * sgn < outer + 0.25) & (pts[:, 2] > z0) & (pts[:, 2] < z1) & \
+                      (pts[:, 1] > y0) & (pts[:, 1] < y1)
+                if inn.mean() > 0.5:
+                    out.append((d["id"], mid))
+    return out
 
 
 if __name__ == "__main__":

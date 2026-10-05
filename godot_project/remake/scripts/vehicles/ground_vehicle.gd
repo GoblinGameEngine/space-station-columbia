@@ -265,6 +265,9 @@ func _physics_process(delta: float) -> void:
 			- Input.get_action_strength("move_back") - Input.get_action_strength("brake_reverse"), -1.0, 1.0)
 		steer_in = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		_handbrake = Input.is_action_pressed("jump")
+	if battery <= 0.0:                                 # (flat: it limps)
+		thr = clampf(thr, -0.15, 0.15)
+	battery = maxf(0.0, battery - absf(thr) * float(phys.get("power_kw", 100.0)) * delta / 3600.0 / pack_kwh)
 	if absf(thr) > 0.02 or absf(steer_in) > 0.02:
 		sleeping = false                               # a sleeping body ignores forces
 	var fwd := -b.z

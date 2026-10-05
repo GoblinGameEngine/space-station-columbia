@@ -72,6 +72,37 @@ def gauges():
     return im
 
 
+def dial(kind):
+    """A dial face for the binnacle's live gauges: a 270-degree sweep from 225 deg (lower left) clockwise to -45 (lower
+    right); the game turns the needle over it. speed: 0-160 km/h; battery: E to F, the last fifth red."""
+    S = 512
+    im = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    c, R = S / 2, S / 2 - 6
+    d.ellipse((6, 6, S - 6, S - 6), fill=(236, 230, 210, 255), outline=(170, 170, 170, 255), width=10)
+    def at(frac, rr):
+        a = math.radians(225 - 270 * frac)
+        return c + math.cos(a) * rr, c - math.sin(a) * rr
+    if kind == "speed":
+        for k in range(0, 33):
+            f = k / 32
+            major = k % 4 == 0
+            d.line((*at(f, R * (0.70 if major else 0.78)), *at(f, R * 0.88)), fill=(25, 25, 28, 255), width=8 if major else 4)
+            if major:
+                d.text(at(f, R * 0.56), str(k * 5), font=font(40), fill=(25, 25, 28, 255), anchor="mm")
+        d.text((c, c + R * 0.42), "km/h", font=font(34), fill=(60, 60, 64, 255), anchor="mm")
+    else:
+        d.arc((c - R * 0.80, c - R * 0.80, c + R * 0.80, c + R * 0.80), 135, 135 + 54, fill=(200, 40, 30, 255), width=30)   # (low: red)
+        for k in range(0, 9):
+            f = k / 8
+            d.line((*at(f, R * 0.70), *at(f, R * 0.88)), fill=(25, 25, 28, 255), width=8 if k % 4 == 0 else 4)
+        d.text(at(0.0, R * 0.56), "E", font=font(60), fill=(25, 25, 28, 255), anchor="mm")
+        d.text(at(0.5, R * 0.52), "1/2", font=font(44), fill=(25, 25, 28, 255), anchor="mm")
+        d.text(at(1.0, R * 0.56), "F", font=font(60), fill=(25, 25, 28, 255), anchor="mm")
+        d.text((c, c + R * 0.62), "CHARGE", font=font(30), fill=(60, 60, 64, 255), anchor="mm")
+    return im
+
+
 def star_of_life():
     s = 256
     im = Image.new("RGBA", (s, s), (0, 0, 0, 0))
@@ -102,7 +133,8 @@ def main():
     rng = random.Random(2752)
     for n in range(8):
         plate(n, rng).save(os.path.join(OUT, "plate_%d.png" % n))
-    gauges().save(os.path.join(OUT, "gauges.png"))
+    dial("speed").save(os.path.join(OUT, "dial_speed.png"))
+    dial("battery").save(os.path.join(OUT, "dial_battery.png"))
     star_of_life().save(os.path.join(OUT, "star_of_life.png"))
     chevrons().save(os.path.join(OUT, "chevrons.png"))
     for wd in WORDS:

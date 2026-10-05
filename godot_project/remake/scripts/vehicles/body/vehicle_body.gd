@@ -103,6 +103,12 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 				 "moving": {}, "mounts": {}, "lines": {}, "ranges": {}}
 	var pair_min := float(std.get("pair_min", PAIR_MIN))
 	var bind_cache := {}
+	# (everything a closer carries is its own node, whatever its role -- a door's handle and belt moulding are trim, and
+	#  merged into the skin they stayed in the doorway when the door swung open)
+	var on_closers := {}
+	for c in bp.get("closers", []):
+		for pid in c.get("parts", []):
+			on_closers[str(pid)] = true
 	for pl in bp.placements:
 		var mid := str(pl[0])
 		var cid := str(pl[1])
@@ -117,7 +123,7 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 							 "tolerance": (std.get("tolerance", {}) as Dictionary).get(str(e.role), e.tolerance),   # (the standard's, live)
 							 "boxes": boxes, "component": cid}
 		var geo := VehicleLibrary.geometry(str(bp.standard), cid)
-		if str(e.role) in MOVING:
+		if str(e.role) in MOVING or on_closers.has(mid):
 			plan.moving[mid] = {"geo": geo, "anchor": anchor}
 			continue
 		var inside := str(e.role) in INSIDE
@@ -344,6 +350,7 @@ func _build() -> void:
 		n.rotation.y = float(mk[2])
 		add_child(n)
 	_decals()
+	_gauges()
 
 
 func _material(style: String, m: String) -> Material:
@@ -676,3 +683,72 @@ func _decals() -> void:
 		dc.distance_fade_begin = DECAL_FADE
 		dc.distance_fade_length = 15.0
 		add_child(dc)
+
+
+# -- the instruments -----------------------------------------------------------------------------------------
+var _needles := {}                       # kind -> the needle's pivot (Node3D)
+const SPEED_FULL := 160.0                # km/h at the speedometer's end stop
+static var _dial_mats := {}
+
+
+static func _dial_material(kind: String) -> StandardMaterial3D:
+	if not _dial_mats.has(kind):
+		var m := StandardMaterial3D.new()
+		var tex := _decal_texture("dial_" + kind)
+		m.albedo_texture = tex
+		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		m.emission_enabled = true                         # (backlit, faintly: readable at night)
+		m.emission_texture = tex
+		m.emission_energy_multiplier = 0.35
+		m.cull_mode = BaseMaterial3D.CULL_BACK
+		_dial_mats[kind] = m
+	return _dial_mats[kind]
+
+
+func _gauges() -> void:
+	## The binnacle's dials (the blueprint's "gauges", Builder.station): a face square to the driver's eye and a needle
+	## the vehicle turns -- the speedometer (0..160 km/h) and the charge (E..F), 270 degrees each.
+	var nm := StandardMaterial3D.new()
+	nm.albedo_color = Color(0.85, 0.12, 0.08)
+	nm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	for gd in plan.bp.get("gauges", []):
+		var kind := str(gd[0])
+		var n := Vector3(gd[2][0], gd[2][1], gd[2][2]).normalized()
+		var u := Vector3(gd[3][0], gd[3][1], gd[3][2])
+		u = (u - n * u.dot(n)).normalized()
+		var r := float(gd[4])
+		var dial := Node3D.new()
+		dial.name = "Gauge_" + kind
+		# (1.2 cm proud of the binnacle's back panel: on it, the panel won the depth test and hid the face)
+		dial.transform = Transform3D(Basis(u.cross(n), u, n), Vector3(gd[1][0], gd[1][1], gd[1][2]) + n * 0.012)
+		add_child(dial)
+		var face := MeshInstance3D.new()
+		var q := QuadMesh.new()
+		q.size = Vector2(r * 2.0, r * 2.0)
+		face.mesh = q
+		face.material_override = _dial_material(kind)
+		face.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		dial.add_child(face)
+		var piv := Node3D.new()
+		piv.name = "Needle"
+		piv.position = Vector3(0, 0, 0.004)
+		dial.add_child(piv)
+		var needle := MeshInstance3D.new()
+		var bm := BoxMesh.new()
+		bm.size = Vector3(r * 0.07, r * 0.82, 0.003)
+		needle.mesh = bm
+		needle.position = Vector3(0, r * 0.33, 0)
+		needle.material_override = nm
+		needle.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		piv.add_child(needle)
+		_needles[kind] = piv
+		for nd in [face, needle]:
+			(nd as GeometryInstance3D).visibility_range_end = INSIDE_RANGE
+	set_gauges(0.0, 1.0)
+
+
+func set_gauges(speed_kmh: float, charge: float) -> void:
+	## Turn the needles: speed in km/h, charge 0..1 (the needle sweeps from 225 deg, lower left, clockwise to -45).
+	for kind in _needles:
+		var f := clampf(speed_kmh / SPEED_FULL, 0.0, 1.0) if kind == "speed" else clampf(charge, 0.0, 1.0)
+		(_needles[kind] as Node3D).rotation.z = deg_to_rad(135.0 - 270.0 * f)

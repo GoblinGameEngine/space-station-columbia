@@ -54,6 +54,8 @@ func setup_type(t: String) -> void:
 		wheel_r = float(b.wheel_r)
 		track = float(b.track_m)
 		wheelbase = float(b.wheelbase_m)
+		if float(b.get("pack_kwh", 0.0)) > 0.0:
+			pack_kwh = float(b.pack_kwh)                 # (the board's cells: the binnacle's charge gauge reads them)
 	var ws: Array = info.get("wheels", []) if info.get("wheels") != null else []
 	if str(info.get("board", "none")) == "none" and not ws.is_empty():   # (a recipe's own wheels: a bike, a chair, a cart)
 		var zs := ws.map(func(w): return float(w[2]))
@@ -413,6 +415,8 @@ func _set_lights(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	_animate_closers(delta)
 	super(delta)
+	if body and (pilot or not drive_input.is_empty()):
+		body.set_gauges(absf(_speed) * 3.6, battery)
 	if not sleeping:
 		_set_lights(delta)
 

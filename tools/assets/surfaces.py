@@ -91,6 +91,17 @@ def main():
     # carpet: dense random loops
     cp = noise(150, 256)
     save("carpet", 0.82 + 0.08 * cp + 0.04 * noise(10, 30), cp, 1.0 - 0.02 * cp, 2.5)
+    # upholstery: the seats (2026-10-05, the user: "We need textures on the seats") -- 1970s pleated vinyl: pleats 6 cm
+    # apart (10 to the 0.6 m tile), each puffed between stitched seams, a cross seam every 30 cm, a leather grain over all
+    y2, x2 = np.mgrid[0:N, 0:N]
+    pl = (x2 % (N / 10)) / (N / 10)                       # 0..1 across a pleat
+    puff = np.sin(np.pi * pl) ** 0.6                       # (round-topped)
+    seam = np.clip(1.0 - np.minimum(pl, 1 - pl) * (N / 10) / 2.5, 0, 1)
+    cross = np.clip(1.0 - np.abs(((y2 % (N / 2)) - N / 4)) / 2.0, 0, 1) * 0.0 + np.clip(1.0 - np.minimum(y2 % (N / 2), N / 2 - y2 % (N / 2)) / 2.5, 0, 1)
+    stitch = ((np.abs(pl - 0.08) < 0.012) | (np.abs(pl - 0.92) < 0.012)) & ((y2 // 6) % 2 == 0)
+    grain = np.abs(noise(60, 120))
+    alb = 0.70 + 0.26 * puff - 0.25 * seam - 0.18 * cross - 0.12 * stitch + 0.03 * grain
+    save("upholstery", alb, puff * 2.0 - seam * 2.5 - cross * 2.0 - grain * 0.3, 0.7 + 0.15 * (1 - puff) + 0.05 * grain, 1.5)
     # grime: the dirt and wear field (a mask, not a surface): broad splotches, and drips running down (-y in the tile)
     sp = noise(2, 6) * 0.7 + noise(8, 20) * 0.3
     drips = noise(10, 40, aniso=(1.0, 0.06))

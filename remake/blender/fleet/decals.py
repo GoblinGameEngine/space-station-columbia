@@ -72,10 +72,7 @@ def place(b, vtype, plates=True):
         if not L.spec.get("trailer"):
             out.append(["plate", (0.0, L.nose + 0.012, L.spec.get("bumper_z", 0.5) + 0.14), (0, 1, 0), (0, 0, 1), 0.52, 0.11, None])
         out.append(["plate", (0.0, rear_y - 0.012, max(0.45, L.spec.get("tail_lamp_z", 1.0) - 0.30)), (0, -1, 0), (0, 0, 1), 0.52, 0.11, None])
-    st = [m for m in b.MARKERS if m[0] == "steering"]
-    if st:                                           # the instruments, on the dash face ahead of the wheel
-        (sx, sy, sz) = st[0][1]
-        out.append(["gauges", (sx, sy + 0.24, sz + 0.10), (0, -0.85, 0.53), (0, 0.53, 0.85), 0.30, 0.12, None])
+    # (the instruments are real now: the binnacle's live dials, Builder.station -> the blueprint's "gauges")
     for item in LIVERIES.get(vtype, []):
         where = item[0]
         if where in ("side", "star", "num"):

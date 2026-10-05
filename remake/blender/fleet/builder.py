@@ -42,6 +42,7 @@ class Builder:
         self.MESH = {}
         self.MARKERS = []
         self.CLOSERS = []
+        self.GAUGES = []                                    # [kind, centre, normal, up, radius]: the game's live dials
         self.USED = {"ext": {}, "int": {}}
 
     # ------------------------------------------------------------ modules
@@ -465,7 +466,7 @@ class Builder:
                 me.face(list(reversed(q)), "black")
         # and along its foot, up the glass from the cowl
         slope = (L.a_line(L.toe - 0.01) - L.a_line(L.toe)) / 0.01                  # (the screen's rise per metre run)
-        foot = L.toe - min(1.3 * band / math.hypot(1.0, slope), (L.toe - L.header) * 0.2)   # (deeper at the foot, as screens' are)
+        foot = L.toe - min(0.7 * band / math.hypot(1.0, slope), (L.toe - L.header) * 0.12)  # (a shallow band at the foot: the view)
         lo, hi = L.ext_loop(L.toe), L.ext_loop(foot)
         cR, cL = self.es(E["cant"], "R"), self.es(E["cant"], "L")
         for k in range(cR, cL):
@@ -1085,26 +1086,63 @@ class Builder:
         dx = [m for m in self.MARKERS if m[0] == "seat_driver"][0][1]
         me = self.mod("dash", "dash", "dash", "C", hp=400, mass=14)
         top = L.top_z(L.toe) - 0.04 if hasattr(L, "top_z") else self.top_z(L.toe) - 0.04
-        yd = S.get("dash_y", L.toe - 0.15)
         hw = L.half_w - L.int_off - 0.08
-        me.box((0, yd, top), (hw, 0.14, 0.05), "dash")
-        me.box((0, yd - 0.12, top - 0.10), (hw - 0.02, 0.05, 0.09), "dash")
-        me.box((dx[0], yd - 0.16, top + 0.02), (0.17, 0.05, 0.05), "dash")
-        for gx in (dx[0] - 0.07, dx[0] + 0.07):
-            me.lathe([(0.0, 0.045), (0.004, 0.045), (0.005, 0.0001)], "gauge", n=16, xf=Matrix.Translation((gx, yd - 0.215, top + 0.02)))
-        # the dot-matrix readout under the gauges (range, charge, the trip: the Steward's monochrome LCD) -- its own token
-        rd = self.mod("readout", "dash", "readout", "C", hp=60, mass=0.3, breaks="shatter")
-        rd.box((dx[0], yd - 0.213, top - 0.04), (0.075, 0.003, 0.02), "black")
-        rd.box((dx[0], yd - 0.217, top - 0.04), (0.068, 0.002, 0.015), "lcd")
-        c = Vector((dx[0], dx[1] + 0.44, dx[2] + 0.25))
-        tilt = Matrix.Rotation(math.radians(68), 4, "X")
-        ring = [c + tilt @ Vector((0.19 * math.cos(TAU * k / 24), 0.19 * math.sin(TAU * k / 24), 0)) for k in range(25)]
-        me.pipe(ring, 0.014, "black", n=8, caps=False)
-        for a in (0.0, math.pi):
-            me.pipe([c, c + tilt @ Vector((0.19 * math.cos(a), 0.19 * math.sin(a) * 0.3 - 0.05, 0))], 0.012, "chrome", n=6)
-        me.pipe([c, c + Vector((0, 0.25, -0.10))], 0.025, "black", n=8)
-        self.marker("steering", tuple(c))
+        upright = dx[2] - L.floor > 0.38                     # (a van's, a bus's, a truck's driver sits up: Class B)
+        c, rear = self.station(me, Vector(dx), upright)
+        front = L.toe - 0.02
+        top = min(top, c.z + (0.10 if upright else 0.12))   # (the dash's top under the driver's sight line over it:
+        eye = Vector(dx) + Vector((0, -0.05, 0.68))            #  6 deg down from the eye to its front edge at the screen)
+        top = min(top, eye.z - math.tan(math.radians(6.5)) * max(0.3, front_y(L) - eye.y))
+        if front > rear + 0.05:
+            me.box((0, (front + rear) / 2, top - 0.05), (hw, (front - rear) / 2, 0.05), "dash")            # the top
+            fb = dx[2] + 0.22                                                                                # (knees under it)
+            me.box((0, rear + 0.06, (top - 0.10 + fb) / 2), (hw - 0.02, 0.06, max(0.03, (top - 0.10 - fb) / 2)), "dash")   # the fascia
         self.marker("light_cabin", (0, (L.header + L.cab_end) / 2, L.headliner - 0.04))
+
+    def station(self, me, H, upright, binnacle=True, ctl="wheel"):  # noqa: C901
+        """The driver's controls and instruments from the H-point (research/vehicles/INTERIORS.md): the eye 0.68 m over the
+        H-point and 5 cm behind it; the wheel's centre at the lower chest -- 0.40 m over the H-point (0.36 sitting up), 0.45 m
+        ahead (0.40) -- tilted 25 deg from vertical (35 for a bus or truck), 0.38 m across (0.46); the instrument binnacle
+        0.72 m (0.80) from the eye, 18 deg (22) below its line, read through the wheel's upper half, square to the eye. The
+        dials' needles are the game's (the blueprint's "gauges"). Returns (the wheel's centre, the dash's rear face y)."""
+        eye = H + Vector((0, -0.05, 0.68))
+        # (the centre at the lower chest: the rim's top must stay well under the eye line -- 0.46 put it 4 cm under the
+        #  eye, across the road ahead)
+        if upright:
+            c, r, tilt_deg, dist, dial_r, dx_, look = H + Vector((0, 0.40, 0.36)), 0.23, 35.0, 0.80, 0.07, 0.095, 22.0
+        else:
+            c, r, tilt_deg, dist, dial_r, dx_, look = H + Vector((0, 0.45, 0.40)), 0.19, 25.0, 0.72, 0.058, 0.078, 18.0
+        if ctl == "wheel":
+            tilt = Matrix.Rotation(math.radians(90.0 - tilt_deg), 4, "X")
+            ring = [c + tilt @ Vector((r * math.cos(TAU * k / 28), r * math.sin(TAU * k / 28), 0)) for k in range(29)]
+            me.pipe(ring, 0.016, "black", n=8, caps=False)
+            for a in (0.0, math.pi, -math.pi / 2):           # (three spokes: 9, 3 and 6 o'clock -- the top half clear)
+                me.pipe([c, c + tilt @ Vector((r * math.cos(a), r * math.sin(a), 0))], 0.012, "chrome", n=6)
+            me.lathe([(0.0, 0.055), (0.03, 0.05), (0.04, 0.0001)], "black", n=14, xf=Matrix.Translation(c) @ tilt @ Matrix.Rotation(math.pi / 2, 4, "X"))
+            col = tilt @ Vector((0, 0, -1))                  # (the column: down and forward from the hub into the dash)
+            me.pipe([c, c + col * 0.32], 0.028, "black", n=8)
+        rear = c.y + 0.16
+        if binnacle:
+            ang = math.radians(look)
+            d = Vector((0, math.cos(ang), -math.sin(ang)))
+            p = eye + d * dist
+            up = Vector((0, math.sin(ang), math.cos(ang)))
+            rot = Matrix.Rotation(-ang, 4, "X")
+            xf = Matrix.Translation(p) @ rot @ Matrix.Translation(-p)
+            w = dx_ + dial_r + 0.04
+            me.box(tuple(p + d * 0.035), (w, 0.01, dial_r + 0.035), "black", xf=xf)              # its back
+            me.box(tuple(p + Vector((0, 0, dial_r + 0.045))), (w + 0.01, 0.06, 0.012), "dash", xf=xf)     # its hood
+            for sx in (1, -1):
+                me.box(tuple(p + Vector((sx * (w + 0.005), 0, 0))), (0.008, 0.06, dial_r + 0.04), "dash", xf=xf)
+            me.box(tuple(p + Vector((0, 0.03, -(dial_r + 0.045)))), (w + 0.01, 0.04, 0.012), "dash", xf=xf)
+            rear = max(rear, p.y + 0.08)
+            for kind, sx in (("speed", -1), ("battery", 1)):  # (the speedometer on the left, the charge on the right)
+                q = p + Vector((sx * dx_, 0, 0)) + d * 0.025
+                self.GAUGES.append([kind, tuple(q), tuple(-d), tuple(up), dial_r])
+            rd = self.mod("readout", "dash", "readout", "C", hp=60, mass=0.3, breaks="shatter")   # (the Steward's dot-matrix LCD)
+            rd.box(tuple(p + d * 0.02 + Vector((0, 0, -dial_r + 0.012))), (0.028, 0.003, 0.010), "lcd", xf=xf)
+        self.marker("steering", tuple(c))
+        return c, rear
 
     def cabin_points(self):
         L = self.L
@@ -1868,12 +1906,8 @@ class Builder:
         # the controls
         me = self.mod("controls", "dash", "controls", "C", hp=200, mass=6)
         ctl = O.get("controls", "wheel")
-        if ctl == "wheel":
-            c = Vector((d[0], d[1] + 0.40, d[2] + 0.22))
-            tilt = Matrix.Rotation(math.radians(62), 4, "X")
-            ring = [c + tilt @ Vector((0.15 * math.cos(TAU * k / 20), 0.15 * math.sin(TAU * k / 20), 0)) for k in range(21)]
-            me.pipe(ring, 0.012, "black", n=8, caps=False)
-            me.pipe([c, c + Vector((0, 0.30, -0.18))], 0.02, "black", n=8)
+        if ctl == "wheel":                                 # (the same driver's station as any car's: chest-high, gauges ahead)
+            c, _ = self.station(me, Vector(d), d[2] - fz > 0.38)
         elif ctl in ("bar", "tiller"):
             c = Vector((d[0], d[1] + (0.45 if ctl == "bar" else 0.55), d[2] + (0.20 if ctl == "bar" else 0.30)))
             me.pipe([c + Vector((-0.30, 0, 0)), c + Vector((-0.12, 0.02, 0.03)), c + Vector((0.12, 0.02, 0.03)), c + Vector((0.30, 0, 0))], 0.014, "black", n=6)
@@ -1884,7 +1918,8 @@ class Builder:
             c = Vector((d[0] + 0.24, d[1] + 0.20, d[2] + 0.15))
             me.box(tuple(c), (0.04, 0.06, 0.03), "black")
             me.pipe([c, c + Vector((0, 0, 0.07))], 0.008, "black", n=6)
-        self.marker("steering", tuple(c))
+        if ctl != "wheel":
+            self.marker("steering", tuple(c))
         rd = self.mod("readout", "dash", "readout", "C", hp=40, mass=0.2, breaks="shatter")
         rd.box((c.x + (0.0 if ctl != "joystick" else 0.0), c.y + 0.06, c.z + 0.05), (0.05, 0.004, 0.02), "lcd")
         # the front cowl: a sloped nose over the front wheels, its lamps in it
@@ -2023,7 +2058,7 @@ class Builder:
             me = self.mod("loader", "equipment", "loader", "C", hp=900, mass=500)
             yb = L.nose + 0.55
             ya = L.axles[0] + L.wheel_r + 0.25              # (over the front wheels, then down to the bucket ahead of them)
-            zt = L.wheel_r * 2 + 0.20
+            zt = L.wheel_r * 2 + 0.02                       # (low over the wheels: the driver sees over the arms)
             for sx in (1, -1):
                 x = sx * (L.half_w + 0.08)
                 y0 = max(L.toe - 0.4, max(d["y0"] for d in L.doors) + 0.12)    # (rooted ahead of the cab's doors: they swing clear)
@@ -2152,3 +2187,8 @@ class Builder:
                 c, sn = math.cos(math.radians(35)), math.sin(math.radians(35))
                 x = min(x, L.track / 2 - (tw / 2 * c + L.wheel_r * sn) - 0.04)
         return max(0.05, x)
+
+
+def front_y(L):
+    """Where the dash meets the screen's foot (the toe)."""
+    return getattr(L, "toe", L.nose) - 0.02

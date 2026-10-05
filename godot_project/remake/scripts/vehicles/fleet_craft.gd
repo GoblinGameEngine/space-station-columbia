@@ -222,6 +222,8 @@ func _open_hull() -> void:
 func _physics_process(delta: float) -> void:
 	_fc.animate(delta)
 	super(delta)
+	if body and (pilot or not fly_input.is_empty()):
+		body.set_gauges(_lv.length() * 3.6, battery)
 
 
 func _sweep_excluded() -> Array[RID]:

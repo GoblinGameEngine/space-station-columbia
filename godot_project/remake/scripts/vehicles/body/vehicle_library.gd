@@ -138,7 +138,7 @@ static func geometry(std_id: String, cid: String) -> Dictionary:
 # triplanar: no UVs, and the texture rides with the vehicle)
 const SURFACE := {"paint": ["paint", 0.6], "paint2": ["paint", 0.6], "livery1": ["paint", 0.6], "livery2": ["paint", 0.6],
 	"black": ["plastic", 0.25], "dash": ["plastic", 0.25], "tub": ["plastic", 0.3], "chrome": ["brushed", 0.4],
-	"frame_tube": ["brushed", 0.5], "rubber": ["rubber", 0.25], "seat": ["fabric", 0.15], "headliner": ["fabric", 0.2],
+	"frame_tube": ["brushed", 0.5], "rubber": ["rubber", 0.25], "seat": ["upholstery", 0.6], "headliner": ["fabric", 0.6],
 	"carpet": ["carpet", 0.3], "lining": ["vinyl", 0.3], "wood": ["wood", 0.8], "canvas1": ["canvas", 2.0], "canvas2": ["canvas", 2.0]}
 const SURFACE_DIR := "res://remake/vehicles/surfaces/"
 static var _surf_tex := {}

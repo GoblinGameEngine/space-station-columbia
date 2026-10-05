@@ -65,6 +65,9 @@ var _engine_sounds: Array = []
 var _seat_local := Vector3.ZERO
 var fly_input := {}                  # {fwd -1..1, turn -1..1, lift -1..1}: an NPC's controls (VehiclePilot), as the
                                      # pilot's keys are a player's; with a player seated, the player's win
+var battery := 1.0                   # its charge, 0..1 (the binnacle's gauge); it drains with the power it draws,
+@export var pack_kwh := 60.0         # and flat, it limps: a road vehicle on 15 % throttle, a flyer on 30 % thrust
+@export var fly_kw := 40.0           # (the fans' draw at full command)
 @export var water_speed_k := 0.35    # on the water it makes this share of max_speed (a boat: all of it)
 @export var can_climb := true        # a boat can't: its lift only settles it in the water
 
@@ -94,6 +97,7 @@ var _crash_sound: AudioStreamPlayer3D
 
 
 func _ready() -> void:
+	battery = randf_range(0.55, 1.0)
 	# a rigid body: the air vehicles stay frozen and are moved by their own flight code (as an
 	# AnimatableBody would be); ground vehicles unfreeze and drive by forces (RemakeGroundVehicle)
 	freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
@@ -321,6 +325,11 @@ func _physics_process(delta: float) -> void:
 		fwd_in = clampf(float(fly_input.get("fwd", 0.0)), -1.0, 1.0)
 		turn_in = clampf(float(fly_input.get("turn", 0.0)), -1.0, 1.0)
 		lift_in = clampf(float(fly_input.get("lift", 0.0)), -1.0, 1.0)
+	if pilot or not fly_input.is_empty():               # (the charge: the fans' draw, a little to hover)
+		battery = maxf(0.0, battery - (absf(fwd_in) * 0.7 + absf(lift_in) * 0.5 + 0.15) * fly_kw * delta / 3600.0 / pack_kwh)
+	if battery <= 0.0:
+		fwd_in *= 0.3
+		lift_in = minf(lift_in, 0.0)
 	if not can_climb:                                  # (a boat: it doesn't fly; off the water it lies where it is)
 		lift_in = 0.0 if afloat else -1.0
 		if not afloat:
