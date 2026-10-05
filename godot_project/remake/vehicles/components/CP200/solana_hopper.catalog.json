@@ -1,0 +1,2742 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "CP200",
+ "class": "city_car",
+ "style": "solana_hopper",
+ "pack": "res://remake/vehicles/components/CP200/solana_hopper.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.2353,
+    0.3922,
+    0.6667
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "CP200.end_cap.nose.C.solana_hopper.19a375": {
+   "id": "CP200.end_cap.nose.C.solana_hopper.19a375",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.768,
+     0.03,
+     1.7696,
+     0.936,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.trim.cowl.C.solana_hopper.22e31a": {
+   "id": "CP200.trim.cowl.C.solana_hopper.22e31a",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3005,
+     0.07,
+     1.852,
+     0.199,
+     0.14
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.glazing.screen.C.solana_hopper.e3e087": {
+   "id": "CP200.glazing.screen.C.solana_hopper.e3e087",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     11016,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.82,
+     0.35,
+     1.852,
+     1.06,
+     0.7
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.trim.screen.C.solana_hopper.658013": {
+   "id": "CP200.trim.screen.C.solana_hopper.658013",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     21384,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7728,
+     0.35,
+     1.852,
+     0.9735,
+     0.7
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.side_bay.fender.R.solana_hopper.f39f57": {
+   "id": "CP200.side_bay.fender.R.solana_hopper.f39f57",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28872,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     0.8662,
+     0.795,
+     0.47,
+     0.1677,
+     0.99,
+     0.94
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.side_bay.fore.R.solana_hopper.d02a85": {
+   "id": "CP200.side_bay.fore.R.solana_hopper.d02a85",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33336,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.18,
+     0.25,
+     0.06,
+     1.76,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.trim.sail.R.solana_hopper.79dcef": {
+   "id": "CP200.trim.sail.R.solana_hopper.79dcef",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     35352,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.665,
+     0.4,
+     0.06,
+     0.79,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.a_pillar.R.solana_hopper.7abf3d": {
+   "id": "CP200.trim.a_pillar.R.solana_hopper.7abf3d",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     40104,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.885,
+     1.755,
+     0.35,
+     0.11,
+     0.97,
+     0.7
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.side_bay.rocker_S.R.solana_hopper.9a6075": {
+   "id": "CP200.side_bay.rocker_S.R.solana_hopper.9a6075",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/rocker_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42696,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.935,
+     0.44,
+     0.625,
+     0.03,
+     0.28,
+     1.25
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.side_bay.quarter.R.solana_hopper.cc3d64": {
+   "id": "CP200.side_bay.quarter.R.solana_hopper.cc3d64",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42840,
+     258
+    ]
+   },
+   "boxes": [
+    [
+     0.9056,
+     1.18,
+     0.575,
+     0.0887,
+     1.76,
+     1.15
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.side_bay.fender.L.solana_hopper.302243": {
+   "id": "CP200.side_bay.fender.L.solana_hopper.302243",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49032,
+     186
+    ]
+   },
+   "boxes": [
+    [
+     -0.8662,
+     0.795,
+     0.47,
+     0.1677,
+     0.99,
+     0.94
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.side_bay.fore.L.solana_hopper.3cab56": {
+   "id": "CP200.side_bay.fore.L.solana_hopper.3cab56",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     53496,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.18,
+     0.25,
+     0.06,
+     1.76,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.trim.sail.L.solana_hopper.0fed65": {
+   "id": "CP200.trim.sail.L.solana_hopper.0fed65",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     55512,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.665,
+     0.4,
+     0.06,
+     0.79,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.a_pillar.L.solana_hopper.83be58": {
+   "id": "CP200.trim.a_pillar.L.solana_hopper.83be58",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     60264,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.885,
+     1.755,
+     0.35,
+     0.11,
+     0.97,
+     0.7
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.side_bay.rocker_S.L.solana_hopper.b2691d": {
+   "id": "CP200.side_bay.rocker_S.L.solana_hopper.b2691d",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/rocker_S/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     62856,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.935,
+     0.44,
+     0.625,
+     0.03,
+     0.28,
+     1.25
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.side_bay.quarter.L.solana_hopper.28b697": {
+   "id": "CP200.side_bay.quarter.L.solana_hopper.28b697",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63000,
+     258
+    ]
+   },
+   "boxes": [
+    [
+     -0.9056,
+     1.18,
+     0.575,
+     0.0887,
+     1.76,
+     1.15
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.roof_bay.roof_0.C.solana_hopper.539f5f": {
+   "id": "CP200.roof_bay.roof_0.C.solana_hopper.539f5f",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     69192,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.205,
+     0.925,
+     1.78,
+     0.29,
+     1.85
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.roof_bay.roof_1.C.solana_hopper.e0fe1f": {
+   "id": "CP200.roof_bay.roof_1.C.solana_hopper.e0fe1f",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     83016,
+     1080
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.205,
+     0.575,
+     1.78,
+     0.29,
+     1.15
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.end_cap.tail.C.solana_hopper.e3d05d": {
+   "id": "CP200.end_cap.tail.C.solana_hopper.e3d05d",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     108936,
+     573
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.325,
+     0.04,
+     1.8387,
+     2.05,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "CP200.floor.floor.C.solana_hopper.dc9ded": {
+   "id": "CP200.floor.floor.C.solana_hopper.dc9ded",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     122688,
+     1536
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.705,
+     1.85,
+     1.78,
+     0.31,
+     3.7
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "CP200.lining_bay.trim_0_0.R.solana_hopper.621674": {
+   "id": "CP200.lining_bay.trim_0_0.R.solana_hopper.621674",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     159552,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     0.86,
+     1.32,
+     0.65,
+     0.06,
+     1.48,
+     1.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.lining_bay.trim_1_0.R.solana_hopper.24243b": {
+   "id": "CP200.lining_bay.trim_1_0.R.solana_hopper.24243b",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     169344,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.8466,
+     1.32,
+     0.575,
+     0.0868,
+     1.48,
+     1.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.lining_bay.a_pillar.R.solana_hopper.1c47c6": {
+   "id": "CP200.lining_bay.a_pillar.R.solana_hopper.1c47c6",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     176256,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.825,
+     1.7262,
+     0.35,
+     0.11,
+     0.9556,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.lining_bay.trim_0_0.L.solana_hopper.d146a3": {
+   "id": "CP200.lining_bay.trim_0_0.L.solana_hopper.d146a3",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     178848,
+     408
+    ]
+   },
+   "boxes": [
+    [
+     -0.86,
+     1.32,
+     0.65,
+     0.06,
+     1.48,
+     1.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.lining_bay.trim_1_0.L.solana_hopper.b9771d": {
+   "id": "CP200.lining_bay.trim_1_0.L.solana_hopper.b9771d",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     188640,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     -0.8466,
+     1.32,
+     0.575,
+     0.0868,
+     1.48,
+     1.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.lining_bay.a_pillar.L.solana_hopper.c93e62": {
+   "id": "CP200.lining_bay.a_pillar.L.solana_hopper.c93e62",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     195552,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.825,
+     1.7262,
+     0.35,
+     0.11,
+     0.9556,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.ceiling_bay.roof_0.C.solana_hopper.d6521e": {
+   "id": "CP200.ceiling_bay.roof_0.C.solana_hopper.d6521e",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     198144,
+     576
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.175,
+     0.925,
+     1.66,
+     0.23,
+     1.85
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.ceiling_bay.roof_1.C.solana_hopper.a27645": {
+   "id": "CP200.ceiling_bay.roof_1.C.solana_hopper.a27645",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     211968,
+     1080
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.175,
+     0.575,
+     1.66,
+     0.23,
+     1.15
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.end_lining.firewall.C.solana_hopper.5b5a3a": {
+   "id": "CP200.end_lining.firewall.C.solana_hopper.5b5a3a",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     237888,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.945,
+     -0.0,
+     1.77,
+     0.79,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.end_lining.rear_wall.C.solana_hopper.50dc1c": {
+   "id": "CP200.end_lining.rear_wall.C.solana_hopper.50dc1c",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     239328,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.42,
+     0.0,
+     1.77,
+     1.74,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.rear_opening.C.solana_hopper.e93184": {
+   "id": "CP200.reveal.rear_opening.C.solana_hopper.e93184",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     242784,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7,
+     0.04,
+     1.24,
+     0.6,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.glazing.back_window.C.solana_hopper.b9c4b5": {
+   "id": "CP200.glazing.back_window.C.solana_hopper.b9c4b5",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     245664,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7,
+     -0.0,
+     1.24,
+     0.6,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.reveal.door_S.R.solana_hopper.cd80f5": {
+   "id": "CP200.reveal.door_S.R.solana_hopper.cd80f5",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     246960,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.89,
+     1.32,
+     0.625,
+     0.12,
+     1.48,
+     1.25
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.window_WF.R.solana_hopper.09e57e": {
+   "id": "CP200.reveal.window_WF.R.solana_hopper.09e57e",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "window_WF",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/window_WF/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     248688,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.89,
+     1.665,
+     0.2,
+     0.12,
+     0.79,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.window_W2.R.solana_hopper.4bf019": {
+   "id": "CP200.reveal.window_W2.R.solana_hopper.4bf019",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     250704,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.89,
+     1.665,
+     0.385,
+     0.12,
+     0.79,
+     0.77
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.door_S.L.solana_hopper.b5b959": {
+   "id": "CP200.reveal.door_S.L.solana_hopper.b5b959",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     254160,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.89,
+     1.32,
+     0.625,
+     0.12,
+     1.48,
+     1.25
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.window_WF.L.solana_hopper.1a352b": {
+   "id": "CP200.reveal.window_WF.L.solana_hopper.1a352b",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "window_WF",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/window_WF/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     255888,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.89,
+     1.665,
+     0.2,
+     0.12,
+     0.79,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.window_W2.L.solana_hopper.fca5b4": {
+   "id": "CP200.reveal.window_W2.L.solana_hopper.fca5b4",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     257904,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.89,
+     1.665,
+     0.385,
+     0.12,
+     0.79,
+     0.77
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.reveal.screen.C.solana_hopper.dfe9b4": {
+   "id": "CP200.reveal.screen.C.solana_hopper.dfe9b4",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     261360,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.802,
+     0.35,
+     1.852,
+     1.096,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "CP200.glazing.window_WF.R.solana_hopper.a3d582": {
+   "id": "CP200.glazing.window_WF.R.solana_hopper.a3d582",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "glazing",
+   "slot": "window_WF",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/glazing/window_WF/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     266256,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.665,
+     0.2,
+     0.06,
+     0.79,
+     0.4
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.glazing.window_WF.L.solana_hopper.3ff2cc": {
+   "id": "CP200.glazing.window_WF.L.solana_hopper.3ff2cc",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "glazing",
+   "slot": "window_WF",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/glazing/window_WF/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     267984,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.665,
+     0.2,
+     0.06,
+     0.79,
+     0.4
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.glazing.window_W2.R.solana_hopper.addae9": {
+   "id": "CP200.glazing.window_W2.R.solana_hopper.addae9",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     269712,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.665,
+     0.385,
+     0.06,
+     0.79,
+     0.77
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.glazing.window_W2.L.solana_hopper.886122": {
+   "id": "CP200.glazing.window_W2.L.solana_hopper.886122",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     273600,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.665,
+     0.385,
+     0.06,
+     0.79,
+     0.77
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.door_leaf.door_S.R.solana_hopper.3f171b": {
+   "id": "CP200.door_leaf.door_S.R.solana_hopper.3f171b",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/door_leaf/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     277488,
+     12
+    ],
+    "paint": [
+     277776,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     0.925,
+     0.625,
+     0.06,
+     0.69,
+     1.25
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.door_glass.door_S.R.solana_hopper.b52e61": {
+   "id": "CP200.door_glass.door_S.R.solana_hopper.b52e61",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/door_glass/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     278928,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.92,
+     1.665,
+     0.625,
+     0.06,
+     0.79,
+     1.25
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.leaf_trim.handle_S.R.solana_hopper.80bf9d": {
+   "id": "CP200.leaf_trim.handle_S.R.solana_hopper.80bf9d",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/leaf_trim/handle_S/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     279360,
+     36
+    ],
+    "dash": [
+     280224,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.895,
+     1.085,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.door_leaf.door_S.L.solana_hopper.2fca91": {
+   "id": "CP200.door_leaf.door_S.L.solana_hopper.2fca91",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/door_leaf/door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     281088,
+     12
+    ],
+    "paint": [
+     281376,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     0.925,
+     0.625,
+     0.06,
+     0.69,
+     1.25
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.door_glass.door_S.L.solana_hopper.eb5b18": {
+   "id": "CP200.door_glass.door_S.L.solana_hopper.eb5b18",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/door_glass/door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     282528,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.92,
+     1.665,
+     0.625,
+     0.06,
+     0.79,
+     1.25
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "CP200.leaf_trim.handle_S.L.solana_hopper.22e508": {
+   "id": "CP200.leaf_trim.handle_S.L.solana_hopper.22e508",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/leaf_trim/handle_S/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     282960,
+     36
+    ],
+    "dash": [
+     283824,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.895,
+     1.085,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.wheel_well.well_0.R.solana_hopper.3331e8": {
+   "id": "CP200.wheel_well.well_0.R.solana_hopper.3331e8",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     284688,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     0.6638,
+     0.5603,
+     0.4118,
+     0.6075,
+     0.5232,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP200.wheel_well.well_0.L.solana_hopper.3ddc0f": {
+   "id": "CP200.wheel_well.well_0.L.solana_hopper.3ddc0f",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     301824,
+     714
+    ]
+   },
+   "boxes": [
+    [
+     -0.6638,
+     0.5603,
+     0.4118,
+     0.6075,
+     0.5231,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP200.wheel_well.well_1.R.solana_hopper.856605": {
+   "id": "CP200.wheel_well.well_1.R.solana_hopper.856605",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     318960,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.6638,
+     0.5603,
+     0.4118,
+     0.6075,
+     0.5232,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP200.wheel_well.well_1.L.solana_hopper.70edfc": {
+   "id": "CP200.wheel_well.well_1.L.solana_hopper.70edfc",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     334944,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.6638,
+     0.5603,
+     0.4118,
+     0.6075,
+     0.5231,
+     0.8236
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP200.underpan.underpan.C.solana_hopper.5373b5": {
+   "id": "CP200.underpan.underpan.C.solana_hopper.5373b5",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     350928,
+     474
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4025,
+     1.99,
+     1.84,
+     0.205,
+     3.98
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "CP200.seat.row_0.C.solana_hopper.875585": {
+   "id": "CP200.seat.row_0.C.solana_hopper.875585",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     362304,
+     72
+    ],
+    "seat": [
+     364032,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4046,
+     0.4335,
+     1.26,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP200.seat.row_1.C.solana_hopper.f76f04": {
+   "id": "CP200.seat.row_1.C.solana_hopper.f76f04",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     369216,
+     72
+    ],
+    "seat": [
+     370944,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3077,
+     0.4023,
+     1.2,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "CP200.dash.dash.C.solana_hopper.74870a": {
+   "id": "CP200.dash.dash.C.solana_hopper.74870a",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     374400,
+     1236
+    ],
+    "chrome": [
+     404064,
+     120
+    ],
+    "dash": [
+     406944,
+     108
+    ],
+    "gauge": [
+     409536,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1049,
+     0.2676,
+     1.62,
+     0.3901,
+     0.5351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "CP200.dash.readout.C.solana_hopper.cf8488": {
+   "id": "CP200.dash.readout.C.solana_hopper.cf8488",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     418752,
+     36
+    ],
+    "lcd": [
+     419616,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.4,
+     1.19,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "CP200.lamp.head_lamp.C.solana_hopper.5078bd": {
+   "id": "CP200.lamp.head_lamp.C.solana_hopper.5078bd",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     420480,
+     72
+    ],
+    "lamp_amber": [
+     422208,
+     72
+    ],
+    "lamp_head": [
+     423936,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.78,
+     0.007,
+     1.7,
+     0.11,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CP200.lamp.tail_lamp.C.solana_hopper.460870": {
+   "id": "CP200.lamp.tail_lamp.C.solana_hopper.460870",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     425664,
+     12
+    ],
+    "lamp_amber": [
+     425952,
+     48
+    ],
+    "lamp_brake": [
+     427104,
+     36
+    ],
+    "lamp_reverse": [
+     427968,
+     48
+    ],
+    "lamp_tail": [
+     429120,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.421,
+     0.006,
+     1.746,
+     1.302,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CP200.lamp.side_marker.C.solana_hopper.760128": {
+   "id": "CP200.lamp.side_marker.C.solana_hopper.760128",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     437184,
+     72
+    ],
+    "lamp_tail": [
+     438912,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.86,
+     1.83,
+     1.8881,
+     0.03,
+     3.66
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "CP200.trim.bumper_front.C.solana_hopper.b8b910": {
+   "id": "CP200.trim.bumper_front.C.solana_hopper.b8b910",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     440640,
+     108
+    ],
+    "rubber": [
+     443232,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.848,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.bumper_rear.C.solana_hopper.c7c15f": {
+   "id": "CP200.trim.bumper_rear.C.solana_hopper.c7c15f",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     444096,
+     108
+    ],
+    "rubber": [
+     446688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.46,
+     0.0655,
+     1.848,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.mirror.R.solana_hopper.f17b2d": {
+   "id": "CP200.trim.mirror.R.solana_hopper.f17b2d",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     447552,
+     96
+    ],
+    "glass_dark": [
+     449856,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0363,
+     1.3633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.mirror.L.solana_hopper.9bc687": {
+   "id": "CP200.trim.mirror.L.solana_hopper.9bc687",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     450720,
+     96
+    ],
+    "glass_dark": [
+     453024,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0359,
+     1.3635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.livery_fender.R.solana_hopper.660537": {
+   "id": "CP200.trim.livery_fender.R.solana_hopper.660537",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     453888,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.931,
+     0.87,
+     0.42,
+     0.0461,
+     0.14,
+     0.84
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.livery_fore.R.solana_hopper.61aace": {
+   "id": "CP200.trim.livery_fore.R.solana_hopper.61aace",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/livery_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     457920,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.954,
+     0.87,
+     0.13,
+     0.02,
+     0.14,
+     0.26
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.livery_quarter.R.solana_hopper.ffd1eb": {
+   "id": "CP200.trim.livery_quarter.R.solana_hopper.ffd1eb",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/livery_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     459072,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.9422,
+     0.87,
+     0.52,
+     0.0237,
+     0.14,
+     1.04
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.leaf_trim.livery_door_S.R.solana_hopper.06f69c": {
+   "id": "CP200.leaf_trim.livery_door_S.R.solana_hopper.06f69c",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "leaf_trim",
+   "slot": "livery_door_S",
+   "side": "R",
+   "style": "solana_hopper",
+   "interface": "CP200/leaf_trim/livery_door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     464256,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.954,
+     0.87,
+     0.575,
+     0.02,
+     0.14,
+     1.15
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "CP200.trim.livery_fender.L.solana_hopper.09b74e": {
+   "id": "CP200.trim.livery_fender.L.solana_hopper.09b74e",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     469440,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -0.931,
+     0.87,
+     0.42,
+     0.0461,
+     0.14,
+     0.84
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.livery_fore.L.solana_hopper.2889a3": {
+   "id": "CP200.trim.livery_fore.L.solana_hopper.2889a3",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/livery_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     473472,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.954,
+     0.87,
+     0.13,
+     0.02,
+     0.14,
+     0.26
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.trim.livery_quarter.L.solana_hopper.449417": {
+   "id": "CP200.trim.livery_quarter.L.solana_hopper.449417",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/trim/livery_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     474624,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -0.9422,
+     0.87,
+     0.52,
+     0.0237,
+     0.14,
+     1.04
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "CP200.leaf_trim.livery_door_S.L.solana_hopper.1594b9": {
+   "id": "CP200.leaf_trim.livery_door_S.L.solana_hopper.1594b9",
+   "standard": "CP200",
+   "class": "city_car",
+   "role": "leaf_trim",
+   "slot": "livery_door_S",
+   "side": "L",
+   "style": "solana_hopper",
+   "interface": "CP200/leaf_trim/livery_door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     479808,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     -0.954,
+     0.87,
+     0.575,
+     0.02,
+     0.14,
+     1.15
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  }
+ }
+}

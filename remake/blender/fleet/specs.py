@@ -821,3 +821,43 @@ STYLES["SM450"] = dict(SPACE_STYLE, name="steward_mule", type="cargo_mule",
                        livery={"m": "livery2", "z": (0.75, 0.90)}, equipment=["thruster_pods", "manipulators", "dorsal", "nose_lamps", "beacon"])
 STYLES["EE600"] = dict(SPACE_STYLE, name="steward_ascender", type="spoke_elevator_car",
                        palette=palette(paint=(236, 226, 200), paint2=(236, 226, 200)), equipment=["guide_rollers", "rim_lamps"])
+
+# ======================================================================== the city car and the minivan (2026-10-04)
+# The last of the road fleet: the pod and the minibus that were hand-built (remake/blender/vehicles/groundcar.py),
+# now modular bodies to the same rules, keeping their looks: the pod's white shell, blue band and sliding doors, the
+# minibus's mustard and woodgrain, white roof, quad lamps.
+CITY_POD = {
+    "id": "CP200", "cls": "city_car", "board": "solana_l25",
+    "about": "city cars (pods) on the Solana Light L-25: 1.90 m wide, 3.98 m long, 2.35 m tall, four seats, sliding doors both sides",
+    "nose": 2.00, "tail": -1.98, "half_w": 0.95, "skirt": 0.30, "sill": 0.58, "floor": 0.55,
+    "belt": belt_for(), "head": 2.06, "cant": 2.24, "crown": 2.35, "headliner": 2.29, "nose_round": 0.35, "tail_round": 0.30, "cant_in": 0.06,
+    "front": {"kind": "flat", "toe": 1.80, "header": 1.10, "screen_base": belt_for() + 0.02, "hood_drop": 0.12},
+    "rear": {"kind": "wall", "tail_in": -1.90, "back_window": {"half_w": 0.62, "z": (1.40, 2.00), "corner": 0.06}},
+    "doors": [{"id": "S", "y0": 0.50, "y1": -0.75, "kind": "slide"}],
+    "windows": [{"id": "WF", "y0": 1.00, "y1": 0.60}, {"id": "W2", "y0": -0.85, "y1": -1.62}],
+    "seats": [{"y": 0.80, "z": 0.85, "xs": [-0.40, 0.40], "w": 0.50}, {"y": -1.20, "z": 0.87, "xs": [-0.38, 0.38], "w": 0.48, "bench": True}],
+    "dash_y": 1.55, "head_lamp_z": 0.78, "tail_lamp_z": 1.02, "bumper_z": 0.46,
+}
+MINIBUS = {
+    "id": "MV260", "cls": "minivan", "board": "carrow_k36",
+    "about": "minivans (the 1970s minibus) on the Carrow Keel K-36: 2.00 m wide, 5.22 m long, 2.42 m tall, three rows",
+    "nose": 2.62, "tail": -2.60, "half_w": 1.00, "skirt": 0.32, "sill": 0.58, "floor": 0.55,
+    "belt": belt_for(H_VAN), "head": 2.12, "cant": 2.32, "crown": 2.42, "headliner": 2.36, "nose_round": 0.25, "cant_in": 0.06,
+    "front": {"kind": "flat", "toe": 2.40, "header": 2.05, "screen_base": belt_for(H_VAN) + 0.02, "hood_drop": 0.10},
+    "rear": {"kind": "wall", "tail_in": -2.53, "back_window": {"half_w": 0.70, "z": (1.45, 2.10), "corner": 0.06}},
+    "doors": [{"id": "F", "y0": 1.30, "y1": 0.55}, {"id": "S", "y0": 0.45, "y1": -0.60, "sides": "R", "kind": "slide"}],
+    "windows": [{"id": "WF", "y0": 2.00, "y1": 1.40}, {"id": "W1", "y0": 0.45, "y1": -0.60, "sides": "L"}, {"id": "W2", "y0": -0.70, "y1": -1.35},
+                {"id": "W3", "y0": -1.45, "y1": -2.35}],
+    "seats": [{"y": 0.95, "z": H_VAN, "xs": [-0.48, 0.48], "w": 0.52},
+              {"y": -0.45, "z": H_VAN, "xs": [-0.52, 0.0, 0.52], "w": 0.48, "bench": True},
+              {"y": -1.65, "z": H_VAN, "xs": [-0.52, 0.0, 0.52], "w": 0.48, "bench": True}],
+    "dash_y": 1.75, "head_lamp_z": 0.90, "tail_lamp_z": 1.05, "bumper_z": 0.48,
+}
+CLASSES.update({c["id"]: c for c in (CITY_POD, MINIBUS)})
+STYLES["CP200"] = {"name": "solana_hopper", "type": "city_car", "palette": palette(paint=(240, 240, 236), paint2=(240, 240, 236), livery2=(60, 100, 170)),
+                   "panel": {"lower": "paint", "upper": "paint", "roof": "paint2", "sail": "paint"}, "head_lamp": "rect", "grille": None,
+                   "tail_lamp": "pixel", "bumper": "black", "mirror": "black", "handle": "black", "livery": {"m": "livery2", "z": (0.80, 0.94)}}
+STYLES["MV260"] = {"name": "carrow_jamboree", "type": "minivan", "palette": palette(paint=(196, 154, 58), paint2=(240, 236, 226)),
+                   "panel": {"lower": "paint", "upper": "paint2", "roof": "paint2", "sail": "paint2"}, "head_lamp": "round", "grille": "band",
+                   "tail_lamp": "pixel", "bumper": "chrome", "mirror": "chrome", "handle": "chrome", "belt_trim": "chrome",
+                   "inlay": {"m": "wood", "frame": "chrome", "z": (0.62, None)}}

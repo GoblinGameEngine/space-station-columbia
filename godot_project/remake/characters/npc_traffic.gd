@@ -33,8 +33,8 @@ const WALK_S := 40.0                 # real seconds from the door to the car bef
 const DWELL_S := 45.0                # real seconds at each stop on a round
 const SEAT_H := 0.36
 const ROADS := ["street", "main", "county", "hwy", "gravel", "alley"]
-const MODEL := {"city_car": "pod", "minivan": "van"}   # (the other types are the modular bodies, FleetBodies: the
-                                                       # Grok-made models were taken out, 2026-10-02)
+const MODEL := {}                     # (hand-built models by type: none now -- every type on the roads is a modular
+                                     #  body, FleetBodies; the pod and the minibus joined them 2026-10-04)
 
 var player: Node3D
 var world_seed := 1

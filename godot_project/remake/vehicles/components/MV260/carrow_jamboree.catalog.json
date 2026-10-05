@@ -1,0 +1,3756 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "MV260",
+ "class": "minivan",
+ "style": "carrow_jamboree",
+ "pack": "res://remake/vehicles/components/MV260/carrow_jamboree.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.7686,
+    0.6039,
+    0.2275
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9412,
+    0.9255,
+    0.8863
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "MV260.end_cap.nose.C.carrow_jamboree.22d619": {
+   "id": "MV260.end_cap.nose.C.carrow_jamboree.22d619",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8336,
+     0.03,
+     1.8845,
+     1.0273,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.trim.cowl.C.carrow_jamboree.e8183f": {
+   "id": "MV260.trim.cowl.C.carrow_jamboree.e8183f",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4011,
+     0.08,
+     1.9851,
+     0.1777,
+     0.16
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.glazing.screen.C.carrow_jamboree.37e13c": {
+   "id": "MV260.glazing.screen.C.carrow_jamboree.37e13c",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     9864,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.905,
+     0.175,
+     1.9851,
+     1.03,
+     0.35
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.trim.screen.C.carrow_jamboree.9ac8f9": {
+   "id": "MV260.trim.screen.C.carrow_jamboree.9ac8f9",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     17928,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8612,
+     0.175,
+     1.9851,
+     0.9503,
+     0.35
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.side_bay.fender.R.carrow_jamboree.b73330": {
+   "id": "MV260.side_bay.fender.R.carrow_jamboree.b73330",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24264,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.9193,
+     0.855,
+     0.28,
+     0.1614,
+     1.07,
+     0.56
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.fore.R.carrow_jamboree.ff3995": {
+   "id": "MV260.side_bay.fore.R.carrow_jamboree.ff3995",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     27432,
+     78
+    ],
+    "paint2": [
+     29304,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.22,
+     0.35,
+     0.06,
+     1.8,
+     0.7
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.trim.sail.R.carrow_jamboree.8badd1": {
+   "id": "MV260.trim.sail.R.carrow_jamboree.8badd1",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     30600,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.745,
+     0.2,
+     0.06,
+     0.75,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.a_pillar.R.carrow_jamboree.705767": {
+   "id": "MV260.trim.a_pillar.R.carrow_jamboree.705767",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     34056,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.9396,
+     1.845,
+     0.175,
+     0.1192,
+     0.95,
+     0.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.side_bay.rocker_F.R.carrow_jamboree.6c5973": {
+   "id": "MV260.side_bay.rocker_F.R.carrow_jamboree.6c5973",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36072,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.985,
+     0.45,
+     0.375,
+     0.03,
+     0.26,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.post_0.R.carrow_jamboree.6c0f0d": {
+   "id": "MV260.side_bay.post_0.R.carrow_jamboree.6c0f0d",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36216,
+     18
+    ],
+    "paint2": [
+     36648,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.22,
+     0.05,
+     0.06,
+     1.8,
+     0.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.rocker_S.R.carrow_jamboree.a3b315": {
+   "id": "MV260.side_bay.rocker_S.R.carrow_jamboree.a3b315",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/rocker_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     37080,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.985,
+     0.45,
+     0.525,
+     0.03,
+     0.26,
+     1.05
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.quarter.R.carrow_jamboree.24c831": {
+   "id": "MV260.side_bay.quarter.R.carrow_jamboree.24c831",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     37224,
+     204
+    ],
+    "paint2": [
+     42120,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     0.9611,
+     1.22,
+     0.965,
+     0.0778,
+     1.8,
+     1.93
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.fender.L.carrow_jamboree.9e4237": {
+   "id": "MV260.side_bay.fender.L.carrow_jamboree.9e4237",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     45144,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -0.9193,
+     0.855,
+     0.28,
+     0.1614,
+     1.07,
+     0.56
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.fore.L.carrow_jamboree.fd55b7": {
+   "id": "MV260.side_bay.fore.L.carrow_jamboree.fd55b7",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     48312,
+     78
+    ],
+    "paint2": [
+     50184,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.22,
+     0.35,
+     0.06,
+     1.8,
+     0.7
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.trim.sail.L.carrow_jamboree.21c4e7": {
+   "id": "MV260.trim.sail.L.carrow_jamboree.21c4e7",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     51480,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.745,
+     0.2,
+     0.06,
+     0.75,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.a_pillar.L.carrow_jamboree.0caa86": {
+   "id": "MV260.trim.a_pillar.L.carrow_jamboree.0caa86",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     54936,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.9396,
+     1.845,
+     0.175,
+     0.1192,
+     0.95,
+     0.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.side_bay.rocker_F.L.carrow_jamboree.a15b80": {
+   "id": "MV260.side_bay.rocker_F.L.carrow_jamboree.a15b80",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     56952,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.985,
+     0.45,
+     0.375,
+     0.03,
+     0.26,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.quarter_0.L.carrow_jamboree.6f23ad": {
+   "id": "MV260.side_bay.quarter_0.L.carrow_jamboree.6f23ad",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57096,
+     90
+    ],
+    "paint2": [
+     59256,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.22,
+     0.9645,
+     0.06,
+     1.8,
+     1.929
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.side_bay.quarter_1.L.carrow_jamboree.76594c": {
+   "id": "MV260.side_bay.quarter_1.L.carrow_jamboree.76594c",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/side_bay/quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     60552,
+     150
+    ],
+    "paint2": [
+     64152,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -0.9611,
+     1.22,
+     0.5755,
+     0.0778,
+     1.8,
+     1.151
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.roof_bay.roof_0.C.carrow_jamboree.d2964b": {
+   "id": "MV260.roof_bay.roof_0.C.carrow_jamboree.d2964b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     66312,
+     792
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.27,
+     0.75,
+     1.88,
+     0.3,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.roof_bay.roof_1.C.carrow_jamboree.c4b1f8": {
+   "id": "MV260.roof_bay.roof_1.C.carrow_jamboree.c4b1f8",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     85320,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.27,
+     0.625,
+     1.88,
+     0.3,
+     1.25
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.roof_bay.roof_2.C.carrow_jamboree.eb318e": {
+   "id": "MV260.roof_bay.roof_2.C.carrow_jamboree.eb318e",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     90504,
+     1224
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.27,
+     0.915,
+     1.88,
+     0.3,
+     1.83
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.end_cap.tail.C.carrow_jamboree.52877d": {
+   "id": "MV260.end_cap.tail.C.carrow_jamboree.52877d",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     119880,
+     573
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.37,
+     0.035,
+     1.962,
+     2.1,
+     0.07
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "MV260.floor.floor.C.carrow_jamboree.b4c98d": {
+   "id": "MV260.floor.floor.C.carrow_jamboree.b4c98d",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     133632,
+     1824
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.725,
+     2.465,
+     1.88,
+     0.35,
+     4.93
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "MV260.lining_bay.trim_0_0.R.carrow_jamboree.5ff387": {
+   "id": "MV260.lining_bay.trim_0_0.R.carrow_jamboree.5ff387",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     177408,
+     402
+    ]
+   },
+   "boxes": [
+    [
+     0.91,
+     1.35,
+     0.55,
+     0.06,
+     1.54,
+     1.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.lining_bay.trim_1_0.R.carrow_jamboree.2c01ca": {
+   "id": "MV260.lining_bay.trim_1_0.R.carrow_jamboree.2c01ca",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     187056,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.91,
+     1.35,
+     0.05,
+     0.06,
+     1.54,
+     0.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.lining_bay.trim_2_0.R.carrow_jamboree.d10f9e": {
+   "id": "MV260.lining_bay.trim_2_0.R.carrow_jamboree.d10f9e",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     187776,
+     342
+    ]
+   },
+   "boxes": [
+    [
+     0.9016,
+     1.35,
+     0.965,
+     0.0767,
+     1.54,
+     1.93
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.lining_bay.a_pillar.R.carrow_jamboree.c7983b": {
+   "id": "MV260.lining_bay.a_pillar.R.carrow_jamboree.c7983b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     195984,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.8796,
+     1.8162,
+     0.175,
+     0.1192,
+     0.9356,
+     0.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.lining_bay.trim_0_0.L.carrow_jamboree.e404b7": {
+   "id": "MV260.lining_bay.trim_0_0.L.carrow_jamboree.e404b7",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     198000,
+     402
+    ]
+   },
+   "boxes": [
+    [
+     -0.91,
+     1.35,
+     0.55,
+     0.06,
+     1.54,
+     1.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.lining_bay.trim_1_0.L.carrow_jamboree.4e0ebb": {
+   "id": "MV260.lining_bay.trim_1_0.L.carrow_jamboree.4e0ebb",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     207648,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     -0.9016,
+     1.35,
+     1.54,
+     0.0767,
+     1.54,
+     3.08
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.lining_bay.a_pillar.L.carrow_jamboree.645770": {
+   "id": "MV260.lining_bay.a_pillar.L.carrow_jamboree.645770",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     216864,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.8796,
+     1.8162,
+     0.175,
+     0.1192,
+     0.9356,
+     0.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.ceiling_bay.roof_0.C.carrow_jamboree.b6a61d": {
+   "id": "MV260.ceiling_bay.roof_0.C.carrow_jamboree.b6a61d",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     218880,
+     792
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.24,
+     0.75,
+     1.76,
+     0.24,
+     1.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.ceiling_bay.roof_1.C.carrow_jamboree.8d4591": {
+   "id": "MV260.ceiling_bay.roof_1.C.carrow_jamboree.8d4591",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     237888,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.24,
+     0.625,
+     1.76,
+     0.24,
+     1.25
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.ceiling_bay.roof_2.C.carrow_jamboree.f96abc": {
+   "id": "MV260.ceiling_bay.roof_2.C.carrow_jamboree.f96abc",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     243072,
+     1224
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.24,
+     0.915,
+     1.76,
+     0.24,
+     1.83
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.end_lining.firewall.C.carrow_jamboree.643250": {
+   "id": "MV260.end_lining.firewall.C.carrow_jamboree.643250",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     272448,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.99,
+     0.0,
+     1.8773,
+     0.88,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.end_lining.rear_wall.C.carrow_jamboree.74810c": {
+   "id": "MV260.end_lining.rear_wall.C.carrow_jamboree.74810c",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     273888,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.455,
+     0.0,
+     1.87,
+     1.81,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.rear_opening.C.carrow_jamboree.4d6776": {
+   "id": "MV260.reveal.rear_opening.C.carrow_jamboree.4d6776",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     277344,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.775,
+     0.035,
+     1.4,
+     0.65,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.glazing.back_window.C.carrow_jamboree.ff3919": {
+   "id": "MV260.glazing.back_window.C.carrow_jamboree.ff3919",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     280224,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.775,
+     0.0,
+     1.4,
+     0.65,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.reveal.door_F.R.carrow_jamboree.e925d3": {
+   "id": "MV260.reveal.door_F.R.carrow_jamboree.e925d3",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     281520,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.94,
+     1.35,
+     0.375,
+     0.12,
+     1.54,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.door_S.R.carrow_jamboree.1563df": {
+   "id": "MV260.reveal.door_S.R.carrow_jamboree.1563df",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     283248,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.94,
+     1.35,
+     0.525,
+     0.12,
+     1.54,
+     1.05
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_WF.R.carrow_jamboree.f6f930": {
+   "id": "MV260.reveal.window_WF.R.carrow_jamboree.f6f930",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_WF",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_WF/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     284976,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.94,
+     1.745,
+     0.3,
+     0.12,
+     0.75,
+     0.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_W2.R.carrow_jamboree.e7d08b": {
+   "id": "MV260.reveal.window_W2.R.carrow_jamboree.e7d08b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     287568,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.94,
+     1.745,
+     0.325,
+     0.12,
+     0.75,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_W3.R.carrow_jamboree.5bfebc": {
+   "id": "MV260.reveal.window_W3.R.carrow_jamboree.5bfebc",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     288720,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     0.94,
+     1.745,
+     0.45,
+     0.12,
+     0.75,
+     0.9
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.door_F.L.carrow_jamboree.d2d5d9": {
+   "id": "MV260.reveal.door_F.L.carrow_jamboree.d2d5d9",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     292464,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -0.94,
+     1.35,
+     0.375,
+     0.12,
+     1.54,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_WF.L.carrow_jamboree.db0ff7": {
+   "id": "MV260.reveal.window_WF.L.carrow_jamboree.db0ff7",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_WF",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_WF/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     294192,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.94,
+     1.745,
+     0.3,
+     0.12,
+     0.75,
+     0.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_W1.L.carrow_jamboree.56458c": {
+   "id": "MV260.reveal.window_W1.L.carrow_jamboree.56458c",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     296784,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.94,
+     1.745,
+     0.525,
+     0.12,
+     0.75,
+     1.05
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_W2.L.carrow_jamboree.aec39a": {
+   "id": "MV260.reveal.window_W2.L.carrow_jamboree.aec39a",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     297936,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.94,
+     1.745,
+     0.325,
+     0.12,
+     0.75,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.window_W3.L.carrow_jamboree.c61c90": {
+   "id": "MV260.reveal.window_W3.L.carrow_jamboree.c61c90",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     299088,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -0.94,
+     1.745,
+     0.45,
+     0.12,
+     0.75,
+     0.9
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.reveal.screen.C.carrow_jamboree.c6a1c2": {
+   "id": "MV260.reveal.screen.C.carrow_jamboree.c6a1c2",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     302832,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.887,
+     0.175,
+     1.9851,
+     1.066,
+     0.35
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "MV260.glazing.window_WF.R.carrow_jamboree.2e56f0": {
+   "id": "MV260.glazing.window_WF.R.carrow_jamboree.2e56f0",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_WF",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_WF/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     307152,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.745,
+     0.3,
+     0.06,
+     0.75,
+     0.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.glazing.window_WF.L.carrow_jamboree.453a86": {
+   "id": "MV260.glazing.window_WF.L.carrow_jamboree.453a86",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_WF",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_WF/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     309744,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.745,
+     0.3,
+     0.06,
+     0.75,
+     0.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.glazing.window_W1.L.carrow_jamboree.b25e03": {
+   "id": "MV260.glazing.window_W1.L.carrow_jamboree.b25e03",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     312336,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.745,
+     0.525,
+     0.06,
+     0.75,
+     1.05
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.glazing.window_W2.R.carrow_jamboree.f7a336": {
+   "id": "MV260.glazing.window_W2.R.carrow_jamboree.f7a336",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     312768,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.745,
+     0.325,
+     0.06,
+     0.75,
+     0.65
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.glazing.window_W2.L.carrow_jamboree.9e7a1e": {
+   "id": "MV260.glazing.window_W2.L.carrow_jamboree.9e7a1e",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     313200,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.745,
+     0.325,
+     0.06,
+     0.75,
+     0.65
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.glazing.window_W3.R.carrow_jamboree.654b76": {
+   "id": "MV260.glazing.window_W3.R.carrow_jamboree.654b76",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     313632,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.745,
+     0.45,
+     0.06,
+     0.75,
+     0.9
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.glazing.window_W3.L.carrow_jamboree.44e0e8": {
+   "id": "MV260.glazing.window_W3.L.carrow_jamboree.44e0e8",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/glazing/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     317952,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.745,
+     0.45,
+     0.06,
+     0.75,
+     0.9
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.door_leaf.door_F.R.carrow_jamboree.45891c": {
+   "id": "MV260.door_leaf.door_F.R.carrow_jamboree.45891c",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     322272,
+     12
+    ],
+    "paint": [
+     322560,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     0.975,
+     0.375,
+     0.06,
+     0.79,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.door_glass.door_F.R.carrow_jamboree.29adac": {
+   "id": "MV260.door_glass.door_F.R.carrow_jamboree.29adac",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     323712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.745,
+     0.375,
+     0.06,
+     0.75,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.leaf_trim.handle_F.R.carrow_jamboree.b021fa": {
+   "id": "MV260.leaf_trim.handle_F.R.carrow_jamboree.b021fa",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     324144,
+     36
+    ],
+    "dash": [
+     325008,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.945,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.door_leaf.door_S.R.carrow_jamboree.e63cee": {
+   "id": "MV260.door_leaf.door_S.R.carrow_jamboree.e63cee",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/door_leaf/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     325872,
+     12
+    ],
+    "paint": [
+     326160,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     0.975,
+     0.525,
+     0.06,
+     0.79,
+     1.05
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.door_glass.door_S.R.carrow_jamboree.511f13": {
+   "id": "MV260.door_glass.door_S.R.carrow_jamboree.511f13",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/door_glass/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     327312,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     0.97,
+     1.745,
+     0.525,
+     0.06,
+     0.75,
+     1.05
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.leaf_trim.handle_S.R.carrow_jamboree.28a7ca": {
+   "id": "MV260.leaf_trim.handle_S.R.carrow_jamboree.28a7ca",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/handle_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     327744,
+     36
+    ],
+    "dash": [
+     328608,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.945,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.door_leaf.door_F.L.carrow_jamboree.75054f": {
+   "id": "MV260.door_leaf.door_F.L.carrow_jamboree.75054f",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     329472,
+     12
+    ],
+    "paint": [
+     329760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     0.975,
+     0.375,
+     0.06,
+     0.79,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.door_glass.door_F.L.carrow_jamboree.98c5fc": {
+   "id": "MV260.door_glass.door_F.L.carrow_jamboree.98c5fc",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     330912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -0.97,
+     1.745,
+     0.375,
+     0.06,
+     0.75,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "MV260.leaf_trim.handle_F.L.carrow_jamboree.59de09": {
+   "id": "MV260.leaf_trim.handle_F.L.carrow_jamboree.59de09",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     331344,
+     36
+    ],
+    "dash": [
+     332208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.945,
+     1.185,
+     0.125,
+     0.13,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.wheel_well.well_0.R.carrow_jamboree.11d517": {
+   "id": "MV260.wheel_well.well_0.R.carrow_jamboree.11d517",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/wheel_well/well_0/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     333072,
+     762
+    ]
+   },
+   "boxes": [
+    [
+     0.6588,
+     0.5903,
+     0.4318,
+     0.7175,
+     0.5432,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.wheel_well.well_0.L.carrow_jamboree.8700c8": {
+   "id": "MV260.wheel_well.well_0.L.carrow_jamboree.8700c8",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "wheel_well",
+   "slot": "well_0",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/wheel_well/well_0/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     351360,
+     762
+    ]
+   },
+   "boxes": [
+    [
+     -0.6588,
+     0.5902,
+     0.4318,
+     0.7175,
+     0.5431,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.wheel_well.well_1.R.carrow_jamboree.12d941": {
+   "id": "MV260.wheel_well.well_1.R.carrow_jamboree.12d941",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/wheel_well/well_1/R",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     369648,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     0.6588,
+     0.5903,
+     0.4318,
+     0.7175,
+     0.5432,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.wheel_well.well_1.L.carrow_jamboree.16a20a": {
+   "id": "MV260.wheel_well.well_1.L.carrow_jamboree.16a20a",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "wheel_well",
+   "slot": "well_1",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/wheel_well/well_1/L",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     385632,
+     666
+    ]
+   },
+   "boxes": [
+    [
+     -0.6588,
+     0.5902,
+     0.4318,
+     0.7175,
+     0.5431,
+     0.8636
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.underpan.underpan.C.carrow_jamboree.7d7c65": {
+   "id": "MV260.underpan.underpan.C.carrow_jamboree.7d7c65",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     401616,
+     558
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4125,
+     2.61,
+     1.94,
+     0.185,
+     5.22
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "MV260.seat.row_0.C.carrow_jamboree.0978a2": {
+   "id": "MV260.seat.row_0.C.carrow_jamboree.0978a2",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     415008,
+     72
+    ],
+    "seat": [
+     416736,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4446,
+     0.4335,
+     1.44,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.seat.row_1.C.carrow_jamboree.f9db0b": {
+   "id": "MV260.seat.row_1.C.carrow_jamboree.f9db0b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     421920,
+     108
+    ],
+    "seat": [
+     424512,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0777,
+     0.4023,
+     1.48,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.seat.row_2.C.carrow_jamboree.2b9b8a": {
+   "id": "MV260.seat.row_2.C.carrow_jamboree.2b9b8a",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     429696,
+     108
+    ],
+    "seat": [
+     432288,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2127,
+     0.4023,
+     1.48,
+     1.2253,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "MV260.dash.dash.C.carrow_jamboree.85dbbb": {
+   "id": "MV260.dash.dash.C.carrow_jamboree.85dbbb",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     437472,
+     1236
+    ],
+    "chrome": [
+     467136,
+     120
+    ],
+    "dash": [
+     470016,
+     108
+    ],
+    "gauge": [
+     472608,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2049,
+     0.2926,
+     1.72,
+     0.3901,
+     0.5851
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "MV260.dash.readout.C.carrow_jamboree.2bc33b": {
+   "id": "MV260.dash.readout.C.carrow_jamboree.2bc33b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     481824,
+     36
+    ],
+    "lcd": [
+     482688,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.48,
+     1.29,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "MV260.lamp.head_lamp.C.carrow_jamboree.c2e0d7": {
+   "id": "MV260.lamp.head_lamp.C.carrow_jamboree.c2e0d7",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     483552,
+     480
+    ],
+    "glass_dark": [
+     495072,
+     6
+    ],
+    "lamp_amber": [
+     495216,
+     72
+    ],
+    "lamp_drl": [
+     496944,
+     480
+    ],
+    "lamp_head": [
+     508464,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     0.01,
+     1.79,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MV260.lamp.tail_lamp.C.carrow_jamboree.86c751": {
+   "id": "MV260.lamp.tail_lamp.C.carrow_jamboree.86c751",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     519984,
+     12
+    ],
+    "lamp_amber": [
+     520272,
+     48
+    ],
+    "lamp_brake": [
+     521424,
+     36
+    ],
+    "lamp_reverse": [
+     522288,
+     48
+    ],
+    "lamp_tail": [
+     523440,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.486,
+     0.006,
+     1.84,
+     1.372,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MV260.lamp.side_marker.C.carrow_jamboree.0becf1": {
+   "id": "MV260.lamp.side_marker.C.carrow_jamboree.0becf1",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     531504,
+     72
+    ],
+    "lamp_tail": [
+     533232,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9,
+     2.45,
+     2.016,
+     0.03,
+     4.9
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "MV260.trim.bumper_front.C.carrow_jamboree.8a450a": {
+   "id": "MV260.trim.bumper_front.C.carrow_jamboree.8a450a",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "bumper_front",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/bumper_front/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     534960,
+     108
+    ],
+    "rubber": [
+     537552,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.48,
+     0.0655,
+     1.94,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.bumper_rear.C.carrow_jamboree.fdfc1e": {
+   "id": "MV260.trim.bumper_rear.C.carrow_jamboree.fdfc1e",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "bumper_rear",
+   "side": "C",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/bumper_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     538416,
+     108
+    ],
+    "rubber": [
+     541008,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.48,
+     0.0655,
+     1.94,
+     0.14,
+     0.131
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.mirror.R.carrow_jamboree.0888c2": {
+   "id": "MV260.trim.mirror.R.carrow_jamboree.0888c2",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/mirror/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     541872,
+     96
+    ],
+    "glass_dark": [
+     544176,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.0863,
+     1.4633,
+     0.0399,
+     0.1875,
+     0.1635,
+     0.0797
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.mirror.L.carrow_jamboree.6a43d2": {
+   "id": "MV260.trim.mirror.L.carrow_jamboree.6a43d2",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "mirror",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/mirror/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     545040,
+     96
+    ],
+    "glass_dark": [
+     547344,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.0859,
+     1.4635,
+     0.0399,
+     0.1882,
+     0.1629,
+     0.0798
+    ]
+   ],
+   "hp": 80,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_fender.R.carrow_jamboree.1188d9": {
+   "id": "MV260.trim.belt_fender.R.carrow_jamboree.1188d9",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     548208,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     0.9779,
+     1.3228,
+     0.278,
+     0.0716,
+     0.0858,
+     0.556
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_fore.R.carrow_jamboree.7fb3eb": {
+   "id": "MV260.trim.belt_fore.R.carrow_jamboree.7fb3eb",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     553104,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     1.358,
+     0.346,
+     0.02,
+     0.02,
+     0.692
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_post_0.R.carrow_jamboree.cbdbbc": {
+   "id": "MV260.trim.belt_post_0.R.carrow_jamboree.cbdbbc",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     558864,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     1.358,
+     0.046,
+     0.02,
+     0.02,
+     0.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_quarter.R.carrow_jamboree.0d1398": {
+   "id": "MV260.trim.belt_quarter.R.carrow_jamboree.0d1398",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     561168,
+     708
+    ]
+   },
+   "boxes": [
+    [
+     0.997,
+     1.358,
+     0.9617,
+     0.0335,
+     0.02,
+     1.9234
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_fender.L.carrow_jamboree.20aa9b": {
+   "id": "MV260.trim.belt_fender.L.carrow_jamboree.20aa9b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     578160,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     -0.9781,
+     1.3229,
+     0.2778,
+     0.0714,
+     0.0855,
+     0.5557
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_fore.L.carrow_jamboree.1aa92a": {
+   "id": "MV260.trim.belt_fore.L.carrow_jamboree.1aa92a",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     583056,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -1.006,
+     1.358,
+     0.346,
+     0.02,
+     0.02,
+     0.692
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_quarter_0.L.carrow_jamboree.dc88f3": {
+   "id": "MV260.trim.belt_quarter_0.L.carrow_jamboree.dc88f3",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     588816,
+     708
+    ]
+   },
+   "boxes": [
+    [
+     -1.006,
+     1.358,
+     0.9605,
+     0.02,
+     0.02,
+     1.921
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.belt_quarter_1.L.carrow_jamboree.e9fe17": {
+   "id": "MV260.trim.belt_quarter_1.L.carrow_jamboree.e9fe17",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/belt_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     605808,
+     420
+    ]
+   },
+   "boxes": [
+    [
+     -0.997,
+     1.358,
+     0.5722,
+     0.0335,
+     0.02,
+     1.1443
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.leaf_trim.belt_door_F.R.carrow_jamboree.9baec4": {
+   "id": "MV260.leaf_trim.belt_door_F.R.carrow_jamboree.9baec4",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     615888,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     1.358,
+     0.372,
+     0.02,
+     0.02,
+     0.744
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.leaf_trim.belt_door_S.R.carrow_jamboree.e180f4": {
+   "id": "MV260.leaf_trim.belt_door_S.R.carrow_jamboree.e180f4",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "belt_door_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/belt_door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     622512,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     1.358,
+     0.522,
+     0.02,
+     0.02,
+     1.044
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.leaf_trim.belt_door_F.L.carrow_jamboree.985a0b": {
+   "id": "MV260.leaf_trim.belt_door_F.L.carrow_jamboree.985a0b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     631728,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     -1.006,
+     1.358,
+     0.372,
+     0.02,
+     0.02,
+     0.744
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.trim.inlay_fender.R.carrow_jamboree.8a203e": {
+   "id": "MV260.trim.inlay_fender.R.carrow_jamboree.8a203e",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_fender",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     638352,
+     864
+    ],
+    "wood": [
+     659088,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.9859,
+     0.97,
+     0.2366,
+     0.0541,
+     0.7135,
+     0.4733
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.inlay_fore.R.carrow_jamboree.a5531d": {
+   "id": "MV260.trim.inlay_fore.R.carrow_jamboree.a5531d",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_fore",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     661392,
+     576
+    ],
+    "wood": [
+     675216,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     1.105,
+     0.3067,
+     0.02,
+     0.4434,
+     0.6134
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.inlay_quarter.R.carrow_jamboree.2134f6": {
+   "id": "MV260.trim.inlay_quarter.R.carrow_jamboree.2134f6",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_quarter",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     677520,
+     1872
+    ],
+    "wood": [
+     722448,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     1.0019,
+     0.97,
+     0.9216,
+     0.022,
+     0.7135,
+     1.8433
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.leaf_trim.inlay_door_F.R.carrow_jamboree.e3f83a": {
+   "id": "MV260.leaf_trim.inlay_door_F.R.carrow_jamboree.e3f83a",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "inlay_door_F",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/inlay_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     730512,
+     648
+    ],
+    "wood": [
+     746064,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     0.98,
+     0.3317,
+     0.02,
+     0.6935,
+     0.6634
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.leaf_trim.inlay_door_S.R.carrow_jamboree.11f9a4": {
+   "id": "MV260.leaf_trim.inlay_door_S.R.carrow_jamboree.11f9a4",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "inlay_door_S",
+   "side": "R",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/inlay_door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     748944,
+     792
+    ],
+    "wood": [
+     767952,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.006,
+     0.98,
+     0.4817,
+     0.02,
+     0.6935,
+     0.9634
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "MV260.trim.inlay_fender.L.carrow_jamboree.5e888b": {
+   "id": "MV260.trim.inlay_fender.L.carrow_jamboree.5e888b",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_fender",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     771984,
+     864
+    ],
+    "wood": [
+     792720,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -0.986,
+     0.97,
+     0.2368,
+     0.0539,
+     0.7135,
+     0.4737
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.inlay_fore.L.carrow_jamboree.b348b5": {
+   "id": "MV260.trim.inlay_fore.L.carrow_jamboree.b348b5",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_fore",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     795024,
+     576
+    ],
+    "wood": [
+     808848,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -1.006,
+     1.105,
+     0.3067,
+     0.02,
+     0.4434,
+     0.6134
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.inlay_quarter_0.L.carrow_jamboree.e09708": {
+   "id": "MV260.trim.inlay_quarter_0.L.carrow_jamboree.e09708",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_quarter_0",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     811152,
+     1368
+    ],
+    "wood": [
+     843984,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     -1.006,
+     0.97,
+     0.9212,
+     0.02,
+     0.7134,
+     1.8424
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.trim.inlay_quarter_1.L.carrow_jamboree.6f7583": {
+   "id": "MV260.trim.inlay_quarter_1.L.carrow_jamboree.6f7583",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "trim",
+   "slot": "inlay_quarter_1",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/trim/inlay_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     852624,
+     1152
+    ],
+    "wood": [
+     880272,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     -1.0021,
+     0.97,
+     0.5322,
+     0.0218,
+     0.7135,
+     1.0644
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "MV260.leaf_trim.inlay_door_F.L.carrow_jamboree.4389bd": {
+   "id": "MV260.leaf_trim.inlay_door_F.L.carrow_jamboree.4389bd",
+   "standard": "MV260",
+   "class": "minivan",
+   "role": "leaf_trim",
+   "slot": "inlay_door_F",
+   "side": "L",
+   "style": "carrow_jamboree",
+   "interface": "MV260/leaf_trim/inlay_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     884880,
+     648
+    ],
+    "wood": [
+     900432,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.006,
+     0.98,
+     0.3317,
+     0.02,
+     0.6935,
+     0.6634
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  }
+ }
+}

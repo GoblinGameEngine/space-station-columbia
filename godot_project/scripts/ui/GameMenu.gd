@@ -1689,7 +1689,7 @@ const SUMMON_KINDS := [
 	["Summon Aerostat", ["aerostat", "cargo_aerostat", "rescue_aerostat"]],
 	["Summon Boat", ["rowboat_dinghy", "canoe_kayak", "fishing_skiff", "pedal_boat", "personal_watercraft", "rescue_board", "sailboat",
 		"pontoon_boat", "cabin_cruiser", "lobster_boat", "coast_guard_boat", "workboat_tug", "trawler", "ferry", "barge", "travel_lift"]],
-	["Summon Passenger Car", ["pod", "van", "station_wagon", "sedan", "luxury_sedan", "company_car", "police_car", "taxi", "fire_chief_car",
+	["Summon Passenger Car", ["city_car", "minivan", "station_wagon", "sedan", "luxury_sedan", "company_car", "police_car", "taxi", "fire_chief_car",
 		"unmarked_car", "crossover_suv", "full_size_suv", "police_suv", "sports_car", "convertible", "limousine", "hearse", "pickup_truck",
 		"public_works_pickup", "tow_truck", "utility_bucket_truck", "brush_truck", "lifeguard_truck", "hi_rail_truck", "delivery_van",
 		"parcel_van", "service_van", "paratransit_van", "ambulance", "hotel_shuttle", "food_truck", "ice_cream_truck", "mail_truck",
