@@ -541,8 +541,8 @@ TRACTOR = {
     "front": {"kind": "hood", "toe": -0.05, "header": -0.40, "screen_base": belt_for(H_FARM) + 0.02, "lid": (2.10, 0.10), "hood_drop": 0.22},
     "rear": {"kind": "wall", "tail_in": -1.49, "back_window": {"half_w": 0.38, "z": (1.50, 2.15), "corner": 0.05}},
     "pillar_inset": 0.03,
-    "doors": [{"id": "F", "y0": -0.12, "y1": -0.95}],
-    "windows": [{"id": "Q", "y0": -1.05, "y1": -1.40}],
+    "doors": [{"id": "F", "y0": -0.12, "y1": -0.44}],                 # (ends ahead of the rear mudguard: an open door clears it)
+    "windows": [{"id": "Q", "y0": -0.54, "y1": -1.40}],
     "seats": [{"y": -0.78, "z": H_FARM, "xs": [0.0], "w": 0.52}], "driver": "C",
     "head_lamp_z": 1.00, "tail_lamp_z": 1.20, "bumper_z": 0.55,
 }
