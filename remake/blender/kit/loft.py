@@ -329,7 +329,8 @@ class Loft:
             dx, dz = cx - hx, cz - hz
             L = math.hypot(dx, dz) or 1.0
             nx, nz = -abs(dz) / L, -abs(dx) / L
-            return [round((hx + cx) / 2 + nx * 0.018, 4), round((hz + cz) / 2 + nz * 0.018, 4)]
+            ins = self.spec.get("pillar_inset", 0.018)   # (deeper on a steep screen: the band slopes across the tube)
+            return [round((hx + cx) / 2 + nx * ins, 4), round((hz + cz) / 2 + nz * ins, 4)]
 
         def mid(k):
             xe, ze = e[k]
@@ -342,7 +343,9 @@ class Loft:
                     return [round(e[E["belt"]][0] - 0.05, 4), round(e[E["belt"]][1] - 0.02, 4)]
                 return [round(xe, 4), round(ze - 0.04, 4)]
             if k == E["skirt"]:
-                return [round(xe - 0.035, 4), round(ze + 0.035, 4)]
+                if xe - 0.035 <= self.mount_x:                  # (a body narrower than its board -- a tractor's -- hangs its
+                    return [round(xe - 0.035, 4), round(max(ze + 0.035, self.deck + 0.02), 4)]   # skirt past the deck: its
+                return [round(xe - 0.035, 4), round(ze + 0.035, 4)]                              # frame's foot stays on it)
             if self.high and k == E["sill"]:                     # (the cab's floor edge: in the floor slab)
                 return [round(xe - 0.035, 4), round(self.floor - 0.025, 4)]
             if i is None and k == E["belt"]:
@@ -401,6 +404,7 @@ class Loft:
             "belt": self.belt, "window": [self.belt, self.head], "cant": self.cant, "crown": self.crown,
             "arch_top": self.arch_top, "door": {"head": self.head, "apertures": {d["id"]: [d["y0"], d["y1"]] for d in self.doors}},
             "axles": list(self.axles), "arch_half": self.arch_half, "arch_r": self.arch_r, "arch_zc": self.arch_zc,
+            "no_arch": self.wheels_out,                       # (wheels outside the body: it has no arches)
             "nose": self.nose, "tail": self.tail, "toe": self.toe, "header": self.header,
             "front": self.front, "rear": self.rear, "stations": self.stations,
             "ring": self.ring_at(min(self.toe, max(self.cab_end, (self.toe + self.cab_end) / 2))),

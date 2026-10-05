@@ -539,7 +539,8 @@ TRACTOR = {
     "nose": 2.25, "tail": -1.55, "half_w": 0.50, "skirt": 0.40, "sill": 0.58, "floor": 0.55,
     "belt": belt_for(H_FARM), "head": 2.25, "cant": 2.40, "crown": 2.48, "headliner": 2.43, "nose_round": 0.20, "cant_in": 0.05, "tumble": 0.03,
     "front": {"kind": "hood", "toe": -0.05, "header": -0.40, "screen_base": belt_for(H_FARM) + 0.02, "lid": (2.10, 0.10), "hood_drop": 0.22},
-    "rear": {"kind": "wall", "tail_in": -1.49, "back_window": {"half_w": 0.48, "z": (1.50, 2.15), "corner": 0.05}},
+    "rear": {"kind": "wall", "tail_in": -1.49, "back_window": {"half_w": 0.38, "z": (1.50, 2.15), "corner": 0.05}},
+    "pillar_inset": 0.03,
     "doors": [{"id": "F", "y0": -0.12, "y1": -0.95}],
     "windows": [{"id": "Q", "y0": -1.05, "y1": -1.40}],
     "seats": [{"y": -0.78, "z": H_FARM, "xs": [0.0], "w": 0.52}], "driver": "C",
@@ -548,7 +549,7 @@ TRACTOR = {
 ROWCROP = dict(TRACTOR, **{"id": "FR375", "cls": "row_crop_tractor", "board": "steward_farm7", "about": "row-crop tractors on the long farm board",
                            "nose": 3.05, "tail": -2.30, "half_w": 0.50,
                            "front": {"kind": "hood", "toe": 0.40, "header": 0.02, "screen_base": belt_for(H_FARM) + 0.02, "lid": (2.90, 0.55), "hood_drop": 0.22},
-                           "rear": {"kind": "wall", "tail_in": -2.24, "back_window": {"half_w": 0.50, "z": (1.50, 2.15), "corner": 0.05}},
+                           "rear": {"kind": "wall", "tail_in": -2.24, "back_window": {"half_w": 0.38, "z": (1.50, 2.15), "corner": 0.05}},
                            "doors": [{"id": "F", "y0": 0.33, "y1": -0.60}], "windows": [{"id": "Q", "y0": -0.70, "y1": -2.10}],
                            "seats": [{"y": -0.40, "z": H_FARM, "xs": [0.0], "w": 0.52}]})
 BACKHOE = dict(ROWCROP, **{"id": "FB375", "cls": "backhoe_loader", "about": "backhoe loaders on the long farm board: a loader in front, a backhoe behind"})

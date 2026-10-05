@@ -862,6 +862,8 @@ class Builder:
         L = self.L
         # (ahead of the door's front edge, never on the leaf: the mirror is a fixed token and the door swings away)
         my = min(L.toe - 0.06, self.doors_on("L")[0]["y0"] + 0.11 if self.doors_on("L") else L.toe - 0.06)
+        if self.doors_on("L") and my - 0.10 < self.doors_on("L")[0]["y0"]:    # (a door right behind the toe -- a tractor's:
+            my = self.doors_on("L")[0]["y0"] + 0.10                         # the mirror stands on the cowl ahead of it)
         mz = L.belt + 0.10
         for sd in SIDES:
             sx = 1 if sd == "R" else -1
