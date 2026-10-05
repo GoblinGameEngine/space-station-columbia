@@ -97,10 +97,10 @@ class Loft:
     def arch_z(self, y):
         if getattr(self, "wheels_out", False):
             return self.arch_top
-        for ax in self.axles:
-            d = abs(y - ax)
-            if d <= self.arch_half + 1e-6:
-                return self.arch_zc + math.sqrt(max(0.0, self.arch_r ** 2 - d * d))
+        zs = [self.arch_zc + math.sqrt(max(0.0, self.arch_r ** 2 - (y - ax) ** 2)) for ax in self.axles
+              if abs(y - ax) <= self.arch_half + 1e-6]
+        if zs:                                              # (overlapping arches -- a tandem's: the higher of the two)
+            return max(zs)
         return self.arch_top
 
     def side_x(self, z):
@@ -340,7 +340,8 @@ class Loft:
             L = math.hypot(dx, dz) or 1.0
             nx, nz = -abs(dz) / L, -abs(dx) / L
             ins = self.spec.get("pillar_inset", 0.018)   # (deeper on a steep screen: the band slopes across the tube)
-            return [round((hx + cx) / 2 + nx * ins, 4), round((hz + cz) / 2 + nz * ins, 4)]
+            f = self.spec.get("pillar_t", 0.5)           # (where on the strip, head 0 .. cant 1: low, away from the screen's
+            return [round(hx + (cx - hx) * f + nx * ins, 4), round(hz + (cz - hz) * f + nz * ins, 4)]   # edge on a flat front)
 
         def mid(k):
             xe, ze = e[k]
@@ -481,10 +482,10 @@ class TrailerLoft(Loft):
         self.tail_in = self.cab_end = self.tail
 
     def arch_z(self, y):
-        for ax in self.axles:
-            d = abs(y - ax)
-            if d <= self.arch_half + 1e-6:
-                return self.arch_zc + math.sqrt(max(0.0, self.arch_r ** 2 - d * d))
+        zs = [self.arch_zc + math.sqrt(max(0.0, self.arch_r ** 2 - (y - ax) ** 2)) for ax in self.axles
+              if abs(y - ax) <= self.arch_half + 1e-6]
+        if zs:                                              # (overlapping arches -- a tandem's: the higher of the two)
+            return max(zs)
         return self.arch_top
 
     def standard(self):

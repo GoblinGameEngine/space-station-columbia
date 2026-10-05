@@ -314,7 +314,7 @@ def ladder(b, A, st):
     d = B.doors[0]
     y = (d["y0"] + d["y1"]) / 2
     x = B.half_w + 0.06
-    z0, z1 = A["sling"][3] + 0.1, B.sill
+    z0, z1 = A["sling"][3] + 0.1, B.sill - 0.06              # (its top just under the sill: clear of the doorway)
     for dy in (-0.22, 0.22):
         me.pipe([Vector((x, y + dy, z1)), Vector((x + 0.25, y + dy, z0))], 0.025, "chrome", n=6)
     k = 0.3

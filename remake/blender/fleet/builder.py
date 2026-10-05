@@ -1173,10 +1173,12 @@ class Builder:
         # wider than the cab's own outline at its very tail
         # (2026-10-04: in the cab's own end cavity, so the step from the cab's outline down to a lower cargo's -- a bed, a
         #  tank, a plinth narrower than the cab -- happens inside a closed cavity, not in the air between cab and cargo)
-        ty = round(C["y0"] - 0.03, 4) if no_cab else round(L.tail + 0.015, 4)
-        if not no_cab:
-            out_w = [v for v in out_w if abs(v - ty) >= 0.04]
-        want = ([] if no_cab else [ty]) + out_w
+        #  -- and a second in the cargo's own front-wall cavity: between the two, on their shared plane, a stringer runs
+        #  only where both walls stand (no higher, no wider than the lower and narrower of the two)
+        joins = [] if no_cab else [round(L.tail + 0.015, 4)] + ([] if tank else [round(C["y0"] - 0.03, 4)])   # (a tank's dish:
+                                                                                                           #  no ring in it)
+        out_w = [v for v in out_w if all(abs(v - t) >= 0.04 for t in joins)]
+        want = joins + out_w
         cab = {} if no_cab else {j[0]: (j[1], j[2]) for j in L.ring_at(L.tail + 0.005)}
         rings = []
         for y in want:
@@ -1201,7 +1203,7 @@ class Builder:
                      "roof": (hw * 0.6, tz - 0.03), "crown": (0.0, tz - 0.03)}
                 if low:                                     # (a box's belt rail runs over its arches too, not through them)
                     j["belt"] = (hw - 0.03, L.arch_top + 0.045)
-            if not no_cab and y == ty:                       # (the shared plane: no higher, no wider than the cab's own)
+            if y in joins:                                   # (the shared plane: no higher, no wider than the cab's own)
                 for k in j:
                     cx, cz = cab[k + ("_R" if k not in ("crown",) else "")]
                     j[k] = (min(j[k][0], abs(cx)) if k != "crown" else 0.0, min(j[k][1], cz))
@@ -1520,13 +1522,18 @@ class Builder:
             me.box((0, (y0 + y1) / 2, t + 0.08), (C["half_w"] - 0.25, (y0 - y1) / 2, 0.08), "black")
             for k in range(6):
                 me.box((-0.7 + k * 0.28, (y0 + y1) / 2, t + 0.17), (0.12, (y0 - y1) / 2 - 0.05, 0.03), "livery1")
-        elif kind == "fire_ladders":                        # ground ladders racked along the body's side
-            me = self.mod("fire_ladders", "equipment", "ladder_rack", "C", hp=200, mass=60)
-            for sx in (1, -1):
-                x = sx * (C["half_w"] + 0.06)
-                z = C["top_z"] - 0.25
-                for dz in (0.0, 0.10):
-                    me.box((x, (C["y0"] + C["y1"]) / 2, z + dz), (0.02, (C["y0"] - C["y1"]) / 2 - 0.4, 0.02), "chrome")
+        elif kind == "fire_ladders":                        # ground ladders racked on the roof, either side of the hose bed
+            me = self.mod("fire_ladders", "equipment", "ladder_rack", "C", hp=200, mass=60)      # (on the body's side they
+            for sx in (1, -1):                                                                    #  lay across the lockers)
+                for k, dx in enumerate((0.0, 0.0)):
+                    x = sx * (C["half_w"] - 0.12)
+                    z = C["top_z"] + 0.05 + k * 0.07
+                    for ex in (-0.09, 0.09):
+                        me.box((x + ex, (C["y0"] + C["y1"]) / 2, z), (0.015, (C["y0"] - C["y1"]) / 2 - 0.4, 0.02), "chrome")
+                    yy = C["y1"] + 0.5
+                    while yy < C["y0"] - 0.5:
+                        me.box((x, yy, z), (0.09, 0.012, 0.012), "chrome")
+                        yy += 0.30
         elif kind == "aerial_ladder":                       # a turntable and a three-section ladder bedded over the cab
             me = self.mod("aerial", "equipment", "aerial_ladder", "C", hp=900, mass=1800)
             yt = C["y1"] + 1.0
@@ -1603,8 +1610,8 @@ class Builder:
             me = self.mod("stop_arm", "equipment", "stop_arm", "L", hp=60, mass=3)
             y = L.nose - 1.6
             x = -(L.half_w + 0.04)
-            me.lathe([(0.0, 0.23), (0.02, 0.23), (0.025, 0.0001)], "livery2", n=8,
-                     xf=X((x, y, L.belt - 0.05)) @ Matrix.Rotation(math.pi / 2, 4, "Z") @ Matrix.Rotation(math.pi / 8, 4, "Y"))
+            me.lathe([(0.0, 0.23), (0.02, 0.23), (0.025, 0.0001)], "livery2", n=8,           # (below the window line)
+                     xf=X((x, y, L.belt - 0.32)) @ Matrix.Rotation(math.pi / 2, 4, "Z") @ Matrix.Rotation(math.pi / 8, 4, "Y"))
         elif kind == "crossview_mirrors":                   # FMVSS 111: school bus cross-view mirrors on the front corners
             me = self.mod("crossview", "equipment", "crossview_mirrors", "C", hp=80, mass=4)
             for sx in (1, -1):
@@ -2018,7 +2025,8 @@ class Builder:
             zt = L.wheel_r * 2 + 0.20
             for sx in (1, -1):
                 x = sx * (L.half_w + 0.08)
-                me.pipe([Vector((x, L.toe - 0.4, L.belt)), Vector((x, L.axles[0], zt)), Vector((x, ya, zt)), Vector((x, yb - 0.1, 0.70))], 0.06, pm, n=8)
+                y0 = max(L.toe - 0.4, max(d["y0"] for d in L.doors) + 0.12)    # (rooted ahead of the cab's doors: they swing clear)
+                me.pipe([Vector((x, y0, L.belt)), Vector((x, L.axles[0], zt)), Vector((x, ya, zt)), Vector((x, yb - 0.1, 0.70))], 0.06, pm, n=8)
             me.box((0, yb, 0.42), (L.half_w + 0.25, 0.30, 0.32), "black")
             me.box((0, yb + 0.28, 0.14), (L.half_w + 0.25, 0.05, 0.04), "chrome")
         elif kind == "backhoe":                             # a backhoe: boom, stick and bucket folded up behind

@@ -365,7 +365,8 @@ def crossing_test(path):
         for mid, tris in items:
             pts = tris.reshape(-1, 3)
             for sd, sgn in (("R", 1), ("L", -1)):
-                on = pts[(pts[:, 0] * sgn) > outer - 0.025]          # (the skin and what is on it)
+                # (the skin and what is on it, out to a door's swing: a leg or pylon metres out doesn't cross the opening)
+                on = pts[((pts[:, 0] * sgn) > outer - 0.025) & ((pts[:, 0] * sgn) < outer + 1.0)]
                 if not len(on):
                     continue
                 for z0, z1, y0, y1, what in rects[sd]:

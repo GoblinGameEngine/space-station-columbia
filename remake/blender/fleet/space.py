@@ -194,7 +194,8 @@ def thruster_pods(b, S, st):
             for k, f in enumerate((0.3, 0.38)):
                 me.lathe([(ln * f, r * 1.01), (ln * f + 0.08, r * 1.01)], "paint", n=18, xf=X((sx * x, y1, z)))
             bell(me, Vector((sx * x, y1 - 0.02, z)), r * 0.6, r * 0.9, "chrome", "black")
-            me.pipe([Vector((sx * x * 0.6, y1 + ln * 0.5, z)), Vector((sx * (L.half_w - 0.1), y1 + ln * 0.5, z))], 0.06, "chrome", n=8)
+            for f in (0.3, 0.7):                            # (its two pylons, the body's flank out to the pod)
+                me.pipe([Vector((sx * (L.half_w - 0.05), y1 + ln * f, z)), Vector((sx * (x - r * 0.9), y1 + ln * f, z))], 0.07, "chrome", n=8)
 
 
 def manipulators(b, S, st):
