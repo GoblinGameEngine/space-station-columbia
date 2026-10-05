@@ -373,7 +373,8 @@ class Loft:
         out = []
         for nm in RING_NAMES:
             if nm == "floor_C":
-                out.append([nm, 0.0, round(self.deck + 0.015, 4)])
+                fz = self.deck + 0.015 if self.skirt < self.deck + 0.1 else self.skirt + 0.035   # (a body standing high over its
+                out.append([nm, 0.0, round(fz, 4)])                                                # deck -- a rail cab's: over its belly)
                 continue
             base, _, side = nm.partition("_")
             x, z = pts[base]
