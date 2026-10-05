@@ -30,8 +30,28 @@ Research how people do that when making very large worlds like ours."
 - StandardMaterial3D's own triplanar, in object space (`uv1_triplanar`, not world): no UVs needed, nothing in the
   pipeline changed, and it applies to all 136 types at once. Glass, lamps and screens stay untextured.
 
+## Dirt and wear (2026-10-05)
+
+- `remake/shaders/vehicle_surface.gdshader` replaces the standard material for every surfaced palette entry: the same
+  tinted triplanar surface, plus road grime rising from the ground (ragged, splotched, with drips: `grime_mask.png`),
+  dust on upward faces, and wear -- paint chipped to primer and bare metal along sharp convex edges.
+- The edge mask is baked per vertex by `kit/components.py` (`edge_wear`: the angle across each convex edge) and written
+  after the normals in each pack (catalog entries flag `"wear": true`); the game carries it as COLOR.r = 1 - wear.
+  Only sharp edges chip: a low-poly panel's vertices nearly all sit on seams, and seam wear greyed whole panels.
+- Each body gets its own `grime` and `wear` (instance uniforms, random per vehicle; `VehicleBody.weather(g, w)`).
+- Cabin materials (seats, carpet, linings, dash) take no road dirt. Normal maps stay off (the outline speckles them).
+
+## Decals (2026-10-05)
+
+- `tools/assets/decals.py`: plates (eight Columbia plates, VY 500), the gauge cluster, the star of life, rear chevrons,
+  white lettering (tinted per livery: FIRE DEPT, MARSHAL -- the station's police -- TAXI, AMBULANCE, POST, SCHOOL BUS ...)
+  and fleet numbers -> godot_project/remake/vehicles/decals/.
+- `remake/blender/fleet/decals.py` places them per type (LIVERIES): plates front and rear on road vehicles, gauges on the
+  dash ahead of the wheel, lettering on the cargo body or below the windows, chevrons across heavy vehicles' rears,
+  words on envelopes and hulls. The blueprint's "decals" carry them (Godot frame); the game projects each as a Decal
+  riding with the body (fading out past 45 m), choosing one plate and one fleet number per vehicle.
+
 ## Next
 
-- Decals with UVs (option 2 in the session's notes): liveries' lettering, the red cross, gauges, plates, lamp lenses.
-- Dirt and wear masks (dirt by height above the ground, wear on edges) in a shader over the same maps.
-- Trim sheets for the hand-built parts (grilles, vents, tread plate).
+- Trim sheets for the hand-built parts (grilles, vents, tread plate); lamp lenses with reflectors.
+- Dirt by use (a farm truck dirtier, a hearse spotless): the callers can set `weather()` by type.

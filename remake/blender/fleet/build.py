@@ -30,6 +30,7 @@ from kit import loft as LOFT  # noqa: E402
 from kit import standards  # noqa: E402
 import specs  # noqa: E402
 from builder import Builder  # noqa: E402
+import decals as DC  # noqa: E402
 
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 OUT_ROOT, RENDER_DIR = argv[0], argv[1]
@@ -56,6 +57,12 @@ def materials(pal):
 
 def g(v):
     return [round(c, 4) for c in components.g(v)]
+
+
+def decals_out(ds):
+    """A type's decals (fleet/decals.py) in the Godot frame: [image, position, normal, up, width, height, tint 0..1 or None]."""
+    return [[d[0], g(d[1]), g(d[2]), g(d[3]), round(d[4], 3), round(d[5], 3), [round(c / 255.0, 3) for c in d[6]] if d[6] else None]
+            for d in ds]
 
 
 def to_library(b, lib, mids):
@@ -192,7 +199,8 @@ def build_trailer(sid, registry):
         "stations": [round(-r["y"], 4) for r in std["rings"]], "placements": places, "doors": doors, "closers": clo,
         "length_front": L.nose, "length_back": -L.tail,
         "platform": {"half_w": round(L.mount_x + 0.02, 3), "y": round(L.board.get("deck_top_m", 0.50) - 0.01, 3), "z": [-L.board["length_m"] / 2, L.board["length_m"] / 2]},
-        "cabin_points": [], "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in b.MARKERS]})
+        "cabin_points": [], "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in b.MARKERS],
+        "decals": decals_out(DC.place(b, vtype))})
     registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": st["name"],
                        "board": spec["board"], "phys": vtype, "half_w": C["half_w"], "height": L.crown, "nose": L.nose, "tail": L.tail,
                        "floor": C["floor_z"], "driver": O.get("driver", "L") if O else "none", "trailer": not O}
@@ -251,7 +259,8 @@ def build_class(sid, registry):
               "length_front": L.nose, "length_back": -(C["y1"] if C else L.tail),
               "platform": {"half_w": round(L.mount_x + 0.02, 3), "y": round(L.board.get("deck_top_m", 0.50) - 0.01, 3), "z": [-L.board["length_m"] / 2, L.board["length_m"] / 2]},
               "cabin_points": b.cabin_points(),
-              "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in mk]}
+              "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in mk],
+              "decals": decals_out(DC.place(b, vtype))}
         path = os.path.join(fleet_dir, vtype + ".blueprint.json")
         components.write_blueprint(path, bp)
         registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": style,
@@ -684,7 +693,8 @@ def build_boat(vtype, registry):
     components.write_blueprint(os.path.join(OUT_ROOT, "fleet", vtype + ".blueprint.json"), {
         "_about": "%s: a boat (remake/blender/fleet/hull.py)" % vtype, "type": vtype, "standard": sid, "class": vtype, "style": style, "kind": "boat",
         "board": "none", "stations": [-r["y"] for r in rings], "placements": places, "doors": [], "closers": [],
-        "length_front": H.bow, "length_back": -H.stern, "platform": {"half_w": 0.0, "y": -9.0, "z": [0.0, 0.0]}, "cabin_points": [], "markers": []})
+        "length_front": H.bow, "length_back": -H.stern, "platform": {"half_w": 0.0, "y": -9.0, "z": [0.0, 0.0]}, "cabin_points": [], "markers": [],
+        "decals": decals_out(DC.hull(H, vtype))})
     registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": style, "board": "none",
                        "phys": vtype, "half_w": H.beam, "height": H.free + (wh[3] if wh else 0.3), "nose": H.bow, "tail": H.stern, "floor": -H.draft,
                        "driver": "C", "boat": True, "ground": round(-H.draft, 3),

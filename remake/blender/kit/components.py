@@ -35,6 +35,27 @@ def g(v):
     return (v[0], v[2], -v[1])
 
 
+def edge_wear(bm):
+    """Each vertex's edge wear (0..1), for the paint's wear in the game: the sharper a convex edge meeting there the more;
+    an open edge -- a panel's seam with its neighbour -- some; concave edges and flats none."""
+    bm.verts.index_update()
+    out = {}
+    for e in bm.edges:
+        lf = e.link_faces
+        if len(lf) < 2:
+            w = 0.55
+        else:
+            f1, f2 = lf[0], lf[1]
+            ang = f1.normal.angle(f2.normal, 0.0)
+            convex = (f2.calc_center_median() - f1.calc_center_median()).dot(f1.normal) < 1e-6
+            w = min(1.0, max(0.0, (ang - 0.30) / 0.9)) if convex else 0.0
+        if w > 0.0:
+            for v in e.verts:
+                if w > out.get(v.index, 0.0):
+                    out[v.index] = w
+    return out
+
+
 class Library:
     def __init__(self, std, style, palette, out_root):
         self.std = std
@@ -51,16 +72,17 @@ class Library:
         Blender y, the end nearest +y). Returns the component id."""
         bm = mesh.bm.copy()
         smooth = mod.get("smooth", False)                   # (a curved part -- an envelope, a duct: vertex normals, kept
-        if smooth:                                          #  flat where faces meet at more than 40 degrees)
-            bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-5)
-        bmesh.ops.triangulate(bm, faces=bm.faces[:])
+        bmesh.ops.remove_doubles(bm, verts=bm.verts, dist=1e-5)   #  flat where faces meet at more than 40 degrees; and every
+        bmesh.ops.triangulate(bm, faces=bm.faces[:])              #  part's vertices welded, to find its edges for the wear)
         bm.normal_update()
+        wear = edge_wear(bm)
         groups = {}
         for f in bm.faces:
             m = mat_keys[f.material_index]
             n = f.normal
-            lst = groups.setdefault(m, [[], []])
+            lst = groups.setdefault(m, [[], [], []])
             vs = [lp.vert.co for lp in f.loops]
+            ws = [wear.get(lp.vert.index, 0.0) for lp in f.loops]
             ns = [n] * 3
             if smooth:
                 ns = []
@@ -70,11 +92,14 @@ class Library:
                         if of.normal.dot(n) > 0.766:
                             acc += of.normal * of.calc_area()
                     ns.append(acc.normalized() if acc.length > 1e-9 else n)
+            if len(lst) < 3:
+                lst.append([])
             for i in (0, 2, 1):                             # (Godot's front faces are clockwise)
                 v, nn = vs[i], ns[i]
                 p = g((v.x, v.y - anchor_y, v.z))
                 lst[0].append(p)
                 lst[1].append(g((nn.x, nn.y, nn.z)))
+                lst[2].append(ws[i])
         bm.free()
         if not groups:
             return None
@@ -96,17 +121,18 @@ class Library:
         cid = "%s.%s.%s.%s.%s.%s" % (self.std["id"], role, slot, side, self.style, key[:6])
         mats = {}
         for m in sorted(groups):
-            pos, nor = groups[m]
+            pos, nor, wr = groups[m]
             off = len(self.data)
             for p in pos:
                 self.data += struct.pack("<3f", *p)
             for n in nor:
                 self.data += struct.pack("<3f", *n)
+            self.data += struct.pack("<%df" % len(wr), *wr)          # (each vertex's edge wear, 0..1)
             mats[m] = [off, len(pos)]
         self.comps[cid] = {
             "id": cid, "standard": self.std["id"], "class": self.std["class"], "role": role, "slot": slot, "side": side,
             "style": self.style, "interface": "%s/%s/%s/%s" % (self.std["id"], role, slot, side),
-            "reach": round(span, 3), "mats": mats, "boxes": boxes,
+            "reach": round(span, 3), "mats": mats, "boxes": boxes, "wear": True,
             "hp": mod.get("hp", 100), "mass_kg": mod.get("mass_kg", 10), "breaks": mod.get("breaks", "detach"),
             "tolerance": self.std["tolerance"].get(role, 0.08),
         }

@@ -126,7 +126,7 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 			var key := "%s|%s" % [m, inside]
 			if not plan.groups.has(key):
 				plan.groups[key] = {"mat": m, "inside": inside, "pos": PackedVector3Array(), "nor": PackedVector3Array(),
-									"bones": PackedInt32Array(), "weights": PackedFloat32Array()}
+									"bones": PackedInt32Array(), "weights": PackedFloat32Array(), "wear": PackedFloat32Array()}
 			var gr: Dictionary = plan.groups[key]
 			var gp: PackedVector3Array = gr.pos
 			var gn: PackedVector3Array = gr.nor
@@ -135,6 +135,15 @@ static func prepare(bp_path: String, from_task := false) -> Dictionary:
 			var start := gp.size()
 			var pos: PackedVector3Array = geo[m][0]
 			var nor: PackedVector3Array = geo[m][1]
+			var gwr: PackedFloat32Array = gr.wear
+			var wr: PackedFloat32Array = geo[m][2] if (geo[m] as Array).size() > 2 else PackedFloat32Array()
+			if wr.size() == pos.size():
+				gwr.append_array(wr)
+			else:
+				var z := PackedFloat32Array()
+				z.resize(pos.size())
+				gwr.append_array(z)
+			gr.wear = gwr
 			for i in pos.size():
 				var p := pos[i] + Vector3(0, 0, anchor)
 				var qk := Vector3i(roundi(p.x * 200.0), roundi(p.y * 200.0), roundi(p.z * 200.0))
@@ -218,18 +227,30 @@ static func shared_mesh(plan: Dictionary, key: String) -> ArrayMesh:
 	var gr: Dictionary = plan.groups[key]
 	if gr.has("mesh"):
 		return gr.mesh
-	var m := _mesh_of(gr.pos, gr.nor, gr.bones, gr.weights)
+	var m := _mesh_of(gr.pos, gr.nor, gr.bones, gr.weights, gr.get("wear", PackedFloat32Array()))
 	gr["mesh"] = m
 	return m
 
 
-static func _mesh_of(pos: PackedVector3Array, nor: PackedVector3Array, bones: PackedInt32Array, weights: PackedFloat32Array) -> ArrayMesh:
+static func wear_colors(wr: PackedFloat32Array, n: int) -> PackedColorArray:
+	## The edge wear as the vertex colour the surface shader reads (COLOR.r = 1 - wear: a mesh without it wears nothing).
+	var c := PackedColorArray()
+	c.resize(n)
+	for i in n:
+		c[i] = Color(1.0 - (wr[i] if i < wr.size() else 0.0), 1.0, 1.0, 1.0)
+	return c
+
+
+static func _mesh_of(pos: PackedVector3Array, nor: PackedVector3Array, bones: PackedInt32Array, weights: PackedFloat32Array,
+		wr := PackedFloat32Array()) -> ArrayMesh:
 	var arr := []
 	arr.resize(Mesh.ARRAY_MAX)
 	arr[Mesh.ARRAY_VERTEX] = pos
 	arr[Mesh.ARRAY_NORMAL] = nor
 	arr[Mesh.ARRAY_BONES] = bones
 	arr[Mesh.ARRAY_WEIGHTS] = weights
+	if wr.size() == pos.size() and pos.size() > 0:
+		arr[Mesh.ARRAY_COLOR] = wear_colors(wr, pos.size())
 	var m := ArrayMesh.new()
 	if pos.size() > 0:
 		m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
@@ -243,7 +264,22 @@ static func make(p_plan: Dictionary) -> VehicleBody:
 	vb.name = "Body"
 	vb.plan = p_plan
 	vb._build()
+	vb.weather(randf_range(0.03, 0.5), randf_range(0.03, 0.55))
 	return vb
+
+
+var grime := 0.3
+var wear := 0.3
+
+
+func weather(g: float, w: float) -> void:
+	## How dirty and how worn this one is (0..1 each; the surface shader's instance uniforms): set at random when it's
+	## made, so no two in a car park look alike; a caller may set its own (a fresh delivery, a farm truck).
+	grime = g
+	wear = w
+	for mi in find_children("*", "MeshInstance3D", true, false):
+		(mi as GeometryInstance3D).set_instance_shader_parameter("grime", g)
+		(mi as GeometryInstance3D).set_instance_shader_parameter("wear", w)
 
 
 func _build() -> void:
@@ -294,6 +330,8 @@ func _build() -> void:
 			arr.resize(Mesh.ARRAY_MAX)
 			arr[Mesh.ARRAY_VERTEX] = mv.geo[m][0]
 			arr[Mesh.ARRAY_NORMAL] = mv.geo[m][1]
+			if (mv.geo[m] as Array).size() > 2 and (mv.geo[m][2] as PackedFloat32Array).size() == (mv.geo[m][0] as PackedVector3Array).size():
+				arr[Mesh.ARRAY_COLOR] = wear_colors(mv.geo[m][2], (mv.geo[m][0] as PackedVector3Array).size())
 			am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
 			am.surface_set_material(am.get_surface_count() - 1, _material(style, str(m)))
 		node.mesh = am
@@ -305,6 +343,7 @@ func _build() -> void:
 		n.position = Vector3(mk[1][0], mk[1][1], mk[1][2])
 		n.rotation.y = float(mk[2])
 		add_child(n)
+	_decals()
 
 
 func _material(style: String, m: String) -> Material:
@@ -476,11 +515,14 @@ func _rebuild() -> void:
 		var nor := PackedVector3Array()
 		var bones := PackedInt32Array()
 		var weights := PackedFloat32Array()
+		var wr := PackedFloat32Array()
+		var gwr: PackedFloat32Array = gr.get("wear", PackedFloat32Array())
 		for i in keep.size():
 			if keep[i] == 0:
 				continue
 			pos.append(gr.pos[i])
 			nor.append(gr.nor[i])
+			wr.append(gwr[i] if i < gwr.size() else 0.0)
 			for k in 4:
 				bones.append(gr.bones[i * 4 + k])
 				weights.append(gr.weights[i * 4 + k])
@@ -489,7 +531,11 @@ func _rebuild() -> void:
 			nor.append_array(_extra[key].nor)
 			bones.append_array(_extra[key].bones)
 			weights.append_array(_extra[key].weights)
-		(_groups[key] as MeshInstance3D).mesh = _mesh_of(pos, nor, bones, weights)
+			var torn := PackedFloat32Array()                  # (a torn edge: worn bright, the whole of it)
+			torn.resize((_extra[key].pos as PackedVector3Array).size())
+			torn.fill(1.0)
+			wr.append_array(torn)
+		(_groups[key] as MeshInstance3D).mesh = _mesh_of(pos, nor, bones, weights, wr)
 	_own_mesh = true
 
 
@@ -519,6 +565,9 @@ func _component_mesh(mid: String) -> ArrayMesh:
 		arr.resize(Mesh.ARRAY_MAX)
 		arr[Mesh.ARRAY_VERTEX] = pos
 		arr[Mesh.ARRAY_NORMAL] = nor
+		var gw: PackedFloat32Array = gr.get("wear", PackedFloat32Array())
+		if gw.size() >= r[2]:
+			arr[Mesh.ARRAY_COLOR] = wear_colors(gw.slice(r[1], r[2]), pos.size())
 		am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
 		am.surface_set_material(am.get_surface_count() - 1, (_groups[r[0]] as MeshInstance3D).material_override)
 	return am
@@ -585,3 +634,45 @@ func _shards(mid: String, velocity: Vector3) -> void:
 		rb.global_position = global_transform * (aabb.position + Vector3(randf(), randf(), randf()) * aabb.size)
 		rb.linear_velocity = velocity + Vector3(randf_range(-1, 1), randf_range(0, 1.5), randf_range(-1, 1))
 		get_tree().create_timer(8.0).timeout.connect(rb.queue_free)
+
+
+# -- decals ------------------------------------------------------------------------------------------------
+const DECAL_DIR := "res://remake/vehicles/decals/"
+const DECAL_FADE := 45.0                 # m: past this they fade out (they're cheap, but a car park is many)
+static var _decal_tex := {}
+
+
+static func _decal_texture(name: String) -> Texture2D:
+	if not _decal_tex.has(name):
+		var path := DECAL_DIR + name + ".png"
+		_decal_tex[name] = load(path) if ResourceLoader.exists(path) else null
+	return _decal_tex[name]
+
+
+func _decals() -> void:
+	## The blueprint's decals (tools/assets/decals.py, remake/blender/fleet/decals.py): each a Decal projected onto the
+	## panel under it, riding with the body; one plate and one fleet number of its own per vehicle.
+	var plate := "plate_%d" % (randi() % 8)
+	var num := "num_%02d" % (1 + randi() % 24)
+	for d in plan.bp.get("decals", []):
+		var nm := str(d[0])
+		var tex := _decal_texture(plate if nm == "plate" else (num if nm == "num" else nm))
+		if tex == null:
+			continue
+		var n := Vector3(d[2][0], d[2][1], d[2][2]).normalized()
+		var u := Vector3(d[3][0], d[3][1], d[3][2])
+		u = (u - n * u.dot(n)).normalized()
+		var dc := Decal.new()
+		dc.name = "Decal_" + nm
+		dc.texture_albedo = tex
+		dc.size = Vector3(float(d[4]), 0.25, float(d[5]))
+		dc.transform = Transform3D(Basis(u.cross(n), n, -u), Vector3(d[1][0], d[1][1], d[1][2]))
+		if d[6] != null:
+			dc.modulate = Color(d[6][0], d[6][1], d[6][2])
+		dc.normal_fade = 0.4
+		dc.upper_fade = 0.0
+		dc.lower_fade = 0.0
+		dc.distance_fade_enabled = true
+		dc.distance_fade_begin = DECAL_FADE
+		dc.distance_fade_length = 15.0
+		add_child(dc)

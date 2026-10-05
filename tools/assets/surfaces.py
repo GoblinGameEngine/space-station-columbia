@@ -91,6 +91,12 @@ def main():
     # carpet: dense random loops
     cp = noise(150, 256)
     save("carpet", 0.82 + 0.08 * cp + 0.04 * noise(10, 30), cp, 1.0 - 0.02 * cp, 2.5)
+    # grime: the dirt and wear field (a mask, not a surface): broad splotches, and drips running down (-y in the tile)
+    sp = noise(2, 6) * 0.7 + noise(8, 20) * 0.3
+    drips = noise(10, 40, aniso=(1.0, 0.06))
+    gm = np.clip(0.5 + 0.28 * sp + 0.16 * drips, 0, 1)
+    Image.fromarray((gm * 255).astype(np.uint8)).save(os.path.join(OUT, "grime_mask.png"))
+    print("grime    mask %.2f..%.2f" % (gm.min(), gm.max()))
     # bone: the Steward's printed alloy, smooth and faintly organic
     bo = noise(4, 12) + 0.3 * noise(30, 60)
     save("bone", 0.92 + 0.03 * bo, bo * 0.4, 0.6 + 0.1 * bo, 1.0)

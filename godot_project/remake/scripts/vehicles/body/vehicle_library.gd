@@ -114,15 +114,19 @@ static func geometry(std_id: String, cid: String) -> Dictionary:
 	for m in e.mats:
 		var off := int(e.mats[m][0])
 		var n := int(e.mats[m][1])
-		var f := pack.slice(off, off + n * 24).to_float32_array()
+		var has_wear := bool(e.get("wear", false))         # (packs since 2026-10-05: each vertex's edge wear after the normals)
+		var f := pack.slice(off, off + n * (28 if has_wear else 24)).to_float32_array()
 		var pos := PackedVector3Array()
 		var nor := PackedVector3Array()
+		var wr := PackedFloat32Array()
 		pos.resize(n)
 		nor.resize(n)
 		for i in n:
 			pos[i] = Vector3(f[i * 3], f[i * 3 + 1], f[i * 3 + 2])
 			nor[i] = Vector3(f[n * 3 + i * 3], f[n * 3 + i * 3 + 1], f[n * 3 + i * 3 + 2])
-		out[m] = [pos, nor]
+		if has_wear:
+			wr = f.slice(n * 6, n * 7)
+		out[m] = [pos, nor, wr]
 	_mx.lock()
 	_geo[cid] = out
 	_mx.unlock()
@@ -166,8 +170,15 @@ static func _surface(m: StandardMaterial3D, name: String) -> void:
 	m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 
 
-static func material(style: String, name: String) -> StandardMaterial3D:
-	## A style's material for the game (shared: callers duplicate what they change per vehicle, e.g. lamps).
+const SURFACE_SHADER := "res://remake/shaders/vehicle_surface.gdshader"
+const PAINTED := ["paint", "paint2", "livery1", "livery2", "frame_tube"]   # (these wear to primer and metal; the rest scuff)
+const INDOOR := ["seat", "headliner", "carpet", "lining", "dash"]          # (no road dirt in the cabin)
+static var _shader: Shader
+
+
+static func material(style: String, name: String) -> Material:
+	## A style's material for the game (shared: callers duplicate what they change per vehicle, e.g. lamps). A surfaced
+	## one is the vehicle surface shader (tint, the generic surface, dirt and wear); glass, lamps, screens: standard.
 	var key := style + "/" + name
 	_mx.lock()
 	var got = _palettes.get("_made_" + key)
@@ -175,6 +186,53 @@ static func material(style: String, name: String) -> StandardMaterial3D:
 	if got != null:
 		return got
 	var spec: Dictionary = palette(style).get(name, {})
+	if SURFACE.has(name) and spec.get("emit") == null and float(spec.get("alpha", 1.0)) >= 1.0 and ResourceLoader.exists(SURFACE_SHADER):
+		var sm := _surface_material(name, spec)
+		if sm:
+			_mx.lock()
+			_palettes["_made_" + key] = sm
+			_mx.unlock()
+			return sm
+	return _standard(key, name, spec)
+
+
+static func _surface_material(name: String, spec: Dictionary) -> ShaderMaterial:
+	var sname := str(SURFACE[name][0])
+	if not _surf_tex.has(sname):
+		var maps := {}
+		for k in ["albedo", "normal", "rough"]:
+			var path := SURFACE_DIR + "%s_%s.png" % [sname, k]
+			maps[k] = load(path) if ResourceLoader.exists(path) else null
+		_surf_tex[sname] = maps
+	if not _surf_tex.has("_grime"):
+		_surf_tex["_grime"] = load(SURFACE_DIR + "grime_mask.png") if ResourceLoader.exists(SURFACE_DIR + "grime_mask.png") else null
+	var t: Dictionary = _surf_tex[sname]
+	if t.albedo == null:
+		return null
+	if _shader == null:
+		_shader = load(SURFACE_SHADER)
+	var m := ShaderMaterial.new()
+	m.resource_name = name
+	m.shader = _shader
+	if name == "frame_tube":
+		m.set_shader_parameter("tint", Color(0.28, 0.3, 0.32))
+		m.set_shader_parameter("roughness", 0.45)
+		m.set_shader_parameter("metallic", 0.7)
+	else:
+		var a: Array = spec.get("albedo", [0.8, 0.8, 0.8])
+		m.set_shader_parameter("tint", Color(a[0], a[1], a[2]))
+		m.set_shader_parameter("roughness", float(spec.get("rough", 0.5)))
+		m.set_shader_parameter("metallic", float(spec.get("metal", 0.0)))
+	m.set_shader_parameter("surface_albedo", t.albedo)
+	m.set_shader_parameter("surface_rough", t.rough)
+	m.set_shader_parameter("grime_mask", _surf_tex["_grime"])
+	m.set_shader_parameter("tile", float(SURFACE[name][1]))
+	m.set_shader_parameter("painted", name in PAINTED)
+	m.set_shader_parameter("dirt_height", 0.0 if name in INDOOR else 0.9)
+	return m
+
+
+static func _standard(key: String, name: String, spec: Dictionary) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.resource_name = name
 	m.cull_mode = BaseMaterial3D.CULL_DISABLED          # (panels are seen from both sides: inside and out)
