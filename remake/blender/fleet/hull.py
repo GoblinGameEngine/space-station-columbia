@@ -91,13 +91,25 @@ class Hull:
         return f(y)
 
     def rings(self):
-        """Frames: one every 0.6 m, each joint in the cavity between the hull and its liner (as drawn)."""
+        """Frames at the hull's own stations (2026-10-04: the hull is straight between them, so a stringer from frame to
+        frame lies in the cavity; frames every 0.6 m cut chords across the curving bow, through the liner), filled in
+        where the stations are far apart; each joint in the cavity between the hull and its liner (as drawn)."""
         out = []
-        n = max(2, int(self.L / 0.6))
-        for k in range(1, n):
-            y = self.stern + self.L * k / n
+        ck = self.S.get("cockpit")
+        ys = []
+        st = self.ys[1:-1]
+        for a, b in zip([self.ys[0]] + st, st + [self.ys[-1]]):
+            n = max(1, int(math.ceil((a - b) / 0.9)))
+            ys += [a - (a - b) * k / n for k in range(1, n + 1)]
+        if ck:                                              # (a frame on the cockpit's edge: just clear of it, kept)
+            ys = [min(ck, key=lambda e: abs(y - e)) + (0.07 if y > min(ck, key=lambda e: abs(y - e)) else -0.07)
+                  if min(abs(y - ck[0]), abs(y - ck[1])) < 0.06 else y for y in ys]
+        ys = [y for y in ys if self.stern + 0.05 < y < self.bow - 0.05]
+        for y in sorted(set(round(v, 4) for v in ys), reverse=True):
             o, i = self.drawn(self.half, y), self.drawn(self.inner, y)
             mid = [((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in zip(o, i)]
+            # (the sheer's joint below the corner: there hull and liner meet the deck at one height, a cavity of none)
+            mid[4] = (mid[4][0], mid[4][1] - self.t * 0.6)
             J = {"floor": (0.0, mid[0][1]), "skirt": mid[1], "sill": mid[2], "belt": mid[3], "head": mid[4], "cant": mid[5], "roof": mid[6], "crown": (0.0, mid[7][1])}
             ck = self.S.get("cockpit")
             if ck and ck[1] <= y <= ck[0]:              # (in the cockpit there's no deck: the deck's joints go into the side deck)

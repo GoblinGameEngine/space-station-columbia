@@ -1151,11 +1151,13 @@ class Builder:
         low = fz < L.arch_top + 0.05 and not C.get("no_arch")
         sk = max(L.skirt + 0.04, L.deck + 0.01) if hw - 0.03 <= L.mount_x else L.skirt + 0.04   # (a tub on the deck: its foot on the deck, not through it)
         spans = [(ax + L.arch_half + 0.03, ax - L.arch_half - 0.03) for ax in L.axles if low and C["y1"] < ax < C["y0"]]
-        want = [C["y0"] - 0.03, C["y1"] + 0.03]
+        tank = C["kind"] == "tank"
+        end = 0.30 if tank else 0.03                        # (a tank's rings start behind its dished ends: in front, a ring
+        want = [C["y0"] - end, C["y1"] + end]               #  stood in the dish, outside the tank)
         for a, b in spans:                                  # (rings either side of an arch, never in it)
             want += [a, b]
-        y = C["y0"] - 0.03
-        while y - 0.9 > C["y1"] + 0.03:
+        y = C["y0"] - end
+        while y - 0.9 > C["y1"] + end:
             y -= 0.75
             want.append(y)
         for d in C.get("doors", []):
@@ -1169,7 +1171,9 @@ class Builder:
         # the joining ring: the cargo's first, in the middle of its front wall's cavity (on the face its tubes stood half
         # out of it; ahead of it, they climbed to the cargo's height through the air over the cab's roof), no higher and no
         # wider than the cab's own outline at its very tail
-        ty = round(C["y0"] - 0.03, 4)
+        # (2026-10-04: in the cab's own end cavity, so the step from the cab's outline down to a lower cargo's -- a bed, a
+        #  tank, a plinth narrower than the cab -- happens inside a closed cavity, not in the air between cab and cargo)
+        ty = round(C["y0"] - 0.03, 4) if no_cab else round(L.tail + 0.015, 4)
         if not no_cab:
             out_w = [v for v in out_w if abs(v - ty) >= 0.04]
         want = ([] if no_cab else [ty]) + out_w
@@ -1179,7 +1183,8 @@ class Builder:
             if C["kind"] == "tank":
                 r = C["tank_r"]
                 cz = C["tank_z"]
-                j = {"skirt": (mx, 0.56), "sill": (mx, fz - 0.03), "belt": (r * 0.8, cz - r * 0.5), "head": (r * 0.85, cz + r * 0.3),
+                # (low joints in the saddle -- continuous under the tank -- the rest inside the tank itself)
+                j = {"skirt": (mx, 0.56), "sill": (mx, fz - 0.03), "belt": (min(r * 0.6, mx), fz + 0.05), "head": (r * 0.5, cz - r * 0.65),
                      "cant": (r * 0.55, cz + r * 0.7), "roof": (r * 0.3, cz + r * 0.85), "crown": (0.0, cz + r * 0.88)}
             elif open_top:
                 rz = tz - 0.03
@@ -1488,8 +1493,8 @@ class Builder:
                  st["panel"].get("cargo", "chrome"), n=24, xf=Matrix.Translation((0, 0, cz)) @ Matrix.Rotation(math.pi, 4, "Z"))
         cr = self.mod("tank_cradle", "cargo_wall", "tank_cradle", "C", hp=900, mass=60)
         fz = C["floor_z"]
-        for y in (y0 - 0.3, (y0 + y1) / 2, y1 + 0.3):
-            cr.box((0, y, (fz + cz - r * 0.6) / 2), (r * 0.7, 0.06, (cz - r * 0.6 - fz) / 2 + 0.02), "black")
+        # the saddle: continuous under the tank, its whole length (the frame's low members run inside it)
+        cr.box((0, (y0 + y1) / 2, (fz + cz - r * 0.6) / 2), (r * 0.7, (y0 - y1) / 2, (cz - r * 0.6 - fz) / 2 + 0.02), "black")
         cr.box((0, (y0 + y1) / 2, fz - 0.03), (L.mount_x + 0.04, (y0 - y1) / 2, 0.03), "black")
         wk = self.mod("tank_walk", "equipment", "tank_walk", "C", hp=200, mass=20)
         wk.box((0, (y0 + y1) / 2, cz + r + 0.02), (0.22, (y0 - y1) / 2 - 0.3, 0.015), "black")
