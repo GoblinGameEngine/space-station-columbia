@@ -51,7 +51,9 @@ the side elevations' proportions.
 
 ## Open
 
-- The personal aerostat is still the hand-built model (remake/blender/vehicles/aerostat.py); it could become an
-  AP class on a keel with the same tokens.
+- The personal aerostat is modular since 2026-10-05: AP460 `steward_errand` on `steward_keel5` -- a spherical balloon
+  (`shape: sphere`), four ducted lift fans on arms (`fan_axis: z`, mount `arm`), struts and a mast; the summoned one is
+  the red variant `summoned_aerostat`. RemakeAerostat is a RemakeFleetCraft of it (the map's aerostats and the summoned
+  one alike). Fans have the role "engine": separate meshes, each on a pivot the flight rig tilts (all fleet aerostats).
 - The winch's cable is drawn stowed; the game doesn't pay it out yet.
 - Spacecraft have no flight (they are for the port, which has no buildings yet).

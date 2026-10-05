@@ -1686,7 +1686,7 @@ func _nav_travel(dd: Dictionary, mins: int) -> void:
 ## (FleetBodies) is in a kind; any the kinds don't name go under Summon Other, so none is ever missing.
 const HAND_BUILT := ["aerostat", "pod", "van", "bicycle"]
 const SUMMON_KINDS := [
-	["Summon Aerostat", ["aerostat", "cargo_aerostat", "rescue_aerostat"]],
+	["Summon Aerostat", ["aerostat", "personal_aerostat", "summoned_aerostat", "cargo_aerostat", "rescue_aerostat"]],
 	["Summon Boat", ["rowboat_dinghy", "canoe_kayak", "fishing_skiff", "pedal_boat", "personal_watercraft", "rescue_board", "sailboat",
 		"pontoon_boat", "cabin_cruiser", "lobster_boat", "coast_guard_boat", "workboat_tug", "trawler", "ferry", "barge", "travel_lift"]],
 	["Summon Passenger Car", ["city_car", "minivan", "station_wagon", "sedan", "luxury_sedan", "company_car", "police_car", "taxi", "fire_chief_car",

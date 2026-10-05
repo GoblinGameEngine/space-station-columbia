@@ -324,6 +324,7 @@ BOARDS = [
     # the aerostats' gondola keels (2026-10-04): no wheels, landing skids
     keel("steward_keel8", "broad", 8, "Steward keel, 8 spans: the rescue aerostat's gondola"),
     keel("steward_keel10", "broad", 10, "Steward keel, 10 spans: the cargo aerostat's gondola"),
+    keel("steward_keel5", "broad", 5, "Steward keel, 5 spans: the personal aerostat's cabin"),
     keel("steward_keel7", "broad", 7, "Steward keel, 7 spans: the spoke elevator car"),
     keel("steward_keel36", "heavy", 36, "Steward keel, 36 spans: the passenger shuttle's fuselage"),
     harrow("harrow_h27", 2.70),

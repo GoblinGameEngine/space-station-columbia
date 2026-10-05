@@ -4508,6 +4508,221 @@
    "mass_kg": 702.3
   },
   {
+   "id": "steward_keel5",
+   "name": "Steward keel, 5 spans: the personal aerostat's cabin",
+   "maker": "steward",
+   "family": "steward",
+   "board": "steward_keel",
+   "cls": "broad",
+   "length_m": 4.45,
+   "deck_width_m": 1.6,
+   "width_m": 1.6,
+   "mount_x_m": 0.7,
+   "track_m": 1.6,
+   "wheel_r": 0.1,
+   "wheelbase_m": 0.0,
+   "axles": [],
+   "drive": "none on the ground (it flies: the fans are the envelope's)",
+   "steering": "none",
+   "pack_kwh": 60.0,
+   "power_kw": 0,
+   "modules": [
+    {
+     "id": "cap_front",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      2.05,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.35,
+      0.19
+     ],
+     "mass_kg": 12.4,
+     "hp": 650,
+     "attach": "span_0",
+     "end": "front"
+    },
+    {
+     "id": "span_0",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      1.5,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": null,
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_1",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.75,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_0",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_2",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      0.0,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_1",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_3",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -0.75,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_2",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "span_4",
+     "kind": "steward_span",
+     "pos": [
+      0,
+      -1.5,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.75,
+      0.19
+     ],
+     "mass_kg": 62.0,
+     "hp": 1300,
+     "attach": "span_3",
+     "kwh": 12.0,
+     "cells": "sealed"
+    },
+    {
+     "id": "cap_rear",
+     "kind": "steward_cap",
+     "pos": [
+      0,
+      -2.05,
+      0.405
+     ],
+     "size": [
+      1.6,
+      0.35,
+      0.19
+     ],
+     "mass_kg": 12.4,
+     "hp": 650,
+     "attach": "span_4",
+     "end": "rear"
+    },
+    {
+     "id": "socket",
+     "kind": "pattern_socket",
+     "pos": [
+      0,
+      1.425,
+      0.5
+     ],
+     "size": [
+      0.24,
+      0.16,
+      0.03
+     ],
+     "mass_kg": 1.5,
+     "hp": 200,
+     "attach": "span_0"
+    },
+    {
+     "id": "skid_L",
+     "kind": "steward_skid",
+     "pos": [
+      -0.7200000000000001,
+      0.0,
+      0.1
+     ],
+     "size": [
+      0.12,
+      3.45,
+      0.2
+     ],
+     "mass_kg": 28.0,
+     "hp": 900,
+     "attach": "span_0",
+     "side": "L",
+     "legs": [
+      1.225,
+      -1.225
+     ]
+    },
+    {
+     "id": "skid_R",
+     "kind": "steward_skid",
+     "pos": [
+      0.7200000000000001,
+      0.0,
+      0.1
+     ],
+     "size": [
+      0.12,
+      3.45,
+      0.2
+     ],
+     "mass_kg": 28.0,
+     "hp": 900,
+     "attach": "span_0",
+     "side": "R",
+     "legs": [
+      1.225,
+      -1.225
+     ]
+    }
+   ],
+   "mass_kg": 392.3
+  },
+  {
    "id": "steward_keel7",
    "name": "Steward keel, 7 spans: the spoke elevator car",
    "maker": "steward",

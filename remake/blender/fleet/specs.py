@@ -864,3 +864,32 @@ STYLES["MV260"] = {"name": "carrow_jamboree", "type": "minivan", "palette": pale
                    "panel": {"lower": "paint", "upper": "paint2", "roof": "paint2", "sail": "paint2"}, "head_lamp": "round", "grille": "band",
                    "tail_lamp": "pixel", "bumper": "chrome", "mirror": "chrome", "handle": "chrome", "belt_trim": "chrome",
                    "inlay": {"m": "wood", "frame": "chrome", "z": (0.62, None)}}
+
+# ======================================================================== the personal aerostat (2026-10-05)
+# The station's everyday flyer (it was hand-built: remake/blender/vehicles/aerostat.py), now modular like the rest: a
+# round-cornered glazed cabin -- slate-blue belly, white band and upper, a sliding door each side -- on a Steward keel,
+# under a gored spherical balloon on an A-frame and four cables, four ducted lift fans on arms at its corners (they
+# tilt forward to drive). The summoned one is the red variant.
+PERSONAL_AERO = dict(AERO_GONDOLA, **{
+    "id": "AP460", "cls": "personal_aerostat", "board": "steward_keel5",
+    "about": "personal aerostats: a 4.6 m glazed cabin for four under a 4.8 m balloon, four tilting lift fans",
+    "nose": 2.30, "tail": -2.30, "half_w": 1.20, "belt": 1.15, "nose_round": 0.95, "tail_round": 0.85,
+    "front": {"kind": "flat", "toe": 2.05, "header": 1.60, "screen_base": 1.17, "hood_drop": 0.08},
+    "rear": {"kind": "wall", "tail_in": -2.23, "back_window": {"half_w": 0.55, "z": (1.35, 2.25), "corner": 0.08}},
+    "doors": [{"id": "S", "y0": 0.60, "y1": -0.60, "kind": "slide"}],
+    "windows": [{"id": "W1", "y0": 1.50, "y1": 0.70}, {"id": "W2", "y0": -0.70, "y1": -1.85}],
+    "seats": [{"y": 1.15, "z": 0.95, "xs": [0.48, -0.48], "w": 0.52}, {"y": -1.35, "z": 0.95, "xs": [-0.52, 0.0, 0.52], "w": 0.48, "bench": True}],
+    "dash_y": 1.85, "driver": "R",
+    "aero": {"env": (4.8, 2.4, 0.0, 6.25), "shape": "sphere", "stripes": [],
+             "fans": [(1.85, 1.75, 0.50, 0.45, "arm"), (1.85, -1.75, 0.50, 0.45, "arm")], "fan_axis": "z", "fan_len": 0.9,
+             "fan_paint": ("livery1", "paint"), "struts": [(0.85, 1.4), (0.85, -1.4)], "mast": 0.0, "foot_lamps": 3},
+})
+CLASSES[PERSONAL_AERO["id"]] = PERSONAL_AERO
+STYLES["AP460"] = {"name": "steward_errand", "type": "personal_aerostat",
+                   "palette": palette(paint=(64, 84, 116), paint2=(236, 236, 232), livery1=(214, 216, 220), livery2=(64, 84, 116),
+                                      canvas1=(236, 236, 232), canvas2=(214, 216, 220)),
+                   "panel": {"lower": "paint", "upper": "paint2", "roof": "paint2", "sail": "paint2"}, "head_lamp": "round", "grille": None,
+                   "tail_lamp": "pixel", "bumper": "none", "mirror": "none", "handle": "chrome", "belt_trim": "chrome", "rail": "black",
+                   "equipment": ["envelope", "ducted_fans", "suspension", "aero_lamps"]}
+VARIANTS["AP460"] = [{"type": "summoned_aerostat", "name": "steward_errand_red",
+                      "palette": dict(paint=(150, 24, 20), livery2=(150, 24, 20))}]

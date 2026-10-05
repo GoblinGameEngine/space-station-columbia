@@ -93,12 +93,26 @@ func _build_hull() -> void:
 		n.name = "steering_wheel"
 		n.position = mk.position
 		model.add_child(n)
-	for m in body.get_children():
-		if str(m.name).begins_with("fan_") and m is Node3D and not m is MeshInstance3D:
-			var e := Node3D.new()
-			e.name = "engine_" + str(m.name)
-			e.position = (m as Node3D).position
-			model.add_child(e)
+	# the fans as the rig's engines: each fan's own mesh (role "engine": a node of its own) on a pivot at its middle, which
+	# the flight rig tilts for thrust; without a mesh of its own, a bare pivot at its marker (sound only)
+	var fan_meshes := body.get_children().filter(func(c): return c is MeshInstance3D and str(c.name).begins_with("fan_"))
+	for m in fan_meshes:
+		var mi := m as MeshInstance3D
+		var e := Node3D.new()
+		e.name = "engine_" + str(mi.name)
+		e.position = mi.transform * mi.get_aabb().get_center()
+		model.add_child(e)
+		var xf := mi.transform
+		body.remove_child(mi)
+		e.add_child(mi)
+		mi.transform = Transform3D(Basis(), -e.position) * xf
+	if fan_meshes.is_empty():
+		for m in body.get_children():
+			if str(m.name).begins_with("fan_") and m is Node3D and not m is MeshInstance3D:
+				var e := Node3D.new()
+				e.name = "engine_" + str(m.name)
+				e.position = (m as Node3D).position
+				model.add_child(e)
 	if boat:
 		_boat_hull()
 	elif info.get("standard", "").begins_with("PX"):

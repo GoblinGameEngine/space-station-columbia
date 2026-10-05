@@ -149,7 +149,7 @@ def renders(name, L):
         el, er, ey, ez = A["env"]
         ln, mid, h = el, ey, ez + er
         low = A["sling"][3] - 0.5 if A.get("sling") else 0.0
-        d = ln * 1.1
+        d = max(ln, h - low, L.nose - L.tail + 3.0) * 1.1      # (a round balloon is taller than it is long)
         zm = (h + low) / 2
         core.render_persp(pre + "_34.png", cam, (0, mid, zm), (d * 0.85, mid + d * 1.0, zm + d * 0.35), 1100, 720, lens=40)
         core.render_persp(pre + "_34rear.png", cam, (0, mid, zm), (-d * 0.8, mid - d * 1.05, zm + d * 0.3), 1100, 720, lens=40)

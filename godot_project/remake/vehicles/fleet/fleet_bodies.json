@@ -3516,6 +3516,54 @@
    "tail": -2.6,
    "floor": 0.55,
    "driver": "L"
+  },
+  "personal_aerostat": {
+   "blueprint": "res://remake/vehicles/fleet/personal_aerostat.blueprint.json",
+   "standard": "AP460",
+   "style": "steward_errand",
+   "board": "steward_keel5",
+   "phys": "personal_aerostat",
+   "half_w": 1.2,
+   "height": 2.92,
+   "nose": 2.3,
+   "tail": -2.3,
+   "floor": 0.55,
+   "driver": "R",
+   "air": true,
+   "aero": {
+    "env": [
+     4.8,
+     2.4,
+     0.0,
+     6.25
+    ],
+    "sling": null
+   },
+   "ground": 0.0
+  },
+  "summoned_aerostat": {
+   "blueprint": "res://remake/vehicles/fleet/summoned_aerostat.blueprint.json",
+   "standard": "AP460",
+   "style": "steward_errand_red",
+   "board": "steward_keel5",
+   "phys": "summoned_aerostat",
+   "half_w": 1.2,
+   "height": 2.92,
+   "nose": 2.3,
+   "tail": -2.3,
+   "floor": 0.55,
+   "driver": "R",
+   "air": true,
+   "aero": {
+    "env": [
+     4.8,
+     2.4,
+     0.0,
+     6.25
+    ],
+    "sling": null
+   },
+   "ground": 0.0
   }
  }
 }

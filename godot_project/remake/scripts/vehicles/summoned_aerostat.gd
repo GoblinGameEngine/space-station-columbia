@@ -18,7 +18,7 @@ const LET_DOWN := 4.0                # m/s from CRUISE_ALT to FLARE_ALT
 const FLARE_ALT := 6.0
 const TOUCH := 1.2                   # m/s the last FLARE_ALT m (well inside GEAR_MS)
 const TURN := 0.9                    # rad/s it turns at
-const PAD_HALF := Vector3(3.0, 4.6, 3.0)   # the room it needs: the fans' span, the balloon's top
+const PAD_HALF := Vector3(2.8, 8.8, 2.8)   # the room it needs: the fans' span, the balloon's top
 const SIGHT_R := 60.0                # m: look this far for a spot the player can see
 const RED := Color(0.6, 0.06, 0.05)
 
@@ -27,21 +27,15 @@ var pad := Vector3.ZERO              # where it will land (the ground)
 var _face := Basis()                 # the heading it lets down at
 
 
+func _init(t := "summoned_aerostat") -> void:
+	super(t)                                     # (the fleet's red variant of the personal aerostat)
+
+
 func _ready() -> void:
 	super()
 	add_to_group("summoned_aerostat")
 	add_to_group("tree_collide")
 	process_mode = Node.PROCESS_MODE_ALWAYS     # flies on while the Communicator has the world paused
-	var red := StandardMaterial3D.new()
-	red.albedo_color = RED
-	red.roughness = 0.45
-	red.metallic = 0.1
-	for m in model.find_children("*", "MeshInstance3D", true, false):
-		var mi := m as MeshInstance3D
-		for i in mi.mesh.get_surface_count():
-			var mat := mi.mesh.surface_get_material(i)
-			if mat and mat.resource_name == "body_blue":
-				mi.set_surface_override_material(i, red)
 
 
 static func summon(tree: SceneTree) -> Dictionary:

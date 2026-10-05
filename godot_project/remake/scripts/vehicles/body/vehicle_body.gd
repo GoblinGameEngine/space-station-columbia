@@ -16,7 +16,7 @@ class_name VehicleBody
 ##   impact(p, dir, energy) -> [ids]    bend the frame; the components shaken loose
 ##   break_off(id, how, velocity)       a component comes off (falls as debris) or shatters
 
-const MOVING := ["door_leaf", "door_glass", "ramp", "hatch", "hatch_glass", "frunk_lid"]   # (their own nodes: they swing)
+const MOVING := ["door_leaf", "door_glass", "ramp", "hatch", "hatch_glass", "frunk_lid", "engine"]   # (their own nodes: they swing, or tilt)
 const INSIDE := ["lining_bay", "door_head_lining", "ceiling_bay", "end_lining", "cap_lining", "seat", "stanchion", "fittings", "podium", "cab", "floor"]
 const INSIDE_RANGE := 45.0
 const TUBE_SIDES := 6

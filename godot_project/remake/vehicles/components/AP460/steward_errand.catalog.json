@@ -1,0 +1,2971 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "AP460",
+ "class": "personal_aerostat",
+ "style": "steward_errand",
+ "pack": "res://remake/vehicles/components/AP460/steward_errand.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.251,
+    0.3294,
+    0.4549
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9098
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.8392,
+    0.8471,
+    0.8627
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.251,
+    0.3294,
+    0.4549
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9098
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.8392,
+    0.8471,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "AP460.end_cap.nose.C.steward_errand.e86d21": {
+   "id": "AP460.end_cap.nose.C.steward_errand.e86d21",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.7696,
+     0.03,
+     2.1894,
+     0.7392,
+     0.06
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.trim.cowl.C.steward_errand.e93da7": {
+   "id": "AP460.trim.cowl.C.steward_errand.e93da7",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     10164,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2071,
+     0.095,
+     2.2577,
+     0.2058,
+     0.19
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.glazing.screen.C.steward_errand.eac864": {
+   "id": "AP460.glazing.screen.C.steward_errand.eac864",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     12852,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.045,
+     0.225,
+     2.2577,
+     1.75,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.trim.screen.C.steward_errand.e36216": {
+   "id": "AP460.trim.screen.C.steward_errand.e36216",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     14196,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9786,
+     0.225,
+     2.2577,
+     1.6252,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.side_bay.fender.R.steward_errand.752a9b": {
+   "id": "AP460.side_bay.fender.R.steward_errand.752a9b",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     15876,
+     123
+    ]
+   },
+   "boxes": [
+    [
+     1.0364,
+     0.785,
+     0.37,
+     0.3213,
+     0.77,
+     0.74
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.side_bay.fore.R.steward_errand.4539c4": {
+   "id": "AP460.side_bay.fore.R.steward_errand.4539c4",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19320,
+     54
+    ],
+    "paint2": [
+     20832,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.0788,
+     1.4,
+     0.45,
+     0.2424,
+     2.0,
+     0.9
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.trim.sail.R.steward_errand.49f7a3": {
+   "id": "AP460.trim.sail.R.steward_errand.49f7a3",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     21336,
+     27
+    ]
+   },
+   "boxes": [
+    [
+     1.1447,
+     1.775,
+     0.275,
+     0.1046,
+     1.25,
+     0.55
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.a_pillar.R.steward_errand.27b193": {
+   "id": "AP460.trim.a_pillar.R.steward_errand.27b193",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     22092,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.054,
+     1.965,
+     0.225,
+     0.1616,
+     1.63,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.side_bay.rocker_S.R.steward_errand.c65428": {
+   "id": "AP460.side_bay.rocker_S.R.steward_errand.c65428",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/rocker_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22428,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.0068,
+     0.49,
+     0.6,
+     0.0936,
+     0.18,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.side_bay.quarter.R.steward_errand.be4038": {
+   "id": "AP460.side_bay.quarter.R.steward_errand.be4038",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22596,
+     90
+    ],
+    "paint2": [
+     25116,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.0557,
+     1.4,
+     0.815,
+     0.2885,
+     2.0,
+     1.63
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.side_bay.fender.L.steward_errand.5484db": {
+   "id": "AP460.side_bay.fender.L.steward_errand.5484db",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26628,
+     123
+    ]
+   },
+   "boxes": [
+    [
+     -1.0364,
+     0.785,
+     0.37,
+     0.3213,
+     0.77,
+     0.74
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.side_bay.fore.L.steward_errand.67686e": {
+   "id": "AP460.side_bay.fore.L.steward_errand.67686e",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30072,
+     54
+    ],
+    "paint2": [
+     31584,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.0788,
+     1.4,
+     0.45,
+     0.2424,
+     2.0,
+     0.9
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.trim.sail.L.steward_errand.10a490": {
+   "id": "AP460.trim.sail.L.steward_errand.10a490",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     32088,
+     27
+    ]
+   },
+   "boxes": [
+    [
+     -1.1447,
+     1.775,
+     0.275,
+     0.1046,
+     1.25,
+     0.55
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.a_pillar.L.steward_errand.c92337": {
+   "id": "AP460.trim.a_pillar.L.steward_errand.c92337",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     32844,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.054,
+     1.965,
+     0.225,
+     0.1616,
+     1.63,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.side_bay.rocker_S.L.steward_errand.22327c": {
+   "id": "AP460.side_bay.rocker_S.L.steward_errand.22327c",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/rocker_S/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33180,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.0068,
+     0.49,
+     0.6,
+     0.0936,
+     0.18,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.side_bay.quarter.L.steward_errand.ab0e8d": {
+   "id": "AP460.side_bay.quarter.L.steward_errand.ab0e8d",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33348,
+     90
+    ],
+    "paint2": [
+     35868,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.0557,
+     1.4,
+     0.815,
+     0.2885,
+     2.0,
+     1.63
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.roof_bay.roof_0.C.steward_errand.9e25b9": {
+   "id": "AP460.roof_bay.roof_0.C.steward_errand.9e25b9",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     37380,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.5,
+     2.2,
+     0.52,
+     1.0
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.roof_bay.roof_1.C.steward_errand.036768": {
+   "id": "AP460.roof_bay.roof_1.C.steward_errand.036768",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     45444,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.65,
+     2.2,
+     0.52,
+     1.3
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.roof_bay.roof_2.C.steward_errand.4349e1": {
+   "id": "AP460.roof_bay.roof_2.C.steward_errand.4349e1",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     49476,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.765,
+     2.2,
+     0.52,
+     1.53
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.end_cap.tail.C.steward_errand.9f1591": {
+   "id": "AP460.end_cap.tail.C.steward_errand.9f1591",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     57540,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.66,
+     0.035,
+     2.2787,
+     2.52,
+     0.07
+    ]
+   ],
+   "wear": true,
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AP460.floor.floor.C.steward_errand.152ac4": {
+   "id": "AP460.floor.floor.C.steward_errand.152ac4",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     69552,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     2.14,
+     1.9871,
+     0.03,
+     4.28
+    ]
+   ],
+   "wear": true,
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "AP460.lining_bay.trim_0_0.R.steward_errand.e50dc3": {
+   "id": "AP460.lining_bay.trim_0_0.R.steward_errand.e50dc3",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     80640,
+     105
+    ]
+   },
+   "boxes": [
+    [
+     1.0398,
+     1.49,
+     0.725,
+     0.2004,
+     1.82,
+     1.45
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.lining_bay.trim_1_0.R.steward_errand.22f090": {
+   "id": "AP460.lining_bay.trim_1_0.R.steward_errand.22f090",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     83580,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     1.0417,
+     1.49,
+     0.815,
+     0.1966,
+     1.82,
+     1.63
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.lining_bay.a_pillar.R.steward_errand.cd2926": {
+   "id": "AP460.lining_bay.a_pillar.R.steward_errand.cd2926",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     86772,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     0.9959,
+     1.9122,
+     0.225,
+     0.1645,
+     1.6156,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.lining_bay.trim_0_0.L.steward_errand.4b2705": {
+   "id": "AP460.lining_bay.trim_0_0.L.steward_errand.4b2705",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     87108,
+     105
+    ]
+   },
+   "boxes": [
+    [
+     -1.0398,
+     1.49,
+     0.725,
+     0.2004,
+     1.82,
+     1.45
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.lining_bay.trim_1_0.L.steward_errand.805640": {
+   "id": "AP460.lining_bay.trim_1_0.L.steward_errand.805640",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     90048,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     -1.0417,
+     1.49,
+     0.815,
+     0.1966,
+     1.82,
+     1.63
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.lining_bay.a_pillar.L.steward_errand.7a018d": {
+   "id": "AP460.lining_bay.a_pillar.L.steward_errand.7a018d",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     93240,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -0.9959,
+     1.9122,
+     0.225,
+     0.1645,
+     1.6156,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.ceiling_bay.roof_0.C.steward_errand.bfca94": {
+   "id": "AP460.ceiling_bay.roof_0.C.steward_errand.bfca94",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     93576,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.5,
+     2.08,
+     0.42,
+     1.0
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.ceiling_bay.roof_1.C.steward_errand.b43e10": {
+   "id": "AP460.ceiling_bay.roof_1.C.steward_errand.b43e10",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     101640,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.65,
+     2.08,
+     0.42,
+     1.3
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.ceiling_bay.roof_2.C.steward_errand.0a6343": {
+   "id": "AP460.ceiling_bay.roof_2.C.steward_errand.0a6343",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     105672,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.765,
+     2.08,
+     0.42,
+     1.53
+    ]
+   ],
+   "wear": true,
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.end_lining.firewall.C.steward_errand.11884c": {
+   "id": "AP460.end_lining.firewall.C.steward_errand.11884c",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     113736,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.88,
+     -0.0,
+     2.1562,
+     0.66,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.end_lining.rear_wall.C.steward_errand.51ea09": {
+   "id": "AP460.end_lining.rear_wall.C.steward_errand.51ea09",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     115416,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.685,
+     -0.0,
+     2.1648,
+     2.27,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.rear_opening.C.steward_errand.71334a": {
+   "id": "AP460.reveal.rear_opening.C.steward_errand.71334a",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     119448,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8,
+     0.035,
+     1.1,
+     0.9,
+     0.07
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.glazing.back_window.C.steward_errand.9cffa9": {
+   "id": "AP460.glazing.back_window.C.steward_errand.9cffa9",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     122808,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8,
+     0.0,
+     1.1,
+     0.9,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.reveal.door_S.R.steward_errand.5344a8": {
+   "id": "AP460.reveal.door_S.R.steward_errand.5344a8",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     124320,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0968,
+     1.49,
+     0.6,
+     0.2064,
+     1.82,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.window_W1.R.steward_errand.59e25a": {
+   "id": "AP460.reveal.window_W1.R.steward_errand.59e25a",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     126336,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.1187,
+     1.775,
+     0.4,
+     0.1626,
+     1.25,
+     0.8
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.window_W2.R.steward_errand.e66714": {
+   "id": "AP460.reveal.window_W2.R.steward_errand.e66714",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     128016,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.1131,
+     1.775,
+     0.575,
+     0.1738,
+     1.25,
+     1.15
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.door_S.L.steward_errand.818ebd": {
+   "id": "AP460.reveal.door_S.L.steward_errand.818ebd",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     129696,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.0968,
+     1.49,
+     0.6,
+     0.2064,
+     1.82,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.window_W1.L.steward_errand.9ad0ba": {
+   "id": "AP460.reveal.window_W1.L.steward_errand.9ad0ba",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     131712,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.1187,
+     1.775,
+     0.4,
+     0.1626,
+     1.25,
+     0.8
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.window_W2.L.steward_errand.586a4e": {
+   "id": "AP460.reveal.window_W2.L.steward_errand.586a4e",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     133392,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.1131,
+     1.775,
+     0.575,
+     0.1738,
+     1.25,
+     1.15
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.reveal.screen.C.steward_errand.0b74b9": {
+   "id": "AP460.reveal.screen.C.steward_errand.0b74b9",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     135072,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.015,
+     0.225,
+     2.2577,
+     1.81,
+     0.45
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.glazing.window_W1.R.steward_errand.3ceecf": {
+   "id": "AP460.glazing.window_W1.R.steward_errand.3ceecf",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     138096,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1486,
+     1.775,
+     0.4,
+     0.1027,
+     1.25,
+     0.8
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.glazing.window_W1.L.steward_errand.6ff3a4": {
+   "id": "AP460.glazing.window_W1.L.steward_errand.6ff3a4",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     139104,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1486,
+     1.775,
+     0.4,
+     0.1027,
+     1.25,
+     0.8
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.glazing.window_W2.R.steward_errand.f96469": {
+   "id": "AP460.glazing.window_W2.R.steward_errand.f96469",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     140112,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1427,
+     1.775,
+     0.575,
+     0.1146,
+     1.25,
+     1.15
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.glazing.window_W2.L.steward_errand.c29a69": {
+   "id": "AP460.glazing.window_W2.L.steward_errand.c29a69",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     141120,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1427,
+     1.775,
+     0.575,
+     0.1146,
+     1.25,
+     1.15
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.door_leaf.door_S.R.steward_errand.1bd131": {
+   "id": "AP460.door_leaf.door_S.R.steward_errand.1bd131",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/door_leaf/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     142128,
+     12
+    ],
+    "paint": [
+     142464,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.0968,
+     0.865,
+     0.6,
+     0.2064,
+     0.57,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.door_glass.door_S.R.steward_errand.afef58": {
+   "id": "AP460.door_glass.door_S.R.steward_errand.afef58",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/door_glass/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     143808,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.775,
+     0.6,
+     0.1,
+     1.25,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.leaf_trim.handle_S.R.steward_errand.86db10": {
+   "id": "AP460.leaf_trim.handle_S.R.steward_errand.86db10",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/leaf_trim/handle_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     144312,
+     36
+    ],
+    "dash": [
+     145320,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1373,
+     0.965,
+     0.125,
+     0.1146,
+     0.27,
+     0.25
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.door_leaf.door_S.L.steward_errand.9eb3ba": {
+   "id": "AP460.door_leaf.door_S.L.steward_errand.9eb3ba",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/door_leaf/door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     146328,
+     12
+    ],
+    "paint": [
+     146664,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.0968,
+     0.865,
+     0.6,
+     0.2064,
+     0.57,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.door_glass.door_S.L.steward_errand.9cfe58": {
+   "id": "AP460.door_glass.door_S.L.steward_errand.9cfe58",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/door_glass/door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     148008,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.775,
+     0.6,
+     0.1,
+     1.25,
+     1.2
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AP460.leaf_trim.handle_S.L.steward_errand.a7f412": {
+   "id": "AP460.leaf_trim.handle_S.L.steward_errand.a7f412",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/leaf_trim/handle_S/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     148512,
+     36
+    ],
+    "dash": [
+     149520,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1373,
+     0.965,
+     0.125,
+     0.1146,
+     0.27,
+     0.25
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.underpan.underpan.C.steward_errand.1f3620": {
+   "id": "AP460.underpan.underpan.C.steward_errand.1f3620",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     150528,
+     456
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     2.3,
+     1.92,
+     0.105,
+     4.6
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "AP460.seat.row_0.C.steward_errand.129227": {
+   "id": "AP460.seat.row_0.C.steward_errand.129227",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     163296,
+     72
+    ],
+    "seat": [
+     165312,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.44,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "AP460.seat.row_1.C.steward_errand.875903": {
+   "id": "AP460.seat.row_1.C.steward_errand.875903",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     171360,
+     108
+    ],
+    "seat": [
+     174384,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0777,
+     0.4023,
+     1.48,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 54,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "AP460.dash.dash.C.steward_errand.86ce23": {
+   "id": "AP460.dash.dash.C.steward_errand.86ce23",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     180432,
+     1236
+    ],
+    "chrome": [
+     215040,
+     120
+    ],
+    "dash": [
+     218400,
+     108
+    ],
+    "gauge": [
+     221424,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1548,
+     0.2426,
+     2.12,
+     0.4695,
+     0.4851
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "AP460.dash.readout.C.steward_errand.fd016d": {
+   "id": "AP460.dash.readout.C.steward_errand.fd016d",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     232176,
+     36
+    ],
+    "lcd": [
+     233184,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.48,
+     1.07,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "AP460.lamp.head_lamp.C.steward_errand.befbe7": {
+   "id": "AP460.lamp.head_lamp.C.steward_errand.befbe7",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     234192,
+     480
+    ],
+    "lamp_amber": [
+     247632,
+     72
+    ],
+    "lamp_drl": [
+     249648,
+     480
+    ],
+    "lamp_head": [
+     263088,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.1032,
+     0.18,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AP460.lamp.tail_lamp.C.steward_errand.f724b3": {
+   "id": "AP460.lamp.tail_lamp.C.steward_errand.f724b3",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     276528,
+     12
+    ],
+    "lamp_amber": [
+     276864,
+     48
+    ],
+    "lamp_brake": [
+     278208,
+     36
+    ],
+    "lamp_reverse": [
+     279216,
+     48
+    ],
+    "lamp_tail": [
+     280560,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.586,
+     0.006,
+     2.1919,
+     1.472,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AP460.lamp.side_marker.C.steward_errand.261ca1": {
+   "id": "AP460.lamp.side_marker.C.steward_errand.261ca1",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     289968,
+     72
+    ],
+    "lamp_tail": [
+     291984,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     2.14,
+     2.0719,
+     0.03,
+     4.28
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AP460.lamp.id_lamp.C.steward_errand.92399c": {
+   "id": "AP460.lamp.id_lamp.C.steward_errand.92399c",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     294000,
+     180
+    ],
+    "lamp_tail": [
+     299040,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.861,
+     1.95,
+     1.9482,
+     0.166,
+     3.9
+    ]
+   ],
+   "wear": true,
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AP460.trim.belt_fender.R.steward_errand.dad70d": {
+   "id": "AP460.trim.belt_fender.R.steward_errand.dad70d",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     304080,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     1.1491,
+     1.1084,
+     0.3676,
+     0.1166,
+     0.0747,
+     0.7353
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.belt_fore.R.steward_errand.6dab7c": {
+   "id": "AP460.trim.belt_fore.R.steward_errand.6dab7c",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/trim/belt_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     311808,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     1.2015,
+     1.138,
+     0.4461,
+     0.02,
+     0.02,
+     0.8922
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.belt_quarter.R.steward_errand.bf9381": {
+   "id": "AP460.trim.belt_quarter.R.steward_errand.bf9381",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     320544,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     1.173,
+     1.138,
+     0.8115,
+     0.0753,
+     0.02,
+     1.623
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.belt_fender.L.steward_errand.1be505": {
+   "id": "AP460.trim.belt_fender.L.steward_errand.1be505",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     337344,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     -1.1492,
+     1.1084,
+     0.3676,
+     0.1166,
+     0.0745,
+     0.7352
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.belt_fore.L.steward_errand.c6767a": {
+   "id": "AP460.trim.belt_fore.L.steward_errand.c6767a",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/trim/belt_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     345072,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -1.2015,
+     1.138,
+     0.4461,
+     0.02,
+     0.02,
+     0.8922
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.trim.belt_quarter.L.steward_errand.76fa0c": {
+   "id": "AP460.trim.belt_quarter.L.steward_errand.76fa0c",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/trim/belt_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     353808,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     -1.173,
+     1.138,
+     0.8115,
+     0.0753,
+     0.02,
+     1.623
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AP460.leaf_trim.belt_door_S.R.steward_errand.ea3765": {
+   "id": "AP460.leaf_trim.belt_door_S.R.steward_errand.ea3765",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_S",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/leaf_trim/belt_door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     370608,
+     420
+    ]
+   },
+   "boxes": [
+    [
+     1.2029,
+     1.138,
+     0.597,
+     0.02,
+     0.02,
+     1.194
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.leaf_trim.belt_door_S.L.steward_errand.8af2eb": {
+   "id": "AP460.leaf_trim.belt_door_S.L.steward_errand.8af2eb",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_S",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/leaf_trim/belt_door_S/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     382368,
+     420
+    ]
+   },
+   "boxes": [
+    [
+     -1.2029,
+     1.138,
+     0.597,
+     0.02,
+     0.02,
+     1.194
+    ]
+   ],
+   "wear": true,
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AP460.envelope.envelope.C.steward_errand.cc72d4": {
+   "id": "AP460.envelope.envelope.C.steward_errand.cc72d4",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "envelope",
+   "slot": "envelope",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/envelope/envelope/C",
+   "reach": 0.0,
+   "mats": {
+    "canvas1": [
+     394128,
+     13776
+    ],
+    "chrome": [
+     779856,
+     192
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     6.25,
+     2.51,
+     4.7998,
+     4.7998,
+     5.02
+    ]
+   ],
+   "wear": true,
+   "hp": 4000,
+   "mass_kg": 180,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.engine.fan_0.R.steward_errand.15f59e": {
+   "id": "AP460.engine.fan_0.R.steward_errand.15f59e",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "engine",
+   "slot": "fan_0",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/engine/fan_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     785232,
+     348
+    ],
+    "chrome": [
+     794976,
+     936
+    ],
+    "livery1": [
+     821184,
+     1308
+    ],
+    "paint": [
+     857808,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.6327,
+     0.4999,
+     0.6686,
+     1.4426,
+     0.4251,
+     1.3371
+    ]
+   ],
+   "wear": true,
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.engine.fan_0.L.steward_errand.4fa1ba": {
+   "id": "AP460.engine.fan_0.L.steward_errand.4fa1ba",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "engine",
+   "slot": "fan_0",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/engine/fan_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     862512,
+     348
+    ],
+    "chrome": [
+     872256,
+     936
+    ],
+    "livery1": [
+     898464,
+     1308
+    ],
+    "paint": [
+     935088,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.6327,
+     0.4999,
+     0.6686,
+     1.4426,
+     0.4251,
+     1.3371
+    ]
+   ],
+   "wear": true,
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.engine.fan_1.R.steward_errand.960892": {
+   "id": "AP460.engine.fan_1.R.steward_errand.960892",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "engine",
+   "slot": "fan_1",
+   "side": "R",
+   "style": "steward_errand",
+   "interface": "AP460/engine/fan_1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     939792,
+     348
+    ],
+    "chrome": [
+     949536,
+     936
+    ],
+    "livery1": [
+     975744,
+     1308
+    ],
+    "paint": [
+     1012368,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.6324,
+     0.4999,
+     0.6685,
+     1.4432,
+     0.4251,
+     1.3369
+    ]
+   ],
+   "wear": true,
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.engine.fan_1.L.steward_errand.c2aaed": {
+   "id": "AP460.engine.fan_1.L.steward_errand.c2aaed",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "engine",
+   "slot": "fan_1",
+   "side": "L",
+   "style": "steward_errand",
+   "interface": "AP460/engine/fan_1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1017072,
+     348
+    ],
+    "chrome": [
+     1026816,
+     936
+    ],
+    "livery1": [
+     1053024,
+     1308
+    ],
+    "paint": [
+     1089648,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.6324,
+     0.4999,
+     0.6685,
+     1.4432,
+     0.4251,
+     1.3369
+    ]
+   ],
+   "wear": true,
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AP460.equipment.suspension.C.steward_errand.64d188": {
+   "id": "AP460.equipment.suspension.C.steward_errand.64d188",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "equipment",
+   "slot": "suspension",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/equipment/suspension/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1094352,
+     624
+    ],
+    "livery1": [
+     1111824,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.4549,
+     1.9342,
+     1.9,
+     3.3099,
+     3.8683
+    ]
+   ],
+   "wear": true,
+   "hp": 1500,
+   "mass_kg": 80,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AP460.lamp.aero_lamps.C.steward_errand.bd7065": {
+   "id": "AP460.lamp.aero_lamps.C.steward_errand.bd7065",
+   "standard": "AP460",
+   "class": "personal_aerostat",
+   "role": "lamp",
+   "slot": "aero_lamps",
+   "side": "C",
+   "style": "steward_errand",
+   "interface": "AP460/lamp/aero_lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_red": [
+     1128624,
+     528
+    ],
+    "lamp_reverse": [
+     1143408,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.5676,
+     1.585,
+     2.0887,
+     8.1808,
+     3.17
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.02
+  }
+ }
+}

@@ -35,9 +35,17 @@ def env_r(t, R):
     return R * (1.0 - (1.0 - u) ** 1.7) ** 0.75
 
 
+def env_ra(A, t):
+    """The envelope's radius at t for this aerostat: the airship's profile, or a sphere (the personal aerostat's balloon)."""
+    R = A["env"][1]
+    if A.get("shape") == "sphere":
+        return R * math.sqrt(max(0.0, 1.0 - (2.0 * t - 1.0) ** 2))
+    return env_r(t, R)
+
+
 def env_pt(A, t, ang, rr=None):
     L, R, yc, zc = A["env"]
-    r = env_r(t, R) if rr is None else rr
+    r = env_ra(A, t) if rr is None else rr
     return Vector((r * math.sin(ang), yc - L / 2 + L * t, zc + r * math.cos(ang)))
 
 
@@ -92,7 +100,7 @@ def _fin(me, A, ang, mats):
         s = j / nsp
         ya = yc - L / 2 + L * t0 + L * (t1 - t0) * (1 - tipk) * s * 0.9       # (the trailing edge: the tip chord shorter)
         yb = yc - L / 2 + L * t1 - sweep * s
-        root_r = min(env_r(t0, R), env_r(t1, R)) - 0.06
+        root_r = min(env_ra(A, t0), env_ra(A, t1)) - 0.06
         r = root_r + (span + 0.06) * s
         tt = th * (1 - 0.6 * s)
         sec = []
@@ -119,7 +127,7 @@ def fins(b, A, st):
         L, R, yc, zc = A["env"]
         t0, t1, span, tipk, sweep = A["fins"]
         for sx in (1, -1):
-            r = min(env_r(t0, R), env_r(t1, R)) + span
+            r = min(env_ra(A, t0), env_ra(A, t1)) + span
             y0, y1 = yc - L / 2 + L * t1 - sweep + 0.4, yc - L / 2 + L * t0 - 0.9
             me.lathe([(0.0, 0.0001), (0.25, 0.09), (0.6, 0.11), (y0 - y1 - 0.5, 0.11), (y0 - y1, 0.0001)], "livery1", n=12,
                      xf=Matrix.Translation((sx * r, y1, zc)))
@@ -167,19 +175,29 @@ def fans(b, A, st):
         for sx in ((1, -1) if x else (1,)):
             sd = "C" if not x else ("R" if sx > 0 else "L")
             mid = "fan_%d%s" % (k, sd if x else "")
-            me = b.mod(mid, "equipment", "fan_%d" % k, sd, hp=600, mass=40)
+            # (role "engine": its own node in the game, which the flight rig tilts for thrust)
+            me = b.mod(mid, "engine", "fan_%d" % k, sd, hp=600, mass=40)
             b.MODS[mid]["smooth"] = True
             c = Vector((sx * x, y, z))
-            ducted_fan(me, c, r, r * A.get("fan_len", 1.25), paint, band)
+            lift = A.get("fan_axis") == "z"                  # (a lift fan: its axis up, tilting forward to drive)
+            ducted_fan(me, c, r, r * A.get("fan_len", 1.25), paint, band, axis=Vector((0, 0, 1)) if lift else Vector((0, 1, 0)))
             b.marker("fan_%d%s" % (k, sd if x else ""), tuple(c))
             if mount == "env":                            # a pylon up to the envelope's flank
                 t = (y - (yc - L / 2)) / L
                 ang = math.atan2(sx * x, z - zc) if x else math.pi
-                er = env_r(min(0.99, max(0.01, t)), R)
+                er = env_ra(A, min(0.99, max(0.01, t)))
                 top = env_pt(A, t, ang, er - 0.15)
                 foot = c + (top - c).normalized() * (r + 0.05)
                 me.pipe([foot, top], 0.07, paint, n=10)
                 me.pipe([foot + Vector((0, 0.25, 0)), top + Vector((0, 0.4, 0))], 0.04, "chrome", n=8)
+            elif mount == "arm":                          # an arm out from the cabin's lower corner to the duct's rim
+                B = b.L
+                root = Vector((sx * (B.half_w - 0.25), y * 0.55, B.sill + 0.05))
+                d = Vector((c.x - root.x, c.y - root.y, 0)).normalized()
+                foot = c - d * (r + 0.06)
+                me.pipe([root, foot], 0.06, "livery1", n=10)
+                me.lathe([(0.0, 0.10), (0.16, 0.10)], "chrome", n=12, xf=Matrix.Translation(foot - d * 0.08) @
+                         Matrix(Vector((0, 1, 0)).rotation_difference(d).to_matrix().to_4x4()))
             else:                                         # a boom forward to the gondola's tail quarter
                 B = b.L
                 y0 = B.tail_in + 0.35
@@ -198,7 +216,7 @@ def suspension(b, A, st):
         for sx in (1, -1):
             foot = Vector((sx * x, y, B.crown - 0.06))
             t = (y + (0.5 if y > yc else -0.5) - (yc - L / 2)) / L
-            top = env_pt(A, t, math.pi - sx * 0.55, env_r(t, R) - 0.12)
+            top = env_pt(A, t, math.pi - sx * 0.55, env_ra(A, t) - 0.12)
             mid = foot + (top - foot) * 0.55
             me.pipe([foot, mid], 0.055, "livery1", n=10)
             me.pipe([mid - (top - foot).normalized() * 0.15, top], 0.035, "chrome", n=8)
@@ -206,14 +224,14 @@ def suspension(b, A, st):
     if A.get("mast") is not None:
         y = A["mast"]
         t = (y - (yc - L / 2)) / L
-        top = zc - env_r(t, R) + 0.15
+        top = zc - env_ra(A, t) + 0.15
         me.lathe([(0.0, 0.16), (0.08, 0.13), (top - B.crown, 0.11)], "livery1", n=14,
                  xf=Matrix.Translation((0, y, B.crown - 0.04)) @ Matrix.Rotation(-math.pi / 2, 4, "X"))
     if A.get("saddle"):                                   # (a gondola slung tight under the envelope: its saddle)
         y0, y1 = B.toe - 0.3, B.tail_in + 0.3
         for y in (y0, (y0 + y1) / 2, y1):
             t = (y - (yc - L / 2)) / L
-            bot = zc - env_r(t, R) + 0.1
+            bot = zc - env_ra(A, t) + 0.1
             for sx in (1, -1):
                 me.pipe([Vector((sx * 0.7, y, B.crown - 0.05)), Vector((sx * 1.0, y, bot))], 0.06, "livery2", n=8)
         me.box((0, (y0 + y1) / 2, B.crown + 0.05), (0.9, (y0 - y1) / 2, 0.08), "livery2")
@@ -246,7 +264,7 @@ def sling(b, A, st):
     for y in A.get("legs", []):                          # the A-legs: two members a side from the envelope's flank
         t = (y - (yc - L / 2)) / L
         for sx in (1, -1):
-            top = env_pt(A, t, math.pi - sx * 1.05, env_r(t, R) - 0.15)
+            top = env_pt(A, t, math.pi - sx * 1.05, env_ra(A, t) - 0.15)
             ft = Vector((sx * hw, y, z))
             for dy in (0.9, -0.9):
                 me.pipe([top, ft + Vector((0, dy, 0))], 0.11, "livery1", n=10)
@@ -293,7 +311,7 @@ def lamps(b, A, st):
     me = b.mod("aero_lamps", "lamp", "aero_lamps", "C", hp=60, mass=2)
     L, R, yc, zc = A["env"]
     for t, ang in ((0.55, 0.0), (0.55, math.pi)):
-        p = env_pt(A, t, ang, env_r(t, R) + 0.02)
+        p = env_pt(A, t, ang, env_ra(A, t) + 0.02)
         me.lathe([(0.0, 0.10), (0.05, 0.09), (0.10, 0.0001)], "lamp_red", n=12, xf=Matrix.Translation(p) @ Matrix.Rotation(-math.pi / 2 if ang == 0 else math.pi / 2, 4, "X"))
         b.marker("light_beacon", tuple(p))
     B = b.L
