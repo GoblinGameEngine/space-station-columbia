@@ -1587,7 +1587,23 @@
    "nose": 4.1,
    "tail": -4.1,
    "floor": 0.55,
-   "driver": "L"
+   "driver": "L",
+   "air": true,
+   "aero": {
+    "env": [
+     34.0,
+     4.7,
+     -1.0,
+     7.87
+    ],
+    "sling": [
+     4.2,
+     6.5,
+     -8.5,
+     -2.6
+    ]
+   },
+   "ground": -3.12
   },
   "rescue_aerostat": {
    "blueprint": "res://remake/vehicles/fleet/rescue_aerostat.blueprint.json",
@@ -1600,7 +1616,18 @@
    "nose": 3.45,
    "tail": -3.45,
    "floor": 0.55,
-   "driver": "L"
+   "driver": "L",
+   "air": true,
+   "aero": {
+    "env": [
+     16.0,
+     2.5,
+     -1.2,
+     6.32
+    ],
+    "sling": null
+   },
+   "ground": 0.0
   },
   "passenger_shuttle": {
    "blueprint": "res://remake/vehicles/fleet/passenger_shuttle.blueprint.json",
@@ -1613,7 +1640,8 @@
    "nose": 14.6,
    "tail": -14.6,
    "floor": 0.55,
-   "driver": "L"
+   "driver": "L",
+   "prop": true
   },
   "supply_freighter": {
    "blueprint": "res://remake/vehicles/fleet/supply_freighter.blueprint.json",
@@ -1626,7 +1654,8 @@
    "nose": 3.4,
    "tail": -3.4,
    "floor": 0.55,
-   "driver": "L"
+   "driver": "L",
+   "prop": true
   },
   "eva_sled": {
    "blueprint": "res://remake/vehicles/fleet/eva_sled.blueprint.json",
@@ -1653,7 +1682,8 @@
    "nose": 3.3,
    "tail": -3.3,
    "floor": 0.55,
-   "driver": "L"
+   "driver": "L",
+   "prop": true
   },
   "spoke_elevator_car": {
    "blueprint": "res://remake/vehicles/fleet/spoke_elevator_car.blueprint.json",
@@ -1666,7 +1696,8 @@
    "nose": 2.9,
    "tail": -2.9,
    "floor": 0.55,
-   "driver": "L"
+   "driver": "L",
+   "prop": true
   },
   "travel_lift": {
    "blueprint": "res://remake/vehicles/fleet/travel_lift.blueprint.json",

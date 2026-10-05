@@ -258,6 +258,13 @@ def build_class(sid, registry):
                            "board": spec["board"], "phys": vtype, "half_w": max(L.half_w, C.get("half_w", 0) if C else 0),
                            "height": max(L.crown, (C.get("top_z") or C.get("rail_z") or 0) if C else 0), "nose": L.nose, "tail": C["y1"] if C else L.tail,
                            "floor": L.floor, "driver": spec.get("driver", "L")}
+        A = spec.get("aero")
+        if A:                                               # (an aerostat: it flies -- RemakeFleetAerostat -- on these)
+            registry[vtype]["air"] = True
+            registry[vtype]["aero"] = {"env": list(A["env"]), "sling": list(A["sling"]) if A.get("sling") else None}
+            registry[vtype]["ground"] = round(A["sling"][3] - 0.52, 3) if A.get("sling") else 0.0
+        elif spec.get("space") is not None:                 # (a spacecraft, the spoke elevator: set down as its body)
+            registry[vtype]["prop"] = True
         return bp
 
     blueprint(st["type"], st["name"], places, base_closers, base_markers)

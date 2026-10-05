@@ -235,6 +235,11 @@ func door_slide() -> float:
 	return 0.6
 
 
+func _sweep_excluded() -> Array[RID]:
+	## A subclass's own moving parts that ride with it (a fleet body's door leaves): kept out of the hull's sweep.
+	return []
+
+
 func add_box(size: Vector3, at: Vector3, roll := 0.0) -> void:
 	## A box of the hull; roll (about local Z) tilts it, e.g. into a boarding ramp.
 	var cs := CollisionShape3D.new()
@@ -403,6 +408,7 @@ func _move(from: Transform3D, motion: Vector3) -> void:
 	var seat := get_node_or_null("PilotSeat")
 	if seat:
 		exclude.append((seat as PhysicsBody3D).get_rid())
+	exclude.append_array(_sweep_excluded())
 	var xf := from
 	var hit_v := 0.0
 	var hit_n := Vector3.ZERO

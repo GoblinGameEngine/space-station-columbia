@@ -1823,6 +1823,8 @@ func _summon_now(vt: String) -> void:
 		w = RemakeVan.new()
 	elif vt == "bicycle":
 		w = RemakeBicycle.new()
+	elif bool(info.get("air", false)):                     # (a fleet aerostat: flyable, set down on its skids or frame)
+		w = RemakeFleetAerostat.new(vt)
 	elif bool(info.get("prop", false)):                    # (a cart, a chair, a boat: just its body, set down)
 		w = Node3D.new()
 		w.set_meta("vtype", vt)
@@ -1833,7 +1835,7 @@ func _summon_now(vt: String) -> void:
 	w.add_to_group("delivered_wagon")
 	get_tree().current_scene.add_child(w)
 	var up: Vector3 = (drop[1] as Basis).y
-	w.global_transform = Transform3D(drop[1], drop[0] + up * 0.15)
+	w.global_transform = Transform3D(drop[1], drop[0] + up * (0.15 - float(info.get("ground", 0.0))))
 	_tell("Your %s." % _vname(vt).to_lower())
 
 
