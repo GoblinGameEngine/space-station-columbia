@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -2879,8 +2903,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.5f1745": {
-   "id": "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.5f1745",
+  "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.d4fe66": {
+   "id": "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.d4fe66",
    "standard": "BTWORKBO",
    "class": "workboat_tug",
    "role": "cab",
@@ -2890,22 +2914,34 @@
    "interface": "BTWORKBO/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "paint": [
+    "black": [
      104328,
-     108
+     96
+    ],
+    "dash": [
+     106632,
+     36
+    ],
+    "paint": [
+     107496,
+     540
     ],
     "paint2": [
-     106920,
+     120456,
+     36
+    ],
+    "wood": [
+     121320,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     2.9023,
+     2.8773,
      3.1,
      4.0,
-     2.68,
+     2.73,
      6.2
     ]
    ],
@@ -2914,8 +2950,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.d0dad6": {
-   "id": "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.d0dad6",
+  "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.a49e69": {
+   "id": "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.a49e69",
    "standard": "BTWORKBO",
    "class": "workboat_tug",
    "role": "glazing",
@@ -2925,19 +2961,19 @@
    "interface": "BTWORKBO/glazing/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "glass_dark": [
-     107784,
-     36
+    "glass": [
+     122184,
+     108
     ]
    },
    "boxes": [
     [
      0.0,
-     3.1743,
-     2.99,
-     3.78,
-     0.676,
-     5.98
+     3.2773,
+     2.9505,
+     3.762,
+     1.53,
+     5.901
     ]
    ],
    "hp": 60,
@@ -2957,7 +2993,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     108648,
+     124776,
      1824
     ]
    },
@@ -2988,7 +3024,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     152424,
+     168552,
      36
     ]
    },

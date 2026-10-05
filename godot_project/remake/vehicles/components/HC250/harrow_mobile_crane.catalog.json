@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "HC250.trim.screen.C.harrow_mobile_crane.06b1d8": {
-   "id": "HC250.trim.screen.C.harrow_mobile_crane.06b1d8",
+  "HC250.trim.screen.C.harrow_mobile_crane.b033f8": {
+   "id": "HC250.trim.screen.C.harrow_mobile_crane.b033f8",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.5041,
+     2.5009,
      0.19,
      2.4016,
-     0.7362,
+     0.7297,
      0.38
     ]
    ],
@@ -515,8 +539,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HC250.side_bay.fender.R.harrow_mobile_crane.193df1": {
-   "id": "HC250.side_bay.fender.R.harrow_mobile_crane.193df1",
+  "HC250.side_bay.fender.R.harrow_mobile_crane.5e909c": {
+   "id": "HC250.side_bay.fender.R.harrow_mobile_crane.5e909c",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "side_bay",
@@ -535,10 +559,10 @@
     [
      1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -546,8 +570,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HC250.trim.sail.R.harrow_mobile_crane.04e394": {
-   "id": "HC250.trim.sail.R.harrow_mobile_crane.04e394",
+  "HC250.side_bay.fore.R.harrow_mobile_crane.4666d5": {
+   "id": "HC250.side_bay.fore.R.harrow_mobile_crane.4666d5",
+   "standard": "HC250",
+   "class": "mobile_crane",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "harrow_mobile_crane",
+   "interface": "HC250/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HC250.trim.sail.R.harrow_mobile_crane.2d9d4c": {
+   "id": "HC250.trim.sail.R.harrow_mobile_crane.2d9d4c",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "trim",
@@ -558,7 +613,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     20232,
+     21528,
      72
     ]
    },
@@ -566,10 +621,10 @@
     [
      1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -589,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     21960,
+     23256,
      36
     ]
    },
@@ -620,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     22824,
+     24120,
      66
     ]
    },
@@ -651,7 +706,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     24408,
+     25704,
      192
     ]
    },
@@ -670,8 +725,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HC250.side_bay.fender.L.harrow_mobile_crane.16d16c": {
-   "id": "HC250.side_bay.fender.L.harrow_mobile_crane.16d16c",
+  "HC250.side_bay.fender.L.harrow_mobile_crane.7a58de": {
+   "id": "HC250.side_bay.fender.L.harrow_mobile_crane.7a58de",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "side_bay",
@@ -682,7 +737,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     29016,
+     30312,
      120
     ]
    },
@@ -690,10 +745,10 @@
     [
      -1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -701,8 +756,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HC250.trim.sail.L.harrow_mobile_crane.274a3c": {
-   "id": "HC250.trim.sail.L.harrow_mobile_crane.274a3c",
+  "HC250.side_bay.fore.L.harrow_mobile_crane.505378": {
+   "id": "HC250.side_bay.fore.L.harrow_mobile_crane.505378",
+   "standard": "HC250",
+   "class": "mobile_crane",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "harrow_mobile_crane",
+   "interface": "HC250/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33192,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HC250.trim.sail.L.harrow_mobile_crane.1f52af": {
+   "id": "HC250.trim.sail.L.harrow_mobile_crane.1f52af",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "trim",
@@ -713,7 +799,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31896,
+     34488,
      72
     ]
    },
@@ -721,10 +807,10 @@
     [
      -1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -744,7 +830,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     33624,
+     36216,
      36
     ]
    },
@@ -775,7 +861,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     34488,
+     37080,
      66
     ]
    },
@@ -806,7 +892,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     36072,
+     38664,
      192
     ]
    },
@@ -825,8 +911,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HC250.roof_bay.roof_0.C.harrow_mobile_crane.932e8d": {
-   "id": "HC250.roof_bay.roof_0.C.harrow_mobile_crane.932e8d",
+  "HC250.roof_bay.roof_0.C.harrow_mobile_crane.557e18": {
+   "id": "HC250.roof_bay.roof_0.C.harrow_mobile_crane.557e18",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "roof_bay",
@@ -837,8 +923,8 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     40680,
-     1152
+     43272,
+     1296
     ]
    },
    "boxes": [
@@ -868,7 +954,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     68328,
+     74376,
      285
     ]
    },
@@ -887,8 +973,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HC250.floor.floor.C.harrow_mobile_crane.1a25ca": {
-   "id": "HC250.floor.floor.C.harrow_mobile_crane.1a25ca",
+  "HC250.floor.floor.C.harrow_mobile_crane.9ebe3c": {
+   "id": "HC250.floor.floor.C.harrow_mobile_crane.9ebe3c",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "floor",
@@ -899,8 +985,8 @@
    "reach": 0.0,
    "mats": {
     "carpet": [
-     75168,
-     1140
+     81216,
+     1260
     ]
    },
    "boxes": [
@@ -918,8 +1004,8 @@
    "breaks": "detach",
    "tolerance": 1.0
   },
-  "HC250.lining_bay.trim_0_0.R.harrow_mobile_crane.5ceb9e": {
-   "id": "HC250.lining_bay.trim_0_0.R.harrow_mobile_crane.5ceb9e",
+  "HC250.lining_bay.trim_0_0.R.harrow_mobile_crane.9dffc4": {
+   "id": "HC250.lining_bay.trim_0_0.R.harrow_mobile_crane.9dffc4",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "lining_bay",
@@ -930,8 +1016,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     102528,
-     96
+     111456,
+     126
     ]
    },
    "boxes": [
@@ -961,7 +1047,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     104832,
+     114480,
      144
     ]
    },
@@ -992,7 +1078,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     108288,
+     117936,
      36
     ]
    },
@@ -1011,8 +1097,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HC250.lining_bay.trim_0_0.L.harrow_mobile_crane.30b09e": {
-   "id": "HC250.lining_bay.trim_0_0.L.harrow_mobile_crane.30b09e",
+  "HC250.lining_bay.trim_0_0.L.harrow_mobile_crane.32e002": {
+   "id": "HC250.lining_bay.trim_0_0.L.harrow_mobile_crane.32e002",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "lining_bay",
@@ -1023,8 +1109,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     109152,
-     96
+     118800,
+     126
     ]
    },
    "boxes": [
@@ -1054,7 +1140,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     111456,
+     121824,
      144
     ]
    },
@@ -1085,7 +1171,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     114912,
+     125280,
      36
     ]
    },
@@ -1104,8 +1190,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HC250.ceiling_bay.roof_0.C.harrow_mobile_crane.1b5a0c": {
-   "id": "HC250.ceiling_bay.roof_0.C.harrow_mobile_crane.1b5a0c",
+  "HC250.ceiling_bay.roof_0.C.harrow_mobile_crane.6c3ea1": {
+   "id": "HC250.ceiling_bay.roof_0.C.harrow_mobile_crane.6c3ea1",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "ceiling_bay",
@@ -1116,8 +1202,8 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     115776,
-     1152
+     126144,
+     1296
     ]
    },
    "boxes": [
@@ -1147,7 +1233,7 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     143424,
+     157248,
      60
     ]
    },
@@ -1178,7 +1264,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     144864,
+     158688,
      144
     ]
    },
@@ -1209,7 +1295,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     148320,
+     162144,
      120
     ]
    },
@@ -1240,7 +1326,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     151200,
+     165024,
      54
     ]
    },
@@ -1271,7 +1357,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     152496,
+     166320,
      156
     ]
    },
@@ -1283,6 +1369,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HC250.reveal.window_WQ.R.harrow_mobile_crane.93ca6a": {
+   "id": "HC250.reveal.window_WQ.R.harrow_mobile_crane.93ca6a",
+   "standard": "HC250",
+   "class": "mobile_crane",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_mobile_crane",
+   "interface": "HC250/reveal/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     170064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1302,7 +1419,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     156240,
+     171216,
      156
     ]
    },
@@ -1314,6 +1431,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HC250.reveal.window_WQ.L.harrow_mobile_crane.f0b50e": {
+   "id": "HC250.reveal.window_WQ.L.harrow_mobile_crane.f0b50e",
+   "standard": "HC250",
+   "class": "mobile_crane",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_mobile_crane",
+   "interface": "HC250/reveal/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     174960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1333,7 +1481,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     159984,
+     176112,
      132
     ]
    },
@@ -1352,6 +1500,68 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
+  "HC250.glazing.window_WQ.R.harrow_mobile_crane.de94b6": {
+   "id": "HC250.glazing.window_WQ.R.harrow_mobile_crane.de94b6",
+   "standard": "HC250",
+   "class": "mobile_crane",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_mobile_crane",
+   "interface": "HC250/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HC250.glazing.window_WQ.L.harrow_mobile_crane.6ac5fe": {
+   "id": "HC250.glazing.window_WQ.L.harrow_mobile_crane.6ac5fe",
+   "standard": "HC250",
+   "class": "mobile_crane",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_mobile_crane",
+   "interface": "HC250/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "HC250.door_leaf.door_F.R.harrow_mobile_crane.a87202": {
    "id": "HC250.door_leaf.door_F.R.harrow_mobile_crane.a87202",
    "standard": "HC250",
@@ -1364,11 +1574,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     163152,
+     180144,
      54
     ],
     "paint": [
-     164448,
+     181440,
      174
     ]
    },
@@ -1399,7 +1609,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     168624,
+     185616,
      162
     ]
    },
@@ -1430,11 +1640,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     172512,
+     189504,
      36
     ],
     "dash": [
-     173376,
+     190368,
      36
     ]
    },
@@ -1465,11 +1675,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     174240,
+     191232,
      54
     ],
     "paint": [
-     175536,
+     192528,
      174
     ]
    },
@@ -1500,7 +1710,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     179712,
+     196704,
      162
     ]
    },
@@ -1531,11 +1741,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     183600,
+     200592,
      36
     ],
     "dash": [
-     184464,
+     201456,
      36
     ]
    },
@@ -1566,7 +1776,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     185328,
+     202320,
      636
     ]
    },
@@ -1597,7 +1807,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     200592,
+     217584,
      636
     ]
    },
@@ -1628,7 +1838,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     215856,
+     232848,
      108
     ]
    },
@@ -1659,7 +1869,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     218448,
+     235440,
      108
     ]
    },
@@ -1678,8 +1888,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "HC250.underpan.underpan.C.harrow_mobile_crane.466c49": {
-   "id": "HC250.underpan.underpan.C.harrow_mobile_crane.466c49",
+  "HC250.underpan.underpan.C.harrow_mobile_crane.a06d0a": {
+   "id": "HC250.underpan.underpan.C.harrow_mobile_crane.a06d0a",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "underpan",
@@ -1690,8 +1900,8 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     221040,
-     330
+     238032,
+     378
     ]
    },
    "boxes": [
@@ -1721,7 +1931,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     228960,
+     247104,
      30
     ]
    },
@@ -1752,7 +1962,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     229680,
+     247824,
      168
     ]
    },
@@ -1783,7 +1993,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     233712,
+     251856,
      168
     ]
    },
@@ -1814,7 +2024,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     237744,
+     255888,
      6
     ]
    },
@@ -1845,7 +2055,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     237888,
+     256032,
      168
     ]
    },
@@ -1876,7 +2086,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     241920,
+     260064,
      168
     ]
    },
@@ -1907,7 +2117,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     245952,
+     264096,
      6
     ]
    },
@@ -1938,11 +2148,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     246096,
+     264240,
      18
     ],
     "tub": [
-     246528,
+     264672,
      6
     ]
    },
@@ -1973,11 +2183,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     246672,
+     264816,
      6
     ],
     "paint2": [
-     246816,
+     264960,
      6
     ]
    },
@@ -2008,7 +2218,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     246960,
+     265104,
      6
     ]
    },
@@ -2039,11 +2249,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     247104,
+     265248,
      24
     ],
     "paint2": [
-     247680,
+     265824,
      9
     ]
    },
@@ -2074,11 +2284,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     247896,
+     266040,
      108
     ],
     "seat": [
-     250488,
+     268632,
      324
     ]
    },
@@ -2109,19 +2319,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     258264,
+     276408,
      1236
     ],
     "chrome": [
-     287928,
+     306072,
      120
     ],
     "dash": [
-     290808,
+     308952,
      108
     ],
     "gauge": [
-     293400,
+     311544,
      384
     ]
    },
@@ -2152,11 +2362,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     302616,
+     320760,
      36
     ],
     "lcd": [
-     303480,
+     321624,
      36
     ]
    },
@@ -2187,15 +2397,15 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     304344,
+     322488,
      72
     ],
     "lamp_amber": [
-     306072,
+     324216,
      72
     ],
     "lamp_head": [
-     307800,
+     325944,
      72
     ]
    },
@@ -2226,7 +2436,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     309528,
+     327672,
      144
     ]
    },
@@ -2257,23 +2467,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     312984,
+     331128,
      12
     ],
     "lamp_amber": [
-     313272,
+     331416,
      48
     ],
     "lamp_brake": [
-     314424,
+     332568,
      36
     ],
     "lamp_reverse": [
-     315288,
+     333432,
      48
     ],
     "lamp_tail": [
-     316440,
+     334584,
      336
     ]
    },
@@ -2304,11 +2514,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     324504,
+     342648,
      72
     ],
     "lamp_tail": [
-     326232,
+     344376,
      72
     ]
    },
@@ -2339,11 +2549,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     327960,
+     346104,
      180
     ],
     "lamp_tail": [
-     332280,
+     350424,
      180
     ]
    },
@@ -2374,11 +2584,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     336600,
+     354744,
      108
     ],
     "rubber": [
-     339192,
+     357336,
      36
     ]
    },
@@ -2409,11 +2619,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     340056,
+     358200,
      108
     ],
     "rubber": [
-     342648,
+     360792,
      36
     ]
    },
@@ -2444,11 +2654,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     343512,
+     361656,
      96
     ],
     "glass_dark": [
-     345816,
+     363960,
      36
     ]
    },
@@ -2479,11 +2689,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     346680,
+     364824,
      96
     ],
     "glass_dark": [
-     348984,
+     367128,
      36
     ]
    },
@@ -2502,8 +2712,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HC250.equipment.crane_boom.C.harrow_mobile_crane.460612": {
-   "id": "HC250.equipment.crane_boom.C.harrow_mobile_crane.460612",
+  "HC250.equipment.crane_boom.C.harrow_mobile_crane.7e41b5": {
+   "id": "HC250.equipment.crane_boom.C.harrow_mobile_crane.7e41b5",
    "standard": "HC250",
    "class": "mobile_crane",
    "role": "equipment",
@@ -2514,25 +2724,25 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     349848,
+     367992,
      432
     ],
     "glass_dark": [
-     360216,
+     378360,
      36
     ],
     "paint": [
-     361080,
+     379224,
      144
     ]
    },
    "boxes": [
     [
      0.0,
-     1.987,
+     2.242,
      4.21,
      2.52,
-     2.014,
+     2.524,
      8.42
     ]
    ],
@@ -2553,7 +2763,7 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     364536,
+     382680,
      288
     ]
    },

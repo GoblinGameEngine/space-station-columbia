@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "HF250.trim.screen.C.harrow_fire_engine.cac6af": {
-   "id": "HF250.trim.screen.C.harrow_fire_engine.cac6af",
+  "HF250.trim.screen.C.harrow_fire_engine.97f003": {
+   "id": "HF250.trim.screen.C.harrow_fire_engine.97f003",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.5041,
+     2.5009,
      0.19,
      2.4016,
-     0.7362,
+     0.7297,
      0.38
     ]
    ],
@@ -515,8 +539,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HF250.side_bay.fender.R.harrow_fire_engine.cdedba": {
-   "id": "HF250.side_bay.fender.R.harrow_fire_engine.cdedba",
+  "HF250.side_bay.fender.R.harrow_fire_engine.65f405": {
+   "id": "HF250.side_bay.fender.R.harrow_fire_engine.65f405",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "side_bay",
@@ -535,10 +559,10 @@
     [
      1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -546,8 +570,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HF250.trim.sail.R.harrow_fire_engine.1c5962": {
-   "id": "HF250.trim.sail.R.harrow_fire_engine.1c5962",
+  "HF250.side_bay.fore.R.harrow_fire_engine.3e15fd": {
+   "id": "HF250.side_bay.fore.R.harrow_fire_engine.3e15fd",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.trim.sail.R.harrow_fire_engine.004f58": {
+   "id": "HF250.trim.sail.R.harrow_fire_engine.004f58",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "trim",
@@ -558,7 +613,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     20232,
+     21528,
      72
     ]
    },
@@ -566,10 +621,10 @@
     [
      1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -589,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     21960,
+     23256,
      36
     ]
    },
@@ -620,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     22824,
+     24120,
      66
     ]
    },
@@ -651,7 +706,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     24408,
+     25704,
      192
     ]
    },
@@ -670,8 +725,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HF250.side_bay.fender.L.harrow_fire_engine.72472b": {
-   "id": "HF250.side_bay.fender.L.harrow_fire_engine.72472b",
+  "HF250.side_bay.fender.L.harrow_fire_engine.c2ec30": {
+   "id": "HF250.side_bay.fender.L.harrow_fire_engine.c2ec30",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "side_bay",
@@ -682,7 +737,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     29016,
+     30312,
      120
     ]
    },
@@ -690,10 +745,10 @@
     [
      -1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -701,8 +756,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HF250.trim.sail.L.harrow_fire_engine.02a4b7": {
-   "id": "HF250.trim.sail.L.harrow_fire_engine.02a4b7",
+  "HF250.side_bay.fore.L.harrow_fire_engine.916c99": {
+   "id": "HF250.side_bay.fore.L.harrow_fire_engine.916c99",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33192,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HF250.trim.sail.L.harrow_fire_engine.995f14": {
+   "id": "HF250.trim.sail.L.harrow_fire_engine.995f14",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "trim",
@@ -713,7 +799,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31896,
+     34488,
      72
     ]
    },
@@ -721,10 +807,10 @@
     [
      -1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -744,7 +830,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     33624,
+     36216,
      36
     ]
    },
@@ -775,7 +861,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     34488,
+     37080,
      66
     ]
    },
@@ -806,7 +892,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     36072,
+     38664,
      192
     ]
    },
@@ -825,8 +911,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HF250.roof_bay.roof_0.C.harrow_fire_engine.2e3581": {
-   "id": "HF250.roof_bay.roof_0.C.harrow_fire_engine.2e3581",
+  "HF250.roof_bay.roof_0.C.harrow_fire_engine.7f1485": {
+   "id": "HF250.roof_bay.roof_0.C.harrow_fire_engine.7f1485",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "roof_bay",
@@ -837,8 +923,8 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     40680,
-     1152
+     43272,
+     1296
     ]
    },
    "boxes": [
@@ -868,7 +954,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     68328,
+     74376,
      285
     ]
    },
@@ -887,8 +973,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HF250.floor.floor.C.harrow_fire_engine.a9448b": {
-   "id": "HF250.floor.floor.C.harrow_fire_engine.a9448b",
+  "HF250.floor.floor.C.harrow_fire_engine.24f3ae": {
+   "id": "HF250.floor.floor.C.harrow_fire_engine.24f3ae",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "floor",
@@ -899,8 +985,8 @@
    "reach": 0.0,
    "mats": {
     "carpet": [
-     75168,
-     1140
+     81216,
+     1260
     ]
    },
    "boxes": [
@@ -918,8 +1004,8 @@
    "breaks": "detach",
    "tolerance": 1.0
   },
-  "HF250.lining_bay.trim_0_0.R.harrow_fire_engine.5fc339": {
-   "id": "HF250.lining_bay.trim_0_0.R.harrow_fire_engine.5fc339",
+  "HF250.lining_bay.trim_0_0.R.harrow_fire_engine.ade970": {
+   "id": "HF250.lining_bay.trim_0_0.R.harrow_fire_engine.ade970",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "lining_bay",
@@ -930,8 +1016,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     102528,
-     96
+     111456,
+     126
     ]
    },
    "boxes": [
@@ -961,7 +1047,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     104832,
+     114480,
      144
     ]
    },
@@ -992,7 +1078,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     108288,
+     117936,
      36
     ]
    },
@@ -1011,8 +1097,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HF250.lining_bay.trim_0_0.L.harrow_fire_engine.859e21": {
-   "id": "HF250.lining_bay.trim_0_0.L.harrow_fire_engine.859e21",
+  "HF250.lining_bay.trim_0_0.L.harrow_fire_engine.278e85": {
+   "id": "HF250.lining_bay.trim_0_0.L.harrow_fire_engine.278e85",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "lining_bay",
@@ -1023,8 +1109,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     109152,
-     96
+     118800,
+     126
     ]
    },
    "boxes": [
@@ -1054,7 +1140,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     111456,
+     121824,
      144
     ]
    },
@@ -1085,7 +1171,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     114912,
+     125280,
      36
     ]
    },
@@ -1104,8 +1190,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HF250.ceiling_bay.roof_0.C.harrow_fire_engine.51770f": {
-   "id": "HF250.ceiling_bay.roof_0.C.harrow_fire_engine.51770f",
+  "HF250.ceiling_bay.roof_0.C.harrow_fire_engine.bf410e": {
+   "id": "HF250.ceiling_bay.roof_0.C.harrow_fire_engine.bf410e",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "ceiling_bay",
@@ -1116,8 +1202,8 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     115776,
-     1152
+     126144,
+     1296
     ]
    },
    "boxes": [
@@ -1147,7 +1233,7 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     143424,
+     157248,
      60
     ]
    },
@@ -1178,7 +1264,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     144864,
+     158688,
      144
     ]
    },
@@ -1209,7 +1295,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     148320,
+     162144,
      120
     ]
    },
@@ -1240,7 +1326,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     151200,
+     165024,
      54
     ]
    },
@@ -1271,7 +1357,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     152496,
+     166320,
      156
     ]
    },
@@ -1283,6 +1369,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.reveal.window_WQ.R.harrow_fire_engine.1e0eed": {
+   "id": "HF250.reveal.window_WQ.R.harrow_fire_engine.1e0eed",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/reveal/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     170064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1302,7 +1419,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     156240,
+     171216,
      156
     ]
    },
@@ -1314,6 +1431,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HF250.reveal.window_WQ.L.harrow_fire_engine.0a8d8a": {
+   "id": "HF250.reveal.window_WQ.L.harrow_fire_engine.0a8d8a",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/reveal/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     174960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1333,7 +1481,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     159984,
+     176112,
      132
     ]
    },
@@ -1352,6 +1500,68 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
+  "HF250.glazing.window_WQ.R.harrow_fire_engine.62ecfd": {
+   "id": "HF250.glazing.window_WQ.R.harrow_fire_engine.62ecfd",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HF250.glazing.window_WQ.L.harrow_fire_engine.8bd91a": {
+   "id": "HF250.glazing.window_WQ.L.harrow_fire_engine.8bd91a",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "HF250.door_leaf.door_F.R.harrow_fire_engine.aea20f": {
    "id": "HF250.door_leaf.door_F.R.harrow_fire_engine.aea20f",
    "standard": "HF250",
@@ -1364,11 +1574,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     163152,
+     180144,
      54
     ],
     "paint": [
-     164448,
+     181440,
      174
     ]
    },
@@ -1399,7 +1609,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     168624,
+     185616,
      162
     ]
    },
@@ -1430,11 +1640,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     172512,
+     189504,
      36
     ],
     "dash": [
-     173376,
+     190368,
      36
     ]
    },
@@ -1465,11 +1675,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     174240,
+     191232,
      54
     ],
     "paint": [
-     175536,
+     192528,
      174
     ]
    },
@@ -1500,7 +1710,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     179712,
+     196704,
      162
     ]
    },
@@ -1531,11 +1741,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     183600,
+     200592,
      36
     ],
     "dash": [
-     184464,
+     201456,
      36
     ]
    },
@@ -1566,7 +1776,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     185328,
+     202320,
      636
     ]
    },
@@ -1597,7 +1807,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     200592,
+     217584,
      636
     ]
    },
@@ -1628,7 +1838,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     215856,
+     232848,
      108
     ]
    },
@@ -1659,7 +1869,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     218448,
+     235440,
      108
     ]
    },
@@ -1678,8 +1888,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "HF250.underpan.underpan.C.harrow_fire_engine.84955e": {
-   "id": "HF250.underpan.underpan.C.harrow_fire_engine.84955e",
+  "HF250.underpan.underpan.C.harrow_fire_engine.afd055": {
+   "id": "HF250.underpan.underpan.C.harrow_fire_engine.afd055",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "underpan",
@@ -1690,8 +1900,8 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     221040,
-     330
+     238032,
+     378
     ]
    },
    "boxes": [
@@ -1721,7 +1931,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     228960,
+     247104,
      30
     ]
    },
@@ -1752,7 +1962,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     229680,
+     247824,
      192
     ]
    },
@@ -1783,7 +1993,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     234288,
+     252432,
      192
     ]
    },
@@ -1814,7 +2024,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     238896,
+     257040,
      24
     ]
    },
@@ -1845,7 +2055,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     239472,
+     257616,
      24
     ]
    },
@@ -1876,7 +2086,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     240048,
+     258192,
      24
     ]
    },
@@ -1907,7 +2117,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     240624,
+     258768,
      24
     ]
    },
@@ -1938,7 +2148,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     241200,
+     259344,
      192
     ]
    },
@@ -1969,7 +2179,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     245808,
+     263952,
      192
     ]
    },
@@ -2000,7 +2210,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     250416,
+     268560,
      24
     ]
    },
@@ -2031,7 +2241,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     250992,
+     269136,
      24
     ]
    },
@@ -2062,7 +2272,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     251568,
+     269712,
      24
     ]
    },
@@ -2093,7 +2303,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     252144,
+     270288,
      24
     ]
    },
@@ -2124,11 +2334,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     252720,
+     270864,
      18
     ],
     "tub": [
-     253152,
+     271296,
      6
     ]
    },
@@ -2159,7 +2369,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     253296,
+     271440,
      6
     ]
    },
@@ -2190,7 +2400,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     253440,
+     271584,
      6
     ]
    },
@@ -2221,7 +2431,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     253584,
+     271728,
      6
     ]
    },
@@ -2252,7 +2462,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     253728,
+     271872,
      6
     ]
    },
@@ -2283,7 +2493,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     253872,
+     272016,
      6
     ]
    },
@@ -2314,7 +2524,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     254016,
+     272160,
      6
     ]
    },
@@ -2345,11 +2555,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     254160,
+     272304,
      504
     ],
     "chrome": [
-     266256,
+     284400,
      36
     ]
    },
@@ -2380,11 +2590,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     267120,
+     285264,
      504
     ],
     "chrome": [
-     279216,
+     297360,
      36
     ]
    },
@@ -2415,11 +2625,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     280080,
+     298224,
      504
     ],
     "chrome": [
-     292176,
+     310320,
      36
     ]
    },
@@ -2450,11 +2660,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     293040,
+     311184,
      504
     ],
     "chrome": [
-     305136,
+     323280,
      36
     ]
    },
@@ -2485,11 +2695,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     306000,
+     324144,
      504
     ],
     "chrome": [
-     318096,
+     336240,
      36
     ]
    },
@@ -2520,11 +2730,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     318960,
+     337104,
      504
     ],
     "chrome": [
-     331056,
+     349200,
      36
     ]
    },
@@ -2555,11 +2765,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     331920,
+     350064,
      504
     ],
     "chrome": [
-     344016,
+     362160,
      36
     ]
    },
@@ -2590,11 +2800,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     344880,
+     363024,
      504
     ],
     "chrome": [
-     356976,
+     375120,
      36
     ]
    },
@@ -2625,11 +2835,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     357840,
+     375984,
      108
     ],
     "seat": [
-     360432,
+     378576,
      324
     ]
    },
@@ -2660,19 +2870,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     368208,
+     386352,
      1236
     ],
     "chrome": [
-     397872,
+     416016,
      120
     ],
     "dash": [
-     400752,
+     418896,
      108
     ],
     "gauge": [
-     403344,
+     421488,
      384
     ]
    },
@@ -2703,11 +2913,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     412560,
+     430704,
      36
     ],
     "lcd": [
-     413424,
+     431568,
      36
     ]
    },
@@ -2738,15 +2948,15 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     414288,
+     432432,
      72
     ],
     "lamp_amber": [
-     416016,
+     434160,
      72
     ],
     "lamp_head": [
-     417744,
+     435888,
      72
     ]
    },
@@ -2777,7 +2987,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     419472,
+     437616,
      144
     ]
    },
@@ -2808,23 +3018,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     422928,
+     441072,
      12
     ],
     "lamp_amber": [
-     423216,
+     441360,
      48
     ],
     "lamp_brake": [
-     424368,
+     442512,
      36
     ],
     "lamp_reverse": [
-     425232,
+     443376,
      48
     ],
     "lamp_tail": [
-     426384,
+     444528,
      336
     ]
    },
@@ -2855,11 +3065,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     434448,
+     452592,
      72
     ],
     "lamp_tail": [
-     436176,
+     454320,
      72
     ]
    },
@@ -2890,11 +3100,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     437904,
+     456048,
      180
     ],
     "lamp_tail": [
-     442224,
+     460368,
      180
     ]
    },
@@ -2925,11 +3135,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     446544,
+     464688,
      108
     ],
     "rubber": [
-     449136,
+     467280,
      36
     ]
    },
@@ -2960,11 +3170,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     450000,
+     468144,
      108
     ],
     "rubber": [
-     452592,
+     470736,
      36
     ]
    },
@@ -2995,11 +3205,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     453456,
+     471600,
      96
     ],
     "glass_dark": [
-     455760,
+     473904,
      36
     ]
    },
@@ -3030,11 +3240,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     456624,
+     474768,
      96
     ],
     "glass_dark": [
-     458928,
+     477072,
      36
     ]
    },
@@ -3053,8 +3263,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HF250.trim.livery_fender.R.harrow_fire_engine.c1057e": {
-   "id": "HF250.trim.livery_fender.R.harrow_fire_engine.c1057e",
+  "HF250.trim.livery_fender.R.harrow_fire_engine.0879d4": {
+   "id": "HF250.trim.livery_fender.R.harrow_fire_engine.0879d4",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "trim",
@@ -3065,18 +3275,49 @@
    "reach": 0.0,
    "mats": {
     "livery1": [
-     459792,
-     120
+     477936,
+     72
     ]
    },
    "boxes": [
     [
      1.2241,
      2.1208,
-     0.32,
+     0.19,
      0.0399,
      0.1183,
-     0.64
+     0.38
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.livery_fore.R.harrow_fire_engine.4586a8": {
+   "id": "HF250.trim.livery_fore.R.harrow_fire_engine.4586a8",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "R",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/livery_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     479664,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.2404,
+     2.125,
+     0.08,
+     0.02,
+     0.11,
+     0.16
     ]
    ],
    "hp": 100,
@@ -3096,7 +3337,7 @@
    "reach": 0.0,
    "mats": {
     "livery1": [
-     462672,
+     480816,
      48
     ]
    },
@@ -3127,7 +3368,7 @@
    "reach": 0.0,
    "mats": {
     "livery1": [
-     463824,
+     481968,
      168
     ]
    },
@@ -3146,8 +3387,8 @@
    "breaks": "detach",
    "tolerance": 0.06
   },
-  "HF250.trim.livery_fender.L.harrow_fire_engine.8bb25a": {
-   "id": "HF250.trim.livery_fender.L.harrow_fire_engine.8bb25a",
+  "HF250.trim.livery_fender.L.harrow_fire_engine.971dd9": {
+   "id": "HF250.trim.livery_fender.L.harrow_fire_engine.971dd9",
    "standard": "HF250",
    "class": "fire_engine",
    "role": "trim",
@@ -3158,18 +3399,49 @@
    "reach": 0.0,
    "mats": {
     "livery1": [
-     467856,
-     120
+     486000,
+     72
     ]
    },
    "boxes": [
     [
      -1.2241,
      2.1208,
-     0.32,
+     0.19,
      0.0399,
      0.1183,
-     0.64
+     0.38
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "HF250.trim.livery_fore.L.harrow_fire_engine.84a650": {
+   "id": "HF250.trim.livery_fore.L.harrow_fire_engine.84a650",
+   "standard": "HF250",
+   "class": "fire_engine",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "L",
+   "style": "harrow_fire_engine",
+   "interface": "HF250/trim/livery_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     487728,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.2404,
+     2.125,
+     0.08,
+     0.02,
+     0.11,
+     0.16
     ]
    ],
    "hp": 100,
@@ -3189,7 +3461,7 @@
    "reach": 0.0,
    "mats": {
     "livery1": [
-     470736,
+     488880,
      48
     ]
    },
@@ -3220,7 +3492,7 @@
    "reach": 0.0,
    "mats": {
     "livery1": [
-     471888,
+     490032,
      168
     ]
    },
@@ -3251,11 +3523,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     475920,
+     494064,
      108
     ],
     "lamp_red": [
-     478512,
+     496656,
      216
     ]
    },
@@ -3286,11 +3558,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     483696,
+     501840,
      36
     ],
     "livery1": [
-     484560,
+     502704,
      216
     ]
    },
@@ -3321,7 +3593,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     489744,
+     507888,
      3168
     ]
    },

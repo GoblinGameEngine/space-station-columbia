@@ -32,6 +32,7 @@ static func _build_range(root: Node3D, s0: float, s1: float) -> MeshInstance3D:
 	mat.albedo_texture = load("res://assets/textures/water_tinted_0.png")
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	hull_masked(mat)
 	mat.albedo_color = Color(1.0, 1.0, 1.0, 0.9)
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -69,6 +70,7 @@ static func _build_rects(root: Node3D) -> void:
 	mat.albedo_texture = load("res://assets/textures/water_tinted_0.png")
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	hull_masked(mat)
 	mat.albedo_color = Color(1.0, 1.0, 1.0, 0.9)
 	var cells := {}
 	for r in d.rects:
@@ -245,6 +247,35 @@ static func _small_material() -> StandardMaterial3D:
 	mat.albedo_texture = load("res://assets/textures/water_tinted_0.png")
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	hull_masked(mat)
 	mat.albedo_color = Color(0.9, 0.95, 0.9, 0.88)
 	return mat
 
+
+const HULL_STENCIL := 2              # a boat's hull mask writes this; the water doesn't draw over it
+
+
+static func hull_masked(mat: BaseMaterial3D) -> void:
+	## Water that a hull displaces (2026-10-05, the user: "no water within the confines of the outer shell"): each boat
+	## draws an invisible mask of its waterline outline first (RemakeFleetCraft); the water skips the pixels it marked.
+	mat.stencil_mode = BaseMaterial3D.STENCIL_MODE_CUSTOM
+	mat.stencil_flags = BaseMaterial3D.STENCIL_FLAG_READ
+	mat.stencil_compare = BaseMaterial3D.STENCIL_COMPARE_NOT_EQUAL
+	mat.stencil_reference = HULL_STENCIL
+
+
+static func hull_mask_material() -> StandardMaterial3D:
+	## The mask itself: nothing seen, no depth written, only the stencil -- drawn before the water (the transparent
+	## pass, lower priority), and only where the hull's own sides don't hide it.
+	var m := StandardMaterial3D.new()
+	m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	m.albedo_color = Color(0, 0, 0, 0)
+	m.depth_draw_mode = BaseMaterial3D.DEPTH_DRAW_DISABLED
+	m.cull_mode = BaseMaterial3D.CULL_DISABLED
+	m.render_priority = -100
+	m.stencil_mode = BaseMaterial3D.STENCIL_MODE_CUSTOM
+	m.stencil_flags = BaseMaterial3D.STENCIL_FLAG_WRITE
+	m.stencil_compare = BaseMaterial3D.STENCIL_COMPARE_ALWAYS
+	m.stencil_reference = HULL_STENCIL
+	return m

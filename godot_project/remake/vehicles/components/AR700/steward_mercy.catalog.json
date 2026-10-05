@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1412,
+    0.1255
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "AR700.trim.screen.C.steward_mercy.3f011e": {
-   "id": "AR700.trim.screen.C.steward_mercy.3f011e",
+  "AR700.trim.screen.C.steward_mercy.caa348": {
+   "id": "AR700.trim.screen.C.steward_mercy.caa348",
    "standard": "AR700",
    "class": "rescue_aerostat",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.0586,
+     2.0536,
      0.25,
      2.2684,
-     1.4853,
+     1.4752,
      0.5
     ]
    ],
@@ -3048,8 +3072,8 @@
    "breaks": "detach",
    "tolerance": 0.06
   },
-  "AR700.envelope.envelope.C.steward_mercy.c8592f": {
-   "id": "AR700.envelope.envelope.C.steward_mercy.c8592f",
+  "AR700.envelope.envelope.C.steward_mercy.a3be80": {
+   "id": "AR700.envelope.envelope.C.steward_mercy.a3be80",
    "standard": "AR700",
    "class": "rescue_aerostat",
    "role": "envelope",
@@ -3059,17 +3083,17 @@
    "interface": "AR700/envelope/envelope/C",
    "reach": 0.0,
    "mats": {
-    "chrome": [
+    "canvas1": [
      405648,
-     192
-    ],
-    "livery1": [
-     410256,
      13284
     ],
-    "livery2": [
-     729072,
+    "canvas2": [
+     724464,
      3444
+    ],
+    "chrome": [
+     807120,
+     192
     ]
    },
    "boxes": [
@@ -3087,8 +3111,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "AR700.equipment.fins.C.steward_mercy.efc498": {
-   "id": "AR700.equipment.fins.C.steward_mercy.efc498",
+  "AR700.equipment.fins.C.steward_mercy.704748": {
+   "id": "AR700.equipment.fins.C.steward_mercy.704748",
    "standard": "AR700",
    "class": "rescue_aerostat",
    "role": "equipment",
@@ -3098,13 +3122,17 @@
    "interface": "AR700/equipment/fins/C",
    "reach": 0.0,
    "mats": {
-    "livery1": [
+    "canvas1": [
      811728,
-     2280
+     1704
     ],
-    "livery2": [
-     866448,
+    "canvas2": [
+     852624,
      768
+    ],
+    "livery1": [
+     871056,
+     576
     ]
    },
    "boxes": [

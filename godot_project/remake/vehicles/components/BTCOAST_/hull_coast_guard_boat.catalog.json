@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -2879,8 +2903,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.7cc846": {
-   "id": "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.7cc846",
+  "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.e98b09": {
+   "id": "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.e98b09",
    "standard": "BTCOAST_",
    "class": "coast_guard_boat",
    "role": "cab",
@@ -2890,22 +2914,34 @@
    "interface": "BTCOAST_/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "paint": [
+    "black": [
      104328,
-     108
+     96
+    ],
+    "dash": [
+     106632,
+     36
+    ],
+    "paint": [
+     107496,
+     540
     ],
     "paint2": [
-     106920,
+     120456,
+     36
+    ],
+    "wood": [
+     121320,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     2.3556,
+     2.3306,
      2.0,
      2.8,
-     1.98,
+     2.03,
      4.0
     ]
    ],
@@ -2914,8 +2950,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.1acac7": {
-   "id": "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.1acac7",
+  "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.530a15": {
+   "id": "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.530a15",
    "standard": "BTCOAST_",
    "class": "coast_guard_boat",
    "role": "glazing",
@@ -2925,19 +2961,19 @@
    "interface": "BTCOAST_/glazing/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "glass_dark": [
-     107784,
-     36
+    "glass": [
+     122184,
+     108
     ]
    },
    "boxes": [
     [
      0.0,
-     2.5436,
-     1.89,
-     2.58,
-     0.494,
-     3.78
+     2.6356,
+     1.8505,
+     2.562,
+     1.02,
+     3.701
     ]
    ],
    "hp": 60,
@@ -2957,7 +2993,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     108648,
+     124776,
      1200
     ]
    },
@@ -2988,7 +3024,7 @@
    "reach": 0.0,
    "mats": {
     "lamp_red": [
-     137448,
+     153576,
      36
     ]
    },

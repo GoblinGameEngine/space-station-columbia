@@ -1805,6 +1805,25 @@ func _ground(at: Vector3, up: Vector3, p: Node3D) -> Vector3:
 	return hit.position if not hit.is_empty() else at
 
 
+func _water_drop(length: float) -> Array:
+	## The nearest water deep enough for a hull this long, round the player (out to 400 m), the waterline there and the
+	## player's heading: [position, basis] or [].
+	var p := get_tree().get_first_node_in_group("player") as Node3D
+	if p == null:
+		return []
+	var s0 := StationGeo.s_of(p.global_position)
+	var x0 := p.global_position.x
+	for r in [12.0, 25.0, 50.0, 80.0, 120.0, 180.0, 260.0, 400.0]:
+		for k in 24:
+			var a := TAU * k / 24.0
+			var s: float = s0 + cos(a) * r
+			var x: float = x0 + sin(a) * r
+			var wa := MapTerrain.water_at(s, x)
+			if wa.x > -9000.0 and wa.y > 0.8 + length * 0.03:
+				return [StationGeo.point(s, x, wa.x), StationGeo.basis(s, 0.0)]
+	return []
+
+
 func _summon_now(vt: String) -> void:
 	_dismiss(false)
 	set_open(false)
@@ -1823,8 +1842,14 @@ func _summon_now(vt: String) -> void:
 		w = RemakeVan.new()
 	elif vt == "bicycle":
 		w = RemakeBicycle.new()
-	elif bool(info.get("air", false)):                     # (a fleet aerostat: flyable, set down on its skids or frame)
-		w = RemakeFleetAerostat.new(vt)
+	elif bool(info.get("air", false)) or bool(info.get("boat", false)):   # (it flies or floats: RemakeFleetCraft)
+		w = RemakeFleetCraft.new(vt)
+		if bool(info.get("boat", false)):              # (a boat: set on the nearest water, if there's any near)
+			var wet := _water_drop(float(info.get("nose", 3.0)) - float(info.get("tail", -3.0)))
+			if not wet.is_empty():
+				drop = wet
+				info = info.duplicate()
+				info["ground"] = 0.0
 	elif bool(info.get("prop", false)):                    # (a cart, a chair, a boat: just its body, set down)
 		w = Node3D.new()
 		w.set_meta("vtype", vt)

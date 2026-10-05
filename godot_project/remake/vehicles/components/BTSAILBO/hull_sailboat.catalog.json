@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -2879,8 +2903,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTSAILBO.cab.wheelhouse.C.hull_sailboat.afe0a4": {
-   "id": "BTSAILBO.cab.wheelhouse.C.hull_sailboat.afe0a4",
+  "BTSAILBO.cab.wheelhouse.C.hull_sailboat.bfc66d": {
+   "id": "BTSAILBO.cab.wheelhouse.C.hull_sailboat.bfc66d",
    "standard": "BTSAILBO",
    "class": "sailboat",
    "role": "cab",
@@ -2890,22 +2914,34 @@
    "interface": "BTSAILBO/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "paint": [
+    "black": [
      105192,
-     108
+     96
+    ],
+    "dash": [
+     107496,
+     36
+    ],
+    "paint": [
+     108360,
+     540
     ],
     "paint2": [
-     107784,
+     121320,
+     36
+    ],
+    "wood": [
+     122184,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     1.3676,
+     1.5939,
      1.65,
      2.1,
-     0.63,
+     1.1825,
      3.3
     ]
    ],
@@ -2914,8 +2950,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.1451f9": {
-   "id": "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.1451f9",
+  "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.a86d74": {
+   "id": "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.a86d74",
    "standard": "BTSAILBO",
    "class": "sailboat",
    "role": "glazing",
@@ -2925,19 +2961,19 @@
    "interface": "BTSAILBO/glazing/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "glass_dark": [
-     108648,
-     36
+    "glass": [
+     123048,
+     108
     ]
    },
    "boxes": [
     [
      0.0,
-     1.3936,
-     1.54,
-     1.88,
-     0.143,
-     3.08
+     1.2866,
+     1.5005,
+     1.862,
+     0.132,
+     3.001
     ]
    ],
    "hp": 60,
@@ -2945,8 +2981,8 @@
    "breaks": "detach",
    "tolerance": 0.012
   },
-  "BTSAILBO.equipment.mast_sails.C.hull_sailboat.b08fec": {
-   "id": "BTSAILBO.equipment.mast_sails.C.hull_sailboat.b08fec",
+  "BTSAILBO.equipment.mast_sails.C.hull_sailboat.4ba3e8": {
+   "id": "BTSAILBO.equipment.mast_sails.C.hull_sailboat.4ba3e8",
    "standard": "BTSAILBO",
    "class": "sailboat",
    "role": "equipment",
@@ -2957,11 +2993,11 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     109512,
+     125640,
      192
     ],
     "livery1": [
-     114120,
+     130248,
      6
     ]
    },
@@ -2973,6 +3009,41 @@
      0.1383,
      12.0,
      7.1
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTSAILBO.equipment.tiller_rudder.C.hull_sailboat.cebbe9": {
+   "id": "BTSAILBO.equipment.tiller_rudder.C.hull_sailboat.cebbe9",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "equipment",
+   "slot": "tiller_rudder",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/equipment/tiller_rudder/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     130392,
+     36
+    ],
+    "wood": [
+     131256,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     0.025,
+     0.4982,
+     0.7668,
+     0.11,
+     1.6298,
+     1.5337
     ]
    ],
    "hp": 300,

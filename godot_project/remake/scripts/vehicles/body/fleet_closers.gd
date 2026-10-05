@@ -5,7 +5,7 @@ class_name FleetClosers
 ## travel) or sliding ("slide": out from the side, then along it or up; "roll": a shutter rolling up into its head).
 ## Each leaf moves to its own pivot under the body, gets its own collision (an AnimatableBody3D) and its own use
 ## zone on the vehicle, and eases open and shut. Shared by the road fleet (RemakeModularCar) and the aerostats
-## (RemakeFleetAerostat).
+## (RemakeFleetCraft).
 
 const DOOR_UP := 0.55                  # s: a door's swing (by hand); the lids and tailgates run slower
 const LID_UP := 0.9

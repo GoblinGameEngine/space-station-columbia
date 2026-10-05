@@ -388,11 +388,35 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
-  "VN230.trim.livery_fender.R.civic_ambulance.5f028e": {
-   "id": "VN230.trim.livery_fender.R.civic_ambulance.5f028e",
+  "VN230.trim.livery_fender.R.civic_ambulance.3c96c8": {
+   "id": "VN230.trim.livery_fender.R.civic_ambulance.3c96c8",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -404,17 +428,48 @@
    "mats": {
     "livery2": [
      0,
-     264
+     72
     ]
    },
    "boxes": [
     [
      1.0486,
      1.07,
-     0.735,
+     0.2125,
      0.0309,
      0.14,
-     1.47
+     0.425
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.livery_fore.R.civic_ambulance.d15b5a": {
+   "id": "VN230.trim.livery_fore.R.civic_ambulance.d15b5a",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "R",
+   "style": "civic_ambulance",
+   "interface": "VN230/trim/livery_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1728,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.064,
+     1.095,
+     0.46,
+     0.02,
+     0.09,
+     0.92
     ]
    ],
    "hp": 100,
@@ -434,7 +489,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     6336,
+     5760,
      336
     ]
    },
@@ -465,7 +520,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     14400,
+     13824,
      120
     ]
    },
@@ -496,7 +551,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     17280,
+     16704,
      264
     ]
    },
@@ -515,8 +570,8 @@
    "breaks": "detach",
    "tolerance": 0.06
   },
-  "VN230.trim.livery_fender.L.civic_ambulance.d87363": {
-   "id": "VN230.trim.livery_fender.L.civic_ambulance.d87363",
+  "VN230.trim.livery_fender.L.civic_ambulance.59e105": {
+   "id": "VN230.trim.livery_fender.L.civic_ambulance.59e105",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -527,18 +582,49 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     23616,
-     264
+     23040,
+     72
     ]
    },
    "boxes": [
     [
      -1.0486,
      1.07,
-     0.735,
+     0.2125,
      0.0309,
      0.14,
-     1.47
+     0.425
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.livery_fore.L.civic_ambulance.429409": {
+   "id": "VN230.trim.livery_fore.L.civic_ambulance.429409",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "L",
+   "style": "civic_ambulance",
+   "interface": "VN230/trim/livery_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     24768,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.064,
+     1.095,
+     0.46,
+     0.02,
+     0.09,
+     0.92
     ]
    ],
    "hp": 100,
@@ -558,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     29952,
+     28800,
      696
     ]
    },
@@ -589,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     46656,
+     45504,
      120
     ]
    },
@@ -620,11 +706,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     49536,
+     48384,
      108
     ],
     "lamp_red": [
-     52128,
+     50976,
      216
     ]
    },

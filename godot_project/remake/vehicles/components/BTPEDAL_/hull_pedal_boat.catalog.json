@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -1918,8 +1942,8 @@
    "breaks": "detach",
    "tolerance": 0.25
   },
-  "BTPEDAL_.equipment.thwarts.C.hull_pedal_boat.a6eaa5": {
-   "id": "BTPEDAL_.equipment.thwarts.C.hull_pedal_boat.a6eaa5",
+  "BTPEDAL_.equipment.thwarts.C.hull_pedal_boat.8b8189": {
+   "id": "BTPEDAL_.equipment.thwarts.C.hull_pedal_boat.8b8189",
    "standard": "BTPEDAL_",
    "class": "pedal_boat",
    "role": "equipment",
@@ -1937,11 +1961,11 @@
    "boxes": [
     [
      0.0,
-     0.2869,
-     0.65,
+     0.3133,
+     0.67,
      1.38,
-     0.04,
-     1.3
+     0.0984,
+     1.34
     ]
    ],
    "hp": 300,
@@ -1977,6 +2001,41 @@
      1.3,
      1.32,
      1.229
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTPEDAL_.equipment.tiller_lever.C.hull_pedal_boat.49a60a": {
+   "id": "BTPEDAL_.equipment.tiller_lever.C.hull_pedal_boat.49a60a",
+   "standard": "BTPEDAL_",
+   "class": "pedal_boat",
+   "role": "equipment",
+   "slot": "tiller_lever",
+   "side": "C",
+   "style": "hull_pedal_boat",
+   "interface": "BTPEDAL_/equipment/tiller_lever/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     99360,
+     84
+    ],
+    "rubber": [
+     101376,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4319,
+     0.0482,
+     0.06,
+     0.454,
+     0.0964
     ]
    ],
    "hp": 300,

@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9098,
+    0.8784,
+    0.8
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.3059,
+    0.5882,
+    0.549
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "AC820.trim.screen.C.steward_burden.7c41e4": {
-   "id": "AC820.trim.screen.C.steward_burden.7c41e4",
+  "AC820.trim.screen.C.steward_burden.e18458": {
+   "id": "AC820.trim.screen.C.steward_burden.e18458",
    "standard": "AC820",
    "class": "cargo_aerostat",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.0586,
+     2.0536,
      0.25,
      2.2684,
-     1.4853,
+     1.4752,
      0.5
     ]
    ],
@@ -2885,8 +2909,8 @@
    "breaks": "detach",
    "tolerance": 0.06
   },
-  "AC820.envelope.envelope.C.steward_burden.8afdbc": {
-   "id": "AC820.envelope.envelope.C.steward_burden.8afdbc",
+  "AC820.envelope.envelope.C.steward_burden.0668a6": {
+   "id": "AC820.envelope.envelope.C.steward_burden.0668a6",
    "standard": "AC820",
    "class": "cargo_aerostat",
    "role": "envelope",
@@ -2896,17 +2920,17 @@
    "interface": "AC820/envelope/envelope/C",
    "reach": 0.0,
    "mats": {
-    "chrome": [
+    "canvas1": [
      483840,
-     192
-    ],
-    "livery1": [
-     488448,
      13050
     ],
-    "livery2": [
-     801648,
+    "canvas2": [
+     797040,
      4614
+    ],
+    "chrome": [
+     907776,
+     192
     ]
    },
    "boxes": [
@@ -2924,8 +2948,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "AC820.equipment.fins.C.steward_burden.720e4f": {
-   "id": "AC820.equipment.fins.C.steward_burden.720e4f",
+  "AC820.equipment.fins.C.steward_burden.875fa1": {
+   "id": "AC820.equipment.fins.C.steward_burden.875fa1",
    "standard": "AC820",
    "class": "cargo_aerostat",
    "role": "equipment",
@@ -2935,11 +2959,11 @@
    "interface": "AC820/equipment/fins/C",
    "reach": 0.0,
    "mats": {
-    "livery1": [
+    "canvas1": [
      912384,
      2088
     ],
-    "livery2": [
+    "canvas2": [
      962496,
      384
     ]
@@ -3205,34 +3229,42 @@
    "breaks": "detach",
    "tolerance": 0.25
   },
-  "AC820.equipment.ladder.R.steward_burden.b6a3e2": {
-   "id": "AC820.equipment.ladder.R.steward_burden.b6a3e2",
+  "AC820.equipment.stair.R.steward_burden.cc218d": {
+   "id": "AC820.equipment.stair.R.steward_burden.cc218d",
    "standard": "AC820",
    "class": "cargo_aerostat",
    "role": "equipment",
-   "slot": "ladder",
+   "slot": "stair",
    "side": "R",
    "style": "steward_burden",
-   "interface": "AC820/equipment/ladder/R",
+   "interface": "AC820/equipment/stair/R",
    "reach": 0.0,
    "mats": {
-    "chrome": [
+    "black": [
      1412640,
-     720
+     468
+    ],
+    "chrome": [
+     1423872,
+     480
+    ],
+    "livery1": [
+     1435392,
+     168
     ]
    },
    "boxes": [
     [
-     1.385,
-     -0.99,
-     0.2442,
-     0.2981,
-     3.024,
-     0.4883
+     2.675,
+     -0.5548,
+     0.4346,
+     2.9013,
+     4.1368,
+     0.8692
     ]
    ],
-   "hp": 200,
-   "mass_kg": 12,
+   "hp": 300,
+   "mass_kg": 60,
    "breaks": "detach",
    "tolerance": 0.25
   },
@@ -3248,7 +3280,7 @@
    "reach": 0.0,
    "mats": {
     "lamp_red": [
-     1429920,
+     1439424,
      288
     ]
    },

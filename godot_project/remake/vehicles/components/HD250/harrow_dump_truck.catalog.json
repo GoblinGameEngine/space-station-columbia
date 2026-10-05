@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "HD250.trim.screen.C.harrow_dump_truck.e69bb6": {
-   "id": "HD250.trim.screen.C.harrow_dump_truck.e69bb6",
+  "HD250.trim.screen.C.harrow_dump_truck.1d9ac9": {
+   "id": "HD250.trim.screen.C.harrow_dump_truck.1d9ac9",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.5041,
+     2.5009,
      0.19,
      2.4016,
-     0.7362,
+     0.7297,
      0.38
     ]
    ],
@@ -515,8 +539,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HD250.side_bay.fender.R.harrow_dump_truck.1ac627": {
-   "id": "HD250.side_bay.fender.R.harrow_dump_truck.1ac627",
+  "HD250.side_bay.fender.R.harrow_dump_truck.82fb72": {
+   "id": "HD250.side_bay.fender.R.harrow_dump_truck.82fb72",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "side_bay",
@@ -535,10 +559,10 @@
     [
      1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -546,8 +570,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HD250.trim.sail.R.harrow_dump_truck.376bf2": {
-   "id": "HD250.trim.sail.R.harrow_dump_truck.376bf2",
+  "HD250.side_bay.fore.R.harrow_dump_truck.ef40bc": {
+   "id": "HD250.side_bay.fore.R.harrow_dump_truck.ef40bc",
+   "standard": "HD250",
+   "class": "dump_truck",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "harrow_dump_truck",
+   "interface": "HD250/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HD250.trim.sail.R.harrow_dump_truck.6c9ae3": {
+   "id": "HD250.trim.sail.R.harrow_dump_truck.6c9ae3",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "trim",
@@ -558,7 +613,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     20232,
+     21528,
      72
     ]
    },
@@ -566,10 +621,10 @@
     [
      1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -589,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     21960,
+     23256,
      36
     ]
    },
@@ -620,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     22824,
+     24120,
      66
     ]
    },
@@ -651,7 +706,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     24408,
+     25704,
      192
     ]
    },
@@ -670,8 +725,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HD250.side_bay.fender.L.harrow_dump_truck.47758d": {
-   "id": "HD250.side_bay.fender.L.harrow_dump_truck.47758d",
+  "HD250.side_bay.fender.L.harrow_dump_truck.bfff56": {
+   "id": "HD250.side_bay.fender.L.harrow_dump_truck.bfff56",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "side_bay",
@@ -682,7 +737,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     29016,
+     30312,
      120
     ]
    },
@@ -690,10 +745,10 @@
     [
      -1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -701,8 +756,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HD250.trim.sail.L.harrow_dump_truck.8dd9a1": {
-   "id": "HD250.trim.sail.L.harrow_dump_truck.8dd9a1",
+  "HD250.side_bay.fore.L.harrow_dump_truck.9ff6a4": {
+   "id": "HD250.side_bay.fore.L.harrow_dump_truck.9ff6a4",
+   "standard": "HD250",
+   "class": "dump_truck",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "harrow_dump_truck",
+   "interface": "HD250/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33192,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HD250.trim.sail.L.harrow_dump_truck.4d3ffb": {
+   "id": "HD250.trim.sail.L.harrow_dump_truck.4d3ffb",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "trim",
@@ -713,7 +799,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31896,
+     34488,
      72
     ]
    },
@@ -721,10 +807,10 @@
     [
      -1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -744,7 +830,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     33624,
+     36216,
      36
     ]
    },
@@ -775,7 +861,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     34488,
+     37080,
      66
     ]
    },
@@ -806,7 +892,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     36072,
+     38664,
      192
     ]
    },
@@ -825,8 +911,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HD250.roof_bay.roof_0.C.harrow_dump_truck.3b9017": {
-   "id": "HD250.roof_bay.roof_0.C.harrow_dump_truck.3b9017",
+  "HD250.roof_bay.roof_0.C.harrow_dump_truck.0ba41f": {
+   "id": "HD250.roof_bay.roof_0.C.harrow_dump_truck.0ba41f",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "roof_bay",
@@ -837,8 +923,8 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     40680,
-     1152
+     43272,
+     1296
     ]
    },
    "boxes": [
@@ -868,7 +954,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     68328,
+     74376,
      285
     ]
    },
@@ -887,8 +973,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HD250.floor.floor.C.harrow_dump_truck.b364df": {
-   "id": "HD250.floor.floor.C.harrow_dump_truck.b364df",
+  "HD250.floor.floor.C.harrow_dump_truck.9858ea": {
+   "id": "HD250.floor.floor.C.harrow_dump_truck.9858ea",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "floor",
@@ -899,8 +985,8 @@
    "reach": 0.0,
    "mats": {
     "carpet": [
-     75168,
-     1140
+     81216,
+     1260
     ]
    },
    "boxes": [
@@ -918,8 +1004,8 @@
    "breaks": "detach",
    "tolerance": 1.0
   },
-  "HD250.lining_bay.trim_0_0.R.harrow_dump_truck.a60d33": {
-   "id": "HD250.lining_bay.trim_0_0.R.harrow_dump_truck.a60d33",
+  "HD250.lining_bay.trim_0_0.R.harrow_dump_truck.7a7e8c": {
+   "id": "HD250.lining_bay.trim_0_0.R.harrow_dump_truck.7a7e8c",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "lining_bay",
@@ -930,8 +1016,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     102528,
-     96
+     111456,
+     126
     ]
    },
    "boxes": [
@@ -961,7 +1047,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     104832,
+     114480,
      144
     ]
    },
@@ -992,7 +1078,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     108288,
+     117936,
      36
     ]
    },
@@ -1011,8 +1097,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HD250.lining_bay.trim_0_0.L.harrow_dump_truck.2b49c6": {
-   "id": "HD250.lining_bay.trim_0_0.L.harrow_dump_truck.2b49c6",
+  "HD250.lining_bay.trim_0_0.L.harrow_dump_truck.89418e": {
+   "id": "HD250.lining_bay.trim_0_0.L.harrow_dump_truck.89418e",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "lining_bay",
@@ -1023,8 +1109,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     109152,
-     96
+     118800,
+     126
     ]
    },
    "boxes": [
@@ -1054,7 +1140,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     111456,
+     121824,
      144
     ]
    },
@@ -1085,7 +1171,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     114912,
+     125280,
      36
     ]
    },
@@ -1104,8 +1190,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HD250.ceiling_bay.roof_0.C.harrow_dump_truck.2df817": {
-   "id": "HD250.ceiling_bay.roof_0.C.harrow_dump_truck.2df817",
+  "HD250.ceiling_bay.roof_0.C.harrow_dump_truck.b470f1": {
+   "id": "HD250.ceiling_bay.roof_0.C.harrow_dump_truck.b470f1",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "ceiling_bay",
@@ -1116,8 +1202,8 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     115776,
-     1152
+     126144,
+     1296
     ]
    },
    "boxes": [
@@ -1147,7 +1233,7 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     143424,
+     157248,
      60
     ]
    },
@@ -1178,7 +1264,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     144864,
+     158688,
      144
     ]
    },
@@ -1209,7 +1295,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     148320,
+     162144,
      120
     ]
    },
@@ -1240,7 +1326,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     151200,
+     165024,
      54
     ]
    },
@@ -1271,7 +1357,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     152496,
+     166320,
      156
     ]
    },
@@ -1283,6 +1369,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HD250.reveal.window_WQ.R.harrow_dump_truck.ee0a6f": {
+   "id": "HD250.reveal.window_WQ.R.harrow_dump_truck.ee0a6f",
+   "standard": "HD250",
+   "class": "dump_truck",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_dump_truck",
+   "interface": "HD250/reveal/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     170064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1302,7 +1419,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     156240,
+     171216,
      156
     ]
    },
@@ -1314,6 +1431,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HD250.reveal.window_WQ.L.harrow_dump_truck.e6f791": {
+   "id": "HD250.reveal.window_WQ.L.harrow_dump_truck.e6f791",
+   "standard": "HD250",
+   "class": "dump_truck",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_dump_truck",
+   "interface": "HD250/reveal/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     174960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1333,7 +1481,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     159984,
+     176112,
      132
     ]
    },
@@ -1352,6 +1500,68 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
+  "HD250.glazing.window_WQ.R.harrow_dump_truck.22fad0": {
+   "id": "HD250.glazing.window_WQ.R.harrow_dump_truck.22fad0",
+   "standard": "HD250",
+   "class": "dump_truck",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_dump_truck",
+   "interface": "HD250/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HD250.glazing.window_WQ.L.harrow_dump_truck.fcf762": {
+   "id": "HD250.glazing.window_WQ.L.harrow_dump_truck.fcf762",
+   "standard": "HD250",
+   "class": "dump_truck",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_dump_truck",
+   "interface": "HD250/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "HD250.door_leaf.door_F.R.harrow_dump_truck.945212": {
    "id": "HD250.door_leaf.door_F.R.harrow_dump_truck.945212",
    "standard": "HD250",
@@ -1364,11 +1574,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     163152,
+     180144,
      54
     ],
     "paint": [
-     164448,
+     181440,
      174
     ]
    },
@@ -1399,7 +1609,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     168624,
+     185616,
      162
     ]
    },
@@ -1430,11 +1640,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     172512,
+     189504,
      36
     ],
     "dash": [
-     173376,
+     190368,
      36
     ]
    },
@@ -1465,11 +1675,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     174240,
+     191232,
      54
     ],
     "paint": [
-     175536,
+     192528,
      174
     ]
    },
@@ -1500,7 +1710,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     179712,
+     196704,
      162
     ]
    },
@@ -1531,11 +1741,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     183600,
+     200592,
      36
     ],
     "dash": [
-     184464,
+     201456,
      36
     ]
    },
@@ -1566,7 +1776,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     185328,
+     202320,
      636
     ]
    },
@@ -1597,7 +1807,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     200592,
+     217584,
      636
     ]
    },
@@ -1628,7 +1838,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     215856,
+     232848,
      108
     ]
    },
@@ -1659,7 +1869,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     218448,
+     235440,
      108
     ]
    },
@@ -1678,8 +1888,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "HD250.underpan.underpan.C.harrow_dump_truck.79df22": {
-   "id": "HD250.underpan.underpan.C.harrow_dump_truck.79df22",
+  "HD250.underpan.underpan.C.harrow_dump_truck.5f1acf": {
+   "id": "HD250.underpan.underpan.C.harrow_dump_truck.5f1acf",
    "standard": "HD250",
    "class": "dump_truck",
    "role": "underpan",
@@ -1690,8 +1900,8 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     221040,
-     330
+     238032,
+     378
     ]
    },
    "boxes": [
@@ -1721,7 +1931,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     228960,
+     247104,
      30
     ]
    },
@@ -1752,7 +1962,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     229680,
+     247824,
      168
     ]
    },
@@ -1783,7 +1993,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     233712,
+     251856,
      168
     ]
    },
@@ -1814,7 +2024,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     237744,
+     255888,
      6
     ]
    },
@@ -1845,7 +2055,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     237888,
+     256032,
      168
     ]
    },
@@ -1876,7 +2086,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     241920,
+     260064,
      168
     ]
    },
@@ -1907,7 +2117,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     245952,
+     264096,
      6
     ]
    },
@@ -1938,11 +2148,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     246096,
+     264240,
      18
     ],
     "tub": [
-     246528,
+     264672,
      6
     ]
    },
@@ -1973,11 +2183,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     246672,
+     264816,
      6
     ],
     "paint2": [
-     246816,
+     264960,
      6
     ]
    },
@@ -2008,7 +2218,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     246960,
+     265104,
      6
     ]
    },
@@ -2039,11 +2249,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     247104,
+     265248,
      24
     ],
     "paint2": [
-     247680,
+     265824,
      24
     ]
    },
@@ -2074,11 +2284,11 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     248256,
+     266400,
      36
     ],
     "paint2": [
-     249120,
+     267264,
      36
     ]
    },
@@ -2109,11 +2319,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     249984,
+     268128,
      108
     ],
     "seat": [
-     252576,
+     270720,
      324
     ]
    },
@@ -2144,19 +2354,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     260352,
+     278496,
      1236
     ],
     "chrome": [
-     290016,
+     308160,
      120
     ],
     "dash": [
-     292896,
+     311040,
      108
     ],
     "gauge": [
-     295488,
+     313632,
      384
     ]
    },
@@ -2187,11 +2397,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     304704,
+     322848,
      36
     ],
     "lcd": [
-     305568,
+     323712,
      36
     ]
    },
@@ -2222,15 +2432,15 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     306432,
+     324576,
      72
     ],
     "lamp_amber": [
-     308160,
+     326304,
      72
     ],
     "lamp_head": [
-     309888,
+     328032,
      72
     ]
    },
@@ -2261,7 +2471,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     311616,
+     329760,
      144
     ]
    },
@@ -2292,23 +2502,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     315072,
+     333216,
      12
     ],
     "lamp_amber": [
-     315360,
+     333504,
      48
     ],
     "lamp_brake": [
-     316512,
+     334656,
      36
     ],
     "lamp_reverse": [
-     317376,
+     335520,
      48
     ],
     "lamp_tail": [
-     318528,
+     336672,
      336
     ]
    },
@@ -2339,11 +2549,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     326592,
+     344736,
      72
     ],
     "lamp_tail": [
-     328320,
+     346464,
      72
     ]
    },
@@ -2374,11 +2584,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     330048,
+     348192,
      180
     ],
     "lamp_tail": [
-     334368,
+     352512,
      180
     ]
    },
@@ -2409,11 +2619,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     338688,
+     356832,
      108
     ],
     "rubber": [
-     341280,
+     359424,
      36
     ]
    },
@@ -2444,11 +2654,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     342144,
+     360288,
      108
     ],
     "rubber": [
-     344736,
+     362880,
      36
     ]
    },
@@ -2479,11 +2689,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     345600,
+     363744,
      96
     ],
     "glass_dark": [
-     347904,
+     366048,
      36
     ]
    },
@@ -2514,11 +2724,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     348768,
+     366912,
      96
     ],
     "glass_dark": [
-     351072,
+     369216,
      36
     ]
    },

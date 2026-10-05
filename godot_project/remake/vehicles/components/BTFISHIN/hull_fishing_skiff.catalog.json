@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -1887,65 +1911,34 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTFISHIN.equipment.outboard.C.hull_fishing_skiff.e081a2": {
-   "id": "BTFISHIN.equipment.outboard.C.hull_fishing_skiff.e081a2",
+  "BTFISHIN.equipment.tiller_outboard.C.hull_fishing_skiff.cd4499": {
+   "id": "BTFISHIN.equipment.tiller_outboard.C.hull_fishing_skiff.cd4499",
    "standard": "BTFISHIN",
    "class": "fishing_skiff",
    "role": "equipment",
-   "slot": "outboard",
+   "slot": "tiller_outboard",
    "side": "C",
    "style": "hull_fishing_skiff",
-   "interface": "BTFISHIN/equipment/outboard/C",
+   "interface": "BTFISHIN/equipment/tiller_outboard/C",
    "reach": 0.0,
    "mats": {
     "black": [
      87624,
-     72
-    ]
-   },
-   "boxes": [
-    [
-     0.0,
-     0.2319,
-     0.18,
-     0.3,
-     1.25,
-     0.36
-    ]
-   ],
-   "hp": 300,
-   "mass_kg": 40,
-   "breaks": "detach",
-   "tolerance": 0.25
-  },
-  "BTFISHIN.equipment.console.C.hull_fishing_skiff.c83c32": {
-   "id": "BTFISHIN.equipment.console.C.hull_fishing_skiff.c83c32",
-   "standard": "BTFISHIN",
-   "class": "fishing_skiff",
-   "role": "equipment",
-   "slot": "console",
-   "side": "C",
-   "style": "hull_fishing_skiff",
-   "interface": "BTFISHIN/equipment/console/C",
-   "reach": 0.0,
-   "mats": {
-    "glass_dark": [
-     89352,
-     36
+     408
     ],
-    "paint2": [
-     90216,
-     36
+    "rubber": [
+     97416,
+     84
     ]
    },
    "boxes": [
     [
-     0.0,
-     0.6069,
-     0.25,
-     0.6,
-     1.1,
-     0.5
+     -0.0,
+     0.4033,
+     0.8471,
+     0.36,
+     1.16,
+     1.6942
     ]
    ],
    "hp": 300,
@@ -1953,8 +1946,8 @@
    "breaks": "detach",
    "tolerance": 0.25
   },
-  "BTFISHIN.equipment.thwarts.C.hull_fishing_skiff.438845": {
-   "id": "BTFISHIN.equipment.thwarts.C.hull_fishing_skiff.438845",
+  "BTFISHIN.equipment.thwarts.C.hull_fishing_skiff.98ce03": {
+   "id": "BTFISHIN.equipment.thwarts.C.hull_fishing_skiff.98ce03",
    "standard": "BTFISHIN",
    "class": "fishing_skiff",
    "role": "equipment",
@@ -1965,18 +1958,18 @@
    "reach": 0.0,
    "mats": {
     "wood": [
-     91080,
-     108
+     99432,
+     144
     ]
    },
    "boxes": [
     [
      0.0,
-     0.4369,
-     1.1,
+     0.4623,
+     1.495,
      1.78,
-     0.04,
-     2.2
+     0.1004,
+     2.99
     ]
    ],
    "hp": 300,

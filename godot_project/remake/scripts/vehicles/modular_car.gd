@@ -54,11 +54,19 @@ func setup_type(t: String) -> void:
 		wheel_r = float(b.wheel_r)
 		track = float(b.track_m)
 		wheelbase = float(b.wheelbase_m)
+	var ws: Array = info.get("wheels", []) if info.get("wheels") != null else []
+	if str(info.get("board", "none")) == "none" and not ws.is_empty():   # (a recipe's own wheels: a bike, a chair, a cart)
+		var zs := ws.map(func(w): return float(w[2]))
+		var xs := ws.map(func(w): return absf(float(w[0])))
+		wheel_r = float(ws.map(func(w): return float(w[3])).max())
+		wheelbase = maxf(0.3, float(zs.max()) - float(zs.min()))
+		track = maxf(0.2, float(xs.max()) * 2.0)
+		self_balance = ws.size() <= 2 or float(xs.max()) < 0.15              # (in line: the rider holds it up)
 	cabin_box = AABB(Vector3(-half_w, floor_y, nose), Vector3(half_w * 2.0, roof_y - floor_y, tail - nose))
 	var sx := -1.0 if str(info.get("driver", "L")) == "L" else 1.0
 	stand_point = Vector3(sx * (half_w + 0.45), 0.05, nose * 0.25)
 	seat_forward = 0.0
-	hull_size = Vector3(half_w * 2.0, roof_y - CLEAR, tail - nose)
+	hull_size = Vector3(half_w * 2.0, maxf(0.3, roof_y - CLEAR), tail - nose)     # (a skateboard is lower than CLEAR)
 
 
 func _load_spec() -> void:
@@ -81,6 +89,29 @@ static func _board(id: String) -> Dictionary:
 func _build_hull() -> void:
 	if str(info.get("board", "none")) == "none":
 		model = Node3D.new()
+		var ws: Array = info.get("wheels", []) if info.get("wheels") != null else []
+		if not ws.is_empty():                           # (its wheels as the rig's: front or back by where they stand)
+			var zmid := 0.0
+			for w in ws:
+				zmid += float(w[2]) / ws.size()
+			var used := {}
+			for w in ws:
+				var tag := ("F" if float(w[2]) < zmid - 0.01 else "B") + ("R" if float(w[0]) > 0.05 else ("L" if float(w[0]) < -0.05 else "C"))
+				var k := 2
+				var nm := tag
+				while used.has(nm):
+					nm = tag + str(k)
+					k += 1
+				used[nm] = true
+				var n := Node3D.new()
+				n.name = "wheel_" + nm
+				n.position = Vector3(float(w[0]), float(w[1]), float(w[2]))
+				model.add_child(n)
+		var sn := Node3D.new()                          # (its seat, or -- a skateboard, a scooter -- standing on its deck)
+		sn.name = "seat_pilot"
+		var st: Array = info.seat if info.get("seat") != null else [0.0, roof_y, 0.0]
+		sn.position = Vector3(float(st[0]), float(st[1]), float(st[2]))
+		model.add_child(sn)
 	else:
 		model = (load(FleetBodies.board_path(str(info.board))) as PackedScene).instantiate()
 		FleetBodies.strip_board(model)
@@ -97,6 +128,11 @@ func _build_hull() -> void:
 			model.add_child(n)
 	var bp: Dictionary = body.plan.bp
 	var std: Dictionary = body.plan.std
+	if str(info.get("board", "none")) == "none":         # (a recipe -- a bike, a chair, a cart: no cabin to walk round)
+		_build_closers(bp)
+		return
+	if bool(info.get("trailer", false)):
+		_hitch_zone()
 	# the walls people walk round (they pass through the swept hull): the floor, the roof over the cabin, the front
 	# to the cowl, the tail, and the sides between the door apertures; the closed doors are their own bodies
 	var toe := -float(std.get("toe", -nose))
@@ -122,6 +158,64 @@ func _build_hull() -> void:
 					Vector3(sx * (half_w - 0.04), (float(std.get("crown", roof_y)) + floor_y) * 0.5, (z + g[0]) * 0.5))
 			z = maxf(z, g[1])
 	_build_closers(bp)
+
+
+# ------------------------------------------------------------------ towing (a trailer, an unpowered rail car)
+var towed_by: PhysicsBody3D = null
+var _hitch: Joint3D = null
+
+
+func _hitch_zone() -> void:
+	var z := RemakeInteractZone.make(self, "Hitch", Transform3D(Basis(), Vector3(0, 0.7, nose - 0.4)), Vector3(1.2, 1.2, 1.2),
+		func(_by: Node) -> String: return "hitch" if (unhitch() if _hitch else hitch_to(_nearest_tow())) else "",
+		func() -> String: return "Unhitch" if _hitch else ("Hitch up" if _nearest_tow() else ""))
+	z.gives_way = true
+
+
+func _nearest_tow() -> RemakeGroundVehicle:
+	## The vehicle whose tail is nearest this one's tongue (within 3.5 m): what it can be hitched to.
+	var at := global_transform * Vector3(0, 0.6, nose - 0.3)
+	var best: RemakeGroundVehicle = null
+	var bd := 3.5
+	for v in get_tree().get_nodes_in_group("delivered_wagon") + get_tree().get_nodes_in_group("vehicles"):
+		if v == self or not v is RemakeGroundVehicle:
+			continue
+		var tz := float((v as RemakeModularCar).tail) if v is RemakeModularCar else 2.3
+		var d := ((v as Node3D).global_transform * Vector3(0, 0.6, tz + 0.3)).distance_to(at)
+		if d < bd:
+			bd = d
+			best = v
+	return best
+
+
+func hitch_to(v: PhysicsBody3D) -> bool:
+	## Tow behind v (a player at the tongue, or an NPC's driver): a ball joint between v's tail and this tongue.
+	if v == null or _hitch:
+		return false
+	var at := global_transform * Vector3(0, 0.6, nose - 0.3)
+	var j := PinJoint3D.new()
+	j.name = "Hitch"
+	get_parent().add_child(j)
+	j.global_position = at
+	j.node_a = j.get_path_to(v)
+	j.node_b = j.get_path_to(self)
+	add_collision_exception_with(v)
+	v.add_collision_exception_with(self)
+	_hitch = j
+	towed_by = v
+	sleeping = false
+	return true
+
+
+func unhitch() -> bool:
+	if _hitch == null:
+		return false
+	remove_collision_exception_with(towed_by)
+	towed_by.remove_collision_exception_with(self)
+	_hitch.queue_free()
+	_hitch = null
+	towed_by = null
+	return true
 
 
 func _build_closers(bp: Dictionary) -> void:

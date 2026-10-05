@@ -388,9 +388,95 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
+  "VN230.glazing.window_WQ.R.carrow_access.727566": {
+   "id": "VN230.glazing.window_WQ.R.carrow_access.727566",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "carrow_access",
+   "interface": "VN230/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     0,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.46,
+     0.06,
+     0.68,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.glazing.window_WQ.L.carrow_access.4fb005": {
+   "id": "VN230.glazing.window_WQ.L.carrow_access.4fb005",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "carrow_access",
+   "interface": "VN230/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     3888,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.46,
+     0.06,
+     0.68,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "VN230.glazing.window_W1.L.carrow_access.a6a48b": {
    "id": "VN230.glazing.window_W1.L.carrow_access.a6a48b",
    "standard": "VN230",
@@ -403,7 +489,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     0,
+     7776,
      18
     ]
    },
@@ -434,7 +520,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     432,
+     8208,
      234
     ]
    },
@@ -465,7 +551,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     6048,
+     13824,
      234
     ]
    },
@@ -496,11 +582,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     11664,
+     19440,
      72
     ],
     "seat": [
-     13392,
+     21168,
      216
     ]
    },
@@ -531,7 +617,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     18576,
+     26352,
      72
     ]
    },
@@ -562,7 +648,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     20304,
+     28080,
      120
     ]
    },
@@ -593,7 +679,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     23184,
+     30960,
      120
     ]
    },
@@ -624,7 +710,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     26064,
+     33840,
      264
     ]
    },
@@ -655,7 +741,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     32400,
+     40176,
      72
     ]
    },
@@ -686,7 +772,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     34128,
+     41904,
      480
     ]
    },
@@ -717,7 +803,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     45648,
+     53424,
      120
     ]
    },
@@ -748,11 +834,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     48528,
+     56304,
      36
     ],
     "lcd": [
-     49392,
+     57168,
      36
     ]
    },

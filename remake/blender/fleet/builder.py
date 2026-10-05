@@ -442,7 +442,7 @@ class Builder:
                 mg = self.mod("back_window", "glazing", "back_window", "C", hp=40, mass=6, breaks="shatter")
                 self.cap(mg, hole_o, [], "glass", -1)
 
-    def frit(self, band=0.10, inset=0.004):
+    def frit(self, band=0.06, inset=0.004):      # (2026-10-05: narrower -- the driver's view)
         """The windscreen's black ceramic frit: an opaque band printed inside the glass along its side edges, as on
         any bonded screen. It hides the A-pillar's tube where the pillar narrows to nothing at the screen's foot (a
         flat-fronted van's is in plain view there). A token of its own (the screen's slot)."""
@@ -465,7 +465,7 @@ class Builder:
                 me.face(list(reversed(q)), "black")
         # and along its foot, up the glass from the cowl
         slope = (L.a_line(L.toe - 0.01) - L.a_line(L.toe)) / 0.01                  # (the screen's rise per metre run)
-        foot = L.toe - min(1.5 * band / math.hypot(1.0, slope), (L.toe - L.header) * 0.3)   # (deeper at the foot, as screens' are)
+        foot = L.toe - min(1.3 * band / math.hypot(1.0, slope), (L.toe - L.header) * 0.2)   # (deeper at the foot, as screens' are)
         lo, hi = L.ext_loop(L.toe), L.ext_loop(foot)
         cR, cL = self.es(E["cant"], "R"), self.es(E["cant"], "L")
         for k in range(cR, cL):
@@ -1709,7 +1709,8 @@ class Builder:
             me.box((-0.55, yt + 0.3, fz + 1.05), (0.28, 0.40, 0.30), "glass_dark")
             for k, w in enumerate((0.30, 0.24, 0.18)):      # (the telescopic boom, stowed forward over the cab)
                 ya = yt + 0.4 + k * 0.4
-                me.box((0.15, (ya + L.nose - 0.2) / 2, fz + 1.05 + k * 0.05 + 0.4), (w, (L.nose - 0.2 - ya) / 2, w * 0.8), "paint")
+                zb = max(fz + 1.45, L.crown + 0.30) + k * 0.05      # (over the cab's roof, to its right: clear of the screen)
+                me.box((0.45, (ya + L.nose - 0.2) / 2, zb), (w, (L.nose - 0.2 - ya) / 2, w * 0.8), "paint")
             for y in (C["y0"] - 0.3, C["y1"] + 0.3):        # (the outriggers, stowed)
                 for sx in (1, -1):
                     me.box((sx * (C["half_w"] - 0.1), y, fz - 0.2), (0.12, 0.10, 0.12), "black")

@@ -263,8 +263,9 @@ def build_class(sid, registry):
             registry[vtype]["air"] = True
             registry[vtype]["aero"] = {"env": list(A["env"]), "sling": list(A["sling"]) if A.get("sling") else None}
             registry[vtype]["ground"] = round(A["sling"][3] - 0.52, 3) if A.get("sling") else 0.0
-        elif spec.get("space") is not None:                 # (a spacecraft, the spoke elevator: set down as its body)
-            registry[vtype]["prop"] = True
+        elif spec.get("space") is not None:                 # (a spacecraft, the spoke elevator: it flies -- RemakeFleetAerostat)
+            registry[vtype]["air"] = True
+            registry[vtype]["aero"] = {"env": None, "sling": None}
         return bp
 
     blueprint(st["type"], st["name"], places, base_closers, base_markers)
@@ -355,7 +356,13 @@ def build_parts(vtype, registry):
     X, R = Matrix.Translation, Matrix.Rotation
     core_pt = None
     lo, hi = [9, 9, 9], [-9, -9, -9]
+    wheels_at, seat_at = [], None
     for tid, role, slot, side, prims in P.RECIPES[vtype]():
+        for pr in prims:                                    # (its wheels and its seat: what the game drives it on and from)
+            if pr[0] == "wheel":
+                wheels_at.append([round(pr[1][0], 3), round(pr[1][2], 3), round(-pr[1][1], 3), round(pr[2], 3)])
+            if role == "seat" and seat_at is None and pr[0] in ("seat", "box"):
+                seat_at = [round(pr[1][0], 3), round(pr[1][2], 3), round(-pr[1][1], 3)]
         me = Mesh(tid, M)
         b.MESH[tid] = me
         b.MODS[tid] = dict(role=role, slot=slot, side=side, hp=150, mass_kg=3.0, breaks="detach", boxes=[])
@@ -421,7 +428,9 @@ def build_parts(vtype, registry):
         "length_front": hi[1], "length_back": -lo[1], "platform": {"half_w": 0.0, "y": -1.0, "z": [0.0, 0.0]}, "cabin_points": [], "markers": []})
     registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": style, "board": "none",
                        "phys": vtype, "half_w": round(hi[0], 3), "height": round(hi[2], 3), "nose": round(hi[1], 3), "tail": round(lo[1], 3),
-                       "floor": round(lo[2], 3), "driver": "none", "prop": True}
+                       "floor": round(lo[2], 3), "driver": "C", "wheels": wheels_at, "seat": seat_at}
+    if not wheels_at:                                     # (no wheels -- the EVA sled on its pads: it flies)
+        registry[vtype]["air"] = True
     root = core.empty(vtype, (0, 0, 0))
     for mid, me in b.MESH.items():
         if me.bm.faces:
@@ -432,6 +441,20 @@ def build_parts(vtype, registry):
     core.render_persp(os.path.join(RENDER_DIR, vtype + "_34.png"), cam, (0, (hi[1] + lo[1]) / 2, hi[2] * 0.45),
                       (ln * 1.2, (hi[1] + lo[1]) / 2 + ln * 1.5, hi[2] + ln * 0.6), 900, 640, lens=40)
     print("PARTS %s: %d tokens" % (vtype, len(places)))
+
+
+def waterline(H):
+    """The hull's outline where it meets the water (z = 0), the right half bow to stern, in the Godot frame ([x, z]): the
+    game masks the water inside it (a boat displaces it; none shows within its shell)."""
+    out = []
+    for y in H.ys:
+        pts = H.half(y)
+        for (xa, za), (xb, zb) in zip(pts[:5], pts[1:5]):
+            if za <= 0.0 <= zb and zb > za:
+                x = xa + (xb - xa) * (0.0 - za) / (zb - za)
+                out.append([round(max(0.0, x - 0.01), 3), round(-y, 3)])
+                break
+    return out
 
 
 def build_boat(vtype, registry):
@@ -517,15 +540,33 @@ def build_boat(vtype, registry):
         me.pipe([Vector((sx * (OUT[y][4][0] + 0.02), y, OUT[y][4][1] - 0.03)) for y in ys], 0.035, "black", n=6)
     # the wheelhouse: walls, windows all round, a roof
     if wh:
+        # (2026-10-05: hollow, the helm inside it looking out -- it was a solid block round the helmsman)
         y0, y1, hw, hh = wh
         z0 = H.sheer_z((y0 + y1) / 2) + 0.05
+        sill = z0 + min(0.95, hh * 0.40)                     # the window band: the helmsman's eye (z0 + 1.2) in it;
+        head = max(sill + 0.10, z0 + hh - 0.12)              # a sailboat's low coachroof: a strip of ports
+        t = 0.05
         me = mod("wheelhouse", "cab", "wheelhouse", hp=900, mass=200)
-        me.box((0, (y0 + y1) / 2, z0 + hh * 0.30), (hw, (y0 - y1) / 2, hh * 0.30), "paint")
-        me.box((0, (y0 + y1) / 2, z0 + hh + 0.04), (hw + 0.10, (y0 - y1) / 2 + 0.10, 0.04), "paint2")
-        for sx in (1, -1):
-            me.box((sx * hw, (y0 + y1) / 2, z0 + hh * 0.80), (0.03, (y0 - y1) / 2, hh * 0.20), "paint")
+        me.box((0, (y0 + y1) / 2, z0 - 0.02), (hw, (y0 - y1) / 2, 0.03), "wood")                    # its sole
+        me.box((0, (y0 + y1) / 2, z0 + hh + 0.04), (hw + 0.10, (y0 - y1) / 2 + 0.10, 0.04), "paint2")  # its roof
+        for sx in (1, -1):                                   # the sides: below the sill, over the head
+            me.box((sx * (hw - t / 2), (y0 + y1) / 2, (z0 + sill) / 2), (t / 2, (y0 - y1) / 2, (sill - z0) / 2), "paint")
+            me.box((sx * (hw - t / 2), (y0 + y1) / 2, (head + z0 + hh) / 2), (t / 2, (y0 - y1) / 2, (z0 + hh - head) / 2), "paint")
+            for y in (y0 - 0.04, y1 + 0.04):                 # corner posts
+                me.box((sx * (hw - t / 2), y, (sill + head) / 2), (t / 2, 0.04, (head - sill) / 2), "paint")
+        me.box((0, y0 - t / 2, (z0 + sill) / 2), (hw, t / 2, (sill - z0) / 2), "paint")              # the front, below its windows
+        me.box((0, y0 - t / 2, (head + z0 + hh) / 2), (hw, t / 2, (z0 + hh - head) / 2), "paint")
+        for x in (-hw / 3, hw / 3):                          # the front's two mullions
+            me.box((x, y0 - t / 2, (sill + head) / 2), (0.03, t / 2, (head - sill) / 2), "paint")
+        for sx in (1, -1):                                   # the back: a doorway in the middle
+            me.box((sx * (hw + 0.45) / 2, y1 + t / 2, z0 + hh / 2), ((hw - 0.45) / 2, t / 2, hh / 2), "paint")
+        me.box((0, y1 + t / 2, z0 + hh - 0.15), (0.45, t / 2, 0.15), "paint")
         gl = mod("wheelhouse_glass", "glazing", "wheelhouse", hp=60, mass=20)
-        gl.box((0, (y0 + y1) / 2, z0 + hh * 0.62), (hw - 0.01, (y0 - y1) / 2 - 0.01, hh * 0.13), "glass_dark")
+        gl.box((0, y0 - t / 2, (sill + head) / 2), (hw - 0.02, 0.006, (head - sill) / 2), "glass")
+        for sx in (1, -1):
+            gl.box((sx * (hw - t / 2), (y0 + y1) / 2, (sill + head) / 2), (0.006, (y0 - y1) / 2 - 0.08, (head - sill) / 2), "glass")
+        me.box((0, y0 - 0.45, z0 + 0.95), (0.40, 0.18, 0.04), "dash")                              # the helm console
+        me.lathe([(-0.02, 0.18), (0.02, 0.18)], "black", n=16, xf=X((0, y0 - 0.62, z0 + 1.05)) @ R(math.pi / 2.6, 4, "X"))
     # the gear
     for gname in S.get("gear", []):
         me = mod(gname, "equipment", gname, hp=300, mass=40)
@@ -539,11 +580,33 @@ def build_boat(vtype, registry):
             for sx in (1, -1):
                 me.box((sx * 0.95, 0.2, sz + 0.1), (0.12, 0.01, 0.06), "wood")
         elif gname == "thwarts":
-            for y in ([0.5, -0.6] if H.L < 4 else [1.0, 0.0, -1.0]):
-                me.box((0, y, sz - 0.12), (H.half_beam(y) - 0.06, 0.10, 0.02), "wood")
+            tys = [0.5, -0.6] if H.L < 4 else [1.0, 0.0, -1.0]
+            if S.get("helm") == "tiller":                    # (the helmsman's: the aft thwart, by the tiller)
+                tys = [y for y in tys if y > H.stern + 1.2] + [H.stern + 0.75]
+            for y in tys:
+                me.box((0, y, H.sheer_z(y) - 0.12), (H.half_beam(y) - 0.06, 0.12, 0.02), "wood")
         elif gname == "outboard":
             me.box((0, ys[-1] - 0.20, sz + 0.05), (0.15, 0.18, 0.25), "black")
             me.box((0, ys[-1] - 0.24, sz - 0.55), (0.04, 0.06, 0.40), "black")
+        elif gname == "tiller_outboard":                     # an outboard on the transom, its tiller arm forward to the helm
+            yt = ys[-1]
+            zt = H.sheer_z(yt)
+            me.box((0, yt - 0.10, zt + 0.02), (0.05, 0.10, 0.06), "black")                     # (the transom clamp)
+            me.lathe([(0.0, 0.16), (0.12, 0.18), (0.40, 0.17), (0.55, 0.0001)], "black", n=12,
+                     xf=X((0, yt - 0.30, zt + 0.22)) @ R(math.pi, 4, "Z"))                  # the powerhead's cowl
+            me.box((0, yt - 0.26, zt - 0.30), (0.04, 0.07, 0.38), "black")                      # the leg
+            me.box((0, yt - 0.26, zt - 0.70), (0.05, 0.12, 0.06), "black")                      # the cavitation plate
+            arm = 0.55 + min(0.25, H.L * 0.03)                                                 # (an extension on a longer hull)
+            me.pipe([Vector((0, yt - 0.12, zt + 0.16)), Vector((0.08, yt + arm, zt + 0.12))], 0.022, "black", n=8)
+            me.pipe([Vector((0.08, yt + arm, zt + 0.12)), Vector((0.10, yt + arm + 0.14, zt + 0.12))], 0.03, "rubber", n=8)
+        elif gname == "tiller_rudder":                       # a sailboat's transom-hung rudder and its long wooden tiller
+            yt = ys[-1]
+            zt = H.sheer_z(yt)
+            me.box((0, yt - 0.06, zt - 0.6), (0.03, 0.22, 0.75), "paint2")
+            me.pipe([Vector((0, yt + 0.05, zt + 0.10)), Vector((0.05, yt + 1.25, zt + 0.25))], 0.03, "wood", n=8)
+        elif gname == "tiller_lever":                        # a pedal boat's steering lever, between the two seats
+            me.pipe([Vector((0, 0.0, sz - 0.20)), Vector((0, 0.05, sz + 0.25))], 0.018, "chrome", n=8)
+            me.lathe([(0.0, 0.03), (0.08, 0.03)], "rubber", n=10, xf=X((0, 0.05, sz + 0.25)) @ R(-math.pi / 2, 4, "X"))
         elif gname == "console":
             me.box((0, 0.1, sz - 0.05), (0.30, 0.25, 0.45), "paint2")
             me.box((0, 0.2, sz + 0.45), (0.28, 0.02, 0.15), "glass_dark")
@@ -558,20 +621,22 @@ def build_boat(vtype, registry):
         elif gname == "saddle_boat":
             me.box((0, -0.4, sz + 0.20), (0.18, 0.55, 0.10), "seat")
         elif gname == "handlebar_boat":
-            me.pipe([Vector((-0.30, 0.45, sz + 0.45)), Vector((0.30, 0.45, sz + 0.45))], 0.016, "black", n=6)
-            me.box((0, 0.55, sz + 0.25), (0.16, 0.15, 0.18), "paint2")
+            me.pipe([Vector((-0.30, 0.42, sz + 0.30)), Vector((0.30, 0.42, sz + 0.30))], 0.016, "black", n=6)   # (below the rider's
+            me.box((0, 0.58, sz + 0.12), (0.12, 0.12, 0.06), "paint2")                                     #  eye line)
         elif gname == "mast_sails":
             me.pipe([Vector((0, 1.5, sz)), Vector((0, 1.5, sz + 12.0))], 0.07, "chrome", n=10)
             me.pipe([Vector((0, 1.5, sz + 1.6)), Vector((0, -2.8, sz + 1.6))], 0.05, "chrome", n=8)
             me.face([(0, 1.45, sz + 1.7), (0, -2.75, sz + 1.7), (0, 1.45, sz + 11.5)], "livery1")
-            me.face([(0, 1.6, sz + 1.0), (0, 1.6, sz + 11.0), (0, ys[0] - 0.2, sz + 0.4)], "livery1")
+            me.face([(0, 1.6, sz + 2.0), (0, 1.6, sz + 11.0), (0, ys[0] - 0.2, sz + 1.9)], "livery1")   # (a high-cut jib: the
+                                                                                                          #  helm sees under it)
         elif gname == "pontoons":
             for sx in (1, -1):
                 me.lathe([(-H.L / 2 + 0.2, 0.0001), (-H.L / 2 + 0.6, 0.30), (H.L / 2 - 0.8, 0.30), (H.L / 2 - 0.1, 0.0001)], "chrome", n=16,
                          xf=X((sx * (H.beam - 0.35), 0, -0.05)))
-        elif gname == "fence":
+        elif gname == "fence":                               # (low enough that the helm sees over it)
             for sx in (1, -1):
-                me.box((sx * (H.beam - 0.05), 0, sz + 0.45), (0.02, H.L / 2 - 0.4, 0.40), "paint2")
+                me.box((sx * (H.beam - 0.05), 0, sz + 0.33), (0.02, H.L / 2 - 0.4, 0.28), "paint2")
+            me.box((0, ys[0] - 0.45, sz + 0.33), (H.beam - 0.05, 0.02, 0.28), "paint2")
         elif gname == "rail":
             for sx in (1, -1):
                 me.pipe([Vector((sx * (H.half_beam(y) - 0.08), y, H.sheer_z(y) + 0.75)) for y in ys[1:-1]], 0.018, "chrome", n=6)
@@ -622,7 +687,21 @@ def build_boat(vtype, registry):
         "length_front": H.bow, "length_back": -H.stern, "platform": {"half_w": 0.0, "y": -9.0, "z": [0.0, 0.0]}, "cabin_points": [], "markers": []})
     registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": style, "board": "none",
                        "phys": vtype, "half_w": H.beam, "height": H.free + (wh[3] if wh else 0.3), "nose": H.bow, "tail": H.stern, "floor": -H.draft,
-                       "driver": "none", "prop": True, "boat": True}
+                       "driver": "C", "boat": True, "ground": round(-H.draft, 3),
+                       "hull": {"sheer": round(H.free, 3), "draft": H.draft, "t": round(H.t, 3), "wheelhouse": list(wh) if wh else None,
+                                "cockpit": list(ck) if ck else None, "waterline": waterline(H)},
+                       # (the helm, Godot frame: a tiller's helmsman on the aft thwart, to port of the handle; a paddler in
+                       #  the stern seat; a pedaller at the lever; else at the front of the wheelhouse, or the cockpit's aft end)
+                       "seat": ([-round(H.beam * 0.62, 3), round(H.sheer_z(H.stern + 1.8) + 0.32, 3), round(-(H.stern + 1.8), 3)]
+                                if vtype == "sailboat" else           # (a sailboat's helmsman sits up on the cockpit coaming,
+                                                                      #  outboard: he sees over the coachroof)
+                                [-0.28, round(H.sheer_z(H.stern + 0.6) - 0.22, 3), round(-(H.stern + 0.75), 3)]
+                                if S.get("helm") == "tiller" else
+                                [0.0, round(H.sheer_z(H.stern + 0.7) - 0.25, 3), round(-(H.stern + 0.7), 3)] if S.get("helm") == "paddle" else
+                                [-0.35, round(H.sheer_z(0) - 0.15, 3), 0.0] if S.get("helm") == "lever" else
+                                [0.0, round(H.sheer_z(0) + 0.5, 3), round(-(wh[0] - 0.6), 3)] if wh else
+                                [0.0, round(H.sheer_z(0) + (0.15 if "fence" in S.get("gear", []) else -0.25), 3),
+                                 round(-((ck[1] + 0.6) if ck else 0.0), 3)])}
     root = core.empty(vtype, (0, 0, 0))
     for mid, me in b.MESH.items():
         if me.bm.faces:

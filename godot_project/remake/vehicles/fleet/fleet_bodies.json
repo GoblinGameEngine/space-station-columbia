@@ -1040,8 +1040,26 @@
    "nose": 1.045,
    "tail": -1.045,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.32,
+     -0.725,
+     0.32
+    ],
+    [
+     0,
+     0.32,
+     0.725,
+     0.32
+    ]
+   ],
+   "seat": [
+    0,
+    0.82,
+    0.18
+   ]
   },
   "scooter_moped": {
    "blueprint": "res://remake/vehicles/fleet/scooter_moped.blueprint.json",
@@ -1054,8 +1072,26 @@
    "nose": 0.91,
    "tail": -0.91,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.26,
+     -0.65,
+     0.26
+    ],
+    [
+     0,
+     0.26,
+     0.65,
+     0.26
+    ]
+   ],
+   "seat": [
+    0,
+    0.9,
+    0.35
+   ]
   },
   "child_bicycle": {
    "blueprint": "res://remake/vehicles/fleet/child_bicycle.blueprint.json",
@@ -1068,8 +1104,38 @@
    "nose": 0.575,
    "tail": -0.575,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.2,
+     -0.375,
+     0.2
+    ],
+    [
+     0,
+     0.2,
+     0.375,
+     0.2
+    ],
+    [
+     -0.2,
+     0.09,
+     0.375,
+     0.09
+    ],
+    [
+     0.2,
+     0.09,
+     0.375,
+     0.09
+    ]
+   ],
+   "seat": [
+    0,
+    0.59,
+    0.128
+   ]
   },
   "cargo_bike": {
    "blueprint": "res://remake/vehicles/fleet/cargo_bike.blueprint.json",
@@ -1082,8 +1148,26 @@
    "nose": 1.205,
    "tail": -1.205,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.33,
+     -0.875,
+     0.33
+    ],
+    [
+     0,
+     0.33,
+     0.875,
+     0.33
+    ]
+   ],
+   "seat": [
+    0,
+    0.89,
+    0.297
+   ]
   },
   "adult_tricycle": {
    "blueprint": "res://remake/vehicles/fleet/adult_tricycle.blueprint.json",
@@ -1096,8 +1180,32 @@
    "nose": 0.85,
    "tail": -0.85,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.3,
+     -0.55,
+     0.3
+    ],
+    [
+     -0.32,
+     0.3,
+     0.55,
+     0.3
+    ],
+    [
+     0.32,
+     0.3,
+     0.55,
+     0.3
+    ]
+   ],
+   "seat": [
+    0,
+    0.84,
+    0.187
+   ]
   },
   "kick_scooter": {
    "blueprint": "res://remake/vehicles/fleet/kick_scooter.blueprint.json",
@@ -1110,8 +1218,22 @@
    "nose": 0.48,
    "tail": -0.48,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.08,
+     -0.4,
+     0.08
+    ],
+    [
+     0,
+     0.08,
+     0.4,
+     0.08
+    ]
+   ],
+   "seat": null
   },
   "skateboard": {
    "blueprint": "res://remake/vehicles/fleet/skateboard.blueprint.json",
@@ -1124,8 +1246,34 @@
    "nose": 0.4,
    "tail": -0.4,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.09,
+     0.03,
+     -0.27,
+     0.03
+    ],
+    [
+     0.09,
+     0.03,
+     0.27,
+     0.03
+    ],
+    [
+     -0.09,
+     0.03,
+     -0.27,
+     0.03
+    ],
+    [
+     -0.09,
+     0.03,
+     0.27,
+     0.03
+    ]
+   ],
+   "seat": null
   },
   "surrey_bike": {
    "blueprint": "res://remake/vehicles/fleet/surrey_bike.blueprint.json",
@@ -1138,8 +1286,38 @@
    "nose": 1.28,
    "tail": -1.28,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.62,
+     0.28,
+     -1.0,
+     0.28
+    ],
+    [
+     0.62,
+     0.28,
+     1.0,
+     0.28
+    ],
+    [
+     -0.62,
+     0.28,
+     -1.0,
+     0.28
+    ],
+    [
+     -0.62,
+     0.28,
+     1.0,
+     0.28
+    ]
+   ],
+   "seat": [
+    0,
+    0.62,
+    -0.35
+   ]
   },
   "manual_wheelchair": {
    "blueprint": "res://remake/vehicles/fleet/manual_wheelchair.blueprint.json",
@@ -1152,8 +1330,38 @@
    "nose": 0.35,
    "tail": -0.4,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.3,
+     0.3,
+     0.1,
+     0.3
+    ],
+    [
+     -0.3,
+     0.3,
+     0.1,
+     0.3
+    ],
+    [
+     0.22,
+     0.07,
+     -0.28,
+     0.07
+    ],
+    [
+     -0.22,
+     0.07,
+     -0.28,
+     0.07
+    ]
+   ],
+   "seat": [
+    0,
+    0.5,
+    -0.02
+   ]
   },
   "rollator": {
    "blueprint": "res://remake/vehicles/fleet/rollator.blueprint.json",
@@ -1166,8 +1374,38 @@
    "nose": 0.35,
    "tail": -0.35,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.27,
+     0.1,
+     -0.25,
+     0.1
+    ],
+    [
+     0.27,
+     0.1,
+     0.25,
+     0.1
+    ],
+    [
+     -0.27,
+     0.1,
+     -0.25,
+     0.1
+    ],
+    [
+     -0.27,
+     0.1,
+     0.25,
+     0.1
+    ]
+   ],
+   "seat": [
+    0,
+    0.55,
+    -0.0
+   ]
   },
   "baby_stroller": {
    "blueprint": "res://remake/vehicles/fleet/baby_stroller.blueprint.json",
@@ -1180,8 +1418,38 @@
    "nose": 0.4,
    "tail": -0.44,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.26,
+     0.1,
+     -0.3,
+     0.1
+    ],
+    [
+     -0.26,
+     0.1,
+     -0.3,
+     0.1
+    ],
+    [
+     0.26,
+     0.14,
+     0.3,
+     0.14
+    ],
+    [
+     -0.26,
+     0.14,
+     0.3,
+     0.14
+    ]
+   ],
+   "seat": [
+    0,
+    0.62,
+    -0.0
+   ]
   },
   "child_wagon": {
    "blueprint": "res://remake/vehicles/fleet/child_wagon.blueprint.json",
@@ -1194,8 +1462,34 @@
    "nose": 1.065,
    "tail": -0.486,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.22,
+     0.1,
+     -0.38,
+     0.1
+    ],
+    [
+     0.22,
+     0.1,
+     0.38,
+     0.1
+    ],
+    [
+     -0.22,
+     0.1,
+     -0.38,
+     0.1
+    ],
+    [
+     -0.22,
+     0.1,
+     0.38,
+     0.1
+    ]
+   ],
+   "seat": null
   },
   "shopping_cart": {
    "blueprint": "res://remake/vehicles/fleet/shopping_cart.blueprint.json",
@@ -1208,8 +1502,34 @@
    "nose": 0.475,
    "tail": -0.466,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.24,
+     0.06,
+     -0.4,
+     0.06
+    ],
+    [
+     0.24,
+     0.06,
+     0.4,
+     0.06
+    ],
+    [
+     -0.24,
+     0.06,
+     -0.4,
+     0.06
+    ],
+    [
+     -0.24,
+     0.06,
+     0.4,
+     0.06
+    ]
+   ],
+   "seat": null
   },
   "hand_truck": {
    "blueprint": "res://remake/vehicles/fleet/hand_truck.blueprint.json",
@@ -1222,8 +1542,22 @@
    "nose": 0.2,
    "tail": -0.2,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.22,
+     0.12,
+     0.08,
+     0.12
+    ],
+    [
+     -0.22,
+     0.12,
+     0.08,
+     0.12
+    ]
+   ],
+   "seat": null
   },
   "pallet_jack": {
    "blueprint": "res://remake/vehicles/fleet/pallet_jack.blueprint.json",
@@ -1236,8 +1570,28 @@
    "nose": 0.9,
    "tail": -0.565,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.2,
+     0.04,
+     -0.82,
+     0.04
+    ],
+    [
+     -0.2,
+     0.04,
+     -0.82,
+     0.04
+    ],
+    [
+     0,
+     0.09,
+     0.25,
+     0.09
+    ]
+   ],
+   "seat": null
   },
   "wheelbarrow": {
    "blueprint": "res://remake/vehicles/fleet/wheelbarrow.blueprint.json",
@@ -1250,8 +1604,16 @@
    "nose": 0.8,
    "tail": -0.704,
    "floor": -0.002,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0,
+     0.2,
+     -0.6,
+     0.2
+    ]
+   ],
+   "seat": null
   },
   "luggage_cart": {
    "blueprint": "res://remake/vehicles/fleet/luggage_cart.blueprint.json",
@@ -1264,8 +1626,34 @@
    "nose": 0.65,
    "tail": -0.65,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.28,
+     0.1,
+     -0.55,
+     0.1
+    ],
+    [
+     0.28,
+     0.1,
+     0.55,
+     0.1
+    ],
+    [
+     -0.28,
+     0.1,
+     -0.55,
+     0.1
+    ],
+    [
+     -0.28,
+     0.1,
+     0.55,
+     0.1
+    ]
+   ],
+   "seat": null
   },
   "housekeeping_cart": {
    "blueprint": "res://remake/vehicles/fleet/housekeeping_cart.blueprint.json",
@@ -1278,8 +1666,34 @@
    "nose": 0.61,
    "tail": -0.8,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.24,
+     0.07,
+     -0.52,
+     0.07
+    ],
+    [
+     0.24,
+     0.07,
+     0.52,
+     0.07
+    ],
+    [
+     -0.24,
+     0.07,
+     -0.52,
+     0.07
+    ],
+    [
+     -0.24,
+     0.07,
+     0.52,
+     0.07
+    ]
+   ],
+   "seat": null
   },
   "hospital_gurney": {
    "blueprint": "res://remake/vehicles/fleet/hospital_gurney.blueprint.json",
@@ -1292,8 +1706,38 @@
    "nose": 0.98,
    "tail": -0.98,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.3,
+     0.07,
+     -0.85,
+     0.07
+    ],
+    [
+     0.3,
+     0.07,
+     0.85,
+     0.07
+    ],
+    [
+     -0.3,
+     0.07,
+     -0.85,
+     0.07
+    ],
+    [
+     -0.3,
+     0.07,
+     0.85,
+     0.07
+    ]
+   ],
+   "seat": [
+    0,
+    0.86,
+    -0.0
+   ]
   },
   "food_cart": {
    "blueprint": "res://remake/vehicles/fleet/food_cart.blueprint.json",
@@ -1306,8 +1750,28 @@
    "nose": 1.0,
    "tail": -1.0,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     0.45,
+     0.25,
+     0.3,
+     0.25
+    ],
+    [
+     -0.45,
+     0.25,
+     0.3,
+     0.25
+    ],
+    [
+     0,
+     0.08,
+     -0.8,
+     0.08
+    ]
+   ],
+   "seat": null
   },
   "rowboat_dinghy": {
    "blueprint": "res://remake/vehicles/fleet/rowboat_dinghy.blueprint.json",
@@ -1320,9 +1784,74 @@
    "nose": 1.75,
    "tail": -1.75,
    "floor": -0.15,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.15,
+   "hull": {
+    "sheer": 0.45,
+    "draft": 0.15,
+    "t": 0.04,
+    "wheelhouse": null,
+    "cockpit": [
+     1.2,
+     -1.55
+    ],
+    "waterline": [
+     [
+      0.251,
+      -1.0
+     ],
+     [
+      0.504,
+      -0.75
+     ],
+     [
+      0.621,
+      -0.5
+     ],
+     [
+      0.635,
+      -0.25
+     ],
+     [
+      0.635,
+      -0.0
+     ],
+     [
+      0.635,
+      0.25
+     ],
+     [
+      0.635,
+      0.5
+     ],
+     [
+      0.635,
+      0.75
+     ],
+     [
+      0.635,
+      1.0
+     ],
+     [
+      0.631,
+      1.25
+     ],
+     [
+      0.59,
+      1.5
+     ],
+     [
+      0.548,
+      1.75
+     ]
+    ]
+   },
+   "seat": [
+    -0.28,
+    0.241,
+    1.0
+   ]
   },
   "canoe_kayak": {
    "blueprint": "res://remake/vehicles/fleet/canoe_kayak.blueprint.json",
@@ -1335,9 +1864,66 @@
    "nose": 2.4,
    "tail": -2.4,
    "floor": -0.12,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.12,
+   "hull": {
+    "sheer": 0.3,
+    "draft": 0.12,
+    "t": 0.04,
+    "wheelhouse": null,
+    "cockpit": [
+     1.6,
+     -1.6
+    ],
+    "waterline": [
+     [
+      0.254,
+      -1.371
+     ],
+     [
+      0.378,
+      -1.029
+     ],
+     [
+      0.401,
+      -0.686
+     ],
+     [
+      0.41,
+      -0.343
+     ],
+     [
+      0.411,
+      -0.0
+     ],
+     [
+      0.41,
+      0.343
+     ],
+     [
+      0.402,
+      0.686
+     ],
+     [
+      0.379,
+      1.029
+     ],
+     [
+      0.285,
+      1.371
+     ],
+     [
+      0.028,
+      1.714
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    0.063,
+    1.7
+   ]
   },
   "fishing_skiff": {
    "blueprint": "res://remake/vehicles/fleet/fishing_skiff.blueprint.json",
@@ -1350,9 +1936,78 @@
    "nose": 2.5,
    "tail": -2.5,
    "floor": -0.25,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.25,
+   "hull": {
+    "sheer": 0.55,
+    "draft": 0.25,
+    "t": 0.04,
+    "wheelhouse": null,
+    "cockpit": [
+     1.4,
+     -2.3
+    ],
+    "waterline": [
+     [
+      0.029,
+      -1.786
+     ],
+     [
+      0.475,
+      -1.429
+     ],
+     [
+      0.783,
+      -1.071
+     ],
+     [
+      0.851,
+      -0.714
+     ],
+     [
+      0.869,
+      -0.357
+     ],
+     [
+      0.87,
+      -0.0
+     ],
+     [
+      0.87,
+      0.357
+     ],
+     [
+      0.87,
+      0.714
+     ],
+     [
+      0.87,
+      1.071
+     ],
+     [
+      0.87,
+      1.429
+     ],
+     [
+      0.865,
+      1.786
+     ],
+     [
+      0.808,
+      2.143
+     ],
+     [
+      0.752,
+      2.5
+     ]
+    ]
+   },
+   "seat": [
+    -0.28,
+    0.346,
+    1.75
+   ]
   },
   "pedal_boat": {
    "blueprint": "res://remake/vehicles/fleet/pedal_boat.blueprint.json",
@@ -1365,9 +2020,82 @@
    "nose": 1.25,
    "tail": -1.25,
    "floor": -0.15,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.15,
+   "hull": {
+    "sheer": 0.4,
+    "draft": 0.15,
+    "t": 0.04,
+    "wheelhouse": null,
+    "cockpit": [
+     0.6,
+     -0.9
+    ],
+    "waterline": [
+     [
+      0.664,
+      -1.071
+     ],
+     [
+      0.689,
+      -0.893
+     ],
+     [
+      0.69,
+      -0.714
+     ],
+     [
+      0.69,
+      -0.536
+     ],
+     [
+      0.691,
+      -0.357
+     ],
+     [
+      0.691,
+      -0.179
+     ],
+     [
+      0.692,
+      -0.0
+     ],
+     [
+      0.692,
+      0.179
+     ],
+     [
+      0.692,
+      0.357
+     ],
+     [
+      0.692,
+      0.536
+     ],
+     [
+      0.692,
+      0.714
+     ],
+     [
+      0.692,
+      0.893
+     ],
+     [
+      0.691,
+      1.071
+     ],
+     [
+      0.691,
+      1.25
+     ]
+    ]
+   },
+   "seat": [
+    -0.35,
+    0.257,
+    0.0
+   ]
   },
   "personal_watercraft": {
    "blueprint": "res://remake/vehicles/fleet/personal_watercraft.blueprint.json",
@@ -1380,9 +2108,75 @@
    "nose": 1.65,
    "tail": -1.65,
    "floor": -0.2,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.2,
+   "hull": {
+    "sheer": 0.4,
+    "draft": 0.2,
+    "t": 0.04,
+    "wheelhouse": null,
+    "cockpit": null,
+    "waterline": [
+     [
+      0.035,
+      -1.179
+     ],
+     [
+      0.256,
+      -0.943
+     ],
+     [
+      0.408,
+      -0.707
+     ],
+     [
+      0.49,
+      -0.471
+     ],
+     [
+      0.504,
+      -0.236
+     ],
+     [
+      0.504,
+      -0.0
+     ],
+     [
+      0.504,
+      0.236
+     ],
+     [
+      0.504,
+      0.471
+     ],
+     [
+      0.504,
+      0.707
+     ],
+     [
+      0.504,
+      0.943
+     ],
+     [
+      0.503,
+      1.179
+     ],
+     [
+      0.5,
+      1.414
+     ],
+     [
+      0.467,
+      1.65
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    0.157,
+    -0.0
+   ]
   },
   "rescue_board": {
    "blueprint": "res://remake/vehicles/fleet/rescue_board.blueprint.json",
@@ -1395,9 +2189,75 @@
    "nose": 1.6,
    "tail": -1.6,
    "floor": -0.05,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.05,
+   "hull": {
+    "sheer": 0.1,
+    "draft": 0.05,
+    "t": 0.04,
+    "wheelhouse": null,
+    "cockpit": null,
+    "waterline": [
+     [
+      0.018,
+      -1.143
+     ],
+     [
+      0.167,
+      -0.914
+     ],
+     [
+      0.277,
+      -0.686
+     ],
+     [
+      0.307,
+      -0.457
+     ],
+     [
+      0.314,
+      -0.229
+     ],
+     [
+      0.314,
+      -0.0
+     ],
+     [
+      0.315,
+      0.229
+     ],
+     [
+      0.315,
+      0.457
+     ],
+     [
+      0.315,
+      0.686
+     ],
+     [
+      0.314,
+      0.914
+     ],
+     [
+      0.312,
+      1.143
+     ],
+     [
+      0.291,
+      1.371
+     ],
+     [
+      0.27,
+      1.6
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    -0.143,
+    -0.0
+   ]
   },
   "sailboat": {
    "blueprint": "res://remake/vehicles/fleet/sailboat.blueprint.json",
@@ -1406,13 +2266,87 @@
    "board": "none",
    "phys": "sailboat",
    "half_w": 1.5,
-   "height": 1.55,
+   "height": 1.42,
    "nose": 4.5,
    "tail": -4.5,
    "floor": -0.6,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.6,
+   "hull": {
+    "sheer": 1.0,
+    "draft": 0.6,
+    "t": 0.072,
+    "wheelhouse": [
+     1.2,
+     -1.9,
+     0.95,
+     0.42
+    ],
+    "cockpit": [
+     -2.0,
+     -4.0
+    ],
+    "waterline": [
+     [
+      0.304,
+      -3.214
+     ],
+     [
+      1.028,
+      -2.571
+     ],
+     [
+      1.289,
+      -1.929
+     ],
+     [
+      1.365,
+      -1.286
+     ],
+     [
+      1.395,
+      -0.643
+     ],
+     [
+      1.397,
+      -0.0
+     ],
+     [
+      1.397,
+      0.643
+     ],
+     [
+      1.397,
+      1.286
+     ],
+     [
+      1.397,
+      1.929
+     ],
+     [
+      1.397,
+      2.571
+     ],
+     [
+      1.388,
+      3.214
+     ],
+     [
+      1.298,
+      3.857
+     ],
+     [
+      1.207,
+      4.5
+     ]
+    ]
+   },
+   "seat": [
+    -0.93,
+    1.328,
+    2.7
+   ]
   },
   "pontoon_boat": {
    "blueprint": "res://remake/vehicles/fleet/pontoon_boat.blueprint.json",
@@ -1425,9 +2359,82 @@
    "nose": 3.75,
    "tail": -3.75,
    "floor": -0.35,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.35,
+   "hull": {
+    "sheer": 0.6,
+    "draft": 0.35,
+    "t": 0.06,
+    "wheelhouse": null,
+    "cockpit": [
+     3.2,
+     -3.4
+    ],
+    "waterline": [
+     [
+      1.187,
+      -3.214
+     ],
+     [
+      1.23,
+      -2.679
+     ],
+     [
+      1.232,
+      -2.143
+     ],
+     [
+      1.234,
+      -1.607
+     ],
+     [
+      1.235,
+      -1.071
+     ],
+     [
+      1.237,
+      -0.536
+     ],
+     [
+      1.237,
+      -0.0
+     ],
+     [
+      1.238,
+      0.536
+     ],
+     [
+      1.238,
+      1.071
+     ],
+     [
+      1.238,
+      1.607
+     ],
+     [
+      1.237,
+      2.143
+     ],
+     [
+      1.237,
+      2.679
+     ],
+     [
+      1.237,
+      3.214
+     ],
+     [
+      1.236,
+      3.75
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    0.757,
+    2.8
+   ]
   },
   "cabin_cruiser": {
    "blueprint": "res://remake/vehicles/fleet/cabin_cruiser.blueprint.json",
@@ -1440,9 +2447,83 @@
    "nose": 6.0,
    "tail": -6.0,
    "floor": -0.9,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.9,
+   "hull": {
+    "sheer": 1.4,
+    "draft": 0.9,
+    "t": 0.096,
+    "wheelhouse": [
+     3.0,
+     -2.4,
+     1.5,
+     1.7
+    ],
+    "cockpit": [
+     -2.5,
+     -5.6
+    ],
+    "waterline": [
+     [
+      0.482,
+      -4.286
+     ],
+     [
+      1.424,
+      -3.429
+     ],
+     [
+      1.725,
+      -2.571
+     ],
+     [
+      1.827,
+      -1.714
+     ],
+     [
+      1.867,
+      -0.857
+     ],
+     [
+      1.869,
+      -0.0
+     ],
+     [
+      1.87,
+      0.857
+     ],
+     [
+      1.87,
+      1.714
+     ],
+     [
+      1.869,
+      2.571
+     ],
+     [
+      1.869,
+      3.429
+     ],
+     [
+      1.857,
+      4.286
+     ],
+     [
+      1.737,
+      5.143
+     ],
+     [
+      1.616,
+      6.0
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    1.907,
+    -2.4
+   ]
   },
   "lobster_boat": {
    "blueprint": "res://remake/vehicles/fleet/lobster_boat.blueprint.json",
@@ -1455,9 +2536,83 @@
    "nose": 5.5,
    "tail": -5.5,
    "floor": -1.0,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -1.0,
+   "hull": {
+    "sheer": 1.3,
+    "draft": 1.0,
+    "t": 0.088,
+    "wheelhouse": [
+     2.8,
+     -0.4,
+     1.4,
+     1.9
+    ],
+    "cockpit": [
+     -0.5,
+     -5.2
+    ],
+    "waterline": [
+     [
+      0.912,
+      -3.929
+     ],
+     [
+      1.506,
+      -3.143
+     ],
+     [
+      1.673,
+      -2.357
+     ],
+     [
+      1.771,
+      -1.571
+     ],
+     [
+      1.81,
+      -0.786
+     ],
+     [
+      1.812,
+      -0.0
+     ],
+     [
+      1.813,
+      0.786
+     ],
+     [
+      1.813,
+      1.571
+     ],
+     [
+      1.812,
+      2.357
+     ],
+     [
+      1.812,
+      3.143
+     ],
+     [
+      1.8,
+      3.929
+     ],
+     [
+      1.681,
+      4.714
+     ],
+     [
+      1.562,
+      5.5
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    1.807,
+    -2.2
+   ]
   },
   "coast_guard_boat": {
    "blueprint": "res://remake/vehicles/fleet/coast_guard_boat.blueprint.json",
@@ -1470,9 +2625,83 @@
    "nose": 5.0,
    "tail": -5.0,
    "floor": -0.8,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -0.8,
+   "hull": {
+    "sheer": 1.3,
+    "draft": 0.8,
+    "t": 0.08,
+    "wheelhouse": [
+     2.4,
+     -1.4,
+     1.3,
+     1.9
+    ],
+    "cockpit": [
+     -1.5,
+     -4.6
+    ],
+    "waterline": [
+     [
+      0.345,
+      -3.571
+     ],
+     [
+      1.106,
+      -2.857
+     ],
+     [
+      1.376,
+      -2.143
+     ],
+     [
+      1.458,
+      -1.429
+     ],
+     [
+      1.49,
+      -0.714
+     ],
+     [
+      1.491,
+      -0.0
+     ],
+     [
+      1.492,
+      0.714
+     ],
+     [
+      1.492,
+      1.429
+     ],
+     [
+      1.492,
+      2.143
+     ],
+     [
+      1.491,
+      2.857
+     ],
+     [
+      1.482,
+      3.571
+     ],
+     [
+      1.386,
+      4.286
+     ],
+     [
+      1.289,
+      5.0
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    1.807,
+    -1.8
+   ]
   },
   "workboat_tug": {
    "blueprint": "res://remake/vehicles/fleet/workboat_tug.blueprint.json",
@@ -1485,9 +2714,83 @@
    "nose": 7.5,
    "tail": -7.5,
    "floor": -1.6,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -1.6,
+   "hull": {
+    "sheer": 1.5,
+    "draft": 1.6,
+    "t": 0.12,
+    "wheelhouse": [
+     3.5,
+     -2.5,
+     1.9,
+     2.6
+    ],
+    "cockpit": [
+     -3.0,
+     -7.2
+    ],
+    "waterline": [
+     [
+      1.693,
+      -5.357
+     ],
+     [
+      2.029,
+      -4.286
+     ],
+     [
+      2.248,
+      -3.214
+     ],
+     [
+      2.378,
+      -2.143
+     ],
+     [
+      2.43,
+      -1.071
+     ],
+     [
+      2.434,
+      -0.0
+     ],
+     [
+      2.434,
+      1.071
+     ],
+     [
+      2.434,
+      2.143
+     ],
+     [
+      2.434,
+      3.214
+     ],
+     [
+      2.434,
+      4.286
+     ],
+     [
+      2.417,
+      5.357
+     ],
+     [
+      2.256,
+      6.429
+     ],
+     [
+      2.095,
+      7.5
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    2.007,
+    -2.9
+   ]
   },
   "trawler": {
    "blueprint": "res://remake/vehicles/fleet/trawler.blueprint.json",
@@ -1500,9 +2803,83 @@
    "nose": 10.0,
    "tail": -10.0,
    "floor": -2.4,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -2.4,
+   "hull": {
+    "sheer": 2.2,
+    "draft": 2.4,
+    "t": 0.12,
+    "wheelhouse": [
+     6.0,
+     -2.8,
+     2.4,
+     3.0
+    ],
+    "cockpit": [
+     -3.0,
+     -9.6
+    ],
+    "waterline": [
+     [
+      2.033,
+      -7.143
+     ],
+     [
+      2.437,
+      -5.714
+     ],
+     [
+      2.7,
+      -4.286
+     ],
+     [
+      2.855,
+      -2.857
+     ],
+     [
+      2.917,
+      -1.429
+     ],
+     [
+      2.921,
+      -0.0
+     ],
+     [
+      2.922,
+      1.429
+     ],
+     [
+      2.922,
+      2.857
+     ],
+     [
+      2.921,
+      4.286
+     ],
+     [
+      2.921,
+      5.714
+     ],
+     [
+      2.902,
+      7.143
+     ],
+     [
+      2.709,
+      8.571
+     ],
+     [
+      2.517,
+      10.0
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    2.707,
+    -5.4
+   ]
   },
   "ferry": {
    "blueprint": "res://remake/vehicles/fleet/ferry.blueprint.json",
@@ -1515,9 +2892,119 @@
    "nose": 22.5,
    "tail": -22.5,
    "floor": -2.4,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -2.4,
+   "hull": {
+    "sheer": 2.4,
+    "draft": 2.4,
+    "t": 0.12,
+    "wheelhouse": [
+     4.0,
+     -4.0,
+     3.5,
+     3.0
+    ],
+    "cockpit": [
+     18.0,
+     -18.0
+    ],
+    "waterline": [
+     [
+      4.983,
+      -20.625
+     ],
+     [
+      5.849,
+      -18.75
+     ],
+     [
+      5.851,
+      -16.875
+     ],
+     [
+      5.853,
+      -15.0
+     ],
+     [
+      5.855,
+      -13.125
+     ],
+     [
+      5.857,
+      -11.25
+     ],
+     [
+      5.859,
+      -9.375
+     ],
+     [
+      5.86,
+      -7.5
+     ],
+     [
+      5.861,
+      -5.625
+     ],
+     [
+      5.862,
+      -3.75
+     ],
+     [
+      5.863,
+      -1.875
+     ],
+     [
+      5.864,
+      -0.0
+     ],
+     [
+      5.864,
+      1.875
+     ],
+     [
+      5.864,
+      3.75
+     ],
+     [
+      5.862,
+      5.625
+     ],
+     [
+      5.852,
+      7.5
+     ],
+     [
+      5.831,
+      9.375
+     ],
+     [
+      5.796,
+      11.25
+     ],
+     [
+      5.743,
+      13.125
+     ],
+     [
+      5.66,
+      15.0
+     ],
+     [
+      5.526,
+      16.875
+     ],
+     [
+      1.21,
+      18.75
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    2.907,
+    -3.4
+   ]
   },
   "barge": {
    "blueprint": "res://remake/vehicles/fleet/barge.blueprint.json",
@@ -1530,9 +3017,106 @@
    "nose": 20.0,
    "tail": -20.0,
    "floor": -2.2,
-   "driver": "none",
-   "prop": true,
-   "boat": true
+   "driver": "C",
+   "boat": true,
+   "ground": -2.2,
+   "hull": {
+    "sheer": 1.2,
+    "draft": 2.2,
+    "t": 0.12,
+    "wheelhouse": null,
+    "cockpit": [
+     17.5,
+     -17.5
+    ],
+    "waterline": [
+     [
+      4.882,
+      -18.0
+     ],
+     [
+      5.445,
+      -16.0
+     ],
+     [
+      5.446,
+      -14.0
+     ],
+     [
+      5.446,
+      -12.0
+     ],
+     [
+      5.447,
+      -10.0
+     ],
+     [
+      5.447,
+      -8.0
+     ],
+     [
+      5.448,
+      -6.0
+     ],
+     [
+      5.448,
+      -4.0
+     ],
+     [
+      5.448,
+      -2.0
+     ],
+     [
+      5.448,
+      -0.0
+     ],
+     [
+      5.449,
+      2.0
+     ],
+     [
+      5.449,
+      4.0
+     ],
+     [
+      5.449,
+      6.0
+     ],
+     [
+      5.449,
+      8.0
+     ],
+     [
+      5.448,
+      10.0
+     ],
+     [
+      5.448,
+      12.0
+     ],
+     [
+      5.448,
+      14.0
+     ],
+     [
+      5.448,
+      16.0
+     ],
+     [
+      5.448,
+      18.0
+     ],
+     [
+      5.448,
+      20.0
+     ]
+    ]
+   },
+   "seat": [
+    0.0,
+    0.957,
+    16.9
+   ]
   },
   "tank_car": {
    "blueprint": "res://remake/vehicles/fleet/tank_car.blueprint.json",
@@ -1641,7 +3225,11 @@
    "tail": -14.6,
    "floor": 0.55,
    "driver": "L",
-   "prop": true
+   "air": true,
+   "aero": {
+    "env": null,
+    "sling": null
+   }
   },
   "supply_freighter": {
    "blueprint": "res://remake/vehicles/fleet/supply_freighter.blueprint.json",
@@ -1655,7 +3243,11 @@
    "tail": -3.4,
    "floor": 0.55,
    "driver": "L",
-   "prop": true
+   "air": true,
+   "aero": {
+    "env": null,
+    "sling": null
+   }
   },
   "eva_sled": {
    "blueprint": "res://remake/vehicles/fleet/eva_sled.blueprint.json",
@@ -1665,11 +3257,17 @@
    "phys": "eva_sled",
    "half_w": 0.872,
    "height": 2.43,
-   "nose": 2.028,
+   "nose": 2.106,
    "tail": -1.91,
    "floor": 0.04,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [],
+   "seat": [
+    0,
+    0.88,
+    0.55
+   ],
+   "air": true
   },
   "cargo_mule": {
    "blueprint": "res://remake/vehicles/fleet/cargo_mule.blueprint.json",
@@ -1683,7 +3281,11 @@
    "tail": -3.3,
    "floor": 0.55,
    "driver": "L",
-   "prop": true
+   "air": true,
+   "aero": {
+    "env": null,
+    "sling": null
+   }
   },
   "spoke_elevator_car": {
    "blueprint": "res://remake/vehicles/fleet/spoke_elevator_car.blueprint.json",
@@ -1696,8 +3298,12 @@
    "nose": 2.9,
    "tail": -2.9,
    "floor": 0.55,
-   "driver": "L",
-   "prop": true
+   "driver": "C",
+   "air": true,
+   "aero": {
+    "env": null,
+    "sling": null
+   }
   },
   "travel_lift": {
    "blueprint": "res://remake/vehicles/fleet/travel_lift.blueprint.json",
@@ -1710,8 +3316,34 @@
    "nose": 5.08,
    "tail": -5.08,
    "floor": 0.0,
-   "driver": "none",
-   "prop": true
+   "driver": "C",
+   "wheels": [
+    [
+     3.4,
+     0.48,
+     -4.6,
+     0.48
+    ],
+    [
+     3.4,
+     0.48,
+     4.6,
+     0.48
+    ],
+    [
+     -3.4,
+     0.48,
+     -4.6,
+     0.48
+    ],
+    [
+     -3.4,
+     0.48,
+     4.6,
+     0.48
+    ]
+   ],
+   "seat": null
   },
   "farm_pickup_flatbed": {
    "blueprint": "res://remake/vehicles/fleet/farm_pickup_flatbed.blueprint.json",

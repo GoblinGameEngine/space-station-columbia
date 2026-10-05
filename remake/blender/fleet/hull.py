@@ -125,13 +125,15 @@ class Hull:
 
 BOATS = {
     # length, beam, draft, freeboard, deadrise; cockpit (y0, y1) or None; wheelhouse (y0, y1, half w, height) or None; colours; gear
-    "rowboat_dinghy": dict(length=3.5, beam=1.4, draft=0.15, freeboard=0.45, deadrise=10, cockpit=(1.2, -1.55), colours=((236, 234, 228), (40, 92, 150)), gear=["oars", "thwarts"]),
-    "canoe_kayak": dict(length=4.8, beam=0.9, draft=0.12, freeboard=0.30, deadrise=8, double_ender=True, cockpit=(1.6, -1.6), colours=((190, 40, 30), (190, 40, 30)), gear=["paddles", "thwarts"]),
-    "fishing_skiff": dict(length=5.0, beam=1.9, draft=0.25, freeboard=0.55, deadrise=12, cockpit=(1.4, -2.3), colours=((236, 234, 228), (60, 120, 60)), gear=["outboard", "console", "thwarts"]),
-    "pedal_boat": dict(length=2.5, beam=1.5, draft=0.15, freeboard=0.40, deadrise=6, square_bow=True, cockpit=(0.6, -0.9), colours=((236, 234, 228), (236, 186, 30)), gear=["paddlewheel", "thwarts", "canopy_boat"]),
+    # (2026-10-05, the user: small boats steer by a tiller -- the operator on the aft thwart, off the centre line on the
+    #  side away from the handle; too small for a wheel. "helm": tiller | paddle | lever | wheel)
+    "rowboat_dinghy": dict(length=3.5, beam=1.4, draft=0.15, freeboard=0.45, deadrise=10, cockpit=(1.2, -1.55), colours=((236, 234, 228), (40, 92, 150)), gear=["oars", "thwarts", "tiller_outboard"], helm="tiller"),
+    "canoe_kayak": dict(length=4.8, beam=0.9, draft=0.12, freeboard=0.30, deadrise=8, double_ender=True, cockpit=(1.6, -1.6), colours=((190, 40, 30), (190, 40, 30)), gear=["paddles", "thwarts"], helm="paddle"),
+    "fishing_skiff": dict(length=5.0, beam=1.9, draft=0.25, freeboard=0.55, deadrise=12, cockpit=(1.4, -2.3), colours=((236, 234, 228), (60, 120, 60)), gear=["tiller_outboard", "thwarts"], helm="tiller"),
+    "pedal_boat": dict(length=2.5, beam=1.5, draft=0.15, freeboard=0.40, deadrise=6, square_bow=True, cockpit=(0.6, -0.9), colours=((236, 234, 228), (236, 186, 30)), gear=["paddlewheel", "thwarts", "canopy_boat", "tiller_lever"], helm="lever"),
     "personal_watercraft": dict(length=3.3, beam=1.2, draft=0.20, freeboard=0.40, deadrise=18, cockpit=None, colours=((236, 234, 228), (40, 110, 200)), gear=["saddle_boat", "handlebar_boat"]),
     "rescue_board": dict(length=3.2, beam=0.7, draft=0.05, freeboard=0.10, deadrise=4, cockpit=None, colours=((236, 186, 30), (200, 30, 30)), gear=[]),
-    "sailboat": dict(length=9.0, beam=3.0, draft=0.6, freeboard=1.0, deadrise=16, cockpit=(-2.0, -4.0), wheelhouse=(1.2, -1.9, 0.95, 0.55), colours=((236, 234, 228), (30, 60, 110)), gear=["mast_sails"]),
+    "sailboat": dict(length=9.0, beam=3.0, draft=0.6, freeboard=1.0, deadrise=16, cockpit=(-2.0, -4.0), wheelhouse=(1.2, -1.9, 0.95, 0.42), colours=((236, 234, 228), (30, 60, 110)), gear=["mast_sails", "tiller_rudder"], helm="tiller"),
     "pontoon_boat": dict(length=7.5, beam=2.6, draft=0.35, freeboard=0.60, deadrise=4, square_bow=True, cockpit=(3.2, -3.4), colours=((210, 212, 216), (40, 110, 90)), gear=["pontoons", "fence", "bimini", "outboard"]),
     "cabin_cruiser": dict(length=12.0, beam=4.0, draft=0.9, freeboard=1.4, deadrise=18, cockpit=(-2.5, -5.6), wheelhouse=(3.0, -2.4, 1.5, 1.7), colours=((236, 234, 228), (40, 42, 46)), gear=["rail"]),
     "lobster_boat": dict(length=11.0, beam=3.8, draft=1.0, freeboard=1.3, deadrise=14, cockpit=(-0.5, -5.2), wheelhouse=(2.8, -0.4, 1.4, 1.9), colours=((236, 234, 228), (40, 92, 150)), gear=["pot_hauler", "traps"]),

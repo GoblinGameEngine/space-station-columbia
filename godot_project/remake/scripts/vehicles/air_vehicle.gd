@@ -63,6 +63,10 @@ var _riders: Array = []
 var _hud: Label
 var _engine_sounds: Array = []
 var _seat_local := Vector3.ZERO
+var fly_input := {}                  # {fwd -1..1, turn -1..1, lift -1..1}: an NPC's controls (VehiclePilot), as the
+                                     # pilot's keys are a player's; with a player seated, the player's win
+@export var water_speed_k := 0.35    # on the water it makes this share of max_speed (a boat: all of it)
+@export var can_climb := true        # a boat can't: its lift only settles it in the water
 
 const CRASH_KMH := 10.0              # the crash sound from here up (RCAR bumper test speed)
 const DAMAGE_KMH := 15.0             # structural damage from here up (RCAR structural test speed)
@@ -296,7 +300,7 @@ func pilot_transform() -> Transform3D:
 # ------------------------------------------------------------------ flight
 func _physics_process(delta: float) -> void:
 	# parked and still, with nobody near: nothing to do (dozens of these stand about the map)
-	if pilot == null and _lv.length_squared() < 1e-6 and absf(_yaw_rate) < 1e-5 and _spin == 0.0 and _riders.is_empty() \
+	if pilot == null and fly_input.is_empty() and _lv.length_squared() < 1e-6 and absf(_yaw_rate) < 1e-5 and _spin == 0.0 and _riders.is_empty() \
 			and _wob_w.length_squared() < 1e-8 and _wob.length_squared() < 1e-8 and not disabled:
 		var near := false
 		for p in get_tree().get_nodes_in_group("player"):
@@ -313,6 +317,15 @@ func _physics_process(delta: float) -> void:
 		turn_in = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		lift_in = clampf(Input.get_action_strength("jump") + Input.get_action_strength("accelerate")
 			- Input.get_action_strength("swim_down") - Input.get_action_strength("brake_reverse"), -1.0, 1.0)
+	elif not fly_input.is_empty() and _stun <= 0.0 and not disabled:
+		fwd_in = clampf(float(fly_input.get("fwd", 0.0)), -1.0, 1.0)
+		turn_in = clampf(float(fly_input.get("turn", 0.0)), -1.0, 1.0)
+		lift_in = clampf(float(fly_input.get("lift", 0.0)), -1.0, 1.0)
+	if not can_climb:                                  # (a boat: it doesn't fly; off the water it lies where it is)
+		lift_in = 0.0 if afloat else -1.0
+		if not afloat:
+			fwd_in = 0.0
+			turn_in = 0.0
 	# stay level with the local floor: the vehicle's up follows the station's
 	var up := StationGeo.up(StationGeo.s_of(global_position))
 	var b := global_transform.basis.orthonormalized()
@@ -388,7 +401,7 @@ func _on_water(h: float, lift_in: float, delta: float) -> void:
 	if lift_in <= 0.0 or disabled:
 		_lv.y = move_toward(_lv.y, clampf((d - settle) * 1.5, -0.2, 2.0), climb_accel * 2.0 * delta)
 	# taxiing: the hull ploughs the water
-	_lv.z = move_toward(_lv.z, clampf(_lv.z, -max_speed * 0.35, reverse_speed * 0.5), accel * 2.0 * delta)
+	_lv.z = move_toward(_lv.z, clampf(_lv.z, -max_speed * water_speed_k, reverse_speed * 0.5), accel * 2.0 * delta)
 	if d > _engine_h and not swamped:
 		swamped = true
 		if not disabled:

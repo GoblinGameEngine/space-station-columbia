@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "HY250.trim.screen.C.harrow_recycling_truck.cad34f": {
-   "id": "HY250.trim.screen.C.harrow_recycling_truck.cad34f",
+  "HY250.trim.screen.C.harrow_recycling_truck.9c5803": {
+   "id": "HY250.trim.screen.C.harrow_recycling_truck.9c5803",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.5041,
+     2.5009,
      0.19,
      2.4016,
-     0.7362,
+     0.7297,
      0.38
     ]
    ],
@@ -515,8 +539,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HY250.side_bay.fender.R.harrow_recycling_truck.3da925": {
-   "id": "HY250.side_bay.fender.R.harrow_recycling_truck.3da925",
+  "HY250.side_bay.fender.R.harrow_recycling_truck.2f935a": {
+   "id": "HY250.side_bay.fender.R.harrow_recycling_truck.2f935a",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "side_bay",
@@ -535,10 +559,10 @@
     [
      1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -546,8 +570,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HY250.trim.sail.R.harrow_recycling_truck.bc1781": {
-   "id": "HY250.trim.sail.R.harrow_recycling_truck.bc1781",
+  "HY250.side_bay.fore.R.harrow_recycling_truck.21b732": {
+   "id": "HY250.side_bay.fore.R.harrow_recycling_truck.21b732",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.trim.sail.R.harrow_recycling_truck.b33e38": {
+   "id": "HY250.trim.sail.R.harrow_recycling_truck.b33e38",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "trim",
@@ -558,7 +613,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     20232,
+     21528,
      72
     ]
    },
@@ -566,10 +621,10 @@
     [
      1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -589,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     21960,
+     23256,
      36
     ]
    },
@@ -620,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     22824,
+     24120,
      66
     ]
    },
@@ -651,7 +706,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     24408,
+     25704,
      192
     ]
    },
@@ -670,8 +725,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HY250.side_bay.fender.L.harrow_recycling_truck.cd0280": {
-   "id": "HY250.side_bay.fender.L.harrow_recycling_truck.cd0280",
+  "HY250.side_bay.fender.L.harrow_recycling_truck.f6bdd7": {
+   "id": "HY250.side_bay.fender.L.harrow_recycling_truck.f6bdd7",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "side_bay",
@@ -682,7 +737,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     29016,
+     30312,
      120
     ]
    },
@@ -690,10 +745,10 @@
     [
      -1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -701,8 +756,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HY250.trim.sail.L.harrow_recycling_truck.921e67": {
-   "id": "HY250.trim.sail.L.harrow_recycling_truck.921e67",
+  "HY250.side_bay.fore.L.harrow_recycling_truck.e969f2": {
+   "id": "HY250.side_bay.fore.L.harrow_recycling_truck.e969f2",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33192,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HY250.trim.sail.L.harrow_recycling_truck.48417c": {
+   "id": "HY250.trim.sail.L.harrow_recycling_truck.48417c",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "trim",
@@ -713,7 +799,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31896,
+     34488,
      72
     ]
    },
@@ -721,10 +807,10 @@
     [
      -1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -744,7 +830,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     33624,
+     36216,
      36
     ]
    },
@@ -775,7 +861,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     34488,
+     37080,
      66
     ]
    },
@@ -806,7 +892,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     36072,
+     38664,
      192
     ]
    },
@@ -825,8 +911,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HY250.roof_bay.roof_0.C.harrow_recycling_truck.33d132": {
-   "id": "HY250.roof_bay.roof_0.C.harrow_recycling_truck.33d132",
+  "HY250.roof_bay.roof_0.C.harrow_recycling_truck.d2c95c": {
+   "id": "HY250.roof_bay.roof_0.C.harrow_recycling_truck.d2c95c",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "roof_bay",
@@ -837,8 +923,8 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     40680,
-     1152
+     43272,
+     1296
     ]
    },
    "boxes": [
@@ -868,7 +954,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     68328,
+     74376,
      285
     ]
    },
@@ -887,8 +973,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HY250.floor.floor.C.harrow_recycling_truck.a48024": {
-   "id": "HY250.floor.floor.C.harrow_recycling_truck.a48024",
+  "HY250.floor.floor.C.harrow_recycling_truck.2bca37": {
+   "id": "HY250.floor.floor.C.harrow_recycling_truck.2bca37",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "floor",
@@ -899,8 +985,8 @@
    "reach": 0.0,
    "mats": {
     "carpet": [
-     75168,
-     1140
+     81216,
+     1260
     ]
    },
    "boxes": [
@@ -918,8 +1004,8 @@
    "breaks": "detach",
    "tolerance": 1.0
   },
-  "HY250.lining_bay.trim_0_0.R.harrow_recycling_truck.6cd773": {
-   "id": "HY250.lining_bay.trim_0_0.R.harrow_recycling_truck.6cd773",
+  "HY250.lining_bay.trim_0_0.R.harrow_recycling_truck.34e717": {
+   "id": "HY250.lining_bay.trim_0_0.R.harrow_recycling_truck.34e717",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "lining_bay",
@@ -930,8 +1016,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     102528,
-     96
+     111456,
+     126
     ]
    },
    "boxes": [
@@ -961,7 +1047,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     104832,
+     114480,
      144
     ]
    },
@@ -992,7 +1078,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     108288,
+     117936,
      36
     ]
    },
@@ -1011,8 +1097,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HY250.lining_bay.trim_0_0.L.harrow_recycling_truck.1ec550": {
-   "id": "HY250.lining_bay.trim_0_0.L.harrow_recycling_truck.1ec550",
+  "HY250.lining_bay.trim_0_0.L.harrow_recycling_truck.de9871": {
+   "id": "HY250.lining_bay.trim_0_0.L.harrow_recycling_truck.de9871",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "lining_bay",
@@ -1023,8 +1109,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     109152,
-     96
+     118800,
+     126
     ]
    },
    "boxes": [
@@ -1054,7 +1140,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     111456,
+     121824,
      144
     ]
    },
@@ -1085,7 +1171,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     114912,
+     125280,
      36
     ]
    },
@@ -1104,8 +1190,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HY250.ceiling_bay.roof_0.C.harrow_recycling_truck.81620e": {
-   "id": "HY250.ceiling_bay.roof_0.C.harrow_recycling_truck.81620e",
+  "HY250.ceiling_bay.roof_0.C.harrow_recycling_truck.7f64c8": {
+   "id": "HY250.ceiling_bay.roof_0.C.harrow_recycling_truck.7f64c8",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "ceiling_bay",
@@ -1116,8 +1202,8 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     115776,
-     1152
+     126144,
+     1296
     ]
    },
    "boxes": [
@@ -1147,7 +1233,7 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     143424,
+     157248,
      60
     ]
    },
@@ -1178,7 +1264,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     144864,
+     158688,
      144
     ]
    },
@@ -1209,7 +1295,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     148320,
+     162144,
      120
     ]
    },
@@ -1240,7 +1326,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     151200,
+     165024,
      54
     ]
    },
@@ -1271,7 +1357,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     152496,
+     166320,
      156
     ]
    },
@@ -1283,6 +1369,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.reveal.window_WQ.R.harrow_recycling_truck.598cbe": {
+   "id": "HY250.reveal.window_WQ.R.harrow_recycling_truck.598cbe",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/reveal/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     170064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1302,7 +1419,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     156240,
+     171216,
      156
     ]
    },
@@ -1314,6 +1431,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HY250.reveal.window_WQ.L.harrow_recycling_truck.536543": {
+   "id": "HY250.reveal.window_WQ.L.harrow_recycling_truck.536543",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/reveal/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     174960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1333,7 +1481,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     159984,
+     176112,
      132
     ]
    },
@@ -1352,6 +1500,68 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
+  "HY250.glazing.window_WQ.R.harrow_recycling_truck.6bb35c": {
+   "id": "HY250.glazing.window_WQ.R.harrow_recycling_truck.6bb35c",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HY250.glazing.window_WQ.L.harrow_recycling_truck.172506": {
+   "id": "HY250.glazing.window_WQ.L.harrow_recycling_truck.172506",
+   "standard": "HY250",
+   "class": "recycling_truck",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "harrow_recycling_truck",
+   "interface": "HY250/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "HY250.door_leaf.door_F.R.harrow_recycling_truck.28c301": {
    "id": "HY250.door_leaf.door_F.R.harrow_recycling_truck.28c301",
    "standard": "HY250",
@@ -1364,11 +1574,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     163152,
+     180144,
      54
     ],
     "paint": [
-     164448,
+     181440,
      174
     ]
    },
@@ -1399,7 +1609,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     168624,
+     185616,
      162
     ]
    },
@@ -1430,11 +1640,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     172512,
+     189504,
      36
     ],
     "dash": [
-     173376,
+     190368,
      36
     ]
    },
@@ -1465,11 +1675,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     174240,
+     191232,
      54
     ],
     "paint": [
-     175536,
+     192528,
      174
     ]
    },
@@ -1500,7 +1710,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     179712,
+     196704,
      162
     ]
    },
@@ -1531,11 +1741,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     183600,
+     200592,
      36
     ],
     "dash": [
-     184464,
+     201456,
      36
     ]
    },
@@ -1566,7 +1776,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     185328,
+     202320,
      636
     ]
    },
@@ -1597,7 +1807,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     200592,
+     217584,
      636
     ]
    },
@@ -1628,7 +1838,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     215856,
+     232848,
      108
     ]
    },
@@ -1659,7 +1869,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     218448,
+     235440,
      108
     ]
    },
@@ -1678,8 +1888,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "HY250.underpan.underpan.C.harrow_recycling_truck.cf30cb": {
-   "id": "HY250.underpan.underpan.C.harrow_recycling_truck.cf30cb",
+  "HY250.underpan.underpan.C.harrow_recycling_truck.eafcdc": {
+   "id": "HY250.underpan.underpan.C.harrow_recycling_truck.eafcdc",
    "standard": "HY250",
    "class": "recycling_truck",
    "role": "underpan",
@@ -1690,8 +1900,8 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     221040,
-     330
+     238032,
+     378
     ]
    },
    "boxes": [
@@ -1721,7 +1931,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     228960,
+     247104,
      30
     ]
    },
@@ -1752,7 +1962,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     229680,
+     247824,
      168
     ]
    },
@@ -1783,7 +1993,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     233712,
+     251856,
      168
     ]
    },
@@ -1814,7 +2024,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     237744,
+     255888,
      168
     ]
    },
@@ -1845,7 +2055,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     241776,
+     259920,
      168
     ]
    },
@@ -1876,11 +2086,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     245808,
+     263952,
      18
     ],
     "tub": [
-     246240,
+     264384,
      6
     ]
    },
@@ -1911,7 +2121,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     246384,
+     264528,
      6
     ]
    },
@@ -1942,7 +2152,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     246528,
+     264672,
      6
     ]
    },
@@ -1973,7 +2183,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     246672,
+     264816,
      6
     ]
    },
@@ -2004,7 +2214,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     246816,
+     264960,
      6
     ]
    },
@@ -2035,11 +2245,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     246960,
+     265104,
      24
     ],
     "paint2": [
-     247536,
+     265680,
      24
     ]
    },
@@ -2070,11 +2280,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     248112,
+     266256,
      36
     ],
     "paint2": [
-     248976,
+     267120,
      36
     ]
    },
@@ -2105,11 +2315,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     249840,
+     267984,
      108
     ],
     "seat": [
-     252432,
+     270576,
      324
     ]
    },
@@ -2140,19 +2350,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     260208,
+     278352,
      1236
     ],
     "chrome": [
-     289872,
+     308016,
      120
     ],
     "dash": [
-     292752,
+     310896,
      108
     ],
     "gauge": [
-     295344,
+     313488,
      384
     ]
    },
@@ -2183,11 +2393,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     304560,
+     322704,
      36
     ],
     "lcd": [
-     305424,
+     323568,
      36
     ]
    },
@@ -2218,15 +2428,15 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     306288,
+     324432,
      72
     ],
     "lamp_amber": [
-     308016,
+     326160,
      72
     ],
     "lamp_head": [
-     309744,
+     327888,
      72
     ]
    },
@@ -2257,7 +2467,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     311472,
+     329616,
      144
     ]
    },
@@ -2288,23 +2498,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     314928,
+     333072,
      12
     ],
     "lamp_amber": [
-     315216,
+     333360,
      48
     ],
     "lamp_brake": [
-     316368,
+     334512,
      36
     ],
     "lamp_reverse": [
-     317232,
+     335376,
      48
     ],
     "lamp_tail": [
-     318384,
+     336528,
      336
     ]
    },
@@ -2335,11 +2545,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     326448,
+     344592,
      72
     ],
     "lamp_tail": [
-     328176,
+     346320,
      72
     ]
    },
@@ -2370,11 +2580,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     329904,
+     348048,
      180
     ],
     "lamp_tail": [
-     334224,
+     352368,
      180
     ]
    },
@@ -2405,11 +2615,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     338544,
+     356688,
      108
     ],
     "rubber": [
-     341136,
+     359280,
      36
     ]
    },
@@ -2440,11 +2650,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     342000,
+     360144,
      108
     ],
     "rubber": [
-     344592,
+     362736,
      36
     ]
    },
@@ -2475,11 +2685,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     345456,
+     363600,
      96
     ],
     "glass_dark": [
-     347760,
+     365904,
      36
     ]
    },
@@ -2510,11 +2720,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     348624,
+     366768,
      96
     ],
     "glass_dark": [
-     350928,
+     369072,
      36
     ]
    },
@@ -2545,11 +2755,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     351792,
+     369936,
      36
     ],
     "chrome": [
-     352656,
+     370800,
      84
     ]
    },

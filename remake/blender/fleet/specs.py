@@ -34,7 +34,7 @@ BASE_PALETTE = {
     "lamp_tail": ((190, 18, 14), 0.4, 0.0, (255, 30, 20), 1.6, 1), "lamp_brake": ((190, 18, 14), 0.4, 0.0, (255, 30, 20), 0.0, 1),
     "lamp_amber": ((236, 140, 24), 0.4, 0.0, (255, 150, 30), 0.0, 1), "lamp_reverse": ((236, 236, 236), 0.4, 0.0, (255, 255, 255), 0.0, 1),
     "lcd": ((150, 168, 118), 0.5, 0.0, (120, 170, 90), 0.35, 1),        # (the Steward's monochrome dot-matrix: black on green)
-    "lamp_red": ((200, 20, 20), 0.3, 0.0, (255, 30, 30), 0.0, 1), "lamp_blue": ((20, 60, 220), 0.3, 0.0, (40, 90, 255), 0.0, 1), "lamp_green": ((20, 170, 60), 0.3, 0.0, (40, 255, 90), 0.0, 1),
+    "lamp_red": ((200, 20, 20), 0.3, 0.0, (255, 30, 30), 0.0, 1), "lamp_blue": ((20, 60, 220), 0.3, 0.0, (40, 90, 255), 0.0, 1), "lamp_green": ((20, 170, 60), 0.3, 0.0, (40, 255, 90), 0.0, 1), "canvas1": ((236, 232, 220), 0.85, 0.0, None, 0, 1), "canvas2": ((200, 40, 36), 0.85, 0.0, None, 0, 1),
 }
 
 
@@ -149,7 +149,7 @@ VAN = {
     "front": {"kind": "flat", "toe": 2.80, "header": 2.40, "screen_base": belt_for(H_VAN) + 0.02, "hood_drop": 0.10},
     "rear": {"kind": "hatch", "tail_in": -3.17, "barn": {"half_w": 0.86, "z": (0.62, 2.30), "corner": 0.03, "glass_z": (1.52, 2.12)}},
     "doors": [{"id": "F", "y0": 1.32, "y1": 0.52}, {"id": "S", "y0": 0.30, "y1": -1.20, "sides": "R", "kind": "slide"}],
-    "windows": [{"id": "W1", "y0": 0.30, "y1": -1.20, "sides": "L"}, {"id": "W2", "y0": -1.30, "y1": -2.90}],
+    "windows": [{"id": "WQ", "y0": 2.34, "y1": 1.42}, {"id": "W1", "y0": 0.30, "y1": -1.20, "sides": "L"}, {"id": "W2", "y0": -1.30, "y1": -2.90}],
     "seats": [{"y": 0.95, "z": H_VAN, "xs": [-0.45, 0.45], "w": 0.55}], "dash_y": 1.82,
     "head_lamp_z": 0.95, "tail_lamp_z": 1.10, "bumper_z": 0.52,
 }
@@ -167,7 +167,7 @@ HEAVY_CAB = {
     "belt": belt_for(H_TRUCK), "head": 2.62, "cant": 2.86, "crown": 2.96, "headliner": 2.90, "nose_round": 0.25, "tail_taper": 0.02, "pillar_t": 0.2, "pillar": 0.14,
     "front": {"kind": "flat", "toe": 4.30, "header": 3.92, "screen_base": belt_for(H_TRUCK) + 0.02, "hood_drop": 0.10},
     "rear": {"kind": "wall", "tail_in": 2.36, "back_window": {"half_w": 0.60, "z": (2.20, 2.55), "corner": 0.05}},
-    "doors": [{"id": "F", "y0": 3.62, "y1": 2.66}],
+    "doors": [{"id": "F", "y0": 3.62, "y1": 2.66}], "windows": [{"id": "WQ", "y0": 3.88, "y1": 3.70}],
     "seats": [{"y": 2.95, "z": H_TRUCK, "xs": [-0.62, 0.0, 0.62], "w": 0.55}], "dash_y": 3.90,
     "head_lamp_z": 0.95, "tail_lamp_z": 1.20, "bumper_z": 0.60,
 }
@@ -652,7 +652,7 @@ LOCOMOTIVE = heavy("RL280", "freight_locomotive", {"kind": "box", "y0": 6.20, "y
 LOCOMOTIVE.update({"board": "steward_rail22", "wheels_outside": True, "nose": 8.40, "tail": 6.25, "half_w": 1.48, "skirt": 1.00, "sill": 1.32, "floor": 1.30,
                    "high_floor": False, "front": {"kind": "flat", "toe": 8.28, "header": 7.85, "screen_base": belt_for(H_TRUCK) + 0.02, "hood_drop": 0.10},
                    "rear": {"kind": "wall", "tail_in": 6.31, "back_window": {"half_w": 0.40, "z": (2.20, 2.55), "corner": 0.05}},
-                   "doors": [{"id": "F", "y0": 7.70, "y1": 6.95}], "seats": [{"y": 7.25, "z": H_TRUCK, "xs": [-0.62, 0.62], "w": 0.55}], "dash_y": 7.95,
+                   "doors": [{"id": "F", "y0": 7.70, "y1": 6.95}], "windows": [], "seats": [{"y": 7.25, "z": H_TRUCK, "xs": [-0.62, 0.62], "w": 0.55}], "dash_y": 7.95,
                    "markers": [["pivot_lead", (0, 6.0, 0.5)], ["pivot_trail", (0, -6.0, 0.5)]]})
 LOCOMOTIVE["cargo"]["y0"] = 6.25
 FREIGHT = [
@@ -735,12 +735,14 @@ CARGO_AERO = dict(AERO_GONDOLA, **{
 CLASSES.update({c["id"]: c for c in (RESCUE_AERO, CARGO_AERO)})
 AERO_PANEL = {"lower": "paint", "upper": "paint", "roof": "paint2", "sail": "paint"}
 STYLES["AR700"] = {"name": "steward_mercy", "type": "rescue_aerostat",
-                   "palette": palette(paint=(232, 222, 196), paint2=(232, 222, 196), livery1=(240, 240, 236), livery2=(200, 36, 32)),
+                   "palette": palette(paint=(232, 222, 196), paint2=(232, 222, 196), livery1=(240, 240, 236), livery2=(200, 36, 32),
+                                   canvas1=(240, 240, 236), canvas2=(200, 36, 32)),
                    "panel": AERO_PANEL, "head_lamp": "round", "grille": None, "tail_lamp": "pixel", "bumper": "none", "mirror": "none",
                    "handle": "chrome", "belt_trim": "chrome", "rail": "black",
                    "equipment": ["envelope", "fins", "ducted_fans", "suspension", "winch", "rescue_cross", "aero_lamps"]}
 STYLES["AC820"] = {"name": "steward_burden", "type": "cargo_aerostat",
-                   "palette": palette(paint=(232, 222, 196), paint2=(78, 150, 140), livery1=(232, 224, 204), livery2=(78, 150, 140)),
+                   "palette": palette(paint=(232, 222, 196), paint2=(78, 150, 140), livery1=(232, 224, 204), livery2=(78, 150, 140),
+                                   canvas1=(232, 224, 204), canvas2=(78, 150, 140)),
                    "panel": AERO_PANEL, "head_lamp": "round", "grille": None, "tail_lamp": "pixel", "bumper": "none", "mirror": "none",
                    "handle": "chrome", "belt_trim": "chrome", "rail": "black", "livery": {"m": "livery2", "z": (0.62, 0.80)},
                    "equipment": ["envelope", "fins", "ducted_fans", "suspension", "sling", "boarding_ladder", "aero_lamps"]}
@@ -755,11 +757,11 @@ SHUTTLE = dict(SPACE_BODY, **{
     "about": "passenger shuttles (the port to orbit): a 29 m lifting body, a delta wing, 48 seats behind a two-seat flight deck",
     "nose": 14.6, "tail": -14.6, "half_w": 2.10, "belt": 1.55, "head": 2.05, "cant": 2.75, "crown": 3.20, "headliner": 2.92,
     "tuck": 0.50, "cant_in": 0.45, "tumble": 0.15, "nose_round": 2.6, "nose_taper": 0.55, "tail_round": 1.0, "tail_taper": 0.10,
-    "front": {"kind": "hood", "toe": 11.8, "header": 11.0, "screen_base": 1.80, "hood_drop": 0.95},
+    "front": {"kind": "hood", "toe": 11.8, "header": 11.0, "screen_base": 1.45, "hood_drop": 0.60},
     "rear": {"kind": "wall", "tail_in": -14.52, "back_window": {"half_w": 0.30, "z": (2.30, 2.55), "corner": 0.05}},
     "doors": [{"id": "F", "y0": 10.9, "y1": 10.2}, {"id": "P", "y0": 9.7, "y1": 8.75}],
     "windows": [{"id": "P%02d" % k, "y0": round(8.25 - k * 1.05, 3), "y1": round(8.25 - k * 1.05 - 0.50, 3)} for k in range(15)],
-    "seats": [{"y": 11.2, "z": 0.95, "xs": [-0.55, 0.55], "w": 0.55}] +
+    "seats": [{"y": 11.0, "z": 1.10, "xs": [-0.55, 0.55], "w": 0.55}] +
              [{"y": round(7.9 - k * 0.95, 3), "z": 0.95, "xs": [-1.45, -0.85, 0.85, 1.45], "w": 0.50} for k in range(12)],
     "dash_y": 11.6,
     "render": (-15.5, 8.2),
@@ -782,9 +784,9 @@ FREIGHTER = dict(SPACE_BODY, **{
 MULE = dict(SPACE_BODY, **{
     "id": "SM450", "cls": "cargo_mule", "board": "steward_keel8",
     "about": "cargo mules: a stubby tug, a glazed flight deck, thruster pods, two manipulator arms for the port's handling",
-    "nose": 3.30, "tail": -3.30, "half_w": 1.25, "belt": 1.50, "head": 2.30, "cant": 2.60, "crown": 2.85, "headliner": 2.78,
+    "nose": 3.30, "tail": -3.30, "half_w": 1.25, "belt": 1.15, "head": 2.30, "cant": 2.60, "crown": 2.85, "headliner": 2.78,
     "tuck": 0.15, "cant_in": 0.15, "tumble": 0.06, "nose_round": 0.9, "tail_round": 0.4,
-    "front": {"kind": "hood", "toe": 2.00, "header": 1.50, "screen_base": 1.55, "hood_drop": 0.25},
+    "front": {"kind": "hood", "toe": 2.00, "header": 1.50, "screen_base": 1.17, "hood_drop": 0.20},
     "rear": {"kind": "wall", "tail_in": -3.23, "back_window": {"half_w": 0.40, "z": (1.70, 2.20), "corner": 0.05}},
     "doors": [{"id": "F", "y0": 1.20, "y1": 0.40, "sides": "L"}],
     "windows": [{"id": "W1", "y0": 0.30, "y1": -1.20, "sides": "L"}],
@@ -803,9 +805,10 @@ ELEVATOR = dict(SPACE_BODY, **{
     "rear": {"kind": "wall", "tail_in": -2.84, "back_window": {"half_w": 0.70, "z": (1.40, 2.20), "corner": 0.08}},
     "doors": [{"id": "D", "y0": 0.80, "y1": -0.80, "sides": "R", "kind": "slide"}],
     "windows": [{"id": "W1", "y0": 2.20, "y1": 1.00}, {"id": "W2", "y0": -1.00, "y1": -2.20}, {"id": "W3", "y0": 0.80, "y1": -0.80, "sides": "L"}],
-    "seats": [{"y": 1.75, "z": 0.95, "xs": [-1.6, -1.0, 1.0, 1.6], "w": 0.50, "bench": True},
+    "seats": [{"y": 1.95, "z": 0.95, "xs": [0.0], "w": 0.50},
+              {"y": 0.9, "z": 0.95, "xs": [-1.9, -1.35, 1.35, 1.9], "w": 0.50, "bench": True},
               {"y": -1.75, "z": 0.95, "xs": [-1.6, -1.0, 1.0, 1.6], "w": 0.50, "bench": True}],
-    "dash_y": 2.60, "space": {},
+    "dash_y": 2.60, "space": {}, "driver": "C",
 })
 CLASSES.update({c["id"]: c for c in (SHUTTLE, FREIGHTER, MULE, ELEVATOR)})
 SPACE_STYLE = {"panel": {"lower": "paint", "upper": "paint", "roof": "paint2", "sail": "paint"}, "head_lamp": "round", "grille": None,

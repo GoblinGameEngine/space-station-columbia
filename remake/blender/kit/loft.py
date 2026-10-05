@@ -195,7 +195,10 @@ class Loft:
             cx = hx - self.cant_in * min(1.0, (cz - hz) / max(1e-6, self.cant - self.head))
             pts.append((hx + (cx - hx) * 0.45, hz + (cz - hz) * 0.72))
             pts.append((cx, cz))
-            crown = cz + (self.crown - self.cant)
+            camber = self.crown - self.cant
+            if camber > 0.15 and self.header < y <= self.toe:  # (a tall-cambered roof's arch flattens down the screen: its
+                camber *= (y - self.header) / max(1e-6, self.toe - self.header) * -1.0 + 1.0   # foot level, the driver sees
+            crown = cz + camber                                                                 # through it, not under it)
             pts += self._roof_arc(cx, cz, crown)
         assert len(pts) == NE, (y, len(pts))
         return [(x * s, z) for x, z in pts]

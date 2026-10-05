@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "HH250.trim.screen.C.steward_reaper.2f3d04": {
-   "id": "HH250.trim.screen.C.steward_reaper.2f3d04",
+  "HH250.trim.screen.C.steward_reaper.c5be09": {
+   "id": "HH250.trim.screen.C.steward_reaper.c5be09",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     2.5041,
+     2.5009,
      0.19,
      2.4016,
-     0.7362,
+     0.7297,
      0.38
     ]
    ],
@@ -515,8 +539,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "HH250.side_bay.fender.R.steward_reaper.84a37c": {
-   "id": "HH250.side_bay.fender.R.steward_reaper.84a37c",
+  "HH250.side_bay.fender.R.steward_reaper.2ca309": {
+   "id": "HH250.side_bay.fender.R.steward_reaper.2ca309",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "side_bay",
@@ -535,10 +559,10 @@
     [
      1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -546,8 +570,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HH250.trim.sail.R.steward_reaper.cc9c3b": {
-   "id": "HH250.trim.sail.R.steward_reaper.cc9c3b",
+  "HH250.side_bay.fore.R.steward_reaper.f67ded": {
+   "id": "HH250.side_bay.fore.R.steward_reaper.f67ded",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.trim.sail.R.steward_reaper.e6da4c": {
+   "id": "HH250.trim.sail.R.steward_reaper.e6da4c",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "trim",
@@ -558,7 +613,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     20232,
+     21528,
      72
     ]
    },
@@ -566,10 +621,10 @@
     [
      1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -589,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     21960,
+     23256,
      36
     ]
    },
@@ -620,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     22824,
+     24120,
      66
     ]
    },
@@ -651,7 +706,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     24408,
+     25704,
      192
     ]
    },
@@ -670,8 +725,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HH250.side_bay.fender.L.steward_reaper.863cf4": {
-   "id": "HH250.side_bay.fender.L.steward_reaper.863cf4",
+  "HH250.side_bay.fender.L.steward_reaper.807dd6": {
+   "id": "HH250.side_bay.fender.L.steward_reaper.807dd6",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "side_bay",
@@ -682,7 +737,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     29016,
+     30312,
      120
     ]
    },
@@ -690,10 +745,10 @@
     [
      -1.1524,
      1.28,
-     0.37,
+     0.24,
      0.1753,
      1.72,
-     0.74
+     0.48
     ]
    ],
    "hp": 400,
@@ -701,8 +756,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HH250.trim.sail.L.steward_reaper.5edef8": {
-   "id": "HH250.trim.sail.L.steward_reaper.5edef8",
+  "HH250.side_bay.fore.L.steward_reaper.30804c": {
+   "id": "HH250.side_bay.fore.L.steward_reaper.30804c",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33192,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     1.52,
+     0.13,
+     0.06,
+     2.2,
+     0.26
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "HH250.trim.sail.L.steward_reaper.bc2711": {
+   "id": "HH250.trim.sail.L.steward_reaper.bc2711",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "trim",
@@ -713,7 +799,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31896,
+     34488,
      72
     ]
    },
@@ -721,10 +807,10 @@
     [
      -1.21,
      2.37,
-     0.34,
+     0.21,
      0.06,
      0.5,
-     0.68
+     0.42
     ]
    ],
    "hp": 300,
@@ -744,7 +830,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     33624,
+     36216,
      36
     ]
    },
@@ -775,7 +861,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     34488,
+     37080,
      66
     ]
    },
@@ -806,7 +892,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     36072,
+     38664,
      192
     ]
    },
@@ -825,8 +911,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HH250.roof_bay.roof_0.C.steward_reaper.789235": {
-   "id": "HH250.roof_bay.roof_0.C.steward_reaper.789235",
+  "HH250.roof_bay.roof_0.C.steward_reaper.03f7b2": {
+   "id": "HH250.roof_bay.roof_0.C.steward_reaper.03f7b2",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "roof_bay",
@@ -837,8 +923,8 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     40680,
-     1152
+     43272,
+     1296
     ]
    },
    "boxes": [
@@ -868,7 +954,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     68328,
+     74376,
      285
     ]
    },
@@ -887,8 +973,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "HH250.floor.floor.C.steward_reaper.7a75ca": {
-   "id": "HH250.floor.floor.C.steward_reaper.7a75ca",
+  "HH250.floor.floor.C.steward_reaper.d4d050": {
+   "id": "HH250.floor.floor.C.steward_reaper.d4d050",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "floor",
@@ -899,8 +985,8 @@
    "reach": 0.0,
    "mats": {
     "carpet": [
-     75168,
-     1140
+     81216,
+     1260
     ]
    },
    "boxes": [
@@ -918,8 +1004,8 @@
    "breaks": "detach",
    "tolerance": 1.0
   },
-  "HH250.lining_bay.trim_0_0.R.steward_reaper.98cd01": {
-   "id": "HH250.lining_bay.trim_0_0.R.steward_reaper.98cd01",
+  "HH250.lining_bay.trim_0_0.R.steward_reaper.00b164": {
+   "id": "HH250.lining_bay.trim_0_0.R.steward_reaper.00b164",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "lining_bay",
@@ -930,8 +1016,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     102528,
-     96
+     111456,
+     126
     ]
    },
    "boxes": [
@@ -961,7 +1047,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     104832,
+     114480,
      144
     ]
    },
@@ -992,7 +1078,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     108288,
+     117936,
      36
     ]
    },
@@ -1011,8 +1097,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HH250.lining_bay.trim_0_0.L.steward_reaper.e1168f": {
-   "id": "HH250.lining_bay.trim_0_0.L.steward_reaper.e1168f",
+  "HH250.lining_bay.trim_0_0.L.steward_reaper.fd22a9": {
+   "id": "HH250.lining_bay.trim_0_0.L.steward_reaper.fd22a9",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "lining_bay",
@@ -1023,8 +1109,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     109152,
-     96
+     118800,
+     126
     ]
    },
    "boxes": [
@@ -1054,7 +1140,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     111456,
+     121824,
      144
     ]
    },
@@ -1085,7 +1171,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     114912,
+     125280,
      36
     ]
    },
@@ -1104,8 +1190,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "HH250.ceiling_bay.roof_0.C.steward_reaper.88060f": {
-   "id": "HH250.ceiling_bay.roof_0.C.steward_reaper.88060f",
+  "HH250.ceiling_bay.roof_0.C.steward_reaper.228074": {
+   "id": "HH250.ceiling_bay.roof_0.C.steward_reaper.228074",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "ceiling_bay",
@@ -1116,8 +1202,8 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     115776,
-     1152
+     126144,
+     1296
     ]
    },
    "boxes": [
@@ -1147,7 +1233,7 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     143424,
+     157248,
      60
     ]
    },
@@ -1178,7 +1264,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     144864,
+     158688,
      144
     ]
    },
@@ -1209,7 +1295,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     148320,
+     162144,
      120
     ]
    },
@@ -1240,7 +1326,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     151200,
+     165024,
      54
     ]
    },
@@ -1271,7 +1357,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     152496,
+     166320,
      156
     ]
    },
@@ -1283,6 +1369,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.reveal.window_WQ.R.steward_reaper.aa9443": {
+   "id": "HH250.reveal.window_WQ.R.steward_reaper.aa9443",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/reveal/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     170064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1302,7 +1419,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     156240,
+     171216,
      156
     ]
    },
@@ -1314,6 +1431,37 @@
      0.12,
      1.32,
      0.96
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "HH250.reveal.window_WQ.L.steward_reaper.da860a": {
+   "id": "HH250.reveal.window_WQ.L.steward_reaper.da860a",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/reveal/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     174960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.18,
+     2.37,
+     0.09,
+     0.12,
+     0.5,
+     0.18
     ]
    ],
    "hp": 300,
@@ -1333,7 +1481,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     159984,
+     176112,
      132
     ]
    },
@@ -1352,6 +1500,68 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
+  "HH250.glazing.window_WQ.R.steward_reaper.9f5269": {
+   "id": "HH250.glazing.window_WQ.R.steward_reaper.9f5269",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "steward_reaper",
+   "interface": "HH250/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "HH250.glazing.window_WQ.L.steward_reaper.7f10e4": {
+   "id": "HH250.glazing.window_WQ.L.steward_reaper.7f10e4",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "steward_reaper",
+   "interface": "HH250/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     179712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.21,
+     2.37,
+     0.09,
+     0.06,
+     0.5,
+     0.18
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "HH250.door_leaf.door_F.R.steward_reaper.de38a1": {
    "id": "HH250.door_leaf.door_F.R.steward_reaper.de38a1",
    "standard": "HH250",
@@ -1364,11 +1574,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     163152,
+     180144,
      54
     ],
     "paint": [
-     164448,
+     181440,
      174
     ]
    },
@@ -1399,7 +1609,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     168624,
+     185616,
      162
     ]
    },
@@ -1430,11 +1640,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     172512,
+     189504,
      36
     ],
     "dash": [
-     173376,
+     190368,
      36
     ]
    },
@@ -1465,11 +1675,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     174240,
+     191232,
      54
     ],
     "paint": [
-     175536,
+     192528,
      174
     ]
    },
@@ -1500,7 +1710,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     179712,
+     196704,
      162
     ]
    },
@@ -1531,11 +1741,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     183600,
+     200592,
      36
     ],
     "dash": [
-     184464,
+     201456,
      36
     ]
    },
@@ -1566,7 +1776,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     185328,
+     202320,
      636
     ]
    },
@@ -1597,7 +1807,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     200592,
+     217584,
      636
     ]
    },
@@ -1628,7 +1838,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     215856,
+     232848,
      108
     ]
    },
@@ -1659,7 +1869,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     218448,
+     235440,
      108
     ]
    },
@@ -1678,8 +1888,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "HH250.underpan.underpan.C.steward_reaper.9d7285": {
-   "id": "HH250.underpan.underpan.C.steward_reaper.9d7285",
+  "HH250.underpan.underpan.C.steward_reaper.4dc4c8": {
+   "id": "HH250.underpan.underpan.C.steward_reaper.4dc4c8",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "underpan",
@@ -1690,8 +1900,8 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     221040,
-     330
+     238032,
+     378
     ]
    },
    "boxes": [
@@ -1721,7 +1931,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     228960,
+     247104,
      30
     ]
    },
@@ -1752,7 +1962,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     229680,
+     247824,
      156
     ]
    },
@@ -1783,7 +1993,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     233424,
+     251568,
      156
     ]
    },
@@ -1814,7 +2024,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     237168,
+     255312,
      156
     ]
    },
@@ -1845,7 +2055,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     240912,
+     259056,
      156
     ]
    },
@@ -1876,11 +2086,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     244656,
+     262800,
      18
     ],
     "tub": [
-     245088,
+     263232,
      6
     ]
    },
@@ -1911,7 +2121,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     245232,
+     263376,
      6
     ]
    },
@@ -1942,7 +2152,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     245376,
+     263520,
      6
     ]
    },
@@ -1973,7 +2183,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     245520,
+     263664,
      6
     ]
    },
@@ -2004,7 +2214,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     245664,
+     263808,
      6
     ]
    },
@@ -2035,7 +2245,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     245808,
+     263952,
      6
     ]
    },
@@ -2066,7 +2276,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     245952,
+     264096,
      6
     ]
    },
@@ -2097,11 +2307,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     246096,
+     264240,
      108
     ],
     "seat": [
-     248688,
+     266832,
      324
     ]
    },
@@ -2132,19 +2342,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     256464,
+     274608,
      1236
     ],
     "chrome": [
-     286128,
+     304272,
      120
     ],
     "dash": [
-     289008,
+     307152,
      108
     ],
     "gauge": [
-     291600,
+     309744,
      384
     ]
    },
@@ -2175,11 +2385,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     300816,
+     318960,
      36
     ],
     "lcd": [
-     301680,
+     319824,
      36
     ]
    },
@@ -2210,15 +2420,15 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     302544,
+     320688,
      72
     ],
     "lamp_amber": [
-     304272,
+     322416,
      72
     ],
     "lamp_head": [
-     306000,
+     324144,
      72
     ]
    },
@@ -2249,7 +2459,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     307728,
+     325872,
      144
     ]
    },
@@ -2280,23 +2490,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     311184,
+     329328,
      12
     ],
     "lamp_amber": [
-     311472,
+     329616,
      48
     ],
     "lamp_brake": [
-     312624,
+     330768,
      36
     ],
     "lamp_reverse": [
-     313488,
+     331632,
      48
     ],
     "lamp_tail": [
-     314640,
+     332784,
      336
     ]
    },
@@ -2327,11 +2537,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     322704,
+     340848,
      72
     ],
     "lamp_tail": [
-     324432,
+     342576,
      72
     ]
    },
@@ -2362,11 +2572,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     326160,
+     344304,
      180
     ],
     "lamp_tail": [
-     330480,
+     348624,
      180
     ]
    },
@@ -2397,11 +2607,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     334800,
+     352944,
      108
     ],
     "rubber": [
-     337392,
+     355536,
      36
     ]
    },
@@ -2432,11 +2642,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     338256,
+     356400,
      108
     ],
     "rubber": [
-     340848,
+     358992,
      36
     ]
    },
@@ -2467,11 +2677,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     341712,
+     359856,
      96
     ],
     "glass_dark": [
-     344016,
+     362160,
      36
     ]
    },
@@ -2502,11 +2712,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     344880,
+     363024,
      96
     ],
     "glass_dark": [
-     347184,
+     365328,
      36
     ]
    },
@@ -2537,19 +2747,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     348048,
+     366192,
      36
     ],
     "chrome": [
-     348912,
+     367056,
      36
     ],
     "lamp_amber": [
-     349776,
+     367920,
      60
     ],
     "paint": [
-     351216,
+     369360,
      108
     ]
    },
@@ -2580,7 +2790,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     353808,
+     371952,
      108
     ]
    },
@@ -2611,7 +2821,7 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     356400,
+     374544,
      288
     ]
    },

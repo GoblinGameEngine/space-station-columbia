@@ -70,7 +70,7 @@ def envelope(b, A, st):
         for k in range(n):
             a1 = angs[(k + 1) % n] + (TAU if k == n - 1 else 0.0)
             tm, am = (ts[i] + ts[i + 1]) / 2, (angs[k] + a1) / 2
-            m = "livery2" if _stripe(A, tm, am) else "livery1"
+            m = "canvas2" if _stripe(A, tm, am) else "canvas1"      # (fabric: the canvas surface, seamed into gores)
             me.face([rings[i][k], rings[i][(k + 1) % n], rings[i + 1][(k + 1) % n], rings[i + 1][k]], m)
     # (the seams: the gores' thin welts, and the nose's mooring cone)
     L, R, yc, zc = A["env"]
@@ -114,7 +114,7 @@ def _fin(me, A, ang, mats):
 def fins(b, A, st):
     me = b.mod("fins", "equipment", "fins", "C", hp=900, mass=60)
     for ang in A.get("fin_angles", (0.0, math.pi / 2, math.pi, 3 * math.pi / 2)):
-        _fin(me, A, ang, ("livery1", "livery2"))
+        _fin(me, A, ang, ("canvas1", "canvas2"))
     if A.get("stabiliser_rods"):                         # (the rescue's: a slim boom along each horizontal fin's tip)
         L, R, yc, zc = A["env"]
         t0, t1, span, tipk, sweep = A["fins"]
@@ -308,20 +308,27 @@ def lamps(b, A, st):
 
 
 def ladder(b, A, st):
-    """A boarding ladder hung under the crew door (the cargo gondola stands high on its frame)."""
-    me = b.mod("ladder", "equipment", "ladder", "R", hp=200, mass=12)
+    """The boarding stair (the cargo gondola stands high over its sling frame): a steep ship's stair from the crew
+    door's sill straight out to the frame's side rail -- treads, stringers, a handrail each side."""
+    me = b.mod("ladder", "equipment", "stair", "R", hp=300, mass=60)
     B = b.L
     d = B.doors[0]
     y = (d["y0"] + d["y1"]) / 2
-    x = B.half_w + 0.06
-    z0, z1 = A["sling"][3] + 0.1, B.sill - 0.06              # (its top just under the sill: clear of the doorway)
-    for dy in (-0.22, 0.22):
-        me.pipe([Vector((x, y + dy, z1)), Vector((x + 0.25, y + dy, z0))], 0.025, "chrome", n=6)
-    k = 0.3
-    while k < z1 - z0:
-        f = k / (z1 - z0)
-        me.pipe([Vector((x + 0.25 * (1 - f), y - 0.22, z0 + k)), Vector((x + 0.25 * (1 - f), y + 0.22, z0 + k))], 0.018, "chrome", n=6)
-        k += 0.3
+    x0, z0 = B.half_w + 0.05, B.sill - 0.03
+    hw, _, _, zf = A["sling"]
+    x1 = hw - 0.10
+    n = max(4, int(round((z0 - zf) / 0.22)))
+    for dy in (-0.40, 0.40):                               # the stringers and the handrails (outside the door frame)
+        me.pipe([Vector((x0, y + dy, z0)), Vector((x1, y + dy, zf))], 0.035, "livery1", n=8)
+        me.pipe([Vector((x0, y + dy, z0 + 0.95)), Vector((x1, y + dy, zf + 0.95))], 0.022, "chrome", n=6)
+        for f in (0.0, 0.5, 1.0):
+            p = Vector((x0 + (x1 - x0) * f, y + dy, z0 + (zf - z0) * f))
+            me.pipe([p, p + Vector((0, 0, 0.95))], 0.018, "chrome", n=6)
+    for k in range(1, n):                                  # the treads
+        f = k / n
+        me.box((x0 + (x1 - x0) * f, y, z0 + (zf - z0) * f), (0.11, 0.38, 0.02), "black")
+    b.marker("stair_top", (x0, y, z0))
+    b.marker("stair_foot", (x1, y, zf))
 
 
 KINDS = {"envelope": envelope, "fins": fins, "ducted_fans": fans, "suspension": suspension, "sling": sling, "winch": winch,

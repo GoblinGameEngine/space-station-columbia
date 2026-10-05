@@ -388,9 +388,95 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
+  "VN230.glazing.window_WQ.R.carrow_shuttle.c30dd9": {
+   "id": "VN230.glazing.window_WQ.R.carrow_shuttle.c30dd9",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "carrow_shuttle",
+   "interface": "VN230/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     0,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.46,
+     0.06,
+     0.68,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.glazing.window_WQ.L.carrow_shuttle.bd3a71": {
+   "id": "VN230.glazing.window_WQ.L.carrow_shuttle.bd3a71",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "carrow_shuttle",
+   "interface": "VN230/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     3888,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.46,
+     0.06,
+     0.68,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "VN230.glazing.window_W1.L.carrow_shuttle.239f2b": {
    "id": "VN230.glazing.window_W1.L.carrow_shuttle.239f2b",
    "standard": "VN230",
@@ -403,7 +489,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     0,
+     7776,
      18
     ]
    },
@@ -434,7 +520,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     432,
+     8208,
      234
     ]
    },
@@ -465,7 +551,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     6048,
+     13824,
      234
     ]
    },
@@ -496,11 +582,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     11664,
+     19440,
      72
     ],
     "seat": [
-     13392,
+     21168,
      216
     ]
    },
@@ -519,8 +605,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "VN230.trim.belt_fender.R.carrow_shuttle.33700a": {
-   "id": "VN230.trim.belt_fender.R.carrow_shuttle.33700a",
+  "VN230.trim.belt_fender.R.carrow_shuttle.43f9a1": {
+   "id": "VN230.trim.belt_fender.R.carrow_shuttle.43f9a1",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -531,18 +617,49 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     18576,
-     564
+     26352,
+     204
     ]
    },
    "boxes": [
     [
      1.0391,
      1.3297,
-     0.7833,
-     0.0691,
+     0.2733,
+     0.0692,
      0.0721,
-     1.5666
+     0.5465
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.belt_fore.R.carrow_shuttle.f5d53f": {
+   "id": "VN230.trim.belt_fore.R.carrow_shuttle.f5d53f",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "R",
+   "style": "carrow_shuttle",
+   "interface": "VN230/trim/belt_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     31248,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     1.066,
+     1.358,
+     0.506,
+     0.02,
+     0.02,
+     1.012
     ]
    ],
    "hp": 100,
@@ -562,7 +679,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     32112,
+     40464,
      96
     ]
    },
@@ -593,7 +710,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     34416,
+     42768,
      708
     ]
    },
@@ -612,8 +729,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "VN230.trim.belt_fender.L.carrow_shuttle.cc343f": {
-   "id": "VN230.trim.belt_fender.L.carrow_shuttle.cc343f",
+  "VN230.trim.belt_fender.L.carrow_shuttle.c6a8d9": {
+   "id": "VN230.trim.belt_fender.L.carrow_shuttle.c6a8d9",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -624,18 +741,49 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     51408,
-     564
+     59760,
+     204
     ]
    },
    "boxes": [
     [
      -1.0393,
-     1.3299,
-     0.7832,
+     1.3298,
+     0.2731,
      0.0689,
-     0.0716,
-     1.5663
+     0.0717,
+     0.5462
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "VN230.trim.belt_fore.L.carrow_shuttle.4ee8ce": {
+   "id": "VN230.trim.belt_fore.L.carrow_shuttle.4ee8ce",
+   "standard": "VN230",
+   "class": "van",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "L",
+   "style": "carrow_shuttle",
+   "interface": "VN230/trim/belt_fore/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     64656,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     -1.066,
+     1.358,
+     0.506,
+     0.02,
+     0.02,
+     1.012
     ]
    ],
    "hp": 100,
@@ -655,7 +803,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     64944,
+     73872,
      1320
     ]
    },
@@ -686,7 +834,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     96624,
+     105552,
      276
     ]
    },
@@ -717,7 +865,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     103248,
+     112176,
      528
     ]
    },
@@ -748,7 +896,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     115920,
+     124848,
      276
     ]
    },
@@ -779,11 +927,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     122544,
+     131472,
      36
     ],
     "lcd": [
-     123408,
+     132336,
      36
     ]
    },

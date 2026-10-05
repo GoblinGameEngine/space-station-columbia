@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -1918,8 +1942,8 @@
    "breaks": "detach",
    "tolerance": 0.25
   },
-  "BTROWBOA.equipment.thwarts.C.hull_rowboat_dinghy.bfeb69": {
-   "id": "BTROWBOA.equipment.thwarts.C.hull_rowboat_dinghy.bfeb69",
+  "BTROWBOA.equipment.thwarts.C.hull_rowboat_dinghy.0246ad": {
+   "id": "BTROWBOA.equipment.thwarts.C.hull_rowboat_dinghy.0246ad",
    "standard": "BTROWBOA",
    "class": "rowboat_dinghy",
    "role": "equipment",
@@ -1937,11 +1961,46 @@
    "boxes": [
     [
      0.0,
-     0.3369,
-     0.65,
+     0.3541,
+     0.87,
      1.28,
-     0.04,
-     1.3
+     0.0738,
+     1.74
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "BTROWBOA.equipment.tiller_outboard.C.hull_rowboat_dinghy.afd853": {
+   "id": "BTROWBOA.equipment.tiller_outboard.C.hull_rowboat_dinghy.afd853",
+   "standard": "BTROWBOA",
+   "class": "rowboat_dinghy",
+   "role": "equipment",
+   "slot": "tiller_outboard",
+   "side": "C",
+   "style": "hull_rowboat_dinghy",
+   "interface": "BTROWBOA/equipment/tiller_outboard/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     91368,
+     408
+    ],
+    "rubber": [
+     101160,
+     84
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     0.3033,
+     0.8246,
+     0.36,
+     1.16,
+     1.6492
     ]
    ],
    "hp": 300,

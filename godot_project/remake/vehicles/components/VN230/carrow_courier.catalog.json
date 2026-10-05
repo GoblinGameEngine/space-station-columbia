@@ -388,6 +388,30 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "canvas1": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8627
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "canvas2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
   }
  },
  "components": {
@@ -484,8 +508,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "VN230.trim.screen.C.carrow_courier.4f3523": {
-   "id": "VN230.trim.screen.C.carrow_courier.4f3523",
+  "VN230.trim.screen.C.carrow_courier.ba1a4c": {
+   "id": "VN230.trim.screen.C.carrow_courier.ba1a4c",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -503,10 +527,10 @@
    "boxes": [
     [
      0.0,
-     1.9186,
+     1.9156,
      0.2,
      2.0935,
-     1.0652,
+     1.0591,
      0.4
     ]
    ],
@@ -515,8 +539,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "VN230.side_bay.fender.R.carrow_courier.f9a1c2": {
-   "id": "VN230.side_bay.fender.R.carrow_courier.f9a1c2",
+  "VN230.side_bay.fender.R.carrow_courier.7b654f": {
+   "id": "VN230.side_bay.fender.R.carrow_courier.7b654f",
    "standard": "VN230",
    "class": "van",
    "role": "side_bay",
@@ -528,17 +552,17 @@
    "mats": {
     "paint": [
      19080,
-     210
+     126
     ]
    },
    "boxes": [
     [
      0.9799,
      0.875,
-     0.785,
+     0.275,
      0.1602,
      1.03,
-     1.57
+     0.55
     ]
    ],
    "hp": 400,
@@ -546,8 +570,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "VN230.trim.sail.R.carrow_courier.25257d": {
-   "id": "VN230.trim.sail.R.carrow_courier.25257d",
+  "VN230.side_bay.fore.R.carrow_courier.9b3aa8": {
+   "id": "VN230.side_bay.fore.R.carrow_courier.9b3aa8",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22104,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.205,
+     0.51,
+     0.06,
+     1.69,
+     1.02
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.trim.sail.R.carrow_courier.690f50": {
+   "id": "VN230.trim.sail.R.carrow_courier.690f50",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -558,18 +613,18 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     24120,
-     270
+     25704,
+     90
     ]
    },
    "boxes": [
     [
      1.03,
      1.71,
-     0.74,
+     0.23,
      0.06,
      0.68,
-     1.48
+     0.46
     ]
    ],
    "hp": 300,
@@ -589,7 +644,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     30600,
+     27864,
      24
     ]
    },
@@ -620,7 +675,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31176,
+     28440,
      6
     ]
    },
@@ -651,7 +706,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     31320,
+     28584,
      36
     ]
    },
@@ -682,7 +737,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     32184,
+     29448,
      6
     ]
    },
@@ -713,7 +768,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     32328,
+     29592,
      270
     ]
    },
@@ -732,8 +787,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "VN230.side_bay.fender.L.carrow_courier.b9aaf6": {
-   "id": "VN230.side_bay.fender.L.carrow_courier.b9aaf6",
+  "VN230.side_bay.fender.L.carrow_courier.716739": {
+   "id": "VN230.side_bay.fender.L.carrow_courier.716739",
    "standard": "VN230",
    "class": "van",
    "role": "side_bay",
@@ -744,18 +799,18 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     38808,
-     210
+     36072,
+     126
     ]
    },
    "boxes": [
     [
      -0.9799,
      0.875,
-     0.785,
+     0.275,
      0.1602,
      1.03,
-     1.57
+     0.55
     ]
    ],
    "hp": 400,
@@ -763,8 +818,39 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "VN230.trim.sail.L.carrow_courier.fcab3d": {
-   "id": "VN230.trim.sail.L.carrow_courier.fcab3d",
+  "VN230.side_bay.fore.L.carrow_courier.4a7cfe": {
+   "id": "VN230.side_bay.fore.L.carrow_courier.4a7cfe",
+   "standard": "VN230",
+   "class": "van",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/side_bay/fore/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     39096,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.205,
+     0.51,
+     0.06,
+     1.69,
+     1.02
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "VN230.trim.sail.L.carrow_courier.eb0445": {
+   "id": "VN230.trim.sail.L.carrow_courier.eb0445",
    "standard": "VN230",
    "class": "van",
    "role": "trim",
@@ -775,18 +861,18 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     43848,
-     270
+     42696,
+     90
     ]
    },
    "boxes": [
     [
      -1.03,
      1.71,
-     0.74,
+     0.23,
      0.06,
      0.68,
-     1.48
+     0.46
     ]
    ],
    "hp": 300,
@@ -806,7 +892,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     50328,
+     44856,
      24
     ]
    },
@@ -837,7 +923,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     50904,
+     45432,
      6
     ]
    },
@@ -868,7 +954,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     51048,
+     45576,
      324
     ]
    },
@@ -887,8 +973,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "VN230.roof_bay.roof_0.C.carrow_courier.6d3540": {
-   "id": "VN230.roof_bay.roof_0.C.carrow_courier.6d3540",
+  "VN230.roof_bay.roof_0.C.carrow_courier.312eb1": {
+   "id": "VN230.roof_bay.roof_0.C.carrow_courier.312eb1",
    "standard": "VN230",
    "class": "van",
    "role": "roof_bay",
@@ -899,8 +985,8 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     58824,
-     936
+     53352,
+     1080
     ]
    },
    "boxes": [
@@ -930,7 +1016,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     81288,
+     79272,
      144
     ]
    },
@@ -961,7 +1047,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     84744,
+     82728,
      576
     ]
    },
@@ -992,7 +1078,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     98568,
+     96552,
      720
     ]
    },
@@ -1023,7 +1109,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     115848,
+     113832,
      429
     ]
    },
@@ -1042,8 +1128,8 @@
    "breaks": "detach",
    "tolerance": 0.16
   },
-  "VN230.floor.floor.C.carrow_courier.725936": {
-   "id": "VN230.floor.floor.C.carrow_courier.725936",
+  "VN230.floor.floor.C.carrow_courier.e85381": {
+   "id": "VN230.floor.floor.C.carrow_courier.e85381",
    "standard": "VN230",
    "class": "van",
    "role": "floor",
@@ -1054,8 +1140,8 @@
    "reach": 0.0,
    "mats": {
     "carpet": [
-     126144,
-     1680
+     124128,
+     1776
     ]
    },
    "boxes": [
@@ -1073,8 +1159,8 @@
    "breaks": "detach",
    "tolerance": 1.0
   },
-  "VN230.lining_bay.trim_0_0.R.carrow_courier.9bdb9b": {
-   "id": "VN230.lining_bay.trim_0_0.R.carrow_courier.9bdb9b",
+  "VN230.lining_bay.trim_0_0.R.carrow_courier.53c20f": {
+   "id": "VN230.lining_bay.trim_0_0.R.carrow_courier.53c20f",
    "standard": "VN230",
    "class": "van",
    "role": "lining_bay",
@@ -1085,8 +1171,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     166464,
-     450
+     166752,
+     348
     ]
    },
    "boxes": [
@@ -1116,7 +1202,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     177264,
+     175104,
      30
     ]
    },
@@ -1147,7 +1233,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     177984,
+     175824,
      276
     ]
    },
@@ -1178,7 +1264,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     184608,
+     182448,
      24
     ]
    },
@@ -1197,8 +1283,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "VN230.lining_bay.trim_0_0.L.carrow_courier.fc5194": {
-   "id": "VN230.lining_bay.trim_0_0.L.carrow_courier.fc5194",
+  "VN230.lining_bay.trim_0_0.L.carrow_courier.51202c": {
+   "id": "VN230.lining_bay.trim_0_0.L.carrow_courier.51202c",
    "standard": "VN230",
    "class": "van",
    "role": "lining_bay",
@@ -1209,8 +1295,8 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     185184,
-     450
+     183024,
+     348
     ]
    },
    "boxes": [
@@ -1240,7 +1326,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     195984,
+     191376,
      318
     ]
    },
@@ -1271,7 +1357,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     203616,
+     199008,
      24
     ]
    },
@@ -1290,8 +1376,8 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "VN230.ceiling_bay.roof_0.C.carrow_courier.ec7288": {
-   "id": "VN230.ceiling_bay.roof_0.C.carrow_courier.ec7288",
+  "VN230.ceiling_bay.roof_0.C.carrow_courier.fcc9e4": {
+   "id": "VN230.ceiling_bay.roof_0.C.carrow_courier.fcc9e4",
    "standard": "VN230",
    "class": "van",
    "role": "ceiling_bay",
@@ -1302,8 +1388,8 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     204192,
-     936
+     199584,
+     1080
     ]
    },
    "boxes": [
@@ -1333,7 +1419,7 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     226656,
+     225504,
      144
     ]
    },
@@ -1364,7 +1450,7 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     230112,
+     228960,
      576
     ]
    },
@@ -1395,7 +1481,7 @@
    "reach": 0.0,
    "mats": {
     "headliner": [
-     243936,
+     242784,
      720
     ]
    },
@@ -1426,7 +1512,7 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     261216,
+     260064,
      60
     ]
    },
@@ -1457,7 +1543,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     262656,
+     261504,
      144
     ]
    },
@@ -1488,7 +1574,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     266112,
+     264960,
      120
     ]
    },
@@ -1519,7 +1605,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     268992,
+     267840,
      72
     ]
    },
@@ -1550,7 +1636,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     270720,
+     269568,
      72
     ]
    },
@@ -1562,6 +1648,37 @@
      0.12,
      1.47,
      1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.window_WQ.R.carrow_courier.881fd2": {
+   "id": "VN230.reveal.window_WQ.R.carrow_courier.881fd2",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     271296,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.0,
+     1.71,
+     0.46,
+     0.12,
+     0.68,
+     0.92
     ]
    ],
    "hp": 300,
@@ -1581,7 +1698,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     272448,
+     274752,
      192
     ]
    },
@@ -1612,7 +1729,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     277056,
+     279360,
      72
     ]
    },
@@ -1624,6 +1741,37 @@
      0.12,
      1.47,
      0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "VN230.reveal.window_WQ.L.carrow_courier.19d81b": {
+   "id": "VN230.reveal.window_WQ.L.carrow_courier.19d81b",
+   "standard": "VN230",
+   "class": "van",
+   "role": "reveal",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/reveal/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     281088,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.0,
+     1.71,
+     0.46,
+     0.12,
+     0.68,
+     0.92
     ]
    ],
    "hp": 300,
@@ -1643,7 +1791,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     278784,
+     284544,
      48
     ]
    },
@@ -1674,7 +1822,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     279936,
+     285696,
      192
     ]
    },
@@ -1705,7 +1853,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     284544,
+     290304,
      120
     ]
    },
@@ -1724,6 +1872,68 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
+  "VN230.glazing.window_WQ.R.carrow_courier.07dc23": {
+   "id": "VN230.glazing.window_WQ.R.carrow_courier.07dc23",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "R",
+   "style": "carrow_courier",
+   "interface": "VN230/glazing/window_WQ/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     293184,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     1.03,
+     1.71,
+     0.46,
+     0.06,
+     0.68,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "VN230.glazing.window_WQ.L.carrow_courier.222e55": {
+   "id": "VN230.glazing.window_WQ.L.carrow_courier.222e55",
+   "standard": "VN230",
+   "class": "van",
+   "role": "glazing",
+   "slot": "window_WQ",
+   "side": "L",
+   "style": "carrow_courier",
+   "interface": "VN230/glazing/window_WQ/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     297072,
+     162
+    ]
+   },
+   "boxes": [
+    [
+     -1.03,
+     1.71,
+     0.46,
+     0.06,
+     0.68,
+     0.92
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
   "VN230.side_bay.window_W1.L.carrow_courier.527b39": {
    "id": "VN230.side_bay.window_W1.L.carrow_courier.527b39",
    "standard": "VN230",
@@ -1736,7 +1946,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     287424,
+     300960,
      18
     ]
    },
@@ -1767,7 +1977,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     287856,
+     301392,
      18
     ]
    },
@@ -1798,7 +2008,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     288288,
+     301824,
      234
     ]
    },
@@ -1829,7 +2039,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     293904,
+     307440,
      234
     ]
    },
@@ -1860,7 +2070,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     299520,
+     313056,
      234
     ]
    },
@@ -1891,7 +2101,7 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     305136,
+     318672,
      234
     ]
    },
@@ -1922,11 +2132,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     310752,
+     324288,
      12
     ],
     "paint": [
-     311040,
+     324576,
      48
     ]
    },
@@ -1957,7 +2167,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     312192,
+     325728,
      18
     ]
    },
@@ -1988,11 +2198,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     312624,
+     326160,
      36
     ],
     "dash": [
-     313488,
+     327024,
      36
     ]
    },
@@ -2023,11 +2233,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     314352,
+     327888,
      12
     ],
     "paint": [
-     314640,
+     328176,
      48
     ]
    },
@@ -2058,7 +2268,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     315792,
+     329328,
      18
     ]
    },
@@ -2089,11 +2299,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     316224,
+     329760,
      36
     ],
     "dash": [
-     317088,
+     330624,
      36
     ]
    },
@@ -2124,11 +2334,11 @@
    "reach": 0.0,
    "mats": {
     "lining": [
-     317952,
+     331488,
      12
     ],
     "paint": [
-     318240,
+     331776,
      48
     ]
    },
@@ -2159,7 +2369,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     319392,
+     332928,
      18
     ]
    },
@@ -2190,11 +2400,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     319824,
+     333360,
      36
     ],
     "dash": [
-     320688,
+     334224,
      36
     ]
    },
@@ -2225,15 +2435,15 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     321552,
+     335088,
      24
     ],
     "lining": [
-     322128,
+     335664,
      24
     ],
     "paint": [
-     322704,
+     336240,
      48
     ]
    },
@@ -2264,7 +2474,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     323856,
+     337392,
      6
     ]
    },
@@ -2295,15 +2505,15 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     324000,
+     337536,
      24
     ],
     "lining": [
-     324576,
+     338112,
      24
     ],
     "paint": [
-     325152,
+     338688,
      48
     ]
    },
@@ -2334,7 +2544,7 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     326304,
+     339840,
      6
     ]
    },
@@ -2353,8 +2563,8 @@
    "breaks": "shatter",
    "tolerance": 0.012
   },
-  "VN230.wheel_well.well_0.R.carrow_courier.925359": {
-   "id": "VN230.wheel_well.well_0.R.carrow_courier.925359",
+  "VN230.wheel_well.well_0.R.carrow_courier.d81fd7": {
+   "id": "VN230.wheel_well.well_0.R.carrow_courier.d81fd7",
    "standard": "VN230",
    "class": "van",
    "role": "wheel_well",
@@ -2365,8 +2575,8 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     326448,
-     618
+     339984,
+     714
     ]
    },
    "boxes": [
@@ -2375,7 +2585,7 @@
      0.6902,
      0.5118,
      0.4735,
-     0.6635,
+     0.6634,
      1.0236
     ]
    ],
@@ -2384,8 +2594,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "VN230.wheel_well.well_0.L.carrow_courier.705acb": {
-   "id": "VN230.wheel_well.well_0.L.carrow_courier.705acb",
+  "VN230.wheel_well.well_0.L.carrow_courier.26645f": {
+   "id": "VN230.wheel_well.well_0.L.carrow_courier.26645f",
    "standard": "VN230",
    "class": "van",
    "role": "wheel_well",
@@ -2396,14 +2606,14 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     341280,
-     618
+     357120,
+     714
     ]
    },
    "boxes": [
     [
      -0.8408,
-     0.6902,
+     0.6901,
      0.5118,
      0.4736,
      0.6634,
@@ -2427,7 +2637,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     356112,
+     374256,
      618
     ]
    },
@@ -2458,7 +2668,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     370944,
+     389088,
      618
     ]
    },
@@ -2489,7 +2699,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     385776,
+     403920,
      594
     ]
    },
@@ -2520,11 +2730,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     400032,
+     418176,
      72
     ],
     "seat": [
-     401760,
+     419904,
      216
     ]
    },
@@ -2555,19 +2765,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     406944,
+     425088,
      1236
     ],
     "chrome": [
-     436608,
+     454752,
      120
     ],
     "dash": [
-     439488,
+     457632,
      108
     ],
     "gauge": [
-     442080,
+     460224,
      384
     ]
    },
@@ -2598,11 +2808,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     451296,
+     469440,
      36
     ],
     "lcd": [
-     452160,
+     470304,
      36
     ]
    },
@@ -2633,19 +2843,19 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     453024,
+     471168,
      480
     ],
     "lamp_amber": [
-     464544,
+     482688,
      72
     ],
     "lamp_drl": [
-     466272,
+     484416,
      480
     ],
     "lamp_head": [
-     477792,
+     495936,
      480
     ]
    },
@@ -2676,7 +2886,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     489312,
+     507456,
      144
     ]
    },
@@ -2707,23 +2917,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     492768,
+     510912,
      12
     ],
     "lamp_amber": [
-     493056,
+     511200,
      24
     ],
     "lamp_brake": [
-     493632,
+     511776,
      36
     ],
     "lamp_reverse": [
-     494496,
+     512640,
      24
     ],
     "lamp_tail": [
-     495072,
+     513216,
      168
     ]
    },
@@ -2754,11 +2964,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     499104,
+     517248,
      72
     ],
     "lamp_tail": [
-     500832,
+     518976,
      72
     ]
    },
@@ -2789,11 +2999,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     502560,
+     520704,
      180
     ],
     "lamp_tail": [
-     506880,
+     525024,
      180
     ]
    },
@@ -2824,11 +3034,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     511200,
+     529344,
      108
     ],
     "rubber": [
-     513792,
+     531936,
      36
     ]
    },
@@ -2859,11 +3069,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     514656,
+     532800,
      108
     ],
     "rubber": [
-     517248,
+     535392,
      36
     ]
    },
@@ -2894,11 +3104,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     518112,
+     536256,
      96
     ],
     "glass_dark": [
-     520416,
+     538560,
      36
     ]
    },
@@ -2929,11 +3139,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     521280,
+     539424,
      96
     ],
     "glass_dark": [
-     523584,
+     541728,
      36
     ]
    },
