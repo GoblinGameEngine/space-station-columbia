@@ -1,0 +1,6457 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SP300",
+ "class": "passenger_shuttle",
+ "style": "steward_skylark",
+ "pack": "res://remake/vehicles/components/SP300/steward_skylark.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8392
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.9098,
+    0.8392
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.0941,
+    0.4314,
+    0.4314
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SP300.end_cap.nose.C.steward_skylark.bdc6d8": {
+   "id": "SP300.end_cap.nose.C.steward_skylark.bdc6d8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.6628,
+     0.03,
+     1.9954,
+     0.4257,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.trim.cowl.C.steward_skylark.ea35db": {
+   "id": "SP300.trim.cowl.C.steward_skylark.ea35db",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     8712,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5453,
+     1.37,
+     3.98,
+     1.4093,
+     2.74
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.glazing.screen.C.steward_skylark.c7079b": {
+   "id": "SP300.glazing.screen.C.steward_skylark.c7079b",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     12168,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.5,
+     0.4,
+     3.9609,
+     1.4,
+     0.8
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.trim.screen.C.steward_skylark.e7cda9": {
+   "id": "SP300.trim.screen.C.steward_skylark.e7cda9",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13320,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.295,
+     0.4,
+     3.9609,
+     0.998,
+     0.8
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.side_bay.fender.R.steward_skylark.9d0e1b": {
+   "id": "SP300.side_bay.fender.R.steward_skylark.9d0e1b",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     16200,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     1.4301,
+     1.125,
+     1.82,
+     1.3399,
+     1.35,
+     3.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.trim.sail.R.steward_skylark.1f9870": {
+   "id": "SP300.trim.sail.R.steward_skylark.1f9870",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20520,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.45,
+     0.15,
+     0.5,
+     0.9
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.a_pillar.R.steward_skylark.80f0f0": {
+   "id": "SP300.trim.a_pillar.R.steward_skylark.80f0f0",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21384,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.782,
+     2.21,
+     0.4,
+     0.564,
+     1.08,
+     0.8
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.side_bay.rocker_F.R.steward_skylark.9df59c": {
+   "id": "SP300.side_bay.rocker_F.R.steward_skylark.9df59c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21672,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.6506,
+     0.515,
+     0.35,
+     0.1013,
+     0.13,
+     0.7
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.post_0.R.steward_skylark.d91424": {
+   "id": "SP300.side_bay.post_0.R.steward_skylark.d91424",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21816,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.85,
+     1.25,
+     0.25,
+     0.5,
+     1.6,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.rocker_P.R.steward_skylark.90909f": {
+   "id": "SP300.side_bay.rocker_P.R.steward_skylark.90909f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "rocker_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/rocker_P/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22680,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.6506,
+     0.515,
+     0.475,
+     0.1013,
+     0.13,
+     0.95
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.quarter_0.R.steward_skylark.377ac7": {
+   "id": "SP300.side_bay.quarter_0.R.steward_skylark.377ac7",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22824,
+     846
+    ]
+   },
+   "boxes": [
+    [
+     1.85,
+     1.25,
+     11.175,
+     0.5,
+     1.6,
+     22.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.quarter_1.R.steward_skylark.f51054": {
+   "id": "SP300.side_bay.quarter_1.R.steward_skylark.f51054",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     43128,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.7823,
+     1.25,
+     0.46,
+     0.6354,
+     1.6,
+     0.92
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.fender.L.steward_skylark.dcf2af": {
+   "id": "SP300.side_bay.fender.L.steward_skylark.dcf2af",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     44856,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -1.4301,
+     1.125,
+     1.82,
+     1.3399,
+     1.35,
+     3.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.trim.sail.L.steward_skylark.3fd669": {
+   "id": "SP300.trim.sail.L.steward_skylark.3fd669",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     49176,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.45,
+     0.15,
+     0.5,
+     0.9
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.a_pillar.L.steward_skylark.612438": {
+   "id": "SP300.trim.a_pillar.L.steward_skylark.612438",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50040,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.782,
+     2.21,
+     0.4,
+     0.564,
+     1.08,
+     0.8
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.side_bay.rocker_F.L.steward_skylark.1bd9a2": {
+   "id": "SP300.side_bay.rocker_F.L.steward_skylark.1bd9a2",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50328,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.6506,
+     0.515,
+     0.35,
+     0.1013,
+     0.13,
+     0.7
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.post_0.L.steward_skylark.adbd31": {
+   "id": "SP300.side_bay.post_0.L.steward_skylark.adbd31",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     50472,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.85,
+     1.25,
+     0.25,
+     0.5,
+     1.6,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.rocker_P.L.steward_skylark.f39636": {
+   "id": "SP300.side_bay.rocker_P.L.steward_skylark.f39636",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "rocker_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/rocker_P/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51336,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.6506,
+     0.515,
+     0.475,
+     0.1013,
+     0.13,
+     0.95
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.quarter_0.L.steward_skylark.839e72": {
+   "id": "SP300.side_bay.quarter_0.L.steward_skylark.839e72",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     51480,
+     846
+    ]
+   },
+   "boxes": [
+    [
+     -1.85,
+     1.25,
+     11.175,
+     0.5,
+     1.6,
+     22.35
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.side_bay.quarter_1.L.steward_skylark.2f8b45": {
+   "id": "SP300.side_bay.quarter_1.L.steward_skylark.2f8b45",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/side_bay/quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     71784,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.7823,
+     1.25,
+     0.46,
+     0.6354,
+     1.6,
+     0.92
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.roof_bay.roof_0.C.steward_skylark.6752c8": {
+   "id": "SP300.roof_bay.roof_0.C.steward_skylark.6752c8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     73512,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.65,
+     3.9,
+     1.15,
+     1.3
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_1.C.steward_skylark.42df95": {
+   "id": "SP300.roof_bay.roof_1.C.steward_skylark.42df95",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     78696,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.975,
+     3.9,
+     1.15,
+     1.95
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_2.C.steward_skylark.99d631": {
+   "id": "SP300.roof_bay.roof_2.C.steward_skylark.99d631",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     83880,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.8,
+     3.9,
+     1.15,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_3.C.steward_skylark.bea134": {
+   "id": "SP300.roof_bay.roof_3.C.steward_skylark.bea134",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     89064,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.775,
+     3.9,
+     1.15,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_4.C.steward_skylark.96f061": {
+   "id": "SP300.roof_bay.roof_4.C.steward_skylark.96f061",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     94248,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.8,
+     3.9,
+     1.15,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_5.C.steward_skylark.d31288": {
+   "id": "SP300.roof_bay.roof_5.C.steward_skylark.d31288",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     99432,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.775,
+     3.9,
+     1.15,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_6.C.steward_skylark.1f3d7c": {
+   "id": "SP300.roof_bay.roof_6.C.steward_skylark.1f3d7c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_6",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_6/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     104616,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.8,
+     3.9,
+     1.15,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_7.C.steward_skylark.08e4f4": {
+   "id": "SP300.roof_bay.roof_7.C.steward_skylark.08e4f4",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_7",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_7/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     109800,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.775,
+     3.9,
+     1.15,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_8.C.steward_skylark.be7f76": {
+   "id": "SP300.roof_bay.roof_8.C.steward_skylark.be7f76",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_8",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_8/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     114984,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.8,
+     3.9,
+     1.15,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_9.C.steward_skylark.42e8ab": {
+   "id": "SP300.roof_bay.roof_9.C.steward_skylark.42e8ab",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_9",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_9/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     120168,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.775,
+     3.9,
+     1.15,
+     1.55
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_10.C.steward_skylark.385347": {
+   "id": "SP300.roof_bay.roof_10.C.steward_skylark.385347",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_10",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_10/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     125352,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.8,
+     3.9,
+     1.15,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_11.C.steward_skylark.79d3bb": {
+   "id": "SP300.roof_bay.roof_11.C.steward_skylark.79d3bb",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_11",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_11/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     130536,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.25,
+     3.9,
+     1.15,
+     0.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_12.C.steward_skylark.cb1644": {
+   "id": "SP300.roof_bay.roof_12.C.steward_skylark.cb1644",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_12",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_12/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     132264,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     3.325,
+     3.9,
+     1.15,
+     6.65
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.roof_bay.roof_13.C.steward_skylark.1687ab": {
+   "id": "SP300.roof_bay.roof_13.C.steward_skylark.1687ab",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "roof_bay",
+   "slot": "roof_13",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/roof_bay/roof_13/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     133992,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.625,
+     0.46,
+     3.9,
+     1.15,
+     0.92
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.end_cap.tail.C.steward_skylark.3ff4db": {
+   "id": "SP300.end_cap.tail.C.steward_skylark.3ff4db",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     137448,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.825,
+     0.04,
+     3.8445,
+     2.75,
+     0.08
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SP300.floor.floor.C.steward_skylark.a21574": {
+   "id": "SP300.floor.floor.C.steward_skylark.a21574",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     147744,
+     1824
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     13.16,
+     3.2826,
+     0.03,
+     26.32
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "SP300.lining_bay.trim_0_0.R.steward_skylark.7c2d56": {
+   "id": "SP300.lining_bay.trim_0_0.R.steward_skylark.7c2d56",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     191520,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.8406,
+     1.315,
+     0.45,
+     0.3987,
+     1.47,
+     0.9
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_1_0.R.steward_skylark.43292c": {
+   "id": "SP300.lining_bay.trim_1_0.R.steward_skylark.43292c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     192960,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.8406,
+     1.315,
+     0.25,
+     0.3987,
+     1.47,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_2_0.R.steward_skylark.fbb719": {
+   "id": "SP300.lining_bay.trim_2_0.R.steward_skylark.fbb719",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     193680,
+     660
+    ]
+   },
+   "boxes": [
+    [
+     1.8406,
+     1.315,
+     11.175,
+     0.3987,
+     1.47,
+     22.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_2_1.R.steward_skylark.4c263c": {
+   "id": "SP300.lining_bay.trim_2_1.R.steward_skylark.4c263c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_2_1",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_2_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     209520,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.7712,
+     1.315,
+     0.46,
+     0.5376,
+     1.47,
+     0.92
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.a_pillar.R.steward_skylark.548add": {
+   "id": "SP300.lining_bay.a_pillar.R.steward_skylark.548add",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     210960,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.722,
+     2.0888,
+     0.4,
+     0.564,
+     0.9864,
+     0.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_0_0.L.steward_skylark.66ccab": {
+   "id": "SP300.lining_bay.trim_0_0.L.steward_skylark.66ccab",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     211248,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.8406,
+     1.315,
+     0.45,
+     0.3987,
+     1.47,
+     0.9
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_1_0.L.steward_skylark.1ddd3f": {
+   "id": "SP300.lining_bay.trim_1_0.L.steward_skylark.1ddd3f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     212688,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.8406,
+     1.315,
+     0.25,
+     0.3987,
+     1.47,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_2_0.L.steward_skylark.094b12": {
+   "id": "SP300.lining_bay.trim_2_0.L.steward_skylark.094b12",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_2_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     213408,
+     660
+    ]
+   },
+   "boxes": [
+    [
+     -1.8406,
+     1.315,
+     11.175,
+     0.3987,
+     1.47,
+     22.35
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.trim_2_1.L.steward_skylark.c42445": {
+   "id": "SP300.lining_bay.trim_2_1.L.steward_skylark.c42445",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "trim_2_1",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/trim_2_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     229248,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.7712,
+     1.315,
+     0.46,
+     0.5376,
+     1.47,
+     0.92
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.lining_bay.a_pillar.L.steward_skylark.be911f": {
+   "id": "SP300.lining_bay.a_pillar.L.steward_skylark.be911f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     230688,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.722,
+     2.0888,
+     0.4,
+     0.564,
+     0.9864,
+     0.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_0.C.steward_skylark.1e2185": {
+   "id": "SP300.ceiling_bay.roof_0.C.steward_skylark.1e2185",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     230976,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.65,
+     3.78,
+     0.87,
+     1.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_1.C.steward_skylark.afaa2f": {
+   "id": "SP300.ceiling_bay.roof_1.C.steward_skylark.afaa2f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     236160,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.975,
+     3.78,
+     0.87,
+     1.95
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_2.C.steward_skylark.b8091f": {
+   "id": "SP300.ceiling_bay.roof_2.C.steward_skylark.b8091f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     241344,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.8,
+     3.78,
+     0.87,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_3.C.steward_skylark.3923b5": {
+   "id": "SP300.ceiling_bay.roof_3.C.steward_skylark.3923b5",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     246528,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.775,
+     3.78,
+     0.87,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_4.C.steward_skylark.c1af5d": {
+   "id": "SP300.ceiling_bay.roof_4.C.steward_skylark.c1af5d",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     251712,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.8,
+     3.78,
+     0.87,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_5.C.steward_skylark.d50363": {
+   "id": "SP300.ceiling_bay.roof_5.C.steward_skylark.d50363",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_5",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_5/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     256896,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.775,
+     3.78,
+     0.87,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_6.C.steward_skylark.1cefc8": {
+   "id": "SP300.ceiling_bay.roof_6.C.steward_skylark.1cefc8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_6",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_6/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     262080,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.8,
+     3.78,
+     0.87,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_7.C.steward_skylark.a03d61": {
+   "id": "SP300.ceiling_bay.roof_7.C.steward_skylark.a03d61",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_7",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_7/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     267264,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.775,
+     3.78,
+     0.87,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_8.C.steward_skylark.746042": {
+   "id": "SP300.ceiling_bay.roof_8.C.steward_skylark.746042",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_8",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_8/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     272448,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.8,
+     3.78,
+     0.87,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_9.C.steward_skylark.253861": {
+   "id": "SP300.ceiling_bay.roof_9.C.steward_skylark.253861",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_9",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_9/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     277632,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.775,
+     3.78,
+     0.87,
+     1.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_10.C.steward_skylark.91e064": {
+   "id": "SP300.ceiling_bay.roof_10.C.steward_skylark.91e064",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_10",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_10/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     282816,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.8,
+     3.78,
+     0.87,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_11.C.steward_skylark.8aabd9": {
+   "id": "SP300.ceiling_bay.roof_11.C.steward_skylark.8aabd9",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_11",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_11/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     288000,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.25,
+     3.78,
+     0.87,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_12.C.steward_skylark.88a8f5": {
+   "id": "SP300.ceiling_bay.roof_12.C.steward_skylark.88a8f5",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_12",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_12/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     289728,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     3.325,
+     3.78,
+     0.87,
+     6.65
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.ceiling_bay.roof_13.C.steward_skylark.3aa605": {
+   "id": "SP300.ceiling_bay.roof_13.C.steward_skylark.3aa605",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "ceiling_bay",
+   "slot": "roof_13",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/ceiling_bay/roof_13/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     291456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.485,
+     0.46,
+     3.78,
+     0.87,
+     0.92
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.end_lining.firewall.C.steward_skylark.656685": {
+   "id": "SP300.end_lining.firewall.C.steward_skylark.656685",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     294912,
+     78
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.26,
+     0.0,
+     4.08,
+     1.42,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.end_lining.rear_wall.C.steward_skylark.93e6ab": {
+   "id": "SP300.end_lining.rear_wall.C.steward_skylark.93e6ab",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     296784,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.735,
+     -0.0,
+     3.7347,
+     2.37,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.rear_opening.C.steward_skylark.a14943": {
+   "id": "SP300.reveal.rear_opening.C.steward_skylark.a14943",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     300240,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.425,
+     0.04,
+     0.6,
+     0.25,
+     0.08
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.glazing.back_window.C.steward_skylark.47ca6f": {
+   "id": "SP300.glazing.back_window.C.steward_skylark.47ca6f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     303120,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.425,
+     -0.0,
+     0.6,
+     0.25,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.reveal.door_F.R.steward_skylark.3c4139": {
+   "id": "SP300.reveal.door_F.R.steward_skylark.3c4139",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     304416,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.8706,
+     1.315,
+     0.35,
+     0.4587,
+     1.47,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.door_P.R.steward_skylark.3b35e5": {
+   "id": "SP300.reveal.door_P.R.steward_skylark.3b35e5",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "door_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/door_P/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     306144,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.8706,
+     1.315,
+     0.475,
+     0.4587,
+     1.47,
+     0.95
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P00.R.steward_skylark.1013df": {
+   "id": "SP300.reveal.window_P00.R.steward_skylark.1013df",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P00",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P00/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     307872,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P01.R.steward_skylark.eca9a7": {
+   "id": "SP300.reveal.window_P01.R.steward_skylark.eca9a7",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P01",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P01/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     309024,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P02.R.steward_skylark.1d94fb": {
+   "id": "SP300.reveal.window_P02.R.steward_skylark.1d94fb",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P02",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P02/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     310176,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P03.R.steward_skylark.7427ca": {
+   "id": "SP300.reveal.window_P03.R.steward_skylark.7427ca",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P03",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P03/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     311328,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P04.R.steward_skylark.2b359c": {
+   "id": "SP300.reveal.window_P04.R.steward_skylark.2b359c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P04",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P04/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     312480,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P05.R.steward_skylark.bf2f6d": {
+   "id": "SP300.reveal.window_P05.R.steward_skylark.bf2f6d",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P05",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P05/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     313632,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P06.R.steward_skylark.7a3036": {
+   "id": "SP300.reveal.window_P06.R.steward_skylark.7a3036",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P06",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P06/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     314784,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P07.R.steward_skylark.be087c": {
+   "id": "SP300.reveal.window_P07.R.steward_skylark.be087c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P07",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P07/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     315936,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P08.R.steward_skylark.cfa83e": {
+   "id": "SP300.reveal.window_P08.R.steward_skylark.cfa83e",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P08",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P08/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     317088,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P09.R.steward_skylark.fe86bd": {
+   "id": "SP300.reveal.window_P09.R.steward_skylark.fe86bd",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P09",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P09/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     318240,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P10.R.steward_skylark.8f5655": {
+   "id": "SP300.reveal.window_P10.R.steward_skylark.8f5655",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P10",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P10/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     319392,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P11.R.steward_skylark.f50d65": {
+   "id": "SP300.reveal.window_P11.R.steward_skylark.f50d65",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P11",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P11/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     320544,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P12.R.steward_skylark.cc2167": {
+   "id": "SP300.reveal.window_P12.R.steward_skylark.cc2167",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P12",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P12/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     321696,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P13.R.steward_skylark.6dcb3c": {
+   "id": "SP300.reveal.window_P13.R.steward_skylark.6dcb3c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P13",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P13/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     322848,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P14.R.steward_skylark.ef9f7c": {
+   "id": "SP300.reveal.window_P14.R.steward_skylark.ef9f7c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P14",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P14/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     324000,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.door_F.L.steward_skylark.1045b3": {
+   "id": "SP300.reveal.door_F.L.steward_skylark.1045b3",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     325152,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.8706,
+     1.315,
+     0.35,
+     0.4587,
+     1.47,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.door_P.L.steward_skylark.c02ecd": {
+   "id": "SP300.reveal.door_P.L.steward_skylark.c02ecd",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "door_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/door_P/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     326880,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.8706,
+     1.315,
+     0.475,
+     0.4587,
+     1.47,
+     0.95
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P00.L.steward_skylark.07cbd0": {
+   "id": "SP300.reveal.window_P00.L.steward_skylark.07cbd0",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P00",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P00/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     328608,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P01.L.steward_skylark.606d72": {
+   "id": "SP300.reveal.window_P01.L.steward_skylark.606d72",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P01",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P01/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     329760,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P02.L.steward_skylark.74faad": {
+   "id": "SP300.reveal.window_P02.L.steward_skylark.74faad",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P02",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P02/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     330912,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P03.L.steward_skylark.f93886": {
+   "id": "SP300.reveal.window_P03.L.steward_skylark.f93886",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P03",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P03/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     332064,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P04.L.steward_skylark.0cd401": {
+   "id": "SP300.reveal.window_P04.L.steward_skylark.0cd401",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P04",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P04/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     333216,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P05.L.steward_skylark.2549e9": {
+   "id": "SP300.reveal.window_P05.L.steward_skylark.2549e9",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P05",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P05/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     334368,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P06.L.steward_skylark.aba47f": {
+   "id": "SP300.reveal.window_P06.L.steward_skylark.aba47f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P06",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P06/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     335520,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P07.L.steward_skylark.5e3ce7": {
+   "id": "SP300.reveal.window_P07.L.steward_skylark.5e3ce7",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P07",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P07/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     336672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P08.L.steward_skylark.f98393": {
+   "id": "SP300.reveal.window_P08.L.steward_skylark.f98393",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P08",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P08/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     337824,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P09.L.steward_skylark.bdff65": {
+   "id": "SP300.reveal.window_P09.L.steward_skylark.bdff65",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P09",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P09/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     338976,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P10.L.steward_skylark.ba9a95": {
+   "id": "SP300.reveal.window_P10.L.steward_skylark.ba9a95",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P10",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P10/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     340128,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P11.L.steward_skylark.e205dc": {
+   "id": "SP300.reveal.window_P11.L.steward_skylark.e205dc",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P11",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P11/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     341280,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P12.L.steward_skylark.983022": {
+   "id": "SP300.reveal.window_P12.L.steward_skylark.983022",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P12",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P12/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     342432,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P13.L.steward_skylark.a25e11": {
+   "id": "SP300.reveal.window_P13.L.steward_skylark.a25e11",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P13",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P13/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     343584,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.window_P14.L.steward_skylark.8b2610": {
+   "id": "SP300.reveal.window_P14.L.steward_skylark.8b2610",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "window_P14",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/window_P14/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     344736,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.995,
+     1.8,
+     0.25,
+     0.21,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.reveal.screen.C.steward_skylark.ed66ce": {
+   "id": "SP300.reveal.screen.C.steward_skylark.ed66ce",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     345888,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.416,
+     0.4,
+     3.9609,
+     1.568,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SP300.glazing.window_P00.R.steward_skylark.64db74": {
+   "id": "SP300.glazing.window_P00.R.steward_skylark.64db74",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P00",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P00/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     348480,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P00.L.steward_skylark.eceb14": {
+   "id": "SP300.glazing.window_P00.L.steward_skylark.eceb14",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P00",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P00/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     348912,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P01.R.steward_skylark.ed41a5": {
+   "id": "SP300.glazing.window_P01.R.steward_skylark.ed41a5",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P01",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P01/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     349344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P01.L.steward_skylark.ddfe9a": {
+   "id": "SP300.glazing.window_P01.L.steward_skylark.ddfe9a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P01",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P01/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     349776,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P02.R.steward_skylark.4d60c8": {
+   "id": "SP300.glazing.window_P02.R.steward_skylark.4d60c8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P02",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P02/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     350208,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P02.L.steward_skylark.f5b915": {
+   "id": "SP300.glazing.window_P02.L.steward_skylark.f5b915",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P02",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P02/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     350640,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P03.R.steward_skylark.0ac345": {
+   "id": "SP300.glazing.window_P03.R.steward_skylark.0ac345",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P03",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P03/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     351072,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P03.L.steward_skylark.40f072": {
+   "id": "SP300.glazing.window_P03.L.steward_skylark.40f072",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P03",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P03/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     351504,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P04.R.steward_skylark.d1536e": {
+   "id": "SP300.glazing.window_P04.R.steward_skylark.d1536e",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P04",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P04/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     351936,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P04.L.steward_skylark.8c0055": {
+   "id": "SP300.glazing.window_P04.L.steward_skylark.8c0055",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P04",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P04/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     352368,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P05.R.steward_skylark.f8eee2": {
+   "id": "SP300.glazing.window_P05.R.steward_skylark.f8eee2",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P05",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P05/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     352800,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P05.L.steward_skylark.21574e": {
+   "id": "SP300.glazing.window_P05.L.steward_skylark.21574e",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P05",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P05/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     353232,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P06.R.steward_skylark.a4ef47": {
+   "id": "SP300.glazing.window_P06.R.steward_skylark.a4ef47",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P06",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P06/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     353664,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P06.L.steward_skylark.fd4b9a": {
+   "id": "SP300.glazing.window_P06.L.steward_skylark.fd4b9a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P06",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P06/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     354096,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P07.R.steward_skylark.7fd215": {
+   "id": "SP300.glazing.window_P07.R.steward_skylark.7fd215",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P07",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P07/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     354528,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P07.L.steward_skylark.fc658d": {
+   "id": "SP300.glazing.window_P07.L.steward_skylark.fc658d",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P07",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P07/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     354960,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P08.R.steward_skylark.b14cf7": {
+   "id": "SP300.glazing.window_P08.R.steward_skylark.b14cf7",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P08",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P08/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     355392,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P08.L.steward_skylark.f1f5e6": {
+   "id": "SP300.glazing.window_P08.L.steward_skylark.f1f5e6",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P08",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P08/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     355824,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P09.R.steward_skylark.9a1990": {
+   "id": "SP300.glazing.window_P09.R.steward_skylark.9a1990",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P09",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P09/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     356256,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P09.L.steward_skylark.ea3d2b": {
+   "id": "SP300.glazing.window_P09.L.steward_skylark.ea3d2b",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P09",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P09/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     356688,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P10.R.steward_skylark.c065a9": {
+   "id": "SP300.glazing.window_P10.R.steward_skylark.c065a9",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P10",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P10/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     357120,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P10.L.steward_skylark.33bb04": {
+   "id": "SP300.glazing.window_P10.L.steward_skylark.33bb04",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P10",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P10/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     357552,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P11.R.steward_skylark.0e3229": {
+   "id": "SP300.glazing.window_P11.R.steward_skylark.0e3229",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P11",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P11/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     357984,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P11.L.steward_skylark.b535c6": {
+   "id": "SP300.glazing.window_P11.L.steward_skylark.b535c6",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P11",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P11/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     358416,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P12.R.steward_skylark.f67817": {
+   "id": "SP300.glazing.window_P12.R.steward_skylark.f67817",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P12",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P12/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     358848,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P12.L.steward_skylark.ec9983": {
+   "id": "SP300.glazing.window_P12.L.steward_skylark.ec9983",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P12",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P12/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     359280,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P13.R.steward_skylark.1c2fff": {
+   "id": "SP300.glazing.window_P13.R.steward_skylark.1c2fff",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P13",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P13/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     359712,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P13.L.steward_skylark.10bffc": {
+   "id": "SP300.glazing.window_P13.L.steward_skylark.10bffc",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P13",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P13/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     360144,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P14.R.steward_skylark.f521a3": {
+   "id": "SP300.glazing.window_P14.R.steward_skylark.f521a3",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P14",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P14/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     360576,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.glazing.window_P14.L.steward_skylark.d630df": {
+   "id": "SP300.glazing.window_P14.L.steward_skylark.d630df",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "glazing",
+   "slot": "window_P14",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/glazing/window_P14/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     361008,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.25,
+     0.15,
+     0.5,
+     0.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.door_leaf.door_F.R.steward_skylark.2ebe96": {
+   "id": "SP300.door_leaf.door_F.R.steward_skylark.2ebe96",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     361440,
+     12
+    ],
+    "paint": [
+     361728,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.8706,
+     1.065,
+     0.35,
+     0.4587,
+     0.97,
+     0.7
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_glass.door_F.R.steward_skylark.f1f510": {
+   "id": "SP300.door_glass.door_F.R.steward_skylark.f1f510",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     362880,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.35,
+     0.15,
+     0.5,
+     0.7
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.leaf_trim.handle_F.R.steward_skylark.3e6c2a": {
+   "id": "SP300.leaf_trim.handle_F.R.steward_skylark.3e6c2a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     363312,
+     36
+    ],
+    "dash": [
+     364176,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.0327,
+     1.365,
+     0.125,
+     0.1054,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_leaf.door_P.R.steward_skylark.320cbc": {
+   "id": "SP300.door_leaf.door_P.R.steward_skylark.320cbc",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_leaf",
+   "slot": "door_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/door_leaf/door_P/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     365040,
+     12
+    ],
+    "paint": [
+     365328,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.8706,
+     1.065,
+     0.475,
+     0.4587,
+     0.97,
+     0.95
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_glass.door_P.R.steward_skylark.bea349": {
+   "id": "SP300.door_glass.door_P.R.steward_skylark.bea349",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_glass",
+   "slot": "door_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/door_glass/door_P/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     366480,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     1.8,
+     0.475,
+     0.15,
+     0.5,
+     0.95
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.leaf_trim.handle_P.R.steward_skylark.05ee00": {
+   "id": "SP300.leaf_trim.handle_P.R.steward_skylark.05ee00",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "handle_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/handle_P/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     366912,
+     36
+    ],
+    "dash": [
+     367776,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.0327,
+     1.365,
+     0.125,
+     0.1054,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_leaf.door_F.L.steward_skylark.40bde6": {
+   "id": "SP300.door_leaf.door_F.L.steward_skylark.40bde6",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     368640,
+     12
+    ],
+    "paint": [
+     368928,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.8706,
+     1.065,
+     0.35,
+     0.4587,
+     0.97,
+     0.7
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_glass.door_F.L.steward_skylark.37baab": {
+   "id": "SP300.door_glass.door_F.L.steward_skylark.37baab",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     370080,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.35,
+     0.15,
+     0.5,
+     0.7
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.leaf_trim.handle_F.L.steward_skylark.a23de2": {
+   "id": "SP300.leaf_trim.handle_F.L.steward_skylark.a23de2",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     370512,
+     36
+    ],
+    "dash": [
+     371376,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.0327,
+     1.365,
+     0.125,
+     0.1054,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_leaf.door_P.L.steward_skylark.70f96e": {
+   "id": "SP300.door_leaf.door_P.L.steward_skylark.70f96e",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_leaf",
+   "slot": "door_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/door_leaf/door_P/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     372240,
+     12
+    ],
+    "paint": [
+     372528,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.8706,
+     1.065,
+     0.475,
+     0.4587,
+     0.97,
+     0.95
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.door_glass.door_P.L.steward_skylark.b8abb5": {
+   "id": "SP300.door_glass.door_P.L.steward_skylark.b8abb5",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "door_glass",
+   "slot": "door_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/door_glass/door_P/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     373680,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     1.8,
+     0.475,
+     0.15,
+     0.5,
+     0.95
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SP300.leaf_trim.handle_P.L.steward_skylark.5092cd": {
+   "id": "SP300.leaf_trim.handle_P.L.steward_skylark.5092cd",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "handle_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/handle_P/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     374112,
+     36
+    ],
+    "dash": [
+     374976,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -2.0327,
+     1.365,
+     0.125,
+     0.1054,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.underpan.underpan.C.steward_skylark.e14f17": {
+   "id": "SP300.underpan.underpan.C.steward_skylark.e14f17",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     375840,
+     1128
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4775,
+     14.6,
+     3.2,
+     0.055,
+     29.2
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SP300.seat.row_0.C.steward_skylark.76a3af": {
+   "id": "SP300.seat.row_0.C.steward_skylark.76a3af",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     402912,
+     72
+    ],
+    "seat": [
+     404640,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.61,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_1.C.steward_skylark.706c0a": {
+   "id": "SP300.seat.row_1.C.steward_skylark.706c0a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     409824,
+     144
+    ],
+    "seat": [
+     413280,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_2.C.steward_skylark.ac9866": {
+   "id": "SP300.seat.row_2.C.steward_skylark.ac9866",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_2",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_2/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     423648,
+     144
+    ],
+    "seat": [
+     427104,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_3.C.steward_skylark.007d26": {
+   "id": "SP300.seat.row_3.C.steward_skylark.007d26",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_3",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_3/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     437472,
+     144
+    ],
+    "seat": [
+     440928,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_4.C.steward_skylark.7a035a": {
+   "id": "SP300.seat.row_4.C.steward_skylark.7a035a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_4",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_4/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     451296,
+     144
+    ],
+    "seat": [
+     454752,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_5.C.steward_skylark.cf255b": {
+   "id": "SP300.seat.row_5.C.steward_skylark.cf255b",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_5",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_5/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     465120,
+     144
+    ],
+    "seat": [
+     468576,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_6.C.steward_skylark.f2bb97": {
+   "id": "SP300.seat.row_6.C.steward_skylark.f2bb97",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_6",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_6/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     478944,
+     144
+    ],
+    "seat": [
+     482400,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_7.C.steward_skylark.7088b0": {
+   "id": "SP300.seat.row_7.C.steward_skylark.7088b0",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_7",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_7/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     492768,
+     144
+    ],
+    "seat": [
+     496224,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_8.C.steward_skylark.8ac14c": {
+   "id": "SP300.seat.row_8.C.steward_skylark.8ac14c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_8",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_8/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     506592,
+     144
+    ],
+    "seat": [
+     510048,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_9.C.steward_skylark.713ce8": {
+   "id": "SP300.seat.row_9.C.steward_skylark.713ce8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_9",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_9/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     520416,
+     144
+    ],
+    "seat": [
+     523872,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_10.C.steward_skylark.ae2efa": {
+   "id": "SP300.seat.row_10.C.steward_skylark.ae2efa",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_10",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_10/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     534240,
+     144
+    ],
+    "seat": [
+     537696,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_11.C.steward_skylark.096350": {
+   "id": "SP300.seat.row_11.C.steward_skylark.096350",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_11",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_11/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     548064,
+     144
+    ],
+    "seat": [
+     551520,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.seat.row_12.C.steward_skylark.277d4a": {
+   "id": "SP300.seat.row_12.C.steward_skylark.277d4a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "seat",
+   "slot": "row_12",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/seat/row_12/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     561888,
+     144
+    ],
+    "seat": [
+     565344,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     3.36,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SP300.dash.dash.C.steward_skylark.90f3a9": {
+   "id": "SP300.dash.dash.C.steward_skylark.90f3a9",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     575712,
+     1236
+    ],
+    "chrome": [
+     605376,
+     120
+    ],
+    "dash": [
+     608256,
+     108
+    ],
+    "gauge": [
+     610848,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2949,
+     0.2572,
+     3.92,
+     0.5701,
+     0.5143
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SP300.dash.readout.C.steward_skylark.ab8d6d": {
+   "id": "SP300.dash.readout.C.steward_skylark.ab8d6d",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     620064,
+     36
+    ],
+    "lcd": [
+     620928,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.55,
+     1.47,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "SP300.lamp.head_lamp.C.steward_skylark.c21bbd": {
+   "id": "SP300.lamp.head_lamp.C.steward_skylark.c21bbd",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     621792,
+     480
+    ],
+    "lamp_amber": [
+     633312,
+     72
+    ],
+    "lamp_drl": [
+     635040,
+     480
+    ],
+    "lamp_head": [
+     646560,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     0.46,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SP300.lamp.tail_lamp.C.steward_skylark.74a7bf": {
+   "id": "SP300.lamp.tail_lamp.C.steward_skylark.74a7bf",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     658080,
+     12
+    ],
+    "lamp_amber": [
+     658368,
+     48
+    ],
+    "lamp_brake": [
+     659520,
+     36
+    ],
+    "lamp_reverse": [
+     660384,
+     48
+    ],
+    "lamp_tail": [
+     661536,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.736,
+     0.006,
+     3.4076,
+     1.772,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SP300.lamp.side_marker.C.steward_skylark.7d8e1a": {
+   "id": "SP300.lamp.side_marker.C.steward_skylark.7d8e1a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     669600,
+     72
+    ],
+    "lamp_tail": [
+     671328,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     14.44,
+     3.2176,
+     0.03,
+     28.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SP300.lamp.id_lamp.C.steward_skylark.f6ebff": {
+   "id": "SP300.lamp.id_lamp.C.steward_skylark.f6ebff",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     673056,
+     180
+    ],
+    "lamp_tail": [
+     677376,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.986,
+     12.8,
+     3.0,
+     0.476,
+     25.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SP300.trim.belt_fender.R.steward_skylark.4d5d6b": {
+   "id": "SP300.trim.belt_fender.R.steward_skylark.4d5d6b",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     681696,
+     1320
+    ]
+   },
+   "boxes": [
+    [
+     1.5498,
+     1.2554,
+     1.8185,
+     1.1175,
+     0.8957,
+     3.637
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_post_0.R.steward_skylark.958382": {
+   "id": "SP300.trim.belt_post_0.R.steward_skylark.958382",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     713376,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     2.1011,
+     1.538,
+     0.246,
+     0.02,
+     0.02,
+     0.492
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_quarter_0.R.steward_skylark.12fdfb": {
+   "id": "SP300.trim.belt_quarter_0.R.steward_skylark.12fdfb",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     717408,
+     8052
+    ]
+   },
+   "boxes": [
+    [
+     2.1011,
+     1.538,
+     11.171,
+     0.02,
+     0.02,
+     22.342
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_quarter_1.R.steward_skylark.2bf1b6": {
+   "id": "SP300.trim.belt_quarter_1.R.steward_skylark.2bf1b6",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     910656,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     2.0129,
+     1.538,
+     0.457,
+     0.1915,
+     0.02,
+     0.9141
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_fender.L.steward_skylark.d015d0": {
+   "id": "SP300.trim.belt_fender.L.steward_skylark.d015d0",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     919008,
+     1320
+    ]
+   },
+   "boxes": [
+    [
+     -1.5503,
+     1.2555,
+     1.8185,
+     1.1174,
+     0.8955,
+     3.6371
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_post_0.L.steward_skylark.55821a": {
+   "id": "SP300.trim.belt_post_0.L.steward_skylark.55821a",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     950688,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -2.1011,
+     1.538,
+     0.246,
+     0.02,
+     0.02,
+     0.492
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_quarter_0.L.steward_skylark.1fdc17": {
+   "id": "SP300.trim.belt_quarter_0.L.steward_skylark.1fdc17",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     954720,
+     8052
+    ]
+   },
+   "boxes": [
+    [
+     -2.1011,
+     1.538,
+     11.171,
+     0.02,
+     0.02,
+     22.342
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.belt_quarter_1.L.steward_skylark.ddcfb6": {
+   "id": "SP300.trim.belt_quarter_1.L.steward_skylark.ddcfb6",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/belt_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1147968,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -2.0129,
+     1.538,
+     0.457,
+     0.1915,
+     0.02,
+     0.9141
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.leaf_trim.belt_door_F.R.steward_skylark.4bbb26": {
+   "id": "SP300.leaf_trim.belt_door_F.R.steward_skylark.4bbb26",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1156320,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     2.1011,
+     1.538,
+     0.347,
+     0.02,
+     0.02,
+     0.694
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.leaf_trim.belt_door_P.R.steward_skylark.eb3419": {
+   "id": "SP300.leaf_trim.belt_door_P.R.steward_skylark.eb3419",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "belt_door_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/belt_door_P/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1162080,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     2.1011,
+     1.538,
+     0.472,
+     0.02,
+     0.02,
+     0.944
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.leaf_trim.belt_door_F.L.steward_skylark.5f10f8": {
+   "id": "SP300.leaf_trim.belt_door_F.L.steward_skylark.5f10f8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1170432,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -2.1011,
+     1.538,
+     0.347,
+     0.02,
+     0.02,
+     0.694
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.leaf_trim.belt_door_P.L.steward_skylark.ab5724": {
+   "id": "SP300.leaf_trim.belt_door_P.L.steward_skylark.ab5724",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "belt_door_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/belt_door_P/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1176192,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     -2.1011,
+     1.538,
+     0.472,
+     0.02,
+     0.02,
+     0.944
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.trim.livery_fender.R.steward_skylark.46c22f": {
+   "id": "SP300.trim.livery_fender.R.steward_skylark.46c22f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1184544,
+     696
+    ]
+   },
+   "boxes": [
+    [
+     1.5435,
+     1.22,
+     1.77,
+     1.0839,
+     0.8513,
+     3.54
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.livery_post_0.R.steward_skylark.a64ea8": {
+   "id": "SP300.trim.livery_post_0.R.steward_skylark.a64ea8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_post_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1201248,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     2.063,
+     1.45,
+     0.2,
+     0.041,
+     0.1,
+     0.4
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.livery_quarter_0.R.steward_skylark.4ff101": {
+   "id": "SP300.trim.livery_quarter_0.R.steward_skylark.4ff101",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_quarter_0",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1202976,
+     4440
+    ]
+   },
+   "boxes": [
+    [
+     2.063,
+     1.45,
+     11.125,
+     0.041,
+     0.1,
+     22.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.livery_quarter_1.R.steward_skylark.214993": {
+   "id": "SP300.trim.livery_quarter_1.R.steward_skylark.214993",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_quarter_1",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1309536,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.9814,
+     1.45,
+     0.41,
+     0.1999,
+     0.1,
+     0.82
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.leaf_trim.livery_door_F.R.steward_skylark.f91182": {
+   "id": "SP300.leaf_trim.livery_door_F.R.steward_skylark.f91182",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/livery_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1312992,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.063,
+     1.45,
+     0.3,
+     0.041,
+     0.1,
+     0.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.leaf_trim.livery_door_P.R.steward_skylark.887216": {
+   "id": "SP300.leaf_trim.livery_door_P.R.steward_skylark.887216",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "livery_door_P",
+   "side": "R",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/livery_door_P/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1315296,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     2.063,
+     1.45,
+     0.425,
+     0.041,
+     0.1,
+     0.85
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.trim.livery_fender.L.steward_skylark.9f503e": {
+   "id": "SP300.trim.livery_fender.L.steward_skylark.9f503e",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1319328,
+     696
+    ]
+   },
+   "boxes": [
+    [
+     -1.5435,
+     1.22,
+     1.77,
+     1.0839,
+     0.8513,
+     3.54
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.livery_post_0.L.steward_skylark.46e2f2": {
+   "id": "SP300.trim.livery_post_0.L.steward_skylark.46e2f2",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_post_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_post_0/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1336032,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -2.063,
+     1.45,
+     0.2,
+     0.041,
+     0.1,
+     0.4
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.livery_quarter_0.L.steward_skylark.c99c34": {
+   "id": "SP300.trim.livery_quarter_0.L.steward_skylark.c99c34",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_quarter_0",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1337760,
+     4440
+    ]
+   },
+   "boxes": [
+    [
+     -2.063,
+     1.45,
+     11.125,
+     0.041,
+     0.1,
+     22.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.trim.livery_quarter_1.L.steward_skylark.d361d7": {
+   "id": "SP300.trim.livery_quarter_1.L.steward_skylark.d361d7",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "trim",
+   "slot": "livery_quarter_1",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/trim/livery_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1444320,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.9814,
+     1.45,
+     0.41,
+     0.1999,
+     0.1,
+     0.82
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SP300.leaf_trim.livery_door_F.L.steward_skylark.41dc60": {
+   "id": "SP300.leaf_trim.livery_door_F.L.steward_skylark.41dc60",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1447776,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.063,
+     1.45,
+     0.3,
+     0.041,
+     0.1,
+     0.6
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.leaf_trim.livery_door_P.L.steward_skylark.c5815c": {
+   "id": "SP300.leaf_trim.livery_door_P.L.steward_skylark.c5815c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "leaf_trim",
+   "slot": "livery_door_P",
+   "side": "L",
+   "style": "steward_skylark",
+   "interface": "SP300/leaf_trim/livery_door_P/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1450080,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -2.063,
+     1.45,
+     0.425,
+     0.041,
+     0.1,
+     0.85
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SP300.equipment.wings.C.steward_skylark.c8d3b9": {
+   "id": "SP300.equipment.wings.C.steward_skylark.c8d3b9",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "equipment",
+   "slot": "wings",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/equipment/wings/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1454112,
+     96
+    ],
+    "lamp_green": [
+     1456416,
+     36
+    ],
+    "lamp_red": [
+     1457280,
+     36
+    ],
+    "livery2": [
+     1458144,
+     24
+    ],
+    "paint": [
+     1458720,
+     264
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0343,
+     7.25,
+     18.0,
+     0.5513,
+     14.5
+    ]
+   ],
+   "hp": 3000,
+   "mass_kg": 1800,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SP300.equipment.tail_fin.C.steward_skylark.6ad65f": {
+   "id": "SP300.equipment.tail_fin.C.steward_skylark.6ad65f",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "equipment",
+   "slot": "tail_fin",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/equipment/tail_fin/C",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1465056,
+     84
+    ],
+    "paint": [
+     1467072,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     5.65,
+     2.25,
+     0.3479,
+     5.0,
+     4.5
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 500,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SP300.equipment.oms_pods.C.steward_skylark.57056c": {
+   "id": "SP300.equipment.oms_pods.C.steward_skylark.57056c",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "equipment",
+   "slot": "oms_pods",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/equipment/oms_pods/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1471392,
+     720
+    ],
+    "livery2": [
+     1488672,
+     720
+    ],
+    "paint": [
+     1505952,
+     960
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     2.95,
+     3.225,
+     3.81,
+     1.5,
+     6.45
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 700,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SP300.equipment.main_engines.C.steward_skylark.96abd8": {
+   "id": "SP300.equipment.main_engines.C.steward_skylark.96abd8",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "equipment",
+   "slot": "main_engines",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/equipment/main_engines/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1528992,
+     1116
+    ],
+    "chrome": [
+     1555776,
+     1080
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.925,
+     0.69,
+     3.15,
+     2.24,
+     1.38
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 1500,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SP300.equipment.landing_gear.C.steward_skylark.ea8c2e": {
+   "id": "SP300.equipment.landing_gear.C.steward_skylark.ea8c2e",
+   "standard": "SP300",
+   "class": "passenger_shuttle",
+   "role": "equipment",
+   "slot": "landing_gear",
+   "side": "C",
+   "style": "steward_skylark",
+   "interface": "SP300/equipment/landing_gear/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1581696,
+     3060
+    ],
+    "rubber": [
+     1655136,
+     5400
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.42,
+     8.575,
+     5.42,
+     0.8272,
+     17.15
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 600,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

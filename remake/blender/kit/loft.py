@@ -106,6 +106,9 @@ class Loft:
     def side_x(self, z):
         WO = self.half_w
         if z <= self.belt:
+            tuck = self.spec.get("tuck")                    # (a rounded hull below the belt -- an aerostat's gondola)
+            if tuck:
+                return WO - tuck * ((self.belt - z) / max(1e-6, self.belt - self.skirt)) ** 1.8
             return WO if z >= self.sill else WO - 0.03 * (self.sill - z) / max(1e-6, self.sill - self.skirt)
         if z <= self.head:
             return WO - self.tumble * (z - self.belt) / max(1e-6, self.head - self.belt)
@@ -135,6 +138,10 @@ class Loft:
         return R["deck_z"] - R.get("deck_drop", 0.05) * t - 0.04 * max(0.0, (t - 0.9) / 0.1) ** 2
 
     def plan(self, y):
+        if self.spec.get("plan") == "round":                # (a round cabin -- the spoke elevator's: a circle in plan,
+            h = (self.nose - self.tail) / 2                 #  its ends flattened to round_min for the end faces)
+            u = (y - (self.nose + self.tail) / 2) / h
+            return max(self.spec.get("round_min", 0.40), math.sqrt(max(0.0, 1.0 - u * u)))
         f0 = self.nose - self.spec.get("nose_round", 0.18)
         r0 = self.tail + self.spec.get("tail_round", 0.16)
         if y > f0:
@@ -267,6 +274,9 @@ class Loft:
         ys |= {min(self.nose, bl), max(self.tail, -bl)}
         for y in self.spec.get("extra_stations", []):
             ys.add(y)
+        if self.spec.get("plan") == "round":
+            h = (self.nose - self.tail) / 2
+            ys |= {round((self.nose + self.tail) / 2 + h * math.sin(math.pi / 2 * k / 12), 4) for k in range(-12, 13)}
         ys = sorted({round(v, 4) for v in ys if self.tail - 1e-6 <= v <= self.nose + 1e-6}, reverse=True)
         self.stations = ys
         self.int_stations = [y for y in ys if self.cab_end <= y <= self.toe]
@@ -364,6 +374,8 @@ class Loft:
         sl = mid(E["sill"])
         if not self.in_well(y):
             sl[1] = round(self.floor - 0.025, 4)
+            if self.spec.get("tuck"):                       # (a tucked hull is narrower down there: keep the joint inside it)
+                sl[0] = round(min(sl[0], self.side_x(sl[1]) * self.plan(y) - 0.04), 4)
         pts = {"skirt": mid(E["skirt"]), "sill": sl, "belt": b, "head": h,
                "cant": mid(E["cant"]), "roof": mid(E["roof"]), "crown": mid(E["crown"])}
         # (a side joint at least 2.2 cm inside the skin -- a tube's radius and a little -- where the ends taper)

@@ -7,8 +7,8 @@
  "palette": {
   "paint": {
    "albedo": [
-    0.9255,
-    0.7294,
+    0.8863,
+    0.4314,
     0.1176
    ],
    "rough": 0.3,
@@ -372,64 +372,57 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
   }
  },
  "components": {
-  "PXEVA_SL.frame_shown.frame.C.parts_eva_sled.111cd7": {
-   "id": "PXEVA_SL.frame_shown.frame.C.parts_eva_sled.111cd7",
-   "standard": "PXEVA_SL",
-   "class": "eva_sled",
-   "role": "frame_shown",
-   "slot": "frame",
-   "side": "C",
-   "style": "parts_eva_sled",
-   "interface": "PXEVA_SL/frame_shown/frame/C",
-   "reach": 0.0,
-   "mats": {
-    "chrome": [
-     0,
-     672
-    ]
-   },
-   "boxes": [
-    [
-     0.0,
-     1.05,
-     1.34,
-     1.68,
-     1.58,
-     2.68
-    ]
-   ],
-   "hp": 150,
-   "mass_kg": 3.0,
-   "breaks": "detach",
-   "tolerance": 0.3
-  },
-  "PXEVA_SL.cargo_floor.deck.C.parts_eva_sled.aecadc": {
-   "id": "PXEVA_SL.cargo_floor.deck.C.parts_eva_sled.aecadc",
+  "PXEVA_SL.cargo_floor.hull.C.parts_eva_sled.0cd3c8": {
+   "id": "PXEVA_SL.cargo_floor.hull.C.parts_eva_sled.0cd3c8",
    "standard": "PXEVA_SL",
    "class": "eva_sled",
    "role": "cargo_floor",
-   "slot": "deck",
+   "slot": "hull",
    "side": "C",
    "style": "parts_eva_sled",
-   "interface": "PXEVA_SL/cargo_floor/deck/C",
+   "interface": "PXEVA_SL/cargo_floor/hull/C",
    "reach": 0.0,
    "mats": {
     "black": [
-     16128,
+     0,
      36
+    ],
+    "paint": [
+     864,
+     72
+    ],
+    "paint2": [
+     2592,
+     72
     ]
    },
    "boxes": [
     [
      0.0,
-     0.32,
-     1.3,
-     1.6,
-     0.06,
-     2.6
+     0.561,
+     1.485,
+     1.626,
+     0.302,
+     2.97
     ]
    ],
    "hp": 150,
@@ -437,8 +430,51 @@
    "breaks": "detach",
    "tolerance": 0.08
   },
-  "PXEVA_SL.equipment.thrusters.C.parts_eva_sled.7dd299": {
-   "id": "PXEVA_SL.equipment.thrusters.C.parts_eva_sled.7dd299",
+  "PXEVA_SL.cab.tower.C.parts_eva_sled.a97ec9": {
+   "id": "PXEVA_SL.cab.tower.C.parts_eva_sled.a97ec9",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "cab",
+   "slot": "tower",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/cab/tower/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     4320,
+     36
+    ],
+    "chrome": [
+     5184,
+     36
+    ],
+    "paint": [
+     6048,
+     144
+    ],
+    "paint2": [
+     9504,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.311,
+     0.298,
+     1.6,
+     1.522,
+     0.596
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PXEVA_SL.equipment.thrusters.C.parts_eva_sled.1e696d": {
+   "id": "PXEVA_SL.equipment.thrusters.C.parts_eva_sled.1e696d",
    "standard": "PXEVA_SL",
    "class": "eva_sled",
    "role": "equipment",
@@ -448,19 +484,23 @@
    "interface": "PXEVA_SL/equipment/thrusters/C",
    "reach": 0.0,
    "mats": {
+    "chrome": [
+     10368,
+     384
+    ],
     "paint": [
-     16992,
-     288
+     19584,
+     1152
     ]
    },
    "boxes": [
     [
      0.0,
+     1.315,
+     0.21,
+     1.08,
      1.05,
-     1.43,
-     1.86,
-     1.66,
-     2.86
+     0.42
     ]
    ],
    "hp": 150,
@@ -468,30 +508,34 @@
    "breaks": "detach",
    "tolerance": 0.3
   },
-  "PXEVA_SL.seat.saddle.C.parts_eva_sled.8d1fc7": {
-   "id": "PXEVA_SL.seat.saddle.C.parts_eva_sled.8d1fc7",
+  "PXEVA_SL.seat.seat.C.parts_eva_sled.683fe8": {
+   "id": "PXEVA_SL.seat.seat.C.parts_eva_sled.683fe8",
    "standard": "PXEVA_SL",
    "class": "eva_sled",
    "role": "seat",
-   "slot": "saddle",
+   "slot": "seat",
    "side": "C",
    "style": "parts_eva_sled",
-   "interface": "PXEVA_SL/seat/saddle/C",
+   "interface": "PXEVA_SL/seat/seat/C",
    "reach": 0.0,
    "mats": {
+    "black": [
+     47232,
+     36
+    ],
     "seat": [
-     23904,
+     48096,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     0.6,
-     0.4,
-     0.6,
-     0.5,
-     0.8
+     1.11,
+     0.24,
+     0.52,
+     0.82,
+     0.48
     ]
    ],
    "hp": 150,
@@ -499,30 +543,213 @@
    "breaks": "detach",
    "tolerance": 0.3
   },
-  "PXEVA_SL.equipment.tanks.C.parts_eva_sled.a17503": {
-   "id": "PXEVA_SL.equipment.tanks.C.parts_eva_sled.a17503",
+  "PXEVA_SL.dash.stand.C.parts_eva_sled.c31f25": {
+   "id": "PXEVA_SL.dash.stand.C.parts_eva_sled.c31f25",
    "standard": "PXEVA_SL",
    "class": "eva_sled",
-   "role": "equipment",
-   "slot": "tanks",
+   "role": "dash",
+   "slot": "stand",
    "side": "C",
    "style": "parts_eva_sled",
-   "interface": "PXEVA_SL/equipment/tanks/C",
+   "interface": "PXEVA_SL/dash/stand/C",
    "reach": 0.0,
    "mats": {
+    "black": [
+     48960,
+     36
+    ],
+    "lamp_amber": [
+     49824,
+     1440
+    ],
     "paint2": [
-     24768,
-     192
+     84384,
+     36
     ]
    },
    "boxes": [
     [
      0.0,
-     0.5,
-     0.4,
-     1.1,
-     0.3,
-     0.8
+     0.95,
+     0.1775,
+     0.48,
+     0.48,
+     0.355
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "PXEVA_SL.equipment.arm.C.parts_eva_sled.a28970": {
+   "id": "PXEVA_SL.equipment.arm.C.parts_eva_sled.a28970",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "equipment",
+   "slot": "arm",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/equipment/arm/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     85248,
+     168
+    ],
+    "paint": [
+     89280,
+     804
+    ],
+    "paint2": [
+     108576,
+     540
+    ]
+   },
+   "boxes": [
+    [
+     0.2,
+     1.3,
+     0.6939,
+     0.52,
+     1.48,
+     1.3877
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXEVA_SL.equipment.arm_small.C.parts_eva_sled.10f698": {
+   "id": "PXEVA_SL.equipment.arm_small.C.parts_eva_sled.10f698",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "equipment",
+   "slot": "arm_small",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/equipment/arm_small/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     121536,
+     360
+    ],
+    "paint2": [
+     130176,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -0.4751,
+     1.594,
+     0.3174,
+     0.2169,
+     0.432,
+     0.6348
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXEVA_SL.frame_shown.rails.C.parts_eva_sled.4156ff": {
+   "id": "PXEVA_SL.frame_shown.rails.C.parts_eva_sled.4156ff",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "frame_shown",
+   "slot": "rails",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/frame_shown/rails/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     133344,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     0.0485,
+     0.8605,
+     1.239,
+     1.647,
+     0.525,
+     2.4778
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXEVA_SL.lamp.lamps.C.parts_eva_sled.e3db15": {
+   "id": "PXEVA_SL.lamp.lamps.C.parts_eva_sled.e3db15",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "lamp",
+   "slot": "lamps",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/lamp/lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_head": [
+     140832,
+     384
+    ],
+    "paint": [
+     150048,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.015,
+     1.56,
+     1.405,
+     1.45,
+     1.74,
+     2.81
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "PXEVA_SL.wheel.pads.C.parts_eva_sled.cc3477": {
+   "id": "PXEVA_SL.wheel.pads.C.parts_eva_sled.cc3477",
+   "standard": "PXEVA_SL",
+   "class": "eva_sled",
+   "role": "wheel",
+   "slot": "pads",
+   "side": "C",
+   "style": "parts_eva_sled",
+   "interface": "PXEVA_SL/wheel/pads/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     154080,
+     504
+    ],
+    "paint": [
+     166176,
+     1728
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.225,
+     1.18,
+     1.36,
+     0.37,
+     2.36
     ]
    ],
    "hp": 150,

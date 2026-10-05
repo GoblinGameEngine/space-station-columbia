@@ -234,6 +234,26 @@ def steward_cap(m, b, root):
     return obj_for(me, m["id"], (cx, cy, cz), root, mod_data(m))
 
 
+PATTERN_TOP = 0.50
+
+
+def steward_skid(m, b, root):
+    """A keel's landing skid: a runner, its toes swept up, on two sprung legs grown from the deck's rail."""
+    me = Mesh(m["id"], M)
+    cx, cy, cz = m["pos"]
+    L = m["size"][1]
+    r = 0.035
+    pts = [(cx, cy + L / 2 + 0.10, cz + 0.16), (cx, cy + L / 2, cz + 0.02)] + [(cx, cy + L / 2 - L * k / 6, cz - 0.05) for k in range(1, 6)] + \
+          [(cx, cy - L / 2, cz + 0.02), (cx, cy - L / 2 - 0.08, cz + 0.12)]
+    me.pipe(pts, r, "bone", n=12)
+    zt = PATTERN_TOP - 0.06
+    for ly in m["legs"]:
+        bone_pipe(me, (cx, cy + ly, cz - 0.02), (cx * 0.85, cy + ly + 0.10, zt), 0.03, 0.04, "bone", bulge=0.03, side=Vector((0, 1, 0)))
+        blob(me, (cx, cy + ly, cz - 0.03), 0.05, "bone")
+        me.lathe([(0, 0.045), (0.12, 0.045)], "pearl", n=12, xf=Matrix.Translation((cx * 0.92, cy + ly + 0.05, cz + 0.12)) @ Matrix.Rotation(-math.pi / 2.3, 4, "X"))
+    return obj_for(me, m["id"], (cx, cy, cz), root, mod_data(m))
+
+
 def steward_pod(m, b, root):
     me = Mesh(m["id"], M)
     cx, cy, cz = m["pos"]
@@ -564,7 +584,8 @@ def build(b):
         if k in ("wheel", "wheel_hub_motor"):
             continue
         if fam == "steward":
-            fn = {"steward_span": steward_span, "steward_cap": steward_cap, "steward_pod": steward_pod, "pattern_socket": socket}[k]
+            fn = {"steward_span": steward_span, "steward_cap": steward_cap, "steward_pod": steward_pod, "pattern_socket": socket,
+                  "steward_skid": steward_skid}[k]
             objs[m["id"]] = fn(m, b, root)
         elif fam == "harrow":
             objs[m["id"]] = harrow_module(m, b, root)

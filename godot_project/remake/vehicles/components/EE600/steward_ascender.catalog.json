@@ -1,0 +1,2614 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "EE600",
+ "class": "spoke_elevator_car",
+ "style": "steward_ascender",
+ "pack": "res://remake/vehicles/components/EE600/steward_ascender.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9255,
+    0.8863,
+    0.7843
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9255,
+    0.8863,
+    0.7843
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1569,
+    0.1412
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "EE600.end_cap.nose.C.steward_ascender.b5e305": {
+   "id": "EE600.end_cap.nose.C.steward_ascender.b5e305",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.865,
+     0.03,
+     2.436,
+     0.93,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.trim.cowl.C.steward_ascender.65cd87": {
+   "id": "EE600.trim.cowl.C.steward_ascender.65cd87",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12168,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5075,
+     0.02,
+     2.4234,
+     0.425,
+     0.04
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.glazing.screen.C.steward_ascender.5eb419": {
+   "id": "EE600.glazing.screen.C.steward_ascender.5eb419",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     14472,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.21,
+     0.09,
+     2.4234,
+     1.78,
+     0.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.trim.screen.C.steward_ascender.c794ef": {
+   "id": "EE600.trim.screen.C.steward_ascender.c794ef",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     17928,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0334,
+     0.09,
+     2.4234,
+     1.4348,
+     0.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.side_bay.fender.R.steward_ascender.9e87c8": {
+   "id": "EE600.side_bay.fender.R.steward_ascender.9e87c8",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21960,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     1.5306,
+     0.86,
+     0.32,
+     0.7176,
+     0.92,
+     0.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.side_bay.fore.R.steward_ascender.474b94": {
+   "id": "EE600.side_bay.fore.R.steward_ascender.474b94",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26856,
+     126
+    ]
+   },
+   "boxes": [
+    [
+     2.3287,
+     1.35,
+     0.7,
+     0.9176,
+     1.9,
+     1.4
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.trim.sail.R.steward_ascender.dfbbba": {
+   "id": "EE600.trim.sail.R.steward_ascender.dfbbba",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29880,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.5537,
+     1.8,
+     0.3,
+     0.6714,
+     1.0,
+     0.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.a_pillar.R.steward_ascender.99e763": {
+   "id": "EE600.trim.a_pillar.R.steward_ascender.99e763",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32472,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1789,
+     2.0,
+     0.09,
+     0.1286,
+     1.4,
+     0.18
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.side_bay.rocker_D.R.steward_ascender.8dda7f": {
+   "id": "EE600.side_bay.rocker_D.R.steward_ascender.8dda7f",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "rocker_D",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/rocker_D/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     33336,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.8293,
+     0.49,
+     0.8,
+     0.1414,
+     0.18,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.side_bay.quarter.R.steward_ascender.4251e6": {
+   "id": "EE600.side_bay.quarter.R.steward_ascender.4251e6",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     34200,
+     342
+    ]
+   },
+   "boxes": [
+    [
+     1.9964,
+     1.35,
+     1.02,
+     1.5821,
+     1.9,
+     2.04
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.side_bay.fender.L.steward_ascender.bae302": {
+   "id": "EE600.side_bay.fender.L.steward_ascender.bae302",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     42408,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     -1.5306,
+     0.86,
+     0.32,
+     0.7176,
+     0.92,
+     0.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.side_bay.fore_0.L.steward_ascender.7d19dc": {
+   "id": "EE600.side_bay.fore_0.L.steward_ascender.7d19dc",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "fore_0",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/fore_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47304,
+     396
+    ]
+   },
+   "boxes": [
+    [
+     -2.3236,
+     1.35,
+     2.2503,
+     1.1528,
+     1.9,
+     4.5007
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.side_bay.fore_1.L.steward_ascender.259ada": {
+   "id": "EE600.side_bay.fore_1.L.steward_ascender.259ada",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "side_bay",
+   "slot": "fore_1",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/side_bay/fore_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     56808,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     -1.4854,
+     1.35,
+     0.2696,
+     0.56,
+     1.9,
+     0.5393
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.trim.sail.L.steward_ascender.322423": {
+   "id": "EE600.trim.sail.L.steward_ascender.322423",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     61128,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -1.5537,
+     1.8,
+     0.3,
+     0.6714,
+     1.0,
+     0.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.a_pillar.L.steward_ascender.9d2767": {
+   "id": "EE600.trim.a_pillar.L.steward_ascender.9d2767",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     63720,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1789,
+     2.0,
+     0.09,
+     0.1286,
+     1.4,
+     0.18
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.roof_bay.roof_0.C.steward_ascender.48aaf1": {
+   "id": "EE600.roof_bay.roof_0.C.steward_ascender.48aaf1",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     64584,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.7,
+     0.7551,
+     5.3585,
+     0.8,
+     1.5102
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.roof_bay.roof_1.C.steward_ascender.d1c481": {
+   "id": "EE600.roof_bay.roof_1.C.steward_ascender.d1c481",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     76680,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.7,
+     0.5549,
+     5.8,
+     0.8,
+     1.1098
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.roof_bay.roof_2.C.steward_ascender.da8e28": {
+   "id": "EE600.roof_bay.roof_2.C.steward_ascender.da8e28",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     85320,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.7,
+     0.725,
+     5.8,
+     0.8,
+     1.45
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.roof_bay.roof_3.C.steward_ascender.6e289b": {
+   "id": "EE600.roof_bay.roof_3.C.steward_ascender.6e289b",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     95688,
+     648
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.7,
+     0.695,
+     5.0229,
+     0.8,
+     1.39
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.end_cap.tail.C.steward_ascender.d57619": {
+   "id": "EE600.end_cap.tail.C.steward_ascender.d57619",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     111240,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.75,
+     0.03,
+     2.436,
+     2.7,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "EE600.floor.floor.C.steward_ascender.6ea18f": {
+   "id": "EE600.floor.floor.C.steward_ascender.6ea18f",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     121536,
+     1440
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     2.82,
+     5.68,
+     0.03,
+     5.64
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "EE600.lining_bay.trim_0_0.R.steward_ascender.3d0f0d": {
+   "id": "EE600.lining_bay.trim_0_0.R.steward_ascender.3d0f0d",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     156096,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     1.9613,
+     1.44,
+     1.0,
+     1.537,
+     1.72,
+     2.0
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.lining_bay.trim_1_0.R.steward_ascender.8e793c": {
+   "id": "EE600.lining_bay.trim_1_0.R.steward_ascender.8e793c",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     162576,
+     270
+    ]
+   },
+   "boxes": [
+    [
+     1.9613,
+     1.44,
+     1.02,
+     1.537,
+     1.72,
+     2.04
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.lining_bay.a_pillar.R.steward_ascender.fe488c": {
+   "id": "EE600.lining_bay.a_pillar.R.steward_ascender.fe488c",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     169056,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1532,
+     1.8572,
+     0.09,
+     0.1286,
+     1.3856,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.lining_bay.trim_0_0.L.steward_ascender.8f364b": {
+   "id": "EE600.lining_bay.trim_0_0.L.steward_ascender.8f364b",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     169920,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     -1.4609,
+     1.44,
+     0.2497,
+     0.5361,
+     1.72,
+     0.4993
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.lining_bay.trim_0_1.L.steward_ascender.76cf98": {
+   "id": "EE600.lining_bay.trim_0_1.L.steward_ascender.76cf98",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "trim_0_1",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/trim_0_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     173520,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -2.2845,
+     1.44,
+     2.3007,
+     1.1111,
+     1.72,
+     4.6014
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.lining_bay.trim_0_2.L.steward_ascender.b26521": {
+   "id": "EE600.lining_bay.trim_0_2.L.steward_ascender.b26521",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "trim_0_2",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/trim_0_2/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     181008,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     -1.4609,
+     1.44,
+     0.2696,
+     0.5361,
+     1.72,
+     0.5393
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.lining_bay.a_pillar.L.steward_ascender.c05fb2": {
+   "id": "EE600.lining_bay.a_pillar.L.steward_ascender.c05fb2",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     184608,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1532,
+     1.8572,
+     0.09,
+     0.1286,
+     1.3856,
+     0.18
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.ceiling_bay.roof_0.C.steward_ascender.bf280a": {
+   "id": "EE600.ceiling_bay.roof_0.C.steward_ascender.bf280a",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     185472,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.7551,
+     5.2476,
+     0.55,
+     1.5102
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.ceiling_bay.roof_1.C.steward_ascender.62fbd1": {
+   "id": "EE600.ceiling_bay.roof_1.C.steward_ascender.62fbd1",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     197568,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.5549,
+     5.68,
+     0.55,
+     1.1098
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.ceiling_bay.roof_2.C.steward_ascender.ae1ac8": {
+   "id": "EE600.ceiling_bay.roof_2.C.steward_ascender.ae1ac8",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     206208,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.725,
+     5.68,
+     0.55,
+     1.45
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.ceiling_bay.roof_3.C.steward_ascender.772271": {
+   "id": "EE600.ceiling_bay.roof_3.C.steward_ascender.772271",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     216576,
+     648
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.695,
+     4.919,
+     0.55,
+     1.39
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.end_lining.firewall.C.steward_ascender.01c5b7": {
+   "id": "EE600.end_lining.firewall.C.steward_ascender.01c5b7",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     232128,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.01,
+     -0.0,
+     5.67,
+     0.92,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.end_lining.rear_wall.C.steward_ascender.a0c31d": {
+   "id": "EE600.end_lining.rear_wall.C.steward_ascender.a0c31d",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     233568,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7,
+     0.0,
+     5.67,
+     2.3,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.rear_opening.C.steward_ascender.6200b9": {
+   "id": "EE600.reveal.rear_opening.C.steward_ascender.6200b9",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     237024,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8,
+     0.03,
+     1.4,
+     0.8,
+     0.06
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.glazing.back_window.C.steward_ascender.9ea2cc": {
+   "id": "EE600.glazing.back_window.C.steward_ascender.9ea2cc",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     239904,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.8,
+     -0.0,
+     1.4,
+     0.8,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.reveal.door_D.R.steward_ascender.0c7f5b": {
+   "id": "EE600.reveal.door_D.R.steward_ascender.0c7f5b",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "door_D",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/door_D/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     241200,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     2.8149,
+     1.44,
+     0.8,
+     0.1702,
+     1.72,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.window_W1.R.steward_ascender.cc3364": {
+   "id": "EE600.reveal.window_W1.R.steward_ascender.cc3364",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     244368,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.2862,
+     1.8,
+     0.6,
+     0.8718,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.window_W2.R.steward_ascender.69f85f": {
+   "id": "EE600.reveal.window_W2.R.steward_ascender.69f85f",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     246672,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     2.2862,
+     1.8,
+     0.6,
+     0.8718,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.window_W1.L.steward_ascender.da0fbd": {
+   "id": "EE600.reveal.window_W1.L.steward_ascender.da0fbd",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     248976,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.2862,
+     1.8,
+     0.6,
+     0.8718,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.window_W2.L.steward_ascender.56e8d0": {
+   "id": "EE600.reveal.window_W2.L.steward_ascender.56e8d0",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     251280,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     -2.2862,
+     1.8,
+     0.6,
+     0.8718,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.window_W3.L.steward_ascender.4c2d6e": {
+   "id": "EE600.reveal.window_W3.L.steward_ascender.4c2d6e",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     253584,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -2.8149,
+     1.8,
+     0.8,
+     0.1702,
+     1.0,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.reveal.screen.C.steward_ascender.6363e1": {
+   "id": "EE600.reveal.screen.C.steward_ascender.6363e1",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     256176,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.135,
+     0.09,
+     2.4234,
+     1.93,
+     0.18
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "EE600.glazing.window_W1.R.steward_ascender.9fc807": {
+   "id": "EE600.glazing.window_W1.R.steward_ascender.9fc807",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     259344,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     2.3058,
+     1.8,
+     0.6,
+     0.8327,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.glazing.window_W1.L.steward_ascender.b0851d": {
+   "id": "EE600.glazing.window_W1.L.steward_ascender.b0851d",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     261504,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -2.3058,
+     1.8,
+     0.6,
+     0.8327,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.glazing.window_W2.R.steward_ascender.9602c0": {
+   "id": "EE600.glazing.window_W2.R.steward_ascender.9602c0",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     263664,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     2.3058,
+     1.8,
+     0.6,
+     0.8327,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.glazing.window_W2.L.steward_ascender.ffc98a": {
+   "id": "EE600.glazing.window_W2.L.steward_ascender.ffc98a",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     265824,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -2.3058,
+     1.8,
+     0.6,
+     0.8327,
+     1.0,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.glazing.window_W3.L.steward_ascender.c080d8": {
+   "id": "EE600.glazing.window_W3.L.steward_ascender.c080d8",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/glazing/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     267984,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -2.8437,
+     1.8,
+     0.8,
+     0.1125,
+     1.0,
+     1.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.door_leaf.door_D.R.steward_ascender.7cae75": {
+   "id": "EE600.door_leaf.door_D.R.steward_ascender.7cae75",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "door_leaf",
+   "slot": "door_D",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/door_leaf/door_D/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     270576,
+     72
+    ],
+    "paint": [
+     272304,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     2.8149,
+     0.94,
+     0.8,
+     0.1702,
+     0.72,
+     1.6
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.door_glass.door_D.R.steward_ascender.20118a": {
+   "id": "EE600.door_glass.door_D.R.steward_ascender.20118a",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "door_glass",
+   "slot": "door_D",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/door_glass/door_D/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     276336,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     2.8437,
+     1.8,
+     0.8,
+     0.1125,
+     1.0,
+     1.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "EE600.leaf_trim.handle_D.R.steward_ascender.05b3b7": {
+   "id": "EE600.leaf_trim.handle_D.R.steward_ascender.05b3b7",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "leaf_trim",
+   "slot": "handle_D",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/leaf_trim/handle_D/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     278928,
+     36
+    ],
+    "dash": [
+     279792,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     2.81,
+     1.115,
+     0.125,
+     0.06,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.underpan.underpan.C.steward_ascender.d760ad": {
+   "id": "EE600.underpan.underpan.C.steward_ascender.d760ad",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     280656,
+     900
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     2.9,
+     5.74,
+     0.105,
+     5.8
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "EE600.seat.row_0.C.steward_ascender.1d4fca": {
+   "id": "EE600.seat.row_0.C.steward_ascender.1d4fca",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     302256,
+     144
+    ],
+    "seat": [
+     305712,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0777,
+     0.4023,
+     3.66,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "EE600.seat.row_1.C.steward_ascender.6779e5": {
+   "id": "EE600.seat.row_1.C.steward_ascender.6779e5",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     312624,
+     144
+    ],
+    "seat": [
+     316080,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0777,
+     0.4023,
+     3.66,
+     0.9553,
+     0.8047
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 72,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "EE600.dash.dash.C.steward_ascender.67daed": {
+   "id": "EE600.dash.dash.C.steward_ascender.67daed",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     322992,
+     1236
+    ],
+    "chrome": [
+     352656,
+     120
+    ],
+    "dash": [
+     355536,
+     108
+    ],
+    "gauge": [
+     358128,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1997,
+     0.3176,
+     5.52,
+     0.3796,
+     0.6351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "EE600.dash.readout.C.steward_ascender.67bfe5": {
+   "id": "EE600.dash.readout.C.steward_ascender.67bfe5",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     367344,
+     36
+    ],
+    "lcd": [
+     368208,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.6,
+     1.22,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "EE600.lamp.head_lamp.C.steward_ascender.593444": {
+   "id": "EE600.lamp.head_lamp.C.steward_ascender.593444",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     369072,
+     480
+    ],
+    "lamp_amber": [
+     380592,
+     72
+    ],
+    "lamp_drl": [
+     382320,
+     480
+    ],
+    "lamp_head": [
+     393840,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.426,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "EE600.lamp.tail_lamp.C.steward_ascender.44553e": {
+   "id": "EE600.lamp.tail_lamp.C.steward_ascender.44553e",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     405360,
+     12
+    ],
+    "lamp_amber": [
+     405648,
+     48
+    ],
+    "lamp_brake": [
+     406800,
+     36
+    ],
+    "lamp_reverse": [
+     407664,
+     48
+    ],
+    "lamp_tail": [
+     408816,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.561,
+     0.006,
+     2.396,
+     1.422,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "EE600.lamp.side_marker.C.steward_ascender.cc00e0": {
+   "id": "EE600.lamp.side_marker.C.steward_ascender.cc00e0",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     416880,
+     72
+    ],
+    "lamp_tail": [
+     418608,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     2.74,
+     2.452,
+     0.03,
+     5.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "EE600.lamp.id_lamp.C.steward_ascender.37e6ec": {
+   "id": "EE600.lamp.id_lamp.C.steward_ascender.37e6ec",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     420336,
+     180
+    ],
+    "lamp_tail": [
+     424656,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.911,
+     2.76,
+     2.2976,
+     0.426,
+     5.52
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "EE600.trim.belt_fender.R.steward_ascender.17ac1b": {
+   "id": "EE600.trim.belt_fender.R.steward_ascender.17ac1b",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     428976,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     1.5559,
+     1.2791,
+     0.3197,
+     0.6792,
+     0.0333,
+     0.6395
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.belt_fore.R.steward_ascender.5c4128": {
+   "id": "EE600.trim.belt_fore.R.steward_ascender.5c4128",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/belt_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     434736,
+     492
+    ]
+   },
+   "boxes": [
+    [
+     2.347,
+     1.288,
+     0.6999,
+     0.9044,
+     0.02,
+     1.3997
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.belt_quarter.R.steward_ascender.afd09e": {
+   "id": "EE600.trim.belt_quarter.R.steward_ascender.afd09e",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     446544,
+     744
+    ]
+   },
+   "boxes": [
+    [
+     2.0078,
+     1.288,
+     1.0172,
+     1.5833,
+     0.02,
+     2.0344
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.belt_fender.L.steward_ascender.ba2fbd": {
+   "id": "EE600.trim.belt_fender.L.steward_ascender.ba2fbd",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     464400,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -1.5559,
+     1.279,
+     0.3198,
+     0.6792,
+     0.0333,
+     0.6395
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.belt_fore_0.L.steward_ascender.dc43d2": {
+   "id": "EE600.trim.belt_fore_0.L.steward_ascender.dc43d2",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "belt_fore_0",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/belt_fore_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     470160,
+     1608
+    ]
+   },
+   "boxes": [
+    [
+     -2.3409,
+     1.288,
+     2.2519,
+     1.1384,
+     0.02,
+     4.5038
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.trim.belt_fore_1.L.steward_ascender.d811b1": {
+   "id": "EE600.trim.belt_fore_1.L.steward_ascender.d811b1",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "trim",
+   "slot": "belt_fore_1",
+   "side": "L",
+   "style": "steward_ascender",
+   "interface": "EE600/trim/belt_fore_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     508752,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     -1.4929,
+     1.288,
+     0.2687,
+     0.5534,
+     0.02,
+     0.5375
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "EE600.leaf_trim.belt_door_D.R.steward_ascender.04206c": {
+   "id": "EE600.leaf_trim.belt_door_D.R.steward_ascender.04206c",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "leaf_trim",
+   "slot": "belt_door_D",
+   "side": "R",
+   "style": "steward_ascender",
+   "interface": "EE600/leaf_trim/belt_door_D/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     513648,
+     564
+    ]
+   },
+   "boxes": [
+    [
+     2.8485,
+     1.288,
+     0.7987,
+     0.1234,
+     0.02,
+     1.5975
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "EE600.equipment.guide_rollers.C.steward_ascender.18ce3c": {
+   "id": "EE600.equipment.guide_rollers.C.steward_ascender.18ce3c",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "equipment",
+   "slot": "guide_rollers",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/equipment/guide_rollers/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     527184,
+     144
+    ],
+    "chrome": [
+     530640,
+     1872
+    ],
+    "rubber": [
+     575568,
+     2592
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.61,
+     1.61,
+     2.76,
+     3.22,
+     3.22
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 300,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "EE600.lamp.rim_lamps.C.steward_ascender.dda090": {
+   "id": "EE600.lamp.rim_lamps.C.steward_ascender.dda090",
+   "standard": "EE600",
+   "class": "spoke_elevator_car",
+   "role": "lamp",
+   "slot": "rim_lamps",
+   "side": "C",
+   "style": "steward_ascender",
+   "interface": "EE600/lamp/rim_lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     637776,
+     288
+    ],
+    "lamp_amber": [
+     644688,
+     3360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4529,
+     2.7497,
+     5.29,
+     1.2542,
+     5.4993
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.02
+  }
+ }
+}

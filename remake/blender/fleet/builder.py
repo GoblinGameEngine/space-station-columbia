@@ -848,6 +848,8 @@ class Builder:
         L = self.L
         bz = L.spec.get("bumper_z", 0.46)
         w = L.half_w * 0.92
+        if st.get("bumper") == "none":                      # (an aerostat's gondola: nothing to bump)
+            return
         m = {"chrome": "chrome", "black": "black", "body": st["panel"]["lower"]}[st.get("bumper", "chrome")]
         C = L.spec.get("cargo")
         for yy, sg, slot in ((L.nose, 1, "bumper_front"), (C["y1"] if C else L.tail, -1, "bumper_rear")):
@@ -860,6 +862,8 @@ class Builder:
     def mirrors(self, st):
         """Outside mirrors on both sides (FMVSS 111: the driver's is required; a passenger-side one on these)."""
         L = self.L
+        if st.get("mirror") == "none":
+            return
         # (ahead of the door's front edge, never on the leaf: the mirror is a fixed token and the door swings away)
         my = min(L.toe - 0.06, self.doors_on("L")[0]["y0"] + 0.11 if self.doors_on("L") else L.toe - 0.06)
         if self.doors_on("L") and my - 0.10 < self.doors_on("L")[0]["y0"]:    # (a door right behind the toe -- a tractor's:
@@ -981,6 +985,10 @@ class Builder:
     def equipment(self, kind, st):
         """Roof and body equipment tokens (a variant's own): light bars, signs, racks, beacons, push bars."""
         L = self.L
+        import aero                                         # (the aerostats' tokens: fleet/aero.py; the spacecraft's
+        import space                                        #  and the spoke elevator's: fleet/space.py)
+        if aero.equipment(self, kind, st) or space.equipment(self, kind, st):
+            return
         rz = L.crown
         ym = (L.header + (L.rear["c_top"] if L.rear["kind"] == "trunk" else L.tail_in)) / 2
         if kind == "lightbar":                              # police, ambulance, tow, fire chief: red / blue / amber

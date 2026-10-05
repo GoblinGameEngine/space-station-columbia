@@ -262,12 +262,42 @@ def freighter():
 
 
 def eva_sled():
-    return [("frame", "frame_shown", "frame", "C", [T([(sx * 0.8, sy * 1.3, 0.3), (sx * 0.8, sy * 1.3, 1.8)], 0.04, "chrome") for sx in (1, -1) for sy in (1, -1)] +
-             [T([(sx * 0.8, 1.3, 1.8), (sx * 0.8, -1.3, 1.8)], 0.04, "chrome") for sx in (1, -1)] + [T([(-0.8, sy * 1.3, 0.3), (0.8, sy * 1.3, 0.3)], 0.04, "chrome") for sy in (1, -1)]),
-            ("deck", "cargo_floor", "deck", "C", [B((0, 0, 0.32), (0.8, 1.3, 0.03), "black")]),
-            ("thrusters", "equipment", "thrusters", "C", [B((sx * 0.85, sy * 1.35, sz), (0.08, 0.08, 0.08), "paint") for sx in (1, -1) for sy in (1, -1) for sz in (0.3, 1.8)]),
-            ("saddle", "seat", "saddle", "C", [B((0, 0.6, 0.6), (0.3, 0.4, 0.25), "seat")]),
-            ("tanks", "equipment", "tanks", "C", [("lathe", [(-0.4, 0.15), (0.4, 0.15)], (sx * 0.4, -0.6, 0.5), "paint2", "y") for sx in (1, -1)])]
+    """The EVA sled (reference/grok/eva_sled): a rounded hull platform, the thruster tower at its back (four bells), a
+    seat and a control stand, a robot arm on the deck, rails, lamps on posts, sprung landing pads."""
+    def bell(c, r=0.16):
+        return ("lathe", [(0.0, r * 0.55), (-0.12, r * 0.5), (-0.28, r * 0.8), (-0.42, r)], c, "paint", "y")
+    hull = [B((0, 0.1, 0.55), (0.80, 1.45, 0.14), "paint2"), B((0, 1.52, 0.52), (0.70, 0.10, 0.11), "paint2"),
+            B((0, 0.1, 0.70), (0.72, 1.35, 0.012), "black")]
+    hull += [B((sx * 0.805, 0.1, 0.56), (0.008, 1.40, 0.03), "paint") for sx in (1, -1)]
+    tower = [B((0, -1.20, 1.30), (0.78, 0.28, 0.75), "paint2"), B((0, -0.915, 1.30), (0.70, 0.01, 0.64), "chrome"),
+             B((0, -0.90, 1.05), (0.30, 0.01, 0.22), "paint"), B((0, -0.89, 1.05), (0.24, 0.006, 0.16), "black")]
+    tower += [B((sx * 0.79, -1.20, 1.30), (0.01, 0.20, 0.70), "paint") for sx in (1, -1)]
+    tower += [B((0, -1.20, 2.06), (0.70, 0.22, 0.012), "paint")]
+    bells = [bell((x, -1.49, z)) for x in (-0.38, 0.38) for z in (0.95, 1.68)]
+    bells += [("lathe", [(0.0, 0.12), (-0.08, 0.12)], (x, -1.49, z), "chrome", "y") for x in (-0.38, 0.38) for z in (0.95, 1.68)]
+    seat = [("seat", (0, -0.55, 0.88), (0.27, 0.24), "seat"), B((0, -0.78, 1.20), (0.26, 0.05, 0.32), "seat"),
+            B((0, -0.55, 0.78), (0.20, 0.20, 0.08), "black")]
+    stand = [B((0, 0.25, 0.95), (0.24, 0.16, 0.24), "paint2"), B((0, 0.13, 1.12), (0.20, 0.06, 0.06), "black")]
+    stand += [("disc", (x, 0.08, 1.14), 0.025, 0.02, "lamp_amber") for x in (-0.12, -0.04, 0.04, 0.12)]
+    arm = [("lathe", [(0.0, 0.26), (0.06, 0.26), (0.10, 0.18), (0.16, 0.18)], (0.2, 0.95, 0.72), "paint2", "z"),
+           T([(0.2, 0.95, 0.9), (0.15, 0.75, 1.55)], 0.085, "paint2"), T([(0.15, 0.75, 1.55), (0.2, 1.45, 1.95)], 0.07, "paint2"),
+           T([(0.2, 1.45, 1.95), (0.2, 1.85, 1.9)], 0.05, "paint2"),
+           ("disc", (0.15, 0.75, 1.55), 0.11, 0.18, "paint"), ("disc", (0.2, 1.45, 1.95), 0.09, 0.15, "paint"),
+           T([(0.2, 1.85, 1.92), (0.2, 2.02, 2.0)], 0.018, "chrome"), T([(0.2, 1.85, 1.88), (0.2, 2.02, 1.80)], 0.018, "chrome"),
+           T([(0.22, 1.05, 1.2), (0.22, 1.08, 1.45)], 0.03, "paint")]
+    small = [T([(-0.55, -0.85, 1.4), (-0.45, -0.55, 1.75), (-0.40, -0.25, 1.70)], 0.035, "paint2"), ("disc", (-0.45, -0.55, 1.75), 0.06, 0.08, "paint")]
+    rails = [T([(-0.75, -0.95, 0.72), (-0.75, -0.9, 1.1), (-0.75, 0.5, 1.1), (-0.75, 0.55, 0.72)], 0.025, "chrome"),
+             T([(0.78, 1.5, 0.62), (0.85, 1.0, 0.62), (0.85, -0.9, 0.62)], 0.022, "chrome")]
+    lamps = [T([(-0.6, -1.2, 2.06), (-0.6, -1.2, 2.25)], 0.03, "paint"), ("lathe", [(0.0, 0.11), (0.04, 0.11), (0.05, 0.0001)], (-0.6, -1.12, 2.32), "lamp_head", "y"),
+             T([(0.65, 1.45, 0.69), (0.65, 1.45, 0.88)], 0.03, "paint"), ("lathe", [(0.0, 0.09), (0.04, 0.09), (0.05, 0.0001)], (0.65, 1.53, 0.95), "lamp_head", "y")]
+    pads = []
+    for x in (-0.55, 0.55):
+        for y in (-1.05, 0.0, 1.05):
+            pads += [T([(x, y, 0.41), (x, y, 0.22)], 0.035, "chrome"), ("lathe", [(0.0, 0.07), (0.10, 0.09), (0.18, 0.13), (0.20, 0.0001)], (x, y, 0.24), "paint", "z")]
+    return [("hull", "cargo_floor", "hull", "C", hull), ("tower", "cab", "tower", "C", tower), ("bells", "equipment", "thrusters", "C", bells),
+            ("seat", "seat", "seat", "C", seat), ("stand", "dash", "stand", "C", stand), ("arm", "equipment", "arm", "C", arm),
+            ("arm_small", "equipment", "arm_small", "C", small), ("rails", "frame_shown", "rails", "C", rails), ("lamps", "lamp", "lamps", "C", lamps),
+            ("pads", "wheel", "pads", "C", pads)]
 
 
 def cargo_mule():
@@ -290,17 +320,46 @@ def elevator_car():
 
 
 def travel_lift():
-    out = [("gantry", "frame_shown", "gantry", "C", [T([(sx * 3.4, sy * 4.6, 0.5), (sx * 3.4, sy * 4.6, 8.6)], 0.25, "paint") for sx in (1, -1) for sy in (1, -1)] +
-            [T([(sx * 3.4, 4.6, 8.6), (sx * 3.4, -4.6, 8.6)], 0.30, "paint") for sx in (1, -1)] + [T([(-3.4, -4.6, 8.6), (3.4, -4.6, 8.6)], 0.30, "paint")] +
-            [T([(sx * 3.4, 4.6, 0.6), (sx * 3.4, -4.6, 0.6)], 0.2, "paint") for sx in (1, -1)]),
-           ("slings", "equipment", "slings", "C", [T([(sx * 3.3, y, 8.4), (sx * 0.8, y, 1.0)], 0.03, "black") for sx in (1, -1) for y in (2.0, -2.0)]),
-           ("cab", "cab", "cab", "C", [B((3.4, 4.9, 7.5), (0.6, 0.5, 0.6), "paint2"), B((3.4, 5.4, 7.6), (0.55, 0.02, 0.35), "glass_dark")]),
-           ("wheels", "wheel", "wheels", "C", [W((sx * 3.4, sy * 4.6 + dy, 0.45), 0.45, 0.30) for sx in (1, -1) for sy in (1, -1) for dy in (0.5, -0.5)])]
-    return out
+    """The boatyard's travel lift (reference/grok/travel_lift): a box-section gantry on four legs, its top frame with the
+    yard's name boards, pulleys and blocks, the slings hanging in loops between, the control and power boxes, the
+    wheels on their forks (the front pair steers)."""
+    hx, hy, top = 3.4, 4.6, 8.6
+    beams = []
+    for sx in (1, -1):
+        for sy in (1, -1):
+            beams.append(B((sx * hx, sy * hy, (0.95 + top) / 2), (0.22, 0.22, (top - 0.95) / 2), "paint"))
+        beams.append(B((sx * hx, 0, top), (0.26, hy + 0.26, 0.30), "paint"))
+        beams.append(B((sx * (hx + 0.265), 0, top), (0.01, hy * 0.6, 0.18), "paint2"))
+        beams.append(B((sx * (hx + 0.27), 0, top + 0.20), (0.008, hy + 0.2, 0.025), "paint2"))
+        beams.append(B((sx * hx, 0, 1.4), (0.18, hy, 0.18), "paint"))
+    for sy in (1, -1):
+        beams.append(B((0, sy * hy, top), (hx + 0.26, 0.26, 0.30), "paint"))
+        beams.append(B((0, sy * (hy + 0.265), top), (hx * 0.6, 0.01, 0.18), "paint2"))
+    pulleys, slings = [], []
+    for sx in (1, -1):
+        for y in (2.0, 0.7, -0.7, -2.0):
+            pulleys += [("disc", (sx * (hx - 0.05), y, top - 0.55), 0.20, 0.08, "chrome"), T([(sx * (hx - 0.05), y, top - 0.30), (sx * (hx - 0.05), y, top - 0.35)], 0.03, "black")]
+            slings.append(T([(sx * (hx - 0.05), y, top - 0.75), (sx * (hx - 0.05), y, 2.6)], 0.012, "chrome"))
+            slings.append(T([(sx * (hx - 0.05), y, 2.6), (sx * (hx - 0.5), y, 1.4), (sx * 1.6, y, 0.95), (0.0, y, 0.85)], 0.05, "paint"))
+            slings.append(("disc", (sx * (hx - 0.05), y, 2.55), 0.07, 0.10, "chrome"))
+    for y in (2.0, 0.7, -0.7, -2.0):
+        slings.append(T([(-1.6, y, 0.95), (0.0, y, 0.85), (1.6, y, 0.95)], 0.05, "paint"))
+    boxes = [B((hx + 0.45, hy - 0.6, 2.3), (0.22, 0.40, 0.55), "paint2"), B((hx + 0.68, hy - 0.6, 2.4), (0.01, 0.12, 0.10), "black"),
+             B((-hx - 0.40, hy - 0.2, 1.6), (0.18, 0.28, 0.30), "chrome"), B((-hx - 0.59, hy - 0.2, 1.6), (0.01, 0.08, 0.10), "lamp_amber"),
+             T([(hx + 0.45, hy - 0.6, 1.75), (hx + 0.2, hy - 0.6, 1.2), (hx, hy - 0.3, 1.0)], 0.02, "black")]
+    lamps = [("lathe", [(0.0, 0.08), (0.05, 0.06), (0.06, 0.0001)], (x, y, top - 0.32), "lamp_head", "z") for x in (-2.0, 0.0, 2.0) for y in (hy, -hy)]
+    wheels = []
+    for sx in (1, -1):
+        for sy in (1, -1):
+            x, y = sx * hx, sy * hy
+            wheels += [B((x, y, 0.98), (0.30, 0.30, 0.05), "black"), T([(x, y + 0.15, 0.95), (x, y + 0.15, 0.55)], 0.06, "paint"),
+                       T([(x, y - 0.15, 0.95), (x, y - 0.15, 0.55)], 0.06, "paint")]
+            wheels.append(W((x, y, 0.48), 0.48, 0.30))
+    return [("gantry", "frame_shown", "gantry", "C", beams), ("pulleys", "equipment", "pulleys", "C", pulleys),
+            ("slings", "equipment", "slings", "C", slings), ("controls", "equipment", "controls", "C", boxes),
+            ("lamps", "lamp", "lamps", "C", lamps), ("wheels", "wheel", "wheels", "C", wheels)]
 
 
-RECIPES.update({"cargo_aerostat": lambda: aerostat(20.0, 4.5, (6.0, 1.6, 2.6)), "rescue_aerostat": lambda: aerostat(9.0, 2.8, (3.2, 1.0, 1.9), rescue=True),
-                "passenger_shuttle": shuttle, "supply_freighter": freighter, "eva_sled": eva_sled, "cargo_mule": cargo_mule,
-                "spoke_elevator_car": elevator_car, "travel_lift": travel_lift})
-COLOURS.update({"cargo_aerostat": (210, 212, 216), "rescue_aerostat": (236, 140, 24), "passenger_shuttle": (236, 234, 228), "supply_freighter": (150, 152, 156),
-                "eva_sled": (236, 186, 30), "cargo_mule": (236, 140, 24), "spoke_elevator_car": (210, 212, 216), "travel_lift": (40, 92, 150)})
+RECIPES.update({"eva_sled": eva_sled, "travel_lift": travel_lift})
+COLOURS.update({"passenger_shuttle": (236, 234, 228), "supply_freighter": (150, 152, 156),
+                "eva_sled": (226, 110, 30), "cargo_mule": (236, 140, 24), "spoke_elevator_car": (210, 212, 216), "travel_lift": (40, 92, 150)})

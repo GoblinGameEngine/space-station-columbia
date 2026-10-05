@@ -1,0 +1,3255 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "AC820",
+ "class": "cargo_aerostat",
+ "style": "steward_burden",
+ "pack": "res://remake/vehicles/components/AC820/steward_burden.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9098,
+    0.8706,
+    0.7686
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.3059,
+    0.5882,
+    0.549
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9098,
+    0.8784,
+    0.8
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.3059,
+    0.5882,
+    0.549
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "AC820.end_cap.nose.C.steward_burden.369650": {
+   "id": "AC820.end_cap.nose.C.steward_burden.369650",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     507
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.837,
+     0.03,
+     2.1927,
+     0.874,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.trim.cowl.C.steward_burden.408696": {
+   "id": "AC820.trim.cowl.C.steward_burden.408696",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     12168,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3495,
+     0.095,
+     2.2684,
+     0.221,
+     0.19
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.glazing.screen.C.steward_burden.aa66a5": {
+   "id": "AC820.glazing.screen.C.steward_burden.aa66a5",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     13320,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.12,
+     0.25,
+     2.2684,
+     1.6,
+     0.5
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.trim.screen.C.steward_burden.7c41e4": {
+   "id": "AC820.trim.screen.C.steward_burden.7c41e4",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     14472,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0586,
+     0.25,
+     2.2684,
+     1.4853,
+     0.5
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.side_bay.fender.R.steward_burden.218535": {
+   "id": "AC820.side_bay.fender.R.steward_burden.218535",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     17352,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     1.0385,
+     0.86,
+     0.445,
+     0.3229,
+     0.92,
+     0.89
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.trim.sail.R.steward_burden.6274bb": {
+   "id": "AC820.trim.sail.R.steward_burden.6274bb",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19800,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.1492,
+     1.85,
+     0.35,
+     0.1015,
+     1.1,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.a_pillar.R.steward_burden.e834ce": {
+   "id": "AC820.trim.a_pillar.R.steward_burden.e834ce",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21096,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.0594,
+     2.04,
+     0.25,
+     0.1616,
+     1.48,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.side_bay.rocker_F.R.steward_burden.3c85d6": {
+   "id": "AC820.side_bay.rocker_F.R.steward_burden.3c85d6",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21384,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.9997,
+     0.49,
+     0.375,
+     0.0794,
+     0.18,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.side_bay.quarter.R.steward_burden.0aa595": {
+   "id": "AC820.side_bay.quarter.R.steward_burden.0aa595",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/side_bay/quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     21528,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     1.0567,
+     1.4,
+     3.215,
+     0.2867,
+     2.0,
+     6.43
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.side_bay.fender.L.steward_burden.93e288": {
+   "id": "AC820.side_bay.fender.L.steward_burden.93e288",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26280,
+     102
+    ]
+   },
+   "boxes": [
+    [
+     -1.0385,
+     0.86,
+     0.445,
+     0.3229,
+     0.92,
+     0.89
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.trim.sail.L.steward_burden.4a5f80": {
+   "id": "AC820.trim.sail.L.steward_burden.4a5f80",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28728,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.1492,
+     1.85,
+     0.35,
+     0.1015,
+     1.1,
+     0.7
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.a_pillar.L.steward_burden.6d25aa": {
+   "id": "AC820.trim.a_pillar.L.steward_burden.6d25aa",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30024,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.0594,
+     2.04,
+     0.25,
+     0.1616,
+     1.48,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.side_bay.rocker_F.L.steward_burden.95552a": {
+   "id": "AC820.side_bay.rocker_F.L.steward_burden.95552a",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30312,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.9997,
+     0.49,
+     0.375,
+     0.0794,
+     0.18,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.side_bay.quarter.L.steward_burden.474f13": {
+   "id": "AC820.side_bay.quarter.L.steward_burden.474f13",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "side_bay",
+   "slot": "quarter",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/side_bay/quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30456,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     -1.0567,
+     1.4,
+     3.215,
+     0.2867,
+     2.0,
+     6.43
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.roof_bay.roof_0.C.steward_burden.5bdea5": {
+   "id": "AC820.roof_bay.roof_0.C.steward_burden.5bdea5",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     35208,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.525,
+     2.2,
+     0.52,
+     1.05
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.roof_bay.roof_1.C.steward_burden.0958e2": {
+   "id": "AC820.roof_bay.roof_1.C.steward_burden.0958e2",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     42120,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     1.0,
+     2.2,
+     0.52,
+     2.0
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.roof_bay.roof_2.C.steward_burden.faaed3": {
+   "id": "AC820.roof_bay.roof_2.C.steward_burden.faaed3",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     43848,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     1.05,
+     2.2,
+     0.52,
+     2.1
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.roof_bay.roof_3.C.steward_burden.def853": {
+   "id": "AC820.roof_bay.roof_3.C.steward_burden.def853",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     47304,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.8,
+     2.2,
+     0.52,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.roof_bay.roof_4.C.steward_burden.d851e9": {
+   "id": "AC820.roof_bay.roof_4.C.steward_burden.d851e9",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/roof_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     50760,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.315,
+     2.2,
+     0.52,
+     0.63
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.end_cap.tail.C.steward_burden.00f3e4": {
+   "id": "AC820.end_cap.tail.C.steward_burden.00f3e4",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     52488,
+     573
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.66,
+     0.035,
+     2.2834,
+     2.52,
+     0.07
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AC820.floor.floor.C.steward_burden.fd63ef": {
+   "id": "AC820.floor.floor.C.steward_burden.fd63ef",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     66240,
+     528
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     3.94,
+     1.9588,
+     0.03,
+     7.88
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "AC820.lining_bay.trim_0_0.R.steward_burden.ac44f7": {
+   "id": "AC820.lining_bay.trim_0_0.R.steward_burden.ac44f7",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     78912,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.0353,
+     1.49,
+     0.35,
+     0.2094,
+     1.82,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.lining_bay.trim_1_0.R.steward_burden.04df70": {
+   "id": "AC820.lining_bay.trim_1_0.R.steward_burden.04df70",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     81072,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     1.0359,
+     1.49,
+     3.215,
+     0.2082,
+     1.82,
+     6.43
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.lining_bay.a_pillar.R.steward_burden.3d167c": {
+   "id": "AC820.lining_bay.a_pillar.R.steward_burden.3d167c",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     84816,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.001,
+     1.9872,
+     0.25,
+     0.1645,
+     1.4656,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.lining_bay.trim_0_0.L.steward_burden.112c9c": {
+   "id": "AC820.lining_bay.trim_0_0.L.steward_burden.112c9c",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     85104,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -1.0353,
+     1.49,
+     0.35,
+     0.2094,
+     1.82,
+     0.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.lining_bay.trim_1_0.L.steward_burden.a40002": {
+   "id": "AC820.lining_bay.trim_1_0.L.steward_burden.a40002",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     87264,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.0359,
+     1.49,
+     3.215,
+     0.2082,
+     1.82,
+     6.43
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.lining_bay.a_pillar.L.steward_burden.6e2051": {
+   "id": "AC820.lining_bay.a_pillar.L.steward_burden.6e2051",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     91008,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.001,
+     1.9872,
+     0.25,
+     0.1645,
+     1.4656,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.ceiling_bay.roof_0.C.steward_burden.a17006": {
+   "id": "AC820.ceiling_bay.roof_0.C.steward_burden.a17006",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     91296,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.525,
+     2.08,
+     0.42,
+     1.05
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.ceiling_bay.roof_1.C.steward_burden.baec38": {
+   "id": "AC820.ceiling_bay.roof_1.C.steward_burden.baec38",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     98208,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     1.0,
+     2.08,
+     0.42,
+     2.0
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.ceiling_bay.roof_2.C.steward_burden.7071d4": {
+   "id": "AC820.ceiling_bay.roof_2.C.steward_burden.7071d4",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     99936,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     1.05,
+     2.08,
+     0.42,
+     2.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.ceiling_bay.roof_3.C.steward_burden.e3b8a6": {
+   "id": "AC820.ceiling_bay.roof_3.C.steward_burden.e3b8a6",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     103392,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.8,
+     2.08,
+     0.42,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.ceiling_bay.roof_4.C.steward_burden.2ad187": {
+   "id": "AC820.ceiling_bay.roof_4.C.steward_burden.2ad187",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_4",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/ceiling_bay/roof_4/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     106848,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.315,
+     2.08,
+     0.42,
+     0.63
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.end_lining.firewall.C.steward_burden.e708cf": {
+   "id": "AC820.end_lining.firewall.C.steward_burden.e708cf",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     108576,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.955,
+     -0.0,
+     2.1664,
+     0.81,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.end_lining.rear_wall.C.steward_burden.d24021": {
+   "id": "AC820.end_lining.rear_wall.C.steward_burden.d24021",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     110016,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.685,
+     -0.0,
+     2.1692,
+     2.27,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.rear_opening.C.steward_burden.a22b52": {
+   "id": "AC820.reveal.rear_opening.C.steward_burden.a22b52",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     113472,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.875,
+     0.035,
+     0.9,
+     0.65,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.glazing.back_window.C.steward_burden.2ccc53": {
+   "id": "AC820.glazing.back_window.C.steward_burden.2ccc53",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     116352,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.875,
+     0.0,
+     0.9,
+     0.65,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.reveal.door_F.R.steward_burden.979b16": {
+   "id": "AC820.reveal.door_F.R.steward_burden.979b16",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     117648,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0897,
+     1.49,
+     0.375,
+     0.2206,
+     1.82,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.window_W1.R.steward_burden.50da76": {
+   "id": "AC820.reveal.window_W1.R.steward_burden.50da76",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     119376,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.12,
+     1.85,
+     1.0,
+     0.16,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.window_W2.R.steward_burden.bf127a": {
+   "id": "AC820.reveal.window_W2.R.steward_burden.bf127a",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     120528,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.12,
+     1.85,
+     1.0,
+     0.16,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.window_W3.R.steward_burden.b1c3b6": {
+   "id": "AC820.reveal.window_W3.R.steward_burden.b1c3b6",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     121680,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.12,
+     1.85,
+     0.75,
+     0.16,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.door_F.L.steward_burden.17d821": {
+   "id": "AC820.reveal.door_F.L.steward_burden.17d821",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     122832,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.0897,
+     1.49,
+     0.375,
+     0.2206,
+     1.82,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.window_W1.L.steward_burden.486b1a": {
+   "id": "AC820.reveal.window_W1.L.steward_burden.486b1a",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     124560,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.12,
+     1.85,
+     1.0,
+     0.16,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.window_W2.L.steward_burden.4cb90f": {
+   "id": "AC820.reveal.window_W2.L.steward_burden.4cb90f",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     125712,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.12,
+     1.85,
+     1.0,
+     0.16,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.window_W3.L.steward_burden.5f0860": {
+   "id": "AC820.reveal.window_W3.L.steward_burden.5f0860",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     126864,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.12,
+     1.85,
+     0.75,
+     0.16,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.reveal.screen.C.steward_burden.1eae59": {
+   "id": "AC820.reveal.screen.C.steward_burden.1eae59",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     128016,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.09,
+     0.25,
+     2.2684,
+     1.66,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.glazing.window_W1.R.steward_burden.cdde42": {
+   "id": "AC820.glazing.window_W1.R.steward_burden.cdde42",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     130608,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     1.0,
+     0.1,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.glazing.window_W1.L.steward_burden.445d95": {
+   "id": "AC820.glazing.window_W1.L.steward_burden.445d95",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     131040,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     1.0,
+     0.1,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.glazing.window_W2.R.steward_burden.40534f": {
+   "id": "AC820.glazing.window_W2.R.steward_burden.40534f",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     131472,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     1.0,
+     0.1,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.glazing.window_W2.L.steward_burden.6a42e8": {
+   "id": "AC820.glazing.window_W2.L.steward_burden.6a42e8",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     131904,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     1.0,
+     0.1,
+     1.1,
+     2.0
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.glazing.window_W3.R.steward_burden.61c246": {
+   "id": "AC820.glazing.window_W3.R.steward_burden.61c246",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/window_W3/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     132336,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     0.75,
+     0.1,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.glazing.window_W3.L.steward_burden.0cb930": {
+   "id": "AC820.glazing.window_W3.L.steward_burden.0cb930",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "glazing",
+   "slot": "window_W3",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/glazing/window_W3/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     132768,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     0.75,
+     0.1,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.door_leaf.door_F.R.steward_burden.2bad41": {
+   "id": "AC820.door_leaf.door_F.R.steward_burden.2bad41",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     133200,
+     12
+    ],
+    "paint": [
+     133488,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.0897,
+     0.94,
+     0.375,
+     0.2206,
+     0.72,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.door_glass.door_F.R.steward_burden.ec0e8b": {
+   "id": "AC820.door_glass.door_F.R.steward_burden.ec0e8b",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     134640,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     0.375,
+     0.1,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.leaf_trim.handle_F.R.steward_burden.efc2b8": {
+   "id": "AC820.leaf_trim.handle_F.R.steward_burden.efc2b8",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     135072,
+     36
+    ],
+    "dash": [
+     135936,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1383,
+     1.115,
+     0.125,
+     0.1166,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.door_leaf.door_F.L.steward_burden.da4af5": {
+   "id": "AC820.door_leaf.door_F.L.steward_burden.da4af5",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     136800,
+     12
+    ],
+    "paint": [
+     137088,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.0897,
+     0.94,
+     0.375,
+     0.2206,
+     0.72,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.door_glass.door_F.L.steward_burden.bb2fdf": {
+   "id": "AC820.door_glass.door_F.L.steward_burden.bb2fdf",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     138240,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     0.375,
+     0.1,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AC820.leaf_trim.handle_F.L.steward_burden.5068a3": {
+   "id": "AC820.leaf_trim.handle_F.L.steward_burden.5068a3",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     138672,
+     36
+    ],
+    "dash": [
+     139536,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1383,
+     1.115,
+     0.125,
+     0.1166,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.underpan.underpan.C.steward_burden.bad92a": {
+   "id": "AC820.underpan.underpan.C.steward_burden.bad92a",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     140400,
+     462
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     4.1,
+     1.92,
+     0.105,
+     8.2
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "AC820.seat.row_0.C.steward_burden.eda8ee": {
+   "id": "AC820.seat.row_0.C.steward_burden.eda8ee",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     151488,
+     72
+    ],
+    "seat": [
+     153216,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.51,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "AC820.seat.row_1.C.steward_burden.7b9e5d": {
+   "id": "AC820.seat.row_1.C.steward_burden.7b9e5d",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     158400,
+     72
+    ],
+    "seat": [
+     160128,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.7,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "AC820.dash.dash.C.steward_burden.d3cbf7": {
+   "id": "AC820.dash.dash.C.steward_burden.d3cbf7",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     165312,
+     1236
+    ],
+    "chrome": [
+     194976,
+     120
+    ],
+    "dash": [
+     197856,
+     108
+    ],
+    "gauge": [
+     200448,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1997,
+     0.2676,
+     2.12,
+     0.3796,
+     0.5351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "AC820.dash.readout.C.steward_burden.9cfcae": {
+   "id": "AC820.dash.readout.C.steward_burden.9cfcae",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     209664,
+     36
+    ],
+    "lcd": [
+     210528,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.5,
+     1.22,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "AC820.lamp.head_lamp.C.steward_burden.4d8126": {
+   "id": "AC820.lamp.head_lamp.C.steward_burden.4d8126",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     211392,
+     480
+    ],
+    "lamp_amber": [
+     222912,
+     72
+    ],
+    "lamp_drl": [
+     224640,
+     480
+    ],
+    "lamp_head": [
+     236160,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.0455,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AC820.lamp.tail_lamp.C.steward_burden.8323a1": {
+   "id": "AC820.lamp.tail_lamp.C.steward_burden.8323a1",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     247680,
+     12
+    ],
+    "lamp_amber": [
+     247968,
+     48
+    ],
+    "lamp_brake": [
+     249120,
+     36
+    ],
+    "lamp_reverse": [
+     249984,
+     48
+    ],
+    "lamp_tail": [
+     251136,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.561,
+     0.006,
+     2.1323,
+     1.422,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AC820.lamp.side_marker.C.steward_burden.9a0a5e": {
+   "id": "AC820.lamp.side_marker.C.steward_burden.9a0a5e",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     259200,
+     72
+    ],
+    "lamp_tail": [
+     260928,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     3.94,
+     2.0375,
+     0.03,
+     7.88
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AC820.lamp.id_lamp.C.steward_burden.98f06d": {
+   "id": "AC820.lamp.id_lamp.C.steward_burden.98f06d",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     262656,
+     180
+    ],
+    "lamp_tail": [
+     266976,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.861,
+     3.725,
+     1.9578,
+     0.166,
+     7.45
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AC820.trim.belt_fender.R.steward_burden.4ce177": {
+   "id": "AC820.trim.belt_fender.R.steward_burden.4ce177",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     271296,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     1.152,
+     1.2511,
+     0.4427,
+     0.1182,
+     0.0894,
+     0.8853
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.belt_quarter.R.steward_burden.c48004": {
+   "id": "AC820.trim.belt_quarter.R.steward_burden.c48004",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/trim/belt_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     278784,
+     2328
+    ]
+   },
+   "boxes": [
+    [
+     1.1744,
+     1.288,
+     3.2114,
+     0.0732,
+     0.02,
+     6.4227
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.belt_fender.L.steward_burden.9ce222": {
+   "id": "AC820.trim.belt_fender.L.steward_burden.9ce222",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     334656,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -1.1521,
+     1.2511,
+     0.4427,
+     0.1181,
+     0.0891,
+     0.8853
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.belt_quarter.L.steward_burden.8ffe86": {
+   "id": "AC820.trim.belt_quarter.L.steward_burden.8ffe86",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/trim/belt_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     342144,
+     2328
+    ]
+   },
+   "boxes": [
+    [
+     -1.1744,
+     1.288,
+     3.2114,
+     0.0732,
+     0.02,
+     6.4227
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.leaf_trim.belt_door_F.R.steward_burden.697951": {
+   "id": "AC820.leaf_trim.belt_door_F.R.steward_burden.697951",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     398016,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     1.2033,
+     1.288,
+     0.372,
+     0.02,
+     0.02,
+     0.744
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.leaf_trim.belt_door_F.L.steward_burden.b5d355": {
+   "id": "AC820.leaf_trim.belt_door_F.L.steward_burden.b5d355",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     404640,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     -1.2033,
+     1.288,
+     0.372,
+     0.02,
+     0.02,
+     0.744
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.trim.livery_fender.R.steward_burden.9194ba": {
+   "id": "AC820.trim.livery_fender.R.steward_burden.9194ba",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     411264,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.0328,
+     0.71,
+     0.395,
+     0.1199,
+     0.18,
+     0.79
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.livery_quarter.R.steward_burden.b92280": {
+   "id": "AC820.trim.livery_quarter.R.steward_burden.b92280",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/trim/livery_quarter/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     414720,
+     1248
+    ]
+   },
+   "boxes": [
+    [
+     1.0492,
+     0.71,
+     3.165,
+     0.087,
+     0.18,
+     6.33
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.leaf_trim.livery_door_F.R.steward_burden.520c1e": {
+   "id": "AC820.leaf_trim.livery_door_F.R.steward_burden.520c1e",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/leaf_trim/livery_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     444672,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     1.0749,
+     0.72,
+     0.325,
+     0.0356,
+     0.16,
+     0.65
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.trim.livery_fender.L.steward_burden.9ae520": {
+   "id": "AC820.trim.livery_fender.L.steward_burden.9ae520",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     447552,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.0328,
+     0.71,
+     0.395,
+     0.1199,
+     0.18,
+     0.79
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.trim.livery_quarter.L.steward_burden.2221a6": {
+   "id": "AC820.trim.livery_quarter.L.steward_burden.2221a6",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "trim",
+   "slot": "livery_quarter",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/trim/livery_quarter/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     451008,
+     1248
+    ]
+   },
+   "boxes": [
+    [
+     -1.0492,
+     0.71,
+     3.165,
+     0.087,
+     0.18,
+     6.33
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AC820.leaf_trim.livery_door_F.L.steward_burden.2bd861": {
+   "id": "AC820.leaf_trim.livery_door_F.L.steward_burden.2bd861",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     480960,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.0749,
+     0.72,
+     0.325,
+     0.0356,
+     0.16,
+     0.65
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AC820.envelope.envelope.C.steward_burden.8afdbc": {
+   "id": "AC820.envelope.envelope.C.steward_burden.8afdbc",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "envelope",
+   "slot": "envelope",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/envelope/envelope/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     483840,
+     192
+    ],
+    "livery1": [
+     488448,
+     13050
+    ],
+    "livery2": [
+     801648,
+     4614
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     7.87,
+     17.11,
+     9.3998,
+     9.3998,
+     34.22
+    ]
+   ],
+   "hp": 4000,
+   "mass_kg": 180,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AC820.equipment.fins.C.steward_burden.720e4f": {
+   "id": "AC820.equipment.fins.C.steward_burden.720e4f",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "fins",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/fins/C",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     912384,
+     2088
+    ],
+    "livery2": [
+     962496,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     7.87,
+     2.89,
+     9.7137,
+     9.7137,
+     5.78
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.fan_0.R.steward_burden.1eee03": {
+   "id": "AC820.equipment.fan_0.R.steward_burden.1eee03",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "fan_0",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/fan_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     971712,
+     348
+    ],
+    "chrome": [
+     980064,
+     948
+    ],
+    "livery1": [
+     1002816,
+     1308
+    ],
+    "livery2": [
+     1034208,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     5.6192,
+     5.27,
+     1.2709,
+     3.0337,
+     2.912,
+     2.5417
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.fan_0.L.steward_burden.af7975": {
+   "id": "AC820.equipment.fan_0.L.steward_burden.af7975",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "fan_0",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/fan_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1038240,
+     348
+    ],
+    "chrome": [
+     1046592,
+     948
+    ],
+    "livery1": [
+     1069344,
+     1308
+    ],
+    "livery2": [
+     1100736,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -5.6192,
+     5.27,
+     1.2709,
+     3.0337,
+     2.912,
+     2.5417
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.fan_1.R.steward_burden.21776c": {
+   "id": "AC820.equipment.fan_1.R.steward_burden.21776c",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "fan_1",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/fan_1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1104768,
+     348
+    ],
+    "chrome": [
+     1113120,
+     948
+    ],
+    "livery1": [
+     1135872,
+     1308
+    ],
+    "livery2": [
+     1167264,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     5.4074,
+     5.27,
+     1.2709,
+     3.4571,
+     2.912,
+     2.5417
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.fan_1.L.steward_burden.c4752b": {
+   "id": "AC820.equipment.fan_1.L.steward_burden.c4752b",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "fan_1",
+   "side": "L",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/fan_1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1171296,
+     348
+    ],
+    "chrome": [
+     1179648,
+     948
+    ],
+    "livery1": [
+     1202400,
+     1308
+    ],
+    "livery2": [
+     1233792,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -5.4074,
+     5.27,
+     1.2709,
+     3.4571,
+     2.912,
+     2.5417
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.suspension.C.steward_burden.5d2642": {
+   "id": "AC820.equipment.suspension.C.steward_burden.5d2642",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "suspension",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/suspension/C",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1237824,
+     540
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.0907,
+     3.6997,
+     2.099,
+     0.5129,
+     7.3994
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 80,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.sling.C.steward_burden.df8d9f": {
+   "id": "AC820.equipment.sling.C.steward_burden.df8d9f",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "sling",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/sling/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1250784,
+     5160
+    ],
+    "livery1": [
+     1374624,
+     1224
+    ],
+    "livery2": [
+     1404000,
+     216
+    ],
+    "rubber": [
+     1409184,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2321,
+     7.72,
+     9.24,
+     8.812,
+     15.44
+    ]
+   ],
+   "hp": 3000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.equipment.ladder.R.steward_burden.a17883": {
+   "id": "AC820.equipment.ladder.R.steward_burden.a17883",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "equipment",
+   "slot": "ladder",
+   "side": "R",
+   "style": "steward_burden",
+   "interface": "AC820/equipment/ladder/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1412640,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     1.385,
+     -0.96,
+     0.2442,
+     0.2981,
+     3.0839,
+     0.4883
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AC820.lamp.aero_lamps.C.steward_burden.6f6ae9": {
+   "id": "AC820.lamp.aero_lamps.C.steward_burden.6f6ae9",
+   "standard": "AC820",
+   "class": "cargo_aerostat",
+   "role": "lamp",
+   "slot": "aero_lamps",
+   "side": "C",
+   "style": "steward_burden",
+   "interface": "AC820/lamp/aero_lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_red": [
+     1429920,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     7.87,
+     0.1,
+     0.2,
+     9.4393,
+     0.2
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.02
+  }
+ }
+}

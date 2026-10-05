@@ -134,6 +134,21 @@ def renders(name, L):
     ln = L.nose - tail
     mid = (L.nose + tail) / 2
     h = max(L.crown, C.get("top_z") or 0, C.get("rail_z") or 0)
+    if L.spec.get("render"):                                # (what hangs past the body: a freighter's pods, a fin)
+        tail, h = L.spec["render"]
+        ln, mid = L.nose - tail, (L.nose + tail) / 2
+    A = L.spec.get("aero")
+    if A:                                                   # (an aerostat: frame the envelope and what hangs under it)
+        el, er, ey, ez = A["env"]
+        ln, mid, h = el, ey, ez + er
+        low = A["sling"][3] - 0.5 if A.get("sling") else 0.0
+        d = ln * 1.1
+        zm = (h + low) / 2
+        core.render_persp(pre + "_34.png", cam, (0, mid, zm), (d * 0.85, mid + d * 1.0, zm + d * 0.35), 1100, 720, lens=40)
+        core.render_persp(pre + "_34rear.png", cam, (0, mid, zm), (-d * 0.8, mid - d * 1.05, zm + d * 0.3), 1100, 720, lens=40)
+        core.render_ortho(pre + "_side.png", cam, "side", (0, mid, zm), ln + 1.5, 1100, 640)
+        core.render_ortho(pre + "_front.png", cam, "front", (0, mid, zm), max(2 * er + 6.0, (h - low + 1.5) * 900 / 640), 900, 640)
+        return
     d = max(ln, 4.2) * 1.15
     core.render_persp(pre + "_34.png", cam, (0, mid, h * 0.45), (d * 0.85, mid + d * 1.1, h + 1.2), 1100, 720, lens=40)
     core.render_persp(pre + "_34rear.png", cam, (0, mid, h * 0.45), (-d * 0.8, mid - d * 1.15, h + 1.0), 1100, 720, lens=40)
@@ -249,7 +264,7 @@ def build_class(sid, registry):
     root = core.empty(st["type"], (0, 0, 0))
     for mid, me in b.MESH.items():
         if me.bm.faces:
-            ob = me.obj(origin=Vector((0, 0, 0)), smooth=False, parent=root)
+            ob = me.obj(origin=Vector((0, 0, 0)), smooth=bool(b.MODS[mid].get("smooth")), parent=root)
             ob.name = mid
     renders(st["type"], L)
     # ---- the variants: their own tokens and palette on the base components

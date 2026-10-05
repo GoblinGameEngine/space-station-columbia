@@ -1,0 +1,2661 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SM450",
+ "class": "cargo_mule",
+ "style": "steward_mule",
+ "pack": "res://remake/vehicles/components/SM450/steward_mule.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9412,
+    0.9255,
+    0.8863
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9412,
+    0.9255,
+    0.8863
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.8863,
+    0.4314,
+    0.1176
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SM450.end_cap.nose.C.steward_mule.7abc96": {
+   "id": "SM450.end_cap.nose.C.steward_mule.7abc96",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.89,
+     0.03,
+     2.2822,
+     0.8799,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.trim.cowl.C.steward_mule.bd216b": {
+   "id": "SM450.trim.cowl.C.steward_mule.bd216b",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     8712,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5475,
+     0.62,
+     2.45,
+     0.5051,
+     1.24
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.glazing.screen.C.steward_mule.47a7aa": {
+   "id": "SM450.glazing.screen.C.steward_mule.47a7aa",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     11016,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.2,
+     0.25,
+     2.45,
+     1.3,
+     0.5
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SM450.trim.screen.C.steward_mule.3947cb": {
+   "id": "SM450.trim.screen.C.steward_mule.3947cb",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0911,
+     0.25,
+     2.45,
+     1.0902,
+     0.5
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.side_bay.fender.R.steward_mule.5d388a": {
+   "id": "SM450.side_bay.fender.R.steward_mule.5d388a",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     15048,
+     204
+    ]
+   },
+   "boxes": [
+    [
+     1.1271,
+     1.0,
+     2.32,
+     0.2458,
+     1.1,
+     4.64
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.side_bay.fore.R.steward_mule.347512": {
+   "id": "SM450.side_bay.fore.R.steward_mule.347512",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "side_bay",
+   "slot": "fore",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/side_bay/fore/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19944,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.1525,
+     1.375,
+     0.915,
+     0.1949,
+     1.85,
+     1.83
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.trim.sail.R.steward_mule.5b7135": {
+   "id": "SM450.trim.sail.R.steward_mule.5b7135",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22104,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     1.22,
+     1.9,
+     1.7,
+     0.06,
+     0.8,
+     3.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.a_pillar.R.steward_mule.441866": {
+   "id": "SM450.trim.a_pillar.R.steward_mule.441866",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24696,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.145,
+     2.05,
+     0.25,
+     0.21,
+     1.1,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.side_bay.fender.L.steward_mule.eb0850": {
+   "id": "SM450.side_bay.fender.L.steward_mule.eb0850",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24984,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -1.1271,
+     1.0,
+     1.02,
+     0.2458,
+     1.1,
+     2.04
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.trim.sail.L.steward_mule.19e25b": {
+   "id": "SM450.trim.sail.L.steward_mule.19e25b",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     28152,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.22,
+     1.9,
+     0.4,
+     0.06,
+     0.8,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.a_pillar.L.steward_mule.0be9ec": {
+   "id": "SM450.trim.a_pillar.L.steward_mule.0be9ec",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29016,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.145,
+     2.05,
+     0.25,
+     0.21,
+     1.1,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.side_bay.rocker_F.L.steward_mule.527052": {
+   "id": "SM450.side_bay.rocker_F.L.steward_mule.527052",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29304,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.1159,
+     0.515,
+     0.4,
+     0.0318,
+     0.13,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.side_bay.quarter_0.L.steward_mule.cace0c": {
+   "id": "SM450.side_bay.quarter_0.L.steward_mule.cace0c",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/side_bay/quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     29448,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.175,
+     1.375,
+     1.65,
+     0.15,
+     1.85,
+     3.3
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.side_bay.quarter_1.L.steward_mule.1a5740": {
+   "id": "SM450.side_bay.quarter_1.L.steward_mule.1a5740",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/side_bay/quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     32904,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1525,
+     1.375,
+     0.165,
+     0.1949,
+     1.85,
+     0.33
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.roof_bay.roof_0.C.steward_mule.ccb583": {
+   "id": "SM450.roof_bay.roof_0.C.steward_mule.ccb583",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     33768,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.6,
+     2.38,
+     0.55,
+     1.2
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.roof_bay.roof_1.C.steward_mule.ec6a59": {
+   "id": "SM450.roof_bay.roof_1.C.steward_mule.ec6a59",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     38952,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.85,
+     2.38,
+     0.55,
+     1.7
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.roof_bay.roof_2.C.steward_mule.d626ab": {
+   "id": "SM450.roof_bay.roof_2.C.steward_mule.d626ab",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     42408,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.575,
+     0.915,
+     2.38,
+     0.55,
+     1.83
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.end_cap.tail.C.steward_mule.2cebbf": {
+   "id": "SM450.end_cap.tail.C.steward_mule.2cebbf",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     47592,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.65,
+     0.035,
+     2.3979,
+     2.4,
+     0.07
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SM450.floor.floor.C.steward_mule.07c03d": {
+   "id": "SM450.floor.floor.C.steward_mule.07c03d",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     57888,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     2.615,
+     2.1435,
+     0.03,
+     5.23
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "SM450.lining_bay.trim_0_0.R.steward_mule.eadf63": {
+   "id": "SM450.lining_bay.trim_0_0.R.steward_mule.eadf63",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     68256,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.1309,
+     1.44,
+     0.8,
+     0.1182,
+     1.72,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.trim_0_1.R.steward_mule.c8fee2": {
+   "id": "SM450.lining_bay.trim_0_1.R.steward_mule.c8fee2",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "trim_0_1",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/trim_0_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     70416,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     1.1309,
+     1.44,
+     1.65,
+     0.1182,
+     1.72,
+     3.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.trim_0_2.R.steward_mule.e46a5a": {
+   "id": "SM450.lining_bay.trim_0_2.R.steward_mule.e46a5a",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "trim_0_2",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/trim_0_2/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     73584,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     1.109,
+     1.44,
+     0.165,
+     0.162,
+     1.72,
+     0.33
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.a_pillar.R.steward_mule.372838": {
+   "id": "SM450.lining_bay.a_pillar.R.steward_mule.372838",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     74304,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.085,
+     2.026,
+     0.25,
+     0.21,
+     1.064,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.trim_0_0.L.steward_mule.04cb4b": {
+   "id": "SM450.lining_bay.trim_0_0.L.steward_mule.04cb4b",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     74592,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.1309,
+     1.44,
+     0.4,
+     0.1182,
+     1.72,
+     0.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.trim_1_0.L.steward_mule.287bad": {
+   "id": "SM450.lining_bay.trim_1_0.L.steward_mule.287bad",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     76032,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     -1.1309,
+     1.44,
+     1.65,
+     0.1182,
+     1.72,
+     3.3
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.trim_1_1.L.steward_mule.cd3c68": {
+   "id": "SM450.lining_bay.trim_1_1.L.steward_mule.cd3c68",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "trim_1_1",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/trim_1_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     78768,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     -1.109,
+     1.44,
+     0.165,
+     0.162,
+     1.72,
+     0.33
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.lining_bay.a_pillar.L.steward_mule.39ac5c": {
+   "id": "SM450.lining_bay.a_pillar.L.steward_mule.39ac5c",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     79488,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.085,
+     2.026,
+     0.25,
+     0.21,
+     1.064,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.ceiling_bay.roof_0.C.steward_mule.1b3a96": {
+   "id": "SM450.ceiling_bay.roof_0.C.steward_mule.1b3a96",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     79776,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.54,
+     0.6,
+     2.26,
+     0.48,
+     1.2
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.ceiling_bay.roof_1.C.steward_mule.6c268c": {
+   "id": "SM450.ceiling_bay.roof_1.C.steward_mule.6c268c",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     84960,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.54,
+     0.85,
+     2.26,
+     0.48,
+     1.7
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.ceiling_bay.roof_2.C.steward_mule.465408": {
+   "id": "SM450.ceiling_bay.roof_2.C.steward_mule.465408",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     88416,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.54,
+     0.915,
+     2.26,
+     0.48,
+     1.83
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.end_lining.firewall.C.steward_mule.483cb0": {
+   "id": "SM450.end_lining.firewall.C.steward_mule.483cb0",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     93600,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.14,
+     -0.0,
+     2.38,
+     1.18,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.end_lining.rear_wall.C.steward_mule.41349f": {
+   "id": "SM450.end_lining.rear_wall.C.steward_mule.41349f",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     95040,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.665,
+     -0.0,
+     2.2828,
+     2.23,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.reveal.rear_opening.C.steward_mule.5cb4a5": {
+   "id": "SM450.reveal.rear_opening.C.steward_mule.5cb4a5",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     98496,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.035,
+     0.8,
+     0.5,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.glazing.back_window.C.steward_mule.9af7b3": {
+   "id": "SM450.glazing.back_window.C.steward_mule.9af7b3",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     101376,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.95,
+     0.0,
+     0.8,
+     0.5,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SM450.reveal.window_W2.R.steward_mule.d89d9c": {
+   "id": "SM450.reveal.window_W2.R.steward_mule.d89d9c",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     102672,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.19,
+     1.9,
+     0.6,
+     0.12,
+     0.8,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.reveal.door_F.L.steward_mule.04291d": {
+   "id": "SM450.reveal.door_F.L.steward_mule.04291d",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     103824,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.1609,
+     1.44,
+     0.4,
+     0.1782,
+     1.72,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.reveal.window_W1.L.steward_mule.5d934d": {
+   "id": "SM450.reveal.window_W1.L.steward_mule.5d934d",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     105552,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.19,
+     1.9,
+     0.75,
+     0.12,
+     0.8,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.reveal.window_W2.L.steward_mule.04405e": {
+   "id": "SM450.reveal.window_W2.L.steward_mule.04405e",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     106704,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.19,
+     1.9,
+     0.6,
+     0.12,
+     0.8,
+     1.2
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.reveal.screen.C.steward_mule.d871a0": {
+   "id": "SM450.reveal.screen.C.steward_mule.d871a0",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     107856,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.179,
+     0.25,
+     2.45,
+     1.342,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SM450.glazing.window_W1.L.steward_mule.9398a2": {
+   "id": "SM450.glazing.window_W1.L.steward_mule.9398a2",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     110448,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.22,
+     1.9,
+     0.75,
+     0.06,
+     0.8,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SM450.glazing.window_W2.R.steward_mule.2e06e5": {
+   "id": "SM450.glazing.window_W2.R.steward_mule.2e06e5",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     110880,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.22,
+     1.9,
+     0.6,
+     0.06,
+     0.8,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SM450.glazing.window_W2.L.steward_mule.1e0d6c": {
+   "id": "SM450.glazing.window_W2.L.steward_mule.1e0d6c",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     111312,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.22,
+     1.9,
+     0.6,
+     0.06,
+     0.8,
+     1.2
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SM450.door_leaf.door_F.L.steward_mule.dee6e6": {
+   "id": "SM450.door_leaf.door_F.L.steward_mule.dee6e6",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     111744,
+     12
+    ],
+    "paint": [
+     112032,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1609,
+     1.04,
+     0.4,
+     0.1782,
+     0.92,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.door_glass.door_F.L.steward_mule.1b248f": {
+   "id": "SM450.door_glass.door_F.L.steward_mule.1b248f",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     113184,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.22,
+     1.9,
+     0.4,
+     0.06,
+     0.8,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SM450.leaf_trim.handle_F.L.steward_mule.9d0d41": {
+   "id": "SM450.leaf_trim.handle_F.L.steward_mule.9d0d41",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     113616,
+     36
+    ],
+    "dash": [
+     114480,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1912,
+     1.315,
+     0.125,
+     0.1223,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.underpan.underpan.C.steward_mule.a7088e": {
+   "id": "SM450.underpan.underpan.C.steward_mule.a7088e",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     115344,
+     372
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4775,
+     3.3,
+     2.2,
+     0.055,
+     6.6
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SM450.seat.row_0.C.steward_mule.fb3cee": {
+   "id": "SM450.seat.row_0.C.steward_mule.fb3cee",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     124272,
+     72
+    ],
+    "seat": [
+     126000,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.41,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SM450.dash.dash.C.steward_mule.32df59": {
+   "id": "SM450.dash.dash.C.steward_mule.32df59",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     131184,
+     1236
+    ],
+    "chrome": [
+     160848,
+     120
+    ],
+    "dash": [
+     163728,
+     108
+    ],
+    "gauge": [
+     166320,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.2699,
+     0.3176,
+     2.22,
+     0.5201,
+     0.6351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SM450.dash.readout.C.steward_mule.ca9486": {
+   "id": "SM450.dash.readout.C.steward_mule.ca9486",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     175536,
+     36
+    ],
+    "lcd": [
+     176400,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.45,
+     1.42,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "SM450.lamp.head_lamp.C.steward_mule.0f1c79": {
+   "id": "SM450.lamp.head_lamp.C.steward_mule.0f1c79",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     177264,
+     480
+    ],
+    "lamp_amber": [
+     188784,
+     72
+    ],
+    "lamp_drl": [
+     190512,
+     480
+    ],
+    "lamp_head": [
+     202032,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.1466,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SM450.lamp.tail_lamp.C.steward_mule.8f6fb1": {
+   "id": "SM450.lamp.tail_lamp.C.steward_mule.8f6fb1",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     213552,
+     12
+    ],
+    "lamp_amber": [
+     213840,
+     48
+    ],
+    "lamp_brake": [
+     214992,
+     36
+    ],
+    "lamp_reverse": [
+     215856,
+     48
+    ],
+    "lamp_tail": [
+     217008,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.561,
+     0.006,
+     2.2135,
+     1.422,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SM450.lamp.side_marker.C.steward_mule.9b1d20": {
+   "id": "SM450.lamp.side_marker.C.steward_mule.9b1d20",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     225072,
+     72
+    ],
+    "lamp_tail": [
+     226800,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     3.14,
+     2.2369,
+     0.03,
+     6.28
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SM450.lamp.id_lamp.C.steward_mule.3dfc2a": {
+   "id": "SM450.lamp.id_lamp.C.steward_mule.3dfc2a",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     228528,
+     180
+    ],
+    "lamp_tail": [
+     232848,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.736,
+     2.4,
+     2.08,
+     0.276,
+     4.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SM450.trim.belt_fender.R.steward_mule.b32552": {
+   "id": "SM450.trim.belt_fender.R.steward_mule.b32552",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     237168,
+     1680
+    ]
+   },
+   "boxes": [
+    [
+     1.2001,
+     1.3784,
+     2.3169,
+     0.1241,
+     0.2345,
+     4.6338
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.belt_fore.R.steward_mule.2c160c": {
+   "id": "SM450.trim.belt_fore.R.steward_mule.2c160c",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "belt_fore",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/trim/belt_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     277488,
+     672
+    ]
+   },
+   "boxes": [
+    [
+     1.2293,
+     1.488,
+     0.9116,
+     0.0657,
+     0.02,
+     1.8232
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.belt_fender.L.steward_mule.90cb5f": {
+   "id": "SM450.trim.belt_fender.L.steward_mule.90cb5f",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     293616,
+     744
+    ]
+   },
+   "boxes": [
+    [
+     -1.2002,
+     1.3785,
+     1.0169,
+     0.1241,
+     0.2345,
+     2.0338
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.belt_quarter_0.L.steward_mule.d24ff6": {
+   "id": "SM450.trim.belt_quarter_0.L.steward_mule.d24ff6",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/belt_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     311472,
+     1176
+    ]
+   },
+   "boxes": [
+    [
+     -1.2545,
+     1.488,
+     1.646,
+     0.02,
+     0.02,
+     3.292
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.belt_quarter_1.L.steward_mule.63a49e": {
+   "id": "SM450.trim.belt_quarter_1.L.steward_mule.63a49e",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/belt_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     339696,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -1.229,
+     1.488,
+     0.1622,
+     0.065,
+     0.02,
+     0.3244
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.leaf_trim.belt_door_F.L.steward_mule.4336e9": {
+   "id": "SM450.leaf_trim.belt_door_F.L.steward_mule.4336e9",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     342864,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     -1.2545,
+     1.488,
+     0.397,
+     0.02,
+     0.02,
+     0.794
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.trim.livery_fender.R.steward_mule.e9b1b6": {
+   "id": "SM450.trim.livery_fender.R.steward_mule.e9b1b6",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/trim/livery_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     349488,
+     888
+    ]
+   },
+   "boxes": [
+    [
+     1.124,
+     0.825,
+     2.27,
+     0.1097,
+     0.15,
+     4.54
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.livery_fore.R.steward_mule.d44e77": {
+   "id": "SM450.trim.livery_fore.R.steward_mule.d44e77",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "livery_fore",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/trim/livery_fore/R",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     370800,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     1.1474,
+     0.825,
+     0.865,
+     0.0592,
+     0.15,
+     1.73
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.livery_fender.L.steward_mule.730cba": {
+   "id": "SM450.trim.livery_fender.L.steward_mule.730cba",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "livery_fender",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/livery_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     378864,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     -1.124,
+     0.825,
+     0.97,
+     0.1098,
+     0.15,
+     1.94
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.livery_quarter_0.L.steward_mule.71fb9d": {
+   "id": "SM450.trim.livery_quarter_0.L.steward_mule.71fb9d",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "livery_quarter_0",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/livery_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     388080,
+     624
+    ]
+   },
+   "boxes": [
+    [
+     -1.1674,
+     0.825,
+     1.6,
+     0.02,
+     0.15,
+     3.2
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.trim.livery_quarter_1.L.steward_mule.bd2543": {
+   "id": "SM450.trim.livery_quarter_1.L.steward_mule.bd2543",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "trim",
+   "slot": "livery_quarter_1",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/trim/livery_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     403056,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.1438,
+     0.825,
+     0.115,
+     0.052,
+     0.15,
+     0.23
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SM450.leaf_trim.livery_door_F.L.steward_mule.5322f8": {
+   "id": "SM450.leaf_trim.livery_door_F.L.steward_mule.5322f8",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "leaf_trim",
+   "slot": "livery_door_F",
+   "side": "L",
+   "style": "steward_mule",
+   "interface": "SM450/leaf_trim/livery_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     404208,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     -1.1674,
+     0.825,
+     0.35,
+     0.02,
+     0.15,
+     0.7
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.6,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SM450.equipment.thruster_pods.C.steward_mule.eeeda2": {
+   "id": "SM450.equipment.thruster_pods.C.steward_mule.eeeda2",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "equipment",
+   "slot": "thruster_pods",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/equipment/thruster_pods/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     407088,
+     1440
+    ],
+    "chrome": [
+     441648,
+     1776
+    ],
+    "livery2": [
+     484272,
+     1728
+    ],
+    "paint": [
+     525744,
+     864
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.5499,
+     1.5125,
+     3.609,
+     2.1955,
+     3.025
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 500,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SM450.equipment.manipulators.R.steward_mule.b503f1": {
+   "id": "SM450.equipment.manipulators.R.steward_mule.b503f1",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "equipment",
+   "slot": "manipulators",
+   "side": "R",
+   "style": "steward_mule",
+   "interface": "SM450/equipment/manipulators/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     546480,
+     384
+    ],
+    "livery2": [
+     555696,
+     648
+    ],
+    "paint": [
+     571248,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.42,
+     1.6,
+     1.5384,
+     0.3,
+     1.8535,
+     3.0768
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 300,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SM450.equipment.dorsal.C.steward_mule.d9271f": {
+   "id": "SM450.equipment.dorsal.C.steward_mule.d9271f",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "equipment",
+   "slot": "dorsal",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/equipment/dorsal/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     574704,
+     264
+    ],
+    "livery2": [
+     581040,
+     12
+    ],
+    "paint": [
+     581328,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.1087,
+     2.2904,
+     0.9434,
+     0.5827,
+     4.5808
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SM450.lamp.nose_lamps.C.steward_mule.547a3e": {
+   "id": "SM450.lamp.nose_lamps.C.steward_mule.547a3e",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "lamp",
+   "slot": "nose_lamps",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/lamp/nose_lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     585648,
+     768
+    ],
+    "lamp_head": [
+     604080,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0125,
+     0.0375,
+     1.425,
+     0.725,
+     0.075
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.02
+  },
+  "SM450.equipment.roof_beacon.C.steward_mule.8d0872": {
+   "id": "SM450.equipment.roof_beacon.C.steward_mule.8d0872",
+   "standard": "SM450",
+   "class": "cargo_mule",
+   "role": "equipment",
+   "slot": "roof_beacon",
+   "side": "C",
+   "style": "steward_mule",
+   "interface": "SM450/equipment/roof_beacon/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     631728,
+     288
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.78,
+     0.09,
+     0.18,
+     0.14,
+     0.18
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}

@@ -83,6 +83,25 @@ def steward(id_, cls, spans, axle_spans, steer_axles):
                 pack_kwh=round(span_kwh * spans, 1), power_kw=round(pod_kw * 2 * len(axles)), modules=mods)
 
 
+def keel(id_, cls, spans, name):
+    """An aerostat's gondola keel (2026-10-04): the Steward's spans and caps with no pods -- it flies -- and a pair of
+    landing skids under it (runners on sprung legs) where a road board has its wheels. The Pattern on top, as ever."""
+    b = steward(id_, cls, spans, [1, spans - 1], [])
+    b["modules"] = [m for m in b["modules"] if m["kind"] != "steward_pod"]
+    track, width = STEWARD_CLASS[cls][0], STEWARD_CLASS[cls][1]
+    sx_ = width / 2 - 0.08
+    ln = b["length_m"] - 1.0
+    for side, sx in (("L", -1), ("R", 1)):
+        b["modules"].append(dict(id="skid_%s" % side, kind="steward_skid", pos=[sx * sx_, 0.0, 0.10], size=[0.12, ln, 0.20], mass_kg=28.0, hp=900,
+                                 attach="span_0", side=side, legs=[round(ln / 2 - 0.5, 3), round(-(ln / 2 - 0.5), 3)]))
+    b.update(name=name, board="steward_keel", axles=[], wheel_r=0.10, wheelbase_m=0.0, width_m=width, track_m=round(width, 3),
+             drive="none on the ground (it flies: the fans are the envelope's)", steering="none", power_kw=0)
+    for m in b["modules"]:
+        if m["kind"] == "pattern_socket":
+            m["pos"][1] = round(b["length_m"] / 2 - 0.8, 3)
+    return b
+
+
 # ---------------------------------------------------------------- people's boards: the three works
 def mounts(cls, length, z_top):
     """The Pattern's mount rails: every human board carries them at the Steward's positions."""
@@ -302,6 +321,11 @@ BOARDS = [
     steward("steward_farm7", "farm", 7, [1, 6], [0]),          # row-crop tractors, backhoe loaders
     steward("steward_rail32", "rail", 32, [2, 5, 27, 30], []),  # passenger cars and locomotives (2026-10-02)
     steward("steward_rail22", "rail", 22, [2, 5, 17, 20], []),  # freight cars
+    # the aerostats' gondola keels (2026-10-04): no wheels, landing skids
+    keel("steward_keel8", "broad", 8, "Steward keel, 8 spans: the rescue aerostat's gondola"),
+    keel("steward_keel10", "broad", 10, "Steward keel, 10 spans: the cargo aerostat's gondola"),
+    keel("steward_keel7", "broad", 7, "Steward keel, 7 spans: the spoke elevator car"),
+    keel("steward_keel36", "heavy", 36, "Steward keel, 36 spans: the passenger shuttle's fuselage"),
     harrow("harrow_h27", 2.70),
     harrow("harrow_h31", 3.10),        # the long ladder: full-size SUVs and pickups (2026-10-02)
     carrow("carrow_k28", 2.80),

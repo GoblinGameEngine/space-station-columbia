@@ -34,7 +34,7 @@ BASE_PALETTE = {
     "lamp_tail": ((190, 18, 14), 0.4, 0.0, (255, 30, 20), 1.6, 1), "lamp_brake": ((190, 18, 14), 0.4, 0.0, (255, 30, 20), 0.0, 1),
     "lamp_amber": ((236, 140, 24), 0.4, 0.0, (255, 150, 30), 0.0, 1), "lamp_reverse": ((236, 236, 236), 0.4, 0.0, (255, 255, 255), 0.0, 1),
     "lcd": ((150, 168, 118), 0.5, 0.0, (120, 170, 90), 0.35, 1),        # (the Steward's monochrome dot-matrix: black on green)
-    "lamp_red": ((200, 20, 20), 0.3, 0.0, (255, 30, 30), 0.0, 1), "lamp_blue": ((20, 60, 220), 0.3, 0.0, (40, 90, 255), 0.0, 1),
+    "lamp_red": ((200, 20, 20), 0.3, 0.0, (255, 30, 30), 0.0, 1), "lamp_blue": ((20, 60, 220), 0.3, 0.0, (40, 90, 255), 0.0, 1), "lamp_green": ((20, 170, 60), 0.3, 0.0, (40, 255, 90), 0.0, 1),
 }
 
 
@@ -691,3 +691,133 @@ STYLES["KT100"] = {"name": "solana_kiddie", "type": "kiddie_train", "palette": p
                    "panel": {"lower": "paint", "upper": "paint", "roof": "paint2", "sail": "paint", "cargo": "paint"}, "rail": "black", "equipment": []}
 
 EXCAVATOR["machine"] = True
+
+# ======================================================================== the aerostats (2026-10-04)
+# The Steward's gift (VY 405): an envelope, ducted fans, and a gondola built as any fleet body -- both shells, the tube
+# frame, reveals, doors -- on a Steward keel (spans and landing skids, no wheels). The envelope, fins, fans, struts, a
+# cargo sling are equipment tokens (fleet/aero.py). Interiors keep the 2.2 m floor-to-headliner rule.
+# research/vehicles/aerostat/AEROSTATS.md; references reference/grok/{rescue,cargo}_aerostat.
+AERO_GONDOLA = {
+    "skirt": 0.40, "sill": 0.58, "floor": 0.55, "belt": 1.30, "head": 2.40, "cant": 2.78, "crown": 2.92, "headliner": 2.82,
+    "nose_round": 0.85, "tail_round": 0.70, "cant_in": 0.12, "tumble": 0.10, "tuck": 0.24, "pillar_inset": 0.03, "pillar": 0.13, "wheels_outside": True,
+    "head_lamp_z": 0.95, "tail_lamp_z": 1.10, "bumper_z": 0.50, "driver": "L",
+}
+RESCUE_AERO = dict(AERO_GONDOLA, **{
+    "id": "AR700", "cls": "rescue_aerostat", "board": "steward_keel8",
+    "about": "rescue aerostats: a 16 m envelope, four ducted fans, a glazed 6.9 m gondola (stretcher, crew of four) on a Steward keel",
+    "nose": 3.45, "tail": -3.45, "half_w": 1.20,
+    "front": {"kind": "flat", "toe": 3.20, "header": 2.70, "screen_base": 1.32, "hood_drop": 0.10},
+    "rear": {"kind": "wall", "tail_in": -3.38, "back_window": {"half_w": 0.45, "z": (1.55, 2.20), "corner": 0.06}},
+    "doors": [{"id": "F", "y0": 2.55, "y1": 1.80}, {"id": "S", "y0": 0.85, "y1": -0.65, "sides": "R", "kind": "slide"}],
+    "windows": [{"id": "W0", "y0": 1.70, "y1": 0.95}, {"id": "W1", "y0": 0.85, "y1": -0.65, "sides": "L"}, {"id": "W2", "y0": -0.75, "y1": -2.55}],
+    "seats": [{"y": 2.15, "z": 0.95, "xs": [-0.50, 0.50], "w": 0.55}, {"y": -2.05, "z": 0.95, "xs": [-0.62, 0.62], "w": 0.50}],
+    "dash_y": 2.85,
+    "aero": {"env": (16.0, 2.5, -1.2, 6.32), "stripes": [(40, 3.5), (0, 4.5), (-42, 3.5)],
+             "fins": (0.05, 0.22, 1.5, 0.55, 0.5), "fin_band": (0.55, 0.75), "stabiliser_rods": True,
+             "fans": [(1.55, -1.6, 3.55, 0.55, "env"), (2.55, -3.9, 2.20, 0.50, "boom")],
+             "struts": [(0.85, 2.0), (0.85, -2.6)], "mast": -0.9, "cross": (-3.0, 0.95, 0.28), "foot_lamps": 5},
+})
+CARGO_AERO = dict(AERO_GONDOLA, **{
+    "id": "AC820", "cls": "cargo_aerostat", "board": "steward_keel10",
+    "about": "heavy-lift aerostats: a 34 m envelope, four big ducted fans, a crew gondola slung tight under it, a sling frame on A-legs",
+    "nose": 4.10, "tail": -4.10, "half_w": 1.20,
+    "front": {"kind": "flat", "toe": 3.85, "header": 3.35, "screen_base": 1.32, "hood_drop": 0.10},
+    "rear": {"kind": "wall", "tail_in": -4.03, "back_window": {"half_w": 0.45, "z": (1.55, 2.20), "corner": 0.06}},
+    "doors": [{"id": "F", "y0": 3.15, "y1": 2.40}],
+    "windows": [{"id": "W1", "y0": 2.30, "y1": 0.30}, {"id": "W2", "y0": 0.20, "y1": -1.80}, {"id": "W3", "y0": -1.90, "y1": -3.40}],
+    "seats": [{"y": 2.75, "z": 0.95, "xs": [-0.50, 0.50], "w": 0.55}, {"y": -2.6, "z": 0.95, "xs": [-0.62, 0.62], "w": 0.50}],
+    "dash_y": 3.50,
+    "aero": {"env": (34.0, 4.7, -1.0, 7.87), "stripes": [(32, 2.5), (-36, 2.5)], "bands": [(0.24, 0.29), (0.66, 0.71)], "cap": 0.93,
+             "fins": (0.04, 0.21, 3.6, 0.55, 1.2), "fin_band": (0.0, 0.14),
+             "fans": [(5.68, 6.5, 5.27, 1.30, "env"), (5.68, -9.0, 5.27, 1.30, "env")], "fan_len": 1.9,
+             "saddle": True, "sling": (4.2, 6.5, -8.5, -2.6), "legs": [4.0, -6.0]},
+})
+CLASSES.update({c["id"]: c for c in (RESCUE_AERO, CARGO_AERO)})
+AERO_PANEL = {"lower": "paint", "upper": "paint", "roof": "paint2", "sail": "paint"}
+STYLES["AR700"] = {"name": "steward_mercy", "type": "rescue_aerostat",
+                   "palette": palette(paint=(232, 222, 196), paint2=(232, 222, 196), livery1=(240, 240, 236), livery2=(200, 36, 32)),
+                   "panel": AERO_PANEL, "head_lamp": "round", "grille": None, "tail_lamp": "pixel", "bumper": "none", "mirror": "none",
+                   "handle": "chrome", "belt_trim": "chrome", "rail": "black",
+                   "equipment": ["envelope", "fins", "ducted_fans", "suspension", "winch", "rescue_cross", "aero_lamps"]}
+STYLES["AC820"] = {"name": "steward_burden", "type": "cargo_aerostat",
+                   "palette": palette(paint=(232, 222, 196), paint2=(78, 150, 140), livery1=(232, 224, 204), livery2=(78, 150, 140)),
+                   "panel": AERO_PANEL, "head_lamp": "round", "grille": None, "tail_lamp": "pixel", "bumper": "none", "mirror": "none",
+                   "handle": "chrome", "belt_trim": "chrome", "rail": "black", "livery": {"m": "livery2", "z": (0.62, 0.80)},
+                   "equipment": ["envelope", "fins", "ducted_fans", "suspension", "sling", "boarding_ladder", "aero_lamps"]}
+
+# ======================================================================== the spacecraft and the spoke elevator (2026-10-04)
+# Bodies to the same rules (both shells, the frame, reveals, 2.2 m inside) on Steward keels; what makes each a spacecraft
+# is equipment (fleet/space.py). References: reference/grok/{passenger_shuttle,supply_freighter,cargo_mule,spoke_elevator_car}.
+SPACE_BODY = {"skirt": 0.45, "sill": 0.58, "floor": 0.55, "pillar_inset": 0.03, "pillar": 0.13, "wheels_outside": True,
+              "head_lamp_z": 0.95, "tail_lamp_z": 1.10, "bumper_z": 0.50, "driver": "L"}
+SHUTTLE = dict(SPACE_BODY, **{
+    "id": "SP300", "cls": "passenger_shuttle", "board": "steward_keel36",
+    "about": "passenger shuttles (the port to orbit): a 29 m lifting body, a delta wing, 48 seats behind a two-seat flight deck",
+    "nose": 14.6, "tail": -14.6, "half_w": 2.10, "belt": 1.55, "head": 2.05, "cant": 2.75, "crown": 3.20, "headliner": 2.92,
+    "tuck": 0.50, "cant_in": 0.45, "tumble": 0.15, "nose_round": 2.6, "nose_taper": 0.55, "tail_round": 1.0, "tail_taper": 0.10,
+    "front": {"kind": "hood", "toe": 11.8, "header": 11.0, "screen_base": 1.80, "hood_drop": 0.95},
+    "rear": {"kind": "wall", "tail_in": -14.52, "back_window": {"half_w": 0.30, "z": (2.30, 2.55), "corner": 0.05}},
+    "doors": [{"id": "F", "y0": 10.9, "y1": 10.2}, {"id": "P", "y0": 9.7, "y1": 8.75}],
+    "windows": [{"id": "P%02d" % k, "y0": round(8.25 - k * 1.05, 3), "y1": round(8.25 - k * 1.05 - 0.50, 3)} for k in range(15)],
+    "seats": [{"y": 11.2, "z": 0.95, "xs": [-0.55, 0.55], "w": 0.55}] +
+             [{"y": round(7.9 - k * 0.95, 3), "z": 0.95, "xs": [-1.45, -0.85, 0.85, 1.45], "w": 0.50} for k in range(12)],
+    "dash_y": 11.6,
+    "render": (-15.5, 8.2),
+    "space": {"wing": (2.0, -12.5, 9.0, 0.95), "fin": (-9.5, -14.0, 5.0), "gear": [(0.0, 10.0, 1), (2.4, -6.0, 2)]},
+})
+FREIGHTER = dict(SPACE_BODY, **{
+    "id": "SF600", "cls": "supply_freighter", "board": "steward_keel8",
+    "about": "supply freighters: a rounded cockpit, six bays of stacked cargo pods on a spine, the drive section and its bells",
+    "nose": 3.40, "tail": -3.40, "half_w": 1.50, "belt": 1.35, "head": 2.25, "cant": 2.70, "crown": 2.95, "headliner": 2.82,
+    "tuck": 0.25, "cant_in": 0.20, "tumble": 0.08, "nose_round": 0.9, "tail_round": 0.4,
+    "front": {"kind": "flat", "toe": 3.10, "header": 2.70, "screen_base": 1.37, "hood_drop": 0.10},
+    "rear": {"kind": "wall", "tail_in": -3.33, "back_window": {"half_w": 0.40, "z": (1.60, 2.20), "corner": 0.05}},
+    "doors": [{"id": "F", "y0": 1.60, "y1": 0.80}],
+    "windows": [{"id": "W1", "y0": 0.60, "y1": -1.00}, {"id": "W2", "y0": -1.10, "y1": -2.60}],
+    "seats": [{"y": 2.20, "z": 0.95, "xs": [-0.55, 0.55], "w": 0.55}, {"y": -1.80, "z": 0.95, "xs": [-0.70, 0.70], "w": 0.50}],
+    "dash_y": 2.95,
+    "render": (-30.0, 6.0),
+    "space": {"pods": (-3.75, 6, (2, 3), (2.2, 1.6, 3.2)), "pod_z": 3.0, "drive": (-23.9, 6.0, 2.6, 2.8, 3.0)},
+})
+MULE = dict(SPACE_BODY, **{
+    "id": "SM450", "cls": "cargo_mule", "board": "steward_keel8",
+    "about": "cargo mules: a stubby tug, a glazed flight deck, thruster pods, two manipulator arms for the port's handling",
+    "nose": 3.30, "tail": -3.30, "half_w": 1.25, "belt": 1.50, "head": 2.30, "cant": 2.60, "crown": 2.85, "headliner": 2.78,
+    "tuck": 0.15, "cant_in": 0.15, "tumble": 0.06, "nose_round": 0.9, "tail_round": 0.4,
+    "front": {"kind": "hood", "toe": 2.00, "header": 1.50, "screen_base": 1.55, "hood_drop": 0.25},
+    "rear": {"kind": "wall", "tail_in": -3.23, "back_window": {"half_w": 0.40, "z": (1.70, 2.20), "corner": 0.05}},
+    "doors": [{"id": "F", "y0": 1.20, "y1": 0.40, "sides": "L"}],
+    "windows": [{"id": "W1", "y0": 0.30, "y1": -1.20, "sides": "L"}, {"id": "W2", "y0": -1.40, "y1": -2.60}],
+    "seats": [{"y": 0.90, "z": 0.95, "xs": [-0.45, 0.45], "w": 0.55}],
+    "dash_y": 1.75,
+    "space": {"thrusters": [(1.35, 2.20, 0.45, 2.6), (1.35, 0.85, 0.40, 2.4)],
+              "arms": [((0.2, 1.9), (1.4, 2.4), (2.6, 1.5)), ((0.0, 1.2), (1.4, 0.8), (2.5, 0.95))],
+              "lamps": [(0.55, 1.0, 0.13, "lamp_head"), (0.0, 1.15, 0.18, "lamp_head"), (0.32, 0.75, 0.08, "lamp_amber")]},
+})
+ELEVATOR = dict(SPACE_BODY, **{
+    "id": "EE600", "cls": "spoke_elevator_car", "board": "steward_keel7",
+    "about": "spoke elevator cars (the floor to the axis): a round cabin 5.8 m across, benches round it, standing room for thirty",
+    "nose": 2.90, "tail": -2.90, "half_w": 2.90, "plan": "round", "round_min": 0.42, "skirt": 0.40,
+    "belt": 1.30, "head": 2.30, "cant": 2.70, "crown": 3.10, "headliner": 2.85, "cant_in": 0.30, "tumble": 0.0,
+    "front": {"kind": "flat", "toe": 2.80, "header": 2.62, "screen_base": 1.32, "hood_drop": 0.05},
+    "rear": {"kind": "wall", "tail_in": -2.84, "back_window": {"half_w": 0.70, "z": (1.40, 2.20), "corner": 0.08}},
+    "doors": [{"id": "D", "y0": 0.80, "y1": -0.80, "sides": "R", "kind": "slide"}],
+    "windows": [{"id": "W1", "y0": 2.20, "y1": 1.00}, {"id": "W2", "y0": -1.00, "y1": -2.20}, {"id": "W3", "y0": 0.80, "y1": -0.80, "sides": "L"}],
+    "seats": [{"y": 1.75, "z": 0.95, "xs": [-1.6, -1.0, 1.0, 1.6], "w": 0.50, "bench": True},
+              {"y": -1.75, "z": 0.95, "xs": [-1.6, -1.0, 1.0, 1.6], "w": 0.50, "bench": True}],
+    "dash_y": 2.60, "space": {},
+})
+CLASSES.update({c["id"]: c for c in (SHUTTLE, FREIGHTER, MULE, ELEVATOR)})
+SPACE_STYLE = {"panel": {"lower": "paint", "upper": "paint", "roof": "paint2", "sail": "paint"}, "head_lamp": "round", "grille": None,
+               "tail_lamp": "pixel", "bumper": "none", "mirror": "none", "handle": "chrome", "belt_trim": "chrome", "rail": "black"}
+STYLES["SP300"] = dict(SPACE_STYLE, name="steward_skylark", type="passenger_shuttle",
+                       palette=palette(paint=(236, 232, 214), paint2=(236, 232, 214), livery2=(24, 110, 110)),
+                       livery={"m": "livery2", "z": (1.40, 2.20)}, equipment=["wings", "tail_fin", "oms_pods", "main_engines", "landing_gear"])
+STYLES["SF600"] = dict(SPACE_STYLE, name="steward_packhorse", type="supply_freighter",
+                       palette=palette(paint=(170, 172, 176), paint2=(226, 220, 196), livery2=(226, 220, 196)),
+                       panel={"lower": "paint2", "upper": "paint2", "roof": "paint2", "sail": "paint2"}, equipment=["cargo_pods", "drive_section"])
+STYLES["SM450"] = dict(SPACE_STYLE, name="steward_mule", type="cargo_mule",
+                       palette=palette(paint=(240, 236, 226), paint2=(240, 236, 226), livery2=(226, 110, 30)),
+                       livery={"m": "livery2", "z": (0.75, 0.90)}, equipment=["thruster_pods", "manipulators", "dorsal", "nose_lamps", "beacon"])
+STYLES["EE600"] = dict(SPACE_STYLE, name="steward_ascender", type="spoke_elevator_car",
+                       palette=palette(paint=(236, 226, 200), paint2=(236, 226, 200)), equipment=["guide_rollers", "rim_lamps"])

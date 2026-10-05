@@ -1,0 +1,3422 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "AR700",
+ "class": "rescue_aerostat",
+ "style": "steward_mercy",
+ "pack": "res://remake/vehicles/components/AR700/steward_mercy.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.9098,
+    0.8706,
+    0.7686
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.9098,
+    0.8706,
+    0.7686
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.7843,
+    0.1412,
+    0.1255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "AR700.end_cap.nose.C.steward_mercy.acae66": {
+   "id": "AR700.end_cap.nose.C.steward_mercy.acae66",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.837,
+     0.03,
+     2.1927,
+     0.874,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.trim.cowl.C.steward_mercy.fc77fb": {
+   "id": "AR700.trim.cowl.C.steward_mercy.fc77fb",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3495,
+     0.095,
+     2.2684,
+     0.221,
+     0.19
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.glazing.screen.C.steward_mercy.f85b96": {
+   "id": "AR700.glazing.screen.C.steward_mercy.f85b96",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     11016,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.12,
+     0.25,
+     2.2684,
+     1.6,
+     0.5
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.trim.screen.C.steward_mercy.3f011e": {
+   "id": "AR700.trim.screen.C.steward_mercy.3f011e",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0586,
+     0.25,
+     2.2684,
+     1.4853,
+     0.5
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.side_bay.fender.R.steward_mercy.1afe45": {
+   "id": "AR700.side_bay.fender.R.steward_mercy.1afe45",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     15048,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     1.0385,
+     0.86,
+     0.42,
+     0.3229,
+     0.92,
+     0.84
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.trim.sail.R.steward_mercy.7e4afd": {
+   "id": "AR700.trim.sail.R.steward_mercy.7e4afd",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     18648,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.1492,
+     1.85,
+     0.325,
+     0.1015,
+     1.1,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.a_pillar.R.steward_mercy.8e21cf": {
+   "id": "AR700.trim.a_pillar.R.steward_mercy.8e21cf",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     19944,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.0594,
+     2.04,
+     0.25,
+     0.1616,
+     1.48,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.side_bay.rocker_F.R.steward_mercy.2ff9e7": {
+   "id": "AR700.side_bay.rocker_F.R.steward_mercy.2ff9e7",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.9997,
+     0.49,
+     0.375,
+     0.0794,
+     0.18,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.post_0.R.steward_mercy.85864e": {
+   "id": "AR700.side_bay.post_0.R.steward_mercy.85864e",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "post_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     20376,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.08,
+     1.4,
+     0.475,
+     0.24,
+     2.0,
+     0.95
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.rocker_S.R.steward_mercy.d3528d": {
+   "id": "AR700.side_bay.rocker_S.R.steward_mercy.d3528d",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_S",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/rocker_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22536,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.9997,
+     0.49,
+     0.75,
+     0.0794,
+     0.18,
+     1.5
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.quarter_0.R.steward_mercy.776e51": {
+   "id": "AR700.side_bay.quarter_0.R.steward_mercy.776e51",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     22680,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.08,
+     1.4,
+     1.05,
+     0.24,
+     2.0,
+     2.1
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.quarter_1.R.steward_mercy.afe019": {
+   "id": "AR700.side_bay.quarter_1.R.steward_mercy.afe019",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     24840,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0567,
+     1.4,
+     0.315,
+     0.2867,
+     2.0,
+     0.63
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.fender.L.steward_mercy.8467de": {
+   "id": "AR700.side_bay.fender.L.steward_mercy.8467de",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     26568,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     -1.0385,
+     0.86,
+     0.42,
+     0.3229,
+     0.92,
+     0.84
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.trim.sail.L.steward_mercy.fad055": {
+   "id": "AR700.trim.sail.L.steward_mercy.fad055",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     30168,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.1492,
+     1.85,
+     0.325,
+     0.1015,
+     1.1,
+     0.65
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.a_pillar.L.steward_mercy.a63d39": {
+   "id": "AR700.trim.a_pillar.L.steward_mercy.a63d39",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31464,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.0594,
+     2.04,
+     0.25,
+     0.1616,
+     1.48,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.side_bay.rocker_F.L.steward_mercy.25f3f7": {
+   "id": "AR700.side_bay.rocker_F.L.steward_mercy.25f3f7",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31752,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -0.9997,
+     0.49,
+     0.375,
+     0.0794,
+     0.18,
+     0.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.quarter_0.L.steward_mercy.5a983f": {
+   "id": "AR700.side_bay.quarter_0.L.steward_mercy.5a983f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     31896,
+     198
+    ]
+   },
+   "boxes": [
+    [
+     -1.08,
+     1.4,
+     2.275,
+     0.24,
+     2.0,
+     4.55
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.side_bay.quarter_1.L.steward_mercy.5feded": {
+   "id": "AR700.side_bay.quarter_1.L.steward_mercy.5feded",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/side_bay/quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     36648,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.0567,
+     1.4,
+     0.315,
+     0.2867,
+     2.0,
+     0.63
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.roof_bay.roof_0.C.steward_mercy.edadaa": {
+   "id": "AR700.roof_bay.roof_0.C.steward_mercy.edadaa",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     38376,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.875,
+     2.2,
+     0.52,
+     1.75
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.roof_bay.roof_1.C.steward_mercy.2c0acf": {
+   "id": "AR700.roof_bay.roof_1.C.steward_mercy.2c0acf",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     47016,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.8,
+     2.2,
+     0.52,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.roof_bay.roof_2.C.steward_mercy.80399f": {
+   "id": "AR700.roof_bay.roof_2.C.steward_mercy.80399f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     50472,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.95,
+     2.2,
+     0.52,
+     1.9
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.roof_bay.roof_3.C.steward_mercy.9b2f49": {
+   "id": "AR700.roof_bay.roof_3.C.steward_mercy.9b2f49",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     53928,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.66,
+     0.415,
+     2.2,
+     0.52,
+     0.83
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.end_cap.tail.C.steward_mercy.ee50c1": {
+   "id": "AR700.end_cap.tail.C.steward_mercy.ee50c1",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     59112,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.66,
+     0.035,
+     2.2834,
+     2.52,
+     0.07
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "AR700.floor.floor.C.steward_mercy.8f0701": {
+   "id": "AR700.floor.floor.C.steward_mercy.8f0701",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     69408,
+     624
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     3.29,
+     1.9588,
+     0.03,
+     6.58
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "AR700.lining_bay.trim_0_0.R.steward_mercy.df9134": {
+   "id": "AR700.lining_bay.trim_0_0.R.steward_mercy.df9134",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     84384,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.0353,
+     1.49,
+     0.325,
+     0.2094,
+     1.82,
+     0.65
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.trim_1_0.R.steward_mercy.fd3019": {
+   "id": "AR700.lining_bay.trim_1_0.R.steward_mercy.fd3019",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     86544,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0597,
+     1.49,
+     0.475,
+     0.1606,
+     1.82,
+     0.95
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.trim_2_0.R.steward_mercy.892f4b": {
+   "id": "AR700.lining_bay.trim_2_0.R.steward_mercy.892f4b",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_2_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_2_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     88272,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0597,
+     1.49,
+     1.05,
+     0.1606,
+     1.82,
+     2.1
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.trim_2_1.R.steward_mercy.404563": {
+   "id": "AR700.lining_bay.trim_2_1.R.steward_mercy.404563",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_2_1",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_2_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     90000,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.0359,
+     1.49,
+     0.315,
+     0.2082,
+     1.82,
+     0.63
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.a_pillar.R.steward_mercy.33dafb": {
+   "id": "AR700.lining_bay.a_pillar.R.steward_mercy.33dafb",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     91440,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.001,
+     1.9872,
+     0.25,
+     0.1645,
+     1.4656,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.trim_0_0.L.steward_mercy.c0ff65": {
+   "id": "AR700.lining_bay.trim_0_0.L.steward_mercy.c0ff65",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     91728,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -1.0353,
+     1.49,
+     0.325,
+     0.2094,
+     1.82,
+     0.65
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.trim_1_0.L.steward_mercy.e47c3f": {
+   "id": "AR700.lining_bay.trim_1_0.L.steward_mercy.e47c3f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     93888,
+     156
+    ]
+   },
+   "boxes": [
+    [
+     -1.0597,
+     1.49,
+     2.275,
+     0.1606,
+     1.82,
+     4.55
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.trim_1_1.L.steward_mercy.3fb7a6": {
+   "id": "AR700.lining_bay.trim_1_1.L.steward_mercy.3fb7a6",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "trim_1_1",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/trim_1_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     97632,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.0359,
+     1.49,
+     0.315,
+     0.2082,
+     1.82,
+     0.63
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.lining_bay.a_pillar.L.steward_mercy.0afeb7": {
+   "id": "AR700.lining_bay.a_pillar.L.steward_mercy.0afeb7",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     99072,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.001,
+     1.9872,
+     0.25,
+     0.1645,
+     1.4656,
+     0.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.ceiling_bay.roof_0.C.steward_mercy.028a42": {
+   "id": "AR700.ceiling_bay.roof_0.C.steward_mercy.028a42",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     99360,
+     360
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.875,
+     2.08,
+     0.42,
+     1.75
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.ceiling_bay.roof_1.C.steward_mercy.04fb7b": {
+   "id": "AR700.ceiling_bay.roof_1.C.steward_mercy.04fb7b",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     108000,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.8,
+     2.08,
+     0.42,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.ceiling_bay.roof_2.C.steward_mercy.513a04": {
+   "id": "AR700.ceiling_bay.roof_2.C.steward_mercy.513a04",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     111456,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.95,
+     2.08,
+     0.42,
+     1.9
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.ceiling_bay.roof_3.C.steward_mercy.894dce": {
+   "id": "AR700.ceiling_bay.roof_3.C.steward_mercy.894dce",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     114912,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.61,
+     0.415,
+     2.08,
+     0.42,
+     0.83
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.end_lining.firewall.C.steward_mercy.447318": {
+   "id": "AR700.end_lining.firewall.C.steward_mercy.447318",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     120096,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.955,
+     0.0,
+     2.1664,
+     0.81,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.end_lining.rear_wall.C.steward_mercy.c24bf3": {
+   "id": "AR700.end_lining.rear_wall.C.steward_mercy.c24bf3",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     121536,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.685,
+     -0.0,
+     2.1692,
+     2.27,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.rear_opening.C.steward_mercy.a0636e": {
+   "id": "AR700.reveal.rear_opening.C.steward_mercy.a0636e",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     124992,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.875,
+     0.035,
+     0.9,
+     0.65,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.glazing.back_window.C.steward_mercy.a5adb0": {
+   "id": "AR700.glazing.back_window.C.steward_mercy.a5adb0",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     127872,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.875,
+     -0.0,
+     0.9,
+     0.65,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.reveal.door_F.R.steward_mercy.f69d90": {
+   "id": "AR700.reveal.door_F.R.steward_mercy.f69d90",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     129168,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0897,
+     1.49,
+     0.375,
+     0.2206,
+     1.82,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.door_S.R.steward_mercy.70cd39": {
+   "id": "AR700.reveal.door_S.R.steward_mercy.70cd39",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "door_S",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     130896,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.0897,
+     1.49,
+     0.75,
+     0.2206,
+     1.82,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.window_W0.R.steward_mercy.e80670": {
+   "id": "AR700.reveal.window_W0.R.steward_mercy.e80670",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     132624,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.12,
+     1.85,
+     0.375,
+     0.16,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.window_W2.R.steward_mercy.65bb31": {
+   "id": "AR700.reveal.window_W2.R.steward_mercy.65bb31",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     133776,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.12,
+     1.85,
+     0.9,
+     0.16,
+     1.1,
+     1.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.door_F.L.steward_mercy.8558ad": {
+   "id": "AR700.reveal.door_F.L.steward_mercy.8558ad",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint": [
+     134928,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.0897,
+     1.49,
+     0.375,
+     0.2206,
+     1.82,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.window_W0.L.steward_mercy.70165f": {
+   "id": "AR700.reveal.window_W0.L.steward_mercy.70165f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     136656,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.12,
+     1.85,
+     0.375,
+     0.16,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.window_W1.L.steward_mercy.2e3c69": {
+   "id": "AR700.reveal.window_W1.L.steward_mercy.2e3c69",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     137808,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.12,
+     1.85,
+     0.75,
+     0.16,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.window_W2.L.steward_mercy.433d99": {
+   "id": "AR700.reveal.window_W2.L.steward_mercy.433d99",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     138960,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.12,
+     1.85,
+     0.9,
+     0.16,
+     1.1,
+     1.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.reveal.screen.C.steward_mercy.f16136": {
+   "id": "AR700.reveal.screen.C.steward_mercy.f16136",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     140112,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.09,
+     0.25,
+     2.2684,
+     1.66,
+     0.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.glazing.window_W0.R.steward_mercy.7a378f": {
+   "id": "AR700.glazing.window_W0.R.steward_mercy.7a378f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/window_W0/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     142704,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     0.375,
+     0.1,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.glazing.window_W0.L.steward_mercy.276412": {
+   "id": "AR700.glazing.window_W0.L.steward_mercy.276412",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "window_W0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/window_W0/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     143136,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     0.375,
+     0.1,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.glazing.window_W1.L.steward_mercy.7191e9": {
+   "id": "AR700.glazing.window_W1.L.steward_mercy.7191e9",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     143568,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     0.75,
+     0.1,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.glazing.window_W2.R.steward_mercy.d03eff": {
+   "id": "AR700.glazing.window_W2.R.steward_mercy.d03eff",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     144000,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     0.9,
+     0.1,
+     1.1,
+     1.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.glazing.window_W2.L.steward_mercy.f10674": {
+   "id": "AR700.glazing.window_W2.L.steward_mercy.f10674",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     144432,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     0.9,
+     0.1,
+     1.1,
+     1.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.door_leaf.door_F.R.steward_mercy.ef1e15": {
+   "id": "AR700.door_leaf.door_F.R.steward_mercy.ef1e15",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     144864,
+     12
+    ],
+    "paint": [
+     145152,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.0897,
+     0.94,
+     0.375,
+     0.2206,
+     0.72,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.door_glass.door_F.R.steward_mercy.960d83": {
+   "id": "AR700.door_glass.door_F.R.steward_mercy.960d83",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     146304,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     0.375,
+     0.1,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.leaf_trim.handle_F.R.steward_mercy.931de8": {
+   "id": "AR700.leaf_trim.handle_F.R.steward_mercy.931de8",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     146736,
+     36
+    ],
+    "dash": [
+     147600,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1383,
+     1.115,
+     0.125,
+     0.1166,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.door_leaf.door_S.R.steward_mercy.88d406": {
+   "id": "AR700.door_leaf.door_S.R.steward_mercy.88d406",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "door_leaf",
+   "slot": "door_S",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/door_leaf/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     148464,
+     12
+    ],
+    "paint": [
+     148752,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.0897,
+     0.94,
+     0.75,
+     0.2206,
+     0.72,
+     1.5
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.door_glass.door_S.R.steward_mercy.5eb13a": {
+   "id": "AR700.door_glass.door_S.R.steward_mercy.5eb13a",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "door_glass",
+   "slot": "door_S",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/door_glass/door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     149904,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.15,
+     1.85,
+     0.75,
+     0.1,
+     1.1,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.leaf_trim.handle_S.R.steward_mercy.e47d91": {
+   "id": "AR700.leaf_trim.handle_S.R.steward_mercy.e47d91",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_S",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/leaf_trim/handle_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     150336,
+     36
+    ],
+    "dash": [
+     151200,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.1383,
+     1.115,
+     0.125,
+     0.1166,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.door_leaf.door_F.L.steward_mercy.fcfb23": {
+   "id": "AR700.door_leaf.door_F.L.steward_mercy.fcfb23",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     152064,
+     12
+    ],
+    "paint": [
+     152352,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.0897,
+     0.94,
+     0.375,
+     0.2206,
+     0.72,
+     0.75
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.door_glass.door_F.L.steward_mercy.f59a7a": {
+   "id": "AR700.door_glass.door_F.L.steward_mercy.f59a7a",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     153504,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.15,
+     1.85,
+     0.375,
+     0.1,
+     1.1,
+     0.75
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "AR700.leaf_trim.handle_F.L.steward_mercy.a1d55d": {
+   "id": "AR700.leaf_trim.handle_F.L.steward_mercy.a1d55d",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     153936,
+     36
+    ],
+    "dash": [
+     154800,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.1383,
+     1.115,
+     0.125,
+     0.1166,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.underpan.underpan.C.steward_mercy.285c29": {
+   "id": "AR700.underpan.underpan.C.steward_mercy.285c29",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     155664,
+     504
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4525,
+     3.45,
+     1.92,
+     0.105,
+     6.9
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "AR700.seat.row_0.C.steward_mercy.9277f1": {
+   "id": "AR700.seat.row_0.C.steward_mercy.9277f1",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     167760,
+     72
+    ],
+    "seat": [
+     169488,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.51,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "AR700.seat.row_1.C.steward_mercy.738f12": {
+   "id": "AR700.seat.row_1.C.steward_mercy.738f12",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     174672,
+     72
+    ],
+    "seat": [
+     176400,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.7,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "AR700.dash.dash.C.steward_mercy.5d57ba": {
+   "id": "AR700.dash.dash.C.steward_mercy.5d57ba",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     181584,
+     1236
+    ],
+    "chrome": [
+     211248,
+     120
+    ],
+    "dash": [
+     214128,
+     108
+    ],
+    "gauge": [
+     216720,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1997,
+     0.2426,
+     2.12,
+     0.3796,
+     0.4851
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "AR700.dash.readout.C.steward_mercy.124c80": {
+   "id": "AR700.dash.readout.C.steward_mercy.124c80",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     225936,
+     36
+    ],
+    "lcd": [
+     226800,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.5,
+     1.22,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "AR700.lamp.head_lamp.C.steward_mercy.a83b72": {
+   "id": "AR700.lamp.head_lamp.C.steward_mercy.a83b72",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     227664,
+     480
+    ],
+    "lamp_amber": [
+     239184,
+     72
+    ],
+    "lamp_drl": [
+     240912,
+     480
+    ],
+    "lamp_head": [
+     252432,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.0455,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AR700.lamp.tail_lamp.C.steward_mercy.b2950b": {
+   "id": "AR700.lamp.tail_lamp.C.steward_mercy.b2950b",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     263952,
+     12
+    ],
+    "lamp_amber": [
+     264240,
+     48
+    ],
+    "lamp_brake": [
+     265392,
+     36
+    ],
+    "lamp_reverse": [
+     266256,
+     48
+    ],
+    "lamp_tail": [
+     267408,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.561,
+     0.006,
+     2.1323,
+     1.422,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AR700.lamp.side_marker.C.steward_mercy.a83ea0": {
+   "id": "AR700.lamp.side_marker.C.steward_mercy.a83ea0",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     275472,
+     72
+    ],
+    "lamp_tail": [
+     277200,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     3.29,
+     2.0466,
+     0.03,
+     6.58
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AR700.lamp.id_lamp.C.steward_mercy.2bd871": {
+   "id": "AR700.lamp.id_lamp.C.steward_mercy.2bd871",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     278928,
+     180
+    ],
+    "lamp_tail": [
+     283248,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.861,
+     3.075,
+     1.9578,
+     0.166,
+     6.15
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "AR700.trim.belt_fender.R.steward_mercy.11c599": {
+   "id": "AR700.trim.belt_fender.R.steward_mercy.11c599",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     287568,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     1.152,
+     1.2511,
+     0.4177,
+     0.1181,
+     0.0894,
+     0.8354
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.belt_post_0.R.steward_mercy.aba655": {
+   "id": "AR700.trim.belt_post_0.R.steward_mercy.aba655",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_post_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_post_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     295056,
+     348
+    ]
+   },
+   "boxes": [
+    [
+     1.2033,
+     1.288,
+     0.471,
+     0.02,
+     0.02,
+     0.942
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.belt_quarter_0.R.steward_mercy.3a5042": {
+   "id": "AR700.trim.belt_quarter_0.R.steward_mercy.3a5042",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     303408,
+     744
+    ]
+   },
+   "boxes": [
+    [
+     1.2033,
+     1.288,
+     1.046,
+     0.02,
+     0.02,
+     2.092
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.belt_quarter_1.R.steward_mercy.acd562": {
+   "id": "AR700.trim.belt_quarter_1.R.steward_mercy.acd562",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     321264,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     1.1744,
+     1.288,
+     0.3118,
+     0.0725,
+     0.02,
+     0.6237
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.belt_fender.L.steward_mercy.d64f79": {
+   "id": "AR700.trim.belt_fender.L.steward_mercy.d64f79",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     327024,
+     312
+    ]
+   },
+   "boxes": [
+    [
+     -1.1521,
+     1.2511,
+     0.4177,
+     0.118,
+     0.0891,
+     0.8353
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.belt_quarter_0.L.steward_mercy.2af80d": {
+   "id": "AR700.trim.belt_quarter_0.L.steward_mercy.2af80d",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     334512,
+     1644
+    ]
+   },
+   "boxes": [
+    [
+     -1.2033,
+     1.288,
+     2.271,
+     0.02,
+     0.02,
+     4.542
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.trim.belt_quarter_1.L.steward_mercy.7e8cbf": {
+   "id": "AR700.trim.belt_quarter_1.L.steward_mercy.7e8cbf",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/belt_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     373968,
+     240
+    ]
+   },
+   "boxes": [
+    [
+     -1.1744,
+     1.288,
+     0.3118,
+     0.0725,
+     0.02,
+     0.6237
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.leaf_trim.belt_door_F.R.steward_mercy.5d823a": {
+   "id": "AR700.leaf_trim.belt_door_F.R.steward_mercy.5d823a",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     379728,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     1.2033,
+     1.288,
+     0.372,
+     0.02,
+     0.02,
+     0.744
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.leaf_trim.belt_door_S.R.steward_mercy.3b8b1f": {
+   "id": "AR700.leaf_trim.belt_door_S.R.steward_mercy.3b8b1f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_S",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/leaf_trim/belt_door_S/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     386352,
+     528
+    ]
+   },
+   "boxes": [
+    [
+     1.2033,
+     1.288,
+     0.747,
+     0.02,
+     0.02,
+     1.494
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.leaf_trim.belt_door_F.L.steward_mercy.266e4d": {
+   "id": "AR700.leaf_trim.belt_door_F.L.steward_mercy.266e4d",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     399024,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     -1.2033,
+     1.288,
+     0.372,
+     0.02,
+     0.02,
+     0.744
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "AR700.envelope.envelope.C.steward_mercy.c8592f": {
+   "id": "AR700.envelope.envelope.C.steward_mercy.c8592f",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "envelope",
+   "slot": "envelope",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/envelope/envelope/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     405648,
+     192
+    ],
+    "livery1": [
+     410256,
+     13284
+    ],
+    "livery2": [
+     729072,
+     3444
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     6.32,
+     8.11,
+     4.9999,
+     4.9999,
+     16.22
+    ]
+   ],
+   "hp": 4000,
+   "mass_kg": 180,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "AR700.equipment.fins.C.steward_mercy.efc498": {
+   "id": "AR700.equipment.fins.C.steward_mercy.efc498",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "fins",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/fins/C",
+   "reach": 0.0,
+   "mats": {
+    "livery1": [
+     811728,
+     2280
+    ],
+    "livery2": [
+     866448,
+     768
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     6.32,
+     1.81,
+     4.789,
+     4.569,
+     3.62
+    ]
+   ],
+   "hp": 900,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.equipment.fan_0.R.steward_mercy.841023": {
+   "id": "AR700.equipment.fan_0.R.steward_mercy.841023",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "fan_0",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/fan_0/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     884880,
+     348
+    ],
+    "chrome": [
+     893232,
+     948
+    ],
+    "livery1": [
+     915984,
+     1308
+    ],
+    "livery2": [
+     947376,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     1.55,
+     3.6219,
+     0.3969,
+     1.232,
+     1.3757,
+     0.7938
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.equipment.fan_0.L.steward_mercy.7838a9": {
+   "id": "AR700.equipment.fan_0.L.steward_mercy.7838a9",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "fan_0",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/fan_0/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     951408,
+     348
+    ],
+    "chrome": [
+     959760,
+     948
+    ],
+    "livery1": [
+     982512,
+     1308
+    ],
+    "livery2": [
+     1013904,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -1.55,
+     3.6219,
+     0.3971,
+     1.232,
+     1.3757,
+     0.7943
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.equipment.fan_1.R.steward_mercy.187671": {
+   "id": "AR700.equipment.fan_1.R.steward_mercy.187671",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "fan_1",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/fan_1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1017936,
+     348
+    ],
+    "chrome": [
+     1026288,
+     948
+    ],
+    "livery1": [
+     1049040,
+     1368
+    ],
+    "livery2": [
+     1081872,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     2.025,
+     2.2,
+     0.6491,
+     2.17,
+     1.12,
+     1.2981
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.equipment.fan_1.L.steward_mercy.c0eea5": {
+   "id": "AR700.equipment.fan_1.L.steward_mercy.c0eea5",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "fan_1",
+   "side": "L",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/fan_1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1085904,
+     348
+    ],
+    "chrome": [
+     1094256,
+     948
+    ],
+    "livery1": [
+     1117008,
+     1368
+    ],
+    "livery2": [
+     1149840,
+     168
+    ]
+   },
+   "boxes": [
+    [
+     -2.025,
+     2.2,
+     0.6491,
+     2.17,
+     1.12,
+     1.2981
+    ]
+   ],
+   "hp": 600,
+   "mass_kg": 40,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.equipment.suspension.C.steward_mercy.4b3954": {
+   "id": "AR700.equipment.suspension.C.steward_mercy.4b3954",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "suspension",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/suspension/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     1153872,
+     624
+    ],
+    "livery1": [
+     1168848,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     -0.0,
+     3.0827,
+     2.8332,
+     2.5467,
+     2.507,
+     5.6664
+    ]
+   ],
+   "hp": 1500,
+   "mass_kg": 80,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.equipment.winch.R.steward_mercy.69ed78": {
+   "id": "AR700.equipment.winch.R.steward_mercy.69ed78",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "equipment",
+   "slot": "winch",
+   "side": "R",
+   "style": "steward_mercy",
+   "interface": "AR700/equipment/winch/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     1183248,
+     132
+    ],
+    "chrome": [
+     1186416,
+     264
+    ],
+    "livery2": [
+     1192752,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.3123,
+     2.8355,
+     0.25,
+     1.2246,
+     0.5891,
+     0.5
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "AR700.trim.cross.C.steward_mercy.b1497c": {
+   "id": "AR700.trim.cross.C.steward_mercy.b1497c",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "trim",
+   "slot": "cross",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/trim/cross/C",
+   "reach": 0.0,
+   "mats": {
+    "livery2": [
+     1193616,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.28,
+     2.2137,
+     0.56,
+     0.56
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "AR700.lamp.aero_lamps.C.steward_mercy.dd2c7c": {
+   "id": "AR700.lamp.aero_lamps.C.steward_mercy.dd2c7c",
+   "standard": "AR700",
+   "class": "rescue_aerostat",
+   "role": "lamp",
+   "slot": "aero_lamps",
+   "side": "C",
+   "style": "steward_mercy",
+   "interface": "AR700/lamp/aero_lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_red": [
+     1194192,
+     768
+    ],
+    "lamp_reverse": [
+     1212624,
+     720
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     4.6585,
+     2.735,
+     2.0699,
+     8.3626,
+     5.47
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.02
+  }
+ }
+}

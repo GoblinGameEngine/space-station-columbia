@@ -372,11 +372,27 @@
    ],
    "emit_strength": 0.0,
    "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
   }
  },
  "components": {
-  "PXTRAVEL.frame_shown.gantry.C.parts_travel_lift.fe27aa": {
-   "id": "PXTRAVEL.frame_shown.gantry.C.parts_travel_lift.fe27aa",
+  "PXTRAVEL.frame_shown.gantry.C.parts_travel_lift.8292c1": {
+   "id": "PXTRAVEL.frame_shown.gantry.C.parts_travel_lift.8292c1",
    "standard": "PXTRAVEL",
    "class": "travel_lift",
    "role": "frame_shown",
@@ -388,16 +404,20 @@
    "mats": {
     "paint": [
      0,
-     756
+     360
+    ],
+    "paint2": [
+     8640,
+     216
     ]
    },
    "boxes": [
     [
      0.0,
-     4.65,
+     4.925,
      4.875,
-     7.4,
-     8.5,
+     7.356,
+     7.95,
      9.75
     ]
    ],
@@ -406,8 +426,43 @@
    "breaks": "detach",
    "tolerance": 0.3
   },
-  "PXTRAVEL.equipment.slings.C.parts_travel_lift.1a88f7": {
-   "id": "PXTRAVEL.equipment.slings.C.parts_travel_lift.1a88f7",
+  "PXTRAVEL.equipment.pulleys.C.parts_travel_lift.5f742a": {
+   "id": "PXTRAVEL.equipment.pulleys.C.parts_travel_lift.5f742a",
+   "standard": "PXTRAVEL",
+   "class": "travel_lift",
+   "role": "equipment",
+   "slot": "pulleys",
+   "side": "C",
+   "style": "parts_travel_lift",
+   "interface": "PXTRAVEL/equipment/pulleys/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     13824,
+     672
+    ],
+    "chrome": [
+     29952,
+     2880
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     8.075,
+     2.2,
+     6.78,
+     0.45,
+     4.4
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.3
+  },
+  "PXTRAVEL.equipment.slings.C.parts_travel_lift.9fa92b": {
+   "id": "PXTRAVEL.equipment.slings.C.parts_travel_lift.9fa92b",
    "standard": "PXTRAVEL",
    "class": "travel_lift",
    "role": "equipment",
@@ -417,19 +472,23 @@
    "interface": "PXTRAVEL/equipment/slings/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     18144,
-     336
+    "chrome": [
+     99072,
+     3552
+    ],
+    "paint": [
+     184320,
+     1968
     ]
    },
    "boxes": [
     [
      0.0,
-     4.7,
-     2.03,
-     6.6568,
-     7.4192,
-     4.06
+     4.325,
+     2.07,
+     6.8,
+     7.05,
+     4.14
     ]
    ],
    "hp": 150,
@@ -437,43 +496,82 @@
    "breaks": "detach",
    "tolerance": 0.3
   },
-  "PXTRAVEL.cab.cab.C.parts_travel_lift.bd8d68": {
-   "id": "PXTRAVEL.cab.cab.C.parts_travel_lift.bd8d68",
+  "PXTRAVEL.equipment.controls.C.parts_travel_lift.1d14a7": {
+   "id": "PXTRAVEL.equipment.controls.C.parts_travel_lift.1d14a7",
    "standard": "PXTRAVEL",
    "class": "travel_lift",
-   "role": "cab",
-   "slot": "cab",
+   "role": "equipment",
+   "slot": "controls",
    "side": "C",
    "style": "parts_travel_lift",
-   "interface": "PXTRAVEL/cab/cab/C",
+   "interface": "PXTRAVEL/equipment/controls/C",
    "reach": 0.0,
    "mats": {
-    "glass_dark": [
-     26208,
+    "black": [
+     231552,
+     168
+    ],
+    "chrome": [
+     235584,
+     36
+    ],
+    "lamp_amber": [
+     236448,
      36
     ],
     "paint2": [
-     27072,
+     237312,
      36
     ]
    },
    "boxes": [
     [
-     3.4,
-     7.5,
-     0.51,
-     1.2,
-     1.2,
-     1.02
+     0.045,
+     1.9163,
+     0.54,
+     8.09,
+     1.8674,
+     1.08
     ]
    ],
    "hp": 150,
    "mass_kg": 3.0,
    "breaks": "detach",
-   "tolerance": 0.08
+   "tolerance": 0.3
   },
-  "PXTRAVEL.wheel.wheels.C.parts_travel_lift.998838": {
-   "id": "PXTRAVEL.wheel.wheels.C.parts_travel_lift.998838",
+  "PXTRAVEL.lamp.lamps.C.parts_travel_lift.f4e5b8": {
+   "id": "PXTRAVEL.lamp.lamps.C.parts_travel_lift.f4e5b8",
+   "standard": "PXTRAVEL",
+   "class": "travel_lift",
+   "role": "lamp",
+   "slot": "lamps",
+   "side": "C",
+   "style": "parts_travel_lift",
+   "interface": "PXTRAVEL/lamp/lamps/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_head": [
+     238176,
+     1152
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     8.25,
+     4.68,
+     4.16,
+     0.06,
+     9.36
+    ]
+   ],
+   "hp": 150,
+   "mass_kg": 3.0,
+   "breaks": "detach",
+   "tolerance": 0.05
+  },
+  "PXTRAVEL.wheel.wheels.C.parts_travel_lift.1eee2f": {
+   "id": "PXTRAVEL.wheel.wheels.C.parts_travel_lift.1eee2f",
    "standard": "PXTRAVEL",
    "class": "travel_lift",
    "role": "wheel",
@@ -483,23 +581,31 @@
    "interface": "PXTRAVEL/wheel/wheels/C",
    "reach": 0.0,
    "mats": {
+    "black": [
+     265824,
+     144
+    ],
     "chrome": [
-     27936,
-     2016
+     269280,
+     1008
+    ],
+    "paint": [
+     293472,
+     672
     ],
     "rubber": [
-     76320,
-     4800
+     309600,
+     2400
     ]
    },
    "boxes": [
     [
      0.0,
-     0.45,
-     5.55,
-     7.1,
-     0.9,
-     11.1
+     0.515,
+     5.08,
+     7.4,
+     1.03,
+     10.16
     ]
    ],
    "hp": 150,

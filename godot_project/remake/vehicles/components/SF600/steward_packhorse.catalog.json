@@ -1,0 +1,3067 @@
+{
+ "_about": "Vehicle component library (remake/blender/kit/components.py; research/vehicles/MODULAR_VEHICLES.md)",
+ "standard": "SF600",
+ "class": "supply_freighter",
+ "style": "steward_packhorse",
+ "pack": "res://remake/vehicles/components/SF600/steward_packhorse.pack",
+ "palette": {
+  "paint": {
+   "albedo": [
+    0.6667,
+    0.6745,
+    0.6902
+   ],
+   "rough": 0.3,
+   "metal": 0.15,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "paint2": {
+   "albedo": [
+    0.8863,
+    0.8627,
+    0.7686
+   ],
+   "rough": 0.32,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "black": {
+   "albedo": [
+    0.1176,
+    0.1216,
+    0.1333
+   ],
+   "rough": 0.5,
+   "metal": 0.1,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "chrome": {
+   "albedo": [
+    0.8235,
+    0.8314,
+    0.8471
+   ],
+   "rough": 0.1,
+   "metal": 1.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "rubber": {
+   "albedo": [
+    0.0941,
+    0.0941,
+    0.102
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "glass": {
+   "albedo": [
+    0.6667,
+    0.7686,
+    0.8
+   ],
+   "rough": 0.05,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 0.25
+  },
+  "glass_dark": {
+   "albedo": [
+    0.1569,
+    0.1804,
+    0.2039
+   ],
+   "rough": 0.08,
+   "metal": 0.4,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lining": {
+   "albedo": [
+    0.7843,
+    0.7451,
+    0.6667
+   ],
+   "rough": 0.7,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "headliner": {
+   "albedo": [
+    0.8941,
+    0.8706,
+    0.8078
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "carpet": {
+   "albedo": [
+    0.2745,
+    0.2431,
+    0.2196
+   ],
+   "rough": 0.95,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "seat": {
+   "albedo": [
+    0.4706,
+    0.2745,
+    0.1725
+   ],
+   "rough": 0.85,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "dash": {
+   "albedo": [
+    0.2039,
+    0.1804,
+    0.1647
+   ],
+   "rough": 0.6,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "gauge": {
+   "albedo": [
+    0.9255,
+    0.8941,
+    0.8
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.8392,
+    0.5882
+   ],
+   "emit_strength": 0.3,
+   "alpha": 1
+  },
+  "tub": {
+   "albedo": [
+    0.2275,
+    0.2275,
+    0.2353
+   ],
+   "rough": 0.8,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "wood": {
+   "albedo": [
+    0.502,
+    0.2902,
+    0.1569
+   ],
+   "rough": 0.45,
+   "metal": 0.0,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "sign": {
+   "albedo": [
+    0.9804,
+    0.9412,
+    0.7843
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9412,
+    0.7451
+   ],
+   "emit_strength": 1.0,
+   "alpha": 1
+  },
+  "livery1": {
+   "albedo": [
+    0.9412,
+    0.9412,
+    0.9255
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "livery2": {
+   "albedo": [
+    0.8863,
+    0.8627,
+    0.7686
+   ],
+   "rough": 0.35,
+   "metal": 0.05,
+   "emit": null,
+   "emit_strength": 0,
+   "alpha": 1
+  },
+  "lamp_head": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9255
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9725,
+    0.902
+   ],
+   "emit_strength": 3.0,
+   "alpha": 1
+  },
+  "lamp_drl": {
+   "albedo": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.9804,
+    0.9412
+   ],
+   "emit_strength": 1.2,
+   "alpha": 1
+  },
+  "lamp_tail": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 1.6,
+   "alpha": 1
+  },
+  "lamp_brake": {
+   "albedo": [
+    0.7451,
+    0.0706,
+    0.0549
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.0784
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_amber": {
+   "albedo": [
+    0.9255,
+    0.549,
+    0.0941
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.5882,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_reverse": {
+   "albedo": [
+    0.9255,
+    0.9255,
+    0.9255
+   ],
+   "rough": 0.4,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lcd": {
+   "albedo": [
+    0.5882,
+    0.6588,
+    0.4627
+   ],
+   "rough": 0.5,
+   "metal": 0.0,
+   "emit": [
+    0.4706,
+    0.6667,
+    0.3529
+   ],
+   "emit_strength": 0.35,
+   "alpha": 1
+  },
+  "lamp_red": {
+   "albedo": [
+    0.7843,
+    0.0784,
+    0.0784
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    1.0,
+    0.1176,
+    0.1176
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_blue": {
+   "albedo": [
+    0.0784,
+    0.2353,
+    0.8627
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    0.3529,
+    1.0
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  },
+  "lamp_green": {
+   "albedo": [
+    0.0784,
+    0.6667,
+    0.2353
+   ],
+   "rough": 0.3,
+   "metal": 0.0,
+   "emit": [
+    0.1569,
+    1.0,
+    0.3529
+   ],
+   "emit_strength": 0.0,
+   "alpha": 1
+  }
+ },
+ "components": {
+  "SF600.end_cap.nose.C.steward_packhorse.f03cb5": {
+   "id": "SF600.end_cap.nose.C.steward_packhorse.f03cb5",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "end_cap",
+   "slot": "nose",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/end_cap/nose/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     0,
+     363
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.885,
+     0.03,
+     2.7387,
+     0.87,
+     0.06
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.trim.cowl.C.steward_packhorse.298e27": {
+   "id": "SF600.trim.cowl.C.steward_packhorse.298e27",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "cowl",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/cowl/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     8712,
+     96
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.4525,
+     0.12,
+     2.8497,
+     0.335,
+     0.24
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.glazing.screen.C.steward_packhorse.c55bd1": {
+   "id": "SF600.glazing.screen.C.steward_packhorse.c55bd1",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "glazing",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/glazing/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     11016,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.16,
+     0.2,
+     2.8497,
+     1.58,
+     0.4
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 14,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.trim.screen.C.steward_packhorse.83e5e8": {
+   "id": "SF600.trim.screen.C.steward_packhorse.83e5e8",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     12168,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0486,
+     0.2,
+     2.8497,
+     1.3652,
+     0.4
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 1,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.side_bay.fender.R.steward_packhorse.76ce4a": {
+   "id": "SF600.side_bay.fender.R.steward_packhorse.76ce4a",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/fender/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     15048,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     1.3206,
+     0.91,
+     0.87,
+     0.3589,
+     0.92,
+     1.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.trim.sail.R.steward_packhorse.0a4263": {
+   "id": "SF600.trim.sail.R.steward_packhorse.0a4263",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "sail",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/sail/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     18648,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     1.4565,
+     1.8,
+     0.75,
+     0.087,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.a_pillar.R.steward_packhorse.9c4bd5": {
+   "id": "SF600.trim.a_pillar.R.steward_packhorse.9c4bd5",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     19944,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.3237,
+     2.025,
+     0.2,
+     0.2194,
+     1.35,
+     0.4
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.side_bay.rocker_F.R.steward_packhorse.c3a1bd": {
+   "id": "SF600.side_bay.rocker_F.R.steward_packhorse.c3a1bd",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/rocker_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     20232,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     1.2806,
+     0.515,
+     0.4,
+     0.0612,
+     0.13,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.side_bay.quarter_0.R.steward_packhorse.1a250f": {
+   "id": "SF600.side_bay.quarter_0.R.steward_packhorse.1a250f",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     20376,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     1.375,
+     1.35,
+     1.9,
+     0.25,
+     1.8,
+     3.8
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.side_bay.quarter_1.R.steward_packhorse.69031e": {
+   "id": "SF600.side_bay.quarter_1.R.steward_packhorse.69031e",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     23832,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.3495,
+     1.35,
+     0.165,
+     0.301,
+     1.8,
+     0.33
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.side_bay.fender.L.steward_packhorse.8661ec": {
+   "id": "SF600.side_bay.fender.L.steward_packhorse.8661ec",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "fender",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/fender/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     25560,
+     150
+    ]
+   },
+   "boxes": [
+    [
+     -1.3206,
+     0.91,
+     0.87,
+     0.3589,
+     0.92,
+     1.74
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 9,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.trim.sail.L.steward_packhorse.bc8ab2": {
+   "id": "SF600.trim.sail.L.steward_packhorse.bc8ab2",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "sail",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/sail/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     29160,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     -1.4565,
+     1.8,
+     0.75,
+     0.087,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.a_pillar.L.steward_packhorse.37d8ce": {
+   "id": "SF600.trim.a_pillar.L.steward_packhorse.37d8ce",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     30456,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.3237,
+     2.025,
+     0.2,
+     0.2194,
+     1.35,
+     0.4
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.side_bay.rocker_F.L.steward_packhorse.669259": {
+   "id": "SF600.side_bay.rocker_F.L.steward_packhorse.669259",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "rocker_F",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/rocker_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     30744,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     -1.2806,
+     0.515,
+     0.4,
+     0.0612,
+     0.13,
+     0.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 5,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.side_bay.quarter_0.L.steward_packhorse.8b2d5f": {
+   "id": "SF600.side_bay.quarter_0.L.steward_packhorse.8b2d5f",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "quarter_0",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     30888,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     -1.375,
+     1.35,
+     1.9,
+     0.25,
+     1.8,
+     3.8
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.side_bay.quarter_1.L.steward_packhorse.d233b0": {
+   "id": "SF600.side_bay.quarter_1.L.steward_packhorse.d233b0",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "side_bay",
+   "slot": "quarter_1",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/side_bay/quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     34344,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.3495,
+     1.35,
+     0.165,
+     0.301,
+     1.8,
+     0.33
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 10,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.roof_bay.roof_0.C.steward_packhorse.2fda33": {
+   "id": "SF600.roof_bay.roof_0.C.steward_packhorse.2fda33",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "roof_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/roof_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     36072,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.6,
+     0.95,
+     2.84,
+     0.7,
+     1.9
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.roof_bay.roof_1.C.steward_packhorse.2e243d": {
+   "id": "SF600.roof_bay.roof_1.C.steward_packhorse.2e243d",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "roof_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/roof_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     41256,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.6,
+     0.9,
+     2.84,
+     0.7,
+     1.8
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.roof_bay.roof_2.C.steward_packhorse.291ffa": {
+   "id": "SF600.roof_bay.roof_2.C.steward_packhorse.291ffa",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "roof_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/roof_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     44712,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.6,
+     0.8,
+     2.84,
+     0.7,
+     1.6
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.roof_bay.roof_3.C.steward_packhorse.a1d7d3": {
+   "id": "SF600.roof_bay.roof_3.C.steward_packhorse.a1d7d3",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "roof_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/roof_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     48168,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.6,
+     0.365,
+     2.84,
+     0.7,
+     0.73
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 12,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.end_cap.tail.C.steward_packhorse.c68625": {
+   "id": "SF600.end_cap.tail.C.steward_packhorse.c68625",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "end_cap",
+   "slot": "tail",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/end_cap/tail/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     53352,
+     429
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.7,
+     0.035,
+     2.8775,
+     2.5,
+     0.07
+    ]
+   ],
+   "hp": 500,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.16
+  },
+  "SF600.floor.floor.C.steward_packhorse.2e5148": {
+   "id": "SF600.floor.floor.C.steward_packhorse.2e5148",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "floor",
+   "slot": "floor",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/floor/floor/C",
+   "reach": 0.0,
+   "mats": {
+    "carpet": [
+     63648,
+     528
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.565,
+     3.215,
+     2.5024,
+     0.03,
+     6.43
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 1.0
+  },
+  "SF600.lining_bay.trim_0_0.R.steward_packhorse.ccd8f6": {
+   "id": "SF600.lining_bay.trim_0_0.R.steward_packhorse.ccd8f6",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/trim_0_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     76320,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     1.3178,
+     1.415,
+     0.75,
+     0.2444,
+     1.67,
+     1.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.trim_1_0.R.steward_packhorse.61a3f1": {
+   "id": "SF600.lining_bay.trim_1_0.R.steward_packhorse.61a3f1",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/trim_1_0/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     78480,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     1.3456,
+     1.415,
+     1.9,
+     0.1888,
+     1.67,
+     3.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.trim_1_1.R.steward_packhorse.8dd43c": {
+   "id": "SF600.lining_bay.trim_1_1.R.steward_packhorse.8dd43c",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "trim_1_1",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/trim_1_1/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     81216,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     1.3201,
+     1.415,
+     0.165,
+     0.2399,
+     1.67,
+     0.33
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.a_pillar.R.steward_packhorse.4d9321": {
+   "id": "SF600.lining_bay.a_pillar.R.steward_packhorse.4d9321",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/a_pillar/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     82656,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     1.2651,
+     1.9542,
+     0.2,
+     0.2217,
+     1.3356,
+     0.4
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.trim_0_0.L.steward_packhorse.6aa7d8": {
+   "id": "SF600.lining_bay.trim_0_0.L.steward_packhorse.6aa7d8",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "trim_0_0",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/trim_0_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     82944,
+     90
+    ]
+   },
+   "boxes": [
+    [
+     -1.3178,
+     1.415,
+     0.75,
+     0.2444,
+     1.67,
+     1.5
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.trim_1_0.L.steward_packhorse.aade77": {
+   "id": "SF600.lining_bay.trim_1_0.L.steward_packhorse.aade77",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "trim_1_0",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/trim_1_0/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     85104,
+     114
+    ]
+   },
+   "boxes": [
+    [
+     -1.3456,
+     1.415,
+     1.9,
+     0.1888,
+     1.67,
+     3.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.trim_1_1.L.steward_packhorse.3a8137": {
+   "id": "SF600.lining_bay.trim_1_1.L.steward_packhorse.3a8137",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "trim_1_1",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/trim_1_1/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     87840,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     -1.3201,
+     1.415,
+     0.165,
+     0.2399,
+     1.67,
+     0.33
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.lining_bay.a_pillar.L.steward_packhorse.6edb9f": {
+   "id": "SF600.lining_bay.a_pillar.L.steward_packhorse.6edb9f",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lining_bay",
+   "slot": "a_pillar",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/lining_bay/a_pillar/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     89280,
+     12
+    ]
+   },
+   "boxes": [
+    [
+     -1.2651,
+     1.9542,
+     0.2,
+     0.2217,
+     1.3356,
+     0.4
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 1.5,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.ceiling_bay.roof_0.C.steward_packhorse.b04315": {
+   "id": "SF600.ceiling_bay.roof_0.C.steward_packhorse.b04315",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "ceiling_bay",
+   "slot": "roof_0",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/ceiling_bay/roof_0/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     89568,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.535,
+     0.95,
+     2.72,
+     0.57,
+     1.9
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.ceiling_bay.roof_1.C.steward_packhorse.242622": {
+   "id": "SF600.ceiling_bay.roof_1.C.steward_packhorse.242622",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "ceiling_bay",
+   "slot": "roof_1",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/ceiling_bay/roof_1/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     94752,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.535,
+     0.9,
+     2.72,
+     0.57,
+     1.8
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.ceiling_bay.roof_2.C.steward_packhorse.7ca2e0": {
+   "id": "SF600.ceiling_bay.roof_2.C.steward_packhorse.7ca2e0",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "ceiling_bay",
+   "slot": "roof_2",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/ceiling_bay/roof_2/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     98208,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.535,
+     0.8,
+     2.72,
+     0.57,
+     1.6
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.ceiling_bay.roof_3.C.steward_packhorse.fc46d2": {
+   "id": "SF600.ceiling_bay.roof_3.C.steward_packhorse.fc46d2",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "ceiling_bay",
+   "slot": "roof_3",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/ceiling_bay/roof_3/C",
+   "reach": 0.0,
+   "mats": {
+    "headliner": [
+     101664,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.535,
+     0.365,
+     2.72,
+     0.57,
+     0.73
+    ]
+   ],
+   "hp": 200,
+   "mass_kg": 3,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.end_lining.firewall.C.steward_packhorse.be0d3a": {
+   "id": "SF600.end_lining.firewall.C.steward_packhorse.be0d3a",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "end_lining",
+   "slot": "firewall",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/end_lining/firewall/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     106848,
+     60
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.02,
+     -0.0,
+     2.752,
+     0.94,
+     0.02
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 8,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.end_lining.rear_wall.C.steward_packhorse.296cb6": {
+   "id": "SF600.end_lining.rear_wall.C.steward_packhorse.296cb6",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "end_lining",
+   "slot": "rear_wall",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/end_lining/rear_wall/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     108288,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.685,
+     0.0,
+     2.7624,
+     2.27,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 4,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.rear_opening.C.steward_packhorse.5f563b": {
+   "id": "SF600.reveal.rear_opening.C.steward_packhorse.5f563b",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "rear_opening",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/rear_opening/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     111744,
+     120
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9,
+     0.035,
+     0.8,
+     0.6,
+     0.07
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.glazing.back_window.C.steward_packhorse.13bd12": {
+   "id": "SF600.glazing.back_window.C.steward_packhorse.13bd12",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "glazing",
+   "slot": "back_window",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/glazing/back_window/C",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     114624,
+     54
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9,
+     -0.0,
+     0.8,
+     0.6,
+     0.02
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.reveal.door_F.R.steward_packhorse.af23ac": {
+   "id": "SF600.reveal.door_F.R.steward_packhorse.af23ac",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     115920,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     1.3756,
+     1.415,
+     0.4,
+     0.2488,
+     1.67,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.window_W1.R.steward_packhorse.263bf7": {
+   "id": "SF600.reveal.window_W1.R.steward_packhorse.263bf7",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     117648,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.43,
+     1.8,
+     0.8,
+     0.14,
+     0.9,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.window_W2.R.steward_packhorse.104e26": {
+   "id": "SF600.reveal.window_W2.R.steward_packhorse.104e26",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     118800,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.43,
+     1.8,
+     0.75,
+     0.14,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.door_F.L.steward_packhorse.7e2d67": {
+   "id": "SF600.reveal.door_F.L.steward_packhorse.7e2d67",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     119952,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     -1.3756,
+     1.415,
+     0.4,
+     0.2488,
+     1.67,
+     0.8
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.window_W1.L.steward_packhorse.567dd7": {
+   "id": "SF600.reveal.window_W1.L.steward_packhorse.567dd7",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     121680,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.43,
+     1.8,
+     0.8,
+     0.14,
+     0.9,
+     1.6
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.window_W2.L.steward_packhorse.da5c44": {
+   "id": "SF600.reveal.window_W2.L.steward_packhorse.da5c44",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     122832,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.43,
+     1.8,
+     0.75,
+     0.14,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.reveal.screen.C.steward_packhorse.534e4a": {
+   "id": "SF600.reveal.screen.C.steward_packhorse.534e4a",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "reveal",
+   "slot": "screen",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/reveal/screen/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     123984,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.121,
+     0.2,
+     2.8497,
+     1.658,
+     0.4
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 2,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "SF600.glazing.window_W1.R.steward_packhorse.a92b09": {
+   "id": "SF600.glazing.window_W1.R.steward_packhorse.a92b09",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/glazing/window_W1/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     126576,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.46,
+     1.8,
+     0.8,
+     0.08,
+     0.9,
+     1.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.glazing.window_W1.L.steward_packhorse.eaa06c": {
+   "id": "SF600.glazing.window_W1.L.steward_packhorse.eaa06c",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "glazing",
+   "slot": "window_W1",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/glazing/window_W1/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     127008,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.46,
+     1.8,
+     0.8,
+     0.08,
+     0.9,
+     1.6
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.glazing.window_W2.R.steward_packhorse.897d72": {
+   "id": "SF600.glazing.window_W2.R.steward_packhorse.897d72",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/glazing/window_W2/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     127440,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.46,
+     1.8,
+     0.75,
+     0.08,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.glazing.window_W2.L.steward_packhorse.747224": {
+   "id": "SF600.glazing.window_W2.L.steward_packhorse.747224",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "glazing",
+   "slot": "window_W2",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/glazing/window_W2/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     127872,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.46,
+     1.8,
+     0.75,
+     0.08,
+     0.9,
+     1.5
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 6,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.door_leaf.door_F.R.steward_packhorse.28c401": {
+   "id": "SF600.door_leaf.door_F.R.steward_packhorse.28c401",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/door_leaf/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     128304,
+     12
+    ],
+    "paint2": [
+     128592,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     1.3756,
+     0.965,
+     0.4,
+     0.2488,
+     0.77,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.door_glass.door_F.R.steward_packhorse.788c22": {
+   "id": "SF600.door_glass.door_F.R.steward_packhorse.788c22",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/door_glass/door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     129744,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     1.46,
+     1.8,
+     0.4,
+     0.08,
+     0.9,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.leaf_trim.handle_F.R.steward_packhorse.d5c5cd": {
+   "id": "SF600.leaf_trim.handle_F.R.steward_packhorse.d5c5cd",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/leaf_trim/handle_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     130176,
+     36
+    ],
+    "dash": [
+     131040,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     1.4377,
+     1.165,
+     0.125,
+     0.1153,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.door_leaf.door_F.L.steward_packhorse.e01ef1": {
+   "id": "SF600.door_leaf.door_F.L.steward_packhorse.e01ef1",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "door_leaf",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/door_leaf/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     131904,
+     12
+    ],
+    "paint2": [
+     132192,
+     48
+    ]
+   },
+   "boxes": [
+    [
+     -1.3756,
+     0.965,
+     0.4,
+     0.2488,
+     0.77,
+     0.8
+    ]
+   ],
+   "hp": 700,
+   "mass_kg": 22,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.door_glass.door_F.L.steward_packhorse.12ce75": {
+   "id": "SF600.door_glass.door_F.L.steward_packhorse.12ce75",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "door_glass",
+   "slot": "door_F",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/door_glass/door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "glass": [
+     133344,
+     18
+    ]
+   },
+   "boxes": [
+    [
+     -1.46,
+     1.8,
+     0.4,
+     0.08,
+     0.9,
+     0.8
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 5,
+   "breaks": "shatter",
+   "tolerance": 0.012
+  },
+  "SF600.leaf_trim.handle_F.L.steward_packhorse.3aaca7": {
+   "id": "SF600.leaf_trim.handle_F.L.steward_packhorse.3aaca7",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "leaf_trim",
+   "slot": "handle_F",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/leaf_trim/handle_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     133776,
+     36
+    ],
+    "dash": [
+     134640,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -1.4377,
+     1.165,
+     0.125,
+     0.1153,
+     0.27,
+     0.25
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.underpan.underpan.C.steward_packhorse.2bcb95": {
+   "id": "SF600.underpan.underpan.C.steward_packhorse.2bcb95",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "underpan",
+   "slot": "underpan",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/underpan/underpan/C",
+   "reach": 0.0,
+   "mats": {
+    "rubber": [
+     135504,
+     456
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4775,
+     3.4,
+     2.5,
+     0.055,
+     6.8
+    ]
+   ],
+   "hp": 800,
+   "mass_kg": 16,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.seat.row_0.C.steward_packhorse.1ff46d": {
+   "id": "SF600.seat.row_0.C.steward_packhorse.1ff46d",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "seat",
+   "slot": "row_0",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/seat/row_0/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     146448,
+     72
+    ],
+    "seat": [
+     148176,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.61,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SF600.seat.row_1.C.steward_packhorse.f08c89": {
+   "id": "SF600.seat.row_1.C.steward_packhorse.f08c89",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "seat",
+   "slot": "row_1",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/seat/row_1/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     153360,
+     72
+    ],
+    "seat": [
+     155088,
+     216
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1746,
+     0.4335,
+     1.86,
+     1.1493,
+     0.8671
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 36,
+   "breaks": "detach",
+   "tolerance": 0.15
+  },
+  "SF600.dash.dash.C.steward_packhorse.b11b5d": {
+   "id": "SF600.dash.dash.C.steward_packhorse.b11b5d",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "dash",
+   "slot": "dash",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/dash/dash/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     160272,
+     1236
+    ],
+    "chrome": [
+     189936,
+     120
+    ],
+    "dash": [
+     192816,
+     108
+    ],
+    "gauge": [
+     195408,
+     384
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.1997,
+     0.2676,
+     2.72,
+     0.3796,
+     0.5351
+    ]
+   ],
+   "hp": 400,
+   "mass_kg": 14,
+   "breaks": "detach",
+   "tolerance": 0.1
+  },
+  "SF600.dash.readout.C.steward_packhorse.19554a": {
+   "id": "SF600.dash.readout.C.steward_packhorse.19554a",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     204624,
+     36
+    ],
+    "lcd": [
+     205488,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     -0.55,
+     1.27,
+     0.0045,
+     0.15,
+     0.04,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.1
+  },
+  "SF600.lamp.head_lamp.C.steward_packhorse.5483ec": {
+   "id": "SF600.lamp.head_lamp.C.steward_packhorse.5483ec",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lamp",
+   "slot": "head_lamp",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/lamp/head_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     206352,
+     480
+    ],
+    "lamp_amber": [
+     217872,
+     72
+    ],
+    "lamp_drl": [
+     219600,
+     480
+    ],
+    "lamp_head": [
+     231120,
+     480
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.95,
+     0.01,
+     2.55,
+     0.18,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SF600.lamp.tail_lamp.C.steward_packhorse.ace910": {
+   "id": "SF600.lamp.tail_lamp.C.steward_packhorse.ace910",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lamp",
+   "slot": "tail_lamp",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/lamp/tail_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     242640,
+     12
+    ],
+    "lamp_amber": [
+     242928,
+     48
+    ],
+    "lamp_brake": [
+     244080,
+     36
+    ],
+    "lamp_reverse": [
+     244944,
+     48
+    ],
+    "lamp_tail": [
+     246096,
+     336
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.561,
+     0.006,
+     2.665,
+     1.422,
+     0.02
+    ]
+   ],
+   "hp": 60,
+   "mass_kg": 3,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SF600.lamp.side_marker.C.steward_packhorse.dee38d": {
+   "id": "SF600.lamp.side_marker.C.steward_packhorse.dee38d",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lamp",
+   "slot": "side_marker",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/lamp/side_marker/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     254160,
+     72
+    ],
+    "lamp_tail": [
+     255888,
+     72
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.632,
+     3.24,
+     2.6031,
+     0.03,
+     6.48
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.4,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SF600.lamp.id_lamp.C.steward_packhorse.835544": {
+   "id": "SF600.lamp.id_lamp.C.steward_packhorse.835544",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "lamp",
+   "slot": "id_lamp",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/lamp/id_lamp/C",
+   "reach": 0.0,
+   "mats": {
+    "lamp_amber": [
+     257616,
+     180
+    ],
+    "lamp_tail": [
+     261936,
+     180
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.836,
+     3.05,
+     2.4292,
+     0.276,
+     6.1
+    ]
+   ],
+   "hp": 40,
+   "mass_kg": 0.6,
+   "breaks": "shatter",
+   "tolerance": 0.02
+  },
+  "SF600.trim.belt_fender.R.steward_packhorse.ad88a2": {
+   "id": "SF600.trim.belt_fender.R.steward_packhorse.ad88a2",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/belt_fender/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     266256,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     1.4384,
+     1.2988,
+     0.8676,
+     0.1447,
+     0.0939,
+     1.7352
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.belt_quarter_0.R.steward_packhorse.7a0b51": {
+   "id": "SF600.trim.belt_quarter_0.R.steward_packhorse.7a0b51",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/belt_quarter_0/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     281520,
+     1356
+    ]
+   },
+   "boxes": [
+    [
+     1.5031,
+     1.338,
+     1.896,
+     0.02,
+     0.02,
+     3.792
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.belt_quarter_1.R.steward_packhorse.6bf097": {
+   "id": "SF600.trim.belt_quarter_1.R.steward_packhorse.6bf097",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/belt_quarter_1/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     314064,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     1.4729,
+     1.338,
+     0.1624,
+     0.0742,
+     0.02,
+     0.3248
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.belt_fender.L.steward_packhorse.e2a7cb": {
+   "id": "SF600.trim.belt_fender.L.steward_packhorse.e2a7cb",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "belt_fender",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/belt_fender/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     317232,
+     636
+    ]
+   },
+   "boxes": [
+    [
+     -1.4385,
+     1.2989,
+     0.8675,
+     0.1447,
+     0.0936,
+     1.7349
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.belt_quarter_0.L.steward_packhorse.93daa1": {
+   "id": "SF600.trim.belt_quarter_0.L.steward_packhorse.93daa1",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "belt_quarter_0",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/belt_quarter_0/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     332496,
+     1356
+    ]
+   },
+   "boxes": [
+    [
+     -1.5031,
+     1.338,
+     1.896,
+     0.02,
+     0.02,
+     3.792
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.trim.belt_quarter_1.L.steward_packhorse.7c115f": {
+   "id": "SF600.trim.belt_quarter_1.L.steward_packhorse.7c115f",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "trim",
+   "slot": "belt_quarter_1",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/trim/belt_quarter_1/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     365040,
+     132
+    ]
+   },
+   "boxes": [
+    [
+     -1.4729,
+     1.338,
+     0.1624,
+     0.0742,
+     0.02,
+     0.3248
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.5,
+   "breaks": "detach",
+   "tolerance": 0.2
+  },
+  "SF600.leaf_trim.belt_door_F.R.steward_packhorse.bb06ce": {
+   "id": "SF600.leaf_trim.belt_door_F.R.steward_packhorse.bb06ce",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "R",
+   "style": "steward_packhorse",
+   "interface": "SF600/leaf_trim/belt_door_F/R",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     368208,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     1.5031,
+     1.338,
+     0.397,
+     0.02,
+     0.02,
+     0.794
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.leaf_trim.belt_door_F.L.steward_packhorse.502d1e": {
+   "id": "SF600.leaf_trim.belt_door_F.L.steward_packhorse.502d1e",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "leaf_trim",
+   "slot": "belt_door_F",
+   "side": "L",
+   "style": "steward_packhorse",
+   "interface": "SF600/leaf_trim/belt_door_F/L",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     374832,
+     276
+    ]
+   },
+   "boxes": [
+    [
+     -1.5031,
+     1.338,
+     0.397,
+     0.02,
+     0.02,
+     0.794
+    ]
+   ],
+   "hp": 100,
+   "mass_kg": 0.4,
+   "breaks": "detach",
+   "tolerance": 0.06
+  },
+  "SF600.equipment.pod_spine.C.steward_packhorse.f453a0": {
+   "id": "SF600.equipment.pod_spine.C.steward_packhorse.f453a0",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "equipment",
+   "slot": "pod_spine",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/equipment/pod_spine/C",
+   "reach": 0.0,
+   "mats": {
+    "chrome": [
+     381456,
+     432
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.0,
+     10.25,
+     0.8778,
+     0.8778,
+     20.5
+    ]
+   ],
+   "hp": 4000,
+   "mass_kg": 2000,
+   "breaks": "detach",
+   "tolerance": 0.25
+  },
+  "SF600.cargo_wall.pods_0.C.steward_packhorse.83eccf": {
+   "id": "SF600.cargo_wall.pods_0.C.steward_packhorse.83eccf",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods_0",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/cargo_wall/pods_0/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     391824,
+     216
+    ],
+    "chrome": [
+     397008,
+     216
+    ],
+    "lamp_amber": [
+     402192,
+     144
+    ],
+    "paint": [
+     405648,
+     984
+    ],
+    "paint2": [
+     429264,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.004,
+     2.997,
+     1.6,
+     4.56,
+     5.046,
+     3.2
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.cargo_wall.pods_1.C.steward_packhorse.d777f3": {
+   "id": "SF600.cargo_wall.pods_1.C.steward_packhorse.d777f3",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods_1",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/cargo_wall/pods_1/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     443664,
+     216
+    ],
+    "chrome": [
+     448848,
+     216
+    ],
+    "lamp_amber": [
+     454032,
+     144
+    ],
+    "paint": [
+     457488,
+     984
+    ],
+    "paint2": [
+     481104,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.004,
+     2.997,
+     1.6,
+     4.56,
+     5.046,
+     3.2
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.cargo_wall.pods_2.C.steward_packhorse.05bb84": {
+   "id": "SF600.cargo_wall.pods_2.C.steward_packhorse.05bb84",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods_2",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/cargo_wall/pods_2/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     495504,
+     216
+    ],
+    "chrome": [
+     500688,
+     216
+    ],
+    "lamp_amber": [
+     505872,
+     144
+    ],
+    "paint": [
+     509328,
+     984
+    ],
+    "paint2": [
+     532944,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.004,
+     2.997,
+     1.6,
+     4.56,
+     5.046,
+     3.2
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.cargo_wall.pods_3.C.steward_packhorse.3b3dd3": {
+   "id": "SF600.cargo_wall.pods_3.C.steward_packhorse.3b3dd3",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods_3",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/cargo_wall/pods_3/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     547344,
+     216
+    ],
+    "chrome": [
+     552528,
+     216
+    ],
+    "lamp_amber": [
+     557712,
+     144
+    ],
+    "paint": [
+     561168,
+     984
+    ],
+    "paint2": [
+     584784,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.004,
+     2.997,
+     1.6,
+     4.56,
+     5.046,
+     3.2
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.cargo_wall.pods_4.C.steward_packhorse.550d95": {
+   "id": "SF600.cargo_wall.pods_4.C.steward_packhorse.550d95",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods_4",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/cargo_wall/pods_4/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     599184,
+     216
+    ],
+    "chrome": [
+     604368,
+     216
+    ],
+    "lamp_amber": [
+     609552,
+     144
+    ],
+    "paint": [
+     613008,
+     984
+    ],
+    "paint2": [
+     636624,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.004,
+     2.997,
+     1.6,
+     4.56,
+     5.046,
+     3.2
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.cargo_wall.pods_5.C.steward_packhorse.311f1d": {
+   "id": "SF600.cargo_wall.pods_5.C.steward_packhorse.311f1d",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "cargo_wall",
+   "slot": "pods_5",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/cargo_wall/pods_5/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     651024,
+     216
+    ],
+    "chrome": [
+     656208,
+     216
+    ],
+    "lamp_amber": [
+     661392,
+     144
+    ],
+    "paint": [
+     664848,
+     984
+    ],
+    "paint2": [
+     688464,
+     600
+    ]
+   },
+   "boxes": [
+    [
+     0.004,
+     2.997,
+     1.6,
+     4.56,
+     5.046,
+     3.2
+    ]
+   ],
+   "hp": 2000,
+   "mass_kg": 900,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "SF600.equipment.drive.C.steward_packhorse.7cb0a8": {
+   "id": "SF600.equipment.drive.C.steward_packhorse.7cb0a8",
+   "standard": "SF600",
+   "class": "supply_freighter",
+   "role": "equipment",
+   "slot": "drive",
+   "side": "C",
+   "style": "steward_packhorse",
+   "interface": "SF600/equipment/drive/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     702864,
+     1512
+    ],
+    "lamp_amber": [
+     739152,
+     240
+    ],
+    "lamp_blue": [
+     744912,
+     240
+    ],
+    "paint": [
+     750672,
+     432
+    ],
+    "paint2": [
+     761040,
+     228
+    ],
+    "wood": [
+     766512,
+     1440
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.0,
+     3.99,
+     5.248,
+     5.6,
+     7.98
+    ]
+   ],
+   "hp": 5000,
+   "mass_kg": 6000,
+   "breaks": "detach",
+   "tolerance": 0.25
+  }
+ }
+}
