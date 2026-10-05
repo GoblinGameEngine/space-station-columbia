@@ -187,11 +187,11 @@ HEAVIES = [
     heavy("HY250", "recycling_truck", dict(BOX, top_z=3.20, rear="hopper", y1=-4.35), "recycling trucks: a compactor body and a side-loading arm"),
     heavy("HD250", "dump_truck", {"kind": "dump", "y0": 2.30, "y1": -4.40, "half_w": 1.24, "floor_z": 1.30, "rail_z": 2.40, "rear": "tailgate"},
           "dump trucks: an open tipping body with a tailgate"),
-    heavy("HF250", "fire_engine", dict(BOX, top_z=2.95, rear="none", y1=-4.50,
+    heavy("HF250", "fire_engine", dict(BOX, top_z=2.95, rear="closed", y1=-4.50,
                                        doors=[{"id": "C1", "y0": 1.90, "y1": 0.90}, {"id": "C2", "y0": 0.40, "y1": -0.60},
                                               {"id": "C3", "y0": -1.40, "y1": -2.40}, {"id": "C4", "y0": -3.30, "y1": -4.20}]),
           "fire engines (pumpers): a body of roll-up compartments, a hose bed on top, ground ladders"),
-    heavy("HL250", "ladder_truck", dict(BOX, top_z=2.60, rear="none", y1=-4.50,
+    heavy("HL250", "ladder_truck", dict(BOX, top_z=2.60, rear="closed", y1=-4.50,
                                         doors=[{"id": "C1", "y0": 1.90, "y1": 0.90}, {"id": "C2", "y0": -2.60, "y1": -3.60}]),
           "aerial ladder trucks: a low compartment body under a turntable ladder"),
     heavy("HS250", "street_sweeper", dict(BOX, top_z=2.90, y1=-1.80, rear="hopper"), "street sweepers: a hopper body, side brooms and a pickup broom"),
@@ -555,7 +555,7 @@ ROWCROP = dict(TRACTOR, **{"id": "FR375", "cls": "row_crop_tractor", "board": "s
 BACKHOE = dict(ROWCROP, **{"id": "FB375", "cls": "backhoe_loader", "about": "backhoe loaders on the long farm board: a loader in front, a backhoe behind"})
 CLASSES.update({c["id"]: c for c in (TRACTOR, ROWCROP, BACKHOE)})
 HEAVIES2 = [
-    heavy("HH250", "combine_harvester", dict(BOX, top_z=3.70, rear="none", y1=-4.00), "combine harvesters: a cab-over cab, a grain tank body, a header in front"),
+    heavy("HH250", "combine_harvester", dict(BOX, top_z=3.70, rear="closed", y1=-4.00), "combine harvesters: a cab-over cab, a grain tank body, a header in front"),
     heavy("HP250", "crop_sprayer", {"kind": "tank", "y0": 2.30, "y1": -3.80, "half_w": 1.05, "floor_z": 1.30, "tank_r": 0.85, "tank_z": 2.25},
           "self-propelled sprayers: a cab, a tank, booms folded along the sides"),
 ]

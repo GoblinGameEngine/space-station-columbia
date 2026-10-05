@@ -2007,8 +2007,8 @@
    "breaks": "detach",
    "tolerance": 0.12
   },
-  "HH250.cargo_wall.cargo_rear.C.steward_reaper.a1c855": {
-   "id": "HH250.cargo_wall.cargo_rear.C.steward_reaper.a1c855",
+  "HH250.cargo_wall.cargo_rear.C.steward_reaper.1c187d": {
+   "id": "HH250.cargo_wall.cargo_rear.C.steward_reaper.1c187d",
    "standard": "HH250",
    "class": "combine_harvester",
    "role": "cargo_wall",
@@ -2018,27 +2018,54 @@
    "interface": "HH250/cargo_wall/cargo_rear/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     245808,
-     24
-    ],
     "paint": [
-     246384,
-     24
+     245808,
+     6
     ]
    },
    "boxes": [
     [
      0.0,
      2.47,
-     0.03,
+     -0.0,
      2.48,
      2.46,
-     0.06
+     0.02
     ]
    ],
    "hp": 900,
    "mass_kg": 20,
+   "breaks": "detach",
+   "tolerance": 0.12
+  },
+  "HH250.cargo_lining.cargo_rear.C.steward_reaper.38453e": {
+   "id": "HH250.cargo_lining.cargo_rear.C.steward_reaper.38453e",
+   "standard": "HH250",
+   "class": "combine_harvester",
+   "role": "cargo_lining",
+   "slot": "cargo_rear",
+   "side": "C",
+   "style": "steward_reaper",
+   "interface": "HH250/cargo_lining/cargo_rear/C",
+   "reach": 0.0,
+   "mats": {
+    "lining": [
+     245952,
+     6
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.47,
+     -0.0,
+     2.36,
+     2.34,
+     0.02
+    ]
+   ],
+   "hp": 300,
+   "mass_kg": 8,
    "breaks": "detach",
    "tolerance": 0.12
   },
@@ -2054,11 +2081,11 @@
    "reach": 0.0,
    "mats": {
     "dash": [
-     246960,
+     246096,
      108
     ],
     "seat": [
-     249552,
+     248688,
      324
     ]
    },
@@ -2089,19 +2116,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     257328,
+     256464,
      1236
     ],
     "chrome": [
-     286992,
+     286128,
      120
     ],
     "dash": [
-     289872,
+     289008,
      108
     ],
     "gauge": [
-     292464,
+     291600,
      384
     ]
    },
@@ -2132,11 +2159,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     301680,
+     300816,
      36
     ],
     "lcd": [
-     302544,
+     301680,
      36
     ]
    },
@@ -2167,15 +2194,15 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     303408,
+     302544,
      72
     ],
     "lamp_amber": [
-     305136,
+     304272,
      72
     ],
     "lamp_head": [
-     306864,
+     306000,
      72
     ]
    },
@@ -2206,7 +2233,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     308592,
+     307728,
      144
     ]
    },
@@ -2237,23 +2264,23 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     312048,
+     311184,
      12
     ],
     "lamp_amber": [
-     312336,
+     311472,
      48
     ],
     "lamp_brake": [
-     313488,
+     312624,
      36
     ],
     "lamp_reverse": [
-     314352,
+     313488,
      48
     ],
     "lamp_tail": [
-     315504,
+     314640,
      336
     ]
    },
@@ -2284,11 +2311,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     323568,
+     322704,
      72
     ],
     "lamp_tail": [
-     325296,
+     324432,
      72
     ]
    },
@@ -2319,11 +2346,11 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     327024,
+     326160,
      180
     ],
     "lamp_tail": [
-     331344,
+     330480,
      180
     ]
    },
@@ -2354,11 +2381,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     335664,
+     334800,
      108
     ],
     "rubber": [
-     338256,
+     337392,
      36
     ]
    },
@@ -2389,11 +2416,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     339120,
+     338256,
      108
     ],
     "rubber": [
-     341712,
+     340848,
      36
     ]
    },
@@ -2424,11 +2451,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     342576,
+     341712,
      96
     ],
     "glass_dark": [
-     344880,
+     344016,
      36
     ]
    },
@@ -2459,11 +2486,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     345744,
+     344880,
      96
     ],
     "glass_dark": [
-     348048,
+     347184,
      36
     ]
    },
@@ -2494,19 +2521,19 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     348912,
+     348048,
      36
     ],
     "chrome": [
-     349776,
+     348912,
      36
     ],
     "lamp_amber": [
-     350640,
+     349776,
      60
     ],
     "paint": [
-     352080,
+     351216,
      108
     ]
    },
@@ -2537,7 +2564,7 @@
    "reach": 0.0,
    "mats": {
     "paint": [
-     354672,
+     353808,
      108
     ]
    },
@@ -2568,7 +2595,7 @@
    "reach": 0.0,
    "mats": {
     "lamp_amber": [
-     357264,
+     356400,
      288
     ]
    },

@@ -1292,6 +1292,13 @@ class Builder:
             self.wall(mi, sx * (hw - t), ys, zl, C.get("lining", "lining"), flip=True,
                       holes=[(h[0], h[1], 1, 2 if not wins else 4) for h in holes] + [(w["y0"], w["y1"], 2, 3) for w in mine] +
                             [(aa, bb, 0, 1) for aa, bb in arches])
+            for d in C.get("doors", []):                    # (a door's reveal: the cavity between skin and lining stops at the jamb)
+                if sd not in d.get("sides", "RL"):
+                    continue
+                rv = self.mod("cargo_reveal_%s_%s" % (d["id"], sd), "reveal", "cargo_door_" + d["id"], sd, hp=200, mass=2)
+                o = [(sx * hw, d["y0"], fz + 0.15), (sx * hw, d["y1"], fz + 0.15), (sx * hw, d["y1"], top), (sx * hw, d["y0"], top)]
+                i = [(sx * (hw - t), d["y0"], fz + 0.15), (sx * (hw - t), d["y1"], fz + 0.15), (sx * (hw - t), d["y1"], tl), (sx * (hw - t), d["y0"], tl)]
+                self.strip(rv, o, i, "black")
             for w in mine:                                  # (its reveal, and its pane -- glass, or none for a vent)
                 rv = self.mod("cargo_reveal_%s_%s" % (w["id"], sd), "reveal", "cargo_window_" + w["id"], sd, hp=200, mass=2)
                 o = [(sx * hw, w["y0"], wz[0]), (sx * hw, w["y1"], wz[0]), (sx * hw, w["y1"], wz[1]), (sx * hw, w["y0"], wz[1])]
