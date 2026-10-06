@@ -1,0 +1,72 @@
+{
+ "id": "CAT-PTM-009",
+ "catalog_id": "PTM-009",
+ "images": [
+  {
+   "file": "remake/reference/PTM-009/commons_Petoskey_Michigan1.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Petoskey,_Michigan1.jpg",
+   "license": "CC BY 2.0",
+   "author": "rboed*",
+   "caption": "Petoskey, Michigan"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "Downtown Petoskey block with a blue-painted front",
+  "transect": "T5"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "cornice:bracketed_metal",
+  "setting:main_street",
+  "setback:zero",
+  "bound_front:sidewalk_terrace",
+  "bound_front:street_tree_row",
+  "lot_tenure:fee_simple",
+  "side_gap:none",
+  "bound_side:building_wall",
+  "form:two_part_commercial",
+  "use:mixed_use",
+  "roof:flat_parapet",
+  "condition:kept",
+  "storeys:2",
+  "wall:brick",
+  "colour_body:blue",
+  "storefront:traditional",
+  "ornament:awning",
+  "bays:7+"
+ ],
+ "brief": "A row of two-storey commercial fronts: a teal-blue painted brick front with white trim and a corner bay, neighbours with awnings, parked cars. One photo. Older than 1970: Petoskey's Gaslight District (the town's model) is a row of 1880-1910 brick commercial blocks; no newer example of this main-street type exists. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "store",
+  "archetype": null
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [],
+  "notes": "a downtown Petoskey block (1900): a run of two-storey fronts -- a blue-painted one with a bracketed cornice, a white one, red brick -- with a coffee shop, souvenir shops, a green awning; benches, street trees, bikes on a car"
+ },
+ "lot": {
+  "setback": "zero"
+ },
+ "why": [
+  {
+   "token": "bound_front:street_tree_row",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "a revitalised resort-town downtown (Main Street program): street trees, decorative lamps, planters, awnings"
+  },
+  {
+   "token": "form:two_part_commercial",
+   "cause": "use",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "shops below, flats above"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

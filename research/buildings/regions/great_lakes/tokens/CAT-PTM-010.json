@@ -1,0 +1,70 @@
+{
+ "id": "CAT-PTM-010",
+ "catalog_id": "PTM-010",
+ "images": [
+  {
+   "file": "remake/reference/PTM-010/commons_Petosky_Grocery_Company.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Petosky_Grocery_Company.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "Petosky Grocery Company"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "Petoskey Grocery Company building",
+  "transect": "T4"
+ },
+ "year_built": 1899,
+ "tokens": [
+  "cornice:parapet_stepped",
+  "setting:main_street",
+  "setting:industrial_district",
+  "form:factory_block",
+  "use:apartment",
+  "alteration:converted_use",
+  "storeys:4",
+  "roof:flat_parapet",
+  "dormer:gable",
+  "wall:brick",
+  "window:1over1",
+  "setback:shallow",
+  "lot_corner:yes",
+  "bound_front:lawn_continuous",
+  "bound_front:sidewalk_terrace",
+  "lot_tenure:fee_simple",
+  "condition:kept"
+ ],
+ "brief": "A three-storey red-brick warehouse block with dormers and a stepped roofline, rows of white-framed windows, now shops and flats. One photo. Older than 1970: Petoskey's Gaslight District (the town's model) is a row of 1880-1910 brick commercial blocks; no newer example of this main-street type exists. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "store",
+  "archetype": null
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W W W W W W",
+   "W W W W W W W W",
+   "W W W W W W W W",
+   "W W W W W W W W"
+  ],
+  "notes": "the Petoskey Grocery Company building (1899), a four-storey brick wholesale warehouse with stepped-gable dormers, converted to lofts with new windows; beside a railroad crossing; new lawn strips and young trees"
+ },
+ "lot": {
+  "setback": "shallow"
+ },
+ "why": [
+  {
+   "token": "alteration:converted_use",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "a railside wholesale warehouse turned to apartments (adaptive reuse)"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

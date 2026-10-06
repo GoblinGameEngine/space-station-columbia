@@ -1,0 +1,78 @@
+{
+ "id": "CAT-PTM-014",
+ "catalog_id": "PTM-014",
+ "images": [
+  {
+   "file": "remake/reference/PTM-014/commons_D_W_market_petoskey.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:D%26W_market_petoskey.jpg",
+   "license": "CC BY 2.0",
+   "author": "TenPoundHammer",
+   "caption": "D&amp;W Fresh Market of Petoskey, MI"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "late_1990_2010",
+  "source_title": "D&W Fresh Market, Petoskey",
+  "transect": "SD"
+ },
+ "year_built": 1995,
+ "tokens": [
+  "cornice:parapet_flat",
+  "setting:main_street",
+  "setting:arterial_strip",
+  "form:decorated_shed",
+  "use:store",
+  "style:postmodern",
+  "storeys:1",
+  "roof:flat_parapet",
+  "cornice:parapet_stepped",
+  "wall:efis",
+  "wall_accent:stone_veneer",
+  "storefront:modern_glass",
+  "sign:channel_letters",
+  "sign:flat_board",
+  "ornament:canopy",
+  "bays:7+",
+  "door_pos:centre",
+  "setback:very_deep",
+  "bound_front:parking_edge",
+  "lot_tenure:fee_simple",
+  "condition:kept"
+ ],
+ "brief": "A 1990s single-storey supermarket: a long box of pale block and panels with a raised brick entrance pavilion carrying a lit logo sign, a car park with lamp standards. Two photos. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "store",
+  "archetype": null
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "N",
+   "S S E S S"
+  ],
+  "notes": "a 1995 supermarket (Petoskey): a long one-storey EIFS box with a raised entry tower faced in stone veneer carrying the store sign, an arched canopy over the glass doors, a coffee chain's round sign; a big parking field with cart corrals and light poles"
+ },
+ "lot": {
+  "setback": "very_deep"
+ },
+ "why": [
+  {
+   "token": "form:decorated_shed",
+   "cause": "economics",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "the supermarket: a plain box with an entry tower and sign (urban_layout/07)"
+  },
+  {
+   "token": "setback:very_deep",
+   "cause": "zoning",
+   "ref": "urban_layout/07_centers_and_industry.md \u00a72",
+   "note": "the parking field between the road and the anchor"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

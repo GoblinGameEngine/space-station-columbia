@@ -1,0 +1,79 @@
+{
+ "id": "CAT-HF-046",
+ "catalog_id": "HF-046",
+ "images": [
+  {
+   "file": "remake/reference/HF-046/loc_il0948_photos_363430pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/il0948/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  },
+  {
+   "file": "remake/reference/HF-046/loc_il0948_photos_363431pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/il0948/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Collinsville",
+  "state": "IL",
+  "band": "streetcar_1890_1930",
+  "source_title": "Commercial Streetscape",
+  "transect": "T5"
+ },
+ "year_built": 1890,
+ "tokens": [
+  "use:store",
+  "cornice:parapet_flat",
+  "condition:worn",
+  "setting:main_street",
+  "setback:zero",
+  "bound_front:sidewalk_terrace",
+  "lot_tenure:fee_simple",
+  "form:two_part_commercial",
+  "storeys:2",
+  "roof:flat_parapet",
+  "wall:brick",
+  "sign:ghost_sign",
+  "sign:painted_wall",
+  "side_gap:none",
+  "bound_side:building_wall",
+  "lot_corner:yes"
+ ],
+ "brief": "Two-storey brick commercial building whose blank side wall carries a huge painted tobacco advertisement, faded but legible; plain storefront below, flat roof. Record: 2 photos (streetscape with the painted wall).",
+ "catalog": {
+  "kind": "store",
+  "archetype": null
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [],
+  "notes": "Collinsville IL streetscape (1890s blocks): a blank brick side wall carrying a huge painted 'BULL DURHAM / BEST FOR THREE GENERATIONS' tobacco ad with the bull, a rooftop eagle sign; a vacant lot beside it used for parking; other brick fronts down the street"
+ },
+ "lot": {
+  "setback": "zero"
+ },
+ "why": [
+  {
+   "token": "sign:ghost_sign",
+   "cause": "code",
+   "ref": "great_lakes/01_codes.md \u00a73",
+   "note": "blank party walls at lot lines (no openings allowed) became billboards"
+  },
+  {
+   "token": "bound_side:building_wall",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "a neighbour demolished: the party wall now faces a parking lot"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}
