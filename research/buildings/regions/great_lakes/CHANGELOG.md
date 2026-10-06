@@ -19,3 +19,6 @@
 - 2026-10-05: HVN-* (Montauk NY) excluded from the region: New York counts only for its Lake Erie / western shore. HVN-006 is a 3D render, not a photo.
 - 2026-10-05: K-094 skipped: the photo shows only trees and a pier.
 - 2026-10-05: K-018 skipped: its photo (a rural stone house) doesn't match the record (a commercial building in Tiffin): a catalog mismatch to check.
+- 2026-10-05: vocabulary: added `form:grain_elevator` (a rail-side concrete or crib elevator: tall working house, headhouse, bins). Every Great Lakes farm town has one by the tracks, and no existing form fitted (K-024).
+- 2026-10-05: HFW-010 tokenized at low confidence: its photo shows the St. Joseph pier and pierhead light, not the Coast Guard station. K-053's photo looks across Broadway at Gary's courthouse, not the municipal building. M-002 and M-035 use a later image (the first is an interior or a site plan).
+- 2026-10-05: HC-027 (Schwartz House, Wright) skipped: its only photo is an interior.
