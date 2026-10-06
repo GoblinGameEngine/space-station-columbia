@@ -1,0 +1,89 @@
+{
+ "id": "GL-0010",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_town_houses/commons_Pendarvis_left_and_Trelawny_houses_right_.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Pendarvis_(left)_and_Trelawny_houses_(right).jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Bahrsoap",
+   "caption": "Pendarvis (left) and Trelawny houses (right) at Pendarvis Historic Site, Mineral Point, Wisconsin, USA, image taken June 2025"
+  }
+ ],
+ "place": {
+  "town": "Mineral Point",
+  "state": "WI",
+  "transect": "T4",
+  "band": "pioneer_pre1850"
+ },
+ "tokens": [
+  "use:house",
+  "form:hall_and_parlor",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:row",
+  "roof:gable",
+  "pitch:mid",
+  "roof_mat:wood_shingle",
+  "ridge:parallel",
+  "chimney:end_interior",
+  "foundation:fieldstone",
+  "foundation_exposure:low",
+  "porch:none",
+  "bays:3",
+  "symmetry:asymmetric",
+  "door_pos:centre",
+  "window:6over6",
+  "window_group:single",
+  "window_proportion:vertical",
+  "wall:stone",
+  "colour_body:tan",
+  "colour_trim:white",
+  "condition:kept",
+  "setting:residential_grid",
+  "setback:zero",
+  "side_gap:none",
+  "bound_front:wall_retaining",
+  "bound_front:grade_change",
+  "lot_tenure:institutional"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W D W",
+   "W D W W"
+  ],
+  "notes": "two Cornish miners' cottages of rough-coursed local limestone: a one-storey hall-and-parlor with end chimneys and a 1.5-storey neighbour beside it, wood-shingle roofs, plain 6/6 sash with white frames; set right on the street behind a dry-laid stone retaining wall on the hillside; no front yard"
+ },
+ "lot": {
+  "setback": "zero",
+  "side_gap": "none",
+  "driveway": "none",
+  "garage": "none",
+  "fence": "none",
+  "trees": "hillside_woods_behind"
+ },
+ "why": [
+  {
+   "token": "wall:stone",
+   "cause": "folk",
+   "ref": "great_lakes/02_styles.md \u00a71",
+   "note": "Cornish lead miners (1830s-40s) built as at home, in the local limestone"
+  },
+  {
+   "token": "setback:zero",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md",
+   "note": "a pre-zoning mining town on steep ground: houses built at the lot line on narrow terraces cut into the hill"
+  },
+  {
+   "token": "bound_front:wall_retaining",
+   "cause": "climate",
+   "ref": "",
+   "note": "the hillside site: dry-laid stone walls hold the terraces the houses stand on"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

@@ -1,0 +1,90 @@
+{
+ "id": "GL-0004",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_postwar_ranch/commons_Lake_Drive_ranches_in_Bailey_Lakes.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Lake_Drive_ranches_in_Bailey_Lakes.jpg",
+   "license": "Public domain",
+   "author": "Nyttend",
+   "caption": "Brick ranches on the western side of Lake Drive, north of McClain Road, in Bailey Lakes, Ohio, United States."
+  }
+ ],
+ "place": {
+  "town": "Bailey Lakes",
+  "state": "OH",
+  "transect": "T2",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:house",
+  "form:ranch",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:low",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "chimney:end_interior",
+  "foundation_exposure:low",
+  "garage:attached_front",
+  "porch:side",
+  "bays:4",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:1over1",
+  "window_group:single",
+  "window_proportion:square",
+  "wall:brick",
+  "colour_body:red_brick",
+  "colour_trim:white",
+  "ornament:shutters",
+  "condition:kept",
+  "setting:rural_road",
+  "setback:medium",
+  "lot_w:wide",
+  "bound_front:mow_line",
+  "bound_side:lawn_continuous",
+  "lot_access:street",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "G D W W"
+  ],
+  "notes": "brick ranch with a one-car front-facing garage at one end, a screened porch at the other, chimney mid-ridge; driveway to the garage; mailbox post with the house number at the road edge; no sidewalk, no curb: lawns meet the asphalt; utility poles along the road; neighbours' ranches repeat the type"
+ },
+ "lot": {
+  "setback": "medium",
+  "side_gap": "wide",
+  "driveway": "front_to_garage",
+  "garage": "attached_front",
+  "fence": "none",
+  "trees": "few"
+ },
+ "why": [
+  {
+   "token": "garage:attached_front",
+   "cause": "technology",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "the car absorbed into the house: the attached garage becomes part of the ranch's facade after about 1955"
+  },
+  {
+   "token": "wall:brick",
+   "cause": "economics",
+   "ref": "",
+   "note": "brick veneer ranches: cheap masonry over frame, read as quality; common in Ohio tracts"
+  },
+  {
+   "token": "bound_front:mow_line",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md",
+   "note": "rural subdivision without curbs or sidewalks: the mailbox and mown edge mark the front line"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

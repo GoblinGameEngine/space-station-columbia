@@ -1,0 +1,82 @@
+{
+ "id": "GL-0016",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_apartments/commons_Block_Card_2834_Alisdale_Drive_-_DPLA_-_57333d3b8b90c18028f98c09c383d962.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Block_Card_2834_Alisdale_Drive_-_DPLA_-_57333d3b8b90c18028f98c09c383d962.jpg",
+   "license": "Public domain",
+   "author": "Lucas County (Ohio). Auditor's Office",
+   "caption": "This image was produced by the Auditor's Office in Lucas County, Ohio for tax assessment purposes. Associated dates are approximate. Descriptive terms related to this photograph include: Apartment hou"
+  }
+ ],
+ "place": {
+  "town": "Toledo",
+  "state": "OH",
+  "transect": "T4",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:apartment",
+  "form:garden_apartment",
+  "style:colonial_revival",
+  "storeys:2",
+  "footprint:row",
+  "roof:hip",
+  "pitch:low",
+  "roof_mat:asphalt_shingle",
+  "chimney:multiple",
+  "foundation:poured_concrete",
+  "foundation_exposure:low",
+  "porch:stoop",
+  "bays:7+",
+  "symmetry:symmetric",
+  "door_pos:multiple",
+  "window:6over6",
+  "window_group:pair",
+  "window_proportion:vertical",
+  "wall:brick",
+  "colour_body:red_brick",
+  "colour_trim:white",
+  "condition:kept",
+  "setting:residential_curvilinear",
+  "setback:medium",
+  "bound_front:sidewalk_terrace",
+  "bound_front:street_tree_row",
+  "bound_side:lawn_continuous",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "Wp Wp W Wp Wp",
+   "Wp D Wp D Wp"
+  ],
+  "notes": "a 1940s-50s garden apartment row: two-storey brick blocks with hip roofs, set at angles and stepped along the street, each with its own entry under a small pediment; open lawns run between the blocks with foundation shrubs; a sidewalk and a young street tree in the terrace"
+ },
+ "lot": {
+  "setback": "medium",
+  "side_gap": "wide",
+  "driveway": "none_visible",
+  "garage": "none",
+  "fence": "none",
+  "trees": "young_street_tree"
+ },
+ "why": [
+  {
+   "token": "form:garden_apartment",
+   "cause": "economics",
+   "ref": "great_lakes/04_futures.md",
+   "note": "FHA Section 608 (1942-50) financed thousands of garden apartment complexes: low blocks on shared lawns"
+  },
+  {
+   "token": "door_pos:multiple",
+   "cause": "code",
+   "ref": "great_lakes/01_codes.md \u00a73",
+   "note": "walk-up stair halls each serve a few flats: many entries, no corridors"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

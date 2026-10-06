@@ -1,0 +1,75 @@
+{
+ "id": "GL-0028",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_gas_station/commons_BROOK_PARK_ROAD_GAS_STATION_-_FOR_SALE_OR_LEASE_-_NARA_-_550103.jpg",
+   "view": "front",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:BROOK_PARK_ROAD_GAS_STATION_-_FOR_SALE_OR_LEASE_-_NARA_-_550103.jpg",
+   "license": "Public domain",
+   "author": "Frank John Aleksandrowicz",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Brook Park",
+  "state": "OH",
+  "transect": "SD",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:gas_station",
+  "form:canopy_station",
+  "style:midcentury_modern",
+  "storeys:1",
+  "footprint:rect",
+  "roof:flat",
+  "cornice:coping_only",
+  "bays:3",
+  "door_pos:centre",
+  "window:fixed_modern",
+  "window_proportion:horizontal",
+  "wall:metal_panel",
+  "colour_body:white",
+  "colour_trim:red",
+  "sign:pylon",
+  "sign:window_lettering",
+  "ornament:canopy",
+  "condition:shabby",
+  "vacancy:vacant",
+  "setting:arterial_strip",
+  "setback:medium",
+  "bound_side:fence_chainlink",
+  "bound_front:curb",
+  "lot_coverage:sparse",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "arterial",
+  "floors": [
+   "W D W ."
+  ],
+  "notes": "National Archives DOCUMERICA, 1973-74: a porcelain-enamel panel station with a flat roof slab cantilevered as a canopy over the old pump island, a red band; a tall pylon sign spelling GAS; hand signs 'Closed due to gasoline shortage' and 'For sale or lease'; chain-link with lattice slats; pipe bollards"
+ },
+ "lot": {
+  "setback": "medium",
+  "driveway": "wide_apron",
+  "fence": "chainlink_side"
+ },
+ "why": [
+  {
+   "token": "wall:metal_panel",
+   "cause": "technology",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "oil companies' prefabricated porcelain-enamel stations: one design repeated nationally"
+  },
+  {
+   "token": "vacancy:vacant",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "the 1973 oil shock closed thousands of small stations: a dated vacancy marker"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

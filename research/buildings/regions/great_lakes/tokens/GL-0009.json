@@ -1,0 +1,98 @@
+{
+ "id": "GL-0009",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_town_houses/commons_The_Fulton_House.jpg",
+   "view": "front",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:The_Fulton_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Jim Roberts",
+   "caption": "Buchanan North and West Neighborhoods Historic District"
+  }
+ ],
+ "place": {
+  "town": "Buchanan",
+  "state": "MI",
+  "transect": "T3",
+  "band": "railroad_1860_1900"
+ },
+ "tokens": [
+  "use:house",
+  "form:gable_front_and_wing",
+  "style:italianate",
+  "storeys:2",
+  "footprint:L",
+  "wing:side",
+  "roof:cross_gable",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "ridge:perpendicular",
+  "chimney:multiple",
+  "foundation:brick",
+  "foundation_exposure:medium",
+  "porch:side",
+  "bays:3",
+  "symmetry:asymmetric",
+  "door_pos:wing",
+  "window:arched",
+  "window_group:pair",
+  "window_proportion:vertical",
+  "wall:brick",
+  "colour_body:red_brick",
+  "colour_trim:cream",
+  "cornice:bracketed_metal",
+  "trim:bracketed",
+  "ornament:brackets",
+  "ornament:bay_window",
+  "ornament:hood_moulds",
+  "ornament:keystones",
+  "condition:kept",
+  "alteration:none",
+  "setting:residential_grid",
+  "setback:medium",
+  "side_gap:wide",
+  "bound_front:foundation_planting",
+  "bound_front:lawn_continuous",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "Wd",
+   "W W",
+   "D W Wb"
+  ],
+  "notes": "brick gable-front block with a round oculus in the bracketed gable, a pair of round-arched windows under a brick hood on the upper floor, a one-storey bay window below; the side wing carries the entrance with an arched transom under a later flat-roofed porch with a balustrade; hydrangeas massed along the foundation"
+ },
+ "lot": {
+  "setback": "medium",
+  "side_gap": "wide",
+  "driveway": "side",
+  "garage": "unknown",
+  "fence": "none",
+  "trees": "mature_side"
+ },
+ "why": [
+  {
+   "token": "form:gable_front_and_wing",
+   "cause": "folk",
+   "ref": "great_lakes/02_styles.md \u00a71",
+   "note": "the upright-and-wing plan of the Yankee settlers, here built two full storeys in brick"
+  },
+  {
+   "token": "style:italianate",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "1860s-80s Italianate dressing (brackets, arched windows, bay) spread by pattern books onto the folk plan"
+  },
+  {
+   "token": "wall:brick",
+   "cause": "economics",
+   "ref": "",
+   "note": "local brickyards made masonry houses affordable in Michigan towns after the railroad"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

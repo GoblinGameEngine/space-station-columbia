@@ -1,0 +1,79 @@
+{
+ "id": "GL-0011",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_town_houses/commons_Otto-Fiebing-House_Aug09.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Otto-Fiebing-House_Aug09.jpg",
+   "license": "Public domain",
+   "author": "Freekee",
+   "caption": "Otto Fiebing House, Registered Historic Place, Milwaukee, Wisconsin."
+  }
+ ],
+ "place": {
+  "town": "Milwaukee",
+  "state": "WI",
+  "transect": "T3",
+  "band": "interwar_1920_1945"
+ },
+ "tokens": [
+  "use:house",
+  "form:side_gable_cottage",
+  "style:tudor_revival",
+  "storeys:1",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "foundation:fieldstone",
+  "foundation_exposure:low",
+  "porch:none",
+  "bays:2",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:casement",
+  "window_group:pair",
+  "window_proportion:square",
+  "wall:stone",
+  "colour_body:multi",
+  "colour_trim:green",
+  "condition:kept",
+  "setting:residential_grid",
+  "setback:medium",
+  "bound_front:woodland_belt",
+  "bound_side:shrub_row",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street, half hidden in planting",
+  "floors": [
+   "Wp Wp"
+  ],
+  "notes": "a small cottage of random fieldstone with paired casements in green frames, a steep roof, a flagstone path along the side to a door; birches, ferns and shade planting fill the front yard so the house is half hidden: a naturalistic garden instead of lawn"
+ },
+ "lot": {
+  "setback": "medium",
+  "side_gap": "medium",
+  "driveway": "unknown",
+  "garage": "unknown",
+  "fence": "none",
+  "trees": "birch_and_conifer_naturalistic"
+ },
+ "why": [
+  {
+   "token": "wall:stone",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "the 1920s-30s storybook / rustic revival: fieldstone and casements for a cottage effect"
+  },
+  {
+   "token": "bound_front:woodland_belt",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md",
+   "note": "a naturalistic front garden replaces the lawn: the reverse of the cues-to-care norm, legible as care because it is planted, not neglected"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

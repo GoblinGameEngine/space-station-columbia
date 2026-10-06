@@ -1,0 +1,76 @@
+{
+ "id": "GL-0033",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_prefab_postwar/commons_Lustron_House_at_2424_Cahaba_Road_in_Birmingham_AL.jpg",
+   "view": "front",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Lustron_House_at_2424_Cahaba_Road_in_Birmingham_AL.jpg",
+   "license": "CC BY-SA 3.0",
+   "author": "Brian K. Chatham",
+   "caption": "A prefabricated Lustron house manufactured between 1947 - 1950."
+  }
+ ],
+ "place": {
+  "town": "Birmingham (out of region)",
+  "state": "--",
+  "transect": "T3",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:house",
+  "form:american_small_house",
+  "style:midcentury_modern",
+  "storeys:1",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:low",
+  "roof_mat:metal_corrugated",
+  "ridge:parallel",
+  "foundation:slab",
+  "foundation_exposure:slab",
+  "porch:stoop",
+  "bays:3",
+  "symmetry:asymmetric",
+  "door_pos:centre",
+  "window:casement",
+  "window_proportion:square",
+  "wall:metal_panel",
+  "colour_body:tan",
+  "colour_trim:white",
+  "ornament:awning",
+  "condition:kept",
+  "setting:residential_grid",
+  "setback:medium",
+  "bound_front:wall_retaining",
+  "bound_side:fence_chainlink",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W D W"
+  ],
+  "notes": "a Lustron (1948-50, made in Columbus, Ohio): porcelain-enamelled steel panels in a 2 ft grid on walls and roof, a slab foundation, casement windows, a green fabric awning over the door; a low stone wall at the front of a shady yard; photographed outside the region; a national type built identically in the Great Lakes towns"
+ },
+ "lot": {
+  "setback": "medium",
+  "fence": "chainlink_side"
+ },
+ "why": [
+  {
+   "token": "wall:metal_panel",
+   "cause": "technology",
+   "ref": "great_lakes/04_futures.md",
+   "note": "the postwar factory house: steel panels from a former aircraft plant in Columbus; about 2,500 built before the company failed"
+  },
+  {
+   "token": "foundation:slab",
+   "cause": "technology",
+   "ref": "great_lakes/01_codes.md \u00a72",
+   "note": "no basement: the factory house came on a slab, unusual in the frost belt"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

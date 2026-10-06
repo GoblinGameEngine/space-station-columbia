@@ -1,0 +1,78 @@
+{
+ "id": "GL-0024",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_strip_mall/commons_MC_Sports_Ann_Arbor.JPG",
+   "view": "front",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:MC_Sports_Ann_Arbor.JPG",
+   "license": "CC BY 3.0",
+   "author": "Dwight Burdette",
+   "caption": "MC Sports store, Oak Valley Shopping Center, 2677 Oak Valley Drive, Ann Arbor, Michigan. This Store has relocated to the nearby Briarwood Mall Ann Arbor, Michigan"
+  }
+ ],
+ "place": {
+  "town": "Ann Arbor",
+  "state": "MI",
+  "transect": "SD",
+  "band": "late_1990_2010"
+ },
+ "tokens": [
+  "use:store",
+  "form:strip_row",
+  "style:postmodern",
+  "storeys:1",
+  "footprint:row",
+  "roof:gable",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "cornice:none",
+  "bays:3",
+  "symmetry:symmetric",
+  "door_pos:centre",
+  "window:storefront_glass",
+  "storefront:modern_glass",
+  "sign:channel_letters",
+  "wall:vinyl",
+  "wall_accent:brick_wainscot",
+  "colour_body:white",
+  "colour_trim:grey",
+  "ornament:pilasters",
+  "ornament:canopy",
+  "condition:kept",
+  "setting:arterial_strip",
+  "setback:very_deep",
+  "bound_front:parking_edge",
+  "bound_front:landscape_island",
+  "lot_tenure:outparcel"
+ ],
+ "facade": {
+  "faces": "parking field",
+  "floors": [
+   "N",
+   "S D S"
+  ],
+  "notes": "a 1990s shopping-centre bay: a big front gable clad in vinyl lap siding carries the store's name in channel letters, a shingled mansard-like roof runs along the row as a false roof over the flat-roofed box; split-face block piers frame full-height store glass; a covered walk; a planted tree and a trash can at the curb"
+ },
+ "lot": {
+  "setback": "very_deep",
+  "side_gap": "none",
+  "driveway": "parking_field"
+ },
+ "why": [
+  {
+   "token": "setback:very_deep",
+   "cause": "zoning",
+   "ref": "great_lakes/01_codes.md \u00a72 (parking minimums: urban_layout/01_zoning.md, Shoup)",
+   "note": "3-5 spaces per 1,000 sq ft puts a parking field 3-4x the building's area between it and the road"
+  },
+  {
+   "token": "roof:gable",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "the 1980s-90s 'residential' strip: false gables and mansards to look like a village in suburbs that demanded it"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

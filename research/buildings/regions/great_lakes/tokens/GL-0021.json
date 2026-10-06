@@ -1,0 +1,82 @@
+{
+ "id": "GL-0021",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_main_street/commons_Celina_Ohio_City_Hall.JPG",
+   "view": "aerial",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Celina_Ohio_City_Hall.JPG",
+   "license": "CC BY-SA 4.0",
+   "author": "Eric Lochtefeld",
+   "caption": "The City Hall in Celina, Ohio. On the corner of Main and Livingston Street."
+  }
+ ],
+ "place": {
+  "town": "Celina",
+  "state": "OH",
+  "transect": "T5",
+  "band": "railroad_1860_1900"
+ },
+ "tokens": [
+  "use:civic",
+  "form:civic_block",
+  "style:romanesque",
+  "storeys:2.5",
+  "footprint:L",
+  "roof:cross_gable",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "foundation:cut_stone",
+  "foundation_exposure:low",
+  "bays:5",
+  "symmetry:asymmetric",
+  "door_pos:corner",
+  "window:arched",
+  "window_group:pair",
+  "window_proportion:vertical",
+  "wall:brick",
+  "wall_accent:stone_veneer",
+  "colour_body:red_brick",
+  "colour_trim:red",
+  "ornament:tower",
+  "ornament:awning",
+  "ornament:fire_escape",
+  "condition:kept",
+  "setting:main_street",
+  "setback:zero",
+  "lot_corner:yes",
+  "bound_front:sidewalk_terrace",
+  "lot_tenure:institutional"
+ ],
+ "facade": {
+  "faces": "two streets at the corner",
+  "floors": [
+   "W W",
+   "W W W W",
+   "D W W W"
+  ],
+  "notes": "1890 city hall: brick and stone Romanesque with a tall corner tower (open arcaded belfry, pyramidal roof), arched entrance at the corner, red fabric awnings; the fire station is a lower brick wing with four apparatus bays along the side street; an iron fire escape on the rear wall; parking behind"
+ },
+ "lot": {
+  "setback": "zero",
+  "side_gap": "none",
+  "driveway": "apparatus_apron",
+  "garage": "multi_bay_front"
+ },
+ "why": [
+  {
+   "token": "ornament:tower",
+   "cause": "use",
+   "ref": "urban_layout/02_urban_form.md (Lynch)",
+   "note": "the civic landmark breaks the cornice line on purpose: tower at the corner of the two main streets"
+  },
+  {
+   "token": "ornament:fire_escape",
+   "cause": "code",
+   "ref": "great_lakes/01_codes.md \u00a74",
+   "note": "pre-1930 upper floors got external iron fire escapes after the 1900s fires"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

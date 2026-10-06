@@ -1,0 +1,86 @@
+{
+ "id": "GL-0030",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_gas_station/commons_Xenia_Ohio_4-17-2021_-_51121033982.jpg",
+   "view": "aerial",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Xenia,_Ohio_4-17-2021_-_51121033982.jpg",
+   "license": "CC BY 2.0",
+   "author": "loganrickert",
+   "caption": "Xenia, Ohio"
+  }
+ ],
+ "place": {
+  "town": "Xenia",
+  "state": "OH",
+  "transect": "T3",
+  "band": "current_2010_on"
+ },
+ "tokens": [
+  "use:gas_station",
+  "form:canopy_station",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:rect",
+  "roof:flat",
+  "cornice:coping_only",
+  "bays:3",
+  "door_pos:centre",
+  "window:storefront_glass",
+  "wall:concrete_block",
+  "colour_body:white",
+  "colour_trim:multi",
+  "sign:monument",
+  "ornament:canopy",
+  "condition:worn",
+  "setting:arterial_strip",
+  "setback:deep",
+  "lot_corner:yes",
+  "lot_shape:irregular",
+  "lot_coverage:sparse",
+  "lot_access:street",
+  "bound_front:landscape_island",
+  "bound_front:curb",
+  "bound_rear:fence_privacy",
+  "bound_rear:tree_line",
+  "bound_side:lawn_continuous",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "corner",
+  "floors": [
+   "W D W"
+  ],
+  "notes": "drone view of a corner convenience station: a flat-roofed block C-store set back at the rear corner, a separate steel canopy over two pump islands toward the street corner, wide curb cuts on both streets, curbed lawn islands at the corner with a monument sign, a parking row along the store, a dumpster enclosure behind, a wood privacy fence and trees screening the houses next door"
+ },
+ "lot": {
+  "setback": "deep",
+  "side_gap": "wide",
+  "driveway": "curb_cuts_two_streets",
+  "fence": "privacy_rear",
+  "trees": "buffer_strip"
+ },
+ "why": [
+  {
+   "token": "setback:deep",
+   "cause": "use",
+   "ref": "urban_layout/07_centers_and_industry.md",
+   "note": "the canopy and pumps take the front of the lot so cars can circulate around the islands; the store sits behind them"
+  },
+  {
+   "token": "bound_rear:fence_privacy",
+   "cause": "zoning",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "commercial lots next to houses must screen them: a 6 ft privacy fence and buffer planting"
+  },
+  {
+   "token": "sign:monument",
+   "cause": "zoning",
+   "ref": "",
+   "note": "newer codes cap sign height: a low monument sign at the corner instead of the old pylon"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

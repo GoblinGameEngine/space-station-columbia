@@ -1,0 +1,95 @@
+{
+ "id": "GL-0012",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_town_houses/commons_John_Patterson_and_Eliza_Barr_House_Wayne_County_MI.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:John_Patterson_and_Eliza_Barr_House_Wayne_County_MI.jpg",
+   "license": "CC BY-SA 3.0",
+   "author": "Andrew Jameson",
+   "caption": "John_Patterson and Eliza Barr House, Wayne County MI"
+  }
+ ],
+ "place": {
+  "town": "(Wayne County)",
+  "state": "MI",
+  "transect": "T2",
+  "band": "canal_1830_1860"
+ },
+ "tokens": [
+  "use:house",
+  "form:upright_and_wing",
+  "style:greek_revival_folk",
+  "storeys:1.5",
+  "footprint:L",
+  "wing:side",
+  "roof:cross_gable",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "chimney:ridge_centre",
+  "foundation:brick",
+  "foundation_exposure:low",
+  "porch:portico",
+  "porch_post:columns",
+  "bays:5",
+  "symmetry:asymmetric",
+  "door_pos:wing",
+  "window:6over6",
+  "window_group:single",
+  "window_proportion:vertical",
+  "wall:clapboard",
+  "colour_body:tan",
+  "colour_trim:white",
+  "trim:wide_frieze",
+  "ornament:pilasters",
+  "ornament:columns",
+  "condition:kept",
+  "setting:rural_road",
+  "setback:deep",
+  "side_gap:wide",
+  "bound_front:lawn_continuous",
+  "bound_side:fence_picket",
+  "bound_rear:windbreak_row",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   ". W W",
+   "W D W . W W W"
+  ],
+  "notes": "Greek Revival upright-and-wing: a 1.5-storey gable-front upright with corner pilasters and a cornice return, and a long one-storey side wing with a pedimented portico on square columns at its door; wide frieze boards; a white picket fence runs back from the upright's corner along the side line; spruce windbreak behind; a broad open lawn to the road; a flagpole"
+ },
+ "lot": {
+  "setback": "deep",
+  "side_gap": "wide",
+  "driveway": "side",
+  "garage": "unknown",
+  "fence": "picket_side",
+  "trees": "spruce_windbreak"
+ },
+ "why": [
+  {
+   "token": "form:upright_and_wing",
+   "cause": "folk",
+   "ref": "great_lakes/02_styles.md \u00a71",
+   "note": "the New York - New England settlers' house carried into southern Michigan in the 1830s-50s"
+  },
+  {
+   "token": "style:greek_revival_folk",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "pattern-book Greek Revival (pilasters, wide frieze, cornice returns) on a carpenter-built folk plan"
+  },
+  {
+   "token": "bound_rear:windbreak_row",
+   "cause": "climate",
+   "ref": "research/lot_contents/expanded_trees_and_fences.md",
+   "note": "spruce rows planted against the northwest winter wind on open farmland"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

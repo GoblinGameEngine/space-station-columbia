@@ -1,0 +1,80 @@
+{
+ "id": "GL-0027",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_fast_food/commons_2_Oct1978_McDonalds_Hyde_Park_Chicago.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:2_Oct1978_McDonalds_Hyde_Park_Chicago.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Downtowngal",
+   "caption": "McDonald's, Hyde Park, Chicago. Looking NW to 1344 E. 53rd St. This McDonald\u2019s was built between 1975 and 1978, because it wasn\u2019t in the 1975 telephone directory. Note the sign \"over 25 billion served"
+  }
+ ],
+ "place": {
+  "town": "Chicago (Hyde Park)",
+  "state": "IL",
+  "transect": "T4",
+  "band": "suburban_1965_1990"
+ },
+ "tokens": [
+  "use:fast_food",
+  "form:decorated_shed",
+  "style:postmodern",
+  "storeys:1",
+  "footprint:rect",
+  "roof:mansard",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "bays:6",
+  "door_pos:side",
+  "window:fixed_modern",
+  "window_group:ribbon",
+  "window_proportion:horizontal",
+  "wall:brick",
+  "colour_body:brown",
+  "sign:pylon",
+  "condition:kept",
+  "setting:arterial_strip",
+  "setback:medium",
+  "lot_corner:yes",
+  "bound_front:sidewalk_terrace",
+  "bound_front:landscape_island",
+  "lot_tenure:outparcel"
+ ],
+ "facade": {
+  "faces": "street and parking",
+  "floors": [
+   "N N N N N N",
+   "W W W D W W"
+  ],
+  "notes": "the 1969-80s chain design: a low brick box under a heavy shingled mansard with raised peaks, a ribbon of glass; a tall pylon sign carrying the brand's arches at the corner of the lot; parking at the side and front; a planted strip and street trees at the sidewalk"
+ },
+ "lot": {
+  "setback": "medium",
+  "driveway": "curb_cuts_two_streets",
+  "fence": "none"
+ },
+ "why": [
+  {
+   "token": "roof:mansard",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "the 1970s 'mansard' turn: chains swapped their 1950s ducks (the giant arches) for a homely shingled roof, partly to satisfy suburban sign and design boards"
+  },
+  {
+   "token": "sign:pylon",
+   "cause": "economics",
+   "ref": "urban_layout/07_centers_and_industry.md \u00a72",
+   "note": "read from a moving car: the sign carries the identity, the building is a decorated shed"
+  },
+  {
+   "token": "lot_corner:yes",
+   "cause": "economics",
+   "ref": "urban_layout/07 \u00a72",
+   "note": "fast food wants the corner pad: two frontages, visible both ways, access from both streets"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

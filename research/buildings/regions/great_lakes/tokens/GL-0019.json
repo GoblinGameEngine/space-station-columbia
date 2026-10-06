@@ -1,0 +1,81 @@
+{
+ "id": "GL-0019",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_main_street/commons_Commercial_Buildings_Celina_Ohio.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Commercial_Buildings_%E2%80%94_Celina,_Ohio.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Christopher L. Riley",
+   "caption": "Front view of four commercial buildings in Celina, Ohio. The buildings are contributing parts of the National Register-listed Main Street Commercial Historic District."
+  }
+ ],
+ "place": {
+  "town": "Celina",
+  "state": "OH",
+  "transect": "T5",
+  "band": "railroad_1860_1900"
+ },
+ "tokens": [
+  "setting:main_street",
+  "setback:zero",
+  "side_gap:none",
+  "bound_front:sidewalk_terrace",
+  "bound_side:building_wall",
+  "lot_w:narrow",
+  "lot_tenure:fee_simple",
+  "condition:kept",
+  "use:mixed_use",
+  "form:two_part_commercial",
+  "style:queen_anne",
+  "storeys:3",
+  "footprint:rect",
+  "roof:flat_parapet",
+  "cornice:bracketed_metal",
+  "bays:3",
+  "symmetry:asymmetric",
+  "door_pos:centre",
+  "window:1over1",
+  "window_group:bay",
+  "window_proportion:vertical",
+  "storefront:recessed_entry",
+  "transom:clear",
+  "wall:brick",
+  "colour_body:green",
+  "colour_trim:multi",
+  "ornament:turret",
+  "ornament:oriel",
+  "ornament:metal_cornice",
+  "ornament:finials"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W Wb W",
+   "W Wb W",
+   "S E S"
+  ],
+  "notes": "one of four contiguous fronts on Main Street, Celina OH (historic district); left to right: white Italianate, lavender Italianate, green Queen Anne, Romanesque bank; all share zero setback, a storefront band at the same height, 2-3 storeys and party walls -- different styles held together by height, rhythm and setback; this one: a two-storey corner oriel rising into a slate-roofed turret with a finial, painted in multiple greens; a traditional recessed-entry storefront with display windows and transoms"
+ },
+ "lot": {
+  "setback": "zero",
+  "side_gap": "none"
+ },
+ "why": [
+  {
+   "token": "setback:zero",
+   "cause": "context",
+   "ref": "great_lakes/03_compatibility.md \u00a71",
+   "note": "the street wall: every front on the line, so the styles can differ"
+  },
+  {
+   "token": "ornament:turret",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "1880s-90s Queen Anne's towers and oriels made commercial fronts compete for attention"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

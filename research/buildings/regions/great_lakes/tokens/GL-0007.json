@@ -1,0 +1,103 @@
+{
+ "id": "GL-0007",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_bungalow/commons_5052_North_Tripp_Avenue_19543762161_.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:5052_North_Tripp_Avenue_(19543762161).jpg",
+   "license": "CC BY-SA 2.0",
+   "author": "Teemu008 from Palatine, Illinois",
+   "caption": "5052 North Tripp Avenue in the North Mayfair Bungalow Historic District, Chicago (1923)."
+  }
+ ],
+ "place": {
+  "town": "Chicago (North Mayfair)",
+  "state": "IL",
+  "transect": "T4",
+  "band": "streetcar_1890_1930"
+ },
+ "tokens": [
+  "use:house",
+  "form:bungalow",
+  "style:craftsman",
+  "storeys:1.5",
+  "footprint:rect",
+  "roof:hip",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "ridge:perpendicular",
+  "dormer:shed",
+  "chimney:end_interior",
+  "foundation:brick",
+  "foundation_exposure:high",
+  "porch:recessed",
+  "porch_post:brick_piers",
+  "bays:2",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:4over1",
+  "window_group:ribbon",
+  "window_proportion:vertical",
+  "wall:brick",
+  "wall_accent:none",
+  "colour_body:brown",
+  "colour_trim:cream",
+  "ornament:decorative_brick",
+  "ornament:stone_lintels",
+  "condition:kept",
+  "alteration:vinyl_over_wood",
+  "setting:residential_grid",
+  "lot_w:narrow",
+  "setback:shallow",
+  "side_gap:tight",
+  "bound_front:sidewalk_terrace",
+  "bound_front:street_tree_row",
+  "bound_side:building_wall",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "Wd",
+   "D Wp"
+  ],
+  "notes": "dark brick bungalow with a wide shed dormer (sided in vinyl); an open porch under the main roof on brick piers with stone caps beside a ribbon of art-glass windows; six steps between brick cheek walls; diamond inlays; neighbours on both sides almost touching; a parkway tree in the terrace"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "tight",
+  "driveway": "none (alley garage)",
+  "garage": "detached_rear",
+  "fence": "none",
+  "trees": "street_tree"
+ },
+ "why": [
+  {
+   "token": "foundation_exposure:high",
+   "cause": "climate",
+   "ref": "great_lakes/01_codes.md \u00a72 R403",
+   "note": "a full basement below the 42 in frost line: the main floor sits 4-5 ft up, 5-6 risers to the door"
+  },
+  {
+   "token": "wall:brick",
+   "cause": "economics",
+   "ref": "great_lakes/01_codes.md \u00a74",
+   "note": "Chicago's bungalow belt: masonry required or favoured; brick bungalows built by the tens of thousands 1910-40"
+  },
+  {
+   "token": "lot_w:narrow",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md",
+   "note": "the Chicago 25-30 x 125 ft lot from the original plats; the house fills the width, leaving a walkway each side"
+  },
+  {
+   "token": "dormer:shed",
+   "cause": "change",
+   "ref": "",
+   "note": "wide shed dormers were often added to finish the attic as bedrooms; this one is clad in later vinyl"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

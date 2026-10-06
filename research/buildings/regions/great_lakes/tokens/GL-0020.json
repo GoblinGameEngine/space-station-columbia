@@ -1,0 +1,80 @@
+{
+ "id": "GL-0020",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_main_street/commons_Commercial_Buildings_Celina_Ohio.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Commercial_Buildings_%E2%80%94_Celina,_Ohio.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Christopher L. Riley",
+   "caption": "Front view of four commercial buildings in Celina, Ohio. The buildings are contributing parts of the National Register-listed Main Street Commercial Historic District."
+  }
+ ],
+ "place": {
+  "town": "Celina",
+  "state": "OH",
+  "transect": "T5",
+  "band": "railroad_1860_1900"
+ },
+ "tokens": [
+  "setting:main_street",
+  "setback:zero",
+  "side_gap:none",
+  "bound_front:sidewalk_terrace",
+  "bound_side:building_wall",
+  "lot_w:narrow",
+  "lot_tenure:fee_simple",
+  "condition:kept",
+  "use:bank",
+  "form:two_part_commercial",
+  "style:romanesque",
+  "storeys:2.5",
+  "footprint:rect",
+  "roof:front_gable_parapet",
+  "cornice:corbelled_brick",
+  "bays:3",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:arched",
+  "window_group:triple",
+  "window_proportion:vertical",
+  "storefront:traditional",
+  "wall:brick",
+  "wall_accent:stone_veneer",
+  "colour_body:red_brick",
+  "colour_trim:multi",
+  "ornament:turret",
+  "ornament:decorative_brick",
+  "ornament:keystones"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W",
+   "W W W",
+   "Wp Wp"
+  ],
+  "notes": "one of four contiguous fronts on Main Street, Celina OH (historic district); left to right: white Italianate, lavender Italianate, green Queen Anne, Romanesque bank; all share zero setback, a storefront band at the same height, 2-3 storeys and party walls -- different styles held together by height, rhythm and setback; this one: a brick front gable with a terra-cotta panel, arched windows in rusticated stone at street level, a stone corner turret with a conical slate roof: a bank's solidity"
+ },
+ "lot": {
+  "setback": "zero",
+  "side_gap": "none"
+ },
+ "why": [
+  {
+   "token": "setback:zero",
+   "cause": "context",
+   "ref": "great_lakes/03_compatibility.md \u00a71",
+   "note": "the street wall: every front on the line, so the styles can differ"
+  },
+  {
+   "token": "style:romanesque",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "Richardsonian Romanesque (1880s-90s) for banks and civic buildings: heavy stone, round arches, towers"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

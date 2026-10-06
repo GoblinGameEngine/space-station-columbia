@@ -38,6 +38,8 @@ import random
 import sys
 
 import numpy as np
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "settlegen"))
+import centers as CT  # noqa: E402
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 # ------------------------------------------------------------------ geometry
@@ -735,16 +737,13 @@ def build_harrow_falls():
     # postwar upland subdivisions beyond the bluff-top street (= US 30)
     t.subdivision(-120, 560, 115, 58, (-120, 455))
     t.subdivision(150, 555, 95, 52, (150, 455))
-    # arterial strip on US 30 east of downtown (§2: small-city tier only)
-    t.area(t.rect(265, 380, 470, 570), "parking")
-    t.bld(t.rect(275, 370, 510, 575), "bigbox")
-    t.mark(322, 545, "Big-box")
-    t.area(t.rect(265, 360, 360, 440), "parking")
-    t.bld(t.rect(270, 355, 360, 382), "strip")
-    t.bld(t.rect(385, 405, 470, 488), "strip")      # gas station
-    t.bld(t.rect(385, 400, 425, 440), "strip")      # drive-thru
-    t.bld(t.rect(300, 330, 470, 485), "strip")      # drive-thru
-    t.mark(330, 380, "Strip mall")
+    # arterial strip on US 30 east of downtown (§2: small-city tier only): generated centres
+    # (tools/settlegen/centers.py; research/urban_layout/07_centers_and_industry.md) -- a supermarket-anchored
+    # neighbourhood centre facing the highway from the north, a convenience strip across it
+    CT.place(t, CT.strip_center(CT.Site(262, 418, 0, 122), "neighborhood", random.Random("Harrow Falls US30 north")),
+             v_road=458, dirn=1, label="Shopping centre")
+    CT.place(t, CT.strip_center(CT.Site(262, 362, 0, 86), "convenience", random.Random("Harrow Falls US30 south")),
+             v_road=452, dirn=-1, label="Strip mall")
     return t
 
 

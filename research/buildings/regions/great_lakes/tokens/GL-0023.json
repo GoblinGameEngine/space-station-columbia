@@ -1,0 +1,83 @@
+{
+ "id": "GL-0023",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_strip_mall/commons_Cranberry_Mall_parking_lots_and_buildings.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Cranberry_Mall_parking_lots_and_buildings.jpg",
+   "license": "Public domain",
+   "author": "Nyttend",
+   "caption": "Extensive parking lots surrounding the Cranberry Mall shopping complex in Cranberry Township, Butler County, Pennsylvania, United States.  Photo looks south from Freedom Road just east of the Pennsylv"
+  }
+ ],
+ "place": {
+  "town": "Cranberry Township",
+  "state": "PA",
+  "transect": "SD",
+  "band": "suburban_1965_1990"
+ },
+ "tokens": [
+  "use:strip_center",
+  "form:strip_row",
+  "style:postmodern",
+  "storeys:1",
+  "footprint:row",
+  "roof:flat_parapet",
+  "cornice:parapet_stepped",
+  "bays:7+",
+  "symmetry:asymmetric",
+  "door_pos:multiple",
+  "window:storefront_glass",
+  "storefront:modern_glass",
+  "sign:channel_letters",
+  "wall:efis",
+  "wall_accent:brick_wainscot",
+  "colour_body:beige",
+  "colour_trim:red",
+  "ornament:canopy",
+  "ornament:pilasters",
+  "condition:kept",
+  "setting:arterial_strip",
+  "setback:very_deep",
+  "lot_w:very_wide",
+  "lot_coverage:low",
+  "bound_front:parking_edge",
+  "bound_front:landscape_island",
+  "bound_front:curb",
+  "lot_access:service_drive",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "parking field",
+  "floors": [
+   "N N N N N N N",
+   "S S S S S S S"
+  ],
+  "notes": "a long one-storey community centre: brick piers at regular intervals carrying a stucco-like parapet band with raised sections over the anchors, each tenant's name in channel letters; a continuous blue canopy over the walk; the cinema at one end; a parking field of hundreds of spaces with tall light poles and planted curb islands between it and the arterial"
+ },
+ "lot": {
+  "setback": "very_deep",
+  "side_gap": "wide",
+  "driveway": "multiple_curb_cuts",
+  "garage": "none",
+  "fence": "none",
+  "trees": "island_shrubs"
+ },
+ "why": [
+  {
+   "token": "setback:very_deep",
+   "cause": "zoning",
+   "ref": "great_lakes/01_codes.md \u00a72 (parking minimums: urban_layout/01_zoning.md, Shoup)",
+   "note": "3-5 spaces per 1,000 sq ft puts a parking field 3-4x the building's area between it and the road"
+  },
+  {
+   "token": "form:strip_row",
+   "cause": "economics",
+   "ref": "great_lakes/02_styles.md \u00a73 (Venturi)",
+   "note": "the decorated shed: a cheap steel-and-block box, identity carried by signs, entry towers and the canopy"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

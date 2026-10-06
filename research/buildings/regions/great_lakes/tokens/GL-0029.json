@@ -1,0 +1,72 @@
+{
+ "id": "GL-0029",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_gas_station/commons_Sohio_1936.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Sohio_1936.jpg",
+   "license": "Public domain",
+   "author": "The Austin Company, Cleveland, Ohio",
+   "caption": "Sohio service station in Cleveland, Ohio (ca. 1936)."
+  }
+ ],
+ "place": {
+  "town": "(Ohio)",
+  "state": "OH",
+  "transect": "T4",
+  "band": "interwar_1920_1945"
+ },
+ "tokens": [
+  "use:gas_station",
+  "form:one_part_commercial",
+  "style:streamline_moderne",
+  "storeys:1",
+  "footprint:rect",
+  "roof:flat_parapet",
+  "cornice:parapet_flat",
+  "bays:7+",
+  "door_pos:side",
+  "window:fixed_modern",
+  "window_group:ribbon",
+  "window_proportion:square",
+  "wall:metal_panel",
+  "colour_body:white",
+  "sign:parapet_lettering",
+  "condition:new",
+  "setting:residential_grid",
+  "setback:shallow",
+  "lot_corner:yes",
+  "bound_front:curb",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "corner",
+  "floors": [
+   "N N N N N N N",
+   "W W W W W W W"
+  ],
+  "notes": "1936 Standard Oil of Ohio station at night: a white streamlined box with a rounded corner, a full wall of glass showing the stock, the company name in the parapet band, pumps on islands in front with attendants serving; lit for night"
+ },
+ "lot": {
+  "setback": "shallow",
+  "driveway": "full_frontage",
+  "fence": "none"
+ },
+ "why": [
+  {
+   "token": "style:streamline_moderne",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md",
+   "note": "1930s oil companies branded with clean white 'modern' stations (the oblong box), easy to clean and recognisable"
+  },
+  {
+   "token": "lot_corner:yes",
+   "cause": "economics",
+   "ref": "",
+   "note": "stations took corners: cars enter from both streets"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

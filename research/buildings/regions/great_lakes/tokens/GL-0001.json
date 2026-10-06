@@ -1,0 +1,101 @@
+{
+ "id": "GL-0001",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_postwar_ranch/commons_Richard_from_Smith_Brook_Park.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Richard_from_Smith,_Brook_Park.jpg",
+   "license": "Public domain",
+   "author": "Nyttend",
+   "caption": "Houses on the northern side of Richard Drive, seen looking west from Smith Road, in Brook Park, Ohio, United States."
+  }
+ ],
+ "place": {
+  "town": "(Ohio)",
+  "state": "OH",
+  "transect": "T3",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:house",
+  "form:minimal_traditional",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "ridge:perpendicular",
+  "chimney:none",
+  "foundation:concrete_block",
+  "foundation_exposure:low",
+  "garage:none",
+  "porch:stoop",
+  "bays:2",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:picture",
+  "window_group:single",
+  "window_proportion:horizontal",
+  "wall:aluminum",
+  "colour_body:cream",
+  "colour_trim:white",
+  "ornament:awning",
+  "rail:iron",
+  "condition:kept",
+  "alteration:aluminum_over_wood",
+  "setting:residential_grid",
+  "setback:shallow",
+  "side_gap:medium",
+  "lot_w:narrow",
+  "bound_front:sidewalk_terrace",
+  "bound_front:street_tree_row",
+  "bound_side:lawn_continuous",
+  "bound_side:foundation_planting",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street (gable end to the street)",
+  "floors": [
+   "W W"
+  ],
+  "notes": "repeated gable-front small houses down the block, each with a stoop under a metal canopy, iron rail, an aluminium awning over the gable window; mature street trees in a grass terrace between curb and sidewalk; front lawns run together with only foundation shrubs at the house"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "medium",
+  "driveway": "side",
+  "garage": "none_visible",
+  "fence": "none",
+  "trees": "street_trees_terrace"
+ },
+ "why": [
+  {
+   "token": "form:minimal_traditional",
+   "cause": "economics",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "FHA-standard small postwar house, built in quantity, repeated down the block"
+  },
+  {
+   "token": "bound_front:sidewalk_terrace",
+   "cause": "zoning",
+   "ref": "urban_layout/05_suburban_sprawl.md",
+   "note": "pre-1960s subdivision standards still required sidewalks with a planted terrace"
+  },
+  {
+   "token": "ornament:awning",
+   "cause": "climate",
+   "ref": "",
+   "note": "aluminium awnings shade south and west windows: a 1950s-60s add-on"
+  },
+  {
+   "token": "bound_side:lawn_continuous",
+   "cause": "fashion",
+   "ref": "research/lot_contents/postwar_suburban_lots.md",
+   "note": "the open-lawn norm: side lines unmarked between front yards"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

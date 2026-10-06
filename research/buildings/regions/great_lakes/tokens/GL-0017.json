@@ -1,0 +1,87 @@
+{
+ "id": "GL-0017",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_main_street/commons_Commercial_Buildings_Celina_Ohio.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Commercial_Buildings_%E2%80%94_Celina,_Ohio.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Christopher L. Riley",
+   "caption": "Front view of four commercial buildings in Celina, Ohio. The buildings are contributing parts of the National Register-listed Main Street Commercial Historic District."
+  }
+ ],
+ "place": {
+  "town": "Celina",
+  "state": "OH",
+  "transect": "T5",
+  "band": "railroad_1860_1900"
+ },
+ "tokens": [
+  "setting:main_street",
+  "setback:zero",
+  "side_gap:none",
+  "bound_front:sidewalk_terrace",
+  "bound_side:building_wall",
+  "lot_w:narrow",
+  "lot_tenure:fee_simple",
+  "condition:kept",
+  "use:mixed_use",
+  "form:two_part_commercial",
+  "style:italianate",
+  "storeys:3",
+  "footprint:rect",
+  "roof:flat_parapet",
+  "cornice:bracketed_metal",
+  "bays:3",
+  "symmetry:symmetric",
+  "door_pos:side",
+  "window:1over1",
+  "window_group:single",
+  "window_proportion:vertical",
+  "storefront:modern_glass",
+  "transom:covered",
+  "wall:cast_iron",
+  "colour_body:white",
+  "colour_trim:white",
+  "ornament:oriel",
+  "ornament:metal_cornice",
+  "ornament:pilasters",
+  "alteration:slipcover_facade"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W",
+   "W Wb W",
+   "S S E"
+  ],
+  "notes": "one of four contiguous fronts on Main Street, Celina OH (historic district); left to right: white Italianate, lavender Italianate, green Queen Anne, Romanesque bank; all share zero setback, a storefront band at the same height, 2-3 storeys and party walls -- different styles held together by height, rhythm and setback; this one: a pressed-metal front with a central two-storey oriel bay and a heavy bracketed cornice; the storefront below was rebuilt in modern glass and the transom covered"
+ },
+ "lot": {
+  "setback": "zero",
+  "side_gap": "none"
+ },
+ "why": [
+  {
+   "token": "setback:zero",
+   "cause": "context",
+   "ref": "great_lakes/03_compatibility.md \u00a71",
+   "note": "the street wall: every front on the line, so the styles can differ"
+  },
+  {
+   "token": "wall:cast_iron",
+   "cause": "technology",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "mail-order pressed-metal fronts (Mesker Brothers etc.) let small towns buy city ornament"
+  },
+  {
+   "token": "form:two_part_commercial",
+   "cause": "use",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "Longstreth: public shop below, offices or flats above"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

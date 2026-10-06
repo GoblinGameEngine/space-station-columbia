@@ -1,0 +1,72 @@
+{
+ "id": "GL-0025",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_strip_mall/commons_NorthernLightsSC1.jpg",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:NorthernLightsSC1.jpg",
+   "license": "CC0",
+   "author": "Jgera5",
+   "caption": "Road on the eastern side of the Northern Lights Shopping Center in Economy, Pennsylvania, United States.  A JC Penney store was formerly located here, but the building was demolished to build this roa"
+  }
+ ],
+ "place": {
+  "town": "Economy",
+  "state": "PA",
+  "transect": "SD",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:strip_center",
+  "form:strip_row",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:row",
+  "roof:flat",
+  "cornice:coping_only",
+  "bays:3",
+  "door_pos:centre",
+  "window:storefront_glass",
+  "storefront:modern_glass",
+  "wall:concrete_block",
+  "colour_body:white",
+  "colour_trim:blue",
+  "ornament:canopy",
+  "condition:shabby",
+  "vacancy:partly_vacant",
+  "setting:arterial_strip",
+  "setback:very_deep",
+  "bound_front:landscape_island",
+  "bound_front:curb",
+  "lot_access:private_road",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "access road",
+  "floors": [
+   "S D S"
+  ],
+  "notes": "an old centre being redeveloped: a blank painted-block end wall, a standing-seam metal canopy over an empty storefront; a new private access road with lamp posts, curbed islands with new trees and construction barrels; cracked old parking asphalt in the foreground"
+ },
+ "lot": {
+  "setback": "very_deep",
+  "driveway": "private_road"
+ },
+ "why": [
+  {
+   "token": "condition:shabby",
+   "cause": "change",
+   "ref": "great_lakes/04_futures.md",
+   "note": "a dying 1950s-60s centre: vacancies, then a redevelopment road through the old parking field"
+  },
+  {
+   "token": "bound_front:landscape_island",
+   "cause": "zoning",
+   "ref": "",
+   "note": "modern codes require curbed landscape islands in parking fields"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

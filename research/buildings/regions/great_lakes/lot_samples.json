@@ -1,0 +1,258 @@
+{
+ "_about": "Sample areas for tools/buildings/lot_sample.py: one per lot circumstance (research/buildings/LOTS.md). Wisconsin first because its statewide parcel layer is open (DOA/SCO V11, via WI DNR). bbox = [south, west, north, east] WGS84, ~300-500 m (farmland larger). Each area's band and setting are what we expect; the render checks it.",
+ "parcels": "https://dnrmaps.wi.gov/arcgis/rest/services/DW_Map_Dynamic/EN_County_Tax_Parcels_WTM_Ext_Dynamic_L16/MapServer/0/query",
+ "areas": [
+  {
+   "id": "prewar_alley_grid",
+   "place": "Bay View, Milwaukee",
+   "band": "streetcar_1890_1930",
+   "setting": "residential_grid",
+   "bbox": [
+    42.9925,
+    -87.8985,
+    42.996,
+    -87.893
+   ]
+  },
+  {
+   "id": "streetcar_bungalow",
+   "place": "Washington Heights, Milwaukee",
+   "band": "streetcar_1890_1930",
+   "setting": "residential_grid",
+   "bbox": [
+    43.047,
+    -87.98,
+    43.0505,
+    -87.9745
+   ]
+  },
+  {
+   "id": "main_street_village",
+   "place": "Wauwatosa village centre",
+   "band": "railroad_1860_1900",
+   "setting": "main_street",
+   "bbox": [
+    43.047,
+    -88.011,
+    43.05,
+    -88.005
+   ]
+  },
+  {
+   "id": "planned_greenbelt_1938",
+   "place": "Greendale",
+   "band": "interwar_1920_1945",
+   "setting": "residential_curvilinear",
+   "bbox": [
+    42.936,
+    -87.999,
+    42.94,
+    -87.993
+   ]
+  },
+  {
+   "id": "postwar_ranch",
+   "place": "Westmorland, Madison",
+   "band": "postwar_1945_1965",
+   "setting": "residential_grid",
+   "bbox": [
+    43.054,
+    -89.464,
+    43.058,
+    -89.458
+   ]
+  },
+  {
+   "id": "small_town_main_street",
+   "place": "Mineral Point",
+   "band": "pioneer_pre1850",
+   "setting": "main_street",
+   "bbox": [
+    42.8585,
+    -90.182,
+    42.862,
+    -90.1765
+   ]
+  },
+  {
+   "id": "small_town_downtown",
+   "place": "Baraboo",
+   "band": "railroad_1860_1900",
+   "setting": "main_street",
+   "bbox": [
+    43.4695,
+    -89.747,
+    43.473,
+    -89.741
+   ]
+  },
+  {
+   "id": "industrial_valley",
+   "place": "Menomonee Valley, Milwaukee",
+   "band": "railroad_1860_1900",
+   "setting": "industrial_district",
+   "bbox": [
+    43.029,
+    -87.945,
+    43.033,
+    -87.938
+   ]
+  },
+  {
+   "id": "lakeshore_cottages",
+   "place": "Fish Creek",
+   "band": "streetcar_1890_1930",
+   "setting": "waterfront",
+   "bbox": [
+    45.1265,
+    -87.247,
+    45.13,
+    -87.241
+   ]
+  },
+  {
+   "id": "new_urbanist_1990s",
+   "place": "Middleton Hills, Middleton",
+   "band": "late_1990_2010",
+   "setting": "residential_grid",
+   "bbox": [
+    43.1092,
+    -89.49961,
+    43.1136,
+    -89.49359
+   ]
+  },
+  {
+   "id": "farmland_plss",
+   "place": "Town of Vienna, Dane County",
+   "band": "pioneer_pre1850",
+   "setting": "farmstead",
+   "bbox": [
+    43.2454,
+    -89.42904,
+    43.2574,
+    -89.41256
+   ]
+  },
+  {
+   "id": "culdesac_1970s",
+   "place": "Brookfield",
+   "band": "suburban_1965_1990",
+   "setting": "cul_de_sac",
+   "bbox": [
+    43.0618,
+    -88.17301,
+    43.0662,
+    -88.16699
+   ]
+  },
+  {
+   "id": "curvilinear_wooded",
+   "place": "west Madison",
+   "band": "suburban_1965_1990",
+   "setting": "residential_curvilinear",
+   "bbox": [
+    43.0258,
+    -89.50301,
+    43.0302,
+    -89.49699
+   ]
+  },
+  {
+   "id": "newsub_1990s",
+   "place": "Verona",
+   "band": "late_1990_2010",
+   "setting": "residential_curvilinear",
+   "bbox": [
+    42.9938,
+    -89.54801,
+    42.9982,
+    -89.54199
+   ]
+  },
+  {
+   "id": "newsub_edge",
+   "place": "southwest Madison",
+   "band": "current_2010_on",
+   "setting": "residential_curvilinear",
+   "bbox": [
+    43.0178,
+    -89.48801,
+    43.0222,
+    -89.48199
+   ]
+  },
+  {
+   "id": "mobile_home_park",
+   "place": "Madison Mobile Home Park",
+   "band": "postwar_1945_1965",
+   "setting": "residential_curvilinear",
+   "bbox": [
+    43.0376,
+    -89.38936,
+    43.0412,
+    -89.38444
+   ]
+  },
+  {
+   "id": "garden_apartments",
+   "place": "west Madison",
+   "band": "suburban_1965_1990",
+   "setting": "campus",
+   "bbox": [
+    43.0818,
+    -89.44301,
+    43.0862,
+    -89.43699
+   ]
+  },
+  {
+   "id": "townhouse_condos",
+   "place": "Fitchburg",
+   "band": "late_1990_2010",
+   "setting": "residential_curvilinear",
+   "bbox": [
+    43.0018,
+    -89.40301,
+    43.0062,
+    -89.39699
+   ]
+  },
+  {
+   "id": "rural_village",
+   "place": "Plain",
+   "band": "railroad_1860_1900",
+   "setting": "residential_grid",
+   "bbox": [
+    43.2764,
+    -90.04713,
+    43.2814,
+    -90.04027
+   ]
+  },
+  {
+   "id": "mall_big_box",
+   "place": "East Towne Mall, Madison",
+   "band": "suburban_1965_1990",
+   "setting": "highway_interchange",
+   "bbox": [
+    43.1217,
+    -89.31,
+    43.1287,
+    -89.3004
+   ]
+  },
+  {
+   "id": "arterial_strip",
+   "place": "Kenosha (Pershing Blvd / Roosevelt Rd)",
+   "band": "postwar_1945_1965",
+   "setting": "arterial_strip",
+   "bbox": [
+    42.5634,
+    -87.86159,
+    42.5684,
+    -87.85481
+   ]
+  }
+ ]
+}

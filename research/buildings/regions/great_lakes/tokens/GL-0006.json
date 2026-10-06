@@ -1,0 +1,108 @@
+{
+ "id": "GL-0006",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_bungalow/commons_5016_North_Kildare_Avenue_19293511953_.jpg",
+   "view": "front",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:5016_North_Kildare_Avenue_(19293511953).jpg",
+   "license": "CC BY-SA 2.0",
+   "author": "Teemu008 from Palatine, Illinois",
+   "caption": "5016 North Kildare Avenue in the North Mayfair Bungalow Historic District in Chicago (1922)."
+  }
+ ],
+ "place": {
+  "town": "Chicago (North Mayfair)",
+  "state": "IL",
+  "transect": "T4",
+  "band": "streetcar_1890_1930"
+ },
+ "tokens": [
+  "use:house",
+  "form:bungalow",
+  "style:craftsman",
+  "storeys:1.5",
+  "footprint:rect",
+  "roof:hip",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "ridge:perpendicular",
+  "dormer:gable",
+  "chimney:end_interior",
+  "foundation:brick",
+  "foundation_exposure:high",
+  "porch:enclosed",
+  "bays:2",
+  "symmetry:asymmetric",
+  "door_pos:corner",
+  "window:6over1",
+  "window_group:ribbon",
+  "window_proportion:vertical",
+  "sill:standard",
+  "wall:brick",
+  "colour_body:buff_brick",
+  "colour_trim:white",
+  "ornament:decorative_brick",
+  "ornament:stone_lintels",
+  "condition:kept",
+  "alteration:replacement_windows",
+  "setting:residential_grid",
+  "lot_w:narrow",
+  "setback:shallow",
+  "side_gap:tight",
+  "bound_front:sidewalk_terrace",
+  "bound_front:shrub_row",
+  "bound_side:building_wall",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "Wd",
+   "Wp Wp D"
+  ],
+  "notes": "the classic Chicago bungalow: a hip roof with a front gable dormer; the front is the enclosed sunroom, a ribbon of four windows with a planter box, and the entrance at the front corner reached by six concrete steps with urns on the cheek walls; limestone sill band, diamond brick inlays below; a clipped hedge and two columnar evergreens; a walk from the public sidewalk; cars parked at the curb"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "tight",
+  "driveway": "none (alley garage)",
+  "garage": "detached_rear",
+  "fence": "none",
+  "trees": "columnar_evergreens"
+ },
+ "why": [
+  {
+   "token": "foundation_exposure:high",
+   "cause": "climate",
+   "ref": "great_lakes/01_codes.md \u00a72 R403",
+   "note": "a full basement below the 42 in frost line: the main floor sits 4-5 ft up, 5-6 risers to the door"
+  },
+  {
+   "token": "wall:brick",
+   "cause": "economics",
+   "ref": "great_lakes/01_codes.md \u00a74",
+   "note": "Chicago's bungalow belt: masonry required or favoured; brick bungalows built by the tens of thousands 1910-40"
+  },
+  {
+   "token": "lot_w:narrow",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md",
+   "note": "the Chicago 25-30 x 125 ft lot from the original plats; the house fills the width, leaving a walkway each side"
+  },
+  {
+   "token": "porch:enclosed",
+   "cause": "climate",
+   "ref": "",
+   "note": "the Chicago bungalow brings its porch indoors as a sunroom: usable in a Great Lakes winter"
+  },
+  {
+   "token": "door_pos:corner",
+   "cause": "use",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "the side or corner entrance leaves the whole front for the sunroom's windows"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

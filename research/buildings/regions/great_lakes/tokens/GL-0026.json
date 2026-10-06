@@ -1,0 +1,74 @@
+{
+ "id": "GL-0026",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_strip_mall/commons_Pittsfield_township_carpenter_plaza.JPG",
+   "view": "streetscape",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Pittsfield_township_carpenter_plaza.JPG",
+   "license": "CC BY 3.0",
+   "author": "Dwight Burdette",
+   "caption": "Pittsfield Township Michigan, Carpenter Plaza, Carpenter &amp; Packard Roads"
+  }
+ ],
+ "place": {
+  "town": "Pittsfield Township",
+  "state": "MI",
+  "transect": "SD",
+  "band": "late_1990_2010"
+ },
+ "tokens": [
+  "use:big_box",
+  "form:strip_row",
+  "style:postmodern",
+  "storeys:1",
+  "footprint:row",
+  "roof:flat_parapet",
+  "cornice:parapet_stepped",
+  "bays:7+",
+  "door_pos:multiple",
+  "window:storefront_glass",
+  "storefront:modern_glass",
+  "sign:channel_letters",
+  "wall:efis",
+  "colour_body:cream",
+  "colour_trim:red",
+  "ornament:canopy",
+  "condition:kept",
+  "setting:arterial_strip",
+  "setback:very_deep",
+  "lot_w:very_wide",
+  "lot_coverage:sparse",
+  "bound_front:parking_edge",
+  "bound_front:landscape_island",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "parking field",
+  "floors": [
+   "N N N N",
+   "S S S S"
+  ],
+  "notes": "a power centre: a row of big-box stores, each marked by a raised entry tower in the stuccoed parapet with its sign, set behind a vast nearly empty parking field with tall light poles and young trees in islands"
+ },
+ "lot": {
+  "setback": "very_deep",
+  "driveway": "parking_field"
+ },
+ "why": [
+  {
+   "token": "setback:very_deep",
+   "cause": "zoning",
+   "ref": "great_lakes/01_codes.md \u00a72 (parking minimums: urban_layout/01_zoning.md, Shoup)",
+   "note": "3-5 spaces per 1,000 sq ft puts a parking field 3-4x the building's area between it and the road"
+  },
+  {
+   "token": "form:strip_row",
+   "cause": "economics",
+   "ref": "great_lakes/02_styles.md \u00a73 (Venturi)",
+   "note": "the decorated shed: a cheap steel-and-block box, identity carried by signs, entry towers and the canopy"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

@@ -1,0 +1,128 @@
+{
+ "_about": "What tools/buildings/fetch_corpus.py collects for this region: the GAPS in remake/reference (the catalog's 4,108 photos and 848 HABS drawings are mostly pre-1950 and coastal). Each bucket draws from curated Wikimedia Commons categories (depth 1 into subcategories), a deterministic sample per seed, licences limited to public domain / CC0 / CC BY / CC BY-SA. See research/buildings/METHOD.md.",
+ "region": "great_lakes",
+ "seed": 2752,
+ "max_w": 1280,
+ "buckets": [
+  {
+   "bucket": "postwar_ranch",
+   "n": 5,
+   "cats": [
+    "Category:Ranch-style houses in Ohio",
+    "Category:Ranch-style houses in Minnesota",
+    "Category:Ranch-style houses in Michigan",
+    "Category:Ranch-style houses in Wisconsin",
+    "Category:Ranch-style houses in Illinois"
+   ]
+  },
+  {
+   "bucket": "split_level",
+   "n": 3,
+   "cats": [
+    "Category:Split-level houses"
+   ]
+  },
+  {
+   "bucket": "prefab_postwar",
+   "n": 3,
+   "cats": [
+    "Category:Lustron houses"
+   ]
+  },
+  {
+   "bucket": "bungalow",
+   "n": 3,
+   "cats": [
+    "Category:Bungalows in Illinois",
+    "Category:Chicago bungalows"
+   ]
+  },
+  {
+   "bucket": "town_houses",
+   "n": 6,
+   "cats": [
+    "Category:Houses in Grand Rapids, Michigan",
+    "Category:Heritage Hill Historic District (Grand Rapids, Michigan)",
+    "Category:Houses in Ohio",
+    "Category:Houses in Michigan",
+    "Category:Houses in Wisconsin"
+   ]
+  },
+  {
+   "bucket": "ontario_cottage",
+   "n": 3,
+   "cats": [
+    "Category:Ontario Cottage architecture"
+   ]
+  },
+  {
+   "bucket": "apartments",
+   "n": 4,
+   "cats": [
+    "Category:Apartment buildings in Minneapolis",
+    "Category:Apartment buildings in Chicago",
+    "Category:Apartment buildings in Ohio"
+   ]
+  },
+  {
+   "bucket": "main_street",
+   "n": 5,
+   "cats": [
+    "Category:Celina Main Street Commercial Historic District",
+    "Category:Commercial buildings in Ohio",
+    "Category:Commercial buildings in Michigan",
+    "Category:Commercial buildings in Wisconsin"
+   ]
+  },
+  {
+   "bucket": "strip_mall",
+   "n": 4,
+   "cats": [
+    "Category:Strip malls in Michigan",
+    "Category:Strip malls in Ohio",
+    "Category:Strip malls in Pennsylvania"
+   ]
+  },
+  {
+   "bucket": "big_box",
+   "n": 3,
+   "cats": [
+    "Category:Dollar General stores",
+    "Category:Kmart stores in Ohio",
+    "Category:Meijer stores"
+   ]
+  },
+  {
+   "bucket": "fast_food",
+   "n": 3,
+   "cats": [
+    "Category:McDonald's restaurants in Illinois",
+    "Category:Rax Restaurants"
+   ]
+  },
+  {
+   "bucket": "gas_station",
+   "n": 3,
+   "cats": [
+    "Category:Speedway gas stations in Michigan",
+    "Category:Sheetz gas stations in Michigan",
+    "Category:Gas stations in Ohio"
+   ]
+  },
+  {
+   "bucket": "mixed_use_new",
+   "n": 3,
+   "cats": [
+    "Category:Mixed-use buildings in the United States",
+    "Category:Buildings in Minneapolis completed in 2015",
+    "Category:Buildings in Minneapolis completed in 2017"
+   ]
+  },
+  {
+   "bucket": "assessor_cards",
+   "n": 24,
+   "search": "\"Block Card\" \"Lucas County\" Auditor",
+   "why": "Lucas County (Toledo) Auditor tax-assessment photos, 1930s-70s, public domain via DPLA: ~97k ordinary properties -- the closest open equivalent of real-estate listing photos"
+  }
+ ]
+}

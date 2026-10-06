@@ -1,0 +1,94 @@
+{
+ "id": "GL-0008",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_split_level/commons_Split-Level_Houses_in_Gang_Mills_12.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Split-Level_Houses_in_Gang_Mills_12.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Stilfehler",
+   "caption": "Bi-Level-Split"
+  }
+ ],
+ "place": {
+  "town": "Gang Mills",
+  "state": "NY",
+  "transect": "T3",
+  "band": "suburban_1965_1990"
+ },
+ "tokens": [
+  "use:house",
+  "form:split_level",
+  "style:vernacular",
+  "storeys:2",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:low",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "chimney:ridge_centre",
+  "foundation:poured_concrete",
+  "foundation_exposure:medium",
+  "garage:tuck_under",
+  "porch:stoop",
+  "bays:5",
+  "symmetry:asymmetric",
+  "door_pos:centre",
+  "window:6over6",
+  "window_group:pair",
+  "window_proportion:horizontal",
+  "wall:vinyl",
+  "wall_accent:brick_wainscot",
+  "colour_body:beige",
+  "colour_trim:white",
+  "ornament:shutters",
+  "condition:kept",
+  "setting:residential_curvilinear",
+  "lot_w:wide",
+  "setback:deep",
+  "side_gap:wide",
+  "bound_front:lawn_continuous",
+  "bound_side:fence_privacy",
+  "bound_rear:woodland_belt",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W . Wp Wp",
+   "W D W G"
+  ],
+  "notes": "a side-to-side split: a one-storey living wing on the left, a two-storey bedroom block on the right over a two-car tuck-under garage; brick wainscot on the lower level, vinyl above, black shutters; the entry steps up a half level under a gabled hood; a deep sloping lawn with shrubs along the foundation; a white vinyl privacy fence on the side line; a tall conifer woodland behind"
+ },
+ "lot": {
+  "setback": "deep",
+  "side_gap": "wide",
+  "driveway": "side_to_garage",
+  "garage": "tuck_under",
+  "fence": "privacy_side",
+  "trees": "woodland_rear"
+ },
+ "why": [
+  {
+   "token": "form:split_level",
+   "cause": "climate",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "the split fits a sloping lot and uses the basement's exposure: the garage and family room go in the half-buried level"
+  },
+  {
+   "token": "garage:tuck_under",
+   "cause": "technology",
+   "ref": "",
+   "note": "two-car households after 1960: the garage tucked under the bedroom wing"
+  },
+  {
+   "token": "bound_rear:woodland_belt",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md",
+   "note": "curvilinear subdivisions left woodland at lot rears and along drainage: the rear line is a tree mass"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

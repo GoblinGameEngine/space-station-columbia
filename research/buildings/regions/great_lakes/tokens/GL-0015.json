@@ -1,0 +1,83 @@
+{
+ "id": "GL-0015",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_apartments/commons_Block_Card_520_Craig_Street_-_DPLA_-_7df9fc2c89d7d2bd30d578de75bacad2.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Block_Card_520_Craig_Street_-_DPLA_-_7df9fc2c89d7d2bd30d578de75bacad2.jpg",
+   "license": "Public domain",
+   "author": "Lucas County (Ohio). Auditor's Office",
+   "caption": "This image was produced by the Auditor's Office in Lucas County, Ohio for tax assessment purposes. Associated dates are approximate. Descriptive terms related to this photograph include: modern coloni"
+  }
+ ],
+ "place": {
+  "town": "Toledo",
+  "state": "OH",
+  "transect": "T4",
+  "band": "streetcar_1890_1930"
+ },
+ "tokens": [
+  "use:duplex",
+  "form:double_house",
+  "style:vernacular",
+  "storeys:2.5",
+  "footprint:rect",
+  "roof:cross_gable",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "foundation:rusticated_block",
+  "foundation_exposure:medium",
+  "porch:recessed",
+  "bays:4",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:1over1",
+  "window_group:pair",
+  "window_proportion:vertical",
+  "wall:clapboard",
+  "colour_body:white",
+  "colour_trim:dark",
+  "condition:worn",
+  "setting:residential_grid",
+  "setback:shallow",
+  "side_gap:tight",
+  "lot_corner:yes",
+  "bound_front:curb",
+  "bound_side:fence_iron",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "corner: side gable to the cross street",
+  "floors": [
+   "W . W",
+   "W Wp Wp W",
+   "W Wp D W"
+  ],
+  "notes": "Toledo assessor's block card: a big 2.5-storey frame house on a corner, side-gabled with a cross gable and a dormer toward the main street, clapboard walls, a rock-faced concrete-block foundation, an entry under a small hood; a fire hydrant at the corner; the photo is a tax record (parcel number painted in)"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "tight",
+  "driveway": "none",
+  "garage": "unknown",
+  "fence": "low_iron_side",
+  "trees": "none"
+ },
+ "why": [
+  {
+   "token": "use:duplex",
+   "cause": "economics",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "workers' districts built two-family frame houses: rent from one floor paid the mortgage"
+  },
+  {
+   "token": "foundation:rusticated_block",
+   "cause": "technology",
+   "ref": "",
+   "note": "rock-faced concrete block from hand-operated machines: the 1900-30 foundation of choice"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

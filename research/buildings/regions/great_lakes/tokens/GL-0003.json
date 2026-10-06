@@ -1,0 +1,83 @@
+{
+ "id": "GL-0003",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_postwar_ranch/commons_Brockway_in_Yankee_Lake.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Brockway_in_Yankee_Lake.jpg",
+   "license": "Public domain",
+   "author": "Nyttend",
+   "caption": "Houses on the southern side of Brockway Avenue between First and Second Streets in Yankee Lake, Ohio, United States."
+  }
+ ],
+ "place": {
+  "town": "Yankee Lake",
+  "state": "OH",
+  "transect": "T3",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:house",
+  "form:ranch",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:low",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "foundation_exposure:low",
+  "garage:detached_side",
+  "porch:front_partial",
+  "rail:square_baluster",
+  "bays:6",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:1over1",
+  "window_group:single",
+  "window_proportion:square",
+  "wall:vinyl",
+  "colour_body:brown",
+  "colour_trim:white",
+  "condition:kept",
+  "setting:residential_grid",
+  "setback:deep",
+  "lot_w:wide",
+  "bound_front:lawn_continuous",
+  "bound_side:tree_line",
+  "bound_side:shrub_row",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street, up a grassed rise",
+  "floors": [
+   "W W W D W W"
+  ],
+  "notes": "ranch set back up a slope; white-railed porch across the middle; a small white gabled garage or outbuilding beside and behind; a birch clump in the front lawn; conifers and shrubs mark the side line"
+ },
+ "lot": {
+  "setback": "deep",
+  "side_gap": "wide",
+  "driveway": "side",
+  "garage": "detached_side",
+  "fence": "none",
+  "trees": "clump_front"
+ },
+ "why": [
+  {
+   "token": "garage:detached_side",
+   "cause": "economics",
+   "ref": "research/lot_contents/postwar_suburban_lots.md",
+   "note": "small-town lots got a separate garage behind or beside the house, often built later"
+  },
+  {
+   "token": "bound_side:tree_line",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md",
+   "note": "side lines on wide lots are marked by planted conifers or volunteer tree rows left at the line"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

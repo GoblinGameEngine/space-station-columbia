@@ -1,0 +1,92 @@
+{
+ "id": "GL-0002",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_postwar_ranch/commons_East_Drive_Wilson.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:East_Drive,_Wilson.jpg",
+   "license": "Public domain",
+   "author": "Nyttend",
+   "caption": "Houses on East Drive in the Monroe County section of Wilson, Ohio, United States."
+  }
+ ],
+ "place": {
+  "town": "Wilson",
+  "state": "OH",
+  "transect": "T2",
+  "band": "suburban_1965_1990"
+ },
+ "tokens": [
+  "use:house",
+  "form:ranch",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:rect",
+  "roof:gable",
+  "pitch:low",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "foundation:concrete_block",
+  "foundation_exposure:low",
+  "garage:none",
+  "porch:front_partial",
+  "porch_post:square",
+  "rail:square_baluster",
+  "bays:5",
+  "symmetry:asymmetric",
+  "door_pos:centre",
+  "window:sliding",
+  "window_group:single",
+  "window_proportion:horizontal",
+  "wall:vinyl",
+  "colour_body:cream",
+  "colour_trim:white",
+  "condition:kept",
+  "alteration:vinyl_over_wood",
+  "setting:rural_road",
+  "setback:deep",
+  "lot_w:wide",
+  "bound_front:mow_line",
+  "bound_side:lawn_continuous",
+  "lot_access:street",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street (long side to the street)",
+  "floors": [
+   "W W D W W"
+  ],
+  "notes": "long low ranch, ridge parallel to the road; a later wooden porch deck with square balusters across part of the front; cars parked on a side gravel pad; a single shade tree in a deep lawn; no sidewalk"
+ },
+ "lot": {
+  "setback": "deep",
+  "side_gap": "wide",
+  "driveway": "side_gravel",
+  "garage": "none",
+  "fence": "none",
+  "trees": "single_specimen"
+ },
+ "why": [
+  {
+   "token": "form:ranch",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "the dominant 1950s-70s form; long side to the street to look wide"
+  },
+  {
+   "token": "setback:deep",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md",
+   "note": "cheap rural land and an unsewered lot: septic fields need space, so houses sit back on wide lots"
+  },
+  {
+   "token": "bound_front:mow_line",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md",
+   "note": "no sidewalk or curb: the lawn's mown edge at the road is the front line (Nassauer's cues to care)"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}

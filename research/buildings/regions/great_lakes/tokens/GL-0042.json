@@ -1,0 +1,80 @@
+{
+ "id": "GL-0042",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_assessor_cards/commons_Block_Card_6063_Reo_Street_-_DPLA_-_64e4a6d5ae69bdfb0e27f429e4224ba9.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Block_Card_6063_Reo_Street_-_DPLA_-_64e4a6d5ae69bdfb0e27f429e4224ba9.jpg",
+   "license": "Public domain",
+   "author": "Lucas County (Ohio). Auditor's Office",
+   "caption": "This image was produced by the Auditor's Office in Lucas County, Ohio for tax assessment purposes. Associated dates are approximate. Descriptive terms related to this photograph include: Ranch houses "
+  }
+ ],
+ "place": {
+  "town": "Toledo (edge)",
+  "state": "OH",
+  "transect": "T2",
+  "band": "postwar_1945_1965"
+ },
+ "tokens": [
+  "use:house",
+  "form:ranch",
+  "style:vernacular",
+  "storeys:1",
+  "footprint:L",
+  "roof:gable",
+  "pitch:low",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "chimney:ridge_centre",
+  "foundation:concrete_block",
+  "foundation_exposure:low",
+  "garage:detached_side",
+  "porch:stoop",
+  "bays:5",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:picture",
+  "window_group:ribbon",
+  "window_proportion:horizontal",
+  "wall:clapboard",
+  "wall_accent:shingle_gables",
+  "colour_body:white",
+  "colour_trim:dark",
+  "condition:new",
+  "setting:rural_road",
+  "setback:deep",
+  "lot_w:wide",
+  "bound_front:lawn_continuous",
+  "bound_side:lawn_continuous",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W W D"
+  ],
+  "notes": "Lucas County Auditor block card: a 1960s ranch with a dark wood-shake wainscot on the end and white siding above, a ribbon of windows and a picture window by the door, a breezeway to a detached garage beside it, a TV antenna mast; an open, almost treeless lot at the city's edge with power lines along the road"
+ },
+ "lot": {
+  "setback": "deep",
+  "garage": "breezeway_detached_side"
+ },
+ "why": [
+  {
+   "token": "setting:rural_road",
+   "cause": "economics",
+   "ref": "urban_layout/05_suburban_sprawl.md",
+   "note": "edge-of-city lots on old farm roads: wide, treeless, unsewered at first"
+  },
+  {
+   "token": "garage:detached_side",
+   "cause": "climate",
+   "ref": "",
+   "note": "the breezeway keeps the garage separate but under one roof line: covered passage in snow"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

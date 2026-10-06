@@ -1,0 +1,72 @@
+{
+ "id": "GL-0022",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_apartments/commons_Block_Card_858_Belmont_Avenue_-_DPLA_-_ec24233c91f6a70f37976545ce9c3574.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Block_Card_858_Belmont_Avenue_-_DPLA_-_ec24233c91f6a70f37976545ce9c3574.jpg",
+   "license": "Public domain",
+   "author": "Lucas County (Ohio). Auditor's Office",
+   "caption": "This image was produced by the Auditor's Office in Lucas County, Ohio for tax assessment purposes. Associated dates are approximate. Descriptive terms related to this photograph include: false front |"
+  }
+ ],
+ "place": {
+  "town": "Toledo",
+  "state": "OH",
+  "transect": "T4",
+  "band": "streetcar_1890_1930"
+ },
+ "tokens": [
+  "use:mixed_use",
+  "form:two_part_commercial",
+  "style:vernacular",
+  "storeys:2",
+  "footprint:rect",
+  "roof:flat",
+  "cornice:box_eave",
+  "bays:5",
+  "symmetry:asymmetric",
+  "door_pos:multiple",
+  "window:1over1",
+  "window_group:single",
+  "window_proportion:vertical",
+  "storefront:traditional",
+  "wall:clapboard",
+  "colour_body:white",
+  "condition:worn",
+  "setting:residential_grid",
+  "setback:zero",
+  "lot_corner:yes",
+  "bound_front:curb",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "corner",
+  "floors": [
+   "W W W W W",
+   "S S D ."
+  ],
+  "notes": "Toledo assessor's card: a frame corner store with flats above; a flat roof with a thin projecting cornice; the storefront wraps the corner with display windows (posters inside); a separate door to the flats on the side street; a utility pole at the corner"
+ },
+ "lot": {
+  "setback": "zero",
+  "side_gap": "tight"
+ },
+ "why": [
+  {
+   "token": "lot_corner:yes",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md",
+   "note": "the corner store: neighbourhood commerce takes the corner lot in a residential grid (two frontages, visible both ways), as Jacobs and space syntax predict"
+  },
+  {
+   "token": "wall:clapboard",
+   "cause": "code",
+   "ref": "great_lakes/01_codes.md \u00a74",
+   "note": "outside the fire limits a commercial building could still be frame"
+  }
+ ],
+ "confidence": "medium",
+ "annotator": "claude 2026-10-05"
+}

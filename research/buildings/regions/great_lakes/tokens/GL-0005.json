@@ -1,0 +1,94 @@
+{
+ "id": "GL-0005",
+ "images": [
+  {
+   "file": "remake/reference/corpus_great_lakes_bungalow/commons_Image_Crandon_Ave_II.jpg",
+   "view": "front",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Image_Crandon_Ave_II.jpg",
+   "license": "CC BY-SA 3.0",
+   "author": "Boscophotos",
+   "caption": "South Shore Bungalow Historic District"
+  }
+ ],
+ "place": {
+  "town": "Chicago (South Shore)",
+  "state": "IL",
+  "transect": "T4",
+  "band": "streetcar_1890_1930"
+ },
+ "tokens": [
+  "use:house",
+  "form:bungalow",
+  "style:tudor_revival",
+  "storeys:1.5",
+  "footprint:rect",
+  "roof:cross_gable",
+  "pitch:very_steep",
+  "roof_mat:asphalt_shingle",
+  "ridge:parallel",
+  "chimney:end_exterior",
+  "foundation:brick",
+  "foundation_exposure:medium",
+  "porch:none",
+  "bays:3",
+  "symmetry:symmetric",
+  "door_pos:side",
+  "window:casement",
+  "window_group:triple",
+  "window_proportion:vertical",
+  "wall:brick",
+  "wall_accent:stone_veneer",
+  "colour_body:red_brick",
+  "colour_trim:cream",
+  "ornament:stone_lintels",
+  "ornament:balcony",
+  "ornament:quoins",
+  "condition:kept",
+  "setting:residential_grid",
+  "lot_w:narrow",
+  "setback:shallow",
+  "side_gap:tight",
+  "bound_front:foundation_planting",
+  "bound_side:building_wall",
+  "lot_tenure:fee_simple"
+ ],
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W",
+   "W Wp W"
+  ],
+  "notes": "a steep centred front gable with a stone-trimmed attic window rises through the side-gabled roof; the triple casement below has a carved limestone surround and an iron balconette, flanked by single casements with smaller iron guards; tall exterior chimney on one end; evergreen shrubs in a row along the foundation; the neighbour's wall is a few feet away"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "tight",
+  "driveway": "none (alley garage)",
+  "garage": "detached_rear",
+  "fence": "none",
+  "trees": "foundation_shrubs"
+ },
+ "why": [
+  {
+   "token": "wall:brick",
+   "cause": "economics",
+   "ref": "great_lakes/01_codes.md \u00a74",
+   "note": "Chicago's bungalow belt: masonry required or favoured; brick bungalows built by the tens of thousands 1910-40"
+  },
+  {
+   "token": "lot_w:narrow",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md",
+   "note": "the Chicago 25-30 x 125 ft lot from the original plats; the house fills the width, leaving a walkway each side"
+  },
+  {
+   "token": "style:tudor_revival",
+   "cause": "fashion",
+   "ref": "great_lakes/02_styles.md \u00a72",
+   "note": "1920s period-revival dressing on the standard bungalow box: the steep gable and stone trim are applied to the same plan"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05"
+}
