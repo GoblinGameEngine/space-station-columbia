@@ -259,7 +259,7 @@ func timeline(pid: String, day: int) -> Array:
 	var key := "%s|%d" % [pid, day]
 	if _cache.has(key):
 		return _cache[key]
-	if _cache.size() > 4000:
+	if _cache.size() > 30000:                                   # (above the station's population: a cache that clears thrashes -- Calder, 2026-10-06)
 		_cache.clear()
 	var P := person(pid)
 	var segs: Array = []

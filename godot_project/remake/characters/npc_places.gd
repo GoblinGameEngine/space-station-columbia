@@ -258,7 +258,7 @@ static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_doo
 		return _routes[key]
 	var r := _route(from_b, to_b, from_door, to_door, edge, classes, via_cls, ahead_of, lane)
 	if from_door == Vector2.INF and to_door == Vector2.INF:
-		if _routes.size() > 512:
+		if _routes.size() > 20000:                         # (a route is ~1 KB; clearing at 512 thrashed once Calder came)
 			_routes.clear()
 		_routes[key] = r
 	return r

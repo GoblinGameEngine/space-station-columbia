@@ -44,6 +44,13 @@ var _i := 0
 var _life: NpcLife
 var _clock: Node
 var _scenes := {}
+## Parked cars beyond PARKED_FULL_M of the camera are drawn as one merged mesh per vehicle type (merge_model: 2
+## surfaces instead of ~40 pieces): Calder's streets park ~80 cars round the player (2026-10-06).
+const PARKED_FULL_M := 20.0
+const MOVING_FULL_M := 45.0
+var _merged := {}                    # model key -> ArrayMesh
+var _daylight := 1.0                 # read once a frame (DaySkySystem), not from the RenderingServer: that call waits
+var _cam_pos := Vector3.INF          # the camera this frame
 var _spot_cache := {}
 var _route_cache := {}
 var _here := Vector2.ZERO
@@ -226,7 +233,7 @@ func _near_line(a: Vector2, b: Vector2) -> bool:
 func _route(from_b: String, to_b: String) -> PackedVector2Array:
 	var key := from_b + ">" + to_b
 	if not _route_cache.has(key):
-		if _route_cache.size() > 400:
+		if _route_cache.size() > 20000:
 			_route_cache.clear()
 		var r := NpcPlaces.route(from_b, to_b, Vector2.INF, Vector2.INF, 0.0, ROADS, [], Vector2.INF, LANE)
 		_route_cache[key] = r.slice(1, r.size() - 1) if r.size() > 3 else r
@@ -240,7 +247,7 @@ func _cum_of(key: String, r: PackedVector2Array) -> PackedFloat32Array:
 	var c = _cums.get(key)
 	if c != null and (c as PackedFloat32Array).size() == r.size():
 		return c
-	if _cums.size() > 600:
+	if _cums.size() > 20000:
 		_cums.clear()
 	var out := PackedFloat32Array()
 	out.resize(r.size())
@@ -433,6 +440,10 @@ func _tick_traffic(delta: float) -> void:
 	var t_slice := Time.get_ticks_usec() - t_us
 	_built_this_frame = 0
 	var cam := get_viewport().get_camera_3d()
+	_cam_pos = cam.global_position if cam else Vector3.INF
+	var sky := get_tree().current_scene.get_node_or_null("DaySkySystem")
+	if sky and sky.has_method("daylight"):
+		_daylight = sky.daylight()
 	var t_d := 0
 	var t_v := 0
 	for id in live.keys():
@@ -444,8 +455,12 @@ func _tick_traffic(delta: float) -> void:
 			Prof.end("traffic.drive")
 		var t2 := Time.get_ticks_usec()
 		if live.has(id):
+			Prof.begin("traffic.visual")
 			_visual(live[id], delta, cam)
+			Prof.end("traffic.visual")
+			Prof.begin("traffic.animate")
 			_animate(live[id], delta)
+			Prof.end("traffic.animate")
 		t_d += t2 - t1
 		t_v += Time.get_ticks_usec() - t2
 	prof = {"sense_ms": t_sense / 1000.0, "locate_ms": t_loc / 1000.0, "show_ms": t_show / 1000.0, "slice_ms": t_slice / 1000.0, "drive_ms": t_d / 1000.0, "visual_ms": t_v / 1000.0}
@@ -565,7 +580,9 @@ func _drive(e: Dictionary, dt: float, now: Array) -> void:
 		else:
 			s.v_cap = INF if absf(s.lat) < 0.3 else 3.0              # back out into the lane first
 			s.pull_over(false)
+	Prof.begin("drive.step")
 	s.step(dt, agents, peds, now[2])
+	Prof.end("drive.step")
 	if float(e.loop) <= 0.0 and s.t >= s.path_len - 0.5:
 		var done: Dictionary = v.get("done", {})
 		done[e.trip] = true
@@ -579,7 +596,9 @@ func _drive(e: Dictionary, dt: float, now: Array) -> void:
 		(e.node as Node).queue_free()
 		live.erase(v.id)
 		return
+	Prof.begin("drive.ground")
 	(e.node as Node3D).global_transform = _on_ground(e.node, str(v.type), q, atan2(-d.y, d.x))
+	Prof.end("drive.ground")
 	e.speed = s.v
 	(e.node as NpcCarBody).v_now = -(e.node as Node3D).global_transform.basis.z * s.v
 
@@ -606,8 +625,20 @@ func _on_ground(node: Node3D, vtype: String, p: Vector2, yaw: float) -> Transfor
 	## own mesh, a kerb, a bridge's deck); the body is pitched and rolled to that plane and lifted by any twist, so every
 	## wheel is on the surface and none in it. (Standing it level at the terrain's height under its middle put its wheels
 	## into the road wherever the road sat above the terrain, sloped, or was cambered.)
-	var h := _road_h(p, node)
+	# far from the camera (40 m+), the road-height ray and the four wheel rays are redone only every 2 m of travel;
+	# in between, the last pitch, roll, lift and road height carry on (Calder's busy streets: the rays were 11 ms a
+	# frame, 2026-10-06)
 	var bas := StationGeo.basis(p.x, yaw)
+	var g: Array = node.get_meta("ground", [])
+	if _cam_pos != Vector3.INF and g.size() == 5 and (g[0] as Vector2).distance_to(p) < 2.0 \
+			and StationGeo.point(p.x, p.y, 0.0).distance_to(_cam_pos) > 40.0:
+		var o2 := StationGeo.point(p.x, p.y, float(g[4]))         # (under 2 m on: the road's height changes < 0.1 m)
+		var b2 := bas.rotated(bas.x.normalized(), float(g[1]))
+		b2 = b2.rotated(b2.z.normalized(), float(g[2]))
+		return Transform3D(b2.orthonormalized(), o2 + bas.y * float(g[3]))
+	Prof.begin("ground.road_h")
+	var h := _road_h(p, node)
+	Prof.end("ground.road_h")
 	var origin := StationGeo.point(p.x, p.y, h)
 	var box := _wheel_box(vtype)
 	var up := bas.y
@@ -633,6 +664,7 @@ func _on_ground(node: Node3D, vtype: String, p: Vector2, yaw: float) -> Transfor
 		twist = maxf(twist, hs[i] - float(plane[i]))
 	var pitch := atan2(f - bk, 2.0 * box.x)                # (nose up when the front is higher)
 	var roll := atan2(r - l, 2.0 * box.y)                  # (right side up when the right is higher)
+	node.set_meta("ground", [p, pitch, roll, mean + twist, h])
 	bas = bas.rotated(bas.x.normalized(), pitch)
 	bas = bas.rotated(bas.z.normalized(), roll)
 	return Transform3D(bas.orthonormalized(), origin + up * (mean + twist))
@@ -770,6 +802,30 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 				break
 	if seen:
 		e.unseen = 0.0
+		var dcam := p.distance_to(cam.global_position) if cam else 0.0
+		# far and parked, or far, moving and in daylight (at night a moving car keeps its full model: its lamps
+		# light the road), draws as the merged mesh
+		var was := bool(e.get("lite", false))
+		var hy := 6.0 if was else 0.0                                   # (hysteresis: no flipping at the line)
+		var lite := dcam >= PARKED_FULL_M - hy and (not bool(e.moving) and e.sim == null
+			or dcam >= MOVING_FULL_M - hy and _daylight > 0.5)
+		var mk: String = e.get("mkey", "")
+		if mk == "":
+			mk = _merge_key(e.v)
+			e.mkey = mk
+		if e.model != null and bool(e.get("lite", false)) != lite:
+			if not lite or _merged.has(mk):                # (swap: full model near or moving, merged far and parked)
+				(e.model as Node).queue_free()
+				e.model = null
+				e.wheels = []
+				e.seat = null
+		if e.model == null and lite and _merged.has(mk):
+			var mi := MeshInstance3D.new()
+			mi.mesh = _merged[mk]
+			mi.visibility_range_end = RANGE + 30.0
+			node.add_child(mi)
+			e.model = mi
+			e.lite = true
 		if e.model == null:
 			var path := _model_path(e.v)
 			if not _scenes.has(path):
@@ -800,6 +856,9 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 				e.seat = seat
 				for g in m.find_children("*", "GeometryInstance3D", true, false):
 					(g as GeometryInstance3D).visibility_range_end = RANGE + 30.0
+				e.lite = false
+				if not _merged.has(mk):
+					_merged[mk] = merge_model(m)
 	elif e.model != null:
 		e.unseen = float(e.unseen) + delta
 		if float(e.unseen) > 3.0 and p.distance_to(cam.global_position) > 30.0:
@@ -810,6 +869,106 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 			e.model = null
 			e.wheels = []
 			e.seat = null
+
+
+func _merge_key(v: Dictionary) -> String:
+	return _model_path(v) + "|" + str(v.type)
+
+
+static var _far_opaque: StandardMaterial3D
+static var _far_glass: StandardMaterial3D
+
+
+static func _mat_colour(mat: Material) -> Color:
+	if mat is ShaderMaterial:
+		var t = (mat as ShaderMaterial).get_shader_parameter("tint")
+		return t if t is Color else Color(0.6, 0.6, 0.6)
+	if mat is BaseMaterial3D:
+		return (mat as BaseMaterial3D).albedo_color
+	return Color(0.5, 0.5, 0.5)
+
+
+static func _is_glass(mat: Material) -> bool:
+	if mat == null:
+		return false
+	if "glass" in mat.resource_name.to_lower():
+		return true
+	return mat is BaseMaterial3D and ((mat as BaseMaterial3D).transparency != BaseMaterial3D.TRANSPARENCY_DISABLED
+		or (mat as BaseMaterial3D).albedo_color.a < 0.99)
+
+
+static func merge_model(m: Node3D) -> ArrayMesh:
+	## One mesh of a model's outside in two surfaces -- everything opaque in one, coloured per vertex with its
+	## material's colour, and the glass in the other -- in the model's frame (the interior layer and hidden parts
+	## left out). For far parked cars: 2 draws instead of ~40 pieces; their wheels don't turn, doors don't open.
+	if _far_opaque == null:
+		_far_opaque = StandardMaterial3D.new()
+		_far_opaque.resource_name = "car_far"
+		_far_opaque.vertex_color_use_as_albedo = true
+		_far_opaque.roughness = 0.55
+		_far_opaque.cull_mode = BaseMaterial3D.CULL_DISABLED
+		_far_glass = StandardMaterial3D.new()
+		_far_glass.resource_name = "car_far_glass"
+		_far_glass.albedo_color = Color(0.12, 0.16, 0.2, 0.55)
+		_far_glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		_far_glass.roughness = 0.1
+		_far_glass.metallic = 0.3
+		_far_glass.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var parts := [[PackedVector3Array(), PackedVector3Array(), PackedColorArray(), PackedInt32Array()],
+		[PackedVector3Array(), PackedVector3Array(), PackedColorArray(), PackedInt32Array()]]
+	for g in m.find_children("*", "MeshInstance3D", true, false):
+		var mi := g as MeshInstance3D
+		if mi.mesh == null or (mi.layers & VehicleBody.INTERIOR_LAYER) != 0:
+			continue
+		var hidden := false
+		var xf := Transform3D()
+		var n: Node = mi
+		while n != null and n != m:
+			if n is Node3D:
+				if not (n as Node3D).visible:
+					hidden = true
+					break
+				xf = (n as Node3D).transform * xf
+			n = n.get_parent()
+		if hidden:
+			continue
+		var nb := xf.basis.inverse().transposed()
+		for si in mi.mesh.get_surface_count():
+			if mi.mesh.surface_get_primitive_type(si) != Mesh.PRIMITIVE_TRIANGLES:
+				continue
+			var mat := mi.get_active_material(si)
+			var glass := _is_glass(mat)
+			var c := _mat_colour(mat) if not glass else Color(1, 1, 1)
+			var arr := mi.mesh.surface_get_arrays(si)
+			var vs: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+			var ns = arr[Mesh.ARRAY_NORMAL]
+			var ix = arr[Mesh.ARRAY_INDEX]
+			var P: Array = parts[1 if glass else 0]
+			var base := (P[0] as PackedVector3Array).size()
+			for i in vs.size():
+				P[0].append(xf * vs[i])
+				P[1].append((nb * ns[i]).normalized() if ns is PackedVector3Array and i < ns.size() else Vector3.UP)
+				P[2].append(c)
+			if ix is PackedInt32Array and ix.size() > 0:
+				for i in ix.size():
+					P[3].append(base + ix[i])
+			else:
+				for i in vs.size():
+					P[3].append(base + i)
+	var out := ArrayMesh.new()
+	for k in 2:
+		var P: Array = parts[k]
+		if (P[0] as PackedVector3Array).is_empty():
+			continue
+		var a := []
+		a.resize(Mesh.ARRAY_MAX)
+		a[Mesh.ARRAY_VERTEX] = P[0]
+		a[Mesh.ARRAY_NORMAL] = P[1]
+		a[Mesh.ARRAY_COLOR] = P[2]
+		a[Mesh.ARRAY_INDEX] = P[3]
+		out.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, a)
+		out.surface_set_material(out.get_surface_count() - 1, _far_opaque if k == 0 else _far_glass)
+	return out
 
 
 func on_crash(id: String) -> void:

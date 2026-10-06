@@ -1553,10 +1553,10 @@ def build_calder():
         t.area(uv(a["poly"]), a["kind"])
     for c in p["centres"]:
         f = (lambda c_: (lambda u, v: (u, c_["v_road"] + c_["dirn"] * v)))(c)
+        # (the centre's own lanes -- aisles, fire lane, entry drives, service lane -- stay part of its paved lot,
+        #  not town streets: as streets they boxed the store rows in and placement left the rows out)
         for a in c["plan"]["areas"]:
             t.area(uv([f(*q) for q in a["poly"]]), a["kind"])
-        for ln in c["plan"]["lines"]:
-            t.street([f(*q) for q in ln["pts"]], "alley" if ln["cls"] == "alley" else "street")
     for (q, txt) in p["marks"]:
         t.mark(q[0], q[1], txt)
     # the three countryside centres round it (07: at rural crossroads and the coast highway junction)
@@ -1575,9 +1575,6 @@ def build_calder():
         frame = (lambda sc, xr, dn: (lambda u, v: (sc + u, xr + dn * v)))(s_c, x_road, dirn)
         for a in c["plan"]["areas"]:
             t.area([frame(*q) for q in a["poly"]], a["kind"])
-        for ln in c["plan"]["lines"]:
-            pts_ = [frame(*q) for q in ln["pts"]]
-            t.street([(q[0] - t.s0, t.x0 - q[1]) for q in pts_], "alley" if ln["cls"] == "alley" else "street")
         t.marks.append((frame(0.0, -30.0), name))
         country.append((c, frame))
     t.calder_structs = CAL.structures(p, country)
