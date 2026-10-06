@@ -2979,8 +2979,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTLOBSTE.cab.wheelhouse.C.hull_lobster_boat.870d77": {
-   "id": "BTLOBSTE.cab.wheelhouse.C.hull_lobster_boat.870d77",
+  "BTLOBSTE.cab.wheelhouse.C.hull_lobster_boat.ab5346": {
+   "id": "BTLOBSTE.cab.wheelhouse.C.hull_lobster_boat.ab5346",
    "standard": "BTLOBSTE",
    "class": "lobster_boat",
    "role": "cab",
@@ -2990,31 +2990,23 @@
    "interface": "BTLOBSTE/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     119616,
-     96
-    ],
-    "dash": [
-     122304,
-     36
-    ],
     "paint": [
-     123312,
+     119616,
      540
     ],
     "paint2": [
-     138432,
+     134736,
      36
     ],
     "wood": [
-     139440,
+     135744,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     2.3454,
+     2.4523,
      1.7,
      3.0,
      2.03,
@@ -3027,8 +3019,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTLOBSTE.glazing.wheelhouse.C.hull_lobster_boat.b3af36": {
-   "id": "BTLOBSTE.glazing.wheelhouse.C.hull_lobster_boat.b3af36",
+  "BTLOBSTE.glazing.wheelhouse.C.hull_lobster_boat.4057e7": {
+   "id": "BTLOBSTE.glazing.wheelhouse.C.hull_lobster_boat.4057e7",
    "standard": "BTLOBSTE",
    "class": "lobster_boat",
    "role": "glazing",
@@ -3039,14 +3031,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     140448,
+     136752,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     2.6504,
+     2.7573,
      1.5505,
      2.762,
      1.02,
@@ -3058,6 +3050,154 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTLOBSTE.dash.helm.C.hull_lobster_boat.a9916c": {
+   "id": "BTLOBSTE.dash.helm.C.hull_lobster_boat.a9916c",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "dash",
+   "slot": "helm",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/dash/helm/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     139776,
+     1800
+    ],
+    "chrome": [
+     190176,
+     276
+    ],
+    "dash": [
+     197904,
+     252
+    ],
+    "seat": [
+     204960,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0006,
+     0.5875,
+     1.1,
+     1.0267,
+     1.1751
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTLOBSTE.dash.readout.C.hull_lobster_boat.481d3d": {
+   "id": "BTLOBSTE.dash.readout.C.hull_lobster_boat.481d3d",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     208992,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.2499,
+     0.0065,
+     0.056,
+     0.0208,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "BTLOBSTE.fittings.wheelhouse_fit.C.hull_lobster_boat.e8783d": {
+   "id": "BTLOBSTE.fittings.wheelhouse_fit.C.hull_lobster_boat.e8783d",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "fittings",
+   "slot": "wheelhouse_fit",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/fittings/wheelhouse_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     210000,
+     36
+    ],
+    "seat": [
+     211008,
+     72
+    ],
+    "wood": [
+     213024,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.01,
+     1.9573,
+     0.79,
+     2.66,
+     0.94,
+     1.58
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTLOBSTE.floor.cockpit_sole.C.hull_lobster_boat.8660d5": {
+   "id": "BTLOBSTE.floor.cockpit_sole.C.hull_lobster_boat.8660d5",
+   "standard": "BTLOBSTE",
+   "class": "lobster_boat",
+   "role": "floor",
+   "slot": "cockpit_sole",
+   "side": "C",
+   "style": "hull_lobster_boat",
+   "interface": "BTLOBSTE/floor/cockpit_sole/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     216048,
+     42
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5253,
+     2.35,
+     3.5714,
+     0.02,
+     4.7
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTLOBSTE.equipment.pot_hauler.C.hull_lobster_boat.05065f": {
    "id": "BTLOBSTE.equipment.pot_hauler.C.hull_lobster_boat.05065f",
@@ -3071,11 +3211,11 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     143472,
+     217224,
      72
     ],
     "chrome": [
-     145488,
+     219240,
      132
     ]
    },
@@ -3107,7 +3247,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     149184,
+     222936,
      216
     ]
    },

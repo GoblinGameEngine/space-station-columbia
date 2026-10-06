@@ -31,6 +31,8 @@ from kit import standards  # noqa: E402
 import specs  # noqa: E402
 from builder import Builder  # noqa: E402
 import decals as DC  # noqa: E402
+import interiors as IN  # noqa: E402
+import boat_interiors as IB  # noqa: E402
 
 argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
 OUT_ROOT, RENDER_DIR = argv[0], argv[1]
@@ -131,6 +133,7 @@ def dress(b, st, var=None):
             b.panel_overlays(prefix, role, o["m"], z0, z1 if z1 is not None else b.L.belt - 0.05, frame=o.get("frame"))
     for e in (var or st).get("equipment", []):
         b.equipment(e, dict(st, **(var or {})))
+    IN.fit(b, st, (var or st)["type"], var)                 # (the cabin's fittings: fleet/interiors.py)
 
 
 def renders(name, L):
@@ -144,6 +147,10 @@ def renders(name, L):
     if L.spec.get("render"):                                # (what hangs past the body: a freighter's pods, a fin)
         tail, h = L.spec["render"]
         ln, mid = L.nose - tail, (L.nose + tail) / 2
+    if hasattr(L, "toe") and hasattr(L, "cab_end"):         # (inside: from the cabin's back, looking forward)
+        f = L.floor
+        core.render_interior(pre + "_interior.png", cam, (0.0, L.toe, f + 0.85), (0.25, L.cab_end + 0.35, f + 1.25),
+                             energy=3.0 + 1.5 * (L.toe - L.cab_end))
     A = L.spec.get("aero")
     if A:                                                   # (an aerostat: frame the envelope and what hangs under it)
         el, er, ey, ez = A["env"]
@@ -184,6 +191,8 @@ def build_trailer(sid, registry):
         b.trailer_dress(st)
     for e in st.get("equipment", []):
         b.equipment(e, st)
+    if st["type"] == "camper_trailer":                    # (its bed, dinette and galley: fleet/interiors.py)
+        IN.living(b, st, C)
     standards.write_json(std, os.path.join(OUT_ROOT, "standards"))
     lib = components.Library(std, st["name"], PAL, os.path.join(OUT_ROOT, "components"))
     places = to_library(b, lib, list(b.MESH))
@@ -290,7 +299,7 @@ def build_class(sid, registry):
     for var in specs.VARIANTS.get(sid, []):
         vst = dict(st)
         vst.update(var.get("rebuild", {}))
-        for k in ("blank_windows", "driver"):
+        for k in ("blank_windows", "driver", "seats"):       # (seats: a variant's own rows -- had been dropped)
             if k in var:
                 vst[k] = var[k]
         vst["panel"] = dict(st["panel"], **var.get("panel", {}))
@@ -316,7 +325,7 @@ def build_class(sid, registry):
         vplaces = to_library(vb, vlib, own)
         vlib.write()
         replaced = {p[0] for p in vplaces}
-        pl = [p for p in places if p[0] not in replaced] + vplaces
+        pl = [p for p in places if p[0] not in replaced and not p[0].startswith("fit_")] + vplaces   # (the base type's fittings aren't the variant's)
         cl = copy.deepcopy(base_closers)
         for c in cl:
             vc = next((x for x in vb.CLOSERS if x["id"] == c["id"]), None)
@@ -484,11 +493,13 @@ def build_boat(vtype, registry):
     b = _types.SimpleNamespace(M=M, MESH={}, MODS={})
     X, R = Matrix.Translation, Matrix.Rotation
 
-    def mod(mid, role, slot, side="C", hp=600, mass=20):
+    def mod(mid, role, slot, side="C", hp=600, mass=20, breaks="detach"):
         if mid not in b.MESH:
             b.MESH[mid] = Mesh(mid, M)
-            b.MODS[mid] = dict(role=role, slot=slot, side=side, hp=hp, mass_kg=mass, breaks="detach", boxes=[])
+            b.MODS[mid] = dict(role=role, slot=slot, side=side, hp=hp, mass_kg=mass, breaks=breaks, boxes=[])
         return b.MESH[mid]
+    b.mod, b.GAUGES, b.MARKERS = mod, [], []                 # (enough of a Builder for its station(): the helm's wheel and dials)
+    b.marker = lambda name, loc, rot=0.0: b.MARKERS.append((name, tuple(round(c, 4) for c in loc), rot))
     ys = H.ys
     ck = S.get("cockpit")
     wh = S.get("wheelhouse")
@@ -553,7 +564,7 @@ def build_boat(vtype, registry):
     if wh:
         # (2026-10-05: hollow, the helm inside it looking out -- it was a solid block round the helmsman)
         y0, y1, hw, hh = wh
-        z0 = H.sheer_z((y0 + y1) / 2) + 0.05
+        z0 = HL.wh_floor(H, wh)
         sill = z0 + min(0.95, hh * 0.40)                     # the window band: the helmsman's eye (z0 + 1.2) in it;
         head = max(sill + 0.10, z0 + hh - 0.12)              # a sailboat's low coachroof: a strip of ports
         t = 0.05
@@ -576,8 +587,11 @@ def build_boat(vtype, registry):
         gl.box((0, y0 - t / 2, (sill + head) / 2), (hw - 0.02, 0.006, (head - sill) / 2), "glass")
         for sx in (1, -1):
             gl.box((sx * (hw - t / 2), (y0 + y1) / 2, (sill + head) / 2), (0.006, (y0 - y1) / 2 - 0.08, (head - sill) / 2), "glass")
-        me.box((0, y0 - 0.45, z0 + 0.95), (0.40, 0.18, 0.04), "dash")                              # the helm console
-        me.lathe([(-0.02, 0.18), (0.02, 0.18)], "black", n=16, xf=X((0, y0 - 0.62, z0 + 1.05)) @ R(math.pi / 2.6, 4, "X"))
+        if S.get("helm") != "tiller":                        # (a sailboat's coachroof has no helm: she's steered from the cockpit)
+            HM = Vector((0.0, y0 - 0.95, z0 + 0.45))
+            IB.boat_helm(b, HM, y0, hw, z0, sill)
+            IB.wheelhouse_fit(b, HM, y0, y1, hw, z0, hh, ferry=vtype == "ferry")
+    sole_z = IB.cockpit_fit(b, H, S, vtype, ck, INN) if ck else None
     # the gear
     for gname in S.get("gear", []):
         me = mod(gname, "equipment", gname, hp=300, mass=40)
@@ -648,7 +662,8 @@ def build_boat(vtype, registry):
         elif gname == "fence":                               # (low enough that the helm sees over it)
             for sx in (1, -1):
                 me.box((sx * (H.beam - 0.05), 0, sz + 0.33), (0.02, H.L / 2 - 0.4, 0.28), "paint2")
-            me.box((0, ys[0] - 0.45, sz + 0.33), (H.beam - 0.05, 0.02, 0.28), "paint2")
+            me.box((0, ys[0] - 0.45, sz + 0.24), (H.beam - 0.05, 0.02, 0.19), "paint2")   # (the bow gate, lower: under the
+                                                                                               #  helm's sight line ahead)
         elif gname == "rail":
             for sx in (1, -1):
                 me.pipe([Vector((sx * (H.half_beam(y) - 0.08), y, H.sheer_z(y) + 0.75)) for y in ys[1:-1]], 0.018, "chrome", n=6)
@@ -696,13 +711,15 @@ def build_boat(vtype, registry):
     components.write_blueprint(os.path.join(OUT_ROOT, "fleet", vtype + ".blueprint.json"), {
         "_about": "%s: a boat (remake/blender/fleet/hull.py)" % vtype, "type": vtype, "standard": sid, "class": vtype, "style": style, "kind": "boat",
         "board": "none", "stations": [-r["y"] for r in rings], "placements": places, "doors": [], "closers": [],
-        "length_front": H.bow, "length_back": -H.stern, "platform": {"half_w": 0.0, "y": -9.0, "z": [0.0, 0.0]}, "cabin_points": [], "markers": [],
-        "decals": decals_out(DC.hull(H, vtype))})
+        "length_front": H.bow, "length_back": -H.stern, "platform": {"half_w": 0.0, "y": -9.0, "z": [0.0, 0.0]}, "cabin_points": [],
+        "markers": [[nm, g(loc), round(rot, 4)] for nm, loc, rot in b.MARKERS], "decals": decals_out(DC.hull(H, vtype)),
+        "gauges": [[k, g(pc), g(n), g(u), round(r, 3)] for k, pc, n, u, r in b.GAUGES]})
     registry[vtype] = {"blueprint": "res://remake/vehicles/fleet/%s.blueprint.json" % vtype, "standard": sid, "style": style, "board": "none",
                        "phys": vtype, "half_w": H.beam, "height": H.free + (wh[3] if wh else 0.3), "nose": H.bow, "tail": H.stern, "floor": -H.draft,
                        "driver": "C", "boat": True, "ground": round(-H.draft, 3),
                        "hull": {"sheer": round(H.free, 3), "draft": H.draft, "t": round(H.t, 3), "wheelhouse": list(wh) if wh else None,
-                                "cockpit": list(ck) if ck else None, "waterline": waterline(H)},
+                                "cockpit": list(ck) if ck else None, "waterline": waterline(H),
+                                "sole": round(sole_z, 3) if sole_z is not None else None, "wh_floor": round(HL.wh_floor(H, wh), 3) if wh else None},
                        # (the helm, Godot frame: a tiller's helmsman on the aft thwart, to port of the handle; a paddler in
                        #  the stern seat; a pedaller at the lever; else at the front of the wheelhouse, or the cockpit's aft end)
                        "seat": ([-round(H.beam * 0.62, 3), round(H.sheer_z(H.stern + 1.8) + 0.32, 3), round(-(H.stern + 1.8), 3)]
@@ -712,7 +729,7 @@ def build_boat(vtype, registry):
                                 if S.get("helm") == "tiller" else
                                 [0.0, round(H.sheer_z(H.stern + 0.7) - 0.25, 3), round(-(H.stern + 0.7), 3)] if S.get("helm") == "paddle" else
                                 [-0.35, round(H.sheer_z(0) - 0.15, 3), 0.0] if S.get("helm") == "lever" else
-                                [0.0, round(H.sheer_z(0) + 0.5, 3), round(-(wh[0] - 0.6), 3)] if wh else
+                                [0.0, round(HL.wh_floor(H, wh) + 0.45, 3), round(-(wh[0] - 0.95), 3)] if wh else
                                 [0.0, round(H.sheer_z(0) + (0.28 if "fence" in S.get("gear", []) else -0.25), 3),
                                  round(-((ck[1] + 0.6) if ck else 0.0), 3)])}
     root = core.empty(vtype, (0, 0, 0))
@@ -723,6 +740,14 @@ def build_boat(vtype, registry):
     sc, cam = core.render_setup()
     ln = H.L
     core.render_persp(os.path.join(RENDER_DIR, vtype + "_34.png"), cam, (0, 0, H.free * 0.5), (ln * 0.75, ln * 0.95, ln * 0.45 + 2), 1000, 680, lens=40)
+    if wh and S.get("helm") != "tiller":                   # (inside the wheelhouse, from its doorway, looking forward)
+        z0 = HL.wh_floor(H, wh)
+        core.render_interior(os.path.join(RENDER_DIR, vtype + "_interior.png"), cam, (0.0, wh[0], z0 + 0.9),
+                             (wh[2] * 0.3, wh[1] + 0.3, z0 + min(1.6, wh[3] - 0.2)), energy=3.0 + 1.5 * (wh[0] - wh[1]))
+    if ck and ck[0] - ck[1] < 12:                            # (the cockpit, from over the stern)
+        sz = H.sheer_z((ck[0] + ck[1]) / 2)
+        core.render_persp(os.path.join(RENDER_DIR, vtype + "_cockpit.png"), cam, (0.0, (ck[0] + ck[1]) / 2, sz - 0.3),
+                          (0.6, H.stern - 1.2, sz + 2.2), 1000, 680, lens=28)
     print("BOAT %s: %d tokens, %d frames" % (vtype, len(places), len(rings)))
 
 

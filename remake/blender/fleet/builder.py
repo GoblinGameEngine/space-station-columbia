@@ -869,12 +869,17 @@ class Builder:
         my = min(L.toe - 0.06, self.doors_on("L")[0]["y0"] + 0.11 if self.doors_on("L") else L.toe - 0.06)
         if self.doors_on("L") and my - 0.10 < self.doors_on("L")[0]["y0"]:    # (a door right behind the toe -- a tractor's:
             my = self.doors_on("L")[0]["y0"] + 0.10                         # the mirror stands on the cowl ahead of it)
+        for w in sorted(L.windows, key=lambda w: -w["y0"]):  # (never over glass: onto the post ahead of the pane)
+            if "L" in w.get("sides", "RL") and w["y1"] - 0.03 < my < w["y0"] + 0.03:
+                my = w["y0"] + 0.06
         mz = L.belt + 0.10
         for sd in SIDES:
             sx = 1 if sd == "R" else -1
             me = self.mod("mirror_" + sd, "trim", "mirror", sd, hp=80, mass=1.5, breaks="detach")
             bx = self.surf_x(my, L.belt - 0.01) * sx
-            me.pipe([Vector((bx, my, L.belt + 0.02)), Vector((sx * (L.half_w + 0.08), my - 0.02, mz))], 0.012, st.get("mirror", "chrome"), n=6)
+            bx = self.surf_x(my, L.belt - 0.06) * sx           # (its foot under the sill, out first, then up: clear of any
+            me.pipe([Vector((bx, my, L.belt - 0.06)), Vector((sx * (L.half_w + 0.07), my, L.belt - 0.06)),   # glass behind it)
+                     Vector((sx * (L.half_w + 0.08), my - 0.02, mz))], 0.012, st.get("mirror", "chrome"), n=6)
             me.box((sx * (L.half_w + 0.12), my - 0.03, mz + 0.02), (0.06, 0.035, 0.055), st.get("mirror", "chrome"))
             me.box((sx * (L.half_w + 0.12), my - 0.066, mz + 0.02), (0.055, 0.002, 0.05), "glass_dark")
 

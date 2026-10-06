@@ -227,3 +227,14 @@ def render_persp(path, cam, target, loc, w=1000, h=700, lens=40):
     cam.rotation_euler = (Vector(target) - Vector(loc)).to_track_quat("-Z", "Y").to_euler()
     sc.render.filepath = path
     bpy.ops.render.render(write_still=True)
+
+
+def render_interior(path, cam, target, loc, w=1000, h=700, lens=16, energy=60.0):
+    """A wide shot inside a cabin, lit by a lamp at the camera (the roof keeps the sun out)."""
+    lamp = bpy.data.objects.new("ilamp", bpy.data.lights.new("ilamp", "POINT"))
+    lamp.data.energy = energy
+    lamp.data.shadow_soft_size = 0.5
+    lamp.location = Vector(loc)
+    col().objects.link(lamp)
+    render_persp(path, cam, target, loc, w, h, lens)
+    bpy.data.objects.remove(lamp, do_unlink=True)

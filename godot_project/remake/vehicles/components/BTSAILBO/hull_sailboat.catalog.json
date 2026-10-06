@@ -2979,8 +2979,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTSAILBO.cab.wheelhouse.C.hull_sailboat.bfc66d": {
-   "id": "BTSAILBO.cab.wheelhouse.C.hull_sailboat.bfc66d",
+  "BTSAILBO.cab.wheelhouse.C.hull_sailboat.714005": {
+   "id": "BTSAILBO.cab.wheelhouse.C.hull_sailboat.714005",
    "standard": "BTSAILBO",
    "class": "sailboat",
    "role": "cab",
@@ -2990,34 +2990,26 @@
    "interface": "BTSAILBO/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     122640,
-     96
-    ],
-    "dash": [
-     125328,
-     36
-    ],
     "paint": [
-     126336,
+     122640,
      540
     ],
     "paint2": [
-     141456,
+     137760,
      36
     ],
     "wood": [
-     142464,
+     138768,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     1.5939,
+     1.3628,
      1.65,
      2.1,
-     1.1825,
+     0.55,
      3.3
     ]
    ],
@@ -3027,8 +3019,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.a86d74": {
-   "id": "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.a86d74",
+  "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.78e1bb": {
+   "id": "BTSAILBO.glazing.wheelhouse.C.hull_sailboat.78e1bb",
    "standard": "BTSAILBO",
    "class": "sailboat",
    "role": "glazing",
@@ -3039,14 +3031,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     143472,
+     139776,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     1.2866,
+     1.3718,
      1.5005,
      1.862,
      0.132,
@@ -3058,6 +3050,74 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTSAILBO.floor.cockpit_sole.C.hull_sailboat.a3b635": {
+   "id": "BTSAILBO.floor.cockpit_sole.C.hull_sailboat.a3b635",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "floor",
+   "slot": "cockpit_sole",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/floor/cockpit_sole/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     142800,
+     24
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.4113,
+     1.0,
+     2.7996,
+     0.02,
+     2.0
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTSAILBO.fittings.cockpit_fit.C.hull_sailboat.33030c": {
+   "id": "BTSAILBO.fittings.cockpit_fit.C.hull_sailboat.33030c",
+   "standard": "BTSAILBO",
+   "class": "sailboat",
+   "role": "fittings",
+   "slot": "cockpit_fit",
+   "side": "C",
+   "style": "hull_sailboat",
+   "interface": "BTSAILBO/fittings/cockpit_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     143472,
+     72
+    ],
+    "seat": [
+     145488,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.8463,
+     0.725,
+     2.5061,
+     0.87,
+     1.45
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTSAILBO.equipment.mast_sails.C.hull_sailboat.ee1adc": {
    "id": "BTSAILBO.equipment.mast_sails.C.hull_sailboat.ee1adc",
@@ -3071,11 +3131,11 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     146496,
+     149520,
      192
     ],
     "livery1": [
-     151872,
+     154896,
      6
     ]
    },
@@ -3107,11 +3167,11 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     152040,
+     155064,
      36
     ],
     "wood": [
-     153048,
+     156072,
      84
     ]
    },

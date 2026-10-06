@@ -220,13 +220,14 @@ def suspension(b, A, st):
             mid = foot + (top - foot) * 0.55
             me.pipe([foot, mid], 0.055, "livery1", n=10)
             me.pipe([mid - (top - foot).normalized() * 0.15, top], 0.035, "chrome", n=8)
-            me.lathe([(0.0, 0.10), (0.06, 0.10)], "chrome", n=12, xf=Matrix.Translation(foot) @ Matrix.Rotation(-math.pi / 2, 4, "X"))
+            me.lathe([(0.0, 0.10), (0.06, 0.10)], "chrome", n=12, xf=Matrix.Translation(foot) @ Matrix.Rotation(math.pi / 2, 4, "X"))
     if A.get("mast") is not None:
         y = A["mast"]
         t = (y - (yc - L / 2)) / L
         top = zc - env_ra(A, t) + 0.15
         me.lathe([(0.0, 0.16), (0.08, 0.13), (top - B.crown, 0.11)], "livery1", n=14,
-                 xf=Matrix.Translation((0, y, B.crown - 0.04)) @ Matrix.Rotation(-math.pi / 2, 4, "X"))
+                 xf=Matrix.Translation((0, y, B.crown - 0.04)) @ Matrix.Rotation(math.pi / 2, 4, "X"))   # (up: -pi/2 ran it down
+                                                                                                         #  through the cabin)
     if A.get("saddle"):                                   # (a gondola slung tight under the envelope: its saddle)
         y0, y1 = B.toe - 0.3, B.tail_in + 0.3
         for y in (y0, (y0 + y1) / 2, y1):

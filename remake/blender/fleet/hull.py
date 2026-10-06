@@ -123,6 +123,12 @@ class Hull:
         return out
 
 
+def wh_floor(H, wh):
+    """A wheelhouse's sole: over the deck's crown wherever the house stands (the sheer rises forward; the deck crowns at
+    the centreline -- a sole at the mid-sheer let the deck through)."""
+    return max(H.half(y)[7][1] for y in (wh[0], wh[1], (wh[0] + wh[1]) / 2)) + 0.04
+
+
 BOATS = {
     # length, beam, draft, freeboard, deadrise; cockpit (y0, y1) or None; wheelhouse (y0, y1, half w, height) or None; colours; gear
     # (2026-10-05, the user: small boats steer by a tiller -- the operator on the aft thwart, off the centre line on the
@@ -141,5 +147,6 @@ BOATS = {
     "workboat_tug": dict(length=15.0, beam=5.0, draft=1.6, freeboard=1.5, deadrise=12, cockpit=(-3.0, -7.2), wheelhouse=(3.5, -2.5, 1.9, 2.6), colours=((40, 42, 46), (190, 40, 30)), gear=["tug_fenders", "towing_bitt"]),
     "trawler": dict(length=20.0, beam=6.0, draft=2.4, freeboard=2.2, deadrise=16, cockpit=(-3.0, -9.6), wheelhouse=(6.0, -2.8, 2.4, 3.0), colours=((30, 60, 110), (190, 40, 30)), gear=["gallows", "net_drum"]),
     "ferry": dict(length=45.0, beam=12.0, draft=2.4, freeboard=2.4, deadrise=6, square_bow=True, double_ender=True, cockpit=(18.0, -18.0), wheelhouse=(4.0, -4.0, 3.5, 3.0), colours=((236, 234, 228), (40, 92, 150)), gear=["ferry_ramps", "rail"], stations=24),
-    "barge": dict(length=40.0, beam=11.0, draft=2.2, freeboard=1.2, deadrise=2, square_bow=True, cockpit=(17.5, -17.5), colours=((90, 70, 50), (40, 42, 46)), gear=[], stations=20),
+    "barge": dict(length=40.0, beam=11.0, draft=2.2, freeboard=1.2, deadrise=2, square_bow=True, cockpit=(17.5, -16.4),
+                  wheelhouse=(-17.0, -19.4, 2.2, 2.4), colours=((90, 70, 50), (40, 42, 46)), gear=[], stations=20),
 }

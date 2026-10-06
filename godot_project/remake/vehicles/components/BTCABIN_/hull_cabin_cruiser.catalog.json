@@ -2979,8 +2979,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTCABIN_.cab.wheelhouse.C.hull_cabin_cruiser.a47664": {
-   "id": "BTCABIN_.cab.wheelhouse.C.hull_cabin_cruiser.a47664",
+  "BTCABIN_.cab.wheelhouse.C.hull_cabin_cruiser.d92694": {
+   "id": "BTCABIN_.cab.wheelhouse.C.hull_cabin_cruiser.d92694",
    "standard": "BTCABIN_",
    "class": "cabin_cruiser",
    "role": "cab",
@@ -2990,31 +2990,23 @@
    "interface": "BTCABIN_/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     121632,
-     96
-    ],
-    "dash": [
-     124320,
-     36
-    ],
     "paint": [
-     125328,
+     121632,
      540
     ],
     "paint2": [
-     140448,
+     136752,
      36
     ],
     "wood": [
-     141456,
+     137760,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     2.3259,
+     2.4501,
      2.8,
      3.2,
      1.83,
@@ -3027,8 +3019,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTCABIN_.glazing.wheelhouse.C.hull_cabin_cruiser.9b3679": {
-   "id": "BTCABIN_.glazing.wheelhouse.C.hull_cabin_cruiser.9b3679",
+  "BTCABIN_.glazing.wheelhouse.C.hull_cabin_cruiser.4d35ec": {
+   "id": "BTCABIN_.glazing.wheelhouse.C.hull_cabin_cruiser.4d35ec",
    "standard": "BTCABIN_",
    "class": "cabin_cruiser",
    "role": "glazing",
@@ -3039,14 +3031,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     142464,
+     138768,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     2.5909,
+     2.7151,
      2.6505,
      2.962,
      0.9,
@@ -3058,6 +3050,190 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTCABIN_.dash.helm.C.hull_cabin_cruiser.078b6c": {
+   "id": "BTCABIN_.dash.helm.C.hull_cabin_cruiser.078b6c",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "dash",
+   "slot": "helm",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/dash/helm/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     141792,
+     1800
+    ],
+    "chrome": [
+     192192,
+     276
+    ],
+    "dash": [
+     199920,
+     252
+    ],
+    "seat": [
+     206976,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.0984,
+     0.5875,
+     1.1,
+     1.0267,
+     1.1751
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTCABIN_.dash.readout.C.hull_cabin_cruiser.6a64fa": {
+   "id": "BTCABIN_.dash.readout.C.hull_cabin_cruiser.6a64fa",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     211008,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.3477,
+     0.0065,
+     0.056,
+     0.0208,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "BTCABIN_.fittings.wheelhouse_fit.C.hull_cabin_cruiser.49bb4a": {
+   "id": "BTCABIN_.fittings.wheelhouse_fit.C.hull_cabin_cruiser.49bb4a",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "fittings",
+   "slot": "wheelhouse_fit",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/fittings/wheelhouse_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     212016,
+     36
+    ],
+    "seat": [
+     213024,
+     72
+    ],
+    "wood": [
+     215040,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.01,
+     2.0551,
+     1.89,
+     2.86,
+     0.94,
+     3.78
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTCABIN_.floor.cockpit_sole.C.hull_cabin_cruiser.b0bdd9": {
+   "id": "BTCABIN_.floor.cockpit_sole.C.hull_cabin_cruiser.b0bdd9",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "floor",
+   "slot": "cockpit_sole",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/floor/cockpit_sole/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     218064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5718,
+     1.55,
+     3.7424,
+     0.02,
+     3.1
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTCABIN_.fittings.cockpit_fit.C.hull_cabin_cruiser.009e00": {
+   "id": "BTCABIN_.fittings.cockpit_fit.C.hull_cabin_cruiser.009e00",
+   "standard": "BTCABIN_",
+   "class": "cabin_cruiser",
+   "role": "fittings",
+   "slot": "cockpit_fit",
+   "side": "C",
+   "style": "hull_cabin_cruiser",
+   "interface": "BTCABIN_/fittings/cockpit_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     218904,
+     72
+    ],
+    "seat": [
+     220920,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.0068,
+     1.275,
+     3.2792,
+     0.87,
+     2.55
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTCABIN_.equipment.rail.C.hull_cabin_cruiser.83bf4b": {
    "id": "BTCABIN_.equipment.rail.C.hull_cabin_cruiser.83bf4b",
@@ -3071,7 +3247,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     145488,
+     224952,
      1200
     ]
    },

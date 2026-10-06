@@ -193,6 +193,8 @@ func _boat_hull() -> void:
 	var draft := float(H.get("draft", 0.3))
 	var t := float(H.get("t", 0.04))
 	var sole := -draft + t + minf(0.35, draft * 0.6)
+	if H.get("sole") != null:                           # (the cockpit's sole: fleet/boat_interiors.py)
+		sole = float(H["sole"])
 	var ln := tail - nose
 	add_box(Vector3(half_w * 1.4, 0.1, ln * 0.8), Vector3(0, sole - 0.05, (nose + tail) * 0.5))
 	add_box(Vector3(half_w * 0.9, sole + draft, ln * 0.85), Vector3(0, (sole - draft) * 0.5, (nose + tail) * 0.5))   # (the hull below it)
@@ -207,10 +209,12 @@ func _boat_hull() -> void:
 		var zb := -float(wh[1])
 		var hw := float(wh[2])
 		var hh := float(wh[3])
-		add_box(Vector3(hw * 2.0 + 0.2, 0.1, zb - zf + 0.2), Vector3(0, sheer + 0.05 + hh + 0.05, (zf + zb) * 0.5))
+		var wf := float(H["wh_floor"]) if H.get("wh_floor") != null else sheer + 0.05
+		add_box(Vector3(hw * 2.0, 0.1, zb - zf), Vector3(0, wf - 0.05, (zf + zb) * 0.5))          # (its sole, over the deck)
+		add_box(Vector3(hw * 2.0 + 0.2, 0.1, zb - zf + 0.2), Vector3(0, wf + hh + 0.05, (zf + zb) * 0.5))
 		for sx in [-1.0, 1.0]:
-			add_box(Vector3(0.08, hh, zb - zf), Vector3(sx * hw, sheer + 0.05 + hh * 0.5, (zf + zb) * 0.5))
-		add_box(Vector3(hw * 2.0, hh, 0.08), Vector3(0, sheer + 0.05 + hh * 0.5, zf))
+			add_box(Vector3(0.08, hh, zb - zf), Vector3(sx * hw, wf + hh * 0.5, (zf + zb) * 0.5))
+		add_box(Vector3(hw * 2.0, hh, 0.08), Vector3(0, wf + hh * 0.5, zf))
 
 
 func _open_hull() -> void:

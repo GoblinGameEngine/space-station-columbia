@@ -932,7 +932,8 @@ def corner_glass(c):
         if any(o["y0"] > hdr + 0.02 for o in ops):
             continue                                   # (a door already reaches under the screen's edge)
         nxt = max([o["y0"] for o in ops if o["y0"] <= hdr + 0.02], default=None)
-        y1 = max(hdr + 0.03, (nxt + 0.08) if nxt is not None else hdr + 0.03)
+        gap = c.get("pillar", 0.09) / 2 + 0.03            # (clear of the A-pillar's trim at its foot)
+        y1 = max(hdr + gap, (nxt + 0.08) if nxt is not None else hdr + gap)
         if toe - 0.04 - y1 < 0.2:
             continue
         c["windows"] = c.get("windows", []) + [{"id": "WA%s" % sd, "y0": round(toe - 0.04, 3), "y1": round(y1, 3), "sides": sd}]

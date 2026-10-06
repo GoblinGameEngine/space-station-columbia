@@ -2727,8 +2727,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTFERRY.cab.wheelhouse.C.hull_ferry.9fd5fd": {
-   "id": "BTFERRY.cab.wheelhouse.C.hull_ferry.9fd5fd",
+  "BTFERRY.cab.wheelhouse.C.hull_ferry.e8f97c": {
+   "id": "BTFERRY.cab.wheelhouse.C.hull_ferry.e8f97c",
    "standard": "BTFERRY",
    "class": "ferry",
    "role": "cab",
@@ -2738,31 +2738,23 @@
    "interface": "BTFERRY/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     172704,
-     96
-    ],
-    "dash": [
-     175392,
-     36
-    ],
     "paint": [
-     176400,
+     172704,
      540
     ],
     "paint2": [
-     191520,
+     187824,
      36
     ],
     "wood": [
-     192528,
+     188832,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     3.9719,
+     4.0398,
      4.1,
      7.2,
      3.13,
@@ -2775,8 +2767,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTFERRY.glazing.wheelhouse.C.hull_ferry.218ebc": {
-   "id": "BTFERRY.glazing.wheelhouse.C.hull_ferry.218ebc",
+  "BTFERRY.glazing.wheelhouse.C.hull_ferry.4c6d0b": {
+   "id": "BTFERRY.glazing.wheelhouse.C.hull_ferry.4c6d0b",
    "standard": "BTFERRY",
    "class": "ferry",
    "role": "glazing",
@@ -2787,14 +2779,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     193536,
+     189840,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     4.3719,
+     4.4398,
      3.9505,
      6.962,
      1.93,
@@ -2806,6 +2798,118 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTFERRY.dash.helm.C.hull_ferry.c36532": {
+   "id": "BTFERRY.dash.helm.C.hull_ferry.c36532",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "dash",
+   "slot": "helm",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/dash/helm/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     192864,
+     1800
+    ],
+    "chrome": [
+     243264,
+     276
+    ],
+    "dash": [
+     250992,
+     252
+    ],
+    "seat": [
+     258048,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.0381,
+     0.5875,
+     1.1,
+     1.0267,
+     1.1751
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTFERRY.dash.readout.C.hull_ferry.c94613": {
+   "id": "BTFERRY.dash.readout.C.hull_ferry.c94613",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     262080,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.2874,
+     0.0065,
+     0.056,
+     0.0208,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "BTFERRY.fittings.wheelhouse_fit.C.hull_ferry.2197ee": {
+   "id": "BTFERRY.fittings.wheelhouse_fit.C.hull_ferry.2197ee",
+   "standard": "BTFERRY",
+   "class": "ferry",
+   "role": "fittings",
+   "slot": "wheelhouse_fit",
+   "side": "C",
+   "style": "hull_ferry",
+   "interface": "BTFERRY/fittings/wheelhouse_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "dash": [
+     263088,
+     504
+    ],
+    "seat": [
+     277200,
+     1008
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.0148,
+     2.95,
+     6.78,
+     0.98,
+     5.9
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTFERRY.equipment.ferry_ramps.C.hull_ferry.21abd3": {
    "id": "BTFERRY.equipment.ferry_ramps.C.hull_ferry.21abd3",
@@ -2819,7 +2923,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     196560,
+     305424,
      72
     ]
    },
@@ -2851,7 +2955,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     198576,
+     307440,
      1920
     ]
    },

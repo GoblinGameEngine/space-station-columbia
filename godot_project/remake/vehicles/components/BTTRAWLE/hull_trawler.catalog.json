@@ -2979,8 +2979,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTTRAWLE.cab.wheelhouse.C.hull_trawler.306a69": {
-   "id": "BTTRAWLE.cab.wheelhouse.C.hull_trawler.306a69",
+  "BTTRAWLE.cab.wheelhouse.C.hull_trawler.d48be6": {
+   "id": "BTTRAWLE.cab.wheelhouse.C.hull_trawler.d48be6",
    "standard": "BTTRAWLE",
    "class": "trawler",
    "role": "cab",
@@ -2990,31 +2990,23 @@
    "interface": "BTTRAWLE/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     121632,
-     96
-    ],
-    "dash": [
-     124320,
-     36
-    ],
     "paint": [
-     125328,
+     121632,
      540
     ],
     "paint2": [
-     140448,
+     136752,
      36
     ],
     "wood": [
-     141456,
+     137760,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     3.7875,
+     3.9261,
      4.5,
      5.0,
      3.13,
@@ -3027,8 +3019,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTTRAWLE.glazing.wheelhouse.C.hull_trawler.bd6a0a": {
-   "id": "BTTRAWLE.glazing.wheelhouse.C.hull_trawler.bd6a0a",
+  "BTTRAWLE.glazing.wheelhouse.C.hull_trawler.6dd917": {
+   "id": "BTTRAWLE.glazing.wheelhouse.C.hull_trawler.6dd917",
    "standard": "BTTRAWLE",
    "class": "trawler",
    "role": "glazing",
@@ -3039,14 +3031,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     142464,
+     138768,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     4.1875,
+     4.3261,
      4.3505,
      4.762,
      1.93,
@@ -3058,6 +3050,154 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTTRAWLE.dash.helm.C.hull_trawler.8b249b": {
+   "id": "BTTRAWLE.dash.helm.C.hull_trawler.8b249b",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "dash",
+   "slot": "helm",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/dash/helm/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     141792,
+     1800
+    ],
+    "chrome": [
+     192192,
+     276
+    ],
+    "dash": [
+     199920,
+     252
+    ],
+    "seat": [
+     206976,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.9245,
+     0.5875,
+     1.1,
+     1.0267,
+     1.1751
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTTRAWLE.dash.readout.C.hull_trawler.8b6cd4": {
+   "id": "BTTRAWLE.dash.readout.C.hull_trawler.8b6cd4",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     211008,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     3.1738,
+     0.0065,
+     0.056,
+     0.0208,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "BTTRAWLE.fittings.wheelhouse_fit.C.hull_trawler.ebeae1": {
+   "id": "BTTRAWLE.fittings.wheelhouse_fit.C.hull_trawler.ebeae1",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "fittings",
+   "slot": "wheelhouse_fit",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/fittings/wheelhouse_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     212016,
+     36
+    ],
+    "seat": [
+     213024,
+     72
+    ],
+    "wood": [
+     215040,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.01,
+     2.8811,
+     3.59,
+     4.66,
+     0.94,
+     7.18
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTTRAWLE.floor.cockpit_sole.C.hull_trawler.88e7e4": {
+   "id": "BTTRAWLE.floor.cockpit_sole.C.hull_trawler.88e7e4",
+   "standard": "BTTRAWLE",
+   "class": "trawler",
+   "role": "floor",
+   "slot": "cockpit_sole",
+   "side": "C",
+   "style": "hull_trawler",
+   "interface": "BTTRAWLE/floor/cockpit_sole/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     218064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.3596,
+     3.3,
+     5.7129,
+     0.02,
+     6.6
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTTRAWLE.equipment.gallows.C.hull_trawler.4ddddd": {
    "id": "BTTRAWLE.equipment.gallows.C.hull_trawler.4ddddd",
@@ -3071,7 +3211,7 @@
    "reach": 0.0,
    "mats": {
     "paint2": [
-     145488,
+     218904,
      264
     ]
    },
@@ -3103,7 +3243,7 @@
    "reach": 0.0,
    "mats": {
     "livery2": [
-     152880,
+     226296,
      84
     ]
    },

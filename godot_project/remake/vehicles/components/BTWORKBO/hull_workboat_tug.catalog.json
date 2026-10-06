@@ -2979,8 +2979,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.d4fe66": {
-   "id": "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.d4fe66",
+  "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.a57d77": {
+   "id": "BTWORKBO.cab.wheelhouse.C.hull_workboat_tug.a57d77",
    "standard": "BTWORKBO",
    "class": "workboat_tug",
    "role": "cab",
@@ -2990,31 +2990,23 @@
    "interface": "BTWORKBO/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     121632,
-     96
-    ],
-    "dash": [
-     124320,
-     36
-    ],
     "paint": [
-     125328,
+     121632,
      540
     ],
     "paint2": [
-     140448,
+     136752,
      36
     ],
     "wood": [
-     141456,
+     137760,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     2.8773,
+     2.9922,
      3.1,
      4.0,
      2.73,
@@ -3027,8 +3019,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.a49e69": {
-   "id": "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.a49e69",
+  "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.a6ae2a": {
+   "id": "BTWORKBO.glazing.wheelhouse.C.hull_workboat_tug.a6ae2a",
    "standard": "BTWORKBO",
    "class": "workboat_tug",
    "role": "glazing",
@@ -3039,14 +3031,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     142464,
+     138768,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     3.2773,
+     3.3922,
      2.9505,
      3.762,
      1.53,
@@ -3058,6 +3050,154 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTWORKBO.dash.helm.C.hull_workboat_tug.8eb956": {
+   "id": "BTWORKBO.dash.helm.C.hull_workboat_tug.8eb956",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "dash",
+   "slot": "helm",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/dash/helm/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     141792,
+     1800
+    ],
+    "chrome": [
+     192192,
+     276
+    ],
+    "dash": [
+     199920,
+     252
+    ],
+    "seat": [
+     206976,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.1905,
+     0.5875,
+     1.1,
+     1.0267,
+     1.1751
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTWORKBO.dash.readout.C.hull_workboat_tug.94fbdd": {
+   "id": "BTWORKBO.dash.readout.C.hull_workboat_tug.94fbdd",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     211008,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.4398,
+     0.0065,
+     0.056,
+     0.0208,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "BTWORKBO.fittings.wheelhouse_fit.C.hull_workboat_tug.c9f1a8": {
+   "id": "BTWORKBO.fittings.wheelhouse_fit.C.hull_workboat_tug.c9f1a8",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "fittings",
+   "slot": "wheelhouse_fit",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/fittings/wheelhouse_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     212016,
+     36
+    ],
+    "seat": [
+     213024,
+     72
+    ],
+    "wood": [
+     215040,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.01,
+     2.1472,
+     2.19,
+     3.66,
+     0.94,
+     4.38
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTWORKBO.floor.cockpit_sole.C.hull_workboat_tug.fd93ca": {
+   "id": "BTWORKBO.floor.cockpit_sole.C.hull_workboat_tug.fd93ca",
+   "standard": "BTWORKBO",
+   "class": "workboat_tug",
+   "role": "floor",
+   "slot": "cockpit_sole",
+   "side": "C",
+   "style": "hull_workboat_tug",
+   "interface": "BTWORKBO/floor/cockpit_sole/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     218064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.662,
+     2.1,
+     4.7071,
+     0.02,
+     4.2
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTWORKBO.equipment.tug_fenders.C.hull_workboat_tug.0d5a23": {
    "id": "BTWORKBO.equipment.tug_fenders.C.hull_workboat_tug.0d5a23",
@@ -3071,7 +3211,7 @@
    "reach": 0.0,
    "mats": {
     "rubber": [
-     145488,
+     218904,
      1824
     ]
    },
@@ -3103,7 +3243,7 @@
    "reach": 0.0,
    "mats": {
     "black": [
-     196560,
+     269976,
      36
     ]
    },

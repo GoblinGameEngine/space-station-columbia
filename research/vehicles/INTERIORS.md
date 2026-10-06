@@ -62,3 +62,45 @@ work, we need a speedometer and a battery guage."
   passenger shuttle's far side (48 %), the pontoon boat's bow fence (88 % ahead).
 - **Seats** wear pleated vinyl (`upholstery`: 6 cm pleats, stitched seams, a cross seam, a leather grain), tinted by
   each style's seat colour.
+
+## Complete interiors (2026-10-05)
+
+The user: "All of the vehicles need complete interiors, that includes the boats, aerostats, and trains."
+
+The fittings are their own tokens (`remake/blender/fleet/interiors.py`, run at the end of `dress()`; boats:
+`fleet/boat_interiors.py`). Type fittings are `fit_*` modules: a variant drops its base type's and builds its own.
+
+- **Every cabin**:
+  - **Door cards** on each door's inside, carried by the door (role `leaf_trim`, on its closer): a chrome belt strip, a
+    vinyl insert, an armrest, a pull cup, the window crank, a carpeted kick panel.
+  - **Fittings round the driver**: the pedals at the toe board, a rear-view mirror on its stalk, two sun visors, the
+    dome lamp's lens, and a console with the drive selector between two separated front seats.
+  - A variant that moves the driver (the mail truck) rebuilds these.
+- **By type**:
+  - **Grab poles** at the aisle's edge in front of every other row, and a ceiling rail each side: transit and school
+    buses, the trolley, the hotel shuttle, paratransit, the spoke elevator car.
+  - **Luggage racks** on brackets in the passenger train; **overhead bins** in the passenger shuttle.
+  - **Medical fit-out**: a stretcher on its cot, the medics' cabinets with lockers over, an oxygen bottle and a
+    monitor. Ambulance and rescue aerostat.
+  - **Shelving**: delivery, parcel and service vans, the mail truck.
+  - **Serving counter**: a worktop with a griddle, plus a chill box. Food and ice-cream trucks.
+  - **Hearse**: a casket deck with rails. **Limousine**: a partition with glass over it.
+  - **Motorhome and camper trailer**: a bed across the back, a dinette, a galley with sink and hob, and lockers.
+  - Rear fittings stop ahead of any seat rows behind the front seats.
+- **Boats**:
+  - **Wheelhouse helm**: a pedestal helm chair at the registry seat (0.95 m behind the front wall, 0.45 m over the
+    sole). The wheel and live dials come from the road fleet's `Builder.station` (upright, Class B), and the console
+    runs out to the front wall, its top under the sight line.
+  - **Behind the helm**: a settee to port and a chart table to starboard.
+  - **Ferry**: its wheelhouse is a saloon of bench rows either side of an aisle. **Barge**: a control cabin at the stern.
+  - **The wheelhouse sole** sits over the deck's crown (`hull.wh_floor`; it had been at the mid-sheer, and the deck
+    showed through).
+  - **Cockpits**:
+    - A wooden sole: a pontoon's deck 0.40 m under the sheer; 0.6 x the freeboard down (at most 0.85 m) on bigger
+      boats; floorboards at the bottom of a small boat.
+    - Benches with backs along the sides (sailboat, cruiser, coast guard, pontoon).
+    - The pontoon's helm console, chair, wheel and dials.
+  - **Registry**: the hull gets `sole` and `wh_floor`, and the game's boat colliders stand people on them.
+- **Fixed on the way**: a variant's own `seats` were never passed to its build, so the paratransit van and the hotel
+  shuttle had no passenger rows.
+- **Renders**: `<type>_interior.png` for every cabin (aerostats too), each wheelhouse, and `<boat>_cockpit.png`.

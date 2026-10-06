@@ -2979,8 +2979,8 @@
    "breaks": "detach",
    "tolerance": 0.2
   },
-  "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.e98b09": {
-   "id": "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.e98b09",
+  "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.dfd015": {
+   "id": "BTCOAST_.cab.wheelhouse.C.hull_coast_guard_boat.dfd015",
    "standard": "BTCOAST_",
    "class": "coast_guard_boat",
    "role": "cab",
@@ -2990,31 +2990,23 @@
    "interface": "BTCOAST_/cab/wheelhouse/C",
    "reach": 0.0,
    "mats": {
-    "black": [
-     121632,
-     96
-    ],
-    "dash": [
-     124320,
-     36
-    ],
     "paint": [
-     125328,
+     121632,
      540
     ],
     "paint2": [
-     140448,
+     136752,
      36
     ],
     "wood": [
-     141456,
+     137760,
      36
     ]
    },
    "boxes": [
     [
      0.0,
-     2.3306,
+     2.4453,
      2.0,
      2.8,
      2.03,
@@ -3027,8 +3019,8 @@
    "breaks": "detach",
    "tolerance": 0.15
   },
-  "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.530a15": {
-   "id": "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.530a15",
+  "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.f93dbb": {
+   "id": "BTCOAST_.glazing.wheelhouse.C.hull_coast_guard_boat.f93dbb",
    "standard": "BTCOAST_",
    "class": "coast_guard_boat",
    "role": "glazing",
@@ -3039,14 +3031,14 @@
    "reach": 0.0,
    "mats": {
     "glass": [
-     142464,
+     138768,
      108
     ]
    },
    "boxes": [
     [
      0.0,
-     2.6356,
+     2.7503,
      1.8505,
      2.562,
      1.02,
@@ -3058,6 +3050,190 @@
    "mass_kg": 20,
    "breaks": "detach",
    "tolerance": 0.012
+  },
+  "BTCOAST_.dash.helm.C.hull_coast_guard_boat.ce30ca": {
+   "id": "BTCOAST_.dash.helm.C.hull_coast_guard_boat.ce30ca",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "dash",
+   "slot": "helm",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/dash/helm/C",
+   "reach": 0.0,
+   "mats": {
+    "black": [
+     141792,
+     1800
+    ],
+    "chrome": [
+     192192,
+     276
+    ],
+    "dash": [
+     199920,
+     252
+    ],
+    "seat": [
+     206976,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     1.9936,
+     0.5875,
+     1.1,
+     1.0267,
+     1.1751
+    ]
+   ],
+   "wear": true,
+   "hp": 400,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTCOAST_.dash.readout.C.hull_coast_guard_boat.bd3bd8": {
+   "id": "BTCOAST_.dash.readout.C.hull_coast_guard_boat.bd3bd8",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "dash",
+   "slot": "readout",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/dash/readout/C",
+   "reach": 0.0,
+   "mats": {
+    "lcd": [
+     211008,
+     36
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     2.2429,
+     0.0065,
+     0.056,
+     0.0208,
+     0.02
+    ]
+   ],
+   "wear": true,
+   "hp": 60,
+   "mass_kg": 0.3,
+   "breaks": "shatter",
+   "tolerance": 0.08
+  },
+  "BTCOAST_.fittings.wheelhouse_fit.C.hull_coast_guard_boat.934f15": {
+   "id": "BTCOAST_.fittings.wheelhouse_fit.C.hull_coast_guard_boat.934f15",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "fittings",
+   "slot": "wheelhouse_fit",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/fittings/wheelhouse_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     212016,
+     36
+    ],
+    "seat": [
+     213024,
+     72
+    ],
+    "wood": [
+     215040,
+     108
+    ]
+   },
+   "boxes": [
+    [
+     -0.01,
+     1.9503,
+     1.09,
+     2.46,
+     0.94,
+     2.18
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 120,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTCOAST_.floor.cockpit_sole.C.hull_coast_guard_boat.673f48": {
+   "id": "BTCOAST_.floor.cockpit_sole.C.hull_coast_guard_boat.673f48",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "floor",
+   "slot": "cockpit_sole",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/floor/cockpit_sole/C",
+   "reach": 0.0,
+   "mats": {
+    "wood": [
+     218064,
+     30
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.5288,
+     1.55,
+     2.9804,
+     0.02,
+     3.1
+    ]
+   ],
+   "wear": true,
+   "hp": 800,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
+  },
+  "BTCOAST_.fittings.cockpit_fit.C.hull_coast_guard_boat.8e2871": {
+   "id": "BTCOAST_.fittings.cockpit_fit.C.hull_coast_guard_boat.8e2871",
+   "standard": "BTCOAST_",
+   "class": "coast_guard_boat",
+   "role": "fittings",
+   "slot": "cockpit_fit",
+   "side": "C",
+   "style": "hull_coast_guard_boat",
+   "interface": "BTCOAST_/fittings/cockpit_fit/C",
+   "reach": 0.0,
+   "mats": {
+    "paint2": [
+     218904,
+     72
+    ],
+    "seat": [
+     220920,
+     144
+    ]
+   },
+   "boxes": [
+    [
+     0.0,
+     0.9638,
+     1.275,
+     2.6243,
+     0.87,
+     2.55
+    ]
+   ],
+   "wear": true,
+   "hp": 300,
+   "mass_kg": 60,
+   "breaks": "detach",
+   "tolerance": 0.08
   },
   "BTCOAST_.equipment.rail.C.hull_coast_guard_boat.d720d8": {
    "id": "BTCOAST_.equipment.rail.C.hull_coast_guard_boat.d720d8",
@@ -3071,7 +3247,7 @@
    "reach": 0.0,
    "mats": {
     "chrome": [
-     145488,
+     224952,
      1200
     ]
    },
@@ -3103,7 +3279,7 @@
    "reach": 0.0,
    "mats": {
     "lamp_red": [
-     179088,
+     258552,
      36
     ]
    },
