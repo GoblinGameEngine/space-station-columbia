@@ -1,0 +1,74 @@
+{
+ "id": "CAT-HC-038",
+ "catalog_id": "HC-038",
+ "images": [
+  {
+   "file": "remake/reference/HC-038/commons_Ranch_houses_on_6th_St_Marshfield_Wisconsin.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Ranch_houses_on_6th_St_Marshfield_Wisconsin.jpg",
+   "license": "CC0",
+   "author": "Jeff the quiet",
+   "caption": "Two ranch houses in the West Fifth Street-West Sixth Street Historic District in Marshfield, Wisconsin: the 1951 Hill house at 1000 W 6th St, and the 1951 Webster house at 1006 W 6th St."
+  }
+ ],
+ "place": {
+  "town": "Marshfield",
+  "state": "WI",
+  "band": "postwar_1945_1965",
+  "source_title": "Hill house, 1000 West 6th Street (West Fifth Street-West Sixth Street Historic District)",
+  "transect": "T3"
+ },
+ "year_built": 1951,
+ "tokens": [
+  "use:house",
+  "roof_mat:asphalt_shingle",
+  "porch:stoop",
+  "porch_post:iron",
+  "rail:none",
+  "foundation:poured_concrete",
+  "chimney:ridge_centre",
+  "condition:kept",
+  "form:ranch",
+  "storeys:1",
+  "roof:hip",
+  "pitch:low",
+  "wall:brick",
+  "colour_body:buff_brick",
+  "garage:attached_front",
+  "door_pos:centre",
+  "window:picture",
+  "setback:medium",
+  "setting:residential_grid",
+  "bound_front:lawn_continuous",
+  "bound_front:sidewalk_terrace",
+  "bound_side:driveway",
+  "ornament:none"
+ ],
+ "brief": "Long 1951 one-storey ranch house in a historic district of post-war houses: a low hipped roof, pale brick and siding walls, a wide picture window, an attached two-car garage and a broad lawn under tall trees; its neighbour the 1951 Webster house repeats the type.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "ranch"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W D W G"
+  ],
+  "notes": "a 1951 buff-brick hipped ranch with a two-car garage facing the street at one end, flags and lawn ornaments, foundation planting, a driveway across the lawn to the street; a neighbouring ranch of the same family beyond; tall pines and maples along the terrace"
+ },
+ "lot": {
+  "setback": "medium",
+  "driveway": "front_to_garage"
+ },
+ "why": [
+  {
+   "token": "garage:attached_front",
+   "cause": "technology",
+   "ref": "research/buildings/LOTS.md \u00a72",
+   "note": "by the 1950s the garage joins the house and faces the street (0-2% outbuildings measured in such tracts)"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

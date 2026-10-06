@@ -1,0 +1,80 @@
+{
+ "id": "CAT-CF-010",
+ "catalog_id": "CF-010",
+ "images": [
+  {
+   "file": "remake/reference/CF-010/commons_HABS_WIS_45-THIVI.V_1-1.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:William_T._Bonniwell_House,_Wauwatosa_Avenue,_Thiensville,_Ozaukee_County,_WI_HABS_WIS,45-THIVI.V,1-1.tif",
+   "license": "Public domain",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Thiensville",
+  "state": "WI",
+  "band": "canal_1830_1860",
+  "source_title": "William T. Bonniwell House, Wauwatosa Avenue",
+  "transect": "T2"
+ },
+ "year_built": 1840,
+ "tokens": [
+  "use:house",
+  "form:i_house",
+  "storeys:2",
+  "roof:gable",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "porch:stoop",
+  "porch_post:square",
+  "rail:none",
+  "wall:clapboard",
+  "foundation:fieldstone",
+  "window:6over6",
+  "chimney:multiple",
+  "garage:none",
+  "condition:worn",
+  "bays:6",
+  "symmetry:near_symmetric",
+  "door_pos:centre",
+  "setback:medium",
+  "setting:rural_road",
+  "bound_front:woodland_belt",
+  "foundation_exposure:low",
+  "style:greek_revival_folk"
+ ],
+ "brief": "Long two-storey side-gabled frame house of the 1830s-40s (HABS dates it 'after 1830') in the Milwaukee River mill village of Thiensville: plain clapboard walls, regular rows of 6/6 windows, a simple entrance with a small sign board over it, interior chimneys and a low foundation, half hidden by big trees. HABS drawings record the plans and framing.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "i_house"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W W W W",
+   "W W W D W W"
+  ],
+  "notes": "a long two-storey side-gabled house with flush or plastered walls, six bays a floor, a centre entrance under a small entablature, plain cornice; overgrown with trees and shrubs to the eaves: a worn, half-abandoned farm house (HABS 1930s)"
+ },
+ "lot": {
+  "setback": "medium"
+ },
+ "why": [
+  {
+   "token": "form:i_house",
+   "cause": "folk",
+   "ref": "great_lakes/02_styles.md \u00a71",
+   "note": "the two-storey, one-room-deep farmhouse; here stretched to six bays"
+  },
+  {
+   "token": "condition:worn",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "a 1840 house left behind by the farm economy: overgrowth closing in"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

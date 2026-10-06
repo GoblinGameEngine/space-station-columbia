@@ -1,0 +1,104 @@
+{
+ "id": "CAT-HF-028",
+ "catalog_id": "HF-028",
+ "images": [
+  {
+   "file": "remake/reference/HF-028/loc_il0189_photos_062260pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/il0189/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  },
+  {
+   "file": "remake/reference/HF-028/loc_il0189_photos_062261pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/il0189/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  },
+  {
+   "file": "remake/reference/HF-028/loc_il0189_photos_062262pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/il0189/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Galena",
+  "state": "IL",
+  "band": "canal_1830_1860",
+  "source_title": "Specht House",
+  "transect": "T4"
+ },
+ "year_built": 1845,
+ "tokens": [
+  "use:house",
+  "pitch:steep",
+  "roof_mat:metal_standing_seam",
+  "porch:stoop",
+  "porch_post:square",
+  "rail:none",
+  "foundation:fieldstone",
+  "window:6over6",
+  "chimney:multiple",
+  "garage:none",
+  "condition:worn",
+  "form:i_house",
+  "style:vernacular",
+  "storeys:2",
+  "roof:gable",
+  "cornice:parapet_stepped",
+  "wall:brick",
+  "bays:5",
+  "door_pos:side",
+  "ornament:shutters",
+  "foundation_exposure:high",
+  "setback:shallow",
+  "lot_corner:yes",
+  "setting:residential_grid",
+  "bound_front:wall_retaining",
+  "bound_front:grade_change",
+  "outbuilding:rear"
+ ],
+ "brief": "Tall two-and-a-half-storey brick house built into a hillside: side-gabled roof between stepped parapet end walls with paired chimneys, 6/6 windows with stone sills, and a stone-vaulted cellar exposed on the downhill side. Plain, heavy mining-town Federal style; the street drops steeply past it toward the river.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "i_house"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W W W",
+   "W D W W W"
+  ],
+  "notes": "the Specht House (Galena, 1845): two storeys of brick with stepped parapet gable ends and paired chimneys, shutters; it stands on a corner above a high dry-stone retaining wall with a slanted cellar bulkhead; a small stone outbuilding behind; the sidewalk climbs the hill below the wall"
+ },
+ "lot": {
+  "setback": "shallow",
+  "corner": true,
+  "grade": "terraced"
+ },
+ "why": [
+  {
+   "token": "cornice:parapet_stepped",
+   "cause": "code",
+   "ref": "great_lakes/01_codes.md \u00a74",
+   "note": "stepped gables at the chimneys: masonry fire stops, a Galena (and German) habit"
+  },
+  {
+   "token": "bound_front:wall_retaining",
+   "cause": "climate",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "Galena's bluffs: every lot terraced on a stone wall"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

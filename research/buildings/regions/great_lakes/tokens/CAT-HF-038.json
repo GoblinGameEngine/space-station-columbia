@@ -1,0 +1,84 @@
+{
+ "id": "CAT-HF-038",
+ "catalog_id": "HF-038",
+ "images": [
+  {
+   "file": "remake/reference/HF-038/loc_oh0252_photos_125673pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/oh0252/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Cleveland",
+  "state": "OH",
+  "band": "railroad_1860_1900",
+  "source_title": "H. Mould House, 2637 Cedar Avenue",
+  "transect": "T4"
+ },
+ "year_built": 1860,
+ "tokens": [
+  "use:house",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "porch_post:square",
+  "rail:none",
+  "foundation:brick",
+  "window:6over6",
+  "ornament:shutters",
+  "chimney:multiple",
+  "garage:none",
+  "bound_side:fence_picket",
+  "form:pyramidal_cottage",
+  "style:vernacular",
+  "storeys:1",
+  "roof:pyramid",
+  "porch:recessed",
+  "bays:3",
+  "door_pos:centre",
+  "wall:clapboard",
+  "setback:shallow",
+  "side_gap:tight",
+  "lot_w:narrow",
+  "setting:residential_grid",
+  "bound_front:fence_iron",
+  "bound_front:sidewalk_terrace",
+  "condition:worn",
+  "outbuilding:rear"
+ ],
+ "brief": "One-and-a-half-storey frame cottage of 1860 on a city street: side-gabled, clapboard, a full-width front porch on slender posts, shuttered 6/6 windows and a centre door. Record: 1 photo plus 3 measured drawing sheets (plans, elevations, mantel and door details).",
+ "catalog": {
+  "kind": "house",
+  "archetype": "side_gable_cottage"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W D W"
+  ],
+  "notes": "the H. Mould House (Cleveland, 1860): a small one-storey pyramid-roofed cottage with a recessed full porch, a central chimney, signs in the windows; a low iron fence along the sidewalk; crowded frame houses on both sides (a bargeboarded two-storey next door), wash lines and sheds in the back yards, a car in the drive; streetcar tracks in the street"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "tight"
+ },
+ "why": [
+  {
+   "token": "form:pyramidal_cottage",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md \u00a71",
+   "note": "the cheapest city cottage: a square box under a pyramid roof on a narrow lot"
+  },
+  {
+   "token": "condition:worn",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "a 1930s inner-city block filtering down: crowded, worn, signs in the windows"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

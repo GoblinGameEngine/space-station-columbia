@@ -12,3 +12,7 @@
   photos are kept as national types (TOKENS rule), with their real places recorded.
 - 2026-10-05: 42 buildings annotated (GL-0001..0042): the postwar, bungalow, town-house, apartment, Main Street, strip,
   roadside, prefab, Ontario and Toledo assessor-card sets.
+- 2026-10-05: HC-019 (Selfridge Field quarters) skipped: no photographs in remake/reference (drawings only).
+- 2026-10-05: HC-027 (Schwartz House) skipped: only interior photographs on file.
+- 2026-10-05: HF-042 (Luce House) skipped: only a porch detail photo.
+- 2026-10-05: HF-057 (Pinkerton House) skipped: only an avenue-of-trees photo, the house not visible.

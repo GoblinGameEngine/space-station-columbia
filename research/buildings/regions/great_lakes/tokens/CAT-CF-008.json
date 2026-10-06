@@ -1,0 +1,83 @@
+{
+ "id": "CAT-CF-008",
+ "catalog_id": "CF-008",
+ "images": [
+  {
+   "file": "remake/reference/CF-008/commons_HABS_WIS_25-MINPO_2-1.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Cornish_Miner%27s_House_No._2,_Mineral_Point,_Iowa_County,_WI_HABS_WIS,25-MINPO,2-1.tif",
+   "license": "Public domain",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Mineral Point",
+  "state": "WI",
+  "band": "pioneer_pre1850",
+  "source_title": "Cornish Miner's House No. 2",
+  "transect": "T3"
+ },
+ "year_built": 1828,
+ "tokens": [
+  "use:house",
+  "storeys:2",
+  "roof:gable",
+  "pitch:steep",
+  "roof_mat:metal_standing_seam",
+  "porch_post:turned",
+  "rail:none",
+  "wall:stone",
+  "foundation:fieldstone",
+  "window:6over6",
+  "ornament:shutters",
+  "chimney:multiple",
+  "garage:none",
+  "condition:worn",
+  "form:i_house",
+  "wing:side",
+  "bays:2",
+  "door_pos:side",
+  "symmetry:asymmetric",
+  "foundation_exposure:low",
+  "setback:shallow",
+  "porch:stoop",
+  "setting:residential_grid",
+  "bound_front:fence_picket",
+  "bound_rear:grade_change"
+ ],
+ "brief": "Early stone miner's house (c.1828 per HABS) built into a hillside: a two-storey side-gabled block of rough-coursed local limestone with a metal-sheathed roof, big stone end chimneys, shuttered 6/6 windows and a small gabled hood on turned brackets over the door, with a lower stone and frame lean-to and a board picket fence along the walk.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "i_house"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W",
+   "D W"
+  ],
+  "notes": "a two-storey rubble-stone house with dressed quoins and lintels, a side-gabled metal roof and big end chimneys, louvred shutters; a lean-to hood on brackets over the door; a lower stone wing to one side; a picket fence along the sidewalk; the hill rises steeply behind with sheds"
+ },
+ "lot": {
+  "setback": "shallow",
+  "fence": "picket_front"
+ },
+ "why": [
+  {
+   "token": "wall:stone",
+   "cause": "folk",
+   "ref": "great_lakes/02_styles.md \u00a71",
+   "note": "Cornish lead miners built in local limestone (Mineral Point, 1830s-40s)"
+  },
+  {
+   "token": "bound_front:fence_picket",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "a picket fence on the street line: the front-yard fence of the pre-1900 town"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

@@ -1,0 +1,81 @@
+{
+ "id": "CAT-HC-032",
+ "catalog_id": "HC-032",
+ "images": [
+  {
+   "file": "remake/reference/HC-032/commons_1819_Lyndale_Ave_Eau_Claire_WI_54701.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:1819_Lyndale_Ave,_Eau_Claire,_WI_54701.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "Maarten Daams",
+   "caption": "Prefabricated house consisting of metal with a layer of enamel"
+  }
+ ],
+ "place": {
+  "town": "Eau Claire",
+  "state": "WI",
+  "band": "postwar_1945_1965",
+  "source_title": "Lustron house, 1819 Lyndale Avenue",
+  "transect": "T3"
+ },
+ "year_built": 1949,
+ "tokens": [
+  "use:house",
+  "roof_mat:metal_standing_seam",
+  "porch_post:iron",
+  "rail:none",
+  "foundation:poured_concrete",
+  "chimney:ridge_centre",
+  "form:american_small_house",
+  "style:midcentury_modern",
+  "storeys:1",
+  "roof:gable",
+  "pitch:low",
+  "wall:metal_panel",
+  "window:picture",
+  "door_pos:side",
+  "porch:recessed",
+  "garage:detached_side",
+  "setback:medium",
+  "setting:residential_grid",
+  "bound_front:sidewalk_terrace",
+  "bound_side:driveway",
+  "foundation:slab",
+  "foundation_exposure:slab",
+  "condition:kept"
+ ],
+ "brief": "Post-war prefabricated Lustron house (c.1949): a one-storey side-gabled box with walls and roof of porcelain-enamelled steel panels in a pale green, a small corner porch with a single steel post, picture and paired windows, a detached one-car garage and a concrete drive on a corner lot with mature trees.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "ranch"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "D W Wp"
+  ],
+  "notes": "a Lustron (Eau Claire, 1949) in its original 'surf blue/green' enamel: steel-panel walls in a 2 ft grid, a steel-tile roof, a recessed corner porch on a single post, a picture window with a vertical-blind, a matching steel Lustron garage behind on a long driveway; sidewalk, curb and a terrace tree"
+ },
+ "lot": {
+  "setback": "medium",
+  "driveway": "side_long",
+  "garage": "detached_rear"
+ },
+ "why": [
+  {
+   "token": "wall:metal_panel",
+   "cause": "technology",
+   "ref": "great_lakes/02_styles.md \u00a74",
+   "note": "the factory house from Columbus, Ohio: enamelled steel panels bolted to a steel frame"
+  },
+  {
+   "token": "garage:detached_side",
+   "cause": "economics",
+   "ref": "",
+   "note": "Lustron sold a matching steel garage"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

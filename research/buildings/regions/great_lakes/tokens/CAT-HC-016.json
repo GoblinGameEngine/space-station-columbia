@@ -1,0 +1,83 @@
+{
+ "id": "CAT-HC-016",
+ "catalog_id": "HC-016",
+ "images": [
+  {
+   "file": "remake/reference/HC-016/commons_HABS_WIS_67-PROSP_3-1.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:William_Smith_Farmhouse,_Prospect,_Waukesha_County,_WI_HABS_WIS,67-PROSP,3-1.tif",
+   "license": "Public domain",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Prospect",
+  "state": "WI",
+  "band": "canal_1830_1860",
+  "source_title": "William Smith Farmhouse",
+  "transect": "T2"
+ },
+ "year_built": 1848,
+ "tokens": [
+  "use:house",
+  "form:upright_and_wing",
+  "storeys:2",
+  "roof:cross_gable",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "porch:stoop",
+  "porch_post:square",
+  "rail:none",
+  "wall:clapboard",
+  "foundation:fieldstone",
+  "chimney:rear",
+  "garage:none",
+  "condition:kept",
+  "bays:2",
+  "door_pos:wing",
+  "style:greek_revival_folk",
+  "ornament:pilasters",
+  "trim:wide_frieze",
+  "window:picture",
+  "setback:shallow",
+  "setting:rural_road",
+  "bound_front:fence_farm_wire",
+  "bound_front:mow_line",
+  "alteration:added_wing"
+ ],
+ "brief": "Greek Revival farmhouse of 1848: a two-storey clapboard gable-front upright with a broad frieze and returns, 6/6 windows and a chimney, and a one-storey side wing with a large boarded opening; a wire fence and gate on the road and a neighbour's porch alongside.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "upright_and_wing"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W",
+   "W W | D W"
+  ],
+  "notes": "a two-storey gable-front upright with corner pilasters and a cornice return, a one-storey wing with a broad later picture window and a plank door; a woven-wire farm fence with a pipe gate along the gravel road, a concrete walk to the wing; a neighbour's porch close by"
+ },
+ "lot": {
+  "setback": "shallow",
+  "fence": "woven_wire_front"
+ },
+ "why": [
+  {
+   "token": "bound_front:fence_farm_wire",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "a village-edge lot fenced like a farm: woven wire on posts, a gate to the road"
+  },
+  {
+   "token": "window:picture",
+   "cause": "change",
+   "ref": "",
+   "note": "a 1950s picture window cut into the 1840s wing"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

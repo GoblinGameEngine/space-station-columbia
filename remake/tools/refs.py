@@ -40,7 +40,7 @@ _last = [0.0]
 def get(url, binary=False, tries=4):
     if "wikimedia.org" in url:
         # Wikimedia asks automated clients to stay slow; they 429 bursts
-        wait = 1.5 - (time.time() - _last[0])
+        wait = 3.0 - (time.time() - _last[0])
         if wait > 0:
             time.sleep(wait)
         _last[0] = time.time()
@@ -53,7 +53,8 @@ def get(url, binary=False, tries=4):
         except Exception as e:  # noqa: BLE001 -- network flakiness, retry then give up
             if k == tries - 1:
                 raise
-            time.sleep(5 + 10 * k)
+            # (Wikimedia's 429 "too many requests": back off a minute or more, not seconds)
+            time.sleep((60 + 60 * k) if "429" in str(e) else (5 + 10 * k))
 
 
 def manifest_add(sid, entry):

@@ -1,0 +1,88 @@
+{
+ "id": "CAT-HF-011",
+ "catalog_id": "HF-011",
+ "images": [
+  {
+   "file": "remake/reference/HF-011/loc_in0023_photos_064699pv.jpg",
+   "view": "front_34",
+   "source": "Library of Congress HABS/HAER",
+   "url": "https://www.loc.gov/item/in0023/",
+   "license": "Public domain (US government work; no known restrictions)",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Madison",
+  "state": "IN",
+  "band": "railroad_1860_1900",
+  "source_title": "John Eckert House, 510 West Second Street",
+  "transect": "T4"
+ },
+ "year_built": 1872,
+ "tokens": [
+  "use:house",
+  "pitch:mid",
+  "roof_mat:metal_standing_seam",
+  "porch:stoop",
+  "porch_post:iron",
+  "rail:none",
+  "wall:brick",
+  "foundation:brick",
+  "chimney:rear",
+  "garage:none",
+  "bound_side:fence_iron",
+  "condition:kept",
+  "form:shotgun",
+  "style:italianate",
+  "storeys:1",
+  "roof:flat_parapet",
+  "cornice:bracketed_metal",
+  "bays:3",
+  "symmetry:asymmetric",
+  "door_pos:side",
+  "window:arched",
+  "ornament:brackets",
+  "ornament:quoins",
+  "ornament:hood_moulds",
+  "foundation_exposure:low",
+  "setback:shallow",
+  "side_gap:tight",
+  "lot_w:narrow",
+  "setting:residential_grid",
+  "bound_front:fence_iron",
+  "bound_side:fence_chainlink"
+ ],
+ "brief": "One-storey brick shotgun house, one room wide and several deep, with a street facade of pressed sheet metal in an Italianate style: pilasters, tall round-headed windows and a heavy bracketed cornice hiding the gable behind. A low iron fence runs along the sidewalk; built for a tinsmith, it sits among two-storey brick neighbours. Record has 1 photo plus 3 measured drawing sheets.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "shotgun"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W D"
+  ],
+  "notes": "the John Eckert House (1872): a one-storey Italianate front on a narrow deep lot -- an elaborate pressed-metal or cast front with a bracketed and panelled cornice, rusticated corner quoins, three tall openings under arched hoods with keystone cartouches; a long plain brick side wall running back; a low iron fence at the walk"
+ },
+ "lot": {
+  "setback": "shallow",
+  "side_gap": "tight"
+ },
+ "why": [
+  {
+   "token": "form:shotgun",
+   "cause": "economics",
+   "ref": "research/buildings/LOTS.md \u00a71",
+   "note": "a narrow, deep lot: one room wide, rooms in a line back from a show front"
+  },
+  {
+   "token": "cornice:bracketed_metal",
+   "cause": "technology",
+   "ref": "great_lakes/02_styles.md \u00a73",
+   "note": "catalogue cast-iron and pressed-metal ornament put city style on a small house"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}
