@@ -1,0 +1,88 @@
+{
+ "id": "CAT-LG-010",
+ "catalog_id": "LG-010",
+ "images": [
+  {
+   "file": "remake/reference/LG-010/commons_HABS_WIS_66-KIRHA.V_1-1.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Christian_Turck_House,_Kirchhayn,_Washington_County,_WI_HABS_WIS,66-KIRHA.V,1-1.tif",
+   "license": "Public domain",
+   "author": "",
+   "caption": ""
+  },
+  {
+   "file": "remake/reference/LG-010/commons_HABS_WIS_66-KIRHA.V_1-2.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Christian_Turck_House,_Kirchhayn,_Washington_County,_WI_HABS_WIS,66-KIRHA.V,1-2.tif",
+   "license": "Public domain",
+   "author": "",
+   "caption": ""
+  }
+ ],
+ "place": {
+  "town": "Kirchhayn",
+  "state": "WI",
+  "band": "canal_1830_1860",
+  "source_title": "Christian Turck House",
+  "transect": "T2"
+ },
+ "year_built": 1840,
+ "tokens": [
+  "use:house",
+  "roof_mat:wood_shingle",
+  "porch_post:square",
+  "rail:none",
+  "foundation:fieldstone",
+  "window:6over6",
+  "chimney:ridge_centre",
+  "garage:none",
+  "bound_side:fence_split_rail",
+  "form:side_gable_cottage",
+  "style:vernacular",
+  "storeys:1.5",
+  "roof:gable",
+  "pitch:steep",
+  "wall:log",
+  "porch:side",
+  "bays:2",
+  "door_pos:side",
+  "condition:worn",
+  "setting:farmstead",
+  "lot_tenure:aliquot_farm"
+ ],
+ "brief": "German-settler log house of the 1830s-40s ('after 1830' per HABS): a storey-and-a-half block of squared logs with wide chinking under a steep wood-shingle roof, weathered vertical boards in the gable, a lean-to shed along one side, a small 6/6 window and a split-rail fence on a sloping farmyard.",
+ "catalog": {
+  "kind": "house",
+  "archetype": "side_gable_cottage"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W",
+   "W"
+  ],
+  "notes": "the Christian Turck House (Kirchhayn WI, c.1840): a squared-log house with wide chinking, a board gable, a deep porch on the side; a dry fieldstone foundation; a split-rail fence beside"
+ },
+ "lot": {
+  "setback": "unknown",
+  "fence": "split_rail"
+ },
+ "why": [
+  {
+   "token": "wall:log",
+   "cause": "folk",
+   "ref": "great_lakes/02_styles.md \u00a71",
+   "note": "German settlers' hewn-log first houses (1840s)"
+  },
+  {
+   "token": "bound_side:fence_split_rail",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "the split-rail fence of the pioneer farm"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

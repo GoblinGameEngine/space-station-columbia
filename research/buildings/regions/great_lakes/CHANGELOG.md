@@ -16,3 +16,5 @@
 - 2026-10-05: HC-027 (Schwartz House) skipped: only interior photographs on file.
 - 2026-10-05: HF-042 (Luce House) skipped: only a porch detail photo.
 - 2026-10-05: HF-057 (Pinkerton House) skipped: only an avenue-of-trees photo, the house not visible.
+- 2026-10-05: HVN-* (Montauk NY) excluded from the region: New York counts only for its Lake Erie / western shore. HVN-006 is a 3D render, not a photo.
+- 2026-10-05: K-094 skipped: the photo shows only trees and a pier.

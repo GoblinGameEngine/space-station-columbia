@@ -18,6 +18,7 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 CAT = os.path.join(ROOT, "remake", "catalog")
 REF = os.path.join(ROOT, "remake", "reference")
 REGIONS = {"great_lakes": {"OH", "MI", "IN", "IL", "WI", "MN", "PA", "NY", "ON"}}
+EXCLUDE = {"great_lakes": ("HVN-",)}             # (Montauk NY: the Atlantic shore, not the Great Lakes)
 
 FORM = {"i_house": "i_house", "gable_front": "gable_front", "upright_and_wing": "upright_and_wing", "foursquare": "foursquare",
         "bungalow": "bungalow", "workers_cottage": "workers_cottage", "queen_anne": "queen_anne_irregular",
@@ -63,6 +64,8 @@ def ids(region="great_lakes", kinds=None):
         try:
             r = json.load(open(os.path.join(CAT, f)))
         except Exception:
+            continue
+        if r["id"].startswith(EXCLUDE.get(region, ())):
             continue
         if state_of(r.get("example", {}).get("place", "")) in REGIONS[region] and (not kinds or r.get("kind") in kinds):
             out.append(r["id"])
