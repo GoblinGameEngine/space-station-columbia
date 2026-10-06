@@ -89,6 +89,11 @@ func _ready() -> void:
 	add_child(cliffs)
 	cliffs.setup(player)
 	_mark("cliffs setup")
+	var mountains := CapMountains.new()
+	mountains.name = "CapMountains"
+	add_child(mountains)
+	mountains.setup(player)
+	_mark("cap mountains setup")
 	for c in get_children():
 		if c.name.begins_with("map_water_") or c.name.begins_with("map_small_water_"):
 			far_side.add_node(c)
@@ -169,6 +174,7 @@ func _watch_load() -> void:
 		"roads": func() -> bool: return not get_node("Roads").is_processing(),
 		"walks": func() -> bool: return not get_node("Walks").is_processing(),
 		"cliffs": func() -> bool: return (get_node("CliffWalls") as CliffWalls)._todo.is_empty(),
+		"mountains": func() -> bool: return (get_node("CapMountains") as CapMountains).loaded(),
 		"cloud skins": func() -> bool: return (get_node("Clouds") as RemakeClouds)._skin_task == -1,
 		"structures": func() -> bool: return streamer.records.size() > 0,
 		"aerostats": func() -> bool: return _aero_done,
@@ -426,35 +432,49 @@ func _setup_environment() -> void:
 
 
 func _build_shell() -> void:
-	## End walls (surface 0) and the central shaft (surface 1, the sky system's "ceiling").
+	## End walls (surface 0) and the central shaft with the caps' sky discs (surface 1, the sky system's "ceiling").
+	## The caps (the user, 2026-10-05: "a mountain range running up 1.5 km, then sky blue filling the centre ... like a
+	## curved canyon"): behind CliffWalls' bluff the old metal wall remains only as a strip; the mountains (CapMountains)
+	## recede up to the cap proper, pushed out by CapMountains.DEPTH, where a rock backing ring hides behind them and the
+	## sky disc fills the centre round the shaft -- in the shaft's own material, so it changes colour with it.
 	var n := 256
 	var walls := SurfaceTool.new()
 	walls.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var r_in := StationGeo.SHAFT_R
-	var r_out := StationGeo.R + 30.0                   # past the floor, under the terrain's lowest point
-	for end in [-1.0, 1.0]:
-		var x: float = end * StationGeo.HALF_LEN
-		for i in n:
-			var a0 := TAU * i / n
-			var a1 := TAU * (i + 1) / n
-			var q := [Vector3(x, r_in * cos(a0), r_in * sin(a0)), Vector3(x, r_out * cos(a0), r_out * sin(a0)),
-				Vector3(x, r_out * cos(a1), r_out * sin(a1)), Vector3(x, r_in * cos(a1), r_in * sin(a1))]
-			var order := [0, 1, 2, 0, 2, 3] if end > 0.0 else [0, 2, 1, 0, 3, 2]
-			for k in order:
-				var v: Vector3 = q[k]
-				walls.set_normal(Vector3(-end, 0, 0))
-				walls.set_uv(Vector2(v.y / WALL_TILE, v.z / WALL_TILE))
-				walls.add_vertex(v)
-	var wall_mat := StandardMaterial3D.new()
-	wall_mat.albedo_texture = load("res://assets/textures/station_metal_wall.png")
-	walls.set_material(wall_mat)
 	var shaft := SurfaceTool.new()
 	shaft.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var r_in := StationGeo.SHAFT_R
+	var r_out := StationGeo.R + 30.0                   # past the floor, under the terrain's lowest point
+	var x_cap := StationGeo.HALF_LEN + CapMountains.DEPTH
+	var r_sky := StationGeo.R - 1300.0                 # (under the lowest saddle of the crest: the disc's rim is hidden)
+	var rings := [[StationGeo.HALF_LEN, StationGeo.R - 146.0, r_out, walls],   # the strip behind the bluff (under its top)
+		[x_cap, r_sky - 20.0, StationGeo.R - 110.0, walls],                     # the backing behind the mountains
+		[x_cap, r_in, r_sky, shaft]]                                            # the sky
+	for end in [-1.0, 1.0]:
+		for ring in rings:
+			var x: float = end * float(ring[0])
+			var ra: float = ring[1]
+			var rb: float = ring[2]
+			var stl: SurfaceTool = ring[3]
+			for i in n:
+				var a0 := TAU * i / n
+				var a1 := TAU * (i + 1) / n
+				var q := [Vector3(x, ra * cos(a0), ra * sin(a0)), Vector3(x, rb * cos(a0), rb * sin(a0)),
+					Vector3(x, rb * cos(a1), rb * sin(a1)), Vector3(x, ra * cos(a1), ra * sin(a1))]
+				var order := [0, 1, 2, 0, 2, 3] if end > 0.0 else [0, 2, 1, 0, 3, 2]
+				for k in order:
+					var v: Vector3 = q[k]
+					stl.set_normal(Vector3(-end, 0, 0))
+					stl.set_uv(Vector2(v.y / WALL_TILE, v.z / WALL_TILE))
+					stl.add_vertex(v)
+	var wall_mat := StandardMaterial3D.new()
+	wall_mat.albedo_texture = load("res://assets/textures/station_metal_wall.png")
+	wall_mat.albedo_color = Color(0.45, 0.42, 0.4)
+	walls.set_material(wall_mat)
 	for i in n:
 		var a0 := TAU * i / n
 		var a1 := TAU * (i + 1) / n
-		var q := [Vector3(-StationGeo.HALF_LEN, r_in * cos(a0), r_in * sin(a0)), Vector3(StationGeo.HALF_LEN, r_in * cos(a0), r_in * sin(a0)),
-			Vector3(StationGeo.HALF_LEN, r_in * cos(a1), r_in * sin(a1)), Vector3(-StationGeo.HALF_LEN, r_in * cos(a1), r_in * sin(a1))]
+		var q := [Vector3(-x_cap, r_in * cos(a0), r_in * sin(a0)), Vector3(x_cap, r_in * cos(a0), r_in * sin(a0)),
+			Vector3(x_cap, r_in * cos(a1), r_in * sin(a1)), Vector3(-x_cap, r_in * cos(a1), r_in * sin(a1))]
 		for k in [0, 2, 1, 0, 3, 2]:
 			var v: Vector3 = q[k]
 			shaft.set_normal(Vector3(0, v.y, v.z).normalized())       # facing out, toward the floor
@@ -489,5 +509,5 @@ func _spawn_player() -> void:
 	add_child(player)
 	# see the whole cylinder: straight across (the far side, 2R overhead) and end cap to end cap --
 	# Godot's default 4 km far plane cut the view off into black on the 3 km ring
-	player.camera.far = 2.0 * StationGeo.R + StationGeo.LENGTH
+	player.camera.far = 2.0 * StationGeo.R + StationGeo.LENGTH + 2.0 * CapMountains.DEPTH
 	ScreenOutline.attach_to_camera(player.camera)

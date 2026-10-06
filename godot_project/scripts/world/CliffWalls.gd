@@ -123,16 +123,16 @@ func _build_tile(end: int, i: int) -> void:
 	# LOD1: detailed on a 6 m grid (hidden while this tile's LOD0 is loaded)
 	var mid := _build_mesh(end, s0, s0 + tile_s, 6.0, 6.0, true)
 	mid.name = "cliff_mid_%d_%d" % [end, i]
-	mid.visibility_range_end = MID
-	mid.visibility_range_end_margin = MID * 0.08
+	# (no hysteresis margins, and a 30 m overlap: with margins and no fade, a band opened where neither version
+	#  drew -- holes in the bluff a few hundred metres off, 2026-10-05)
+	mid.visibility_range_end = MID + 30.0
 	mid.visible = not _lod0.has("%d:%d" % [end, i])
 	add_child(mid)
 	_mid["%d:%d" % [end, i]] = mid
 	# LOD2: the smooth surface, just the texture and the strata bands
 	var far := _build_mesh(end, s0, s0 + tile_s, tile_s / 4.0, HEIGHT / 10.0, false)
 	far.name = "cliff_far_%d_%d" % [end, i]
-	far.visibility_range_begin = MID
-	far.visibility_range_begin_margin = MID * 0.08
+	far.visibility_range_begin = MID - 30.0
 	add_child(far)
 
 

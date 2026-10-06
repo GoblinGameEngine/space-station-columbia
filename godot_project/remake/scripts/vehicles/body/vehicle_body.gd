@@ -19,6 +19,18 @@ class_name VehicleBody
 const MOVING := ["door_leaf", "door_glass", "ramp", "hatch", "hatch_glass", "frunk_lid", "engine"]   # (their own nodes: they swing, or tilt)
 const INSIDE := ["lining_bay", "door_head_lining", "ceiling_bay", "end_lining", "cap_lining", "seat", "stanchion", "fittings", "podium", "cab", "floor"]
 const INSIDE_RANGE := 45.0
+## The cabin's own render layer (the user, 2026-10-05: "the cars taillights are leaking into the cabin ... all the
+## illumination should be external from the exterior lights"): every interior surface draws on this layer, and every
+## exterior lamp (head, tail, brake, reverse, beacons) leaves it out of its light_cull_mask. The sun, moon and the
+## cabin's own dome light still reach it. Chosen by material, so a door's inner lining (one module with its skin) is
+## split off too.
+const INTERIOR_LAYER := 1 << 9
+const EXTERIOR_LIGHT_MASK := 0xFFFFF & ~INTERIOR_LAYER
+const INTERIOR_MATS := ["lining", "headliner", "carpet", "seat", "dash", "upholstery", "lcd", "gauge", "tub"]
+
+
+static func is_interior_mat(m: String) -> bool:
+	return m in INTERIOR_MATS
 const TUBE_SIDES := 6
 const PAIR_REACH := 1.6               # m: a panel's fastenings are judged between mount joints this near ...
 const PAIR_MIN := 0.05                # m: ... and no nearer (the standard's "pair_min": a car's, 0.25 -- on a short
@@ -324,6 +336,8 @@ func _build() -> void:
 			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		if gr.inside:
 			mi.visibility_range_end = INSIDE_RANGE
+		if gr.inside or is_interior_mat(str(gr.mat)):
+			mi.layers = INTERIOR_LAYER
 		skel.add_child(mi)
 		_groups[key] = mi
 	for mid in plan.moving:
@@ -331,6 +345,7 @@ func _build() -> void:
 		var node := MeshInstance3D.new()
 		node.name = mid
 		var am := ArrayMesh.new()
+		var am_in := ArrayMesh.new()                              # (its interior surfaces: the cabin layer)
 		for m in mv.geo:
 			var arr := []
 			arr.resize(Mesh.ARRAY_MAX)
@@ -338,11 +353,19 @@ func _build() -> void:
 			arr[Mesh.ARRAY_NORMAL] = mv.geo[m][1]
 			if (mv.geo[m] as Array).size() > 2 and (mv.geo[m][2] as PackedFloat32Array).size() == (mv.geo[m][0] as PackedVector3Array).size():
 				arr[Mesh.ARRAY_COLOR] = wear_colors(mv.geo[m][2], (mv.geo[m][0] as PackedVector3Array).size())
-			am.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
-			am.surface_set_material(am.get_surface_count() - 1, _material(style, str(m)))
+			var tgt := am_in if is_interior_mat(str(m)) else am
+			tgt.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+			tgt.surface_set_material(tgt.get_surface_count() - 1, _material(style, str(m)))
 		node.mesh = am
 		node.position = Vector3(0, 0, float(mv.anchor))
 		add_child(node)
+		if am_in.get_surface_count() > 0:
+			var inner := MeshInstance3D.new()
+			inner.name = mid + "_in"
+			inner.mesh = am_in
+			inner.layers = INTERIOR_LAYER
+			inner.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			node.add_child(inner)
 	for mk in plan.bp.markers:
 		var n := Node3D.new()
 		n.name = str(mk[0])
@@ -744,6 +767,7 @@ func _gauges() -> void:
 		_needles[kind] = piv
 		for nd in [face, needle]:
 			(nd as GeometryInstance3D).visibility_range_end = INSIDE_RANGE
+			(nd as GeometryInstance3D).layers = INTERIOR_LAYER
 	set_gauges(0.0, 1.0)
 
 

@@ -561,7 +561,7 @@ func _whiteout() -> void:
 	if d > 0.0:
 		env.fog_enabled = true
 		env.fog_light_color = Color(0.9, 0.92, 0.95)
-		env.fog_light_energy = 1.0
+		env.fog_light_energy = lerpf(0.08, 1.0, sky.daylight()) if sky else 1.0   # (fog doesn't glow white at night)
 		env.fog_sky_affect = 1.0
 		env.fog_density = 0.03 + 0.25 * d
 		_fogged = true

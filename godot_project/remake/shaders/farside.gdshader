@@ -12,13 +12,14 @@ uniform sampler2D detail : source_color, filter_linear_mipmap_anisotropic, repea
 uniform float player_s = 0.0;
 uniform float flat_arc = 916.0;
 uniform float image_w = 3200.0;
+global uniform float daylight;            // 1 by day, 0 at night (DaySkySystem): the far side darkens at night
 #include "res://remake/shaders/land_cover.gdshaderinc"
 
 void fragment() {
 	float s = UV2.x * image_w;
 	float d = abs(mod(s - player_s + circ * 0.5, circ) - circ * 0.5);
 	if (d > flat_arc) {
-		ALBEDO = texture(farside, UV2).rgb;
+		ALBEDO = texture(farside, UV2).rgb * mix(0.1, 1.0, daylight);
 	} else {
 		vec3 c = to_linear(mix(cover(UV), COLOR.rgb, COLOR.a));
 		ALBEDO = c * texture(detail, UV).rgb;

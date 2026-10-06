@@ -284,10 +284,10 @@ static func cutoff() -> ImageTexture:
 		for px in n:
 			var x := (px - n * 0.5) / (n * 0.5)
 			var y := (n * 0.5 - py) / (n * 0.5)
-			var cut := -0.04 + (maxf(0.0, x) * tan(deg_to_rad(15.0)) if x > 0.0 else 0.0)
+			var cut := -0.02 + (maxf(0.0, x) * tan(deg_to_rad(15.0)) if x > 0.0 else 0.0)
 			var v := 0.0
 			if y < cut:
-				var r := Vector2(x - 0.12, (y + 0.12) * 1.8).length()
+				var r := Vector2(x - 0.1, (y + 0.06) * 2.2).length()     # (the hot spot just under the cut: far reach)
 				v = clampf(0.35 + 0.65 * exp(-r * r * 6.0), 0.0, 1.0) * smoothstep(0.0, 0.03, cut - y)
 				v *= clampf(1.0 - Vector2(x, y).length() * 0.6, 0.0, 1.0)
 			img.set_pixel(px, py, Color(v, v, v))
@@ -304,12 +304,15 @@ func _lights() -> void:
 		var group := ""
 		if n.begins_with("light_head"):
 			var sp := SpotLight3D.new()
-			sp.spot_range = 45.0
-			sp.spot_angle = 28.0
-			sp.spot_attenuation = 0.6
+			# (the user, 2026-10-05: "should provide meaningful illumination for the driver to safely steer": a real low
+			#  beam's cutoff sits ~0.6 deg below horizontal and lights the lane 50-70 m out; it was aimed 1.5 deg down
+			#  with a fast falloff and lit ~15 m)
+			sp.spot_range = 85.0
+			sp.spot_angle = 30.0
+			sp.spot_attenuation = 0.35
 			sp.light_color = Color(1.0, 0.96, 0.88)
 			sp.light_projector = cutoff()
-			sp.rotation.x = deg_to_rad(-1.5)
+			sp.rotation.x = deg_to_rad(-0.6)
 			l = sp
 			group = "head"
 		elif n.begins_with("light_tail") or n == "light_brake_high":
@@ -339,6 +342,8 @@ func _lights() -> void:
 		else:
 			continue
 		l.shadow_enabled = false
+		if group != "cabin":                                     # (exterior lamps never light the cabin: VehicleBody)
+			l.light_cull_mask = VehicleBody.EXTERIOR_LIGHT_MASK
 		l.visible = false
 		(mk as Node3D).add_child(l)
 		if not lamps.has(group):
@@ -372,7 +377,7 @@ func _set_lights(delta: float) -> void:
 	var reversing := live and _speed < -0.3
 	for l in lamps.get("head", []):
 		(l as Light3D).visible = dark
-		(l as Light3D).light_energy = lerpf(0.6, 4.0, night)
+		(l as Light3D).light_energy = lerpf(1.0, 16.0, night)
 		(l as Light3D).shadow_enabled = pilot != null
 	for l in lamps.get("tail", []):
 		(l as Light3D).visible = dark or braking
@@ -395,11 +400,11 @@ func _set_lights(delta: float) -> void:
 		(l as Light3D).visible = on
 	var lm := body.lamp_mats
 	for m in lm.get("lamp_head", []):
-		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(0.3, 3.5, night) if live else 0.0
+		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(0.3, 6.0, night) if live else 0.0
 	for m in lm.get("lamp_drl", []):
 		(m as BaseMaterial3D).emission_energy_multiplier = 1.2 if live else 0.0
 	for m in lm.get("lamp_tail", []):
-		(m as BaseMaterial3D).emission_energy_multiplier = (1.6 if dark else 0.0) + (3.0 if braking else 0.0)
+		(m as BaseMaterial3D).emission_energy_multiplier = (2.6 if dark else 0.0) + (3.0 if braking else 0.0)
 	for m in lm.get("lamp_brake", []):
 		(m as BaseMaterial3D).emission_energy_multiplier = 4.0 if braking else 0.0
 	for m in lm.get("lamp_reverse", []):

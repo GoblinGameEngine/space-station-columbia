@@ -165,7 +165,45 @@ func _apply_materials(inst: Node, sidecar: String) -> void:
 	_apply_defs(inst, JSON.parse_string(FileAccess.get_file_as_string(sidecar)))
 
 
+## Lit windows at night (the user, 2026-10-05: "make the nights darker and the lights on buildings and cars more
+## pronounced"): about LIT_SHARE of buildings get warm glowing glass, chosen by the building's name (the same
+## windows every load); DaySkySystem drives the glow with set_night().
+const LIT_SHARE := 60
+const WINDOW_GLOW := Color(1.0, 0.76, 0.42)
+static var night_glass: Array[StandardMaterial3D] = []
+static var night_level := 0.0
+
+
+static func set_night(n: float) -> void:
+	night_level = n
+	for m in night_glass:
+		m.emission_energy_multiplier = n * 2.4
+		m.albedo_color.a = lerpf(float(m.get_meta("alpha")), 0.92, n)
+
+
+static func _is_glass(d: Dictionary) -> bool:
+	var a = d.get("alpha")
+	return a != null and float(a) < 0.6
+
+
+static func lit_glass(key: String, d: Dictionary) -> StandardMaterial3D:
+	var k := key + "#lit"
+	if _mat_cache.has(k):
+		return _mat_cache[k]
+	var m := library_material(key, d).duplicate() as StandardMaterial3D
+	m.resource_name = k
+	m.emission_enabled = true
+	m.emission = WINDOW_GLOW
+	m.set_meta("alpha", m.albedo_color.a)
+	m.emission_energy_multiplier = night_level * 2.4
+	m.albedo_color.a = lerpf(m.albedo_color.a, 0.92, night_level)
+	night_glass.append(m)
+	_mat_cache[k] = m
+	return m
+
+
 static func _apply_defs(inst: Node, defs: Dictionary) -> void:
+	var lit := posmod(hash(str(inst.name)), 100) < LIT_SHARE
 	var stack: Array[Node] = [inst]
 	while stack.size() > 0:
 		var n: Node = stack.pop_back()
@@ -178,7 +216,9 @@ static func _apply_defs(inst: Node, defs: Dictionary) -> void:
 			if m and m.resource_name == "LOD_VC":
 				mi.set_surface_override_material(i, lod_vc_material())
 			elif m and defs.has(m.resource_name):
-				mi.set_surface_override_material(i, library_material(m.resource_name, defs[m.resource_name]))
+				var d: Dictionary = defs[m.resource_name]
+				mi.set_surface_override_material(i, lit_glass(m.resource_name, d) if lit and _is_glass(d)
+					else library_material(m.resource_name, d))
 
 
 static func library_material(key: String, d: Dictionary) -> StandardMaterial3D:

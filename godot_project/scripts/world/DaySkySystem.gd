@@ -45,6 +45,23 @@ const COLOR_KEYFRAMES := [
 	[1.0,  1.0, 1.0, 1.0, 1.0],
 ]
 
+## The sky's colour through the day (the user, 2026-10-05: the caps' sky "will change color with the central
+## cylinder"; "make the nights darker"): the shaft and the caps' sky discs share ceiling_material.
+const SKY_KEYS := [
+	[0.0,  0.018, 0.026, 0.06],
+	[DAWN_START, 0.03, 0.035, 0.08],
+	[0.18, 0.28, 0.20, 0.34],
+	[0.205, 0.94, 0.56, 0.40],
+	[0.23, 0.70, 0.70, 0.82],
+	[DAY_START, 0.45, 0.68, 0.92],
+	[DAY_END, 0.45, 0.68, 0.92],
+	[0.77, 0.74, 0.66, 0.74],
+	[0.795, 0.96, 0.50, 0.32],
+	[0.82, 0.36, 0.20, 0.36],
+	[DUSK_END, 0.04, 0.04, 0.09],
+	[1.0,  0.018, 0.026, 0.06],
+]
+
 var time_of_day: float = 0.27  # start mid-morning, already light out
 ## Days since the game began; day 0 is a Monday (NpcLife schedules: weekdays, weekends, errands).
 var day: int = 0
@@ -96,6 +113,21 @@ func setup(p_station: Node3D, p_sun: DirectionalLight3D, ring_mesh: MeshInstance
 	# runs), so this function doesn't touch it at all.
 
 	_apply(0.0)  # first frame's worth, before _process() runs
+
+static func sky_color(t: float) -> Color:
+	for i in range(SKY_KEYS.size() - 1):
+		var a: Array = SKY_KEYS[i]
+		var b: Array = SKY_KEYS[i + 1]
+		if t >= a[0] and t <= b[0]:
+			var f := smoothstep(0.0, 1.0, (t - a[0]) / maxf(b[0] - a[0], 1e-4))
+			return Color(lerpf(a[1], b[1], f), lerpf(a[2], b[2], f), lerpf(a[3], b[3], f))
+	return Color(SKY_KEYS[0][1], SKY_KEYS[0][2], SKY_KEYS[0][3])
+
+
+## 1 by day, 0 at night (for the fog, the lights)
+func daylight() -> float:
+	return 1.0 - float(_lerp_color_keyframes(time_of_day)[0])
+
 
 static func _lerp_color_keyframes(t: float) -> Array:
 	for i in range(COLOR_KEYFRAMES.size() - 1):
@@ -207,7 +239,7 @@ func _apply(_delta: float) -> void:
 			sun.rotation_degrees = Vector3(-35.0, 40.0 + sweep_deg, 0.0)
 		if use_moon:
 			sun.light_color = moon_color
-			sun.light_energy = 0.4 + moon_intensity * 0.9  # a real, working moonlight -- not near-off
+			sun.light_energy = 0.07 + moon_intensity * 0.16  # (darker nights, the user 2026-10-05: a faint moonlight)
 		else:
 			sun.light_color = Color(tint.r, tint.g * 0.97, tint.b * 0.9)
 			sun.light_energy = 0.2 + sun_intensity * 1.5  # "full daylight" -- brighter peak than before
@@ -219,7 +251,18 @@ func _apply(_delta: float) -> void:
 		# near-black 0.6 default that caused an earlier session's
 		# "shadow problem", and on top of a real moonlight/daylight
 		# DirectionalLight3D rather than carrying the whole scene alone.
-		env.ambient_light_energy = lerp(1.15, 2.3, 1.0 - night_mix)
+		# (2026-10-05, the user: "make the nights darker and the lights ... more pronounced": night ambient 1.15 ->
+		#  0.2, cooler; glow blooms the lit windows, signs and lamps as it gets dark)
+		env.ambient_light_energy = lerp(0.13, 2.3, 1.0 - night_mix)
+		env.ambient_light_color = Color(0.5, 0.5, 0.55).lerp(Color(0.32, 0.38, 0.6), night_mix)
+		env.glow_enabled = true
+		env.glow_intensity = lerpf(0.25, 1.1, night_mix)
+		env.glow_bloom = lerpf(0.0, 0.08, night_mix)
+		env.glow_hdr_threshold = lerpf(1.4, 0.9, night_mix)
+		env.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
+	ceiling_material.albedo_color = sky_color(time_of_day)
+	RenderingServer.global_shader_parameter_set("daylight", 1.0 - night_mix)
+	RemakeBuilding.set_night(night_mix)
 
 	var should_lights_be_on := night_mix > 0.5
 	if should_lights_be_on != lamp_light_on:

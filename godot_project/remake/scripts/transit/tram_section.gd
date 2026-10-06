@@ -353,8 +353,11 @@ func _lights() -> void:
 		var group := ""
 		if n.begins_with("light_head"):
 			var sp := SpotLight3D.new()
-			sp.spot_range = 45.0
-			sp.spot_angle = 26.0
+			sp.spot_range = 85.0                               # (a real low beam: see RemakeModularCar)
+			sp.spot_angle = 28.0
+			sp.spot_attenuation = 0.35
+			sp.light_projector = RemakeModularCar.cutoff()
+			sp.rotation.x = deg_to_rad(-0.6)
 			sp.light_color = Color(1.0, 0.96, 0.86)
 			l = sp
 			group = "head"
@@ -373,6 +376,8 @@ func _lights() -> void:
 		else:
 			continue
 		l.shadow_enabled = false
+		if group != "cabin":                                     # (exterior lamps never light the cabin: VehicleBody)
+			l.light_cull_mask = VehicleBody.EXTERIOR_LIGHT_MASK
 		mk.add_child(l)
 		if not lamps.has(group):
 			lamps[group] = []
@@ -386,7 +391,7 @@ func set_lights(night: float, braking: bool) -> void:
 	var dark := night > 0.05
 	for l in lamps.get("head", []):
 		(l as Light3D).visible = dark
-		(l as Light3D).light_energy = lerpf(0.4, 3.0, night)
+		(l as Light3D).light_energy = lerpf(1.0, 14.0, night)
 	for l in lamps.get("tail", []):
 		(l as Light3D).visible = dark
 		(l as Light3D).light_energy = lerpf(0.2, 1.0, night) * (2.0 if braking else 1.0)
@@ -397,11 +402,11 @@ func set_lights(night: float, braking: bool) -> void:
 		(l as Light3D).visible = dark
 		(l as Light3D).light_energy = lerpf(0.15, 0.9, night)
 	for m in lamp_mats.get("lamp_ceiling", []):
-		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(0.4, 1.6, night)
+		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(0.4, 2.8, night)
 	for m in lamp_mats.get("lamp_tail", []):
 		(m as BaseMaterial3D).emission_energy_multiplier = (4.0 if braking else 1.8)
 	for m in lamp_mats.get("lamp_head", []):
-		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(1.5, 4.0, night)
+		(m as BaseMaterial3D).emission_energy_multiplier = lerpf(1.5, 6.0, night)
 
 
 # -- doors --------------------------------------------------------------------------------------------
