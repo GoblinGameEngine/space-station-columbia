@@ -6,7 +6,7 @@ import glob, json, os, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-GRID = set("WDGSETC|P.N bdp")
+GRID = {"W", "Wp", "Wb", "Wd", "D", "G", "S", "E", "T", ".", "C", "|", "P", "N"}   # (TOKENS.md, "The facade grid")
 
 
 def main():
@@ -35,8 +35,9 @@ def main():
             if im.get("file") and not os.path.exists(os.path.join(ROOT, im["file"])):
                 errs.append("missing image %s" % im["file"])
         for row in t.get("facade", {}).get("floors", []):
-            if set(row) - GRID:
-                errs.append("facade grid has %s" % "".join(sorted(set(row) - GRID)))
+            odd = [b for b in row.split() if b not in GRID]
+            if odd:
+                errs.append("facade grid has %s" % " ".join(sorted(set(odd))))
         if errs:
             bad += 1
             print(os.path.basename(p))
