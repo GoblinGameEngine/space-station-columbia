@@ -96,7 +96,9 @@ def skeleton(cid):
     st = t.get("storeys")
     if st in STOREYS:
         add("storeys:" + STOREYS[st])
-    roof = t.get("roof") or {}
+    def obj(v):                                      # (some records -- farm, waterfront -- give a plain string)
+        return v if isinstance(v, dict) else {"type": v} if isinstance(v, str) else {}
+    roof = obj(t.get("roof"))
     if roof.get("type") in ("gable", "hip", "gambrel", "cross_gable", "pyramid", "shed", "flat"):
         add("roof:" + roof["type"])
     p = roof.get("pitch_deg")
@@ -106,10 +108,10 @@ def skeleton(cid):
         add("roof_mat:" + roof["material"])
     elif roof.get("material") == "metal":
         add("roof_mat:metal_standing_seam")
-    for d in (t.get("dormers") or [])[:1]:
-        if d.get("type") in ("gable", "shed", "hip", "eyebrow"):
+    for d in (t.get("dormers") if isinstance(t.get("dormers"), list) else [])[:1]:
+        if isinstance(d, dict) and d.get("type") in ("gable", "shed", "hip", "eyebrow"):
             add("dormer:" + d["type"])
-    po = t.get("porch") or {}
+    po = obj(t.get("porch"))
     if po.get("type") in ("none", "stoop", "front_full", "front_partial", "wrap", "enclosed", "side", "recessed"):
         add("porch:" + po["type"])
     if po.get("posts") in ("turned", "square", "tapered_on_piers", "iron", "columns"):
@@ -121,19 +123,19 @@ def skeleton(cid):
         add("wall:" + WALL.get(w, w))
     if t.get("foundation") in ("fieldstone", "brick", "concrete_block", "poured_concrete", "cut_stone"):
         add("foundation:" + t["foundation"])
-    win = t.get("windows") or {}
+    win = obj(t.get("windows"))
     if win.get("type") in ("1over1", "2over2", "6over6", "4over1", "3over1_craftsman", "casement", "picture", "sliding"):
         add("window:" + win["type"])
     if win.get("shutters"):
         add("ornament:shutters")
-    ch = t.get("chimneys") or []
+    ch = t.get("chimneys") if isinstance(t.get("chimneys"), list) else []
     if len(ch) > 1:
         add("chimney:multiple")
     elif ch:
         add("chimney:" + CHIM.get(ch[0], "end_interior"))
     if t.get("garage") in GARAGE:
         add("garage:" + GARAGE[t["garage"]])
-    fence = (t.get("yard") or {}).get("fence")
+    fence = obj(t.get("yard")).get("fence")
     if fence in FENCE:
         add("bound_side:" + FENCE[fence])
     if t.get("cornice") in ("bracketed_metal", "corbelled_brick", "parapet_stepped", "parapet_flat", "pediment", "none"):
