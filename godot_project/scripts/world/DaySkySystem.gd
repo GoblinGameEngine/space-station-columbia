@@ -262,6 +262,7 @@ func _apply(_delta: float) -> void:
 		env.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
 	ceiling_material.albedo_color = sky_color(time_of_day)
 	RenderingServer.global_shader_parameter_set("daylight", 1.0 - night_mix)
+	RenderingServer.global_shader_parameter_set("sky_color", ceiling_material.albedo_color)   # (the caps' cloud sky)
 	RemakeBuilding.set_night(night_mix)
 
 	var should_lights_be_on := night_mix > 0.5

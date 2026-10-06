@@ -3,7 +3,7 @@ class_name CapMountains
 
 ## The end caps' mountains (the user, 2026-10-05: "a mountain range running up 1.5 km, then sky blue filling the
 ## centre ... like a curved canyon ... only the sheer cliffs, staggered for effect ... natural and unclimbable ...
-## attractive"). Above CliffWalls' 150 m bluff, each end cap rises as TIERS of sheer cliffs, each set back from the
+## attractive"; 2026-10-06: "start below the water"). Out of the seas, each end cap rises as TIERS of sheer cliffs, each set back from the
 ## one below by a bench, to a jagged crest about 1.5 km up; behind them the cap is pushed out by DEPTH so the tiers
 ## can recede without taking land from the floor. The sky disc fills the centre (RemakeStation._build_shell).
 ##
@@ -20,9 +20,9 @@ class_name CapMountains
 ##   LOD0 (< NEAR)   8 m along s, fine rows per face -- built near the player (one tile per tick)
 ##   LOD1 (< MID)    24 m, 6 rows per face
 ##   LOD2 (>= MID)   80 m, 2 rows per face: the silhouette, the benches and the colour bands only
-## No collision above the bluff: it is out of reach (the bluff below is sheer -- CliffWalls).
+## No collision of its own: the station's end wall (just in front of the foot, collision only) stops boats and swimmers.
 
-const BASE_H := 140.0               # starts just under the bluff's top (CliffWalls.HEIGHT 150), overlapping it
+const BASE_H := -40.0               # the foot under the sea bed (the user, 2026-10-06: "need to start below the water")
 const TOP_H := 1500.0
 const CREST_VAR := 160.0
 const DEPTH := 620.0                # the cap is pushed out this far behind the mountains (RemakeStation)
@@ -33,7 +33,7 @@ const TEX_M := 110.0
 
 var half_w := StationGeo.HALF_LEN
 var target: Node3D
-var _mat: StandardMaterial3D
+var _mat: ShaderMaterial
 var _todo := []
 var _mid := {}
 var _lod0 := {}
@@ -119,16 +119,14 @@ static func tone(end: int, s: float, h: float, bench: bool) -> Color:
 # ------------------------------------------------------------------ building
 func setup(p_target: Node3D) -> void:
 	target = p_target
-	_mat = StandardMaterial3D.new()
-	var root := "res://remake/cliffs/mountain_"      # (tools/assets/mountain_rock.py: vertical joints and streaks)
-	_mat.albedo_texture = load(root + "albedo.webp")
-	_mat.normal_enabled = true
-	_mat.normal_texture = load(root + "normal.webp")
-	_mat.normal_scale = 0.6
-	_mat.roughness_texture = load(root + "rough.webp")
-	_mat.roughness = 1.0
-	_mat.vertex_color_use_as_albedo = true
-	_mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	_mat = ShaderMaterial.new()                       # (shaders/mountain_rock: world-space rock at two scales, macro
+	_mat.shader = load("res://remake/shaders/mountain_rock.gdshader")      #  tint, scrub on the benches)
+	var root := "res://remake/cliffs/mountain_"      # (tools/assets/mountain_rock.py)
+	_mat.set_shader_parameter("rock_albedo", load(root + "albedo.webp"))
+	_mat.set_shader_parameter("rock_far", load(root + "albedo.webp"))
+	_mat.set_shader_parameter("rock_normal", load(root + "normal.webp"))
+	_mat.set_shader_parameter("macro_tint", load(root + "macro.webp"))
+	_mat.set_shader_parameter("station_r", StationGeo.R)
 	for end in [-1, 1]:
 		for i in range(TILES_ROUND):
 			_todo.append([end, i])

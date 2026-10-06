@@ -84,11 +84,7 @@ func _ready() -> void:
 	add_child(bridges)
 	bridges.setup(player.global_position if player else Vector3.INF)
 	_mark("great bridges")
-	var cliffs := CliffWalls.new()
-	cliffs.name = "CliffWalls"
-	add_child(cliffs)
-	cliffs.setup(player)
-	_mark("cliffs setup")
+	# (no CliffWalls bluff since the seas reach the caps: the mountains rise out of the water -- the user, 2026-10-06)
 	var mountains := CapMountains.new()
 	mountains.name = "CapMountains"
 	add_child(mountains)
@@ -173,7 +169,6 @@ func _watch_load() -> void:
 		"trees": func() -> bool: return (get_node("Trees") as MapTrees).loaded(),
 		"roads": func() -> bool: return not get_node("Roads").is_processing(),
 		"walks": func() -> bool: return not get_node("Walks").is_processing(),
-		"cliffs": func() -> bool: return (get_node("CliffWalls") as CliffWalls)._todo.is_empty(),
 		"mountains": func() -> bool: return (get_node("CapMountains") as CapMountains).loaded(),
 		"cloud skins": func() -> bool: return (get_node("Clouds") as RemakeClouds)._skin_task == -1,
 		"structures": func() -> bool: return streamer.records.size() > 0,
@@ -434,21 +429,26 @@ func _setup_environment() -> void:
 func _build_shell() -> void:
 	## End walls (surface 0) and the central shaft with the caps' sky discs (surface 1, the sky system's "ceiling").
 	## The caps (the user, 2026-10-05: "a mountain range running up 1.5 km, then sky blue filling the centre ... like a
-	## curved canyon"): behind CliffWalls' bluff the old metal wall remains only as a strip; the mountains (CapMountains)
-	## recede up to the cap proper, pushed out by CapMountains.DEPTH, where a rock backing ring hides behind them and the
-	## sky disc fills the centre round the shaft -- in the shaft's own material, so it changes colour with it.
+	## curved canyon"; 2026-10-06: "start below the water ... a moving cloud texture ... the clouds will circle the
+	## axis"): the mountains (CapMountains) rise from under the seas and recede to the cap proper, pushed out by
+	## CapMountains.DEPTH, where a rock backing ring hides behind them; the sky disc fills the centre round the shaft
+	## (cap_sky.gdshader: the sky's colour, clouds circling the axis). The wall the seas end at stays as collision only.
 	var n := 256
 	var walls := SurfaceTool.new()
 	walls.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var shaft := SurfaceTool.new()
 	shaft.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var sky := SurfaceTool.new()
+	sky.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var strip := SurfaceTool.new()                     # (collision only: the wall the seas end at, behind the rock)
+	strip.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var r_in := StationGeo.SHAFT_R
 	var r_out := StationGeo.R + 30.0                   # past the floor, under the terrain's lowest point
 	var x_cap := StationGeo.HALF_LEN + CapMountains.DEPTH
 	var r_sky := StationGeo.R - 1300.0                 # (under the lowest saddle of the crest: the disc's rim is hidden)
-	var rings := [[StationGeo.HALF_LEN, StationGeo.R - 146.0, r_out, walls],   # the strip behind the bluff (under its top)
-		[x_cap, r_sky - 20.0, StationGeo.R - 110.0, walls],                     # the backing behind the mountains
-		[x_cap, r_in, r_sky, shaft]]                                            # the sky
+	var rings := [[StationGeo.HALF_LEN, StationGeo.R - 146.0, r_out, strip],   # the wall the seas end at (not drawn)
+		[x_cap, r_sky - 20.0, StationGeo.R + 60.0, walls],                      # the backing behind the mountains
+		[x_cap, r_in, r_sky, sky]]                                              # the sky
 	for end in [-1.0, 1.0]:
 		for ring in rings:
 			var x: float = end * float(ring[0])
@@ -466,9 +466,9 @@ func _build_shell() -> void:
 					stl.set_normal(Vector3(-end, 0, 0))
 					stl.set_uv(Vector2(v.y / WALL_TILE, v.z / WALL_TILE))
 					stl.add_vertex(v)
-	var wall_mat := StandardMaterial3D.new()
-	wall_mat.albedo_texture = load("res://assets/textures/station_metal_wall.png")
-	wall_mat.albedo_color = Color(0.45, 0.42, 0.4)
+	var wall_mat := StandardMaterial3D.new()          # (only the backing ring behind the mountains now: dark rock)
+	wall_mat.albedo_color = Color(0.32, 0.29, 0.26)
+	wall_mat.roughness = 1.0
 	walls.set_material(wall_mat)
 	for i in n:
 		var a0 := TAU * i / n
@@ -481,9 +481,14 @@ func _build_shell() -> void:
 			shaft.set_uv(Vector2(v.x / WALL_TILE, TAU * r_in * (i + (1 if k in [1, 2] else 0)) / n / WALL_TILE))
 			shaft.add_vertex(v)
 	shaft.set_material(StandardMaterial3D.new())
+	var sky_mat := ShaderMaterial.new()                # (moving clouds round the axis, in the sky's colour)
+	sky_mat.shader = load("res://remake/shaders/cap_sky.gdshader")
+	sky.set_material(sky_mat)
 	var mesh := ArrayMesh.new()
 	walls.commit(mesh)
 	shaft.commit(mesh)
+	sky.commit(mesh)
+	var strip_mesh := strip.commit()
 	shell_mesh = MeshInstance3D.new()
 	shell_mesh.name = "Shell"
 	shell_mesh.mesh = mesh
@@ -496,6 +501,11 @@ func _build_shell() -> void:
 	shape.backface_collision = true
 	cs.shape = shape
 	body.add_child(cs)
+	var cs2 := CollisionShape3D.new()
+	var shape2 := strip_mesh.create_trimesh_shape()
+	shape2.backface_collision = true
+	cs2.shape = shape2
+	body.add_child(cs2)
 
 
 func _spawn_player() -> void:
