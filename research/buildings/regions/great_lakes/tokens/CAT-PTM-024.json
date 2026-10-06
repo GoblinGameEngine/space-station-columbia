@@ -1,0 +1,79 @@
+{
+ "id": "CAT-PTM-024",
+ "catalog_id": "PTM-024",
+ "images": [
+  {
+   "file": "remake/reference/PTM-024/commons_I.N._Debenham_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:I.N._Debenham_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "I.N. Debenham House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "I.N. Debenham House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "porch_post:turned",
+  "rail:spindle",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "garage:detached_rear",
+  "setting:residential_grid",
+  "setback:shallow",
+  "lot_tenure:fee_simple",
+  "form:queen_anne_irregular",
+  "style:queen_anne",
+  "storeys:2",
+  "roof:cross_gable",
+  "wall:clapboard",
+  "wall_accent:shingle_gables",
+  "porch:front_partial",
+  "ornament:balcony",
+  "ornament:bay_window",
+  "bays:4",
+  "condition:kept",
+  "lot_corner:yes",
+  "bound_front:wall_retaining",
+  "bound_front:grade_change",
+  "sign:flat_board"
+ ],
+ "brief": "A resort-town house in Petoskey: I.N. Debenham's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "queen_anne"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W",
+   "W W W W"
+  ],
+  "notes": "the Debenham House (Petoskey, 1900): a Queen Anne in grey clapboard with shingled gables and round vents, a recessed upper balcony porch, a wrap porch with a spindle frieze, a bay; on a corner lot raised behind segmental-block retaining walls with steps; a crabapple in bloom; a for-sale sign"
+ },
+ "lot": {
+  "setback": "shallow",
+  "corner": true,
+  "grade": "terraced"
+ },
+ "why": [
+  {
+   "token": "bound_front:wall_retaining",
+   "cause": "climate",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "hillside lots terraced with block walls (modern replacement of stone)"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

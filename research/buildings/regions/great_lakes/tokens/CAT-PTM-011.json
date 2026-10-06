@@ -1,0 +1,77 @@
+{
+ "id": "CAT-PTM-011",
+ "catalog_id": "PTM-011",
+ "images": [
+  {
+   "file": "remake/reference/PTM-011/commons_G.W._Olin_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:G.W._Olin_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "G.W. Olin House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "G.W. Olin House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "porch_post:square",
+  "rail:solid",
+  "wall:clapboard",
+  "foundation:poured_concrete",
+  "setting:residential_grid",
+  "setback:shallow",
+  "bound_front:sidewalk_terrace",
+  "lot_tenure:fee_simple",
+  "condition:kept",
+  "form:bungalow",
+  "style:craftsman",
+  "storeys:1.5",
+  "roof:gable",
+  "porch:front_full",
+  "porch_post:tapered_on_piers",
+  "ornament:brackets",
+  "window:3over1_craftsman",
+  "bays:3",
+  "door_pos:centre",
+  "garage:detached_rear",
+  "bound_side:driveway",
+  "bound_front:shrub_row",
+  "outbuilding:rear"
+ ],
+ "brief": "A resort-town house in Petoskey: G.W. Olin's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "bungalow"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W",
+   "D W"
+  ],
+  "notes": "the G. W. Olin House (Petoskey, 1910s): a front-gabled Craftsman bungalow with knee brackets, a full gabled porch, a triple attic window; a long concrete drive to a 1.5-storey garage with a loft; clipped shrubs"
+ },
+ "lot": {
+  "setback": "shallow"
+ },
+ "why": [
+  {
+   "token": "garage:detached_rear",
+   "cause": "technology",
+   "ref": "research/buildings/LOTS.md \u00a72",
+   "note": "the rear garage at the end of a side drive"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

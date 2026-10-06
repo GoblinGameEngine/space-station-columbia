@@ -1,0 +1,79 @@
+{
+ "id": "CAT-PTM-017",
+ "catalog_id": "PTM-017",
+ "images": [
+  {
+   "file": "remake/reference/PTM-017/commons_George_McManus_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:George_McManus_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "George McManus House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "George McManus House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "porch_post:columns",
+  "rail:spindle",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "setting:residential_grid",
+  "setback:shallow",
+  "lot_tenure:fee_simple",
+  "form:foursquare",
+  "style:colonial_revival",
+  "storeys:2.5",
+  "roof:hip",
+  "dormer:gable",
+  "wall:clapboard",
+  "porch:front_full",
+  "ornament:bay_window",
+  "garage:attached_side",
+  "bays:3",
+  "door_pos:side",
+  "condition:worn",
+  "alteration:none",
+  "lot_corner:yes",
+  "bound_front:sidewalk_terrace",
+  "bound_front:foundation_planting"
+ ],
+ "brief": "A resort-town house in Petoskey: George McManus's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "queen_anne"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "Wd",
+   "W W W",
+   "W D Wb"
+  ],
+  "notes": "the George McManus House (Petoskey, 1900): a big hipped Colonial Revival house with gabled dormers and a tower-like dormer, a columned porch, a bay, mid-restoration (house-wrap on part, a ladder), a later two-car garage wing with a deck on top; marigolds along the walk"
+ },
+ "lot": {
+  "setback": "shallow",
+  "corner": true
+ },
+ "why": [
+  {
+   "token": "garage:attached_side",
+   "cause": "change",
+   "ref": "research/buildings/LOTS.md \u00a72",
+   "note": "a garage wing added to a 1900 house"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

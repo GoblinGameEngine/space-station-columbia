@@ -1,0 +1,80 @@
+{
+ "id": "CAT-PTM-003",
+ "catalog_id": "PTM-003",
+ "images": [
+  {
+   "file": "remake/reference/PTM-003/commons_Charles_J._Pailthorpe_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Charles_J._Pailthorpe_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "Charles J. Pailthorpe House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "Charles J. Pailthorpe House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "porch_post:square",
+  "rail:solid",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "garage:detached_rear",
+  "condition:kept",
+  "setting:residential_grid",
+  "setback:shallow",
+  "bound_front:sidewalk_terrace",
+  "lot_tenure:fee_simple",
+  "form:bungalow",
+  "style:craftsman",
+  "storeys:1.5",
+  "roof:cross_gable",
+  "wall:wood_shingle",
+  "colour_body:blue",
+  "porch:front_partial",
+  "porch_post:iron",
+  "chimney:ridge_centre",
+  "bays:4",
+  "door_pos:centre",
+  "lot_corner:yes",
+  "bound_front:grade_change",
+  "bound_front:hedge",
+  "alteration:none"
+ ],
+ "brief": "A resort-town house in Petoskey: Charles J. Pailthorpe's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "bungalow"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W . W",
+   "W D W W"
+  ],
+  "notes": "the Pailthorpe House (Petoskey, 1900s): a shingled 1.5-storey house with a steep cross gable, a brick-based porch with ornamental iron posts, a big chimney, on a corner lot banked up above the street with a low clipped hedge and a flag"
+ },
+ "lot": {
+  "setback": "shallow",
+  "corner": true
+ },
+ "why": [
+  {
+   "token": "bound_front:grade_change",
+   "cause": "climate",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "Petoskey's hillside lots banked up above the street"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

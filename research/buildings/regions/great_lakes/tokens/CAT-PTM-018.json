@@ -1,0 +1,79 @@
+{
+ "id": "CAT-PTM-018",
+ "catalog_id": "PTM-018",
+ "images": [
+  {
+   "file": "remake/reference/PTM-018/commons_George_Schantz_House_and_Store.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:George_Schantz_House_and_Store.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "George Schantz House and Store"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "George Schantz House and Store",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "pitch:mid",
+  "roof_mat:asphalt_shingle",
+  "porch_post:square",
+  "rail:none",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "garage:detached_rear",
+  "setting:residential_grid",
+  "setback:shallow",
+  "lot_tenure:fee_simple",
+  "form:gable_front_and_wing",
+  "use:mixed_use",
+  "storeys:1.5",
+  "roof:cross_gable",
+  "wall:fiber_cement",
+  "porch:front_partial",
+  "bays:4",
+  "door_pos:multiple",
+  "condition:kept",
+  "alteration:converted_use",
+  "bound_front:fence_picket",
+  "bound_front:wall_retaining",
+  "bound_front:sidewalk_terrace"
+ ],
+ "brief": "A resort-town house in Petoskey: George Schantz's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "side_gable_cottage"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W D D W"
+  ],
+  "notes": "the George Schantz House and Store (Petoskey, 1900): a low cross-gabled cottage with a flat-roofed shop addition (its door and display window) on the corner, sage-green siding, skylights; a weathered picket fence on a low segmental-block wall with a garden; a fire hydrant"
+ },
+ "lot": {
+  "setback": "shallow"
+ },
+ "why": [
+  {
+   "token": "use:mixed_use",
+   "cause": "use",
+   "ref": "research/buildings/LOTS.md \u00a71",
+   "note": "a house with its corner shop attached: the neighbourhood store"
+  },
+  {
+   "token": "bound_front:fence_picket",
+   "cause": "context",
+   "ref": "research/buildings/LOTS.md \u00a73",
+   "note": "a picket fence on a low retaining wall"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

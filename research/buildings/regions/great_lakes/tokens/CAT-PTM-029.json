@@ -1,0 +1,74 @@
+{
+ "id": "CAT-PTM-029",
+ "catalog_id": "PTM-029",
+ "images": [
+  {
+   "file": "remake/reference/PTM-029/commons_Issac_Bartram_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Issac_Bartram_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "Issac Bartram House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "Issac Bartram House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "roof_mat:asphalt_shingle",
+  "porch_post:square",
+  "rail:none",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "garage:detached_rear",
+  "setting:residential_grid",
+  "setback:shallow",
+  "lot_tenure:fee_simple",
+  "bound_front:sidewalk_terrace",
+  "form:gable_front",
+  "storeys:1.5",
+  "roof:gable",
+  "pitch:steep",
+  "wall:vinyl",
+  "porch:front_full",
+  "bays:3",
+  "door_pos:side",
+  "ornament:shutters",
+  "condition:worn",
+  "alteration:enclosed_porch",
+  "bound_front:shrub_row"
+ ],
+ "brief": "A resort-town house in Petoskey: Issac Bartram's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "gable_front"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W",
+   "W W D"
+  ],
+  "notes": "the Bartram House (Petoskey, 1900): a 1.5-storey gable-front house in vinyl with shutters on the attic window, its porch being enclosed (raw OSB sheathing, new window openings), a big hand-painted house number; a row of arborvitae"
+ },
+ "lot": {
+  "setback": "shallow"
+ },
+ "why": [
+  {
+   "token": "alteration:enclosed_porch",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "porches enclosed for winter rooms: a common alteration caught mid-work"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

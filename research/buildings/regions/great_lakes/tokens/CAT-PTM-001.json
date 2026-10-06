@@ -1,0 +1,73 @@
+{
+ "id": "CAT-PTM-001",
+ "catalog_id": "PTM-001",
+ "images": [
+  {
+   "file": "remake/reference/PTM-001/commons_A._Malin_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:A._Malin_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "A. Malin House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "A. Malin House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "pitch:steep",
+  "roof_mat:asphalt_shingle",
+  "porch_post:square",
+  "rail:none",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "garage:detached_rear",
+  "setting:residential_grid",
+  "setback:shallow",
+  "bound_front:sidewalk_terrace",
+  "lot_tenure:fee_simple",
+  "form:gable_front_and_wing",
+  "storeys:2",
+  "roof:cross_gable",
+  "wall:clapboard",
+  "porch:front_partial",
+  "bays:3",
+  "door_pos:wing",
+  "condition:worn",
+  "bound_front:shrub_row",
+  "bound_side:tree_line"
+ ],
+ "brief": "A resort-town house in Petoskey: A. Malin's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "i_house"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W",
+   "W D W"
+  ],
+  "notes": "the A. Malin House (Petoskey MI, 1900): a two-storey gable-front-and-wing house in weathered unpainted clapboard, a small porch in the angle with a sawn bracket, overgrown spruces and a clipped hedge"
+ },
+ "lot": {
+  "setback": "shallow"
+ },
+ "why": [
+  {
+   "token": "condition:worn",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "an unpainted, overgrown house among kept ones"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}

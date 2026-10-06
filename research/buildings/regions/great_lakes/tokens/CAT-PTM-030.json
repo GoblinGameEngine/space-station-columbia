@@ -1,0 +1,78 @@
+{
+ "id": "CAT-PTM-030",
+ "catalog_id": "PTM-030",
+ "images": [
+  {
+   "file": "remake/reference/PTM-030/commons_J.M._Wells_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:J.M._Wells_House.jpg",
+   "license": "CC BY-SA 4.0",
+   "author": "rossograph",
+   "caption": "J.M. Wells House"
+  }
+ ],
+ "place": {
+  "town": "Petoskey",
+  "state": "MI",
+  "band": "streetcar_1890_1930",
+  "source_title": "J.M. Wells House",
+  "transect": "T3"
+ },
+ "year_built": 1900,
+ "tokens": [
+  "use:house",
+  "roof_mat:asphalt_shingle",
+  "porch:front_partial",
+  "porch_post:turned",
+  "rail:spindle",
+  "foundation:poured_concrete",
+  "window:1over1",
+  "setting:residential_grid",
+  "setback:shallow",
+  "lot_tenure:fee_simple",
+  "bound_front:sidewalk_terrace",
+  "form:gable_front_and_wing",
+  "style:queen_anne",
+  "storeys:2",
+  "roof:cross_gable",
+  "pitch:steep",
+  "wall:clapboard",
+  "wall_accent:shingle_gables",
+  "ornament:fishscale",
+  "ornament:brackets",
+  "garage:detached_side",
+  "bays:3",
+  "door_pos:wing",
+  "condition:kept",
+  "bound_side:driveway",
+  "outbuilding:side"
+ ],
+ "brief": "A resort-town house in Petoskey: J.M. Wells's house, as photographed \u2014 see the photo for its massing and trim. One photo; year estimated. Older than 1970: Petoskey's resort-town streets (the town's model) were built 1880-1930, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "gable_front"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W",
+   "W W",
+   "W D W"
+  ],
+  "notes": "the J. M. Wells House (Petoskey, 1900): a two-storey Queen Anne gable-front with sunburst and fish-scale gables, a carved frieze band, a rear wing; a matching new detached garage with a diamond vent and carriage-style door at the end of a gravel drive"
+ },
+ "lot": {
+  "setback": "shallow"
+ },
+ "why": [
+  {
+   "token": "garage:detached_side",
+   "cause": "context",
+   "ref": "great_lakes/03_compatibility.md",
+   "note": "a new garage built to match the old house"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}
