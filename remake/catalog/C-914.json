@@ -1,0 +1,69 @@
+{
+ "id": "C-914",
+ "settlement": "Calder",
+ "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "lot": {
+  "w": 17.3,
+  "d": 41.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#915447",
+   "trim": "#3a3f44",
+   "accent": "#6a4a2a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Achterberg",
+  "house_number": 978
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

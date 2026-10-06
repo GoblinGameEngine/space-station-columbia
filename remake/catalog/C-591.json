@@ -1,0 +1,70 @@
+{
+ "id": "C-591",
+ "settlement": "Calder",
+ "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "lot": {
+  "w": 16.5,
+  "d": 40.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "brick",
+  "colors": {
+   "body": "#a3543d",
+   "trim": "#2e3a4a",
+   "accent": "#7a2e28",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
+ },
+ "names": {
+  "family": "Raghunathan",
+  "house_number": 444
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, brick walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
+}

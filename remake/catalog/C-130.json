@@ -1,0 +1,75 @@
+{
+ "id": "C-130",
+ "settlement": "Calder",
+ "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "lot": {
+  "w": 14.4,
+  "d": 41.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#778f77",
+   "trim": "#2e3a4a",
+   "accent": "#3a2a1e",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "hedge",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 10
+  }
+ },
+ "names": {
+  "family": "Delmar",
+  "house_number": 328
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+}
