@@ -258,16 +258,16 @@ Names flagged * are generated from the name catalogue for the terms the canon do
 | 171-175 | Hubert Berry * | oceanview |
 | 176-180 | Amity Trevino * | brightwater |
 | 181-185 | Kathleen Lee * | solana_point |
-| 186-190 | Lela Marvin * | fenwick |
+| 186-190 | Lela Marvin * | haven_point |
 | 191-195 | Mckenzie Luongo * | solana_point |
 | 196-200 | Sarah Cowan * | solana_point |
 | 201-205 | Gordon Funtanilla * | brightwater |
 | 206-210 | Andrea Shin * | solana_point |
 | 211-215 | Marian Banack * | port_carrow |
 | 216-220 | Robert Walker * | brightwater |
-| 221-225 | Tyler Porter * | victory_bay |
+| 221-225 | Tyler Porter * | tamarack |
 | 226-230 | Jill Martinez * | harrow_falls |
-| 231-235 | Arnold Rubio * | fenwick |
+| 231-235 | Arnold Rubio * | port_tamsin |
 | 236-240 | Brandy McEvoy * | marlowe |
 | 241-245 | Charles Johnson * | oceanview |
 | 246-250 | Louise Aranda * | playa_verde |
@@ -278,40 +278,40 @@ Names flagged * are generated from the name catalogue for the terms the canon do
 | 271-275 | Rukmini Desai |  |
 | 276-280 | Josephine Adebayo-Ruiz |  |
 | 281-285 | Josephine Adebayo-Ruiz |  |
-| 286-290 | Greg McCoy * | tamarack |
+| 286-290 | Greg McCoy * | haskins_corner |
 | 291-295 | Bay Gordon * | harrow_falls |
 | 296-300 | Clement Henson * | port_carrow |
 | 301-305 | Jean Ricker * | oceanview |
-| 306-310 | Hazel Northway * | tamarack |
+| 306-310 | Hazel Northway * | haskins_corner |
 | 311-315 | Georgia Baker * | marlowe |
-| 316-320 | Betty Moreland * | pelican_cove |
+| 316-320 | Betty Moreland * | fenwick |
 | 321-325 | Matthew Gagné * | port_carrow |
 | 326-330 | Robert Grant * | port_carrow |
 | 331-335 | David Harvell * | solana_point |
-| 336-340 | Cleo Porter * | tern_harbor |
-| 341-345 | Robert Montes * | brightwater |
+| 336-340 | Cleo Porter * | pelican_cove |
+| 341-345 | Robert Montes * | playa_verde |
 | 346-350 | Michele Cole * | port_carrow |
 | 351-355 | Briar Vang * | brightwater |
 | 356-360 | Nathaniel Dunn * | kessler |
 | 361-365 | Emma Aguilar * | harrow_falls |
-| 366-370 | Ada Dunn * | harrow_falls |
+| 366-370 | Ada Dunn * | oceanview |
 | 371-375 | Jay Escobar * | playa_verde |
-| 376-380 | Richard Brown * | playa_verde |
+| 376-380 | Richard Brown * | marlowe |
 | 381-385 | Unity Son * | port_carrow |
 | 386-390 | Edward Jackson * | port_carrow |
 | 391-395 | Lewis Quarry * | solana_point |
 | 396-400 | Carter Bouchard * | brightwater |
-| 401-405 | Frances Ventura * | fenwick |
+| 401-405 | Frances Ventura * | port_tamsin |
 | 406-410 | Stephanie Weeks * | kessler |
 | 411-415 | Harold Gallant * | kessler |
 | 416-420 | Diane Singh * | solana_point |
-| 421-425 | Abigail Salazar * | haskins_corner |
-| 426-430 | Harold Fortier * | tamarack |
+| 421-425 | Abigail Salazar * | loomis_grove |
+| 426-430 | Harold Fortier * | cedar_ford |
 | 431-435 | Charles Hughley * | solana_point |
 | 436-440 | Ignatius Bhatt |  |
 | 441-445 | Ignatius Bhatt |  |
 | 446-450 | Arianna Patel * | oceanview |
-| 451-455 | Dylan Washburn * | tern_harbor |
+| 451-455 | Dylan Washburn * | pelican_cove |
 | 456-460 | Harlan Duquesne |  |
 | 461-465 | Harlan Duquesne |  |
 | 466-470 | Cordelia Fairweather |  |

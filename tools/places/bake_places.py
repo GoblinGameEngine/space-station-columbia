@@ -97,7 +97,7 @@ def main():
         st = home_of(b)
         kind = b["kind"]
         if kind in settle["buildings"] and not (kind == "farm" and b["id"].startswith("FARM-") and not b["id"].endswith("-house")):
-            pop[st] += settle["buildings"][kind]["households"] * HH_SIZE
+            pop[st] += b.get("households", settle["buildings"][kind]["households"]) * HH_SIZE
         f = os.path.join(ROOT, "remake", "catalog", "%s.json" % b["model"])
         tr = json.load(open(f)).get("traits", {}) if os.path.exists(f) else {}
         area = max(1.0, (b["fmax"][0] - b["fmin"][0]) * (b["fmax"][1] - b["fmin"][1]))

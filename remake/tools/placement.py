@@ -440,6 +440,13 @@ def main():
                     "s": round(s, 2), "x": round(x, 2), "yaw": round(yaw, 4),
                     "min": [round(v, 2) for v in b[0]], "max": [round(v, 2) for v in b[1]],
                     "fmin": [round(f[0][0], 2), round(f[0][2], 2)], "fmax": [round(f[1][0], 2), round(f[1][2], 2)]})
+        # a building that says how many households it holds (Calder's doubles, rows and apartment blocks:
+        # tools/settlegen) carries the count for NpcHouseholds, overriding its kind's default
+        cp = os.path.join(ROOT, "remake", "catalog", f"{model or rid}.json")
+        if os.path.exists(cp):
+            u = (json.load(open(cp)).get("traits") or {}).get("units")
+            if isinstance(u, int) and u > 0:
+                out[-1]["households"] = u
 
     for st in inv["structures"]:
         (a0, a1), (b0, b1) = st["front_edge"] if st.get("front_edge") else ((st["s"], st["x"]), (st["s"], st["x"] + 1))

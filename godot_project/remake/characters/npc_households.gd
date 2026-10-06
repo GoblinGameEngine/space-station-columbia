@@ -49,7 +49,7 @@ static func of_building(world_seed: int, b: Dictionary) -> Dictionary:
 	for k in bdef.mix:
 		mix[k] = float(mix.get(k, 0.0)) * float(bdef.mix[k])
 	var n := 0
-	for hh in int(bdef.households):
+	for hh in int(b.get("households", bdef.households)):     # (a building may carry its own count: apartments, rows, doubles)
 		var rng := NpcRng.for_trait(world_seed, "%s#%d" % [b.id, hh], "household")
 		var htype: String = rng.pick(mix)
 		var spec: Array = d.household_types[htype].members

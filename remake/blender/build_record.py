@@ -35,6 +35,9 @@ def generator(kind):
         elif kind in ("industrial", "tower", "bigbox", "strip", "vacant"):
             import works
             GENERATORS[kind] = works.build
+        elif kind == "townhouse":
+            import townhouse
+            GENERATORS[kind] = townhouse.build
         elif kind == "farm":
             import farm
             GENERATORS[kind] = farm.build

@@ -173,6 +173,15 @@
 - **Landmarks:** the Cider Mill; the Old Orchard
 - **Rivals:** none; **allies:** marlowe; **reputation:** cider, sleepy, pretty in autumn
 
+## Calder (hospital and farm town, 7,000 people, founded VY 186)
+- **Region:** southland; **engine archetype:** stable_town; **named for:** Ines Calder, the southland's first district physician
+- **Character:** Calder Memorial Hospital; the Southland High School Gators; Main Street on US 30; the Ring Line depot; churchgoing; Friday-night football; practical
+- **Economy:** the hospital; the schools; farm trade; the Southland Co-op Elevator; shops on US 30; rail works
+- **Districts:** Main Street; Infirmary Square; the Old Grid; the South Side; Southview; Bluff Drive
+- **Heritage lean:** german x1.2, irish_scots x1.2; **faith lean:** lakes_union x1.3, catholic x1.1
+- **Landmarks:** Calder Memorial Hospital; Infirmary Square and City Hall; the Southland Co-op Elevator; the Calder water tower; Calder Commons
+- **Rivals:** bellhaven; **allies:** pruett, kessler; **reputation:** where you go when you're sick, solid, football-mad, good diners
+
 ## Pruett (hamlet, 1,500 people, founded VY 110)
 - **Region:** southland; **engine archetype:** stable_town; **named for:** Hollis Pruett, the surveyor
 - **Character:** hamlet; one store; fields

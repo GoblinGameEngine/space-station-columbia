@@ -106,7 +106,7 @@ func _draw() -> void:
 		# (the detailed map is in the far-side bake's padded frame; the political map in the ring's own)
 		var det := tex == _det
 		var ppm: float = tex.get_width() / (StationGeo.FARSIDE_W if det else StationGeo.CIRC)
-		var y_off: float = StationGeo.FARSIDE_H * 0.5 if det else 4000.0
+		var y_off: float = StationGeo.FARSIDE_H * 0.5 if det else StationGeo.HALF_LEN
 		var tw := StationGeo.CIRC * ppm
 		var src := Rect2(fposmod(view.x - sz.x * 0.5 * mm, StationGeo.CIRC) * ppm, (view.y - sz.y * 0.5 * mm + y_off) * ppm, sz.x * mm * ppm, sz.y * mm * ppm)
 		var first := minf(src.size.x, tw - src.position.x)

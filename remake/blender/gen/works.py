@@ -430,8 +430,8 @@ def build_retail(rec, tr):
     park_d = 18.0 if kind == "bigbox" else 12.0
     if lot_d < 20:
         park_d = min(park_d, lot_d * 0.35)
-    W = clamp(lot_w - 4.0, 12.0, 70.0 if kind == "bigbox" else 90.0)
-    D = clamp(lot_d - park_d - 3.0, 9.0, 42.0)
+    W = clamp(lot_w - 4.0, 12.0, 140.0 if kind == "bigbox" else 120.0)      # (a community centre's anchor: ~115 m)
+    D = clamp(lot_d - park_d - 3.0, 9.0, 80.0 if kind == "bigbox" else 42.0)
     x0, x1 = -W / 2, W / 2
     y1 = lot_d / 2 - park_d
     y0 = y1 - D

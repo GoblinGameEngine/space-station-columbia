@@ -217,6 +217,7 @@ GOVERNED = [
     ("pelican_cove", "solana_point", "the canneries; Solana Point's market"),
     ("playa_verde", "solana_point", "founded by Solana Point families; Lake Spanish"),
     ("pruett", "kessler", "the Southland farms supply the capital"),
+    ("calder", "kessler", "the southland's hospital town, a half-hour down US 30 from the capital; its courts and registry are Kessler's"),
     ("tamarack", "oceanview", "2.1 km; the dairy's milk to the resort hotels"),
 ]
 TIERS = [("city", 20000), ("town", 10000), ("village", 4000), ("hamlet", 0)]

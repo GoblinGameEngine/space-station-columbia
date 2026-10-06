@@ -953,6 +953,29 @@ def yard(b, rec, tr, names, lot_w, lot_d, x0, x1, y0, yf, porch_d, fd, garage, g
         for sx0, sx1 in ((-lot_w / 2 + 0.3, fd[0] - 0.8), (fd[0] + 0.8, lot_w / 2 - 0.3)):
             if sx1 - sx0 > 0.4:
                 hp.box((sx0, fy - 0.35, 0.0), (sx1, fy + 0.25, 0.95), "green_leaf")
+    # the side and rear lot lines (research/buildings/LOTS.md §3, §5.5: fronts open; one side fenced or hedged from
+    # behind the house's front to the back; the rear line a fence, hedge or tree belt). Each lot draws its rear line
+    # and ONE side line -- the one away from its driveway -- so neighbours don't double their shared fence.
+    side_k, rear_k = yd.get("side", "none") or "none", yd.get("rear", "none") or "none"
+    drive_left = garage != "none" and mirror
+    sx_ = (lot_w / 2 - 0.15) if drive_left else (-lot_w / 2 + 0.15)
+    yb_ = -lot_d / 2 + 0.15
+    ys_ = min(yf - 1.0, lot_d / 2 - 3.0)
+    for kind_, pts_ in ((side_k, [(sx_, ys_), (sx_, yb_)]), (rear_k, [(-lot_w / 2 + 0.15, yb_), (lot_w / 2 - 0.15, yb_)])):
+        if kind_ == "none" or math.dist(*pts_) < 2.0:
+            continue
+        nm_ = "side_fence" if pts_[0][0] == pts_[1][0] else "rear_fence"
+        if kind_ == "chainlink":
+            gh.chainlink_fence(b, pts_, 1.2, name=nm_)
+        elif kind_ == "privacy":
+            gh.picket_fence(b, pts_, 1.8, "furn_light", name=nm_, spacing=0.105)
+        elif kind_ == "picket":
+            gh.picket_fence(b, pts_, 1.0, "trim", name=nm_)
+        elif kind_ in ("hedge", "tree_line"):
+            hp = b.part(f"{nm_}_hedge-col")
+            hh_ = 1.5 if kind_ == "hedge" else 2.8
+            (ax_, ay_), (bx_, by_) = pts_
+            hp.box((min(ax_, bx_) - 0.35, min(ay_, by_) - 0.35, 0.0), (max(ax_, bx_) + 0.35, max(ay_, by_) + 0.35, hh_), "green_leaf")
     # garage
     gd = 6.2
     if garage.startswith("detached") and y0 - 4.0 - gd < -lot_d / 2 + 0.4:

@@ -45,7 +45,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 # ------------------------------------------------------------------ geometry
 R = 3000.0
 C = 2 * math.pi * R          # 18,850 m circumference
-W = 8000.0                   # wall to wall
+W = 12000.0                  # wall to wall (12 km since 2026-10-06: the seas widened to 3 km, the land unchanged)
 HW = W / 2
 PX = 2.0                     # metres per raster pixel (everything else is in metres)
 K = 1.0 / PX
@@ -54,7 +54,7 @@ OFFS = (-C, 0.0, C)          # draw every primitive three times so the seam wrap
 OLD_R = 500.0
 SS = R / OLD_R               # an old-map arc length -> the expanded ring's
 WIDEN = 500.0                # each bank of the river / lake moves out this far (1 km wider)
-SEA = 1000.0                 # the end-cap seas
+SEA = 3000.0                 # the end-cap seas (mean: the coasts wander round COAST_MEAN)
 SHORE = HW - SEA             # |x| of the land's edge at each sea
 
 # River harmonic stack -- identical to TerrainHeight.gd (generator_rules §10)
@@ -529,6 +529,7 @@ class Town:
         self.founding, self.archetype = founding, archetype
         self.s0, self.x0, self.axis, self.flip, self.label = s0, x0, axis, flip, label
         self.streets, self.bldgs, self.areas, self.marks = [], [], [], []
+        self.street_names = {}  # index in streets -> its name (a generated town names its own: tools/settlegen)
         self.extra_hull = []
         # waterfront: walks (boardwalks, piers, docks, breakwaters...), decks, buildings over the
         # water, harbour water cut into the land, land built out into the water
@@ -553,7 +554,9 @@ class Town:
             pts.append(self.g(uc + du * c - dv * s, vc + du * s + dv * c))
         return pts
 
-    def street(self, pts_uv, cls="street"):
+    def street(self, pts_uv, cls="street", name=""):
+        if name:
+            self.street_names[len(self.streets)] = name
         self.streets.append(([self.g(u, v) for u, v in pts_uv], cls))
 
     def bld(self, poly, kind, part=False):
@@ -1537,6 +1540,53 @@ def build_all():
     return towns + [cf, pr, du, lo, ha]
 
 
+# Calder (the user, 2026-10-06): a whole town generated from the research rules (tools/settlegen/town.py, calder.py) --
+# every building its own catalog record (tools/settlegen/records.py), written by --game-data below
+def build_calder():
+    import calder as CAL
+    t = Town("Calder", "Town", 7000, "Rail-founded", "Stable ag / the southland's hospital town", CAL.S0, CAL.X0, "s", -1, "up")
+    p = CAL.plan(lambda u, v: is_water(*t.g(u, v), buf=True))
+    uv = lambda poly: [t.g(u, v) for u, v in poly]
+    for st in p["streets"]:
+        t.street(st["pts"], st["cls"], st["name"])
+    for a in p["areas"]:
+        t.area(uv(a["poly"]), a["kind"])
+    for c in p["centres"]:
+        f = (lambda c_: (lambda u, v: (u, c_["v_road"] + c_["dirn"] * v)))(c)
+        for a in c["plan"]["areas"]:
+            t.area(uv([f(*q) for q in a["poly"]]), a["kind"])
+        for ln in c["plan"]["lines"]:
+            t.street([f(*q) for q in ln["pts"]], "alley" if ln["cls"] == "alley" else "street")
+    for (q, txt) in p["marks"]:
+        t.mark(q[0], q[1], txt)
+    # the three countryside centres round it (07: at rural crossroads and the coast highway junction)
+    import town as TW
+    rnd = random.Random(CAL.CFG["seed"] + 3)
+
+    def coast_road_x(s_):
+        w_, line_, off_ = site_weight(np.array([s_]), 1)
+        return float(coast(np.array([s_]), 1)[0] - (300.0 * w_[0] + off_[0] * (1 - w_[0])))
+    country = []
+    for (name, kind, s_c, x_road, dirn, era) in ((CAL.NAMES["country"][0], "convenience", 7516.0 + 80.0, coast_road_x(7596.0), -1, 1988),
+                                                  (CAL.NAMES["country"][1], "neighborhood", 5907.0 - 175.0, 1800.0, 1, 1974),
+                                                  (CAL.NAMES["country"][2], "convenience", 9125.0 + 80.0, 1800.0, 1, 1996)):
+        c = TW.country_centre(kind, name, rnd)
+        c["era"] = era
+        frame = (lambda sc, xr, dn: (lambda u, v: (sc + u, xr + dn * v)))(s_c, x_road, dirn)
+        for a in c["plan"]["areas"]:
+            t.area([frame(*q) for q in a["poly"]], a["kind"])
+        for ln in c["plan"]["lines"]:
+            pts_ = [frame(*q) for q in ln["pts"]]
+            t.street([(q[0] - t.s0, t.x0 - q[1]) for q in pts_], "alley" if ln["cls"] == "alley" else "street")
+        t.marks.append((frame(0.0, -30.0), name))
+        country.append((c, frame))
+    t.calder_structs = CAL.structures(p, country)
+    for e in t.calder_structs:
+        t.bld(e["poly"], CAL.KIND.get(e["use"], "store"))
+    t.density = 1.0
+    return t
+
+
 TOWNS = build_all()
 
 # No buildings are added or lost in the expansion: each community's structures are exactly those of
@@ -1577,7 +1627,7 @@ add_harrow_falls_waterfront(_TN["Harrow Falls"])
 add_cedar_ford_boardwalk(_TN["Cedar Ford"])
 TOWNS += [build_port_carrow(), build_tern_harbor(), build_brightwater(), build_haven_point(),
           build_solana_point(), build_pelican_cove(), build_playa_verde(), build_oceanview(), build_victory_bay(),
-          build_port_tamsin()]
+          build_port_tamsin(), build_calder()]
 
 # harbour water cut into the land, and land built out into the water (the Battery, a headland,
 # Harbor Island): painted into the water raster
@@ -1615,6 +1665,7 @@ road([(p[0], p[1]) for p in sr14] + [(T["Dunmore Crossing"].g(0, 0)[0] + C, -800
 # US 30 -- starboard loop; bypasses Harrow Falls' downtown along the bluff-top street
 hf = T["Harrow Falls"]
 us30 = [hf.g(-420, 455), hf.g(420, 455), P(820, 770), T["Bellhaven"].g(-182, 0), T["Bellhaven"].g(182, 0),
+        T["Calder"].g(-760, 0), T["Calder"].g(1060, 0),
         T["Pruett"].g(-91, 0), T["Pruett"].g(91, 0), T["Kessler"].g(-430, 0), T["Kessler"].g(330, 0),
         P(2520, 880), T["Tamarack"].g(-182, 0), T["Tamarack"].g(182, 0), P(3142 - 80, 900),
         (hf.g(-420, 455)[0] + C, hf.g(-420, 455)[1])]
@@ -1623,7 +1674,9 @@ road(us30, "hwy", "US 30", smooth=2)
 # (each crossing of the widened river is a new ~1 km bridge)
 road([hf.g(-227.5, 91), P(80, 380), P(-160, 340), P(-160, -300), P(-200, -620)], "county", "Lakeshore Rd", 2)
 road([P(650, -700), P(930, -380), P(930, 380), P(900, 740)], "county", "Outlet Rd", 2)
-road([T["Cedar Ford"].g(0, 0), P(1250, 300), P(1150, 700), T["Bellhaven"].g(-182, 91)], "county", "Ford Rd", 2)
+# (Ford Rd's river bridge lands at Calder's River Rd since Calder was built, 2026-10-06; it once ran on across
+#  that farmland to Bellhaven -- Calder's streets and US 30 carry it on now)
+road([T["Cedar Ford"].g(0, 0), P(1250, 300), (7516.0, 600.0)], "county", "Ford Rd", 2)      # (600: River Rd's north end)
 road([T["Marlowe"].g(182, 0), P(1610, 200), T["Pruett"].g(0, 91)], "county", "Brannock Pike", 2)
 road([T["Fenwick"].g(91, 182), P(2270, 250), T["Kessler"].g(91, 364)], "county", "College Rd", 2)
 # the coast roads: round each sea, through every coastal town on its shore road (Ocean Rd on the
@@ -1823,7 +1876,7 @@ _NET_TOWN = []
 for t in TOWNS:
     for k, (p, cls) in enumerate(t.streets):
         _NET_TOWN.append((t, k, len(_NET_ROADS)))
-        _NET_ROADS.append([densify(list(p), 6.0), cls, ""])
+        _NET_ROADS.append([densify(list(p), 6.0), cls, t.street_names.get(k, "")])
 _culs = [(sum(q[0] for q in poly) / len(poly), sum(q[1] for q in poly) / len(poly))
          for t in TOWNS for poly, kind in t.areas if kind == "culdesac"]
 _net = Network(_NET_ROADS, C, _road_clear, {"hwy": 12, "county": 8, "gravel": 6, "main": 11, "street": 7, "alley": 3}, _culs)
@@ -2221,7 +2274,8 @@ BCOL = {"house": (118, 100, 84), "store": (165, 70, 58), "vacant": (222, 212, 20
         "cannery": (70, 90, 110), "warehouse": (100, 110, 120), "fishhouse": (120, 120, 110), "icehouse": (160, 190, 210),
         "boatyard": (110, 100, 90), "lighthouse": (220, 40, 40), "pavilion": (250, 245, 230), "restaurant": (200, 90, 60),
         "lifeguard": (240, 60, 40), "market": (190, 150, 110), "stack": (60, 60, 60), "ride": (230, 80, 160),
-        "kiosk": (240, 200, 90), "bait": (90, 140, 90), "monument": (235, 232, 220)}
+        "kiosk": (240, 200, 90), "bait": (90, 140, 90), "monument": (235, 232, 220),
+        "townhouse": (215, 120, 110)}
 for t in TOWNS:
     for poly, kind, _ in t.bldgs:
         draw_poly(dr, poly, fill=BCOL[kind], outline=(40, 30, 25) if kind != "vacant" else (140, 70, 60))
@@ -2305,13 +2359,13 @@ F_L = font("NotoSans-Regular.ttf", 24)
 F_LB = font("NotoSans-Bold.ttf", 26)
 F_S = font("NotoSans-Regular.ttf", 21)
 pd.text((M_L, 40), "Goblin Engine — Expanded Station Overhead Map (DRAFT for approval)", font=F_T, fill=(25, 25, 25))
-pd.text((M_L, 125), "Radius 3 km · ring unrolled: 18,850 m circumference (left/right edges join) × 8,000 m wall to wall · "
-        "1 px = 2 m · communities spaced 6× round the ring · river & lake 1 km wider · 1 km seas at the end caps "
+pd.text((M_L, 125), "Radius 3 km · ring unrolled: 18,850 m circumference (left/right edges join) × 12,000 m wall to wall · "
+        "1 px = 2 m · communities spaced 6× round the ring · river & lake 1 km wider · 3 km seas at the end caps "
         "(tools/map_expanded.py)", font=F_T2, fill=(70, 70, 70))
 pd.rectangle([M_L - 2, M_T - 2, M_L + CW + 1, M_T + WH + 1], outline=(30, 30, 30), width=3)
 # walls + seam annotations
-pd.text((M_L + CW / 2, M_T - 22), "NORTH END-CAP CLIFFS — Marlowe end  (x = −4,000 m)", font=F_LB, fill=(90, 90, 90), anchor="mm")
-pd.text((M_L + CW / 2, M_T + WH + 26), "SOUTH END-CAP CLIFFS — Kessler end  (x = +4,000 m)", font=F_LB, fill=(90, 90, 90), anchor="mm")
+pd.text((M_L + CW / 2, M_T - 22), "NORTH END-CAP CLIFFS — Marlowe end  (x = −6,000 m)", font=F_LB, fill=(90, 90, 90), anchor="mm")
+pd.text((M_L + CW / 2, M_T + WH + 26), "SOUTH END-CAP CLIFFS — Kessler end  (x = +6,000 m)", font=F_LB, fill=(90, 90, 90), anchor="mm")
 for k in range(0, 19000, 1000):
     xx = M_L + k * K
     if k * K <= CW:
@@ -2663,8 +2717,9 @@ if "--game-data" in sys.argv:
                         "x": round(run[0][1], 1), "hw": 1.5, "depth": 0.6} for run in DITCHES],
            "roads": [{"cls": cls, "w": ROAD_W[cls], "name": nm, "pts": [[round(a, 1), round(b_, 1)] for a, b_ in pts]}
                      for pts, cls, nm in ROADS]
-                    + [{"cls": cls, "w": ROAD_W[cls], "town": t.name, "pts": [[round(a, 1), round(b_, 1)] for a, b_ in pts]}
-                       for t in TOWNS for pts, cls in t.streets],
+                    + [dict({"cls": cls, "w": ROAD_W[cls], "town": t.name, "pts": [[round(a, 1), round(b_, 1)] for a, b_ in pts]},
+                            **({"name": t.street_names[k]} if k in t.street_names else {}))
+                       for t in TOWNS for k, (pts, cls) in enumerate(t.streets)],
            "rail": {"w": 8, "pts": [[round(a, 1), round(b_, 1)] for a, b_ in RAIL]},
            "turns": [{"s": round(a % C, 1), "x": round(b_, 1), "r": round(r_, 1), "cls": c_} for a, b_, r_, c_ in TURNS],
            "areas": [{"kind": kind, "town": t.name, "poly": [[round(a, 1), round(b_, 1)] for a, b_ in poly]}
@@ -2696,6 +2751,17 @@ if "--game-data" in sys.argv:
             _dx = -WIDEN if t.x0 < 0 else WIDEN
             parts = [dict(pt_, s=round((pt_["s"] + _ds) % C, 1), x=round(pt_["x"] + _dx, 1), front_edge=None) for pt_ in st_["parts"]]
             inv["structures"].append({**st_, **_ri(poly), "parts": parts})
+    # a generated town (Calder): its structures under their generated ids, and each one's catalog record
+    for t in TOWNS:
+        if not hasattr(t, "calder_structs"):
+            continue
+        import calder as CAL
+        inv["settlements"] = inv["settlements"] + [{"name": t.name, "tier": t.tier, "pop": t.pop, "founding": t.founding,
+                                                    "archetype": t.archetype}]
+        for e in t.calder_structs:
+            inv["structures"].append({"id": e["id"], "settlement": t.name, "kind": CAL.KIND.get(e["use"], "store"), "label": e.get("label"),
+                                      **_ri(e["poly"]), "parts": []})
+        print("Calder records:", CAL.write_records(t.calder_structs), file=sys.stderr)
     for k_, c_ in enumerate(FARMSTEADS, 1):
         parts = []
         for poly, kind in FS_POLYS[k_ - 1]:

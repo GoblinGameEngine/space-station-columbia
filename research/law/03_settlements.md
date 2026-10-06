@@ -15,6 +15,7 @@ Tiers: city 20,000+; town 10,000+; village 4,000+; hamlet below. Fast travel (th
 | Bellhaven | 10000 | town | southland | Harrow Falls | Dayton, Ohio | 3.95 | 3.9 km; the Kettle Valley tram; the College's printing and the Works' apprentices | yes |
 | Tern Harbor | 7000 | village | north_shore | Port Carrow | Cleveland, Ohio | 5.39 | the North Shore fishing fleet lands its catch at Port Carrow |  |
 | Pelican Cove | 7000 | village | south_shore | Solana Point | Cincinnati, Ohio | 4.33 | the canneries; Solana Point's market |  |
+| Calder | 7000 | village | southland | Kessler | Columbus, Ohio | - | the southland's hospital town, a half-hour down US 30 from the capital; its courts and registry are Kessler's |  |
 | Fenwick | 6000 | village | northland | Port Carrow | Cleveland, Ohio | 2.59 | 2.6 km; the clockmakers sell through Port Carrow's merchants |  |
 | Port Tamsin | 6000 | village | kettle_valley | Harrow Falls | Dayton, Ohio | 2.85 | 2.6 km; Lake Tamsin's trade runs through the Falls |  |
 | Haven Point | 5000 | village | north_shore | Brightwater | Toledo, Ohio | 6.01 | the North Shore coast road; the summer trade |  |

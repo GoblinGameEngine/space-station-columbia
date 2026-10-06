@@ -12,8 +12,8 @@ extends Node3D
 const TILE := 128                    # px per tile
 const TILE_M := 256.0                # m per tile (2 m / px)
 const TILES_S := 74                  # 18,944 m >= the 18,849.6 m circumference (the rest wraps)
-const TILES_X := 32                  # 8,192 m >= the 8,000 m length
-const HALF_EXTENT := 4096.0
+const TILES_X := 48                  # 12,288 m >= the 12,000 m length
+const HALF_EXTENT := 6144.0
 const CAM_H := 250.0
 const OUT := "res://remake/farside.webp"
 const COLS := "user://farside_cols"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """The Navigation app's political map (godot_project/ui/pda/map_political.png), in the Communicator's
-four LCD greys: 8 m a pixel, north (the bow, x = -4000) at the top, s (round the ring) to the right.
+four LCD greys: 8 m a pixel, north (the bow, x = -HW) at the top, s (round the ring) to the right.
 
   land white; water light grey; town limits (each settlement's built-up area) dark grey outlined in
   black; roads black (highways two pixels); each large city's jurisdiction -- the settlements that
@@ -35,7 +35,8 @@ def main():
     nx, ny, step, x0 = rs["nx"], rs["ny"], rs["step_m"], rs["x0"]
     lvl = np.frombuffer(gzip.open(os.path.join(GD, rs["level"])).read(), np.float16).reshape(ny, nx)
     w = int(round(C / MPP))
-    h = int(round(8000.0 / MPP))
+    HW = ter["W"] / 2
+    h = int(round(2 * HW / MPP))
     # water: the level raster resampled
     ys = ((np.arange(h) + 0.5) * MPP / step).astype(int).clip(0, ny - 1)
     xs = ((np.arange(w) + 0.5) * MPP / step).astype(int) % nx
@@ -45,7 +46,7 @@ def main():
     sets = json.load(open(os.path.join(GD, "law", "settlements.json")))["settlements"]
     cent = [(r["centre"][0], r["centre"][1], r["governed_by"]) for r in sets if r.get("centre")]
     S = (np.arange(w) + 0.5) * MPP
-    X = (np.arange(h) + 0.5) * MPP - 4000.0
+    X = (np.arange(h) + 0.5) * MPP - HW
     best = np.full((h, w), np.inf)
     jur = np.full((h, w), -1, np.int16)
     cities = sorted(PATTERN)
@@ -77,7 +78,7 @@ def main():
     for e in pl:
         if not e.get("settlement") or e["kind"] == "crossing":
             continue
-        i, j = int(e["s"] % C / MPP), int((e["x"] + 4000) / MPP)
+        i, j = int(e["s"] % C / MPP), int((e["x"] + HW) / MPP)
         town[max(0, j - r):j + r + 1, max(0, i - r):i + r + 1] = True
     for _ in range(2):                                   # close the gaps between blocks
         t = town.copy()
@@ -99,7 +100,7 @@ def main():
             for t in range(n + 1):
                 s = (a[0] + ds * t / n) % C
                 x = a[1] + (b[1] - a[1]) * t / n
-                i, j = int(s / MPP) % w, int((x + 4000) / MPP)
+                i, j = int(s / MPP) % w, int((x + HW) / MPP)
                 if 0 <= j < h:
                     img[j:j + thick, i:i + thick] = K
     Image.fromarray(img, "L").convert("RGBA").save(OUT)

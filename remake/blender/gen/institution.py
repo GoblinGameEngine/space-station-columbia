@@ -205,7 +205,12 @@ def program(kind, use, storeys, W, D):
         for _ in range(1, storeys):
             bands.append(([ward, ward], [ward, (0.8, "bath", None), ward]))
         return bands, None
-    if use in ("fire_police", "fire_station", "police"):
+    if use == "police":
+        bands = [([off, (1.0, "office", "office"), off], [(1.0, "jail", "jail"), (0.8, "bath", None), off])]
+        for _ in range(1, storeys):
+            bands.append(([off, off], [off, (0.8, "bath", None)]))
+        return bands, None
+    if use in ("fire_police", "fire_station"):
         bands = [([off], [(1.0, "jail", "jail"), (0.8, "bath", None), off])]
         for _ in range(1, storeys):
             bands.append(([(1.0, "bed", None), (1.0, "bed", None)], [(1.0, "kitchen", None), (0.8, "bath", None)]))
@@ -346,8 +351,10 @@ def build(rec):
         use = "hospital"
     if "library" in use:
         use = "library"
-    if "fire" in use or "police" in use:
+    if "fire" in use:
         use = "fire_police"
+    elif "police" in use:
+        use = "police"                        # (a police station on its own: offices and cells, no engine bays)
     if "opera" in use:
         use = "opera_house"
     storeys = int(clamp(tr.get("storeys") or (2 if kind == "school" else 1), 1, 3))
