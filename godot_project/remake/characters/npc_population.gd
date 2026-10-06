@@ -20,7 +20,7 @@ const DESPAWN_R := 100.0
 const MAX_LIVE := 24
 const MAX_BUILDS := 3            # geometry jobs in flight on the worker pool
 const CELL := 40.0               # the building index's cell (m)
-const TICK := 0.5
+const TICK := 1.0                # (the who's-about check: once a second, its scan spread over frames)
 
 @export var world_seed := 1
 var player: Node3D
@@ -107,18 +107,41 @@ func _process(delta: float) -> void:
 func _tick_population(delta: float) -> void:
 	if player == null:
 		return
+	Prof.begin("pop.collect")
 	_collect()
+	Prof.end("pop.collect")
+	Prof.begin("pop.move")
+	# past FAR_MOVE_M of the player a walker moves every other frame on twice the step (30 Hz at that range is
+	# smooth; each move samples the ground: Calder's busy streets, 2026-10-06)
+	_pop_frame += 1
+	var pp := player.global_position
+	var ps := StationGeo.s_of(pp)
 	for pid in live:
-		var rg = live[pid].get("rag")
+		var e: Dictionary = live[pid]
+		var rg = e.get("rag")
 		if rg != null and (rg as NpcRagdoll).down:
 			continue                                               # on the ground: the physics has them
-		_move(live[pid], delta)
+		if _dist(ps, pp.x, e.s, e.x) > FAR_MOVE_M:
+			if (_pop_frame + (hash(pid) & 1)) % 2 == 0:
+				e.owed = float(e.get("owed", 0.0)) + delta
+				continue
+			_move(e, delta + float(e.get("owed", 0.0)))
+			e.owed = 0.0
+		else:
+			_move(e, delta)
+	Prof.end("pop.move")
+	Prof.begin("pop.space")
 	_personal_space(delta)
-	_tick -= delta
-	if _tick > 0.0:
-		return
-	_tick = TICK
-	_refresh()
+	Prof.end("pop.space")
+	Prof.begin("pop.refresh")
+	if not _scan.is_empty():
+		_scan_step()                                               # (the scan, a few cells a frame)
+	else:
+		_tick -= delta
+		if _tick <= 0.0:
+			_tick = TICK
+			_refresh()
+	Prof.end("pop.refresh")
 
 
 # -- who is out -------------------------------------------------------------------------------------
@@ -154,29 +177,100 @@ func _refresh() -> void:
 		var e: Dictionary = live[pid]
 		if _dist(ps, px, e.s, e.x) > DESPAWN_R:
 			_despawn(pid)
-	# who should be here: residents of buildings in range who are out now, nearest first
-	var want := []
+	# who should be here: residents of buildings in range who are out now, nearest first. The cells are scanned a
+	# few a frame (SCAN_BUDGET_USEC of them): a dense town's 70 m held ~300 people and the scan was a 60 ms hitch (Calder)
 	var c := _cell(ps, px)
 	var r := ceili(SPAWN_R / CELL)
+	var cells: Array = []
 	for i in range(-r, r + 1):
 		for j in range(-r, r + 1):
-			for b in _index.get(Vector2i(posmod(c.x + i, ceili(StationGeo.CIRC / CELL)), c.y + j), []):
-				var d := _dist(ps, px, float(b.s), float(b.x))
-				if d > SPAWN_R:
-					continue
-				var hh: Dictionary = _house_cache.get(b.id, {})
-				if hh.is_empty():
-					hh = NpcHouseholds.of_building(world_seed, b)
-					_house_cache[b.id] = hh
-				for m in hh.members:
-					if _life and _life.people.has(m.pid):
-						_consider(want, m.pid, ps, px)
-					elif out_now(m.pid, m.pinned) and str(_gone_in.get(m.pid, "")) != str(floori(hour() * 2.0)):
-						want.append([d, m, b, hh.population, {}])
-			if _life:                                          # the places: who works or shops here
-				for uid in _unit_index.get(Vector2i(posmod(c.x + i, ceili(StationGeo.CIRC / CELL)), c.y + j), []):
-					for pid in _life.by_unit.get(uid, []):
-						_consider(want, pid, ps, px)
+			cells.append(Vector2i(posmod(c.x + i, ceili(StationGeo.CIRC / CELL)), c.y + j))
+	_scan = {"cells": cells, "k": 0, "want": [], "ps": ps, "px": px}
+	_scan_step()
+
+
+const SCAN_BUDGET_USEC := 1200
+const FAR_MOVE_M := 25.0
+var _pop_frame := 0
+const HOUSES_PER_FRAME := 6
+var _scan := {}
+
+
+func _scan_step() -> void:
+	var ps: float = _scan.ps
+	var px: float = _scan.px
+	var want: Array = _scan.want
+	var cells: Array = _scan.cells
+	var k0: int = _scan.k
+	var built := 0
+	var t0 := Time.get_ticks_usec()
+	var k := k0
+	while k < cells.size():
+		if k > k0 and Time.get_ticks_usec() - t0 > SCAN_BUDGET_USEC:
+			break                                                  # (the rest next frame: no hitch in a busy town)
+		var cell: Vector2i = cells[k]
+		# a building's households are made the first time it's in range (~2-5 ms each): at most HOUSES_PER_FRAME new
+		# ones a frame -- past that the scan picks this cell up again next frame (want is de-duplicated below)
+		var stop := false
+		for b in _index.get(cell, []):
+			if not _house_cache.has(b.id) and _dist(ps, px, float(b.s), float(b.x)) <= SPAWN_R:
+				if built >= HOUSES_PER_FRAME:
+					stop = true
+					break
+				_house_cache[b.id] = NpcHouseholds.of_building(world_seed, b)
+				built += 1
+		if stop:
+			_scan.k = k
+			return
+		Prof.begin("scan.members")
+		for b in ([] if _scan.get("skip_members", false) else _index.get(cell, [])):
+			var d := _dist(ps, px, float(b.s), float(b.x))
+			if d > SPAWN_R:
+				continue
+			var hh: Dictionary = _house_cache.get(b.id, {})
+			for m in hh.members:
+				if _life and _life.people.has(m.pid):
+					_consider(want, m.pid, ps, px)
+				elif out_now(m.pid, m.pinned) and str(_gone_in.get(m.pid, "")) != str(floori(hour() * 2.0)):
+					want.append([d, m, b, hh.population, {}])
+		Prof.end("scan.members")
+		Prof.begin("scan.units")
+		if _life:                                          # the places: who works or shops here
+			# a downtown cell's places hold hundreds of workers and customers (each a day's timeline the first
+			# time: 146 ms for Calder's square): taken in turn across frames, resuming where the budget ran out
+			if not _scan.has("upids"):
+				var pids: Array = []
+				for uid in _unit_index.get(cell, []):
+					pids.append_array(_life.by_unit.get(uid, []))
+				_scan.upids = pids
+				_scan.ui = 0
+			var pids2: Array = _scan.upids
+			var ui: int = _scan.ui
+			while ui < pids2.size():
+				_consider(want, pids2[ui], ps, px)
+				ui += 1
+				if (ui & 7) == 0 and Time.get_ticks_usec() - t0 > SCAN_BUDGET_USEC:
+					break
+			_scan.ui = ui
+			if ui < pids2.size():
+				Prof.end("scan.units")
+				_scan.k = k
+				_scan.skip_members = true                    # (this cell's residents are in already)
+				return
+			_scan.erase("upids")
+		_scan.erase("skip_members")
+		Prof.end("scan.units")
+		k += 1
+	_scan.k = k
+	if int(_scan.k) < cells.size():
+		return
+	_scan = {}
+	Prof.begin("scan.finish")
+	_scan_finish(want)
+	Prof.end("scan.finish")
+
+
+func _scan_finish(want: Array) -> void:
 	var seen := {}
 	var uniq := []
 	for w in want:

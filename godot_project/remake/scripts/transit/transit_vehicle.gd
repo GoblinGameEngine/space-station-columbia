@@ -38,6 +38,11 @@ var joints: Array = []               # TramJoint
 var seats: Array = []                # seat marker nodes
 var stands: Array = []               # [stand marker, strap marker]
 var riders: Array = []               # [npc, animator, marker]
+## Riders and the driver are hidden and stilled past RIDER_M of the camera: a train 2 km round the ring carried
+## 89 posed, skinned people nobody could make out (Calder, 2026-10-06)
+const RIDER_M := 80.0
+var _rider_next_ms := 0
+var _riders_shown := true
 var built := false                   # all its sections made (_build_tram)
 var _placed := false
 var _aboard := {}                    # player -> [section index, their place in its frame] (_keep_aboard)
@@ -241,6 +246,32 @@ func _collect() -> void:
 		else:
 			riders.append([npc, an, holder])
 		return                          # one a frame
+
+
+func _riders_lod() -> void:
+	if Time.get_ticks_msec() < _rider_next_ms:
+		return
+	_rider_next_ms = Time.get_ticks_msec() + 500
+	var cam := get_viewport().get_camera_3d() if is_inside_tree() else null
+	if cam == null or parts.is_empty():
+		return
+	var near := false
+	for pt in parts:
+		if is_instance_valid(pt[0]) and (pt[0] as Node3D).global_position.distance_to(cam.global_position) < RIDER_M:
+			near = true
+			break
+	if near and _riders_shown:
+		return                                           # (far, every rider is re-checked: new ones board visible)
+	_riders_shown = near
+	var people: Array = []
+	for r in riders:
+		people.append(r[0])
+	if driver_npc != null:
+		people.append(driver_npc)
+	for npc in people:
+		if is_instance_valid(npc):
+			(npc as Node3D).visible = near
+			(npc as Node).process_mode = Node.PROCESS_MODE_INHERIT if near else Node.PROCESS_MODE_DISABLED
 
 
 func _taken() -> Dictionary:
@@ -584,6 +615,7 @@ func place(p_d: float, p_dwelling: bool, p_stop: int) -> void:
 	Prof.begin("tram.operate")
 	d = _operate(p_d, p_dwelling)
 	Prof.end("tram.operate")
+	_riders_lod()
 	if str(line.kind) == "tram":
 		Prof.begin("tram.place")
 		_place_tram()

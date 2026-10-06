@@ -362,9 +362,11 @@ func _anim_tick(delta: float) -> void:
 			var d := cam.global_position.distance_to(me.global_position)
 			if d > 6.0 and not cam.is_position_in_frustum(me.global_position + me.global_basis.y * 1.0):
 				_lod_rate = 0                            # off screen: not posed at all (the step goes on)
-			elif d > 60.0:
+			elif d > 100.0:
+				_lod_rate = maxi(drawing_rate, 24)        # once a second (Calder's South Side: ~200 people about)
+			elif d > 40.0:
 				_lod_rate = maxi(drawing_rate, 8)         # 3 a second
-			elif d > 25.0:
+			elif d > 15.0:
 				_lod_rate = maxi(drawing_rate, 4)         # 6 a second
 			else:
 				_lod_rate = drawing_rate

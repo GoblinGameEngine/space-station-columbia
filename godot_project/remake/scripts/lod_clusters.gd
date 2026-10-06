@@ -28,7 +28,17 @@ const MARGIN := 0.08                 # hysteresis at each switch, a fraction of 
 ## ({id, root, lod1, k}) go to a RemakeDetailStreamer, which loads LOD0 near the player.
 ## A coroutine (one building per frame) -- await it; returns {"buildings", "cells2", "cells3", "landmarks"}.
 const BAKED := "res://remake/baked/structures.res"
-const BAKE_VERSION := 1              # bump when the merge's output changes
+const BAKE_VERSION := 3              # bump when the merge's output changes (3: heights above grade; landmarks tall or bridges)
+const LOD0_MAX := 90.0               # full detail (interiors, doors, lights) never past this, however big (Calder:
+                                     # a strip centre's 158k-triangle LOD0 was drawn 160 m off, 2026-10-06)
+
+
+static func lod0_end(k: float) -> float:
+	return minf(D1 * k, LOD0_MAX)
+
+
+static func _is_crossing(id: String) -> bool:
+	return id.begins_with("MAJOR-") or id.begins_with("SMALL-") or id.begins_with("CULVERT-") or id.begins_with("RAIL-") or id.begins_with("XBR-")
 const BUDGET_USEC := 8000             # main-thread time per frame spent assembling buildings
 const LOADING_BUDGET_USEC := 60000    # ... while the loading screen is up
 const LOOKAHEAD := 64                 # buildings whose LOD files are loading ahead
@@ -115,6 +125,7 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 		var lod1: Node3D = sc[0].instantiate()
 		root.add_child(lod1)
 		RemakeBuilding.prepare_lod(lod1, "res://remake/buildings/%s.lod1.glb" % model)
+		# (set below, once its size is known: ordinary buildings' LOD1 may thin itself with distance)
 		# size and prominence from the massing (LOD2 has no yard props): switch distances scale with
 		# it, and a tall or very long building is a landmark that keeps its own chain
 		var l2: Node3D = null
@@ -129,8 +140,12 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 			l2 = sc[1].instantiate() if sc.size() > 1 and sc[1] else null
 			var ab := _aabb(l2 if l2 else lod1)
 			var wide := maxf(ab.size.x, ab.size.z)
-			k = clampf(maxf(ab.size.y, wide * 0.8) / 12.0, 0.7, 4.0)
-			landmark = ab.size.y >= LANDMARK_H or wide >= LANDMARK_W
+			var tall := ab.end.y                         # above grade: the foundations reach 4 m below it (FOUND_DEPTH),
+			                                             # which made every 12 m house a 16 m 'landmark'
+			k = clampf(maxf(tall, wide * 0.8) / 12.0, 0.7, 4.0)
+			# a landmark keeps its own chain far out: tall (spires, elevators, towers) or a long bridge (its truss);
+			# a long low building -- a strip centre, a big box, a school wing -- merges into its cell like any other
+			landmark = tall >= LANDMARK_H or (wide >= LANDMARK_W and _is_crossing(id))
 		if bake_into:
 			if not bake_into.data.has("meta"):
 				bake_into.data["meta"] = {}
@@ -139,11 +154,15 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 			var b := RemakeBuilding.new()
 			root.add_child(b)
 			b.load_building(load("res://remake/buildings/%s.glb" % model))
-			_ranges(b, 0.0, D1 * k)
+			_ranges(b, 0.0, lod0_end(k))
 			_light_fade(b)
 		else:
 			records.append({"id": id, "model": model, "root": root, "lod1": lod1, "k": k, "landmark": landmark})
-		var lod1_begin := D1 * k if full else 0.0          # no full detail yet: LOD1 from 0 m (the streamer swaps it)
+		var lod1_begin := lod0_end(k) if full else 0.0      # no full detail yet: LOD1 from 0 m (the streamer swaps it)
+		if not landmark:
+			# Godot's own mesh LOD (generated on import) thins an ordinary building's exterior with distance; only
+			# landmarks keep every truss member and pane (the user, 2026-10-06: Calder at 60 fps)
+			_lod_bias(lod1, 1.0)
 		if landmark:
 			# its own chain all the way out
 			landmarks += 1
@@ -294,6 +313,15 @@ static func _ranges(n: Node, begin: float, end: float) -> void:
 			g.visibility_range_begin_margin = begin * MARGIN
 			g.visibility_range_end = end
 			g.visibility_range_end_margin = end * MARGIN
+
+
+static func _lod_bias(n: Node, bias: float) -> void:
+	var stack: Array[Node] = [n]
+	while stack.size() > 0:
+		var c: Node = stack.pop_back()
+		stack.append_array(c.get_children())
+		if c is GeometryInstance3D:
+			(c as GeometryInstance3D).lod_bias = bias
 
 
 static func _parent_all(n: Node, vis_parent: GeometryInstance3D) -> void:

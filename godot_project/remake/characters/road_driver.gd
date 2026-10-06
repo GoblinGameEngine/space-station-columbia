@@ -82,7 +82,27 @@ var dbg := {}                        # what this driver last saw and wanted (for
 var _rng := RandomNumberGenerator.new()
 var _decided := {}                   # an encounter -> its decision (once per encounter)
 var _passed := {}                    # sign ids gone by
-var _stopped_s := 0.0                # seconds stood still
+var _stopped_s := 0.0                # seconds stood still at a stop line
+var _still_s := 0.0                  # seconds stood still, for any reason (the standoff rule below)
+const STANDOFF_S := 4.0
+var last_obstacles: Array = []
+var _last_acc := 0.0
+var _last_hard := false
+
+
+func coast(dt: float) -> void:
+	## Between decisions (a far car decides 20 times a second, NpcTraffic): on along the road with the last
+	## acceleration it chose, and on toward its lane.
+	if dt <= 0.0:
+		return
+	v = maxf(0.0, v + _last_acc * dt)
+	if _last_hard:
+		v = minf(v, 0.3)
+	t += v * dt
+	if path_len < INF:
+		t = minf(t, path_len)
+	lat = move_toward(lat, _lat_target, 1.3 * dt)
+	_still_s = _still_s + dt if v < 0.1 else 0.0
 var _cleared := {}                   # stop/yield controls dealt with
 var _held := 0.0
 var _passing := ""
@@ -144,10 +164,20 @@ func _decide(key: String, p: float) -> bool:
 
 # -- one frame --------------------------------------------------------------------------------------
 
-func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
+func step(dt: float, all_agents: Array, all_peds: Array, clock_s: float) -> void:
 	if dt <= 0.0:
 		return
 	var p := pos_at(t)
+	# every check below looks within 90 m (trains: 400 m): sift the lists once, not in each of the six loops (a busy
+	# town's ~40 drivers each scanning ~80 agents six times a step was 5 ms a frame -- Calder, 2026-10-06)
+	var agents: Array = []
+	for a in all_agents:
+		if str(a.kind) == "train" or ((a.p as Vector2) - p).length_squared() < 12100.0 or absf((a.p as Vector2).x - p.x) > 9000.0:
+			agents.append(a)
+	var peds: Array = []
+	for q in all_peds:
+		if ((q.p as Vector2) - p).length_squared() < 1600.0 or absf((q.p as Vector2).x - p.x) > 9000.0:
+			peds.append(q)
 	var d := dir_at(t)
 	var right := Vector2(-d.y, d.x)
 	if not _limit_set:
@@ -161,7 +191,9 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 	_sense_t -= dt
 	if _sense_t <= 0.0:
 		_sense_t = 0.25
+		Prof.begin("step.perceive")
 		_perceive(p, look)
+		Prof.end("step.perceive")
 	var stop_ctl: Array = []                                   # [dist to line, sign]
 	for c in _stop_abs:
 		stop_ctl.append([float(c[0]) - t, c[1]])
@@ -175,6 +207,7 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 			vdes = minf(vdes, sqrt(a_lat / float(c[1]) + 2.0 * B_COMF * maxf(0.0, dd - 6.0)))
 	vdes = minf(vdes, v_cap)
 
+	Prof.begin("step.junctions")
 	# -- stop and yield signs: stop at the bar, then wait for a clear junction (4511.43) ------------
 	stop_ctl.sort_custom(func(x, y): return x[0] < y[0])
 	if not stop_ctl.is_empty():
@@ -189,13 +222,13 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 			if str(s.t) == "yield":
 				vdes = minf(vdes, maxf(4.0, sqrt(16.0 + 2.0 * B_COMF * maxf(0.0, gap))))
 				if conflict:
-					obstacles.append([gap + S0 - 0.3, 0.0])
+					obstacles.append([gap + S0 - 0.3, 0.0, "stop"])
 				elif gap < 1.0:
 					_cleared[key] = true
 			else:
 				var full := professional or _decide(key, clampf(full_stop + (0.26 if busy else 0.0), 0.0, 1.0))
 				if full or conflict:
-					obstacles.append([gap + S0 - 0.3, 0.0])                # (the obstacle S0 past the line: they stop at it)
+					obstacles.append([gap + S0 - 0.3, 0.0, "stop2"])                # (the obstacle S0 past the line: they stop at it)
 					if gap < 1.5 and v < 0.15:
 						_stopped_s += dt
 						if _stopped_s > 1.0 and not conflict and _my_turn(j, agents, clock_s):
@@ -218,10 +251,10 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 			var key := "sig:%s:%d" % [str(g.p), int(clock_s / 26.0)]
 			if st == "amber" and gap > v * v / (2.0 * 3.0):          # can stop: should
 				if not _decide(key, 0.0 if professional else red_light):
-					obstacles.append([gap + S0 - 0.3, 0.0])
+					obstacles.append([gap + S0 - 0.3, 0.0, "amber"])
 			elif st == "red" and gap > 0.0:
 				if professional or not _decide(key + "r", red_light * 0.4) or gap > 25.0:
-					obstacles.append([gap + S0 - 0.3, 0.0])
+					obstacles.append([gap + S0 - 0.3, 0.0, "red"])
 				elif gap < 2.0:
 					_violate("red_light")
 
@@ -246,9 +279,9 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 			var from_right := _rel(jp, a.p).dot(right) > 3.0 and absf((a.dir as Vector2).dot(d)) < 0.6
 			var oncoming := (a.dir as Vector2).dot(d) < -0.7
 			if from_right and absf(their_eta - eta) < 3.0 and their_eta < 6.0:
-				obstacles.append([along - 7.0, 0.0])
+				obstacles.append([along - 7.0, 0.0, "yield_right"])
 			elif turn < -0.6 and oncoming and their_eta < 5.0:    # turning left across them
-				obstacles.append([along - 4.0, 0.0])
+				obstacles.append([along - 4.0, 0.0, "yield_left"])
 		break
 
 	# -- rail crossings (4511.62) ---------------------------------------------------------------------
@@ -258,7 +291,7 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 		if along > 0.0:
 			for a in agents:
 				if str(a.kind) == "train" and NpcPlaces.dist(a.p, x.p) < 400.0:
-					obstacles.append([along - 8.0, 0.0])
+					obstacles.append([along - 8.0, 0.0, "train"])
 					break
 
 	# -- people on or by the road ahead (4511.46) ----------------------------------------------------
@@ -269,13 +302,15 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 		if along < 0.0 or along > 18.0:
 			continue
 		if absf(side) < 1.6:
-			obstacles.append([along - length * 0.5 - 1.5, 0.0])    # in the path: everyone stops
+			obstacles.append([along - length * 0.5 - 1.5, 0.0, "ped"])    # in the path: everyone stops
 		elif absf(side) < 4.5 and along < 14.0:
 			if professional or _decide("ped:%s" % str(q.id), yield_peds):
-				obstacles.append([along - length * 0.5 - 2.5, 0.0])
+				obstacles.append([along - length * 0.5 - 2.5, 0.0, "ped_yield"])
 			elif along < 6.0 and absf(side) < 3.0:
 				_note_once("ped:%s" % str(q.id), "failed_to_yield_pedestrian")
 
+	Prof.end("step.junctions")
+	Prof.begin("step.ahead")
 	# -- the vehicle ahead, and passing it --------------------------------------------------------------
 	var leader := {}
 	var lgap := INF
@@ -288,14 +323,22 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 		if along <= 0.0 or along > 90.0 or absf(side) > 1.9:
 			continue
 		var gap := along - (length + float(a.len)) * 0.5
+		# a standoff: two cars each with the other in its way (on top of each other, or nose to nose across a
+		# junction), both stood still -- the one with the lower id goes, as drivers wave each other on. Without it a
+		# rush hour's queues locked solid and grew to ~200 cars (Calder's Main St, 2026-10-06)
+		if float(a.v) < 0.1 and str(id) < str(a.id) and (gap < 0.0 or (_still_s > STANDOFF_S and gap < 6.0)):
+			continue
 		var same := (a.dir as Vector2).dot(d) > 0.3
 		if gap < lgap:
 			lgap = gap
 			leader = a
-		obstacles.append([gap, float(a.v) if same else 0.0])
+		obstacles.append([gap, float(a.v) if same else 0.0, "leader"])
 	_overtaking(dt, leader, lgap, vdes, p, d, agents)
 	lat = move_toward(lat, _lat_target, 1.3 * dt)
 
+	Prof.end("step.ahead")
+	Prof.begin("step.idm")
+	last_obstacles = obstacles                                     # (for debugging a stuck driver)
 	# -- IDM ------------------------------------------------------------------------------------------
 	var amax := (1.0 if professional else 1.3 + 1.0 * sensation)
 	var free := 1.0 - pow(v / maxf(vdes, 0.1), 4.0)
@@ -314,6 +357,8 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 	dbg = {"limit_kmh": roundi(limit * 3.6), "vdes": snappedf(vdes, 0.1), "v": snappedf(v, 0.1), "gap": snappedf(near_gap, 0.1),
 		"stops": stop_ctl.size(), "passing": _passing}
 	var acc := clampf(amax * (free - inter), -8.0, amax)
+	_last_acc = acc
+	_last_hard = hard
 	v = maxf(0.0, v + acc * dt)
 	if hard:
 		v = minf(v, 0.3)
@@ -327,6 +372,8 @@ func step(dt: float, agents: Array, peds: Array, clock_s: float) -> void:
 			_note_once("spd:%d:%d" % [int(limit * 3.6), int(t / 300.0)], "speeding")
 	else:
 		_over_s = 0.0
+	_still_s = _still_s + dt if v < 0.1 else 0.0
+	Prof.end("step.idm")
 
 
 func pull_over(on: bool) -> void:

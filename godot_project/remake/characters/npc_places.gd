@@ -25,6 +25,9 @@ static var _of_type: Dictionary  # type -> [uid]
 static var _doors: Dictionary    # building id -> Vector2 door (buildings with units, and flats)
 static var _paths: Dictionary
 static var _attach_cache := {}
+static var _egrid := {}           # Vector2i cell -> [edge] (EG m cells)
+const EG := 60.0
+static var _mx := Mutex.new()     # the caches below are written from route workers (NpcTraffic) too
 static var _edge_cls := PackedStringArray()   # each path edge's road class ("" for a bridge deck)
 static var _adj: Array           # node -> [[edge, other node, length]]
 
@@ -54,6 +57,24 @@ static func load_all() -> void:
 	for ei in edges.size():
 		var ri := int((edges[ei] as Array)[2])
 		_edge_cls[ei] = str(MapTerrain._d.roads[ri].cls) if ri >= 0 else ""
+	# a grid of which edges pass through each EG m cell, so a door finds its nearest road among the edges near it,
+	# not all of them (the scan was 10-30 ms a door; Calder brought thousands of new doors, 2026-10-06)
+	for ei in edges.size():
+		var e: Array = edges[ei]
+		var ri := int(e[2])
+		if ri < 0:
+			continue
+		var u := float(e[3])
+		while true:
+			var q := _at(ri, minf(u, float(e[4])))
+			var cell := Vector2i(floori(fposmod(q.x, StationGeo.CIRC) / EG), floori(q.y / EG))
+			var lst: Array = _egrid.get(cell, [])
+			if lst.is_empty() or lst[lst.size() - 1] != ei:
+				lst.append(ei)
+				_egrid[cell] = lst
+			if u >= float(e[4]):
+				break
+			u += 0.5
 
 
 static func types() -> Dictionary:
@@ -254,25 +275,67 @@ static func route(from_b: String, to_b: String, from_door := Vector2.INF, to_doo
 	## ahead_of: set off away from this point (a vehicle that doesn't turn round where it stands).
 	## lane >= 0: keep this far right of the centre line on every road (drivers) instead of `edge`.
 	var key := "%s>%s>%.1f>%s>%s>%s>%.1f" % [from_b, to_b, edge, ",".join(classes), ",".join(via_cls), str(ahead_of), lane]
-	if from_door == Vector2.INF and to_door == Vector2.INF and _routes.has(key):
-		return _routes[key]
+	if from_door == Vector2.INF and to_door == Vector2.INF:
+		_mx.lock()
+		var have = _routes.get(key)
+		_mx.unlock()
+		if have != null:
+			return have
 	var r := _route(from_b, to_b, from_door, to_door, edge, classes, via_cls, ahead_of, lane)
 	if from_door == Vector2.INF and to_door == Vector2.INF:
+		_mx.lock()
 		if _routes.size() > 20000:                         # (a route is ~1 KB; clearing at 512 thrashed once Calder came)
 			_routes.clear()
 		_routes[key] = r
+		_mx.unlock()
 	return r
 
 
 static func _attach_on(p: Vector2, classes: Array) -> Array:
 	## [edge, u] of the nearest point to p on a road of one of these classes.
 	var key := "%.1f,%.1f>%s" % [p.x, p.y, ",".join(classes)]
-	if _attach_cache.has(key):
-		return _attach_cache[key]
+	_mx.lock()
+	var hit = _attach_cache.get(key)
+	_mx.unlock()
+	if hit != null:
+		return hit
 	var best := INF
 	var out: Array = []
 	var edges: Array = _paths.edges
-	for ei in edges.size():
+	# the grid's rings outward from the door's cell, until the best found is nearer than the next ring can be
+	var c0 := Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / EG), floori(p.y / EG))
+	var ncol := ceili(StationGeo.CIRC / EG)
+	var cand: Array = []
+	var seen := {}
+	for ring in 40:
+		if best < float(ring - 1) * EG:
+			break
+		for di in range(-ring, ring + 1):
+			for dj in range(-ring, ring + 1):
+				if maxi(absi(di), absi(dj)) != ring:
+					continue
+				for ei in _egrid.get(Vector2i(posmod(c0.x + di, ncol), c0.y + dj), []):
+					if not seen.has(ei):
+						seen[ei] = true
+						cand.append(ei)
+		if cand.is_empty():
+			continue
+		_attach_scan(p, classes, cand, edges, out, best)
+		if not out.is_empty():
+			best = float(out[2])
+		cand.clear()
+	if not out.is_empty():
+		out = [out[0], out[1]]
+	_mx.lock()
+	_attach_cache[key] = out
+	_mx.unlock()
+	return out
+
+
+static func _attach_scan(p: Vector2, classes: Array, cand: Array, edges: Array, out: Array, best_in: float) -> void:
+	## The nearest point to p on the candidate edges (of these classes), if nearer than best_in: out = [edge, u, d].
+	var best := best_in
+	for ei in cand:
 		var e: Array = edges[ei]
 		var ri := int(e[2])
 		if ri < 0 or not classes.has(_edge_cls[ei]):
@@ -294,10 +357,9 @@ static func _attach_on(p: Vector2, classes: Array) -> Array:
 			var dd := (ap - ab * t).length()
 			if dd < best:
 				best = dd
-				out = [ei, ua + (ub - ua) * t]
+				out.clear()
+				out.append_array([ei, ua + (ub - ua) * t, dd])
 			k += 1
-	_attach_cache[key] = out
-	return out
 
 
 static func _route(from_b: String, to_b: String, from_door: Vector2, to_door: Vector2, edge := PAVEMENT, classes: Array = [], via_cls: Array = [], ahead_of := Vector2.INF, lane := -1.0) -> PackedVector2Array:

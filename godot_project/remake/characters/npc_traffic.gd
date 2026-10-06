@@ -20,7 +20,7 @@ class_name NpcTraffic
 ## Only vehicles within RANGE of the player are built (GLB, collider, and a driver when moving).
 
 const FLEET := "res://remake/characters/npc_fleet.json"
-const RANGE := 160.0
+const RANGE := 130.0                  # (cars are simulated and shown within this; 160 m held ~175 at a rush hour in Calder)
 const SLICE := 50                    # vehicles placed per frame (the far ones are a distance check)
 const FAR_RECHECK_MS := 3000         # a vehicle found far away isn't looked at again for this long (3 s at
                                      # town speed is ~40 m: inside the RANGE + 100 m margin it was judged by)
@@ -44,10 +44,15 @@ var _i := 0
 var _life: NpcLife
 var _clock: Node
 var _scenes := {}
-## Parked cars beyond PARKED_FULL_M of the camera are drawn as one merged mesh per vehicle type (merge_model: 2
+## Parked cars beyond PARKED_FULL_M of the camera are drawn as one merged mesh per vehicle type (build_merged: 2
 ## surfaces instead of ~40 pieces): Calder's streets park ~80 cars round the player (2026-10-06).
 const PARKED_FULL_M := 20.0
 const MOVING_FULL_M := 45.0
+const FAR_STEP_M := 25.0
+const DRIVER_M := 50.0
+const ROUTES_IN_FLIGHT := 4         # routes being planned on worker threads at once
+var _route_pending := {}           # driven every frame inside this, every 2nd to 100 m, every 3rd beyond
+var _frame := 0
 var _merged := {}                    # model key -> ArrayMesh
 var _daylight := 1.0                 # read once a frame (DaySkySystem), not from the RenderingServer: that call waits
 var _cam_pos := Vector3.INF          # the camera this frame
@@ -151,8 +156,15 @@ func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 	var rough_end := start + straight * 1.6 / CAR_SPEED * gh
 	if h < rough_end:
 		if _near_line(a, b):
-			Prof.begin("traffic.route")
 			var rk := _life.place_of(P, str(last.from)) + ">" + _life.place_of(P, str(last.to))
+			if not _route_cache.has(rk):
+				# planned on a worker thread (a long route was 20-70 ms on the main thread); till it's back the
+				# car counts as away, and is looked at again soon
+				_route_async(_life.place_of(P, str(last.from)), _life.place_of(P, str(last.to)))
+				if live.has(v.id):
+					return _parked(a if str(last.from) != "" else home, v)     # (in sight: it waits where it is)
+				return {"away": true, "soon": true}
+			Prof.begin("traffic.route")
 			var r := _route(_life.place_of(P, str(last.from)), _life.place_of(P, str(last.to)))
 			var cum: PackedFloat32Array = _cum_of(rk, r)
 			Prof.end("traffic.route")
@@ -228,6 +240,25 @@ func _near_line(a: Vector2, b: Vector2) -> bool:
 	var ap := Vector2(StationGeo.wrap_ds(_here.x - a.x), _here.y - a.y)
 	var t := clampf(ap.dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
 	return (ap - ab * t).length() < RANGE + 0.35 * ab.length() + 60.0
+
+
+func _route_async(from_b: String, to_b: String) -> void:
+	var key := from_b + ">" + to_b
+	if _route_pending.has(key) or _route_pending.size() >= ROUTES_IN_FLIGHT:
+		return
+	_route_pending[key] = true
+	WorkerThreadPool.add_task(func():
+		var r := NpcPlaces.route(from_b, to_b, Vector2.INF, Vector2.INF, 0.0, ROADS, [], Vector2.INF, LANE)
+		_route_ready.call_deferred(key, r))
+
+
+func _route_ready(key: String, r: PackedVector2Array) -> void:
+	_route_pending.erase(key)
+	if not is_inside_tree():
+		return
+	if _route_cache.size() > 20000:
+		_route_cache.clear()
+	_route_cache[key] = r.slice(1, r.size() - 1) if r.size() > 3 else r
 
 
 func _route(from_b: String, to_b: String) -> PackedVector2Array:
@@ -408,7 +439,9 @@ func _tick_traffic(delta: float) -> void:
 	var now := _now()
 	var ts0 := Time.get_ticks_usec()
 	_spots_this_frame = 0
+	Prof.begin("traffic.sense")
 	_sense_world()
+	Prof.end("traffic.sense")
 	var t_sense := Time.get_ticks_usec() - ts0
 	var t_loc := 0
 	var t_show := 0
@@ -434,13 +467,14 @@ func _tick_traffic(delta: float) -> void:
 		_show(v)
 		var wh: Dictionary = v.where
 		if (wh.is_empty() or wh.get("away", false)) and not live.has(v.id):
-			v.far_until = _ms + FAR_RECHECK_MS
+			v.far_until = _ms + (300 if wh.get("soon", false) else FAR_RECHECK_MS)    # (soon: its route is being planned)
 		t_loc += tm - tl
 		t_show += Time.get_ticks_usec() - tm
 	var t_slice := Time.get_ticks_usec() - t_us
 	_built_this_frame = 0
 	var cam := get_viewport().get_camera_3d()
 	_cam_pos = cam.global_position if cam else Vector3.INF
+	_frame += 1
 	var sky := get_tree().current_scene.get_node_or_null("DaySkySystem")
 	if sky and sky.has_method("daylight"):
 		_daylight = sky.daylight()
@@ -450,13 +484,28 @@ func _tick_traffic(delta: float) -> void:
 		var e: Dictionary = live[id]
 		var t1 := Time.get_ticks_usec()
 		if e.sim != null:
+			# a driver decides (RoadDriver.step: lights, junctions, the car ahead) every frame only within
+			# FAR_STEP_M of the camera; farther, 20 times a second (traffic simulators run drivers at ~10 Hz) and
+			# in a queue 10 times -- in between the car coasts on at its speed, so it still moves smoothly (Calder's
+			# rush hour: 30 decisions a frame at ~240 us each, 2026-10-06)
+			var dc := (e.node as Node3D).global_position.distance_to(_cam_pos) if _cam_pos != Vector3.INF else 0.0
+			var every := 1 if dc <= FAR_STEP_M else 3
+			if (e.sim as RoadDriver).v < 0.1 and (e.sim as RoadDriver)._still_s > 1.0:
+				every = 6
 			Prof.begin("traffic.drive")
-			_drive(e, delta, now)
+			_drive(e, delta, now, every == 1 or (_frame + int(e.get("parity", 0))) % every == 0)
 			Prof.end("traffic.drive")
 		var t2 := Time.get_ticks_usec()
 		if live.has(id):
 			Prof.begin("traffic.visual")
-			_visual(live[id], delta, cam)
+			# (past 40 m the on-screen check, the model swap and the driver are looked at every 3rd frame)
+			var ev: Dictionary = live[id]
+			var far := _cam_pos != Vector3.INF and (ev.node as Node3D).global_position.distance_squared_to(_cam_pos) > 1600.0
+			ev.vis_dt = float(ev.get("vis_dt", 0.0)) + delta
+			if not far or (_frame + int(ev.get("parity", hash(id)))) % 3 == 0 or ev.model == null:
+				_visual(ev, float(ev.vis_dt), cam)
+				_driver_lod(ev)
+				ev.vis_dt = 0.0
 			Prof.end("traffic.visual")
 			Prof.begin("traffic.animate")
 			_animate(live[id], delta)
@@ -520,9 +569,56 @@ func _sense_world() -> void:
 			if n is Node3D:
 				var o := (n as Node3D).global_position
 				peds.append({"id": pid, "p": Vector2(StationGeo.s_of(o), o.x)})
+	# the agents by 100 m cell (trains in every cell: a crossing looks 400 m out), so each driver is handed only
+	# those round it (every driver scanning every agent was O(n^2): ~1 ms a frame at a rush hour's 90 cars)
+	_agrid.clear()
+	_near_cache.clear()
+	_trains.clear()
+	for a in agents:
+		if str(a.kind) == "train":
+			_trains.append(a)
+			continue
+		var c := _acell(a.p)
+		if not _agrid.has(c):
+			_agrid[c] = []
+		(_agrid[c] as Array).append(a)
+
+
+const ACELL := 100.0
+var _agrid := {}
+var _near_cache := {}
+var _trains: Array = []
+
+
+func _acell(p: Vector2) -> Vector2i:
+	return Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / ACELL), floori(p.y / ACELL))
+
+
+func _agents_near(p: Vector2) -> Array:
+	var c := _acell(p)
+	if _near_cache.has(c):
+		return _near_cache[c]
+	var out: Array = _trains.duplicate()
+	var ncol := ceili(StationGeo.CIRC / ACELL)
+	for di in [-1, 0, 1]:
+		for dj in [-1, 0, 1]:
+			out.append_array(_agrid.get(Vector2i(posmod(c.x + di, ncol), c.y + dj), []))
+	_near_cache[c] = out
+	return out
 
 
 # -- driving ----------------------------------------------------------------------------------------
+
+func _spot_taken(p: Vector2, me: String) -> bool:
+	for id in live:
+		var o: Dictionary = live[id]
+		if id == me or o.sim == null:
+			continue
+		var s: RoadDriver = o.sim
+		if NpcPlaces.dist(s.pos_at(s.t), p) < 7.0:
+			return true
+	return false
+
 
 func _make_sim(v: Dictionary, e: Dictionary, w: Dictionary) -> void:
 	var r: PackedVector2Array = w.route
@@ -550,6 +646,7 @@ func _make_sim(v: Dictionary, e: Dictionary, w: Dictionary) -> void:
 	s.v = CAR_SPEED * 0.8 if float(w.t) > 1.0 else 0.0
 	e.sim = s
 	e.hold = 0.0
+	e.parity = hash(str(v.id)) % 6                                 # (the far cars' steps spread over the frames)
 
 
 static func _next_mark(t: float, L: float, marks: Array) -> float:
@@ -560,7 +657,7 @@ static func _next_mark(t: float, L: float, marks: Array) -> float:
 	return lap + L + (float(marks[0]) if not marks.is_empty() else 0.0)
 
 
-func _drive(e: Dictionary, dt: float, now: Array) -> void:
+func _drive(e: Dictionary, dt: float, now: Array, think := true) -> void:
 	var s: RoadDriver = e.sim
 	var v: Dictionary = e.v
 	# a round's stop at each place, for a while (the timetable's dwell)
@@ -580,9 +677,12 @@ func _drive(e: Dictionary, dt: float, now: Array) -> void:
 		else:
 			s.v_cap = INF if absf(s.lat) < 0.3 else 3.0              # back out into the lane first
 			s.pull_over(false)
-	Prof.begin("drive.step")
-	s.step(dt, agents, peds, now[2])
-	Prof.end("drive.step")
+	if think:
+		Prof.begin("drive.step")
+		s.step(dt, _agents_near(s.pos_at(s.t)), peds, now[2])
+		Prof.end("drive.step")
+	else:
+		s.coast(dt)
 	if float(e.loop) <= 0.0 and s.t >= s.path_len - 0.5:
 		var done: Dictionary = v.get("done", {})
 		done[e.trip] = true
@@ -630,8 +730,8 @@ func _on_ground(node: Node3D, vtype: String, p: Vector2, yaw: float) -> Transfor
 	# frame, 2026-10-06)
 	var bas := StationGeo.basis(p.x, yaw)
 	var g: Array = node.get_meta("ground", [])
-	if _cam_pos != Vector3.INF and g.size() == 5 and (g[0] as Vector2).distance_to(p) < 2.0 \
-			and StationGeo.point(p.x, p.y, 0.0).distance_to(_cam_pos) > 40.0:
+	if _cam_pos != Vector3.INF and g.size() == 5 and ((g[0] as Vector2).distance_to(p) < 0.5
+			or (g[0] as Vector2).distance_to(p) < 2.0 and StationGeo.point(p.x, p.y, 0.0).distance_to(_cam_pos) > 40.0):
 		var o2 := StationGeo.point(p.x, p.y, float(g[4]))         # (under 2 m on: the road's height changes < 0.1 m)
 		var b2 := bas.rotated(bas.x.normalized(), float(g[1]))
 		b2 = b2.rotated(b2.z.normalized(), float(g[2]))
@@ -735,6 +835,10 @@ func _show(v: Dictionary) -> void:
 			(e.node as Node).queue_free()
 			live.erase(v.id)
 		return
+	# a car setting off onto the road (its trip's timetable puts it there) waits till its spot is clear of the
+	# cars already being driven: dropped on top of one, both stopped for good and the queue locked (Calder)
+	if bool(w.get("moving", false)) and (e.is_empty() or e.sim == null) and w.has("route") and _spot_taken(w.pos, str(v.id)):
+		return
 	if e.is_empty():
 		e = _build(v)
 		if e.is_empty():
@@ -747,7 +851,10 @@ func _show(v: Dictionary) -> void:
 	e.moving = bool(w.get("moving", false))
 	if bool(w.get("moving", false)) and e.sim == null and w.has("route"):
 		_make_sim(v, e, w)
-	var wants_driver := bool(w.get("moving", false))
+	# a driver at the wheel only where one can be seen: a skinned, animated person in each of a rush hour's ~60
+	# moving cars was ~200 animators and their draws (Calder, 2026-10-06)
+	var wants_driver := bool(w.get("moving", false)) and (_cam_pos == Vector3.INF
+		or node.global_position.distance_to(_cam_pos) < DRIVER_M)
 	if wants_driver and e.driver == null and e.pending.is_empty():
 		_hire(v, e)
 	elif not wants_driver and e.driver != null:
@@ -815,6 +922,9 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 			e.mkey = mk
 		if e.model != null and bool(e.get("lite", false)) != lite:
 			if not lite or _merged.has(mk):                # (swap: full model near or moving, merged far and parked)
+				if e.driver != null:
+					(e.driver as Node).queue_free()
+					e.driver = null
 				(e.model as Node).queue_free()
 				e.model = null
 				e.wheels = []
@@ -857,8 +967,8 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 				for g in m.find_children("*", "GeometryInstance3D", true, false):
 					(g as GeometryInstance3D).visibility_range_end = RANGE + 30.0
 				e.lite = false
-				if not _merged.has(mk):
-					_merged[mk] = merge_model(m)
+				if not _merged.has(mk) and not _merge_pending.has(mk):
+					_merge_async(mk, m)
 	elif e.model != null:
 		e.unseen = float(e.unseen) + delta
 		if float(e.unseen) > 3.0 and p.distance_to(cam.global_position) > 30.0:
@@ -869,6 +979,31 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 			e.model = null
 			e.wheels = []
 			e.seat = null
+
+
+var _merge_pending := {}
+
+
+func _merge_async(mk: String, m: Node3D) -> void:
+	## A car type's far mesh: its surfaces gathered here (the scene tree is the main thread's), merged and given
+	## automatic detail levels (meshoptimizer) on a worker thread -- the merge was a 100 ms hitch the first time
+	## each type was seen, the LODs ~60 ms (the user, 2026-10-06: "we skipped LOD models for the new vehicles").
+	## Till it's back, that type's cars keep their full models.
+	_merge_pending[mk] = true
+	var parts := gather_model(m)
+	WorkerThreadPool.add_task(func():
+		var merged := build_merged(parts)
+		var im := ImporterMesh.new()
+		for si in merged.get_surface_count():
+			im.add_surface(Mesh.PRIMITIVE_TRIANGLES, merged.surface_get_arrays(si), [], {}, merged.surface_get_material(si))
+		im.generate_lods(25.0, 60.0, [])
+		_merge_done.call_deferred(mk, im.get_mesh()))
+
+
+func _merge_done(mk: String, mesh: ArrayMesh) -> void:
+	_merge_pending.erase(mk)
+	if is_inside_tree():
+		_merged[mk] = mesh
 
 
 func _merge_key(v: Dictionary) -> String:
@@ -897,25 +1032,28 @@ static func _is_glass(mat: Material) -> bool:
 		or (mat as BaseMaterial3D).albedo_color.a < 0.99)
 
 
-static func merge_model(m: Node3D) -> ArrayMesh:
-	## One mesh of a model's outside in two surfaces -- everything opaque in one, coloured per vertex with its
-	## material's colour, and the glass in the other -- in the model's frame (the interior layer and hidden parts
-	## left out). For far parked cars: 2 draws instead of ~40 pieces; their wheels don't turn, doors don't open.
-	if _far_opaque == null:
-		_far_opaque = StandardMaterial3D.new()
-		_far_opaque.resource_name = "car_far"
-		_far_opaque.vertex_color_use_as_albedo = true
-		_far_opaque.roughness = 0.55
-		_far_opaque.cull_mode = BaseMaterial3D.CULL_DISABLED
-		_far_glass = StandardMaterial3D.new()
-		_far_glass.resource_name = "car_far_glass"
-		_far_glass.albedo_color = Color(0.12, 0.16, 0.2, 0.55)
-		_far_glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		_far_glass.roughness = 0.1
-		_far_glass.metallic = 0.3
-		_far_glass.cull_mode = BaseMaterial3D.CULL_DISABLED
-	var parts := [[PackedVector3Array(), PackedVector3Array(), PackedColorArray(), PackedInt32Array()],
-		[PackedVector3Array(), PackedVector3Array(), PackedColorArray(), PackedInt32Array()]]
+static func _far_materials() -> void:
+	if _far_opaque != null:
+		return
+	_far_opaque = StandardMaterial3D.new()
+	_far_opaque.resource_name = "car_far"
+	_far_opaque.vertex_color_use_as_albedo = true
+	_far_opaque.roughness = 0.55
+	_far_opaque.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_far_glass = StandardMaterial3D.new()
+	_far_glass.resource_name = "car_far_glass"
+	_far_glass.albedo_color = Color(0.12, 0.16, 0.2, 0.55)
+	_far_glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	_far_glass.roughness = 0.1
+	_far_glass.metallic = 0.3
+	_far_glass.cull_mode = BaseMaterial3D.CULL_DISABLED
+
+
+static func gather_model(m: Node3D) -> Array:
+	## [[arrays, transform, colour, glass?]] of a model's outside surfaces, in the model's frame (the interior
+	## layer and hidden parts left out). Main thread: it reads the scene tree.
+	_far_materials()
+	var out: Array = []
 	for g in m.find_children("*", "MeshInstance3D", true, false):
 		var mi := g as MeshInstance3D
 		if mi.mesh == null or (mi.layers & VehicleBody.INTERIOR_LAYER) != 0:
@@ -932,32 +1070,43 @@ static func merge_model(m: Node3D) -> ArrayMesh:
 			n = n.get_parent()
 		if hidden:
 			continue
-		var nb := xf.basis.inverse().transposed()
 		for si in mi.mesh.get_surface_count():
 			if mi.mesh.surface_get_primitive_type(si) != Mesh.PRIMITIVE_TRIANGLES:
 				continue
 			var mat := mi.get_active_material(si)
 			var glass := _is_glass(mat)
-			var c := _mat_colour(mat) if not glass else Color(1, 1, 1)
-			var arr := mi.mesh.surface_get_arrays(si)
-			var vs: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
-			var ns = arr[Mesh.ARRAY_NORMAL]
-			var ix = arr[Mesh.ARRAY_INDEX]
-			var P: Array = parts[1 if glass else 0]
-			var base := (P[0] as PackedVector3Array).size()
+			out.append([mi.mesh.surface_get_arrays(si), xf, _mat_colour(mat) if not glass else Color(1, 1, 1), glass])
+	return out
+
+
+static func build_merged(parts: Array) -> ArrayMesh:
+	## One mesh in two surfaces -- everything opaque, coloured per vertex with its material's colour, and the glass
+	## -- for far cars: 2 draws instead of ~40 pieces. Safe on a worker thread.
+	var P2 := [[PackedVector3Array(), PackedVector3Array(), PackedColorArray(), PackedInt32Array()],
+		[PackedVector3Array(), PackedVector3Array(), PackedColorArray(), PackedInt32Array()]]
+	for part in parts:
+		var arr: Array = part[0]
+		var xf: Transform3D = part[1]
+		var c: Color = part[2]
+		var nb := xf.basis.inverse().transposed()
+		var vs: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		var ns = arr[Mesh.ARRAY_NORMAL]
+		var ix = arr[Mesh.ARRAY_INDEX]
+		var P: Array = P2[1 if part[3] else 0]
+		var base := (P[0] as PackedVector3Array).size()
+		for i in vs.size():
+			P[0].append(xf * vs[i])
+			P[1].append((nb * ns[i]).normalized() if ns is PackedVector3Array and i < ns.size() else Vector3.UP)
+			P[2].append(c)
+		if ix is PackedInt32Array and ix.size() > 0:
+			for i in ix.size():
+				P[3].append(base + ix[i])
+		else:
 			for i in vs.size():
-				P[0].append(xf * vs[i])
-				P[1].append((nb * ns[i]).normalized() if ns is PackedVector3Array and i < ns.size() else Vector3.UP)
-				P[2].append(c)
-			if ix is PackedInt32Array and ix.size() > 0:
-				for i in ix.size():
-					P[3].append(base + ix[i])
-			else:
-				for i in vs.size():
-					P[3].append(base + i)
+				P[3].append(base + i)
 	var out := ArrayMesh.new()
 	for k in 2:
-		var P: Array = parts[k]
+		var P: Array = P2[k]
 		if (P[0] as PackedVector3Array).is_empty():
 			continue
 		var a := []
@@ -993,6 +1142,18 @@ func _animate(e: Dictionary, delta: float) -> void:
 
 
 # -- drivers ----------------------------------------------------------------------------------------
+
+func _driver_lod(e: Dictionary) -> void:
+	## A driven car's driver comes when it's within DRIVER_M of the camera, and goes again past it (+10 m).
+	if e.sim == null or _cam_pos == Vector3.INF:
+		return
+	var d := (e.node as Node3D).global_position.distance_to(_cam_pos)
+	if d < DRIVER_M and e.driver == null and (e.pending as Dictionary).is_empty():
+		_hire(e.v, e)
+	elif d > DRIVER_M + 10.0 and e.driver != null:
+		(e.driver as Node).queue_free()
+		e.driver = null
+
 
 func _hire(v: Dictionary, e: Dictionary) -> void:
 	## The driver: the car's owner as the population draws them, or for a work vehicle someone made
