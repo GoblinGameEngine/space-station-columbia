@@ -95,8 +95,11 @@ def driver_bits(b, st):
     H = Vector(dm[0][1])
     me = b.mod("cockpit", "dash", "cockpit", "C", hp=200, mass=6)
     py = min(H.y + 0.80, L.toe - 0.10)                                       # the pedals, at the toe board
+    # (over a front arch -- the minivan's toe board sits on its axle -- the wheel well intrudes on the footwell and
+    #  the pedals are offset inboard, as in real cars; at full lock the tyre reached the brake pedal's edge)
+    off = -math.copysign(0.09, H.x) if any(ax - L.arch_half < py < ax + L.arch_half for ax in L.axles) and abs(H.x) > 0.1 else 0.0
     for dx_, w in ((0.13, 0.035), (-0.06, 0.06)):                            # accelerator, brake
-        p = Vector((H.x + dx_, py, L.floor + 0.10))
+        p = Vector((H.x + dx_ + off, py, L.floor + 0.10))
         me.box(tuple(p), (w, 0.02, 0.07), "rubber", xf=Matrix.Translation(p) @ Matrix.Rotation(-0.6, 4, "X") @ Matrix.Translation(-p))
         me.pipe([p + Vector((0, 0.02, 0.06)), p + Vector((0, 0.12, 0.28))], 0.008, "black", n=5)
     hdr = getattr(L, "header", L.toe)

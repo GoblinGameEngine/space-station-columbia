@@ -1652,6 +1652,9 @@ class Builder:
         elif kind == "stop_arm":                            # FMVSS 131: the school bus's stop signal arm, on the driver's side
             me = self.mod("stop_arm", "equipment", "stop_arm", "L", hp=60, mass=3)
             y = L.nose - 1.6
+            for ax in L.axles:                              # (behind the front wheel arch, as on real buses: it hung in the tyre's sweep)
+                if ax - L.arch_half - 0.25 < y < ax + L.arch_half + 0.25:
+                    y = ax - L.arch_half - 0.27
             x = -(L.half_w + 0.04)
             me.lathe([(0.0, 0.23), (0.02, 0.23), (0.025, 0.0001)], "livery2", n=8,           # (below the window line)
                      xf=X((x, y, L.belt - 0.32)) @ Matrix.Rotation(math.pi / 2, 4, "Z") @ Matrix.Rotation(math.pi / 8, 4, "Y"))
