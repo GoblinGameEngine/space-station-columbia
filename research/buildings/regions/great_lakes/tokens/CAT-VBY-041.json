@@ -1,0 +1,86 @@
+{
+ "id": "CAT-VBY-041",
+ "catalog_id": "VBY-041",
+ "images": [
+  {
+   "file": "remake/reference/VBY-041/commons_Lucas_Beecher_House.jpg",
+   "view": "front_34",
+   "source": "Wikimedia Commons",
+   "url": "https://commons.wikimedia.org/wiki/File:Lucas_Beecher_House.jpg",
+   "license": "Public domain",
+   "author": "Nyttend",
+   "caption": "Front and eastern side of the Lucas Beecher House, located at 215 W. Washington Row in Sandusky, Ohio, United States.  Built in 1847 and since converted into offices, it is listed on the National Regi"
+  }
+ ],
+ "place": {
+  "town": "Sandusky",
+  "state": "OH",
+  "band": "railroad_1860_1900",
+  "source_title": "Lucas Beecher House",
+  "transect": "T5"
+ },
+ "year_built": 1880,
+ "tokens": [
+  "roof_mat:asphalt_shingle",
+  "porch_post:turned",
+  "rail:spindle",
+  "foundation:poured_concrete",
+  "window:2over2",
+  "ornament:shutters",
+  "garage:detached_rear",
+  "setting:main_street",
+  "lot_tenure:fee_simple",
+  "condition:kept",
+  "bound_front:sidewalk_terrace",
+  "form:italianate_cube",
+  "style:italianate",
+  "storeys:2",
+  "roof:hip",
+  "pitch:low",
+  "wall:stone",
+  "ornament:brackets",
+  "ornament:cresting",
+  "chimney:multiple",
+  "porch:portico",
+  "porch_post:columns",
+  "bays:3",
+  "door_pos:centre",
+  "setback:shallow",
+  "bound_front:fence_iron",
+  "use:office",
+  "alteration:converted_use"
+ ],
+ "brief": "An island-town cottage lot: Lucas Beecher House, a 19th-century Lake Erie house; see the photo for its massing, porch and trim. One photo; year estimated. Older than 1970: the Lake Erie shore towns that stand in for Victory Bay's island streets (Vermilion, Sandusky, Put-in-Bay) were built 1840-1920, and Commons has almost no newer cottages there. Foundations taken deeper than needed (spec rule 4).",
+ "catalog": {
+  "kind": "cottage",
+  "archetype": "i_house"
+ },
+ "facade": {
+  "faces": "street",
+  "floors": [
+   "W W W",
+   "W D W"
+  ],
+  "notes": "the Lucas Beecher House (Sandusky): a rough-cut limestone Italianate cube with brackets, a roof-deck balustrade, tall stone chimneys, green shutters, a small columned porch; now hemmed in by downtown brick buildings and a parking lot, with a street lamp and a low iron fence -- a house left on a main street"
+ },
+ "lot": {
+  "setback": "shallow",
+  "fence": "iron_front"
+ },
+ "why": [
+  {
+   "token": "wall:stone",
+   "cause": "context",
+   "ref": "great_lakes/02_styles.md",
+   "note": "Sandusky sits on Columbus limestone, quarried in town: its 19th-century houses are grey limestone"
+  },
+  {
+   "token": "setting:main_street",
+   "cause": "change",
+   "ref": "urban_layout/03_neighbourhood_change.md",
+   "note": "downtown grew around an early house, which survived as an office"
+  }
+ ],
+ "confidence": "high",
+ "annotator": "claude 2026-10-05 (from catalog traits + photo)"
+}
