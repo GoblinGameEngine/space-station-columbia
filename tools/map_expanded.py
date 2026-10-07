@@ -1448,7 +1448,7 @@ def build_port_carrow():
             t.houses(u0, u1, v0, -1, 3, kind=k)
             t.houses(u0, u1, v1, 1, 3, kind=k)
     t.church(-364 + 45, -318, "Circular Church")
-    t.church(273 + 45, -410, "Huguenot Church")
+    t.church(364 + 45, -410, "Huguenot Church")     # (the block east of Carrow Academy's)
     t.civic(us[9], us[10], -364, -455, "school", 50, 36, "Carrow Academy", "schoolground", vface=-400)
     # the ocean beach and pier east of the wharves
     t.area(t.rect(420, 780, 10, wv + 60), "beach")

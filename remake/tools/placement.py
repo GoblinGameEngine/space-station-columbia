@@ -96,10 +96,10 @@ ROAD_MARGIN = 1.0      # m past a carriageway's edge a building must stand (the 
 MAX_SHIFT = 30.0
 
 
-def clear_of_roads(out):
-    """A building standing in a road's carriageway (the map's roads and lots come from different
-    passes and sometimes overlap) is moved straight back from that road until it's ROAD_MARGIN
-    clear -- the least change that gets it out of the way.  Crossings are on their roads by design."""
+def _road_lines():
+    """(C, wrap, the 50 m grid of road segments, the segments), built once"""
+    if _road_lines.cache:
+        return _road_lines.cache
     ter = json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))
     C = 2 * math.pi * ter["R"]
     wrap = lambda d: (d + C / 2) % C - C / 2
@@ -126,13 +126,52 @@ def clear_of_roads(out):
                 for i in (-1, 0, 1):
                     for j in (-1, 0, 1):
                         grid.setdefault(((cs + i) % int(C // G + 1), cx + j), set()).add(k)
+    _road_lines.cache = (C, wrap, G, grid, segs)
+    return _road_lines.cache
 
-    def corners(e):
-        # the footprint (the massing), not the visual bounds: awnings and porches may overhang the
-        # sidewalk, as they do on any main street; the walls may not
-        c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
-        return [(e["s"] + lx * sn - lz * c, e["x"] + lx * c + lz * sn)
-                for lx in (e["fmin"][0], e["fmax"][0]) for lz in (e["fmin"][1], e["fmax"][1])]
+
+_road_lines.cache = None
+
+
+def footprint_corners(e):
+    # the footprint (the massing), not the visual bounds: awnings and porches may overhang the
+    # sidewalk, as they do on any main street; the walls may not
+    c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
+    return [(e["s"] + lx * sn - lz * c, e["x"] + lx * c + lz * sn)
+            for lx in (e["fmin"][0], e["fmax"][0]) for lz in (e["fmin"][1], e["fmax"][1])]
+
+
+def road_conflict(e, s=None, x=None):
+    """(shift, ns, nx): the move straight back from the road e (or e at s, x) stands in the most, None if clear"""
+    C, wrap, G, grid, segs = _road_lines()
+    if s is not None:
+        e = dict(e, s=s, x=x)
+    cs = footprint_corners(e)
+    best = None
+    keys = set()
+    for p in cs + [(e["s"], e["x"])]:
+        keys |= grid.get((int((p[0] % C) // G), int(p[1] // G)), set())
+    for k in keys:
+        sa, xa, ts, tx, L, hw, lim_l, lim_r = segs[k]
+        ns, nx = -tx, ts                                 # (the road's right)
+        us = [wrap(p[0] - sa) * ts + (p[1] - xa) * tx for p in cs]
+        if max(us) < -hw or min(us) > L + hw:
+            continue                                     # beside the segment, not along it
+        vs = [wrap(p[0] - sa) * ns + (p[1] - xa) * nx for p in cs]
+        if max(vs) < -lim_l or min(vs) > lim_r:
+            continue
+        vc = wrap(e["s"] - sa) * ns + (e["x"] - xa) * nx
+        shift = (lim_r - min(vs)) if vc >= 0 else -(max(vs) + lim_l)
+        if abs(shift) > 0.02 and (best is None or abs(shift) > abs(best[0])):      # (one just cleared stands on the line)
+            best = (shift, ns, nx)
+    return best
+
+
+def clear_of_roads(out, quiet=False):
+    """A building standing in a road's carriageway (the map's roads and lots come from different
+    passes and sometimes overlap) is moved straight back from that road until it's ROAD_MARGIN
+    clear -- the least change that gets it out of the way.  Crossings are on their roads by design."""
+    C = _road_lines()[0]
     moved, stuck = 0, []
     for e in out:
         if e["kind"] == "crossing" or e.get("over_water"):
@@ -140,25 +179,7 @@ def clear_of_roads(out):
         home = (e["s"], e["x"])
         total = 0.0
         for it in range(6):
-            cs = corners(e)
-            reach = max(math.hypot(p[0] - e["s"], p[1] - e["x"]) for p in cs)
-            best = None
-            keys = set()
-            for p in cs + [(e["s"], e["x"])]:
-                keys |= grid.get((int((p[0] % C) // G), int(p[1] // G)), set())
-            for k in keys:
-                sa, xa, ts, tx, L, hw, lim_l, lim_r = segs[k]
-                ns, nx = -tx, ts                                 # (the road's right)
-                us = [wrap(p[0] - sa) * ts + (p[1] - xa) * tx for p in cs]
-                if max(us) < -hw or min(us) > L + hw:
-                    continue                                     # beside the segment, not along it
-                vs = [wrap(p[0] - sa) * ns + (p[1] - xa) * nx for p in cs]
-                if max(vs) < -lim_l or min(vs) > lim_r:
-                    continue
-                vc = wrap(e["s"] - sa) * ns + (e["x"] - xa) * nx
-                shift = (lim_r - min(vs)) if vc >= 0 else -(max(vs) + lim_l)
-                if best is None or abs(shift) > abs(best[0]):
-                    best = (shift, ns, nx)
+            best = road_conflict(e)
             if best is None:
                 break
             shift, ns, nx = best
@@ -175,10 +196,186 @@ def clear_of_roads(out):
         elif total > 0:
             moved += 1
     out[:] = [e for e in out if e["id"] not in stuck]
-    print("buildings moved clear of roads: %d%s" % (moved, ("; standing across streets, left out: " + " ".join(stuck)) if stuck else ""))
+    if not quiet or stuck:
+        print("buildings moved clear of roads: %d%s" % (moved, ("; standing across streets, left out: " + " ".join(stuck)) if stuck else ""))
 
 
-CAR_CLEAR = 1.25       # m either side of a road's centreline a car needs to get by (half its width and a little)
+PARTY_WALL = 0.3       # m two footprints may share (row stores' party walls, a cornice over the line)
+YARD_LINE = 2.0        # m two generated lots' footprints may share: their massing takes in the fenced yard (tools/settlegen),
+                       # and neighbours share a fence line
+
+MAX_PUSH = 6.0         # m the further a building would have to move off another: built into it, not beside it
+# who gives way: a dwelling or a booth to anything bigger in purpose; a landmark to nothing (between equals, the smaller)
+GIVES_WAY = {"house": 0, "cottage": 0, "beachhouse": 0, "bungalow": 0, "singlehouse": 0, "shingle": 0, "townhouse": 0,
+             "rowhouse": 0, "condo": 0, "shed": 0, "stand": 0, "kiosk": 0, "lifeguard": 0, "bait": 0, "vacant": 0,
+             "civic": 2, "church": 2, "school": 2, "lighthouse": 2, "monument": 2, "tower": 2, "hotel": 2, "cannery": 2,
+             "market": 2, "bigbox": 2, "stack": 2}
+
+
+def clear_of_each_other(out):
+    """Buildings whose footprints overlap (the town layouts put some houses on the lots of the
+    storefronts facing a green or square, and clear_of_roads moves buildings without looking at their
+    neighbours) are pushed apart along the shortest way out: the one that gives way moves (both,
+    half each, between equals), then the roads are cleared again; a few rounds settle a row.  One
+    that would have to move more than MAX_PUSH is built into the other, not beside it: it is left
+    out.  A row that won't settle has less room than its buildings: one of it is left out, a vacant lot."""
+    C = 2 * math.pi * json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))["R"]
+    wrap = lambda d: (d + C / 2) % C - C / 2
+    G = 50.0
+
+    corners = footprint_corners
+
+    yard = set()
+    for e in out:
+        cp = os.path.join(ROOT, "remake", "catalog", f"{e.get('model') or e['id']}.json")
+        if e["kind"] != "crossing" and os.path.exists(cp) and json.load(open(cp)).get("generated"):
+            yard.add(e["id"])
+
+    def allowed(a, b):
+        return YARD_LINE if a["id"] in yard and b["id"] in yard else PARTY_WALL
+
+    def area(e):
+        return (e["fmax"][0] - e["fmin"][0]) * (e["fmax"][1] - e["fmin"][1])
+
+    def push(a, b):
+        """[(depth, (ds, dx))], shallowest first: the ways b can come off a, each with how far (empty: apart)"""
+        ca = corners(a)
+        cb = [(a["s"] + wrap(p[0] - a["s"]), p[1]) for p in corners(b)]
+        ways = []
+        for e in (a, b):
+            c, sn = math.cos(e["yaw"]), math.sin(e["yaw"])
+            for ax in ((sn, c), (-c, sn)):
+                pa = [p[0] * ax[0] + p[1] * ax[1] for p in ca]
+                pb = [p[0] * ax[0] + p[1] * ax[1] for p in cb]
+                d1, d2 = max(pa) - min(pb), max(pb) - min(pa)        # b out past a's high side / low side
+                if d1 <= 0 or d2 <= 0:
+                    return []
+                ways += [(d1, (ax[0], ax[1])), (d2, (-ax[0], -ax[1]))]
+        return sorted(ways)
+
+    def mover_share(a, b):
+        """(share of the push a takes, share b takes)"""
+        if a.get("over_water") != b.get("over_water"):
+            return (0.0, 1.0) if a.get("over_water") else (1.0, 0.0)    # (a pier's building stays on its pier)
+        ra, rb = GIVES_WAY.get(a["kind"], 1), GIVES_WAY.get(b["kind"], 1)
+        if ra != rb:
+            return (1.0, 0.0) if ra < rb else (0.0, 1.0)
+        return (0.5, 0.5)
+
+    def loser(a, b):
+        sa, sb = mover_share(a, b)
+        if sa != sb:
+            return a if sa > sb else b
+        return a if area(a) < area(b) else b
+
+    def overlaps(items):
+        grid = {}
+        for e in items:
+            r = max(math.hypot(px, pz) for px in (e["fmin"][0], e["fmax"][0]) for pz in (e["fmin"][1], e["fmax"][1]))
+            e["_r"] = r
+            grid.setdefault((int((e["s"] % C) // G), int(e["x"] // G)), []).append(e)
+        n = int(C // G) + 1
+        seen = set()
+        for e in items:
+            ci, cj = int((e["s"] % C) // G), int(e["x"] // G)
+            for i in (-1, 0, 1):
+                for j in (-1, 0, 1):
+                    for f in grid.get(((ci + i) % n, cj + j), ()):
+                        if f is e or (id(f), id(e)) in seen:
+                            continue
+                        seen.add((id(e), id(f)))
+                        if math.hypot(wrap(f["s"] - e["s"]), f["x"] - e["x"]) > e["_r"] + f["_r"]:
+                            continue
+                        ways = push(e, f)
+                        if ways and ways[0][0] > allowed(e, f):
+                            yield e, f, ways
+
+    def way_out(a, b, ways):
+        """(depth, (us, ux), a's share, b's share): the shallowest way out that doesn't put a mover in a road
+        (a row's own direction, usually, not into the street in front or the alley behind: clear_of_roads
+        would only push it back); between equals half each first, then either one alone (one may have a
+        road at its back).  None of them clear: the shallowest."""
+        sa, sb = mover_share(a, b)
+        shares = [(sa, sb)] + ([(0.0, 1.0), (1.0, 0.0)] if sa == sb else [])
+        for d, (us, ux) in ways:
+            for sa_, sb_ in shares:
+                if d * max(sa_, sb_) > MAX_PUSH:
+                    continue
+                if all(not k or road_conflict(e, (e["s"] + us * (d + 0.05) * k) % C, e["x"] + ux * (d + 0.05) * k) is None
+                       for e, k in ((a, -sa_), (b, sb_))):
+                    return d, (us, ux), sa_, sb_
+        return ways[0][0], ways[0][1], sa, sb
+
+    dropped, crowded, moved = [], [], set()
+    hist = []                       # each round's {pair: depth}
+    last_cut = -99
+    for rnd in range(150):
+        items = [e for e in out if e["kind"] != "crossing"]
+        pairs = list(overlaps(items))
+        if not pairs:
+            break
+        hist.append({(a["id"], b["id"]): ways[0][0] for a, b, ways in pairs})
+        out_ids = set()
+        for a, b, ways in pairs:
+            if a["id"] in out_ids or b["id"] in out_ids:
+                continue
+            ways = push(a, b)                  # (afresh: an earlier pair this round may have moved one of them)
+            if not ways or ways[0][0] <= allowed(a, b):
+                continue
+            d, (us, ux), sa, sb = way_out(a, b, ways)
+            d -= allowed(a, b) - PARTY_WALL      # (generated lots: only back to their shared fence line)
+            if d * max(sa, sb) > MAX_PUSH:
+                lo = loser(a, b)
+                out_ids.add(lo["id"])
+                dropped.append("%s (in %s)" % (lo["id"], (b if lo is a else a)["id"]))
+                continue
+            d += 0.05
+            for e, k in ((a, -sa), (b, sb)):
+                if k:
+                    e["s"] = round((e["s"] + us * d * k) % C, 2)
+                    e["x"] = round(e["x"] + ux * d * k, 2)
+                    moved.add(e["id"])
+        if rnd >= 4 and rnd - last_cut >= 6 and not out_ids:
+            # a crowd whose overlap has hardly shrunk in four rounds (six since the last cut) won't settle: a row with less room than its
+            # buildings (a block whose cross streets' sidewalks take more than the layout allowed).  One of it
+            # goes -- the one that gives way, between equals the most overlapped (the middle of a row: that
+            # frees both its neighbours) -- leaving a gap, a vacant lot; the rest then spread into it
+            root = {}
+            def find(i):
+                while root.setdefault(i, i) != i:
+                    i = root[i]
+                return i
+            depth = {}
+            for (i, j), d in hist[-1].items():
+                root[find(i)] = find(j)
+                depth[i] = depth.get(i, 0.0) + d
+                depth[j] = depth.get(j, 0.0) + d
+            crowds = {}
+            by_id = {e["id"]: e for e in items}
+            for i in depth:
+                crowds.setdefault(find(i), []).append(by_id[i])
+            for crowd in crowds.values():
+                ids = {e["id"] for e in crowd}
+                now = sum(d for (i, j), d in hist[-1].items() if i in ids)
+                then = sum(hist[-5].get(k, d) for k, d in hist[-1].items() if k[0] in ids)
+                if now < 0.8 * then:
+                    continue                   # still settling
+                lo = min(crowd, key=lambda e: (GIVES_WAY.get(e["kind"], 1), -depth[e["id"]], area(e)))
+                out_ids.add(lo["id"])
+                crowded.append(lo["id"])
+                last_cut = rnd                 # (then give the rest six rounds to spread into the gap)
+        out[:] = [e for e in out if e["id"] not in out_ids]
+        clear_of_roads(out, quiet=True)
+    left = [(a["id"], b["id"]) for a, b, _ in overlaps([e for e in out if e["kind"] != "crossing"])]
+    for e in out:
+        e.pop("_r", None)
+    print("buildings moved off each other: %d%s%s%s" % (len(moved),
+          ("; built into another, left out: " + " ".join(dropped)) if dropped else "",
+          ("; no room in their row, left out: " + " ".join(crowded)) if crowded else "",
+          ("; STILL OVERLAPPING: " + " ".join("%s/%s" % p_ for p_ in left)) if left else ""))
+
+
+CAR_CLEAR = 1.25      # m either side of a road's centreline a car needs to get by (half its width and a little)
 def snap_crossings(out):
     """Each crossing onto the line it carries (a road; the railway for a RAIL- crossing): its deck's
     two ends on that line's centreline -- the model centred between them and turned along them --
@@ -496,6 +693,7 @@ def main():
     snap_crossings(out)
     drop_overlapping_crossings(out, {c["id"]: c for c in inv["crossings"]})
     clear_of_roads(out)
+    clear_of_each_other(out)
     with open(OUT, "w") as f:
         json.dump({"structures": out}, f, indent=0)
     # the walks (boardwalks, piers, docks, wharves, breakwaters, promenades...): CoastalWalks builds
