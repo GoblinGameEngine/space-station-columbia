@@ -270,6 +270,20 @@ def main():
     mw.add_argument("--y", type=float, default=0)
     mw.set_defaults(func=cmd_simple("mouse_wheel", {"direction": "direction", "steps": "steps", "x": "x", "y": "y"}))
 
+    q = sub.add_parser("query", help="where things are, as text, without rendering (WorldQuery.gd): "
+                       "near S X [R] [CATS] | find TEXT | ground S X | view [N] | check S X [R] | here")
+    q.add_argument("op", choices=["near", "find", "ground", "view", "check", "here"])
+    q.add_argument("args", nargs="*")
+
+    def _query(a):
+        r = send({"cmd": "query", "op": a.op, "args": a.args}, timeout=120)
+        if r.get("ok"):
+            print(r.get("result", ""))
+            return 0
+        print_result(r)
+        return 1
+    q.set_defaults(func=_query)
+
     args = p.parse_args()
     try:
         sys.exit(args.func(args) or 0)

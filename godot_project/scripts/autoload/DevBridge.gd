@@ -73,6 +73,8 @@ extends Node
 #                                                        cursor-warp synthetic-delta
 #                                                        issue the way xdotool has)
 #   mouse_wheel  {"direction": "up"|"down", "steps": 1, "x":.., "y":..}
+#   query        {"op": "near"|"find"|"ground"|"view"|"check"|"here", "args": [...]} -> text: where things are,
+#                                                   without rendering (scripts/autoload/WorldQuery.gd)
 #   quit                                        -> get_tree().quit()
 #   wait_frame  {"count": 1}                    -> blocks (via await, not
 #                                                   wall-clock sleep) until
@@ -127,7 +129,7 @@ const COMMAND_NAMES := [
 	"ping", "help", "eval", "run", "screenshot", "dump_tree",
 	"key", "key_tap", "press_action", "release_action",
 	"mouse_button", "mouse_click", "mouse_motion", "mouse_wheel", "quit",
-	"wait_frame", "read_pixels", "reload_shader",
+	"wait_frame", "read_pixels", "reload_shader", "query",
 ]
 
 var _server := TCPServer.new()
@@ -292,6 +294,9 @@ func _handle(req: Dictionary) -> Dictionary:
 			return _cmd_read_pixels(req.get("points", []))
 		"reload_shader":
 			return _cmd_reload_shader(req.get("node_path", ""), req.get("shader_path", ""))
+		"query":
+			# where things are, as text (WorldQuery: near, find, ground, view, check, here)
+			return {"ok": true, "result": WorldQuery.run(str(req.get("op", "here")), req)}
 		_:
 			return {"ok": false, "error": "unknown cmd '%s' -- see 'help'" % cmd}
 

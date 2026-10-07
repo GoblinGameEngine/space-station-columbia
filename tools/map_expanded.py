@@ -2853,6 +2853,8 @@ if "--game-data" in sys.argv:
                                                     "base": "terrain_base.bin.gz", "level": "terrain_level.bin.gz",
                                                     "depth": "terrain_depth.bin.gz", "dtype": "float16", "no_water": -9999.0},
            "landcover_step_m": PX * RS, "sea_level": SEA_LEVEL,
+           "islands": [{"name": nm, "side": sg, "s": round(sc, 1), "x": xc, "half_s": hs, "half_x": hx}
+                       for nm, sg, sc, xc, hs, hx in ISLANDS],
            "creeks": [{"name": n, "hw": 3.5, "depth": 1.1, "pts": [[round(a % C, 1), round(b_, 1)] for a, b_ in path]}
                       for n, path, pond in CREEK_PATHS]
                      + [{"name": "spur", "hw": 2.0, "depth": 0.7, "pts": [[round(a % C, 1), round(b_, 1)] for a, b_ in sp]}

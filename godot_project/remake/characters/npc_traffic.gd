@@ -327,7 +327,9 @@ func _parked(door: Vector2, v: Dictionary) -> Dictionary:
 	## the other parked vehicles -- the nearest free place along the road.
 	if NpcPlaces.dist(door, _here) > RANGE + 100.0:
 		return {"away": true}                                      # (its place is never this far from its door)
-	var key := "%.1f,%.1f#%d" % [door.x, door.y, int(v.slot)]
+	# (per vehicle: keyed by the door and slot, a car parked at someone else's door -- at work, on a visit -- was
+	#  given that household's own car's spot, the two drawn in one another; WorldQuery check found it)
+	var key := "%.1f,%.1f#%s" % [door.x, door.y, str(v.id)]
 	if not _spot_cache.has(key):
 		if _spots_this_frame >= 2:
 			return {"later": true}                                 # (found in a frame or two)
