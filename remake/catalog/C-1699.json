@@ -3,26 +3,30 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 22.4,
-  "d": 32.7
+  "w": 31.5,
+  "d": 36.1
  },
- "kind": "strip",
+ "kind": "store",
  "traits": {
-  "stores": [
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "none",
+  "storefronts": [
    {
-    "business": "Carrow Diner",
-    "type": "diner",
-    "sign": "CARROW DINER",
-    "sign_style": "flat_board",
-    "awning": false,
-    "tenant": "fast_food_drive_thru"
+    "business": "Haskins Tavern",
+    "type": "bar",
+    "sign": "HASKINS TAVERN",
+    "sign_style": "projecting",
+    "awning": true
    }
   ],
-  "era": 1994
+  "condition": "kept",
+  "year_built": 1980,
+  "colors": {
+   "body": "#783634"
+  }
  },
- "names": {
-  "name": "Calder Commons",
-  "sign": "CALDER COMMONS"
- },
- "brief": "strip (pad) generated for Calder."
+ "names": {},
+ "brief": "store (tavern) generated for Calder."
 }

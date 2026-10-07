@@ -3,22 +3,56 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 31.5,
-  "d": 42.0
+  "w": 24.9,
+  "d": 20.0
  },
- "kind": "strip",
+ "kind": "house",
  "traits": {
-  "stores": [
-   {
-    "business": "Ostrowski Service",
-    "type": "gas_station",
-    "sign": "OSTROWSKI SERVICE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "archetype": "minimal_traditional",
+  "storeys": 1,
+  "main_w_ft": 36,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 24,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#ddc2a9",
+   "trim": "#5a3a28",
+   "accent": "#2b4f6b",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
   ],
-  "era": 2009
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1962,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
- "names": {},
- "brief": "strip (gas_station) generated for Calder."
+ "names": {
+  "family": "Reyes",
+  "house_number": 955
+ },
+ "brief": "postwar band minimal_traditional: 1 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -15,3 +15,4 @@ func _init(t := "personal_aerostat") -> void:
 	turn_rate = 0.6
 	climb_speed = 5.0
 	floats = true                        # (its cabin's hull rides on water)
+	buoyant = true                       # (holds its pressure altitude: AirVehicle.buoyant)

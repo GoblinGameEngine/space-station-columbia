@@ -139,6 +139,16 @@ func _build_train(hour: float) -> void:
 			if str(m.name) != "seat_driver":
 				seats.append(m)
 		RemakeInteractZone.make(self, "Board", Transform3D.IDENTITY, Vector3(4.0, 3.5, 8.0), _use, _prompt)
+		# draw distances as the trams' (TramSection): the coaches had none -- a train 1.5 km off was ~600 draws
+		for gi in find_children("*", "GeometryInstance3D", true, false):
+			var g := gi as GeometryInstance3D
+			if g.visibility_range_end > 0.0:
+				continue
+			if g.get_aabb().get_longest_axis_size() < 0.6:
+				g.visibility_range_end = 45.0
+				g.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			else:
+				g.visibility_range_end = TramSection.LOD_FAR
 	_finish_setup(hour)
 	built = true
 
@@ -217,6 +227,8 @@ func _collect() -> void:
 		if job.data.is_empty():
 			continue
 		var npc := NpcCharacter.from_prepared(job.data)
+		for gi in npc.find_children("*", "GeometryInstance3D", true, false):
+			(gi as GeometryInstance3D).visibility_range_end = RIDER_M     # (drawn no farther than they are posed)
 		var an := NpcAnimator.attach(npc)
 		an.ambient = false
 		if job.mode == "board":

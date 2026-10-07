@@ -3,26 +3,74 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 21.6,
-  "d": 29.2
+  "w": 84.5,
+  "d": 28.0
  },
  "kind": "strip",
  "traits": {
   "stores": [
    {
-    "business": "Loomis & Osei Variety",
-    "type": "variety_store",
-    "sign": "LOOMIS & OSEI VARIETY",
+    "business": "Loomis & Osei Market",
+    "type": "grocery",
+    "sign": "LOOMIS & OSEI MARKET",
     "sign_style": "projecting",
     "awning": false,
-    "tenant": "pharmacy_drive_thru"
+    "tenant": "convenience_store"
+   },
+   {
+    "business": "Calder Video Rental",
+    "type": "video_rental",
+    "sign": "CALDER VIDEO RENTAL",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "video_rental"
+   },
+   {
+    "business": "Leclerc Barber Shop",
+    "type": "barber",
+    "sign": "LECLERC BARBER SHOP",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "barber"
+   },
+   {
+    "business": "Kowal Video Rental",
+    "type": "video_rental",
+    "sign": "KOWAL VIDEO RENTAL",
+    "sign_style": "awning_lettering",
+    "awning": false,
+    "tenant": "video_rental"
+   },
+   {
+    "business": "Brandvold Barber Shop",
+    "type": "barber",
+    "sign": "BRANDVOLD BARBER SHOP",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "barber"
+   },
+   {
+    "business": "Marlowe Video Rental",
+    "type": "video_rental",
+    "sign": "MARLOWE VIDEO RENTAL",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "video_rental"
+   },
+   {
+    "business": "Brandvold Dollar Store",
+    "type": "dollar",
+    "sign": "BRANDVOLD DOLLAR STORE",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "dollar_store"
    }
   ],
-  "era": 1974
+  "era": 2006
  },
  "names": {
-  "name": "Deer Creek Corners",
-  "sign": "DEER CREEK CORNERS"
+  "name": "Bluff Shoppes",
+  "sign": "BLUFF SHOPPES"
  },
- "brief": "strip (pad) generated for Calder."
+ "brief": "strip (strip_row) generated for Calder."
 }

@@ -3,19 +3,75 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 21.6,
-  "d": 32.5
+  "w": 91.8,
+  "d": 45.2
  },
  "kind": "strip",
  "traits": {
   "stores": [
    {
-    "business": "Ring Line Cafe",
-    "type": "cafe",
-    "sign": "RING LINE CAFE",
+    "business": "Ring Line Variety",
+    "type": "variety_store",
+    "sign": "RING LINE VARIETY",
     "sign_style": "flat_board",
     "awning": false,
-    "tenant": "coffee_drive_thru"
+    "tenant": "cards_and_gifts"
+   },
+   {
+    "business": "Nowicki & Foxworth Dry Goods",
+    "type": "dry_goods",
+    "sign": "NOWICKI & FOXWORTH DRY GOODS",
+    "sign_style": "projecting",
+    "awning": false,
+    "tenant": "fabric_store"
+   },
+   {
+    "business": "Merriweather & Osei Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "MERRIWEATHER & OSEI BEAUTY SHOP",
+    "sign_style": "projecting",
+    "awning": false,
+    "tenant": "hair_salon"
+   },
+   {
+    "business": "Desai Dry Goods",
+    "type": "dry_goods",
+    "sign": "DESAI DRY GOODS",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "fabric_store"
+   },
+   {
+    "business": "Raghunathan Variety",
+    "type": "variety_store",
+    "sign": "RAGHUNATHAN VARIETY",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "mobile_phone"
+   },
+   {
+    "business": "Szabo Restaurant",
+    "type": "restaurant",
+    "sign": "SZABO RESTAURANT",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "chinese_buffet"
+   },
+   {
+    "business": "Moriarty Family Medicine",
+    "type": "doctor_office",
+    "sign": "MORIARTY FAMILY MEDICINE",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "optician"
+   },
+   {
+    "business": "Castellanos Family Medicine",
+    "type": "doctor_office",
+    "sign": "CASTELLANOS FAMILY MEDICINE",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "optician"
    }
   ],
   "era": 1994
@@ -24,5 +80,5 @@
   "name": "Calder Commons",
   "sign": "CALDER COMMONS"
  },
- "brief": "strip (pad) generated for Calder."
+ "brief": "strip (strip_row) generated for Calder."
 }

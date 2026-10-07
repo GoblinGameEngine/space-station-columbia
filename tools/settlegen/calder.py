@@ -16,13 +16,20 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import town as TW  # noqa: E402
 
-R = 3000.0
-S0 = 7650.0                                   # Calder's centre round the ring
-GRID_U0 = 7516.0 - S0                         # the section line s = 7,516 (map_expanded SECTION_S) is a town street
+R = 10000.0                                   # (the 20 km ring, 2026-10-06)
+SECTION_S = 3600.0 + 14 * 1609.0              # the section line s = 26,126 (map_expanded SECTION_S) is a town street
+S0 = SECTION_S + 134.0                        # Calder's centre round the ring, between Cedar Ford and Pruett
+GRID_U0 = SECTION_S - S0
+OLD_BANK, XK = 522.5, (3100.0 + 2500.0 - 522.5) / (3100.0 - 522.5)   # (map_expanded.XS: the land stretched 2.5 km)
+
+
+def XS(x):
+    a = abs(x)
+    return x if a <= OLD_BANK else math.copysign(OLD_BANK + (a - OLD_BANK) * XK, x)
 
 
 def rail_x(s):                                # (map_expanded.rail_x)
-    return 1460.0 + 60.0 * math.sin(2 * s / R + 1.0)
+    return XS(1460.0 + 60.0 * math.sin(2 * s / R + 1.0))
 
 
 X0 = rail_x(S0) - 90.0                        # Main Street (US 30) 90 m north of the tracks, as Bellhaven and Pruett

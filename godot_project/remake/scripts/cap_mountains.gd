@@ -16,7 +16,7 @@ class_name CapMountains
 ##   * the crest is the last tier's top: peaks and saddles along s, up to ~CREST_VAR above 1.5 km;
 ##   * strata bands, darker gullies, greener benches and lighter high rock in the vertex colours.
 ##
-## Distance versions, TILES_ROUND tiles round each end (~200 m of floor arc each):
+## Distance versions, TILES_ROUND tiles round each end (~500 m of floor arc each):
 ##   LOD0 (< NEAR)   8 m along s, fine rows per face -- built near the player (one tile per tick)
 ##   LOD1 (< MID)    24 m, 6 rows per face
 ##   LOD2 (>= MID)   80 m, 2 rows per face: the silhouette, the benches and the colour bands only
@@ -38,7 +38,7 @@ var _todo := []
 var _mid := {}
 var _lod0 := {}
 var _t := 0.0
-static var TILES_ROUND := roundi(StationGeo.CIRC / 200.0)
+static var TILES_ROUND := roundi(StationGeo.CIRC / 500.0)       # (the 20 km ring: 126 a cap)
 
 
 # ------------------------------------------------------------------ the shape

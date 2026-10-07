@@ -3,57 +3,59 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 24.7,
-  "d": 20.0
+  "w": 22.1,
+  "d": 28.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 42,
-  "main_d_ft": 32,
+  "main_w_ft": 37,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "brick",
+  "walls": "shingle",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#a7654a",
-   "trim": "#5a3a28",
-   "accent": "#7a2e28",
+   "body": "#bbb4a2",
+   "trim": "#e9e2d2",
+   "accent": "#5b6b3a",
    "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "center"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "privacy",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "clothesline",
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "new",
-  "year_built": 1998,
-  "band": "late",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "names": {
-  "family": "Mbeki",
-  "house_number": 728
+  "family": "Solano",
+  "house_number": 480
  },
- "brief": "late band ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "postwar band minimal_traditional: 1 storeys, shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

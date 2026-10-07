@@ -3,25 +3,56 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 38.0,
-  "d": 24.0
+  "w": 20.7,
+  "d": 29.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#965244"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2000,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#58637c",
+   "trim": "#2e3a4a",
+   "accent": "#6a4a2a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2012,
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Pruett",
+  "house_number": 386
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

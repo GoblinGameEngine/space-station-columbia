@@ -20,7 +20,7 @@ import os
 from collections import defaultdict
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..")
-CIRC = math.tau * 3000.0
+CIRC = math.tau * json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))["R"]      # (the ring's radius from the map)
 SNAP = 4.0
 LANE_SNAP = 25.0
 ATTACH = 80.0

@@ -313,7 +313,7 @@ def drop_overlapping_crossings(out, inv_by_id):
     """Two crossings whose footprints overlap (two roads meeting over a creek, or one road's crossing
     listed twice) would stand each in the other's road: keep the one on the greater road (the bigger,
     between equals); the other's road crosses on a culvert under the graded roadway instead."""
-    C = 2 * math.pi * 3000.0
+    C = 2 * math.pi * json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))["R"]
     wrap = lambda d: (d + C / 2) % C - C / 2
 
     def corners(e):

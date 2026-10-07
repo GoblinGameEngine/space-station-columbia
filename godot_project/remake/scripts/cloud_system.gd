@@ -28,7 +28,7 @@ class_name RemakeClouds
 ##
 ## Positions and the weather's dice are fixed-seed RNGs, so the same sky comes back every launch.
 
-const LOW_COUNT := 5                   # per layer
+const LOW_COUNT := 12                  # per layer (the 20 km ring: 6x the old floor, ~2.4x the clouds)
 ## cumulus layers: [base, lowest top, wind m/s, size] -- the clouds grow with height (size scales a
 ## cloud's length, and its puffs with it)
 const LOW_LAYERS := [[200.0, 300.0, 12.0, 8.0], [500.0, 600.0, 15.0, 11.0], [900.0, 1000.0, 18.0, 14.0],
@@ -70,7 +70,9 @@ var _fogged := false
 var _skin_task := -1
 var _skins: Array = []
 var _jobs: Array = []                # [task id, cloud] skins being built for merged clouds
-var _contacts := {}                  # "a:b" -> true while two clouds stay at a trigger
+var _contacts := {}                  # Vector2i(a id, b id) -> true while two clouds stay at a trigger
+var _trig_t := 0.0
+var _next_uid := 0                    # each cloud's number (the contact keys)
 var _hours := 0.0                    # in-game hours since start
 var _storms_today := 0
 var _was_day := false
@@ -153,7 +155,8 @@ func _new_cloud(li: int, puffs: Array, s: float, x: float, h: float, kind: int) 
 		vs = -vs                                                      # ... the lowest layer either way
 	var c := {"node": node, "mesh": mi, "area": area, "puffs": puffs, "reach": reach + 25.0, "foot": foot, "fa": fa, "fb": fb,
 		"layer": li, "s": s, "x": x, "h": h, "vs": vs, "vx": _rng.randf_range(-DRIFT_NS, DRIFT_NS),
-		"kind": kind, "state": "free", "members": [], "partner": null, "storm": {}}
+		"kind": kind, "state": "free", "members": [], "partner": null, "storm": {}, "uid": _next_uid}
+	_next_uid += 1
 	_place(c)
 	return c
 
@@ -373,11 +376,12 @@ func _triggers() -> void:
 		for j in range(i + 1, free.size()):
 			var a: Dictionary = free[i]
 			var b: Dictionary = free[j]
-			var key := "%s:%s" % [a.node.name, b.node.name]
 			var d := _hdist(a, b)
 			var hit: bool = d < (a.foot + b.foot) if a.layer == b.layer else d < maxf(a.foot, b.foot) * 0.5
+			var key := Vector2i(int(a.uid), int(b.uid))
 			if not hit:
-				_contacts.erase(key)
+				if not _contacts.is_empty():
+					_contacts.erase(key)
 				continue
 			if _contacts.has(key):
 				continue
@@ -529,7 +533,12 @@ func _process(delta: float) -> void:
 		if _debug_cells.size() == 2 and _debug_cells[0].state == "free" and _debug_cells[1].state == "free":
 			_debug_super = false
 			_combine_now(_debug_cells[0], _debug_cells[1], 2)
-	_triggers()
+	# (merge triggers 4 times a second: every pair every frame was ~5 ms with the 20 km ring's 60 clouds; they close
+	#  at a few m/s, so a trigger is never missed)
+	_trig_t -= dt
+	if _trig_t <= 0.0:
+		_trig_t = 0.25
+		_triggers()
 	for L in _high_layers:
 		var lay: Node3D = L[0]
 		lay.rotation.x = fposmod(lay.rotation.x + float(L[1]) * dt, TAU)

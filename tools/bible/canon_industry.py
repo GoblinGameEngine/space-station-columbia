@@ -27,13 +27,13 @@ ids here match.
 STEWARD_WORKS = {
     "the_rock": {
         "name": "the Rock", "what": "the asteroid the station was built inside: a metal-rich rubble body hollowed in the L2 yard (2214-2251) to take the habitat cylinder, which turns inside it on its bearings; the Rock does not turn",
-        "size": "about 7.6 km across and 9.4 km long; 200-500 m of rock between the cavity and space",
+        "size": "about 21.4 km across and 24.2 km long; 200-500 m of rock between the cavity and space",
         "role": ["shield: radiation and dust", "quarry: the voyage's store of metals, minerals, water and volatiles", "mount: the Drive and the Port are set in its stern and bow"],
         "mining": "the Steward's diggers (tenders' big kin) work its outer face, never the cavity side: cutting, crushing and sorting in vacuum; the spoil is packed back as shield",
         "known": "scholar", "popular": ["'the station is inside a mountain' (half the children believe it)", "'the Rock' is also slang for anything you can't change"],
     },
     "the_spindle": {
-        "name": "the Spindle", "what": "the central cylinder on the axis, 200 m across and running cap to cap (8 km); it does not turn with the land; its skin carries the Sunline",
+        "name": "the Spindle", "what": "the central cylinder on the axis, 200 m across and running cap to cap (22.4 km); it does not turn with the land; its skin carries the Sunline",
         "inside": ["the great refineries: vacuum smelting, electrolysis, zone refining", "foundries and wire-arc printers", "powder-bed printers (the boards' lattices)",
                    "the chip line: one fixed process, the Thirty-Two (see TECH_LIMITS)", "the panel line (LCD panels, few)", "cell works: the boards' sealed cells",
                    "the tool line: hand tools, bearings, fasteners, motors' laminations"],

@@ -3,29 +3,57 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 41.4,
-  "d": 33.4
+  "w": 20.6,
+  "d": 28.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 36,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#b1bea5",
-   "trim": "#5a3a28",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 31,
+  "main_d_ft": 26,
   "roof": {
-   "pitch_deg": 34
+   "type": "hip",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2014,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#ddd3a8",
+   "trim": "#2e3a4a",
+   "accent": "#7a2e28",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2011,
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Wisniewski",
+  "house_number": 200
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

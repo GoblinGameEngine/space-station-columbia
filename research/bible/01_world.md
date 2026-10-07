@@ -10,19 +10,19 @@
 | built | [2214, 2251] |
 | built_where | high lunar orbit (Earth-Moon L2 yard), inside a metal-rich near-Earth asteroid (the Rock) towed there and hollowed out to take it; lunar material for the rest |
 | form | a single rotating cylinder with end caps, turning inside the Rock on its bearings; land on the inner surface; the Spindle (a fixed central cylinder) along the axis, the Sunline on its skin |
-| rock | the Rock: about 7.6 km across and 9.4 km long, 200-500 m of rock round the cavity; it does not turn; shield, quarry and mount for the Drive and the Port (bible industry: the_rock) |
+| rock | the Rock: about 21.4 km across and 24.2 km long, 200-500 m of rock round the cavity; it does not turn; shield, quarry and mount for the Drive and the Port (bible industry: the_rock) |
 | spindle | the Spindle: the central cylinder, 200 m across (radius 100 m), from cap to cap; it does not turn; the great factories inside, fed with ore through the end-cap hubs; closed to people since the Second Lockdown (VY 178) (bible industry: the_spindle) |
-| interior_radius_m | 3000 |
-| interior_length_m | 8000 |
-| circumference_m | 18850 |
-| rotation_period_s | 110 |
-| rotation_rpm | 0.546 |
+| interior_radius_m | 10000 |
+| interior_length_m | 22400 |
+| circumference_m | 62832 |
+| rotation_period_s | 201 |
+| rotation_rpm | 0.299 |
 | floor_gravity_g | 1.0 |
 | gravity_rule | gravity falls with height toward the axis (0 g at the axis); hills feel lighter at the top; thrown balls curve spinward/antispinward (Coriolis) |
-| floor_area_km2 | 150.8 |
-| land_km2 | 113.1 |
-| water_km2 | 37.7 |
-| sky | the far side of the world is 6 km overhead, seen through haze by day; the Sunline hides it at noon |
+| floor_area_km2 | 1407.4 |
+| land_km2 | 694.8 |
+| water_km2 | 712.6 |
+| sky | the far side of the world is 20 km overhead, seen through haze by day; the Sunline hides it at noon |
 | sunline | a light and heat source strung along the axis (the Sunline); it brightens at dawn and dims at dusk on a 24-hour cycle; its colour and warmth follow the seasons |
 | ends | {'north': 'the bow cap: the North Sea against a cliff wall; the Port at the axis above it (closed to people since VY 92, the First Lockdown)', 'south': 'the stern cap: the South Sea against a cliff wall; the Drive and the main reactors behind it (closed since VY 92)'} |
 | undercroft | three decks between the floor and the hull: water stores, air plants, hydroponic and vat farms, recycling, fabricators, power conduits, the tenders' galleries and the old archives. Its outer galleries closed to people since VY 178, the whole of it since VY 271 (the Third Lockdown), except the Chutes (distribution depots), the Drops and the Return halls |
@@ -80,11 +80,11 @@ What people make of them: 'the Steward locked the door because we were naughty' 
 
 ## The land
 
-**Directions:** north = toward the bow (the North Sea); the way the ship travels ('north is where we're going'); south = toward the stern (the South Sea); spinward = the way the land turns (the direction of rotation); antispinward = against it; up = toward the Sunline; overhead / the Far Side = the land across the axis, 6 km up
+**Directions:** north = toward the bow (the North Sea); the way the ship travels ('north is where we're going'); south = toward the stern (the South Sea); spinward = the way the land turns (the direction of rotation); antispinward = against it; up = toward the Sunline; overhead / the Far Side = the land across the axis, 20 km up
 
 **Regions:** the North Shore (the coast of the North Sea: harbours, beaches, headlands); the Northland (farms and towns between the North Shore and the Kettle); the Kettle Valley (the Kettle River and Lake Tamsin, round the middle of the world); the Southland (farms and towns between the Kettle and the South Shore); the South Shore (the coast of the South Sea: resort cities and cannery towns)
 
-**Waters:** the North Sea: 1 km wide, round the whole bow end; cold, clear, fished; the South Sea: 1 km wide, round the stern end; warmer, resort water; the Kettle River: 0.5 km wide, circling the world in a wide basin; ships, barges, the Falls at Harrow Falls; Lake Tamsin: the widening of the Kettle: named for Tamsin Okafor-Reyes, the first child born aboard; creeks: Lost Creek, Mill Creek, Willow Run, Tanner Creek, Brush Creek, Cole Creek, Deer Creek, Sauk Creek, Heron Creek, Linden Run, Otter Run, Fox Run, Quarry Run, Sedge Run, Ash Run, Birch Run, Plum Run, Cedar Run
+**Waters:** the North Sea: 5.5 km wide, round the whole bow end; cold, clear, fished; three wild islands (Gannet, Rook, Thistle), each room for a town; the South Sea: 5.5 km wide, round the stern end; warmer, resort water; three wild islands (Isla Serena, Isla Palmar, Cayo Luna), each room for a town; the Kettle River: 0.5 km wide, circling the world in a wide basin; ships, barges, the Falls at Harrow Falls; Lake Tamsin: the widening of the Kettle: named for Tamsin Okafor-Reyes, the first child born aboard; creeks: Lost Creek, Mill Creek, Willow Run, Tanner Creek, Brush Creek, Cole Creek, Deer Creek, Sauk Creek, Heron Creek, Linden Run, Otter Run, Fox Run, Quarry Run, Sedge Run, Ash Run, Birch Run, Plum Run, Cedar Run
 
 **Rail:** the Ring Line: one electric railway round the world with 146 level crossings
 

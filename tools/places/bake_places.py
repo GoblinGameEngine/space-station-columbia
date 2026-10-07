@@ -24,7 +24,7 @@ from collections import Counter, defaultdict
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..")
 CH = os.path.join(ROOT, "godot_project", "remake", "characters")
-CIRC = math.tau * 3000.0
+CIRC = math.tau * json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))["R"]      # (the ring's radius from the map)
 VACANCY = 0.08
 HINT_BONUS = 1.5
 HH_SIZE = 2.5

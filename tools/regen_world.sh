@@ -40,4 +40,5 @@ step place_ground    gd --headless --path . --script res://remake/tools/place_gr
 step bake_world      gd --headless --path . --script res://remake/tools/bake_world.gd -- roads terrain trees walks water
 step bake_structures gd --path . --script res://remake/tools/bake_world.gd -- structures
 step pda_political   $P tools/pda_political_map.py
+step pda_detail      $P tools/pda_detail_map.py
 echo "=== done $(date +%H:%M:%S)"

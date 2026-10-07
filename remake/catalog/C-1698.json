@@ -3,26 +3,30 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 80.5,
-  "d": 82.5
+  "w": 32.4,
+  "d": 42.0
  },
- "kind": "bigbox",
+ "kind": "store",
  "traits": {
-  "stores": [
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "none",
+  "storefronts": [
    {
-    "business": "Foxworth Furniture",
-    "type": "furniture",
-    "sign": "FOXWORTH FURNITURE",
+    "business": "Adebayo Auto Parts",
+    "type": "auto_parts",
+    "sign": "ADEBAYO AUTO PARTS",
     "sign_style": "flat_board",
-    "awning": false,
-    "tenant": "home_furnishings"
+    "awning": true
    }
   ],
-  "era": 1994
+  "condition": "kept",
+  "year_built": 1966,
+  "colors": {
+   "body": "#934c3a"
+  }
  },
- "names": {
-  "name": "Calder Commons",
-  "sign": "CALDER COMMONS"
- },
- "brief": "bigbox (bigbox) generated for Calder."
+ "names": {},
+ "brief": "store (auto_parts) generated for Calder."
 }

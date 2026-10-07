@@ -73,7 +73,7 @@ def cross_sections(c):
 
 def settlement_centres():
     pl = json.load(open(os.path.join(ROOT, "godot_project", "remake", "placement.json")))["structures"]
-    C = 2 * math.pi * 3000.0
+    C = 2 * math.pi * json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))["R"]
     by = {}
     for e in pl:
         if e.get("settlement"):
@@ -110,7 +110,7 @@ def main():
         print("\n".join("ERROR " + e for e in errors))
         sys.exit(1)
     centres = settlement_centres()
-    C = 2 * math.pi * 3000.0
+    C = 2 * math.pi * json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))["R"]
     table = []
     for sid, s in sets.items():
         cid, why = (sid, "its own large city") if sid in cities else gov[sid]

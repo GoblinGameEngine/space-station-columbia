@@ -6,13 +6,13 @@ Canon from the user (2026-10-01), detailed here. Engineering numbers for the boa
 ## The Rock
 
 - **what:** the asteroid the station was built inside: a metal-rich rubble body hollowed in the L2 yard (2214-2251) to take the habitat cylinder, which turns inside it on its bearings; the Rock does not turn
-- **size:** about 7.6 km across and 9.4 km long; 200-500 m of rock between the cavity and space
+- **size:** about 21.4 km across and 24.2 km long; 200-500 m of rock between the cavity and space
 - **mining:** the Steward's diggers (tenders' big kin) work its outer face, never the cavity side: cutting, crushing and sorting in vacuum; the spoil is packed back as shield
 - **role:** shield: radiation and dust; quarry: the voyage's store of metals, minerals, water and volatiles; mount: the Drive and the Port are set in its stern and bow
 
 ## The Spindle
 
-- **what:** the central cylinder on the axis, 200 m across and running cap to cap (8 km); it does not turn with the land; its skin carries the Sunline
+- **what:** the central cylinder on the axis, 200 m across and running cap to cap (22.4 km); it does not turn with the land; its skin carries the Sunline
 - **fed_by:** the end-cap hubs: ore and ice come in from the Rock through the bow and stern hubs, along the axis, in near-zero gravity
 - **people:** no one has been inside since the Second Lockdown (VY 178); before it, Wardens worked the hub galleries in pressure suits
 - **inside:** the great refineries: vacuum smelting, electrolysis, zone refining; foundries and wire-arc printers; powder-bed printers (the boards' lattices); the chip line: one fixed process, the Thirty-Two (see TECH_LIMITS); the panel line (LCD panels, few); cell works: the boards' sealed cells; the tool line: hand tools, bearings, fasteners, motors' laminations

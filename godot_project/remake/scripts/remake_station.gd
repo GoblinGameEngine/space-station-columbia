@@ -123,9 +123,11 @@ func _ready() -> void:
 	_place_structures()
 	_mark("structures (first slice)")
 	_place_aerostats()
-	_place_ground_vehicles()
-	_place_bicycles()
 	_mark("aerostats (first slice)")
+	_place_ground_vehicles()
+	_mark("ground vehicles (first slice)")
+	_place_bicycles()
+	_mark("bicycles")
 	# the people: generated round the player as they go, never stored (remake/characters/)
 	npcs = NpcPopulation.new()
 	npcs.player = player

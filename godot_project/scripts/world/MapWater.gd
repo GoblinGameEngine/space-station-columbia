@@ -135,7 +135,7 @@ static func build_small(root: Node3D) -> void:
 	## The small water, merged per SMALL_CELL m of s (the far side hides its own) -- baked, or made now.
 	var cells := {}
 	if ResourceLoader.exists(BAKED_SMALL):
-		var b := ResourceLoader.load(BAKED_SMALL) as BakedMeshes
+		var b := BakedMeshes.load_all(BAKED_SMALL)
 		if b and b.stamp == stamp():
 			cells = b.data.get("cells", {})
 	if cells.is_empty():

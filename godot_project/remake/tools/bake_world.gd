@@ -55,5 +55,19 @@ func _initialize() -> void:
 
 func _save(b: BakedMeshes, path: String, what: String, t0: int) -> void:
 	var err := ResourceSaver.save(b, path, ResourceSaver.FLAG_COMPRESS)
-	print("BAKED %s: %d meshes in %.1f s -> %s (%s)" % [what, b.meshes.size(), (Time.get_ticks_msec() - t0) / 1000.0,
-		path, error_string(err)])
+	# too big for one file: in parts of ~BakedMeshes.PART_MB each (BakedMeshes.load_all)
+	var mb := FileAccess.get_file_as_bytes(path).size() / 1048576.0
+	var n := 1
+	if err == OK and mb > BakedMeshes.PART_MB * 1.25:
+		n = ceili(mb / BakedMeshes.PART_MB)
+		var parts := b.split(n)
+		for i in n:
+			var e := ResourceSaver.save(parts[i], BakedMeshes.part_path(path, i), ResourceSaver.FLAG_COMPRESS)
+			if e != OK:
+				err = e
+	var i := n                                         # (stale parts of an earlier, bigger bake)
+	while FileAccess.file_exists(BakedMeshes.part_path(path, i)):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(BakedMeshes.part_path(path, i)))
+		i += 1
+	print("BAKED %s: %d meshes, %d data in %.1f s -> %s, %.0f MB in %d part(s) (%s)" % [what, b.meshes.size(), b.data.size(),
+		(Time.get_ticks_msec() - t0) / 1000.0, path, mb, n, error_string(err)])

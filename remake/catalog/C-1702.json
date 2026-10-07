@@ -3,26 +3,66 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 91.1,
-  "d": 75.9
+  "w": 77.2,
+  "d": 45.2
  },
- "kind": "bigbox",
+ "kind": "strip",
  "traits": {
   "stores": [
    {
-    "business": "Calder Market",
-    "type": "grocery",
-    "sign": "CALDER MARKET",
+    "business": "Calder Variety",
+    "type": "variety_store",
+    "sign": "CALDER VARIETY",
     "sign_style": "projecting",
     "awning": false,
-    "tenant": "supermarket"
+    "tenant": "cards_and_gifts"
+   },
+   {
+    "business": "Calder Furniture",
+    "type": "furniture",
+    "sign": "CALDER FURNITURE",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "rent_to_own"
+   },
+   {
+    "business": "Loomis Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "LOOMIS BEAUTY SHOP",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "tanning_salon"
+   },
+   {
+    "business": "Solano Nails",
+    "type": "nail_salon",
+    "sign": "SOLANO NAILS",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "nail_salon"
+   },
+   {
+    "business": "Moriarty Savings Bank",
+    "type": "bank",
+    "sign": "MORIARTY SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "bank_branch"
+   },
+   {
+    "business": "Calder Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "CALDER BEAUTY SHOP",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "hair_salon"
    }
   ],
-  "era": 1968
+  "era": 1994
  },
  "names": {
-  "name": "Westgate Plaza",
-  "sign": "WESTGATE PLAZA"
+  "name": "Calder Commons",
+  "sign": "CALDER COMMONS"
  },
- "brief": "bigbox (bigbox) generated for Calder."
+ "brief": "strip (strip_row) generated for Calder."
 }

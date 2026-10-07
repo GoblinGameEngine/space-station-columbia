@@ -62,7 +62,7 @@ static func bake(parent: Node3D, entries: Array) -> BakedMeshes:
 static func _load_baked() -> BakedMeshes:
 	if not ResourceLoader.exists(BAKED):
 		return null
-	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	var b := BakedMeshes.load_all(BAKED)
 	if b == null or b.stamp != stamp():
 		push_warning("RemakeLodClusters: the baked cells are of other data -- merging them (rerun remake/tools/bake_world.gd)")
 		return null

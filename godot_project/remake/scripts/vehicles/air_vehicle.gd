@@ -80,6 +80,18 @@ const PENDULUM_W := 1.8              # rad/s: the cabin swinging under the ballo
 const SWING_DAMP := 0.25             # its damping ratio
 @export var crash_physics := false
 @export var floats := false          # it rides on water (the aerostat's gondola is a hull); else water is no floor
+## Buoyant (the aerostats; the user, 2026-10-06: "should maintain the basic MSL altitude due to air pressure"): with no
+## climb or descent commanded it trims to the pressure altitude it is at, and the air's density holds it there --
+## sinking, it displaces denser air and is pushed back up; rising, thinner air lets it settle -- a soft spring about
+## the trim height (above sea level, not the ground), with gusts and a slow trim drift so it is never perfect (~1 m).
+@export var buoyant := false
+const HOLD_W := 0.35                 # rad/s: the hold's stiffness (a period of ~18 s)
+const HOLD_ZETA := 0.7               # its damping ratio (the balloon's drag)
+const GUST_A := 0.12                 # m/s^2: the gusts' and thermals' push
+var _trim_h := NAN                   # the pressure altitude it is trimmed to (m above the nominal floor = MSL)
+var _gust := 0.0
+var _gust_to := 0.0
+var _settling := false               # the stick just let go: the fans stop the climb, then it trims where it stopped
 @export var float_draft := 0.3       # m it sits in the water at rest
 const SPLASH_DOWN_MS := 3.05         # a touchdown on water up to this sink rate (as on the casters) ...
 const SPLASH_FWD_MS := 8.0           # ... and this forward speed is a landing; faster is a crash: disabled
@@ -349,11 +361,31 @@ func _physics_process(delta: float) -> void:
 	vf = move_toward(vf, target_f, (accel if absf(fwd_in) > 0.05 else brake) * delta)
 	_lv.z = -vf
 	var target_up := lift_in * climb_speed
+	var h := StationGeo.h_of(global_position)
 	if disabled:
 		target_up = -2.0                           # the fans are dead: it sinks, the balloon slowing it
-	_lv.y = move_toward(_lv.y, target_up, climb_accel * delta)
+	var airborne := not afloat and h - MapTerrain.elevation(StationGeo.s_of(global_position), global_position.x) > 1.5
+	if buoyant and not disabled and absf(lift_in) < 0.05 and airborne:
+		# the pressure-altitude hold: density pushes it back toward its trim height, its drag damps the bob
+		if is_nan(_trim_h):
+			_trim_h = h
+		if _settling:
+			_lv.y = move_toward(_lv.y, 0.0, climb_accel * delta)
+			_trim_h = h
+			_settling = absf(_lv.y) > 0.05
+		if randf() < delta / 4.0:
+			_gust_to = randf_range(-1.0, 1.0)      # (a new gust or thermal every few seconds)
+		_gust = move_toward(_gust, _gust_to, 0.3 * delta)
+		_trim_h += sin(Time.get_ticks_msec() / 47000.0 + float(get_instance_id() % 97)) * 0.03 * delta   # (the gas warms and cools)
+		var a := 0.0 if _settling else -HOLD_W * HOLD_W * (h - _trim_h) - 2.0 * HOLD_ZETA * HOLD_W * _lv.y + GUST_A * _gust
+		if not _settling:
+			_lv.y = clampf(_lv.y + a * delta, -climb_speed, climb_speed)   # (its drag: no faster than the fans drive it)
+	else:
+		_lv.y = move_toward(_lv.y, target_up, climb_accel * delta)
+		if buoyant:
+			_trim_h = h                            # climbing, descending or landed: it re-trims where it is
+			_settling = absf(lift_in) >= 0.05
 	_lv.x = move_toward(_lv.x, 0.0, side_damp * delta)
-	var h := StationGeo.h_of(global_position)
 	if floats:
 		_on_water(h, lift_in, delta)
 	if h >= ceiling_h and _lv.y > 0.0:

@@ -43,19 +43,22 @@ import centers as CT  # noqa: E402
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 # ------------------------------------------------------------------ geometry
-R = 3000.0
-C = 2 * math.pi * R          # 18,850 m circumference
-W = 12000.0                  # wall to wall (12 km since 2026-10-06: the seas widened to 3 km, the land unchanged)
+R = 10000.0                  # 20 km across since 2026-10-06 (was 3 km radius): positions round the ring scale with it
+C = 2 * math.pi * R          # 62,832 m circumference
+W = 22400.0                  # wall to wall: each landmass 2.5 km wider, each sea ~5.5 km (room for islands 1.5 km clear)
 HW = W / 2
-PX = 2.0                     # metres per raster pixel (everything else is in metres)
+PX = 4.0                     # metres per raster pixel (everything else is in metres; 4 m keeps the rasters in memory)
+KS = R / 3000.0              # a position round the ring on the 3 km ring -> this one (the angle is kept)
+LAND_GROW = 2500.0           # each landmass this much wider (the user, 2026-10-06: "2.5km to each landmass's width")
 K = 1.0 / PX
 CW, WH = int(round(C / PX)), int(W / PX)
 OFFS = (-C, 0.0, C)          # draw every primitive three times so the seam wraps
 OLD_R = 500.0
 SS = R / OLD_R               # an old-map arc length -> the expanded ring's
 WIDEN = 500.0                # each bank of the river / lake moves out this far (1 km wider)
-SEA = 3000.0                 # the end-cap seas (mean: the coasts wander round COAST_MEAN)
+SEA = 5500.0                 # the end-cap seas (mean: the coasts wander round COAST_MEAN)
 SHORE = HW - SEA             # |x| of the land's edge at each sea
+SHORE3 = 3000.0              # ... on the 3 km ring's frame (what's set back from it, through XS)
 
 # River harmonic stack -- identical to TerrainHeight.gd (generator_rules §10)
 A1, A2, A3 = 150.0, 45.0, 25.0
@@ -63,6 +66,25 @@ PHI1, PHI2, PHI3, PHI4 = math.pi / 2, -math.pi / 4, -math.pi / 4, 0.0
 CH_HALF = 250.0              # a 500 m river ...
 OLD_BANK = 22.5 + WIDEN      # ... in a wide basin: marsh and meadow out to the 1 km-widened banks
 BASIN = OLD_BANK - CH_HALF
+
+
+def XS(x):
+    """An across-the-ring position on the 3 km ring's land -> this one: the river and its basin stay as they were, the
+    land beyond the banks stretches out to the new coasts (every town, road and creek spreads into the new land)."""
+    a = abs(x)
+    if a <= OLD_BANK:
+        return x
+    return math.copysign(OLD_BANK + (a - OLD_BANK) * XK, x)
+
+
+def XS_inv(x):
+    a = abs(x)
+    if a <= OLD_BANK:
+        return x
+    return math.copysign(OLD_BANK + (a - OLD_BANK) / XK, x)
+
+
+XK = (3100.0 + LAND_GROW - OLD_BANK) / (3100.0 - OLD_BANK)     # (the old mean coast, 3.1 km, moves 2.5 km out)
 # Lake per §10: 1,000 m x 300 m, necked 100-150 m at both ends
 # Lake Tamsin, expanded north: the south (Harrow Falls) shore stays 650 m off the centreline; the new
 # north shore reaches ~1.7 km out; ~2.6 km long round the ring with long smooth necks
@@ -120,7 +142,7 @@ def water_edges(s):
 # Natural coasts: headlands (rocky cliffs) alternating with crenulate bays (sandy beaches) -- see
 # research/coastal_communities/flora_and_coast.md.  |x| of the waterline = COAST_MEAN + a(s); where a(s)
 # stands proud it's a headland.  Each coastal community straightens its own stretch (SITES).
-COAST_MEAN = 3100.0
+COAST_MEAN = XS(3100.0)        # 5.6 km
 TAU = 2 * math.pi
 
 
@@ -150,14 +172,14 @@ HAVEN_S = 120 + _creek_shift([(120, -1380), (345, -150)], None) + 45      # Lost
 # name, side (-1 north sea, +1 south sea), s centre, half-length along the coast, waterline |x|,
 # shore-road set-back from the waterline
 SITES = [
-    ("Port Carrow", -1, 10900.0, 780.0, 3200.0, 30.0),
-    ("Tern Harbor", -1, 5600.0, 380.0, 3130.0, 110.0),
-    ("Brightwater", -1, 16300.0, 520.0, 3150.0, 110.0),
-    ("Haven Point", -1, HAVEN_S, 420.0, 3130.0, 110.0),
-    ("Solana Point", 1, 10600.0, 820.0, 3200.0, 110.0),
-    ("Pelican Cove", 1, 14700.0, 380.0, 3130.0, 110.0),
-    ("Playa Verde", 1, 4300.0, 480.0, 3150.0, 110.0),
-    ("Oceanview", 1, 18000.0, 580.0, 3150.0, 110.0),
+    ("Port Carrow", -1, 10900.0 * KS, 780.0, XS(3200.0), 30.0),
+    ("Tern Harbor", -1, 5600.0 * KS, 380.0, XS(3130.0), 110.0),
+    ("Brightwater", -1, 16300.0 * KS, 520.0, XS(3150.0), 110.0),
+    ("Haven Point", -1, HAVEN_S, 420.0, XS(3130.0), 110.0),
+    ("Solana Point", 1, 10600.0 * KS, 820.0, XS(3200.0), 110.0),
+    ("Pelican Cove", 1, 14700.0 * KS, 380.0, XS(3130.0), 110.0),
+    ("Playa Verde", 1, 4300.0 * KS, 480.0, XS(3150.0), 110.0),
+    ("Oceanview", 1, 18000.0 * KS, 580.0, XS(3150.0), 110.0),
 ]
 SITE = {st[0]: st for st in SITES}
 BLEND = 700.0
@@ -195,18 +217,36 @@ def coastf(s, sg):
 
 def is_sea(s, x):
     sg = -1 if x < 0 else 1
-    return abs(x) > coastf(s, sg)
+    if abs(x) <= coastf(s, sg):
+        return False
+    if abs(x) > 7000.0 and "ISL" in globals():        # (the islands)
+        i, j = idx(s, x)
+        return not ISL[j, i]
+    return True
+
+
+def rail_x3(s):
+    """the railway on the 3 km ring's frame (the same angle round the ring)"""
+    return 960.0 + WIDEN + 60.0 * math.sin(2 * s / R + 1.0)
+
+
+HF_RAIL_S = 395.0 * SS          # Harrow Falls (a river town, not stretched): the railway keeps its old line past it
 
 
 def rail_x(s):
-    return 960.0 + WIDEN + 60.0 * math.sin(2 * s / R + 1.0)
+    # stretched with the land, except past Harrow Falls, where it bends back (over 3 km) to run along the
+    # town's edge as it did (stretched, it stood 1.4 km off and the town lost its station)
+    d = abs(float(wrap_d(s - HF_RAIL_S)))
+    t = min(1.0, max(0.0, (4500.0 - d) / 3000.0))
+    w = t * t * (3 - 2 * t)
+    return XS(rail_x3(s)) * (1 - w) + rail_x3(s) * w
 
 
 def P(s, x):
     """An old-map point (the 3.14 km ring) on the expanded one: 6x further round the ring, and
     500 m further from the river on its own side."""
     ns = s * SS
-    return (ns, x + (-WIDEN if x < float(rx(ns)) else WIDEN))
+    return (ns, XS(x + (-WIDEN if x < float(rx(ns)) else WIDEN)))
 
 
 def fk(m):
@@ -373,16 +413,65 @@ COAST_N = coast(S, -1).astype(np.float32)                       # |x| of each se
 COAST_S = coast(S, 1).astype(np.float32)
 WCAT[(X < -COAST_N) | (X > COAST_S)] = 6                          # the end-cap seas
 
+# The sea islands (the user, 2026-10-06: "islands big enough to support towns the size of Calder in the seas, three
+# each, staggered by none closer than 1.5km from the end cap or mainland").  Each is an oval ~3.4 x 2.1 km (Calder's
+# plan is 1.8 x 1.8 km) with a wandering shore that only ever cuts in, so the clearances below are hard limits.
+# Left wild for now -- meadow, woods and beaches, no fields or roads -- for the towns to come.
+ISLAND_CLEAR = 1500.0
+ISLANDS = [  # name, side, s centre, x centre, half-length round the ring, half-width across
+    ("Gannet Island", -1, 0.05 * C, -8560.0, 1700.0, 1050.0),
+    ("Rook Island", -1, 0.383 * C, -8560.0, 1700.0, 1050.0),
+    ("Thistle Island", -1, 0.717 * C, -8560.0, 1700.0, 1050.0),
+    ("Isla Serena", 1, 0.217 * C, 8560.0, 1700.0, 1050.0),
+    ("Isla Palmar", 1, 0.55 * C, 8560.0, 1700.0, 1050.0),
+    ("Cayo Luna", 1, 0.883 * C, 8560.0, 1700.0, 1050.0),
+]
+
+
+def _island_masks():
+    """ISL: on an island; ISL_D: metres inland of its shore (an estimate: the oval's own fraction of its half-width)."""
+    isl = np.zeros((WH, CW), bool)
+    d_in = np.zeros((WH, CW), np.float32)
+    for k_, (nm, sg, sc, xc, hs, hx) in enumerate(ISLANDS):
+        i0_, i1_ = int((sc - hs - 50) / PX), int((sc + hs + 50) / PX) + 1
+        j0_, j1_ = max(0, int((xc - hx - 50 + HW) / PX)), min(WH, int((xc + hx + 50 + HW) / PX) + 1)
+        ii_ = np.arange(i0_, i1_) % CW
+        ds = ((np.arange(i0_, i1_) + 0.5) * PX - sc)[None, :] / hs
+        dx = ((np.arange(j0_, j1_) + 0.5) * PX - HW - xc)[:, None] / hx
+        r = np.hypot(ds, dx)
+        a = np.arctan2(dx, ds)
+        ph = 1.7 * k_
+        wob = (0.5 + 0.5 * (0.45 * np.sin(2 * a + ph) + 0.3 * np.sin(5 * a + 2 * ph) + 0.15 * np.sin(11 * a + ph + 1)
+                            + 0.1 * np.sin(23 * a + 3 * ph)))          # 0..1
+        rn = r / (0.84 + 0.16 * wob)                                     # (the shore cuts in up to 16 %, never out)
+        inside = rn < 1.0
+        isl[j0_:j1_, ii_] |= inside
+        d_in[j0_:j1_, ii_] = np.maximum(d_in[j0_:j1_, ii_], np.where(inside, (1.0 - rn) * hx, 0.0))
+        # the user's clearances: 1.5 km from the mainland's waterline and from the end cap
+        jj_, iq = np.nonzero(inside)
+        xs_ = (j0_ + jj_ + 0.5) * PX - HW
+        ss_ = ((i0_ + iq + 0.5) * PX) % C
+        gap_cap = HW - np.abs(xs_).max()
+        gap_coast = (np.abs(xs_) - coast(ss_, sg)).min()
+        assert gap_cap >= ISLAND_CLEAR and gap_coast >= ISLAND_CLEAR, (nm, gap_cap, gap_coast)
+        print(f"island {nm}: {inside.sum() * PX * PX / 1e6:.1f} km2, {gap_coast:.0f} m off the mainland, "
+              f"{gap_cap:.0f} m off the cap", file=sys.stderr)
+    return isl, d_in
+
+
+ISL, ISL_D = _island_masks()
+WCAT[ISL] = 0
+
 # The two great rivers joining the seas to the Kettle (the Lake Erie pattern: the Maumee from the
 # north, the Miami from the south into Lake Tamsin's western basin).  Centrelines from the sea to
 # the Kettle / the lake, meandering; RIVER_HALF wide each side, in a basin of their own.
 RIVER_HALF = 130.0
 RIVER_BASIN = 130.0
 GREAT_RIVERS = [
-    ("Maumee River", [(6450, -COAST_MEAN - 250), (6300, -2850), (6620, -2450), (6360, -2050), (6720, -1650),
-                      (6480, -1250), (6800, -850), (6700, rxf(6700))]),
-    ("Miami River", [(820, COAST_MEAN + 250), (1000, 2850), (720, 2450), (1060, 2050), (820, 1650),
-                     (1250, 1250), (1330, 700), (1370, 250)]),
+    ("Maumee River", [(6450 * KS, -COAST_MEAN - 250)] + [(a * KS, XS(b)) for a, b in ((6300, -2850), (6620, -2450),
+                      (6360, -2050), (6720, -1650), (6480, -1250), (6800, -850))] + [(6700 * KS, rxf(6700 * KS))]),
+    ("Miami River", [(820 * KS, COAST_MEAN + 250)] + [(a * KS, XS(b)) for a, b in ((1000, 2850), (720, 2450), (1060, 2050),
+                     (820, 1650), (1250, 1250), (1330, 700), (1370, 250))]),
 ]
 RIVER_PATHS = []
 _ri = Image.new("L", (CW, WH), 0)
@@ -420,12 +509,12 @@ def _expand_creek(name, wps, pond):
     dx = -WIDEN if north else WIDEN
     sg = -1 if north else 1
     shift = _creek_shift(wps, pond)
-    pts = [(s + shift, x + dx) for s, x in wps]
+    pts = [(s + shift, XS(x + dx)) for s, x in wps]
     head = pts[0]
-    lead = [(head[0] + 45, sg * (coastf(head[0] + 45, sg) + 80)), (head[0] - 70, sg * (SHORE - 330)),
-            (head[0] + 55, sg * (SHORE - 700)), (head[0] - 20, sg * (abs(head[1]) + 150))]
+    lead = [(head[0] + 45, sg * (coastf(head[0] + 45, sg) + 80)), (head[0] - 70, sg * XS(SHORE3 - 330)),
+            (head[0] + 55, sg * XS(SHORE3 - 700)), (head[0] - 20, sg * (abs(head[1]) + 150))]
     if pond:
-        pond = (pond[0] + shift, pond[1] + dx, pond[2], pond[3])
+        pond = (pond[0] + shift, XS(pond[1] + dx), pond[2], pond[3])
     return (name, lead + pts, pond)
 
 
@@ -472,7 +561,7 @@ for sg in (-1, 1):
     side.sort(key=lambda c: c[1][0][0] % C)
     for k in range(len(side)):
         a_path, b_path = side[k][1], side[(k + 1) % len(side)][1]
-        xb = sg * (SHORE - 520 + 140 * math.sin(k * 2.3 + sg))
+        xb = sg * XS(SHORE3 - 520 + 140 * math.sin(k * 2.3 + sg))
         a = min(a_path, key=lambda p: abs(p[1] - xb))
         b = min(b_path, key=lambda p: abs(p[1] - xb))
         bs = b[0] if b[0] > a[0] else b[0] + C
@@ -528,6 +617,7 @@ class Town:
         self.name, self.tier, self.pop = name, tier, pop
         self.founding, self.archetype = founding, archetype
         self.s0, self.x0, self.axis, self.flip, self.label = s0, x0, axis, flip, label
+        self.x0_3km = x0         # the anchor on the 3 km ring's land (its old buildings move by x0 - x0_3km more)
         self.streets, self.bldgs, self.areas, self.marks = [], [], [], []
         self.street_names = {}  # index in streets -> its name (a generated town names its own: tools/settlegen)
         self.extra_hull = []
@@ -757,6 +847,7 @@ def build_kessler():
     x_main = rail_x(s0) - 95
     t = Town("Kessler", "City", 34500, "Rail-founded", "Stable ag / manufacturing",
              s0, x_main, "s", -1, "up")
+    t.x0_3km = rail_x3(s0) - 95
     us = [-227.5 + B * i for i in range(6)]
     vs = [-70, 0, 91, 182, 273, 364]
     t.grid(us, vs, mains=(0,), ext_u={0: (-430, 330), 91: (-330, 227.5), 273: (-330, 227.5)})
@@ -814,8 +905,10 @@ def build_kessler():
     return t
 
 
-def build_town(name, pop, founding, arche, s0, x0, axis, flip, layout, label, vacant=0.0):
+def build_town(name, pop, founding, arche, s0, x0, axis, flip, layout, label, vacant=0.0, x0_3km=None):
     t = Town(name, "Town", pop, founding, arche, s0, x0, axis, flip, label)
+    if x0_3km is not None:
+        t.x0_3km = x0_3km
     us = [-182 + B * i for i in range(5)]           # 4 blocks of Main Street
     if layout == "rail":
         vs = [-70, 0, 91, 182, 273]
@@ -879,7 +972,7 @@ def build_town(name, pop, founding, arche, s0, x0, axis, flip, layout, label, va
 
 def build_marlowe():
     t = build_town("Marlowe", 9100, "Inland / trail", "Stable county seat (Brannock Co.)",
-                   1500.0 * SS, -760.0 - WIDEN, "x", 1, "courthouse", "up")
+                   1500.0 * SS, XS(-760.0 - WIDEN), "x", 1, "courthouse", "up", x0_3km=-760.0 - WIDEN)
     t.marks = [(p, "Brannock Co. Courthouse" if txt == "Courthouse" else txt) for p, txt in t.marks]
     t.subdivision(-262, 10, 55, 105, (-182, 10))
     t.tower(-230, 60, "Water Tower")
@@ -888,7 +981,7 @@ def build_marlowe():
 
 def build_fenwick():
     t = build_town("Fenwick", 6400, "Inland / trail", "College town",
-                   2150.0 * SS, -800.0 - WIDEN, "s", 1, "green", "up")
+                   2150.0 * SS, XS(-800.0 - WIDEN), "s", 1, "green", "up", x0_3km=-800.0 - WIDEN)
     # Fenwick College: the settlement's one unmistakable landmark (§17)
     t.area(t.rect(190, 330, -182, 20), "campus")
     for (u, v) in ((210, -160), (270, -160), (210, -60), (275, -60), (240, -10)):
@@ -901,13 +994,13 @@ def build_fenwick():
 def build_bellhaven():
     s0 = 1050.0 * SS
     return build_town("Bellhaven", 7200, "Rail-founded", "Stable ag / manufacturing",
-                      s0, rail_x(s0) - 95, "s", -1, "rail", "up")
+                      s0, rail_x(s0) - 95, "s", -1, "rail", "up", x0_3km=rail_x3(s0) - 95)
 
 
 def build_tamarack():
     s0 = 2820.0 * SS
     t = build_town("Tamarack", 8300, "Rail-founded", "Declining rust-belt",
-                   s0, rail_x(s0) - 95, "s", -1, "rail", "up", vacant=0.4)
+                   s0, rail_x(s0) - 95, "s", -1, "rail", "up", vacant=0.4, x0_3km=rail_x3(s0) - 95)
     t.area(t.rect(60, 230, -110, -230), "lot")
     t.bld(t.rect(75, 200, -125, -200), "vacant")
     t.mark(137, -165, "Closed foundry")
@@ -915,10 +1008,12 @@ def build_tamarack():
 
 
 def build_village(name, pop, founding, arche, s0, x0, axis, flip, n_stores, label, vs=(-91, 0, 91),
-                  blocks=2, school=None, elevator=False, depot=False, vacant=0.0, carnegie=False):
+                  blocks=2, school=None, elevator=False, depot=False, vacant=0.0, carnegie=False, x0_3km=None):
     """Village tier (§1): 1-3 block Main Street or bare crossroads, 2-10 residential streets,
     freestanding church/post office within a block of Main (§9)."""
     t = Town(name, "Village", pop, founding, arche, s0, x0, axis, flip, label)
+    if x0_3km is not None:
+        t.x0_3km = x0_3km
     us = [-B * blocks / 2 + B * i for i in range(blocks + 1)]
     vs = list(vs)
     t.grid(us, vs, mains=(0,))
@@ -1445,7 +1540,7 @@ def build_victory_bay():
     # Put-in-Bay on South Bass Island, Lake Erie's western basin: a village round its harbour -- ferry
     # and marina docks, the waterfront park (DeRivera Park), a strip of bars and shops, the
     # Perry's Victory column on the isthmus, cottages, a winery, a lighthouse on the western point
-    s0, x0 = 1650.0, -600.0
+    s0, x0 = LAKE_S - 706.0, -600.0                  # (on Perry Island, 706 m west of the lake's middle)
     t = Town("Victory Bay", "Village", 900, "Island resort", "Great Lakes island village (Put-in-Bay)", s0, x0, "s", 1, "up")
     t.coastal = True
     t.water_v = 45
@@ -1528,14 +1623,14 @@ def build_all():
     cf.mark(-60, 0, "Water St.")
     pr = build_village("Pruett", 820, "Rail-founded", "Stable ag / manufacturing",
                        1500.0 * SS, rail_x(1500.0 * SS) - 80, "s", -1, 4, "down", vs=(-55, 0, 91),
-                       elevator=True, depot=True)
+                       elevator=True, depot=True, x0_3km=rail_x3(1500.0 * SS) - 80)
     du = build_village("Dunmore Crossing", 480, "Inland / crossroads", "Stable ag / manufacturing",
-                       650.0 * SS, -800.0 - WIDEN, "x", 1, 3, "up")
+                       650.0 * SS, XS(-800.0 - WIDEN), "x", 1, 3, "up", x0_3km=-800.0 - WIDEN)
     lo = build_village("Loomis Grove", 390, "Inland / crossroads", "Declining rust-belt",
-                       2580.0 * SS, -1250.0 - WIDEN, "s", 1, 3, "down", vacant=0.5)
+                       2580.0 * SS, XS(-1250.0 - WIDEN), "s", 1, 3, "down", vacant=0.5, x0_3km=-1250.0 - WIDEN)
     ha = build_village("Haskins Corner", 2600, "Inland / trail", "Growing exurban",
-                       2955.0 * SS, -640.0 - WIDEN, "s", 1, 8, "up", vs=(-182, -91, 0, 91, 182), blocks=3,
-                       school="Haskins Elem. + Jr. High", carnegie=True)
+                       2955.0 * SS, XS(-640.0 - WIDEN), "s", 1, 8, "up", vs=(-182, -91, 0, 91, 182), blocks=3,
+                       school="Haskins Elem. + Jr. High", carnegie=True, x0_3km=-640.0 - WIDEN)
     ha.subdivision(0, -290, 105, 48, (0, -182))
     return towns + [cf, pr, du, lo, ha]
 
@@ -1567,9 +1662,9 @@ def build_calder():
         w_, line_, off_ = site_weight(np.array([s_]), 1)
         return float(coast(np.array([s_]), 1)[0] - (300.0 * w_[0] + off_[0] * (1 - w_[0])))
     country = []
-    for (name, kind, s_c, x_road, dirn, era) in ((CAL.NAMES["country"][0], "convenience", 7516.0 + 80.0, coast_road_x(7596.0), -1, 1988),
-                                                  (CAL.NAMES["country"][1], "neighborhood", 5907.0 - 175.0, 1800.0, 1, 1974),
-                                                  (CAL.NAMES["country"][2], "convenience", 9125.0 + 80.0, 1800.0, 1, 1996)):
+    for (name, kind, s_c, x_road, dirn, era) in ((CAL.NAMES["country"][0], "convenience", CAL.SECTION_S + 80.0, coast_road_x(CAL.SECTION_S + 80.0), -1, 1988),
+                                                  (CAL.NAMES["country"][1], "neighborhood", CAL.SECTION_S - 1609.0 - 175.0, XS(1800.0), 1, 1974),
+                                                  (CAL.NAMES["country"][2], "convenience", CAL.SECTION_S + 1609.0 + 80.0, XS(1800.0), 1, 1996)):
         c = TW.country_centre(kind, name, rnd)
         c["era"] = era
         frame = (lambda sc, xr, dn: (lambda u, v: (sc + u, xr + dn * v)))(s_c, x_road, dirn)
@@ -1610,7 +1705,7 @@ def _inv_poly(st, ds, dx):
 
 for _t in TOWNS:
     _ds = OLD_S0[_t.name] * (SS - 1)
-    _dx = -WIDEN if _t.x0 < 0 else WIDEN
+    _dx = (-WIDEN if _t.x0 < 0 else WIDEN) + (_t.x0 - _t.x0_3km)     # (the town's move into the new land too)
     _t.bldgs = []
     for _st in _INV["structures"]:
         if _st["settlement"] != _t.name:
@@ -1657,8 +1752,9 @@ T = {t.name: t for t in TOWNS}
 # SR 14 -- port-side loop through the port-side settlements' main streets
 sr14 = [T["Dunmore Crossing"].g(0, 0), P(900, -780), T["Marlowe"].g(0, 0), P(1830, -760),
         T["Fenwick"].g(-182, 0), T["Fenwick"].g(182, 0), P(2600, -720), T["Haskins Corner"].g(0, 0),
-        (C + 450, -1400), (C + 1100, -2200), (C + 2500, -2300), (C + 3500, -1750)]
-road([(p[0], p[1]) for p in sr14] + [(T["Dunmore Crossing"].g(0, 0)[0] + C, -800 - WIDEN)], "hwy", "SR 14", smooth=2)
+        (C + 450 * KS, XS(-1400)), (C + 1100 * KS, XS(-2200)), (C + 2500 * KS, XS(-2300)), (C + 3500 * KS, XS(-1750))]
+road([(p[0], p[1]) for p in sr14] + [(T["Dunmore Crossing"].g(0, 0)[0] + C, T["Dunmore Crossing"].g(0, 0)[1])], "hwy", "SR 14",
+     smooth=2)
 # US 30 -- starboard loop; bypasses Harrow Falls' downtown along the bluff-top street
 hf = T["Harrow Falls"]
 us30 = [hf.g(-420, 455), hf.g(420, 455), P(820, 770), T["Bellhaven"].g(-182, 0), T["Bellhaven"].g(182, 0),
@@ -1673,7 +1769,8 @@ road([hf.g(-227.5, 91), P(80, 380), P(-160, 340), P(-160, -300), P(-200, -620)],
 road([P(650, -700), P(930, -380), P(930, 380), P(900, 740)], "county", "Outlet Rd", 2)
 # (Ford Rd's river bridge lands at Calder's River Rd since Calder was built, 2026-10-06; it once ran on across
 #  that farmland to Bellhaven -- Calder's streets and US 30 carry it on now)
-road([T["Cedar Ford"].g(0, 0), P(1250, 300), (7516.0, 600.0)], "county", "Ford Rd", 2)      # (600: River Rd's north end)
+import calder as _CAL  # noqa: E402
+road([T["Cedar Ford"].g(0, 0), P(1250, 300), T["Calder"].g(_CAL.GRID_U0, 760.0)], "county", "Ford Rd", 2)   # (River Rd's north end)
 road([T["Marlowe"].g(182, 0), P(1610, 200), T["Pruett"].g(0, 91)], "county", "Brannock Pike", 2)
 road([T["Fenwick"].g(91, 182), P(2270, 250), T["Kessler"].g(91, 364)], "county", "College Rd", 2)
 # the coast roads: round each sea, through every coastal town on its shore road (Ocean Rd on the
@@ -1691,10 +1788,10 @@ for _sg, _cls, _nm in ((-1, "county", "Ocean Rd"), (1, "hwy", "Coast Hwy")):
     road(_pl, _cls, _nm, smooth=1)
 # connectors from the coastal cities and lake town to the highways
 _pc, _sp, _pt, _hp = T["Port Carrow"], T["Solana Point"], T["Port Tamsin"], T["Haven Point"]
-road([_pc.g(182, -660), (_pc.g(182, -660)[0] + 60, -2200), P(1830, -760)], "county", "Carrow Pike", 2)
-road([_sp.g(-420, -450), (_sp.g(-420, -450)[0] + 80, 2300), (_sp.g(-420, -450)[0] + 300, 1600)], "county", "Main St Ext.", 2)
-road([_pt.g(0, -180), (_pt.g(0, -180)[0], -2280)], "county", "Tamsin Rd", 1)
-road([_hp.g(195, -210), (_hp.g(195, -210)[0] + 40, -2300), (_hp.g(195, -210)[0] + 150, -1500)], "county", "Haven Rd", 2)
+road([_pc.g(182, -660), (_pc.g(182, -660)[0] + 60, XS(-2200)), P(1830, -760)], "county", "Carrow Pike", 2)
+road([_sp.g(-420, -450), (_sp.g(-420, -450)[0] + 80, XS(2300)), (_sp.g(-420, -450)[0] + 300, XS(1600))], "county", "Main St Ext.", 2)
+road([_pt.g(0, -180), (_pt.g(0, -180)[0], XS(-2280))], "county", "Tamsin Rd", 1)
+road([_hp.g(195, -210), (_hp.g(195, -210)[0] + 40, XS(-2300)), (_hp.g(195, -210)[0] + 150, XS(-1500))], "county", "Haven Rd", 2)
 
 # settlement footprints (for clipping section roads / farmland)
 # Built-up area = the settlement's own streets/buildings/lots grown by ~25 m (organic edge,
@@ -1728,15 +1825,17 @@ fp_buf = dilate(FP, fk(30))
 th = S / R
 b = np.tanh(1.5 * np.sin(6 * th + PHI1)) / np.tanh(1.5)
 b = b * (1 - T_L) + 1.0 * T_L                 # lake: bluff on the +x (Harrow Falls) shore
-side = np.where(X < CX_L, -1.0, 1.0)
-dist = np.where(X < TOP_E, TOP_E - X, np.where(X > BOT_E, X - BOT_E, 0.0))
-w_cut = 0.5 * (1 + b * side)
+side = np.where(X < CX_L, -1.0, 1.0).astype(np.float32)
+dist = np.where(X < TOP_E, TOP_E - X, np.where(X > BOT_E, X - BOT_E, 0.0)).astype(np.float32)
+w_cut = (0.5 * (1 + b * side)).astype(np.float32)
+del side                                       # (the 20 km ring's rasters are 88 M px: float64 temporaries go early)
 d0_cut = 60 * (1 - T_L) + 140 * T_L
-d0 = 230 - (230 - d0_cut) * w_cut + BASIN * (1 - T_L)       # the valley walls stand back past the basin
-Lb = 160 - 85 * w_cut
+d0 = (230 - (230 - d0_cut) * w_cut + BASIN * (1 - T_L)).astype(np.float32)   # the valley walls stand back past the basin
+Lb = (160 - 85 * w_cut).astype(np.float32)
 H = H_BLUFF * (1 + 0.3 * np.sin(2 * th + PHI4))
 ELEV = (H * np.maximum(0, np.tanh((dist - d0) / Lb)) - Z1 * np.cos(th - math.pi / 4)
         + 1.2 * np.sin(S / 97 + X / 131) + 0.8 * np.sin(X / 53 - S / 211)).astype(np.float32)
+del Lb, H
 ELEV_INLAND = ELEV.copy()                                        # (woods follow the inland slopes only)
 # the coasts: distance inland from each sea's waterline; headlands (proud of the mean line, outside
 # the towns' straightened stretches) end in rocky cliffs, the bays in sandy beaches
@@ -1764,6 +1863,14 @@ del _hw
 _rv = dilate(RIVMASK, fk(RIVER_BASIN))                                    # the great rivers' valleys
 ELEV = np.where(_rv, ELEV * 0.15, np.where(dilate(_rv, fk(260)), ELEV * 0.55, ELEV)).astype(np.float32)
 del _rv
+# the islands: beaches round a low rolling upland (to ~14-22 m), cut into the sea by DCOAST like the mainland's coasts
+_isn = (1.6 * np.sin(S / 173 + X / 211) + 1.1 * np.sin(X / 97 - S / 139) + 0.6 * np.sin(S / 41 + X / 59)).astype(np.float32)
+_isu = np.clip(ISL_D / 450.0, 0, 1)
+_isu = _isu * _isu * (3 - 2 * _isu)
+ELEV = np.where(ISL, 0.6 + 16.0 * _isu + _isn * _isu, ELEV).astype(np.float32)
+DCOAST = np.where(ISL, ISL_D, DCOAST)
+HEADLAND = HEADLAND & ~ISL
+del _isn, _isu
 del _u
 WATER = WCAT > 0
 BASIN_M = (~WATER) & (dist > 0) & (dist < BASIN) & (T_L < 0.5)          # the river's wide basin
@@ -1771,6 +1878,7 @@ _rb = dilate(RIVMASK, fk(RIVER_BASIN))
 BASIN_M |= _rb & ~WATER                                                   # and the great rivers' basins
 FLOOD = ((~WATER) & (dist < d0 * 0.85) & (w_cut < 0.5) & (dist > 0)) | BASIN_M
 MARSH = (BASIN_M & (dist < BASIN * 0.55)) | (dilate(RIVMASK, fk(55)) & ~WATER)
+del d0, BASIN_M, _rb
 BEACH = (~WATER) & (DCOAST > 0) & (DCOAST < 75) & ~HEADLAND
 CLIFF = (~WATER) & (DCOAST > 0) & (DCOAST < 24) & HEADLAND
 
@@ -1785,7 +1893,7 @@ def in_blocked(s, x, buf=False):
 # Section-line county roads (Midwest PLSS grid, compressed ~3.5x per the KCD "adjusted
 # realistic map" rule, §17).  They stop at the bluff/floodplain unless they're a bridge road.
 SECTION_S = list(np.arange(180 * SS, C, 1609.0))          # a 1-mile grid round the ring
-SECTION_X = [-1250 - WIDEN, 1300 + WIDEN, -SHORE + 450, SHORE - 450]
+SECTION_X = [XS(-1250 - WIDEN), XS(1300 + WIDEN), XS(-SHORE3 + 450), XS(SHORE3 - 450)]
 
 
 _GRB = dilate(RIVMASK, fk(RIVER_BASIN + 40))
@@ -1902,7 +2010,13 @@ RMASK = np.array(rm_img) > 0
 def bld_ok(poly):
     cs = sum(p[0] for p in poly) / len(poly)
     cx = sum(p[1] for p in poly) / len(poly)
-    for p in poly + [(cs, cx)]:
+    # each corner tested 3 m in from itself: the masks are 4 m pixels, and a building at its set-back from a
+    # road would otherwise touch the road's pixel
+    def _in(p):
+        d = math.hypot(p[0] - cs, p[1] - cx)
+        k = min(3.0, d * 0.5) / d if d > 0 else 0.0
+        return (p[0] + (cs - p[0]) * k, p[1] + (cx - p[1]) * k)
+    for p in [_in(q) for q in poly] + [(cs, cx)]:
         i, j = idx(*p)
         if WBUF[j, i] or RMASK[j, i] or is_sea(*p):
             return False
@@ -1930,10 +2044,15 @@ for t in TOWNS:
             keep.append(b_)
         else:
             NEW_DROPPED += 1
+            if "--why" in sys.argv:
+                _c = (sum(q[0] for q in b_[0]) / len(b_[0]), sum(q[1] for q in b_[0]) / len(b_[0]))
+                _i, _j = idx(*_c)
+                print(f"   DROP {t.name} {b_[1]} at s={_c[0]:.0f} x={_c[1]:.0f}: water={bool(WBUF[_j, _i])} "
+                      f"road={bool(RMASK[_j, _i])} sea={is_sea(*_c)}", file=sys.stderr)
     t.bldgs = keep
 
 # ------------------------------------------------------------------ farmland: fields, ditches, farmsteads
-FARM = (~FP) & (~WATER) & (~FLOOD) & (~BEACH) & (~CLIFF)
+FARM = (~FP) & (~WATER) & (~FLOOD) & (~BEACH) & (~CLIFF) & (~ISL)
 rng_np = np.random.default_rng(7)
 # Farmland, organically (research/coastal_communities -- and Iowa / Illinois practice): the PLSS
 # mile-square SECTIONS the section roads outline, each split by its owners into quarters (160 ac),
@@ -1941,7 +2060,7 @@ rng_np = np.random.default_rng(7)
 # small grain and set-aside (CRP) grass on the rest; contour strips on the slopes; an occasional
 # centre pivot; woodlots in odd corners and windbreak tree lines along some boundaries.
 SEC = 1609.0
-SEC_S0, SEC_X0 = 180.0 * SS, 1300.0 + WIDEN        # the grid the section roads run on
+SEC_S0, SEC_X0 = 180.0 * SS, XS(1300.0 + WIDEN)    # the grid the section roads run on
 
 
 def _h(a, b_, c_):
@@ -1950,87 +2069,104 @@ def _h(a, b_, c_):
     return (hh ^ (hh >> 16)) & 0x7FFFFFFF
 
 
-_su = (S.astype(np.float64) - SEC_S0) / SEC
-_sx = (X.astype(np.float64) - SEC_X0) / SEC
-SEC_I = np.broadcast_to(np.floor(_su), (WH, CW)).astype(np.int32)
-SEC_J = np.broadcast_to(np.floor(_sx), (WH, CW)).astype(np.int32)
-_u = np.broadcast_to(_su - np.floor(_su), (WH, CW)).astype(np.float32)
-_v = np.broadcast_to(_sx - np.floor(_sx), (WH, CW)).astype(np.float32)
-# the section roads stay straight, but the owners' lines inside a section wander (old fence rows
-# bent round wet spots, knolls and the creeks) -- a smooth warp that vanishes at the section roads
-_Sf = np.broadcast_to(S, (WH, CW)).astype(np.float32)
-_Xf = np.broadcast_to(X, (WH, CW)).astype(np.float32)
-_wu = (0.045 * np.sin(_Xf / 173.0 + 1.3) + 0.03 * np.sin(_Xf / 71.0 + _Sf / 263.0)) * np.sin(math.pi * _u)
-_wv = (0.045 * np.sin(_Sf / 191.0 + 0.4) + 0.03 * np.sin(_Sf / 67.0 - _Xf / 241.0)) * np.sin(math.pi * _v)
-del _Sf, _Xf
-_uw = np.clip(_u + _wu, 0, 0.9999)
-_vw = np.clip(_v + _wv, 0, 0.9999)
-del _wu, _wv
-_q = ((_uw >= 0.5).astype(np.int32) * 2 + (_vw >= 0.5))
-_uq = (_uw * 2) % 1.0
-_vq = (_vw * 2) % 1.0
-del _uw, _vw
 # terrain splits: some quarters are farmed as bottom land and upland, the line following the ground
 _ec = ELEV[::16, ::16].astype(np.float32)
 for _ax in (0, 1):
     for _i in range(3):
         _ec = (np.roll(_ec, 4, _ax) + np.roll(_ec, -4, _ax) + np.roll(_ec, 8, _ax) + np.roll(_ec, -8, _ax) + _ec) / 5
-# bilinear back up to full resolution, a band of rows at a time (a blocky upsample saw-tooths the lines)
-_low = np.empty((WH, CW), bool)
-_fx = np.arange(CW, dtype=np.float32) / 16.0
-_x0 = np.minimum(_fx.astype(np.int32), _ec.shape[1] - 1)
-_x1 = np.minimum(_x0 + 1, _ec.shape[1] - 1)
-_tx = _fx - _x0
-for _r in range(WH):
-    _fy = _r / 16.0
-    _y0 = min(int(_fy), _ec.shape[0] - 1)
-    _y1 = min(_y0 + 1, _ec.shape[0] - 1)
-    _ty = _fy - _y0
-    _row = (_ec[_y0, _x0] * (1 - _tx) + _ec[_y0, _x1] * _tx) * (1 - _ty) + (_ec[_y1, _x0] * (1 - _tx) + _ec[_y1, _x1] * _tx) * _ty
-    _low[_r] = ELEV[_r] < _row - 0.3
-del _ec, _fx, _x0, _x1, _tx
-_mode = _h(SEC_I, SEC_J, _q) % 100
-_sub = np.where(_mode < 18, 0, np.where(_mode < 34, 1 + (_uq >= 0.5), np.where(_mode < 50, 3 + (_vq >= 0.5),
-               np.where(_mode < 72, 9 + _low, 5 + (_uq >= 0.5) * 2 + (_vq >= 0.5)))))
-del _low
-PARCEL = _h(SEC_I, SEC_J, _q * 16 + _sub)
-del _mode
-_pc = PARCEL % 100
-CROP = np.select([_pc < 38, _pc < 72, _pc < 80, _pc < 88, _pc < 94], [0, 1, 3, 4, 2], 5).astype(np.uint8)   # 0 corn 1 soy 2 grain 3 hay 4 pasture 5 CRP
-# centre pivots: a circle of crop, the quarter's corners left to grass
-_piv = (_h(SEC_I, SEC_J, _q + 50) % 100) < 4
-_rp = np.hypot(_uq - 0.5, _vq - 0.5)
-CROP = np.where(_piv & (_rp > 0.48), np.uint8(4 + (_pc % 2)), np.where(_piv, np.uint8(_pc % 2), CROP))
-# contour strips where the ground slopes: row crop and hay alternating along the contours
-_gy, _gx = np.gradient(ELEV, PX)
-_slope = np.hypot(_gx, _gy)
-del _gy, _gx
-_strip = (_slope > 0.035) & (CROP <= 1) & ~_piv
-CROP = np.where(_strip & ((np.floor(ELEV / 1.6).astype(np.int32) % 2) == 1), np.uint8(3), CROP)
-del _slope, _strip
-VARIANT = ((PARCEL >> 8) % 4).astype(np.uint8)
-ROWS_S = ((PARCEL >> 12) & 1).astype(bool)
-FIELD_G = (CROP + 8 * VARIANT).astype(np.uint8)
-# woodlots in some quarters' outer corners, and windbreak tree lines along some section / quarter lines
-_wl = (_h(SEC_I, SEC_J, _q + 99) % 100) < 7
-_cu = np.where(_uq < 0.5, 0.18, 0.82)
-_cv = np.where(_vq < 0.5, 0.18, 0.82)
-_wob = 1 + 0.18 * np.sin(np.arctan2(_vq - _cv, _uq - _cu) * 3 + (PARCEL % 7))
-WOODLOT = _wl & (np.hypot((_uq - _cu) * 1.3, _vq - _cv) < 0.2 * _wob)
-del _wl, _cu, _cv, _wob
-_du = np.minimum(np.abs(_u - 0.5), np.minimum(_u, 1 - _u)) * SEC            # metres to the nearest s-running line
-_dv = np.minimum(np.abs(_v - 0.5), np.minimum(_v, 1 - _v)) * SEC
-_line_s = np.round(_su * 2).astype(np.int32)
-_line_x = np.round(_sx * 2).astype(np.int32)
-HEDGE = ((_du < 4.0) & ((_h(np.broadcast_to(_line_s, (WH, CW)), SEC_J, 7) % 100) < 30)) | \
-        ((_dv < 4.0) & ((_h(SEC_I, np.broadcast_to(_line_x, (WH, CW)), 11) % 100) < 30))
-del _du, _dv, _line_s, _line_x, _u, _v, _uq, _vq, _q, _rp, _pc, _su, _sx
-CROP_COLS = np.array([[96, 142, 52], [168, 196, 88], [222, 196, 118], [132, 188, 96], [150, 170, 108], [180, 170, 120]], np.float32)
-_var = np.array([0.9, 0.97, 1.03, 1.1], np.float32)
-_rowc = np.where(ROWS_S, np.broadcast_to(S, (WH, CW)), np.broadcast_to(X, (WH, CW)))
-_rowm = 1 + 0.035 * np.sin(_rowc * (TAU / 7.0)) * (CROP <= 2)
-FIELDC = np.clip(CROP_COLS[CROP] * (_var[VARIANT] * _rowm)[..., None], 0, 255).astype(np.uint8)
-del _rowc, _rowm
+
+
+def _farm_band(r0, r1):
+    """the farmland of raster rows r0..r1 (in bands: done whole, its int64 hashes alone outgrow the Deck's memory)"""
+    _su = (S.astype(np.float64) - SEC_S0) / SEC
+    _sx = (X[r0:r1].astype(np.float64) - SEC_X0) / SEC
+    SEC_I = np.broadcast_to(np.floor(_su), (r1 - r0, CW)).astype(np.int32)
+    SEC_J = np.broadcast_to(np.floor(_sx), (r1 - r0, CW)).astype(np.int32)
+    _u = np.broadcast_to(_su - np.floor(_su), (r1 - r0, CW)).astype(np.float32)
+    _v = np.broadcast_to(_sx - np.floor(_sx), (r1 - r0, CW)).astype(np.float32)
+    # the section roads stay straight, but the owners' lines inside a section wander (old fence rows
+    # bent round wet spots, knolls and the creeks) -- a smooth warp that vanishes at the section roads
+    _Sf = np.broadcast_to(S, (r1 - r0, CW)).astype(np.float32)
+    _Xf = np.broadcast_to(X[r0:r1], (r1 - r0, CW)).astype(np.float32)
+    _wu = (0.045 * np.sin(_Xf / 173.0 + 1.3) + 0.03 * np.sin(_Xf / 71.0 + _Sf / 263.0)) * np.sin(math.pi * _u)
+    _wv = (0.045 * np.sin(_Sf / 191.0 + 0.4) + 0.03 * np.sin(_Sf / 67.0 - _Xf / 241.0)) * np.sin(math.pi * _v)
+    del _Sf, _Xf
+    _uw = np.clip(_u + _wu, 0, 0.9999)
+    _vw = np.clip(_v + _wv, 0, 0.9999)
+    del _wu, _wv
+    _q = ((_uw >= 0.5).astype(np.int32) * 2 + (_vw >= 0.5))
+    _uq = (_uw * 2) % 1.0
+    _vq = (_vw * 2) % 1.0
+    del _uw, _vw
+    # bilinear back up to full resolution, a band of rows at a time (a blocky upsample saw-tooths the lines)
+    _low = np.empty((r1 - r0, CW), bool)
+    _fx = np.arange(CW, dtype=np.float32) / 16.0
+    _x0 = np.minimum(_fx.astype(np.int32), _ec.shape[1] - 1)
+    _x1 = np.minimum(_x0 + 1, _ec.shape[1] - 1)
+    _tx = _fx - _x0
+    for _r in range(r0, r1):
+        _fy = _r / 16.0
+        _y0 = min(int(_fy), _ec.shape[0] - 1)
+        _y1 = min(_y0 + 1, _ec.shape[0] - 1)
+        _ty = _fy - _y0
+        _row = (_ec[_y0, _x0] * (1 - _tx) + _ec[_y0, _x1] * _tx) * (1 - _ty) + (_ec[_y1, _x0] * (1 - _tx) + _ec[_y1, _x1] * _tx) * _ty
+        _low[_r - r0] = ELEV[_r] < _row - 0.3
+    del _fx, _x0, _x1, _tx
+    _mode = _h(SEC_I, SEC_J, _q) % 100
+    _sub = np.where(_mode < 18, 0, np.where(_mode < 34, 1 + (_uq >= 0.5), np.where(_mode < 50, 3 + (_vq >= 0.5),
+                   np.where(_mode < 72, 9 + _low, 5 + (_uq >= 0.5) * 2 + (_vq >= 0.5)))))
+    del _low
+    PARCEL = _h(SEC_I, SEC_J, _q * 16 + _sub)
+    del _mode
+    _pc = PARCEL % 100
+    CROP = np.select([_pc < 38, _pc < 72, _pc < 80, _pc < 88, _pc < 94], [0, 1, 3, 4, 2], 5).astype(np.uint8)   # 0 corn 1 soy 2 grain 3 hay 4 pasture 5 CRP
+    # centre pivots: a circle of crop, the quarter's corners left to grass
+    _piv = (_h(SEC_I, SEC_J, _q + 50) % 100) < 4
+    _rp = np.hypot(_uq - 0.5, _vq - 0.5)
+    CROP = np.where(_piv & (_rp > 0.48), np.uint8(4 + (_pc % 2)), np.where(_piv, np.uint8(_pc % 2), CROP))
+    # contour strips where the ground slopes: row crop and hay alternating along the contours
+    _ra, _rb_ = max(0, r0 - 1), min(WH, r1 + 1)
+    _gy, _gx = [g_[r0 - _ra:r0 - _ra + (r1 - r0)] for g_ in np.gradient(ELEV[_ra:_rb_], PX)]
+    _slope = np.hypot(_gx, _gy)
+    del _gy, _gx
+    _strip = (_slope > 0.035) & (CROP <= 1) & ~_piv
+    CROP = np.where(_strip & ((np.floor(ELEV[r0:r1] / 1.6).astype(np.int32) % 2) == 1), np.uint8(3), CROP)
+    del _slope, _strip
+    VARIANT = ((PARCEL >> 8) % 4).astype(np.uint8)
+    ROWS_S = ((PARCEL >> 12) & 1).astype(bool)
+    FIELD_G = (CROP + 8 * VARIANT).astype(np.uint8)
+    # woodlots in some quarters' outer corners, and windbreak tree lines along some section / quarter lines
+    _wl = (_h(SEC_I, SEC_J, _q + 99) % 100) < 7
+    _cu = np.where(_uq < 0.5, 0.18, 0.82)
+    _cv = np.where(_vq < 0.5, 0.18, 0.82)
+    _wob = 1 + 0.18 * np.sin(np.arctan2(_vq - _cv, _uq - _cu) * 3 + (PARCEL % 7))
+    WOODLOT = _wl & (np.hypot((_uq - _cu) * 1.3, _vq - _cv) < 0.2 * _wob)
+    del _wl, _cu, _cv, _wob
+    _du = np.minimum(np.abs(_u - 0.5), np.minimum(_u, 1 - _u)) * SEC            # metres to the nearest s-running line
+    _dv = np.minimum(np.abs(_v - 0.5), np.minimum(_v, 1 - _v)) * SEC
+    _line_s = np.round(_su * 2).astype(np.int32)
+    _line_x = np.round(_sx * 2).astype(np.int32)
+    HEDGE = ((_du < 4.0) & ((_h(np.broadcast_to(_line_s, (r1 - r0, CW)), SEC_J, 7) % 100) < 30)) | \
+            ((_dv < 4.0) & ((_h(SEC_I, np.broadcast_to(_line_x, (r1 - r0, CW)), 11) % 100) < 30))
+    del _du, _dv, _line_s, _line_x, _u, _v, _uq, _vq, _q, _rp, _pc, _su, _sx
+    CROP_COLS = np.array([[96, 142, 52], [168, 196, 88], [222, 196, 118], [132, 188, 96], [150, 170, 108], [180, 170, 120]], np.float32)
+    _var = np.array([0.9, 0.97, 1.03, 1.1], np.float32)
+    _rowc = np.where(ROWS_S, np.broadcast_to(S, (r1 - r0, CW)), np.broadcast_to(X[r0:r1], (r1 - r0, CW)))
+    _rowm = 1 + 0.035 * np.sin(_rowc * (TAU / 7.0)) * (CROP <= 2)
+    FIELDC = np.clip(CROP_COLS[CROP] * (_var[VARIANT] * _rowm)[..., None], 0, 255).astype(np.uint8)
+    del _rowc, _rowm
+    return CROP, FIELD_G, FIELDC, WOODLOT, HEDGE
+
+
+CROP = np.zeros((WH, CW), np.uint8)
+FIELD_G = np.zeros((WH, CW), np.uint8)
+FIELDC = np.zeros((WH, CW, 3), np.uint8)
+WOODLOT = np.zeros((WH, CW), bool)
+HEDGE = np.zeros((WH, CW), bool)
+for _b0 in range(0, WH, 400):
+    _b1 = min(WH, _b0 + 400)
+    CROP[_b0:_b1], FIELD_G[_b0:_b1], FIELDC[_b0:_b1], WOODLOT[_b0:_b1], HEDGE[_b0:_b1] = _farm_band(_b0, _b1)
+del _ec
 fid = FIELD_G
 
 # ditches: parallel to the ring (along s) at the field-band edges, each draining into the
@@ -2123,6 +2259,9 @@ del ELEV_INLAND
 gy, gx = np.gradient(ELEV, PX)
 creek_band = dilate((WCAT == 3) | (WCAT == 4), fk(9))
 WOODS = (((slope > 0.11) & (w_cut > 0.5)) | creek_band | ((WOODLOT | HEDGE) & FARM)) & ~WATER & ~FP & ~RMASK
+_isw = ISL & (ISL_D > 90) & ((np.sin(S / 157 + X / 233) + np.sin(X / 119 - S / 181) + 0.7 * np.sin(S / 61)) > 0.6)
+WOODS |= _isw & ~RMASK                                                   # (the islands: woods in clumps over meadow)
+img[ISL & ~BEACH & ~WOODS] = (212, 230, 195)
 img[WOODS] = (134, 173, 109)
 speck = rng_np.random((WH, CW), dtype=np.float32) < 0.10
 img[WOODS & speck] = (96, 140, 78)
@@ -2131,22 +2270,25 @@ wcols = {1: (93, 159, 216), 2: (93, 159, 216), 3: (90, 154, 214), 4: (91, 155, 2
          6: (66, 128, 196), 7: (78, 140, 204)}
 for k, col in wcols.items():
     img[WCAT == k] = col
-# hillshade (NW light, 5x vertical exaggeration) + 4 m contours
+# hillshade (NW light, 5x vertical exaggeration) + 4 m contours -- in row bands (the 20 km ring: 88 M px)
 ex = 5.0
-nx, ny = -gx * ex, -gy * ex
-nz = np.ones_like(nx)
-nl = np.sqrt(nx * nx + ny * ny + nz * nz)
 lx, ly, lz = -0.5, -0.5, 0.707
-shade = (nx * lx + ny * ly + nz * lz) / nl
-shade = np.clip(0.80 + 0.55 * (shade - 0.707), 0.55, 1.12)
-shade[WATER] = 1.0
 _foot = (WCAT == 6) & dilate(CLIFF, fk(10)) & (rng_np.random((WH, CW), dtype=np.float32) < 0.18)
 img[_foot] = (96, 92, 86)
-img = np.clip(img * shade[..., None], 0, 255).astype(np.uint8)
-band = np.floor(ELEV / 4.0)
+del _foot, slope
+for _b0 in range(0, WH, 400):
+    _b1 = min(WH, _b0 + 400)
+    nx, ny = -gx[_b0:_b1] * ex, -gy[_b0:_b1] * ex
+    shade = (nx * lx + ny * ly + lz) / np.sqrt(nx * nx + ny * ny + 1.0)
+    shade = np.clip(0.80 + 0.55 * (shade - 0.707), 0.55, 1.12)
+    shade[WATER[_b0:_b1]] = 1.0
+    img[_b0:_b1] = np.clip(img[_b0:_b1] * shade[..., None], 0, 255).astype(np.uint8)
+del gx, gy, nx, ny, shade
+band = np.floor(ELEV / 4.0).astype(np.int16)
 cont = np.zeros_like(WATER)
 cont[:, 1:] |= band[:, 1:] != band[:, :-1]
 cont[1:, :] |= band[1:, :] != band[:-1, :]
+del band
 cont &= ~WATER & ~FP
 img[cont] = (img[cont] * 0.6 + np.array([140, 110, 70]) * 0.4).astype(np.uint8)
 
@@ -2317,15 +2459,17 @@ for name, poly in OXBOW_POLYS:
     cx = sum(p[1] for p in poly) / len(poly)
     text(dr, (cs, cx + (40 if cx > rxf(cs) else -40)), name, F_CREEK, (30, 80, 150), sw=3)
 text(dr, (LAKE_S + 250, -1000), "LAKE TAMSIN", F_CITY, (25, 70, 140), halo=(200, 225, 245))
-text(dr, (1650, -300), "PERRY ISLAND", F_WATER, (25, 70, 140), halo=(200, 225, 245))
+text(dr, (LAKE_S - 706.0, -300), "PERRY ISLAND", F_WATER, (25, 70, 140), halo=(200, 225, 245))
 for _nm, _pth in RIVER_PATHS:
     _p = _pth[len(_pth) // 2]
     text(dr, _p, _nm.upper(), F_TOWN, (25, 70, 140), halo=(225, 238, 250))
 for s in (1150, 1700, 2450, 2900):
     text(dr, (s * SS, rxf(s * SS)), "KETTLE RIVER", F_CITY, (25, 70, 140), halo=(225, 238, 250))
 for s in (2000, 7000, 12000, 17000):
-    text(dr, (s, -HW + SEA / 2), "NORTH SEA", F_CITY, (235, 245, 255), halo=(40, 90, 150))
-    text(dr, (s, HW - SEA / 2), "SOUTH SEA", F_CITY, (235, 245, 255), halo=(40, 90, 150))
+    text(dr, (s * KS, -HW + 900), "NORTH SEA", F_CITY, (235, 245, 255), halo=(40, 90, 150))
+    text(dr, (s * KS, HW - 900), "SOUTH SEA", F_CITY, (235, 245, 255), halo=(40, 90, 150))
+for _nm, _sg, _sc, _xc, _hs, _hx in ISLANDS:
+    text(dr, (_sc, _xc), _nm.upper(), F_TOWN, (40, 60, 30), halo=(225, 238, 215))
 text(dr, P(1060, 1080), "C&NW Railroad", F_CREEK, (40, 40, 40), sw=3)
 text(dr, P(2400, -660), "SR 14", F_SUB, (140, 88, 20), sw=3)
 text(dr, P(2560, 915), "US 30", F_SUB, (140, 88, 20), sw=3)
@@ -2356,9 +2500,9 @@ F_L = font("NotoSans-Regular.ttf", 24)
 F_LB = font("NotoSans-Bold.ttf", 26)
 F_S = font("NotoSans-Regular.ttf", 21)
 pd.text((M_L, 40), "Goblin Engine — Expanded Station Overhead Map (DRAFT for approval)", font=F_T, fill=(25, 25, 25))
-pd.text((M_L, 125), "Radius 3 km · ring unrolled: 18,850 m circumference (left/right edges join) × 12,000 m wall to wall · "
-        "1 px = 2 m · communities spaced 6× round the ring · river & lake 1 km wider · 3 km seas at the end caps "
-        "(tools/map_expanded.py)", font=F_T2, fill=(70, 70, 70))
+pd.text((M_L, 125), f"Radius {R / 1000:.0f} km · ring unrolled: {C:,.0f} m circumference (left/right edges join) × {W:,.0f} m wall "
+        f"to wall · 1 px = {PX:.0f} m · communities spaced {SS:.0f}× round the ring · each land 2.5 km wider · "
+        f"{SEA / 1000:.1f} km seas at the end caps, three islands in each (tools/map_expanded.py)", font=F_T2, fill=(70, 70, 70))
 pd.rectangle([M_L - 2, M_T - 2, M_L + CW + 1, M_T + WH + 1], outline=(30, 30, 30), width=3)
 # walls + seam annotations
 pd.text((M_L + CW / 2, M_T - 22), "NORTH END-CAP CLIFFS — Marlowe end  (x = −6,000 m)", font=F_LB, fill=(90, 90, 90), anchor="mm")
@@ -2583,7 +2727,10 @@ if "--game-data" in sys.argv:
     import gzip
     import json
     GD = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "godot_project", "remake")
-    RS = 2                                           # raster step: 2 px of this map = 4 m
+    for _v in ("img", "FIELDC", "layer", "page", "CROP", "HEDGE", "WOODLOT", "w_cut", "ISL_D", "DCOAST", "cont", "speck"):
+        globals().pop(_v, None)                      # (the drawing's rasters: the 20 km ring needs the memory back)
+    RS = 2                                           # raster step: 2 px of this map = 8 m (the 20 km ring: 7,854 x 2,800
+    #                                                  -- the landcover texture fits an 8,192 px GPU limit; ~200 MB of rasters in game)
     # --- water level: the Kettle and the lake from their banks, the great rivers stepping down to
     # the sea, the sea and harbours flat
     col = np.arange(CW)
@@ -2637,14 +2784,17 @@ if "--game-data" in sys.argv:
     LEVEL[RIVMASK & (WCAT == 1)] = riv_lev[RIVMASK & (WCAT == 1)]
     # --- bed depth below the water level: deepening from each shore
     def _depth(mask, radius_m, maxd):
-        bl = np.array(Image.fromarray(mask.astype(np.uint8) * 255).filter(ImageFilter.GaussianBlur(radius_m * K))) / 255.0
-        return np.where(mask, 0.4 + maxd * np.clip((bl - 0.5) / 0.5, 0, 1) ** 0.7, 0.0)
-    DEPTH = np.maximum.reduce([_depth(kettle, 60, 6.0), _depth(RIVMASK & (WCAT == 1), 40, 4.0),
-                               _depth((WCAT == 6) | (WCAT == 7), 180, 18.0)])
+        bl = np.asarray(Image.fromarray(mask.astype(np.uint8) * 255).filter(ImageFilter.GaussianBlur(radius_m * K)), np.float32)
+        bl = np.clip((bl - np.float32(127.5)) / np.float32(127.5), 0, 1) ** np.float32(0.7)
+        return np.where(mask, np.float32(0.4) + np.float32(maxd) * bl, np.float32(0.0)).astype(np.float32)
+    DEPTH = _depth(kettle, 60, 6.0)
+    np.maximum(DEPTH, _depth(RIVMASK & (WCAT == 1), 40, 4.0), out=DEPTH)
+    np.maximum(DEPTH, _depth((WCAT == 6) | (WCAT == 7), 180, 18.0), out=DEPTH)
     # --- land cover (classes as before + 6 beach, 7 rock / cliff)
     cls_ = np.zeros((WH, CW), np.uint8)
     cls_[FARM] = 4
     cls_[FLOOD] = 2
+    cls_[ISL] = 2                                     # (the islands: meadow under the woods)
     cls_[WOODS] = 3
     cls_[FP] = 1
     wb = Image.new("L", (CW, WH), 0)
@@ -2745,7 +2895,7 @@ if "--game-data" in sys.argv:
         mains = [poly for poly, kind, part in t.bldgs if not part]
         for st_, poly in zip(by_town[t.name], mains):
             _ds = OLD_S0[t.name] * (SS - 1)
-            _dx = -WIDEN if t.x0 < 0 else WIDEN
+            _dx = (-WIDEN if t.x0 < 0 else WIDEN) + (t.x0 - t.x0_3km)
             parts = [dict(pt_, s=round((pt_["s"] + _ds) % C, 1), x=round(pt_["x"] + _dx, 1), front_edge=None) for pt_ in st_["parts"]]
             inv["structures"].append({**st_, **_ri(poly), "parts": parts})
     # a generated town (Calder): its structures under their generated ids, and each one's catalog record

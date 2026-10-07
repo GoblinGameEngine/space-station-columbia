@@ -30,7 +30,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 GD = os.path.join(ROOT, "godot_project", "remake")
-R = 3000.0
+R = json.load(open(os.path.join(GD, "terrain.json")))["R"]          # (the ring's radius from the map)
 C = 2 * math.pi * R
 HW = json.load(open(os.path.join(GD, "terrain.json")))["W"] / 2 if os.path.exists(os.path.join(GD, "terrain.json")) else 6000.0
 RANK = {"alley": 0, "gravel": 1, "street": 2, "county": 3, "main": 4, "hwy": 5}

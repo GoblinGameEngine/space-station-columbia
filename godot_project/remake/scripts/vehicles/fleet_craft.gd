@@ -37,6 +37,7 @@ func _init(t := "") -> void:
 	roof_y = float(info.get("height", 2.9))
 	half_w = float(info.get("half_w", 1.2))
 	crash_physics = true
+	buoyant = "aerostat" in t                         # (the lighter-than-air ones hold their pressure altitude)
 	if boat:                                          # (a boat: by its length, 15-40 km/h; it doesn't fly)
 		var ln := tail - nose
 		max_speed = clampf(10.0 + ln * 1.5, 15.0, 40.0) / 3.6

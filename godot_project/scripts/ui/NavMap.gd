@@ -8,7 +8,7 @@ class_name NavMap
 ##   64 / 32 m a pixel   the regions, the seas, the cities and towns
 ##   16 m                every settlement, the highways, the river and the lake
 ##   8 m                 the main streets, the tram lines, their stops
-##   4 / 2 m             every street, parks, schools, beaches, plazas (over the detailed map)
+##   4 / 2 m             every street, parks, schools, beaches, plazas (over the detailed map: PdaMapTiles)
 ## Fast-travel stops (the two largest tiers, at their tram stops) are boxed "T": tap one to travel.
 ## North (the bow) is up, as on every station map.
 
@@ -19,8 +19,8 @@ const K := Color(0, 0, 0)
 const D := Color(0.333, 0.333, 0.333)
 const L := Color(0.667, 0.667, 0.667)
 const W := Color(1, 1, 1)
-const REGIONS := [["NORTH SEA", -3820.0], ["THE NORTH SHORE", -3000.0], ["THE NORTHLAND", -1500.0], ["THE KETTLE VALLEY", 150.0],
-	["THE SOUTHLAND", 1500.0], ["THE SOUTH SHORE", 3000.0], ["SOUTH SEA", 3820.0]]
+const REGIONS := [["NORTH SEA", -8400.0], ["THE NORTH SHORE", -5300.0], ["THE NORTHLAND", -2800.0], ["THE KETTLE VALLEY", 150.0],
+	["THE SOUTHLAND", 2800.0], ["THE SOUTH SHORE", 5300.0], ["SOUTH SEA", 8400.0]]
 const AREA_NAMES := {"park": "Park", "schoolground": "School", "beach": "Beach", "plaza": "Plaza", "square": "Square",
 	"cemetery": "Cemetery", "campus": "College", "promenade": "Promenade", "sportsfield": "Ballfield", "parking": "P", "lot": "P"}
 
@@ -31,7 +31,6 @@ var follow := true
 var zoom_i := 3
 var dests: Array = []                     # {name, tier, s, x, stop, line} (GameMenu fills it)
 var _pol: Texture2D
-var _det: Texture2D
 var _sets: Array = []
 var _trams: Array = []                    # [PackedVector2Array of (s, x)]
 var _stops: Array = []                    # [(s, x), name]
@@ -44,7 +43,6 @@ func _ready() -> void:
 	clip_contents = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_pol = load("res://ui/pda/map_political.png")
-	_det = load("res://ui/pda/map_detail.png")
 	if FileAccess.file_exists("res://remake/law/settlements.json"):
 		_sets = JSON.parse_string(FileAccess.get_file_as_string("res://remake/law/settlements.json")).settlements
 		for st in _sets:
@@ -100,13 +98,14 @@ func _draw() -> void:
 	var sz := size
 	draw_rect(Rect2(Vector2.ZERO, sz), W)
 	var mm := m()
-	# the base map: the political map, or the detailed one when close
-	var tex: Texture2D = _det if mm <= 4.0 and _det else _pol
+	# the base map: the political map, or the detailed one (in tiles) when close
+	var tex: Texture2D = _pol
+	if mm <= 4.0:
+		PdaMapTiles.draw(self, Rect2(Vector2.ZERO, sz), view.x - sz.x * 0.5 * mm, view.y - sz.y * 0.5 * mm, mm)
+		tex = null
 	if tex:
-		# (the detailed map is in the far-side bake's padded frame; the political map in the ring's own)
-		var det := tex == _det
-		var ppm: float = tex.get_width() / (StationGeo.FARSIDE_W if det else StationGeo.CIRC)
-		var y_off: float = StationGeo.FARSIDE_H * 0.5 if det else StationGeo.HALF_LEN
+		var ppm: float = tex.get_width() / StationGeo.CIRC
+		var y_off: float = StationGeo.HALF_LEN
 		var tw := StationGeo.CIRC * ppm
 		var src := Rect2(fposmod(view.x - sz.x * 0.5 * mm, StationGeo.CIRC) * ppm, (view.y - sz.y * 0.5 * mm + y_off) * ppm, sz.x * mm * ppm, sz.y * mm * ppm)
 		var first := minf(src.size.x, tw - src.position.x)

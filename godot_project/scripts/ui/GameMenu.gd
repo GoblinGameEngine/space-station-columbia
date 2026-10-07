@@ -1473,8 +1473,8 @@ func _player_sx() -> Vector3:
 
 func _refresh_map() -> void:
 	if _map_tex == null:
-		_map_tex = load(PDA + "map_detail.png")              # 4 m / px, 4 levels (tools: see ui/pda)
-		_map_overview = load(PDA + "map_overview.png")
+		_map_overview = load(PDA + "map_overview.png")      # (tools/pda_detail_map.py; the detail is PdaMapTiles)
+		_map_tex = _map_overview
 	if _towns.is_empty() and FileAccess.file_exists("res://remake/placement.json"):
 		var acc := {}
 		for e in JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json")).structures:
@@ -1500,29 +1500,19 @@ func _refresh_map() -> void:
 	_map_here.text = "You are %.1f km round the ring, %.1f km %s of the middle.  Nearest town: %s (%.1f km)." % [
 		p.x / 1000.0, absf(p.y) / 1000.0, dirs, near, nd / 1000.0]
 	if _map_tex:
-		# Nearby: a 0.9 km x 1 km window of the map round the player, north up
-		var ppm: float = _map_tex.get_width() / StationGeo.FARSIDE_W
-		var wm := 888.0                                     # 1 LCD pixel = one 4 m map pixel
-		var hm := wm * 236.0 / 222.0
-		var at := AtlasTexture.new()
-		at.atlas = _map_tex
-		var cx := fposmod(p.x, StationGeo.CIRC) * ppm
-		var cy := (p.y + StationGeo.FARSIDE_H * 0.5) * ppm
-		at.region = Rect2(cx - wm * ppm * 0.5, cy - hm * ppm * 0.5, wm * ppm, hm * ppm)
-		_map_nearby.texture = at
-		_map_nearby.queue_redraw()
+		_map_nearby.queue_redraw()                          # (the window is drawn in _draw_nearby_marker)
 	_map_station.queue_redraw()
 
 
 func _draw_station_map() -> void:
 	var sz := _map_station.size
 	if _map_tex:
-		var h := floorf(sz.x * StationGeo.FARSIDE_H / StationGeo.FARSIDE_W)
+		var h := floorf(sz.x * StationGeo.LENGTH / StationGeo.CIRC)
 		_map_station.draw_texture_rect(_map_overview, Rect2(0, 0, sz.x, h), false)
 		_map_station.draw_rect(Rect2(0, 0, sz.x, h), K, false)
 		var p := _player_sx()
-		var u := Vector2(fposmod(p.x, StationGeo.CIRC) / StationGeo.FARSIDE_W * sz.x,
-			(p.y + StationGeo.FARSIDE_H * 0.5) / StationGeo.FARSIDE_H * h).floor()
+		var u := Vector2(fposmod(p.x, StationGeo.CIRC) / StationGeo.CIRC * sz.x,
+			(p.y + StationGeo.HALF_LEN) / StationGeo.LENGTH * h).floor()
 		var blink := int(Time.get_ticks_msec() / 400) % 2 == 0
 		_map_station.draw_rect(Rect2(u - Vector2(3, 3), Vector2(7, 7)), K if blink else W)
 		_map_station.draw_string(_font, Vector2(2, h + 14), "N (Marlowe) up   E ->", HORIZONTAL_ALIGNMENT_LEFT, -1, TEXT_SIZE, K)
@@ -1531,6 +1521,10 @@ func _draw_station_map() -> void:
 func _draw_nearby_marker() -> void:
 	var c := (_map_nearby.size * 0.5).floor()
 	var p := _player_sx()
+	# Nearby: a 0.9 km x 1 km window of the map round the player, north up (1 LCD pixel = one 4 m map pixel)
+	var mpp := PdaMapTiles.M
+	PdaMapTiles.draw(_map_nearby, Rect2(Vector2.ZERO, _map_nearby.size), p.x - _map_nearby.size.x * 0.5 * mpp,
+		p.y - _map_nearby.size.y * 0.5 * mpp, mpp)
 	var d := Vector2(cos(p.z), sin(p.z))
 	var side := Vector2(-d.y, d.x)
 	_map_nearby.draw_colored_polygon(PackedVector2Array([c + d * 8, c - d * 5 + side * 5, c - d * 2, c - d * 5 - side * 5]), K)

@@ -3,54 +3,65 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 23.0,
-  "d": 20.0
+  "w": 22.9,
+  "d": 30.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
-  "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 28,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 37,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 18,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "vinyl",
+  "walls": "brick",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#9daba9",
+   "body": "#99583f",
    "trim": "#e9e2d2",
-   "accent": "#3a2a1e",
+   "accent": "#5b6b3a",
    "roof": "#5a4a40"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "center"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "privacy",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 2001,
-  "band": "late",
-  "form_token": "neo_eclectic"
+  "year_built": 1949,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "names": {
-  "family": "Szabo",
-  "house_number": 750
+  "family": "Nowicki",
+  "house_number": 460
  },
- "brief": "late band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "postwar band cape_cod: 1.5 storeys, brick walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

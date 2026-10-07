@@ -79,7 +79,7 @@ static func stamp() -> String:
 
 func _load_baked() -> void:
 	## (worker) the baked walks, if they're of this map; else build them here after all
-	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	var b := BakedMeshes.load_all(BAKED)
 	if b and b.stamp == stamp():
 		_out = b.data.get("out", [])
 		return

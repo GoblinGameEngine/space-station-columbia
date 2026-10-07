@@ -107,7 +107,7 @@ func load_data() -> void:
 
 func _load_baked() -> void:
 	## (worker) the baked roads, if they're of this map; else build them here after all
-	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	var b := BakedMeshes.load_all(BAKED)
 	if b and b.stamp == stamp():
 		var out := []
 		for i in b.keys.size():

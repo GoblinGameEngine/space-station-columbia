@@ -5,7 +5,9 @@ class_name MapTerrainMesh
 ##   T0  chunk (1/CHUNKS_ROUND of the ring x CHUNK_X m), 2 m grid, with collision -- within NEAR
 ##   T1  the same chunk on an 8 m grid                               -- the rest of a near group
 ##   T2  a group (GROUP x GROUP chunks) merged, 8 m grid              -- groups within MID
-##   T3  the group on a 32 m grid                                    -- everything else
+##   T3  a far tile (FAR_G x FAR_G groups, ~1.6 x 2.4 km) on a FAR_STEP (64 m) grid -- everything else; one draw and
+##       one far-side image each (the 20 km ring: per group, the far tier was 3,360 draws)
+##   T4  one group of a far tile on the 32 m grid -- the rest of a far tile that has near or mid groups in it
 ## Tiles are generated on worker threads (MAX_TASKS at a time; MapTerrain is read-only once
 ## loaded) and only turned into nodes on the main thread, at most one per frame -- a near tile's
 ## 1,650 height samples take ~130 ms, which would otherwise stall a frame each.
@@ -14,9 +16,10 @@ class_name MapTerrainMesh
 ## Vertex colours tint the ground: grass, bank mud and river bed by carved depth, bare earth on
 ## steep slopes.  Water surfaces (river, lake) are built alongside (build_water).
 
-static var CHUNKS_ROUND := roundi(StationGeo.CIRC / 65.4)   # chunks round the ring (~65 m each)
+const GROUP := 8                     # chunks per side of a merged group (the mid tier)
+const FAR_G := 3                     # groups per side of a far tile
+static var CHUNKS_ROUND := roundi(StationGeo.CIRC / 65.4 / (GROUP * FAR_G)) * GROUP * FAR_G   # round the ring (~65 m each)
 const CHUNK_X := 100.0
-const GROUP := 8                     # chunks per side of a merged group (the mid and far tiers)
 const NEAR := 220.0
 const MID := 650.0
 const SKIRT := 1.5
@@ -24,21 +27,24 @@ const TEX_M := 8.0
 const BUDGET_USEC := 5000
 static var MAX_TASKS := clampi(OS.get_processor_count() - 2, 2, 6)   # tiles generated at once
 const BAKED_FAR := "res://remake/baked/terrain_far.res"
-const BAKE_VERSION := 1              # bump when the far tier's output changes
+const FAR_STEP := 64.0               # the far tier's grid (the 20 km ring: at 32 m its bake was 73 MB)
+const BAKE_VERSION := 3              # bump when the far tier's output changes
 const COL_PARTS := 4                 # a streamed near tile's collision goes in this many pieces, a frame each
 
 var half_w := StationGeo.HALF_LEN
 var target: Node3D
 var material: Material
-var far_material: Material            # for the far tier (T3), if set: RemakeFarSide's flat far side
+var far_material_for: Callable        # far tile key -> its Material (RemakeFarSide's flat far side), if set
+var near_tier := true                 # false: no 2 m tier at all (the far-side bake: 8 m ground is plenty at 4 m / px)
 var _n_cs: int                        # chunks round the ring
 var _n_cx: int                        # chunks across
 var _t0 := {}                         # Vector2i chunk -> MeshInstance3D (with collision)
 var _t1 := {}                         # Vector2i chunk -> MeshInstance3D
 var _t2 := {}                         # Vector2i group -> MeshInstance3D
-var _t3 := {}                         # Vector2i group -> MeshInstance3D
+var _t3 := {}                         # Vector2i far tile -> MeshInstance3D
+var _t4 := {}                         # Vector2i group -> MeshInstance3D (its far tile split)
 var _queue: Array = []                # pending builds: [tier, key]
-var _far_todo: Array = []             # groups whose far tier isn't built yet
+var _far_todo: Array = []             # far tiles not built yet
 var _tasks := {}                      # WorkerThreadPool task id -> [tier, key]
 var _done: Array = []                 # finished generations: [tier, key, arrays]
 var _done_lock := Mutex.new()
@@ -56,9 +62,7 @@ func setup(p_target: Node3D, p_material: Material) -> void:
 	_n_cx = ceili(StationGeo.LENGTH / CHUNK_X)
 	# nothing big here: only the chunks right under the player are built now (they stand on them);
 	# the rest -- near tiers nearest first, then every group's far tier -- builds a few per frame
-	for gs in range(0, _n_cs, GROUP):
-		for gx in range(0, _n_cx, GROUP):
-			_far_todo.append(Vector2i(gs / GROUP, gx / GROUP))
+	_far_todo = all_far()
 	if ResourceLoader.exists(BAKED_FAR):
 		_far_task = WorkerThreadPool.add_task(_load_far, false, "terrain far tier (baked)")
 	if target:
@@ -82,6 +86,41 @@ func _group_rect(g: Vector2i) -> Rect2:
 	var a := _chunk_rect(Vector2i(g.x * GROUP, g.y * GROUP))
 	var b := _chunk_rect(Vector2i(mini(g.x * GROUP + GROUP, _n_cs) - 1, mini(g.y * GROUP + GROUP, _n_cx) - 1))
 	return Rect2(a.position, b.end - a.position)
+
+
+func _n_groups() -> Vector2i:
+	return Vector2i(ceili(_n_cs / float(GROUP)), ceili(_n_cx / float(GROUP)))
+
+
+func far_rect(f: Vector2i) -> Rect2:
+	var ng := _n_groups()
+	var a := _group_rect(f * FAR_G)
+	var b := _group_rect(Vector2i(mini(f.x * FAR_G + FAR_G, ng.x) - 1, mini(f.y * FAR_G + FAR_G, ng.y) - 1))
+	return Rect2(a.position, b.end - a.position)
+
+
+func all_far() -> Array:
+	var ng := _n_groups()
+	var out := []
+	for fs in range(0, ng.x, FAR_G):
+		for fx in range(0, ng.y, FAR_G):
+			out.append(Vector2i(fs / FAR_G, fx / FAR_G))
+	return out
+
+
+func _groups_of(f: Vector2i) -> Array:
+	var ng := _n_groups()
+	var out := []
+	for i in FAR_G:
+		for j in FAR_G:
+			var g := f * FAR_G + Vector2i(i, j)
+			if g.x < ng.x and g.y < ng.y:
+				out.append(g)
+	return out
+
+
+static func far_of(g: Vector2i) -> Vector2i:
+	return Vector2i(g.x / FAR_G, g.y / FAR_G)
 
 
 ## Ground colours (sRGB; the terrain texture is a neutral detail with mean 1, so these are the
@@ -309,8 +348,8 @@ func _process(delta: float) -> void:
 		if _pending.has(jk) or _has_tile(job[0], job[1]):
 			continue
 		_pending[jk] = true
-		var r: Rect2 = _chunk_rect(job[1]) if job[0] <= 1 else _group_rect(job[1])
-		var step: float = [2.0, 8.0, 8.0, 32.0][job[0]]
+		var r: Rect2 = _chunk_rect(job[1]) if job[0] <= 1 else (far_rect(job[1]) if job[0] == 3 else _group_rect(job[1]))
+		var step: float = [2.0, 8.0, 8.0, FAR_STEP, 32.0][job[0]]
 		var id := WorkerThreadPool.add_task(_gen_task.bind(job[0], job[1], r, step), false, "terrain tile")
 		_tasks[id] = jk
 
@@ -318,12 +357,14 @@ func _process(delta: float) -> void:
 func _ground_under_target() -> void:
 	## The tile the player is over must be solid now -- after a teleport, or if streaming fell
 	## behind -- so it's built here and then, collision and all (a one-off ~130 ms).
+	if not near_tier:
+		return
 	var p := target.global_position
 	var key := Vector2i(posmod(floori(StationGeo.s_of(p) / (StationGeo.CIRC / CHUNKS_ROUND)), _n_cs),
 		clampi(floori((p.x + half_w) / CHUNK_X), 0, _n_cx - 1))
 	if not _t0.has(key):
 		_t0[key] = _build(_chunk_rect(key), 2.0, true, "t0_%d_%d" % [key.x, key.y])
-		_apply_visibility(_vis_state[0], _vis_state[1], _vis_state[2])
+		_apply_visibility(_vis_state[0], _vis_state[1], _vis_state[2], _vis_state[3])
 		return
 	var mi: MeshInstance3D = _t0[key]
 	var rest := []
@@ -343,7 +384,7 @@ static func stamp() -> String:
 
 func _load_far() -> void:
 	## (worker) the baked far tier, if it's of this terrain
-	var b := ResourceLoader.load(BAKED_FAR) as BakedMeshes
+	var b := BakedMeshes.load_all(BAKED_FAR)
 	if b == null or b.stamp != stamp():
 		push_warning("MapTerrainMesh: the baked far tier is of other data -- building it (rerun remake/tools/bake_world.gd)")
 		return
@@ -362,10 +403,8 @@ func bake_far() -> BakedMeshes:
 	var b := BakedMeshes.new()
 	b.stamp = stamp()
 	var far := {}
-	for gs in range(0, _n_cs, GROUP):
-		for gx in range(0, _n_cx, GROUP):
-			var key := Vector2i(gs / GROUP, gx / GROUP)
-			far[key] = _gen(_group_rect(key), 32.0)
+	for key in all_far():
+		far[key] = _gen(far_rect(key), FAR_STEP)
 	b.data["far"] = far
 	return b
 
@@ -384,7 +423,7 @@ func busy() -> bool:
 
 
 func _has_tile(tier: int, key: Vector2i) -> bool:
-	return [_t0, _t1, _t2, _t3][tier].has(key)
+	return [_t0, _t1, _t2, _t3, _t4][tier].has(key)
 
 
 func _finish(tier: int, key: Vector2i, arrays: Array) -> void:
@@ -394,6 +433,7 @@ func _finish(tier: int, key: Vector2i, arrays: Array) -> void:
 	var want0: Dictionary = _vis_state[0]
 	var near_groups: Dictionary = _vis_state[1]
 	var want2: Dictionary = _vis_state[2]
+	var want4: Dictionary = _vis_state[3]
 	match tier:
 		0:
 			if want0.has(key):
@@ -406,9 +446,14 @@ func _finish(tier: int, key: Vector2i, arrays: Array) -> void:
 				_t2[key] = _make(arrays, false, "t2_%d_%d" % [key.x, key.y])
 		3:
 			_t3[key] = _make(arrays, false, "t3_%d_%d" % [key.x, key.y])
-			if far_material:
-				_t3[key].material_override = far_material
-	_apply_visibility(want0, near_groups, want2)
+			if far_material_for.is_valid():
+				_t3[key].material_override = far_material_for.call(key)
+		4:
+			if want4.has(key):
+				_t4[key] = _make(arrays, false, "t4_%d_%d" % [key.x, key.y])
+				if far_material_for.is_valid():
+					_t4[key].material_override = far_material_for.call(far_of(key))
+	_apply_visibility(want0, near_groups, want2, want4)
 
 
 func _exit_tree() -> void:
@@ -428,13 +473,14 @@ func _update() -> void:
 	var want0 := {}
 	var want_near_groups := {}
 	var want2 := {}
-	for c in range(floori((s_here - NEAR) / cs), floori((s_here + NEAR) / cs) + 1):
-		for cx in range(maxi(0, floori((x_here + half_w - NEAR) / CHUNK_X)), mini(_n_cx - 1, floori((x_here + half_w + NEAR) / CHUNK_X)) + 1):
+	var near := NEAR if near_tier else -1.0
+	for c in range(floori((s_here - near) / cs), floori((s_here + near) / cs) + 1):
+		for cx in range(maxi(0, floori((x_here + half_w - near) / CHUNK_X)), mini(_n_cx - 1, floori((x_here + half_w + near) / CHUNK_X)) + 1):
 			var key := Vector2i(posmod(c, _n_cs), cx)
 			var rc := _chunk_rect(key)
 			var dx := maxf(0.0, maxf(rc.position.y - x_here, x_here - rc.end.y))
 			var ds := maxf(0.0, absf(_wrap_s(rc.get_center().x - s_here)) - rc.size.x * 0.5)
-			if Vector2(ds, dx).length() < NEAR:
+			if Vector2(ds, dx).length() < near:
 				want0[key] = true
 				want_near_groups[Vector2i(key.x / GROUP, key.y / GROUP)] = true
 	# groups by distance from their nearest point: MID -> merged 8 m tier
@@ -444,6 +490,17 @@ func _update() -> void:
 		var ds := maxf(0.0, absf(_wrap_s(rg.get_center().x - s_here)) - rg.size.x * 0.5)
 		if not want_near_groups.has(g) and Vector2(ds, dx).length() < MID:
 			want2[g] = true
+	# a far tile with near or mid groups in it is drawn in pieces: its other groups each on their own
+	var split := {}
+	for g in want_near_groups:
+		split[far_of(g)] = true
+	for g in want2:
+		split[far_of(g)] = true
+	var want4 := {}
+	for f in split:
+		for g in _groups_of(f):
+			if not want_near_groups.has(g) and not want2.has(g):
+				want4[g] = true
 	# retire what's no longer wanted
 	for key in _t0.keys():
 		if not want0.has(key):
@@ -457,6 +514,10 @@ func _update() -> void:
 		if not want2.has(g):
 			_t2[g].queue_free()
 			_t2.erase(g)
+	for g in _t4.keys():
+		if not want4.has(g):
+			_t4[g].queue_free()
+			_t4.erase(g)
 	# queue what's missing, nearest first
 	_queue.clear()
 	var jobs := []
@@ -472,9 +533,12 @@ func _update() -> void:
 	for g in want2:
 		if not _t2.has(g):
 			jobs.append([2, g, _group_rect(g).get_center()])
+	for g in want4:
+		if not _t4.has(g):
+			jobs.append([4, g, _group_rect(g).get_center()])
 	jobs.sort_custom(func(a, b): return _jobdist(a, s_here, x_here) < _jobdist(b, s_here, x_here))
 	_queue = jobs
-	_apply_visibility(want0, want_near_groups, want2)
+	_apply_visibility(want0, want_near_groups, want2, want4)
 
 
 func _all_groups() -> Array:
@@ -507,29 +571,46 @@ func _do(job: Array) -> void:
 		2:
 			if not _t2.has(key):
 				_t2[key] = _build(_group_rect(key), 8.0, false, "t2_%d_%d" % [key.x, key.y])
-	_apply_visibility(_vis_state[0], _vis_state[1], _vis_state[2])
+	_apply_visibility(_vis_state[0], _vis_state[1], _vis_state[2], _vis_state[3])
 
 
-var _vis_state := [{}, {}, {}]
+var _vis_state := [{}, {}, {}, {}]
 
-func _apply_visibility(want0: Dictionary, near_groups: Dictionary, want2: Dictionary) -> void:
-	_vis_state = [want0, near_groups, want2]
-	for g in _t3:
-		_t3[g].visible = not near_groups.has(g) and not (want2.has(g) and _t2.has(g))
-	for g in _t2:
-		_t2[g].visible = want2.has(g)
+func _apply_visibility(want0: Dictionary, near_groups: Dictionary, want2: Dictionary, want4: Dictionary) -> void:
+	_vis_state = [want0, near_groups, want2, want4]
 	for key in _t1:
 		_t1[key].visible = not (want0.has(key) and _t0.has(key))
-	# a near group whose T1 chunks aren't all built yet keeps its T3 until they are
+	for g in _t2:
+		_t2[g].visible = want2.has(g)
+	for g in _t4:
+		_t4[g].visible = want4.has(g)
+	var split := {}
 	for g in near_groups:
+		split[far_of(g)] = true
+	for g in want2:
+		split[far_of(g)] = true
+	for f in _t3:
+		_t3[f].visible = not split.has(f)
+	# a split far tile whose pieces aren't all built yet keeps drawing whole until they are
+	for f in split:
+		if not _t3.has(f):
+			continue
 		var ready := true
-		for i in GROUP:
-			for j in GROUP:
-				var key := Vector2i(g.x * GROUP + i, g.y * GROUP + j)
-				if key.x < _n_cs and key.y < _n_cx and not _t1.has(key) and not _t0.has(key):
-					ready = false
-		if not ready and _t3.has(g):
-			_t3[g].visible = true
+		for g in _groups_of(f):
+			if near_groups.has(g):
+				ready = ready and _near_ready(g)
+			elif want2.has(g):
+				ready = ready and _t2.has(g)
+			else:
+				ready = ready and _t4.has(g)
+		if ready:
+			continue
+		_t3[f].visible = true
+		for g in _groups_of(f):
+			if _t2.has(g):
+				_t2[g].visible = false
+			if _t4.has(g):
+				_t4[g].visible = false
 			for i in GROUP:
 				for j in GROUP:
 					var key := Vector2i(g.x * GROUP + i, g.y * GROUP + j)
@@ -538,3 +619,11 @@ func _apply_visibility(want0: Dictionary, near_groups: Dictionary, want2: Dictio
 					if _t0.has(key):
 						_t0[key].visible = true
 
+
+func _near_ready(g: Vector2i) -> bool:
+	for i in GROUP:
+		for j in GROUP:
+			var key := Vector2i(g.x * GROUP + i, g.y * GROUP + j)
+			if key.x < _n_cs and key.y < _n_cx and not _t1.has(key) and not _t0.has(key):
+				return false
+	return true

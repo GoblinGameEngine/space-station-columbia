@@ -73,7 +73,7 @@ static func stamp() -> String:
 
 func _load_baked() -> void:
 	## (worker) the baked trees if they're of this map; else place them here after all
-	var b := ResourceLoader.load(BAKED) as BakedMeshes
+	var b := BakedMeshes.load_all(BAKED)
 	if b and b.stamp == stamp():
 		var cells: Dictionary = b.data.get("cells", {})
 		var out := []

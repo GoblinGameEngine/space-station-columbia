@@ -46,8 +46,9 @@ var _clock: Node
 var _scenes := {}
 ## Parked cars beyond PARKED_FULL_M of the camera are drawn as one merged mesh per vehicle type (build_merged: 2
 ## surfaces instead of ~40 pieces): Calder's streets park ~80 cars round the player (2026-10-06).
-const PARKED_FULL_M := 20.0
-const MOVING_FULL_M := 45.0
+const PARKED_FULL_M := 12.0         # (a full model is ~65 parts: the 20 km ring's Calder drew ~1,600 traffic draws a frame)
+const MOVING_FULL_M := 25.0
+const FAR_TRIS := 3000               # triangles in a car's far (merged) mesh
 const FAR_STEP_M := 25.0
 const DRIVER_M := 50.0
 const ROUTES_IN_FLIGHT := 4         # routes being planned on worker threads at once
@@ -965,7 +966,16 @@ func _visual(e: Dictionary, delta: float, cam: Camera3D) -> void:
 					seat = m.find_child("seat_pilot", true, false) as Node3D
 				e.seat = seat
 				for g in m.find_children("*", "GeometryInstance3D", true, false):
-					(g as GeometryInstance3D).visibility_range_end = RANGE + 30.0
+					var gi := g as GeometryInstance3D
+					gi.visibility_range_end = RANGE + 30.0
+					# the cabin and the small fittings (gauges, needles, seats, linings) only close up, and casting no
+					# shadow: 20 full cars' interiors were ~1,300 draws a frame, twice over with the sun's shadows
+					var ab := gi.get_aabb()
+					var nm := String(gi.name).to_lower() + String(gi.get_parent().name).to_lower()
+					if ab.get_longest_axis_size() < 0.6 or "_in" in nm or "lining" in nm or "seat" in nm or "gauge" in nm \
+							or "needle" in nm or "dash" in nm or "steer" in nm:
+						gi.visibility_range_end = 30.0
+						gi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 				e.lite = false
 				if not _merged.has(mk) and not _merge_pending.has(mk):
 					_merge_async(mk, m)
@@ -997,7 +1007,31 @@ func _merge_async(mk: String, m: Node3D) -> void:
 		for si in merged.get_surface_count():
 			im.add_surface(Mesh.PRIMITIVE_TRIANGLES, merged.surface_get_arrays(si), [], {}, merged.surface_get_material(si))
 		im.generate_lods(25.0, 60.0, [])
-		_merge_done.call_deferred(mk, im.get_mesh()))
+		# the far mesh itself is a simplified level (~FAR_TRIS a car): the renderer's own LOD choice kept the 18-24 k
+		# triangle original at 40-130 m -- ~60 such cars were 1.2 M triangles in Calder on the 20 km ring
+		var total := 0
+		for si in im.get_surface_count():
+			total += (im.get_surface_arrays(si)[Mesh.ARRAY_INDEX] as PackedInt32Array).size()
+		var keep := float(FAR_TRIS * 3) / maxf(1.0, float(total))
+		var far := ArrayMesh.new()
+		for si in im.get_surface_count():
+			var arr := im.get_surface_arrays(si)
+			var base := (arr[Mesh.ARRAY_INDEX] as PackedInt32Array).size()
+			var best: PackedInt32Array = arr[Mesh.ARRAY_INDEX]
+			var below := PackedInt32Array()
+			for li in im.get_surface_lod_count(si):
+				var ix := im.get_surface_lod_indices(si, li)
+				if ix.size() >= base * keep:
+					if ix.size() < best.size():
+						best = ix
+				elif ix.size() > below.size():
+					below = ix
+			if best.size() == base and below.size() > 0:
+				best = below                         # (every level is under the target: the nearest one)
+			arr[Mesh.ARRAY_INDEX] = best
+			far.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr)
+			far.surface_set_material(si, im.get_surface_material(si))
+		_merge_done.call_deferred(mk, far))
 
 
 func _merge_done(mk: String, mesh: ArrayMesh) -> void:

@@ -66,6 +66,19 @@ def main():
                 out.append((a, b, max(rd.get("hl", rd["w"] / 2), rd.get("hr", rd["w"] / 2)) + verge, ri))
         return out
     SEGS = segs()
+    # 100 m cells round the ring: each test looks only at the footprints and road segments near it (the 20 km ring
+    # has ~6x the roads and buildings; testing all of them made a run take hours)
+    CELL = 100.0
+    NCELL = int(math.ceil(C / CELL))
+    FP_G, SEG_G = {}, {}
+    for f_ in FP:
+        for k in range(int(math.floor((f_[0] - f_[2] - 4.0) / CELL)), int(math.floor((f_[0] + f_[2] + 4.0) / CELL)) + 1):
+            FP_G.setdefault(k % NCELL, []).append(f_)
+    for sg in SEGS:
+        lo, hi = sg[0][0], sg[0][0] + wrap(sg[1][0] - sg[0][0])
+        lo, hi = min(lo, hi) - sg[2] - 2.0, max(lo, hi) + sg[2] + 2.0
+        for k in range(int(math.floor(lo / CELL)), int(math.floor(hi / CELL)) + 1):
+            SEG_G.setdefault(k % NCELL, []).append(sg)
 
     def seg_dist(p, a, b):
         ds, dx = wrap(b[0] - a[0]), b[1] - a[1]
@@ -86,12 +99,11 @@ def main():
                 i, j = int((p[0] % C) / step) % nx, int((p[1] - x0) / step)
                 if not (0 <= j < ny) or lvl[j, i] > -9000:
                     return False
-                for s_, x_, r in FP:
+                ck = int((p[0] % C) / CELL) % NCELL
+                for s_, x_, r in FP_G.get(ck, ()):
                     if math.hypot(wrap(s_ - p[0]), x_ - p[1]) < r + 3.0:
                         return False
-                for a_, b_, hw, ri in SEGS:
-                    if abs(wrap(a_[0] - p[0])) > 120 and abs(wrap(b_[0] - p[0])) > 120:
-                        continue
+                for a_, b_, hw, ri in SEG_G.get(ck, ()):
                     if seg_dist(p, a_, b_) < hw + (0.5 if ri == front_road else 1.5):
                         return False
         for a in ter["areas"]:
@@ -160,7 +172,8 @@ def main():
             town = sp["town"]
             gov = sets.get(town, {}).get("governed_by")
             # the road under the stop, for the setback
-            near = min(SEGS, key=lambda sg: seg_dist(p, sg[0], sg[1]))
+            cand = SEG_G.get(int((p[0] % C) / CELL) % NCELL) or SEGS
+            near = min(cand, key=lambda sg: seg_dist(p, sg[0], sg[1]))
             ok = None
             for side in (1, -1):                              # the kerbside first (we drive on the right)
                 n = (-u[1] * side, u[0] * side)

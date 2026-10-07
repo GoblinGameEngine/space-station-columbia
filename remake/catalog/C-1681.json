@@ -3,30 +3,56 @@
  "settlement": "Calder",
  "generated": "tools/settlegen (Calder, 2026-10-06)",
  "lot": {
-  "w": 30.8,
-  "d": 42.0
+  "w": 22.2,
+  "d": 34.3
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "ranch",
   "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Pham Diner",
-    "type": "diner",
-    "sign": "PHAM DINER",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1999,
+  "main_w_ft": 54,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#933c30"
-  }
+   "body": "#f8f3e7",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "ranch"
  },
- "names": {},
- "brief": "store (fast_food) generated for Calder."
+ "names": {
+  "family": "Delmar",
+  "house_number": 975
+ },
+ "brief": "postwar band ranch: 1 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

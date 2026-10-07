@@ -46,21 +46,34 @@ func _load() -> void:
 	seed = int(d.seed)
 	people = d.people
 	NpcPlaces.load_all()
+	# (the duplicate check by dictionary: Array.has on a busy unit's thousands of regulars made this 9 s)
+	var seen_h := {}
+	var seen_u := {}
 	for pid in people:
 		var P: Dictionary = people[pid]
-		_add(by_home, P.home, pid)
+		_add_once(by_home, seen_h, P.home, pid)
 		if P.has("work"):
-			_add(by_unit, P.work, pid)
+			_add_once(by_unit, seen_u, P.work, pid)
 		if P.has("school"):
-			_add(by_unit, P.school, pid)
+			_add_once(by_unit, seen_u, P.school, pid)
 		for p in P.reg:
-			_add(by_unit, P.reg[p], pid)
+			_add_once(by_unit, seen_u, P.reg[p], pid)
 		NpcPlaces.register_door(P.home, Vector2(float(P.door[0]), float(P.door[1])))
 	var occ: Dictionary = NpcTraits.shared().tables.occupations
 	var col := (occ._cols as Array).find("hours")
 	for o in occ:
 		if o != "_cols":
 			_occ_hours[o] = occ[o][col]
+
+
+static func _add_once(d: Dictionary, seen: Dictionary, k: String, pid: String) -> void:
+	var key := k + "|" + pid
+	if seen.has(key):
+		return
+	seen[key] = true
+	if not d.has(k):
+		d[k] = []
+	d[k].append(pid)
 
 
 static func _add(d: Dictionary, k: String, pid: String) -> void:

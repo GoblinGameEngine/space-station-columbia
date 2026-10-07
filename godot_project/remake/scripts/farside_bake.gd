@@ -1,22 +1,32 @@
 extends Node3D
 
-## Bakes the far-side image: the finished world seen straight down, unshaded (its surface colours
-## only -- the station lights it at runtime), at 2 m / px over the whole floor:
-##   remake/farside.webp, (TILES_S x TILE) x (TILES_X x TILE) px, column = s / 2, row = (x + HALF_EXTENT) / 2
-##   (StationGeo.FARSIDE_W x FARSIDE_H m; lossy WebP -- a PNG of it is ~40 MB).
+## Bakes the far side: the finished world seen straight down, unshaded (its surface colours only --
+## the station lights it at runtime), at StationGeo.FARSIDE_M (4) m / px over the whole floor, cut into one
+## small image per terrain far tile (remake/farside/f_SS_XX.webp, StationGeo.farside_px of
+## MapTerrainMesh.far_rect: ~400 x 600 px each, so any GPU takes them -- the 20 km ring whole is 15,708 px wide).
 ## Builds the world like RemakeStation (terrain, water, roads, trees, structures), then renders
-## TILE_M m x TILE_M m tiles through an orthographic camera 250 m up, moving the terrain's streaming
-## probe to each tile first so its ground is at full detail.  Run:
-##   godot4 --path . res://remake/scenes/FarsideBake.tscn          (a window; takes a few minutes)
+## TILE_M m x TILE_M m shots through an orthographic camera 250 m up, moving the terrain's streaming
+## probe to each first (its 8 m tier: the 2 m one is off -- nothing it adds shows at 4 m / px).  Run:
+##   godot4 --path . res://remake/scenes/FarsideBake.tscn          (a window; an hour or two)
 
-const TILE := 128                    # px per tile
-const TILE_M := 256.0                # m per tile (2 m / px)
-const TILES_S := 74                  # 18,944 m >= the 18,849.6 m circumference (the rest wraps)
-const TILES_X := 48                  # 12,288 m >= the 12,000 m length
-const HALF_EXTENT := 6144.0
+const TILE := 128                    # px per shot
+const TILE_M := 512.0                # m per shot (4 m / px)
+var TILES_S := ceili(StationGeo.CIRC / TILE_M)       # (the last runs past the seam: it wraps)
+var TILES_X := ceili(StationGeo.LENGTH / TILE_M)
 const CAM_H := 250.0
-const OUT := "res://remake/farside.webp"
 const COLS := "user://farside_cols"
+const IMPORT := """[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+mipmaps/generate=true
+mipmaps/limit=-1
+"""
 
 var probe: Node3D
 var terrain: MapTerrainMesh
@@ -34,6 +44,7 @@ func _ready() -> void:
 	probe.global_position = StationGeo.point(0.0, 0.0, 0.0)
 	var floor_mat := MapTerrainMesh.make_material(RemakeStation._neutral_detail("res://assets/textures/grass_tinted.png"))
 	terrain = MapTerrainMesh.new()
+	terrain.near_tier = false
 	add_child(terrain)
 	terrain.setup(probe, floor_mat)
 	MapWater.build(self)
@@ -82,7 +93,7 @@ func _bake(roads: MapRoads, trees: MapTrees, walks: CoastalWalks) -> void:
 			continue
 		for tx in TILES_X:
 			var s := (ts + 0.5) * TILE_M
-			var x := -HALF_EXTENT + (tx + 0.5) * TILE_M
+			var x := -StationGeo.HALF_LEN + (tx + 0.5) * TILE_M
 			# the ground under the tile at full detail first
 			probe.global_position = StationGeo.point(s, x, 0.0)
 			terrain._update()
@@ -99,8 +110,19 @@ func _bake(roads: MapRoads, trees: MapTrees, walks: CoastalWalks) -> void:
 			img.blit_rect(tile, Rect2i(0, 0, TILE, TILE), Vector2i(ts * TILE, tx * TILE))
 		img.get_region(Rect2i(ts * TILE, 0, TILE, TILES_X * TILE)).save_png(col_path)
 		print("farside bake: column %d/%d  %.0f s" % [ts + 1, TILES_S, (Time.get_ticks_msec() - t0) / 1000.0])
-	img.save_webp(ProjectSettings.globalize_path(OUT), true, 0.9)
-	print("FARSIDE_BAKED ", OUT, " ", img.get_size())
+	# one image per far tile
+	DirAccess.make_dir_recursive_absolute(StationGeo.FARSIDE_DIR)
+	var n := 0
+	for key in terrain.all_far():
+		var px := StationGeo.farside_px(terrain.far_rect(key)).intersection(Rect2i(Vector2i.ZERO, img.get_size()))
+		var path := StationGeo.farside_path(key)
+		img.get_region(px).save_webp(ProjectSettings.globalize_path(path), true, 0.9)
+		if not FileAccess.file_exists(path + ".import"):
+			var f := FileAccess.open(path + ".import", FileAccess.WRITE)
+			f.store_string(IMPORT)
+			f.close()
+		n += 1
+	print("FARSIDE_BAKED ", n, " tiles in ", StationGeo.FARSIDE_DIR, " from ", img.get_size())
 	for f in DirAccess.get_files_at(COLS):
 		DirAccess.remove_absolute(COLS + "/" + f)
 	get_tree().quit()
