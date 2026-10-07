@@ -17,8 +17,70 @@ sys.path.insert(0, os.path.join(HERE, "gen"))
 sys.path.insert(0, HERE)
 
 import common  # noqa: E402
+import gblib  # noqa: E402
 
 GENERATORS = {}
+
+
+# ------------------------------------------------------------------ the furniture recorder (remake/rooms/raw)
+# Every furnishing function -- gbfurn's and shopfit's fixtures, all (p, pos, yaw, ...) -- is wrapped so a call made
+# while gbhouse furnishes a room is logged on the Building: what, which room, where, facing, and the call it was part
+# of (an office_set is a desk + a chair).  tools/rooms/make_rooms.py reads beds, seats and containers from it.
+def _wrap(name, fn):
+    def rec(p, pos, *a, **k):
+        b = gblib.CURRENT
+        idx = None
+        if b is not None and b._room is not None:
+            yaw = a[0] if a and isinstance(a[0], (int, float)) else k.get("yaw", 0.0)
+            try:
+                xyz = [round(float(v), 3) for v in tuple(pos)[:3]]
+            except TypeError:
+                xyz = None
+            b.furniture.append({"item": name, "room": b._room[0], "floor": b._room[1], "pos": xyz, "yaw": round(float(yaw), 1),
+                                "parent": b._furn_stack[-1] if b._furn_stack else None})
+            idx = len(b.furniture) - 1
+            b._furn_stack.append(idx)
+        try:
+            return fn(p, pos, *a, **k)
+        finally:
+            if idx is not None:
+                b._furn_stack.pop()
+    rec.__name__ = name
+    rec.__wrapped__ = fn
+    return rec
+
+
+def _record_module(mod):
+    import inspect
+    for n, fn in list(vars(mod).items()):
+        if not inspect.isfunction(fn) or fn.__module__ != mod.__name__ or hasattr(fn, "__wrapped__"):
+            continue
+        ps = list(inspect.signature(fn).parameters)
+        if len(ps) >= 2 and ps[0] == "p" and ps[1] == "pos":
+            setattr(mod, n, _wrap(n, fn))
+
+
+def _install_recorder():
+    import gbfurn
+    import shopfit
+    _record_module(gbfurn)
+    _record_module(shopfit)
+    import gbhouse
+    for n in ("tv_stand", "tub", "vanity", "appliance", "base_cabinets"):
+        if hasattr(gbhouse, n) and not hasattr(getattr(gbhouse, n), "__wrapped__"):
+            setattr(gbhouse, n, _wrap(n, getattr(gbhouse, n)))
+    if not hasattr(shopfit.fitout_for, "__wrapped__"):
+        orig = shopfit.fitout_for
+
+        def fitout_for(business_type, rnd):
+            hook = orig(business_type, rnd)
+            hook._kind = business_type           # (the room's fit-out, named in the raw manifest)
+            return hook
+        fitout_for.__wrapped__ = orig
+        shopfit.fitout_for = fitout_for
+
+
+_install_recorder()
 
 
 def generator(kind):

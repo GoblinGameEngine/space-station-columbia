@@ -65,13 +65,13 @@ def build(rec):
         spec["stairs"].append(dict(start=(sx, y1 - TE - 1.0), dir=(0, -1), width=STAIR_W, n=ns, run=run, floor=0, to_floor=1,
                                    rail_side="right" if not mirror else "left"))
         u = f"U{k}"
-        rooms += [dict(name=f"{u}HALL", rect=(hx0, y0, hx1, y1), type="hall"),
-                  dict(name=f"{u}LR", rect=(rx0, ym, rx1, y1), type="living"),
-                  dict(name=f"{u}KIT", rect=(rx0, y0, rx1, ym), type="kitchen", floor_mat="lino"),
-                  dict(name=f"{u}HALL1", floor=1, rect=(hx0, y0, hx1, y1), type="hall"),
-                  dict(name=f"{u}BR1", floor=1, rect=(rx0, ym, rx1, y1), type="bedroom"),
-                  dict(name=f"{u}BATH", floor=1, rect=(rx0, yb, rx1, ym), type="bath", floor_mat="hextile"),
-                  dict(name=f"{u}BR2", floor=1, rect=(rx0, y0, rx1, yb), type="bedroom")]
+        rooms += [dict(name=f"{u}HALL", unit=u, rect=(hx0, y0, hx1, y1), type="hall"),
+                  dict(name=f"{u}LR", unit=u, rect=(rx0, ym, rx1, y1), type="living"),
+                  dict(name=f"{u}KIT", unit=u, rect=(rx0, y0, rx1, ym), type="kitchen", floor_mat="lino"),
+                  dict(name=f"{u}HALL1", unit=u, floor=1, rect=(hx0, y0, hx1, y1), type="hall"),
+                  dict(name=f"{u}BR1", unit=u, floor=1, rect=(rx0, ym, rx1, y1), type="bed"),
+                  dict(name=f"{u}BATH", unit=u, floor=1, rect=(rx0, yb, rx1, ym), type="bath", floor_mat="hextile"),
+                  dict(name=f"{u}BR2", unit=u, floor=1, rect=(rx0, y0, rx1, yb), type="bed")]
         dx = hx1 if not mirror else hx0               # the hall's room-side wall
         doors += [dict(name=f"{u}front", at=((hx0 + hx1) / 2, y1), w=0.9, ext=True, glazed=(0.2, 0.55, 0.8, 0.9)),
                   dict(name=f"{u}back", at=((rx0 + rx1) / 2, y0), w=0.85, ext=True, glazed=(0.15, 0.5, 0.85, 0.9)),

@@ -57,7 +57,8 @@ def bar_counter(p, pos, yaw, length, mat_body, mat_top, mat_rail, h=1.07, d=0.62
     f = F(pos, yaw)
     p.obox(f, (-length / 2, -d / 2 + 0.08, 0), (length / 2, d / 2, h - 0.05), mat_body)
     p.obox(f, (-length / 2 - 0.05, -d / 2 - 0.06, h - 0.05), (length / 2 + 0.05, d / 2 + 0.02, h), mat_top)
-    p.obox(f, (-length / 2, d / 2 - 0.3, 0.8), (length / 2, d / 2 + 0.1, 0.84), mat_body)      # under-shelf
+    p.obox(f, (-length / 2, d / 2 - 0.3, 0.8), (length / 2, d / 2 - 0.02, 0.84), mat_body)     # under-shelf (inside the
+    #                                                   body: against a wall the back is the wall, 2026-10-07 audit)
     p.obox(f, (-length / 2, -d / 2 + 0.06, 0.02), (length / 2, -d / 2 + 0.08, 0.12), mat_body)  # kick
     for k in range(int(length / 0.6) + 1):
         x = -length / 2 + 0.1 + k * (length - 0.2) / max(1, int(length / 0.6))

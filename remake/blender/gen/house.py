@@ -411,6 +411,109 @@ def plan_one_storey(spec, W, D, x0, y0, rnd, tr, mirror):
     return dict(front_door=front, back_door=back)
 
 
+def _sub_plan(fn, *a, **k):
+    """run a planner into a scratch spec: (its rooms, its doors, its info)"""
+    sub = dict(rooms=[], doors=[], stairs=[])
+    info = fn(sub, *a, **k)
+    return sub["rooms"], sub["doors"], info
+
+
+def _tag(rooms, doors, unit, floor=0, suffix="", drop_ext=False):
+    names = {r["name"]: r["name"] + suffix for r in rooms}
+    out_r, out_d = [], []
+    for r in rooms:
+        r = dict(r, name=names[r["name"]], unit=unit)
+        if floor:
+            r["floor"] = floor
+        if r.get("open_plan_to"):
+            r["open_plan_to"] = names.get(r["open_plan_to"], r["open_plan_to"])
+        out_r.append(r)
+    for d in doors:
+        if drop_ext and d.get("ext"):
+            continue
+        d = dict(d, name=d["name"] + suffix)
+        if floor:
+            d["floor"] = floor
+        if d.get("swing_into"):
+            d["swing_into"] = names.get(d["swing_into"], d["swing_into"])
+        out_d.append(d)
+    return out_r, out_d
+
+
+def plan_two_flat(spec, W, D, x0, y0, floors, rnd, tr, mirror):
+    """A two-flat (the user, 2026-10-07: every household its own home): a whole flat on each floor -- living room,
+    kitchen, bath, bedrooms -- and a stair hall up one side from its own door to the upper flat's door.  The stair rises
+    front to back (the upper door behind its head), else back to front (the hall's back door the upper flat's way in),
+    else, in a shallow house, as a dog-leg in a wider hall (the upper door off the landing at its head)."""
+    x1, y1 = x0 + W, y0 + D
+    rise = floors[1][0] - floors[0][0]
+    n = math.ceil(rise / 0.19)
+    run = 0.26
+    L = n * run
+    pref = {"kitchen": 0, "living": 1, "hall": 2}
+    for mode in ("fwd", "back", "dogleg"):
+        sw = 1.45 if mode != "dogleg" else 2.3
+        if W - sw < 4.0:
+            continue
+        sx0, sx1 = (x0, x0 + sw) if not mirror else (x1 - sw, x1)
+        fx0 = sx1 if not mirror else x0
+        line = sx1 if not mirror else sx0
+        r1, d1, _ = _sub_plan(plan_one_storey, W - sw, D, fx0, y0, rnd, tr, mirror)
+        rr1, dd1 = _tag(r1, d1, "F1", floor=1, suffix="2", drop_ext=True)
+        if mode == "fwd":
+            st = dict(start=(sx0 + 0.15 if not mirror else sx1 - 1.15, y1 - TE - 1.0), dir=(0, -1), width=1.0, n=n, run=run,
+                      floor=0, to_floor=1, rail_side="right" if not mirror else "left")
+            lo, hi = y0 + TE + 0.5, y1 - TE - 1.0 - L - 0.5
+        elif mode == "back":
+            st = dict(start=(sx0 + 1.15 if not mirror else sx1 - 0.15, y0 + TE + 1.0), dir=(0, 1), width=1.0, n=n, run=run,
+                      floor=0, to_floor=1, rail_side="left" if not mirror else "right")
+            lo, hi = y0 + TE + 1.0 + L + 0.5, y1 - TE - 0.5
+        else:
+            n1 = (n + 1) // 2
+            sy = y1 - TE - 1.0
+            st = dict(type="dogleg", start=(sx0 + 0.05 if not mirror else sx1 - 0.05 - 1.0, sy), dir=(0, -1), width=1.0, n=n, run=run,
+                      floor=0, to_floor=1, turn="right" if mirror else "left", landing=1.0, gap=0.08,
+                      rail_side="right" if not mirror else "left")
+            if sy - n1 * run - 1.0 < y0 + TE + 0.1:
+                continue
+            lo, hi = sy - 0.9, y1 - TE - 0.45                # (off the landing at the head, which is by the foot)
+        best = None
+        for r in rr1:
+            if not (abs(r["rect"][0] - line) < 0.01 or abs(r["rect"][2] - line) < 0.01):
+                continue
+            a_, b_ = max(lo, r["rect"][1] + 0.55), min(hi, r["rect"][3] - 0.55)
+            if b_ >= a_:
+                key = (pref.get(r.get("type"), 5), -(b_ - a_))
+                if best is None or key < best[0]:
+                    best = (key, r["name"], (a_ + b_) / 2)
+        if best is None:
+            continue
+        r0, d0, info = _sub_plan(plan_one_storey, W - sw, D, fx0, y0, rnd, tr, mirror)
+        rr0, dd0 = _tag(r0, d0, "F0")
+        spec["rooms"] += [dict(name="SHALL", rect=(sx0, y0, sx1, y1), type="hall", unit="common", no_furnish=True),
+                          dict(name="SHALL2", floor=1, rect=(sx0, y0, sx1, y1), type="hall", unit="common", no_furnish=True)] + rr0 + rr1
+        spec["doors"] += dd0 + dd1
+        own = ((sx0 + sx1) / 2, y0) if mode == "back" else ((sx0 + sx1) / 2, y1)
+        spec["doors"].append(dict(name="rear2" if mode == "back" else "front2", at=own, w=0.9, ext=True, glazed=(0.2, 0.55, 0.8, 0.9)))
+        spec["doors"].append(dict(name="flat2", floor=1, at=(line, best[2]), w=0.9, swing_into=best[1], locked=True))
+        spec["stairs"].append(st)
+        return info
+    raise ValueError("no room off the two-flat's landing for the upper flat's door")
+
+
+def plan_side_by_side(spec, W, D, x0, y0, rnd, tr, mirror):
+    """A one-storey double: two whole flats side by side behind a party wall, each with its own front and back door."""
+    half = W / 2
+    out = None
+    for k, (ux0, mir, unit) in enumerate(((x0, True, "A"), (x0 + half, False, "B"))):
+        r, d, info = _sub_plan(plan_one_storey, half, D, ux0, y0, rnd, tr, mir)
+        rr, dd = _tag(r, d, unit, suffix="" if k == 0 else "B")
+        spec["rooms"] += rr
+        spec["doors"] += dd
+        out = out or info
+    return out
+
+
 # ------------------------------------------------------------------ build
 ARCH = {
     # archetype: (default storeys, roof type, ridge, pitch, attic habitable for 1.5)
@@ -447,6 +550,9 @@ def _build(rec):
     arch = tr.get("archetype", "gable_front")
     d_storeys, d_roof, d_ridge, d_pitch = ARCH.get(arch, ARCH["gable_front"])
     storeys = tr.get("storeys") or d_storeys
+    units = int(tr.get("units") or 1)
+    if units == 2 and storeys == 1.5:
+        storeys = 2                      # (a two-flat needs its upper floor full height)
     # raised on piles (flood code): the living floors lifted a storey's worth above the grade; a three-
     # storey shore house is two living floors over its raised base
     raised = arch in RAISED_ARCH or tr.get("foundation") == "piles" or storeys >= 3
@@ -554,7 +660,11 @@ def _build(rec):
                 blocks=[dict(name="main", rect=(x0, y0, x1, yf), floors=floors, wall_top=wall_top, found_top=fl1 - 0.05,
                              roof=roof, habitable_attic=habitable_attic)],
                 rooms=[], doors=[], windows=[], stairs=[], rails=[], porches=[], chimneys=[], fireplaces=[])
-    if storeys >= 2:
+    if units == 2 and storeys >= 2:
+        info = plan_two_flat(spec, W, D, x0, y0, floors, rnd, tr, mirror)
+    elif units == 2:
+        info = plan_side_by_side(spec, W, D, x0, y0, rnd, tr, mirror)
+    elif storeys >= 2:
         info = plan_side_hall(spec, W, D, x0, y0, floors, None, mirror, rnd, tr)
     elif storeys >= 1.5:
         # the attic stair runs along the ridge: it needs n x 0.205 m + both 0.9 m landings of clear length
@@ -575,14 +685,7 @@ def _build(rec):
         info = plan_attic(spec, W, D, x0, y0, floors, ridge_, rnd, mirror)
     else:
         info = plan_one_storey(spec, W, D, x0, y0, rnd, tr, mirror)
-    # ---- a double house (units: 2) gets its second family's door beside the first, into the next front room
-    if tr.get("units") == 2:
-        fx = info["front_door"][0]
-        for x2 in (fx + 1.5, fx - 1.5):
-            if any(r.get("floor", 0) == 0 and r.get("type") not in ("hall", None) and abs(r["rect"][3] - yf) < 0.01
-                   and r["rect"][0] + 0.6 <= x2 <= r["rect"][2] - 0.6 for r in spec["rooms"]):
-                spec["doors"].append(dict(name="front2", at=(x2, yf), w=0.9, ext=True, glazed=(0.2, 0.55, 0.8, 0.9)))
-                break
+    # (a double house, units: 2, is planned as two whole flats above: plan_two_flat / plan_side_by_side)
     # ---- rear or side wing (one storey, kitchen/den)
     wing = tr.get("wing")
     if wing and isinstance(wing, dict):

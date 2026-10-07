@@ -282,7 +282,7 @@ DOWNTOWN_MIX = {"grocery": 1, "variety_store": 2, "hardware": 2, "drug_store": 2
                 "insurance_office": 2, "law_office": 2, "doctor_office": 1, "dentist": 1, "newspaper": 1, "movie_theater": 0.6,
                 "bookstore": 1, "florist": 1, "pizza": 2, "sporting_goods": 1, "thrift_store": 1, "music_store": 0.6,
                 "print_shop": 1, "real_estate": 1.5, "pharmacy": 1, "tax_office": 1, "art_gallery": 0.6, "brewpub": 0.8,
-                "appliance_repair": 0.6, "shoe_repair": 0.5, "pool_hall": 0.6, "vacant": 4}
+                "appliance_repair": 0.6, "shoe_repair": 0.5, "pool_hall": 0.6}      # (no vacancies: every building has a purpose, 2026-10-07)
 TENANT_TYPE = {"supermarket": "grocery", "drugstore": "pharmacy", "hardware_store": "hardware", "discount_variety": "discount",
                "discount": "discount", "home_furnishings": "furniture", "pet_supply": "pet", "bank_branch": "bank",
                "hair_salon": "beauty_salon", "dentist": "dentist", "takeout_pizza": "pizza", "video_rental": "video_rental",

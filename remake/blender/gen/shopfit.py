@@ -328,7 +328,8 @@ def barber(ctx):
     n = max(1, min(3, int((ctx.d - 2.0) / 1.8)))
     for k in range(n):
         ctx.wall(1.3, 0.35, False, lambda pos, yaw: mirror_station(ctx.p, pos, yaw, 1.3), prefer=["E"])
-        ctx.island(x1 - 1.1, y0 + 1.4 + k * 1.8, 0.35, 0.45, lambda pos: barber_chair(ctx.p, pos, 90))
+        # (the footrest reaches 0.65 m toward the mirror: the chair's half-size across is that, not its seat's)
+        ctx.island(x1 - 1.3, y0 + 1.4 + k * 1.8, 0.7, 0.35, lambda pos: barber_chair(ctx.p, pos, 90))
     ctx.wall(2.4, 0.6, False, lambda pos, yaw: fu.bench(ctx.p, pos, yaw, 2.4, "furniture"), prefer=["W"])
     ctx.wall(0.6, 0.45, False, lambda pos, yaw: fu.coat_rack(ctx.p, (pos[0], pos[1], ctx.fz), "furniture"), prefer=["W", "S"])
 
@@ -925,7 +926,7 @@ def guest_room(ctx):
     for k in range(2 if two else 1):
         ctx.wall(1.5, 2.1, False, lambda pos, yaw: fu.bed(ctx.p, pos, yaw, 1.4, 2.0, "furn_dark", "quilt"), prefer=["E", "W"])
     ctx.wall(1.4, 0.5, False, lambda pos, yaw: (fu.dresser(ctx.p, pos, yaw, 1.4, 0.5, 0.8, "furn_dark", "brass"),
-                                               ctx.p.box((pos[0] - 0.4, pos[1] - 0.05, pos[2] + 0.8), (pos[0] + 0.4, pos[1] + 0.05, pos[2] + 1.3), "tv")),
+                                               ctx.p.obox(fu.F(pos, yaw), (-0.4, 0.0, 0.8), (0.4, 0.1, 1.3), "tv")),   # (turned with the dresser)
              prefer=["W", "E", "S"])
     ctx.island(x0 + ctx.w * 0.3, y0 + ctx.d * 0.8, 0.45, 0.45, lambda pos: fu.armchair(ctx.p, pos, 180, "upholstery", "furn_dark"))
 

@@ -23,14 +23,28 @@ func _initialize() -> void:
 	var a := OS.get_cmdline_user_args()
 	var seed := int(a[0]) if a.size() > 0 else 1
 	var t0 := Time.get_ticks_msec()
+	NpcOccupancy.ignore_cache = true
 	var db := NpcTraits.shared()
 	NpcPlaces.load_all()
 	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
+	# settlements with room manifests (tools/rooms/make_rooms.py) are NpcOccupancy's: their people, beds and posts come from
+	# it -- the same answer the game computes on the fly -- and this bake only caches them (2026-10-07)
+	var solved_towns := {}
+	var solved_units := {}
+	for b in st.structures:
+		var town := str(b.settlement) if b.get("settlement") != null else "_country"
+		if not solved_towns.has(town):
+			solved_towns[town] = NpcOccupancy.has_manifest(town)
 	var homes: Array = []
 	for b in st.structures:
+		var town := str(b.settlement) if b.get("settlement") != null else "_country"
+		if solved_towns[town]:
+			continue
 		if NpcHouseholds.is_home(b):
 			homes.append(b)
-	homes.append_array(NpcPlaces.flats(st.structures))
+	for fl in NpcPlaces.flats(st.structures):
+		if not solved_towns.get(str(fl.get("settlement", "_country")), false):
+			homes.append(fl)
 	var types := NpcPlaces.types()
 	# purposes: purpose -> [type, who, per_week]
 	var purposes := {}
@@ -66,6 +80,19 @@ func _initialize() -> void:
 				"home_kind": b.kind, "given": m.pinned.get("given_name", ""), "surname": m.pinned.get("surname", ""),
 				"lineage": m.pinned.get("lineage", ""), "name_heritage": m.pinned.get("name_heritage", "")}
 			order.append(m.pid)
+	for town in solved_towns:
+		if not solved_towns[town]:
+			continue
+		var S := NpcOccupancy.solve(seed, town)
+		for pid in S.people:
+			var P: Dictionary = S.people[pid].duplicate(true)
+			P["home_kind"] = "manifest"
+			people[pid] = P
+			order.append(pid)
+			NpcPlaces.register_door(P.home, Vector2(float(P.door[0]), float(P.door[1])))
+		for post in S.posts:
+			solved_units[S.posts[post].uid] = true
+		print("%s: %d people, %d posts (%d vacant) -- NpcOccupancy" % [town, S.people.size(), S.posts.size(), S.vacant.size()])
 	var t1 := Time.get_ticks_msec()
 	# 2. work: in a hashed order, each takes a post by occupation, distance and posts left
 	order.sort_custom(func(x, y): return NpcRng.fnv1a64("%d|%s|order" % [seed, x]) < NpcRng.fnv1a64("%d|%s|order" % [seed, y]))
@@ -73,6 +100,8 @@ func _initialize() -> void:
 	var by_occ := {}
 	for uid in NpcPlaces.units():
 		var u: Dictionary = NpcPlaces.unit(uid)
+		if solved_units.has(uid):
+			continue                                      # (its posts are NpcOccupancy's, filled already)
 		for o in u.jobs:
 			if not by_occ.has(o):
 				by_occ[o] = []
@@ -90,7 +119,7 @@ func _initialize() -> void:
 	uids.sort_custom(func(x, y): return NpcRng.fnv1a64("%d|%s|open" % [seed, x]) < NpcRng.fnv1a64("%d|%s|open" % [seed, y]))
 	for uid in uids:
 		var u: Dictionary = NpcPlaces.unit(uid)
-		if u.type == "farm" or u.type == "church" or (u.jobs as Dictionary).is_empty():
+		if u.type == "farm" or u.type == "church" or (u.jobs as Dictionary).is_empty() or solved_units.has(uid):
 			continue
 		var at := Vector2(float(u.door[0]), float(u.door[1]))
 		var best := ""
@@ -112,8 +141,8 @@ func _initialize() -> void:
 	for pid in order:
 		var P: Dictionary = people[pid]
 		var occ: String = P.occupation
-		if occ in NO_WORK or P.has("work"):
-			continue
+		if occ in NO_WORK or P.has("work") or P.get("home_kind", "") == "manifest":
+			continue                                      # (a solved settlement's jobless stay jobless: one town, one market)
 		var home := Vector2(float(P.door[0]), float(P.door[1]))
 		# farm and fish-house families work their own place
 		if (occ == "farmer" or occ == "farmhand") and P.home_kind == "farm" or occ == "fisher" and P.home_kind == "fishhouse":
@@ -185,6 +214,11 @@ func _initialize() -> void:
 	for pid in people:
 		if not (people[pid].occupation in NO_WORK):
 			workers += 1
+	var solved := []
+	for town in solved_towns:
+		if solved_towns[town]:
+			solved.append(town)
+	NpcOccupancy.save_cache(seed, solved)
 	var f := FileAccess.open(OUT, FileAccess.WRITE)
 	f.store_string(JSON.stringify({"_about": "Everyone's home, workplace, school and regular places (tools: remake/tools/bake_lives.gd). NpcLife reads it.",
 		"seed": seed, "people": people}))

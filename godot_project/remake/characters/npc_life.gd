@@ -23,6 +23,7 @@ const SPEED := {"walk": 1.3, "bike": 4.2, "car": 10.0, "transit": 5.0, "bus": 6.
 const OVERHEAD := {"walk": 0.0, "bike": 2.0, "car": 4.0, "transit": 8.0, "bus": 5.0}    # min: parking, waiting
 const DETOUR := 1.3                                # street distance over straight-line
 const NOT_ERRANDS := ["school", "classes", "childcare", "worship", "visit_elder"]
+const DAYS3 := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 const LATE := ["drinks", "film", "games", "dinner_out", "meeting"]
 
 static var _shared: NpcLife
@@ -157,7 +158,20 @@ func stays(pid: String, day: int) -> Array:
 	var habit := (jit.rand() - 0.5) * (1.4 - float(P.C))            # conscientious people keep closer to the clock
 	var today := _r(pid, "day:%d" % day)
 	# work
-	if P.has("work"):
+	if P.has("work") and P.has("shift"):
+		# a rostered post (NpcOccupancy): its shift on its days, two days off in a row on a rota; a night shift is the
+		# day it starts on
+		var wd_: String = DAYS3[wd]
+		var days_: String = P.get("days", "mon-fri")
+		var on: bool = not (P.has("off") and wd_ in P.off)
+		if days_ == "mon-fri" and wd >= 5 or days_ == "mon-sat" and wd == 6:
+			on = false
+		if P.commute == "remote" and today.rand() < 0.65:
+			on = false
+		if on:
+			var s0 := float(P.shift[0]) + habit * 0.25 + (today.rand() - 0.5) * 0.15
+			out.append({"t0": s0, "t1": float(P.shift[1]) + (today.rand() - 0.5) * 0.3, "uid": P.work, "what": "work"})
+	elif P.has("work"):
 		var t := NpcPlaces.kind_of(P.work)
 		var hrs: String = _occ_hours.get(occ, "day")
 		var span: Vector2 = HOURS.get(hrs, HOURS.day)

@@ -40,7 +40,61 @@ static func run(op: String, a: Dictionary) -> String:
 			return check(_f(args, 0), _f(args, 1), _f(args, 2, 150.0))
 		"here":
 			return here()
-	return "unknown op '%s': near, find, ground, view, check, here" % op
+		"who", "duty", "person", "roster":
+			return occupancy(op, args)
+	return "unknown op '%s': near, find, ground, view, check, here, who, duty, person, roster" % op
+
+
+static func _clock() -> Vector2:
+	## (day, hour) now, from the sky's clock
+	var sky := _sc().get_node_or_null("DaySkySystem")
+	if sky == null:
+		return Vector2(0, 12)
+	return Vector2(float(sky.get("day")) if sky.get("day") != null else 0.0, float(sky.time_of_day) * 24.0)
+
+
+static func occupancy(op: String, args: Array) -> String:
+	## who PLACE [DAY HOUR] | duty UNIT|ROOM [DAY HOUR] | person PID | roster UNIT   (NpcOccupancy; places: "C-077",
+	## "C-077/B0", "C-077#R1F0_0"; day 0 = a Monday; default now)
+	var seed := NpcLife.shared().seed
+	var place := str(args[0]) if args.size() > 0 else ""
+	var now := _clock()
+	var day := int(_f(args, 1, now.x))
+	var hour := _f(args, 2, now.y)
+	var lines := []
+	match op:
+		"who":
+			var w := NpcOccupancy.who(seed, place, day, hour)
+			lines.append("%d people in %s on day %d at %05.2f:" % [w.size(), place, day, hour])
+			for e in w:
+				lines.append("  %s  %s  (%s)" % [e.pid, _name(seed, e.pid), e.why])
+		"duty":
+			var d := NpcOccupancy.on_duty(seed, place, day, hour)
+			lines.append("%d posts on duty in %s on day %d at %05.2f:" % [d.size(), place, day, hour])
+			for e in d:
+				lines.append("  %-34s %-12s %-22s %s" % [e.post, e.role, e.room, (e.pid + "  " + _name(seed, e.pid)) if e.pid != "" else "VACANT (" + str(e.vacant) + ")"])
+		"person":
+			var P := NpcOccupancy.person(seed, place)
+			if P.is_empty():
+				return "no one %s (in a settlement with a room manifest)" % place
+			lines.append("%s  %s, %d, %s, %s" % [place, _name(seed, place), int(P.age), P.sex, P.occupation])
+			for k in ["home", "unit", "bed", "work", "post", "post_room", "shift", "days", "off", "school", "jobless", "occupation_was"]:
+				if P.has(k):
+					lines.append("  %-14s %s" % [k, str(P[k])])
+			var wh := NpcOccupancy.where(seed, place, day, hour)
+			lines.append("  now (day %d %05.2f): %s" % [day, hour, str(wh)])
+		"roster":
+			var r := NpcOccupancy.roster(seed, place)
+			lines.append("%d posts in %s:" % [r.size(), place])
+			for e in r:
+				lines.append("  %-34s %-12s %-22s shift %s %s off %s  %s" % [e.post, e.role, e.room, str(e.shift), e.days, str(e.off),
+					(e.pid + " " + _name(seed, e.pid)) if e.pid != "" else "VACANT (" + str(e.vacant) + ")"])
+	return "\n".join(lines)
+
+
+static func _name(seed: int, pid: String) -> String:
+	var P := NpcOccupancy.person(seed, pid)
+	return "%s %s" % [P.get("given", ""), P.get("surname", "")] if not P.is_empty() else ""
 
 
 static func _f(args: Array, i: int, dflt := 0.0) -> float:

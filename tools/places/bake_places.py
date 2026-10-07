@@ -91,11 +91,48 @@ def main():
             return b["settlement"]
         return min(centre, key=lambda k: dist(centre[k], (b["s"], b["x"])))
 
+    # buildings with a room manifest (tools/rooms/make_rooms.py): their units, place types and posts ARE the model's
+    # (its fit-out), not a procedural guess
+    manifest = {}
+    rdir = os.path.join(ROOT, "godot_project", "remake", "rooms")
+    if os.path.isdir(rdir):
+        for fn in os.listdir(rdir):
+            if fn.endswith(".json") and not fn.startswith("_"):          # (_solved.json: NpcOccupancy's cache)
+                manifest.update(json.load(open(os.path.join(rdir, fn)))["buildings"])
+
+    def world(b, lx, lz, out_m=0.0):
+        c, sn = math.cos(b["yaw"]), math.sin(b["yaw"])
+        s_, x_ = b["s"] + lx * sn - lz * c, b["x"] + lx * c + lz * sn
+        if out_m:
+            ds, dx = s_ - b["s"], x_ - b["x"]
+            L = math.hypot(ds, dx) or 1.0
+            s_, x_ = s_ + ds / L * out_m, x_ + dx / L * out_m
+        return [round(s_ % CIRC, 2), round(x_, 2)]
+
     pop = Counter()
     units = []
     for b in structs:
         st = home_of(b)
         kind = b["kind"]
+        m = manifest.get(b["id"])
+        if m is not None:
+            dwell = [u for u in m["units"].values() if u["type"] == "dwelling"]
+            pop[st] += sum(u.get("households", 1) for u in dwell) * HH_SIZE
+            area = max(1.0, (b["fmax"][0] - b["fmin"][0]) * (b["fmax"][1] - b["fmin"][1]))
+            for uid, u in sorted(m["units"].items()):
+                if u["type"] == "common" or (u["type"] == "dwelling" and kind in settle["buildings"]):
+                    continue
+                dname = (u.get("delivery") or {}).get("door")
+                dd = next((d for d in m["doors"] if d["node"] == dname), None)
+                door_at = world(b, dd["at"][0], dd["at"][1], 1.2 if dd["ext"] else 0.0) if dd else door(b)
+                if u["type"] == "dwelling":
+                    units.append(dict(building=b["id"], settlement=st, door=door_at, uid="%s/%s" % (b["id"], uid), shell="upper_apartment",
+                                      type="residence", hint=None, jobs={}, manifest=True))
+                    continue
+                jobs = Counter(p_["role"] for p_ in u.get("posts", []))
+                units.append(dict(building=b["id"], settlement=st, door=door_at, uid="%s/%s" % (b["id"], uid),
+                                  shell=SHELL_OF_KIND.get(kind, "storefront"), type=u["place"], hint=None, jobs=dict(jobs), manifest=True))
+            continue
         if kind in settle["buildings"] and not (kind == "farm" and b["id"].startswith("FARM-") and not b["id"].endswith("-house")):
             pop[st] += b.get("households", settle["buildings"][kind]["households"]) * HH_SIZE
         f = os.path.join(ROOT, "remake", "catalog", "%s.json" % b["model"])
@@ -150,7 +187,7 @@ def main():
     # flexible units: demand-driven, per settlement
     pool = {tid: t for tid, t in types.items() if t["per1000"] > 0 and not t["station"]}
     for st in sorted({u["settlement"] for u in units}):
-        flex = [u for u in units if u["settlement"] == st and u["flexible"]]
+        flex = [u for u in units if u["settlement"] == st and u.get("flexible")]
         if not flex:
             continue
         n = len(flex)
@@ -172,8 +209,10 @@ def main():
             u["type"] = best or "vacant"
             have[u["type"]] += 1
 
-    # jobs: the registry's staffing, scaled for big works by footprint
+    # jobs: the registry's staffing, scaled for big works by footprint (a manifest's posts are already its staffing)
     for u in units:
+        if u.pop("manifest", False):
+            continue
         t = types[u["type"]]
         k = 1.0
         if t["category"] == "industry":

@@ -144,6 +144,29 @@ class House:
                 cuts.append((lo, hi))
         return _union(cuts)
 
+    def _shared_with(self, bl, side):
+        """[((s0, s1), other block)]: the stretches of this side another block abuts, as parameters from the edge's start"""
+        (a, c) = self._block_edges(bl)[side]
+        horiz = abs(a[1] - c[1]) < 1e-6
+        lo_e, hi_e = (min(a[0], c[0]), max(a[0], c[0])) if horiz else (min(a[1], c[1]), max(a[1], c[1]))
+        line = a[1] if horiz else a[0]
+        a0 = a[0] if horiz else a[1]
+        sgn = 1 if ((c[0] - a[0]) if horiz else (c[1] - a[1])) > 0 else -1
+        out = []
+        for ob in self.s["blocks"]:
+            if ob is bl:
+                continue
+            ox0, oy0, ox1, oy1 = ob["rect"]
+            if horiz and (abs(oy0 - line) < EPS or abs(oy1 - line) < EPS):
+                lo, hi = max(lo_e, ox0), min(hi_e, ox1)
+            elif not horiz and (abs(ox0 - line) < EPS or abs(ox1 - line) < EPS):
+                lo, hi = max(lo_e, oy0), min(hi_e, oy1)
+            else:
+                continue
+            if hi - lo > 0.05:
+                out.append((tuple(sorted(((lo - a0) * sgn, (hi - a0) * sgn))), ob))
+        return out
+
     def _shared(self, bl, side):
         """Shared intervals as parameters along the edge measured from its start point a."""
         (a, c) = self._block_edges(bl)[side]
@@ -222,6 +245,22 @@ class House:
                     else:
                         fr = g.wall(self.shell, pa, pc, z0, bl["wall_top"], self.te, ops, *mats)
                     self.frames.append(dict(frame=fr, a=pa, c=pc, t=self.te, ops=ops, own=own, ext=True, block=bl))
+                # where a LOWER block abuts this side, the wall still has to close this block above it (the audit found a
+                # school's two-storey gym wing open for its whole width over the classroom block's flat roof)
+                for (s0, s1), ob in self._shared_with(bl, side):
+                    o_top = ob["wall_top"]
+                    if o_top >= bl["wall_top"] - 0.05 and not (gable_end or shed_rise):
+                        continue
+                    u = Vector((c[0] - a[0], c[1] - a[1], 0)) / L
+                    pa = (a[0] + u.x * s0, a[1] + u.y * s0)
+                    pc = (a[0] + u.x * s1, a[1] + u.y * s1)
+                    mats = (bl.get("ext", self.m["ext"]), self.m["int"])
+                    if gable_end or shed_rise:
+                        top = (lambda uu, pa=pa, u=u: self.roof_under(bl, pa[0] + u.x * uu, pa[1] + u.y * uu)
+                               + rf.get("thick", 0.15) / math.cos(math.radians(rf["pitch"])) - 0.02)
+                        g.wall_profile(self.shell, pa, pc, o_top, top, self.te, [], *mats)
+                    else:
+                        g.wall(self.shell, pa, pc, o_top, bl["wall_top"], self.te, [], *mats)
             # corner boards (frame houses)
             if bl.get("corner_boards", True) and bl.get("ext", self.m["ext"]) in ("siding", "siding_w"):
                 for (cx, cy) in ((x0, y0), (x1, y0), (x1, y1), (x0, y1)):
@@ -342,15 +381,23 @@ class House:
         bl = self.block_of(c if axis == "x" else (p0 + p1) / 2, (p0 + p1) / 2 if axis == "x" else c)
         if bl is None:
             return
-        bx0, by0, bx1, by1 = bl["rect"]
-        lo_lim, hi_lim = (by0, by1) if axis == "x" else (bx0, bx1)
-        if abs(p0 - lo_lim) < EPS:
-            p0 += te
-        if abs(p1 - hi_lim) < EPS:
-            p1 -= te
+        # every block the line runs along or bounds (a junction between two blocks lies on both)
+        mid = (c, (p0 + p1) / 2) if axis == "x" else ((p0 + p1) / 2, c)
+        on = [ob for ob in self.s["blocks"]
+              if ob["rect"][0] - EPS <= mid[0] <= ob["rect"][2] + EPS and ob["rect"][1] - EPS <= mid[1] <= ob["rect"][3] + EPS]
+        if any(fl >= len(ob["floors"]) for ob in on):
+            return              # (above the lower block: this block's own upper exterior wall closes the line there)
+        for ob in on:           # trim ends that run into any of their exterior walls
+            bx0, by0, bx1, by1 = ob["rect"]
+            lo_lim, hi_lim = (by0, by1) if axis == "x" else (bx0, bx1)
+            if abs(p0 - lo_lim) < EPS:
+                p0 += te
+            if abs(p1 - hi_lim) < EPS:
+                p1 -= te
         if p1 - p0 < 0.1:
             return
         fz, cz = bl["floors"][fl]
+        cz = min([cz] + [ob["floors"][fl][1] for ob in on])
         if axis == "x":
             a, cc = (c + ti / 2, p0), (c + ti / 2, p1)
         else:
@@ -359,8 +406,8 @@ class House:
         ops = [o for o, (k, it) in zip(ops, own) if it.get("floor", 0) == fl]
         own = [(k, it) for (k, it) in own if it.get("floor", 0) == fl]
         o, u, w_in, L = g.wall_frame(a, cc)
-        top = lambda uu: min(cz, self.roof_under(bl, a[0] + u.x * uu, a[1] + u.y * uu),
-                             self._stair_under(a[0] + u.x * uu, a[1] + u.y * uu, fl))
+        top = lambda uu: min([cz, self._stair_under(a[0] + u.x * uu, a[1] + u.y * uu, fl)]
+                             + [self.roof_under(ob, a[0] + u.x * uu, a[1] + u.y * uu) for ob in on])
         fr = g.wall_profile(self.parts, a, cc, fz, top, ti, ops, self.m["int"], self.m["int"])
         self.frames.append(dict(frame=fr, a=a, c=cc, t=ti, ops=ops, own=own, ext=False, block=bl, floor=fl))
 
@@ -843,6 +890,7 @@ class House:
             typ = r.get("type")
             if (not typ and not callable(r.get("fitout"))) or r.get("no_furnish"):
                 continue
+            b._room = (r["name"], r.get("floor", 0))      # (the furniture recorder files what follows under it)
             bl = self.block_of((r["rect"][0] + r["rect"][2]) / 2, (r["rect"][1] + r["rect"][3]) / 2)
             fz, cz = bl["floors"][r.get("floor", 0)]
             x0, y0, x1, y1 = self._clear(r)
@@ -864,6 +912,9 @@ class House:
                     if not all(headroom(q) >= h_req + 0.05 for q in [back] + ends):
                         return False
                     corners = ends + [q + sl["n"] * (d + 0.02) for q in ends]
+                    # (and inside the room: a 2 m bed doesn't go across a 1.9 m room, through the far wall)
+                    if not all(x0 - 0.01 <= q.x <= x1 + 0.01 and y0 - 0.01 <= q.y <= y1 + 0.01 for q in corners):
+                        return False
                     return not self._hits_swing(min(q.x for q in corners), min(q.y for q in corners),
                                                 max(q.x for q in corners), max(q.y for q in corners), r.get("floor", 0))
                 sl, c = self._place(slots, w, tall, used, prefer, fits)
@@ -947,6 +998,8 @@ class House:
                 b.empty(f"light_locked_{typ}" if r.get("locked") else f"light_{typ}", (cx, cy, lz))
 
     def build(self):
+        self.b.plans.append(self.s)
+        self.b.houses.append(self)
         for bl in self.s["blocks"]:
             self.b.massing.append(dict(rect=bl["rect"], top=bl["wall_top"], mat=bl.get("ext", self.m["ext"])))
         self.build_exterior()
@@ -962,6 +1015,7 @@ class House:
         if self.s.get("furnish", True):
             self._stair_keepouts()
             self.furnish()
+            self.b._room = None
 
 
 # ------------------------------------------------------------------ roof helpers

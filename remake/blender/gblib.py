@@ -41,9 +41,35 @@ def ft(feet=0.0, inches=0.0):
 
 
 # ------------------------------------------------------------------ scene / materials
+CURRENT = None          # the Building being built (build_record's furniture recorder logs into it)
+ROOMS_RAW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rooms", "raw")
+
+
+def _jsonable(v):
+    if isinstance(v, (str, int, bool)) or v is None:
+        return v
+    if isinstance(v, float):
+        return round(v, 3)
+    if isinstance(v, (list, tuple)):
+        return [_jsonable(x) for x in v]
+    if isinstance(v, dict):
+        return {k: _jsonable(x) for k, x in v.items() if not callable(x)}
+    if hasattr(v, "to_tuple"):
+        return [round(float(x), 3) for x in v]
+    return None
+
+
 class Building:
     def __init__(self, name, texdir):
+        global CURRENT
         bpy.ops.wm.read_factory_settings(use_empty=True)
+        CURRENT = self
+        self.plans = []                  # the gbhouse specs built into it (rooms, doors, stairs, blocks)
+        self.houses = []                 # (and their gbhouse.House builders: the audit asks them about walls and roofs)
+        self.audit = None
+        self.furniture = []              # every furnishing call: {item, room, floor, pos, yaw, parent}
+        self._room = None                # (the room being furnished, while gbhouse furnishes it)
+        self._furn_stack = []
         self.name = name
         self.texdir = texdir
         self.sink_ground = True          # see Part.sink_ground_contacts (off for site/terrain pieces)
@@ -133,6 +159,12 @@ class Building:
         for p in list(self.objs.values()):
             p.sink_ground_contacts()
             p.to_object()
+        if self.houses:
+            import gbaudit
+            self.audit = gbaudit.audit(self)
+            a = self.audit or {}
+            print("AUDIT %s %s leaks=%d clips=%d doors=%d" % (os.path.splitext(os.path.basename(out_glb))[0], "ok" if a.get("ok") else "FAIL",
+                                                         len(a.get("leaks", [])), len(a.get("clips", [])), len(a.get("doors", []))))
         if self.lods:
             import gblod
             self.lod_tris = gblod.export_lods(self, out_glb)
@@ -152,7 +184,34 @@ class Building:
                              os.path.splitext(os.path.basename(out_glb))[0] + ".blend")
         os.makedirs(os.path.dirname(blend), exist_ok=True)
         bpy.ops.wm.save_as_mainfile(filepath=blend)
+        self.write_rooms_raw(os.path.splitext(os.path.basename(out_glb))[0])
         print(f"EXPORTED {out_glb}")
+
+    def write_rooms_raw(self, rid):
+        """The plan as built (remake/rooms/raw/<id>.json): rooms, doors, stairs, storeys and the furniture placed in
+        each room, in the plan frame (metres; x east, y north, z up; origin the main block's centre at grade -- the
+        glb's x, -z, y).  tools/rooms/make_rooms.py turns it into the game's room manifest."""
+        if not self.plans:
+            return
+        keep_room = ("name", "floor", "rect", "type", "entry", "open_plan_to", "no_furnish", "no_light", "unit")
+        keep_door = ("name", "floor", "at", "w", "ext", "cased", "glazed", "h", "between")
+        plans = []
+        for s_ in self.plans:
+            rooms = []
+            for r in s_.get("rooms", []):
+                d = {k: _jsonable(r[k]) for k in keep_room if k in r}
+                fk = getattr(r.get("fitout"), "_kind", None)
+                if fk:
+                    d["fitout"] = fk
+                rooms.append(d)
+            plans.append({"blocks": [{"name": bl.get("name"), "rect": _jsonable(bl["rect"]), "floors": _jsonable(bl["floors"]),
+                                      "wall_top": _jsonable(bl.get("wall_top"))} for bl in s_.get("blocks", [])],
+                          "rooms": rooms,
+                          "doors": [{k: _jsonable(d[k]) for k in keep_door if k in d} for d in s_.get("doors", [])],
+                          "stairs": [_jsonable({k: v for k, v in st.items() if not callable(v)}) for st in s_.get("stairs", [])]})
+        os.makedirs(ROOMS_RAW, exist_ok=True)
+        with open(os.path.join(ROOMS_RAW, rid + ".json"), "w") as f:
+            json.dump({"id": rid, "plans": plans, "furniture": self.furniture, "audit": self.audit}, f, separators=(",", ":"))
 
 
 def srgb_to_linear(c):

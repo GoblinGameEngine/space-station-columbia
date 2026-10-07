@@ -25,6 +25,7 @@ step placement       $P remake/tools/placement.py
 step road_profile1   $P tools/road_profile.py
 step road_profile2   $P tools/road_profile.py
 step town_grade      $P tools/town_grade.py
+step make_rooms      $P tools/rooms/make_rooms.py
 step make_places     $P tools/places/make_places.py
 step bake_places     $P tools/places/bake_places.py
 step bake_paths      $P tools/places/bake_paths.py

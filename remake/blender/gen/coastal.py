@@ -140,7 +140,7 @@ def build_lodging(rec):
     wall_top = floors[-1][1] + 0.35
     roof = _roof(tr)
     spec = _spec((x0, y0, x1, y1), floors, wall_top, roof, FL)
-    n_int = min(storeys, 3)                     # floors fitted out; the rest are sealed behind curtains
+    n_int = storeys                             # every floor fitted out: every room has its guests (2026-10-07)
     nroom = max(2, int(W / 4.2))
     guest = [(1.0, "bed", "guest_room")] * nroom
     gf = tr.get("ground_floor", "lobby")
@@ -202,6 +202,118 @@ def build_lodging(rec):
     elif tr.get("pool") == "deck" and lot_d / 2 - y1 > 3.5:
         p.box((x1 - 12.0, y1 + 4.0, -0.3), (x1 - 2.0, min(lot_d / 2 - 0.5, y1 + 9.0), 0.02), "pool")
     _site_walk(b, 0.0, y1, lot_d, width=3.0)
+    return b
+
+
+# ------------------------------------------------------------------ apartment buildings ("condo": tools/settlegen's walk-ups)
+def build_apartments(rec):
+    """A walk-up apartment block (the user, 2026-10-07: every house needs residents, every room people): a double-loaded
+    corridor on every floor, stairs at both ends, and the record's traits.units dwellings laid along it -- each a real
+    home: kitchen and bath on the corridor side, a hall, the living room and 1-3 bedrooms on the windows.  Every room
+    carries its unit ("A<floor><F|R><n>"); the entrance vestibule is mid-front on the ground floor."""
+    rid, tr = rec["id"], rec.get("traits", {}) or {}
+    rnd = rng(rid)
+    lot = rec.get("lot", {"w": 40.0, "d": 30.0})
+    lot_w, lot_d = lot["w"], lot["d"]
+    b = lib_building(rid)
+    materials(b, tr)
+    storeys = int(clamp(tr.get("storeys") or 3, 1, 8))
+    want = int(tr.get("units") or storeys * 4)
+    W = clamp(lot_w - 4.0, 14.0, 70.0)
+    D = clamp(lot_d - 7.0, 12.0, 17.0)
+    y1 = lot_d / 2 - 4.0
+    y0 = y1 - D
+    x0, x1 = -W / 2, W / 2
+    FL, H = 0.45, 3.0
+    floors = [(FL, FL + H - 0.35)]
+    for _ in range(1, storeys):
+        fz = floors[-1][1] + 0.35
+        floors.append((fz, fz + H - 0.35))
+    wall_top = floors[-1][1] + 0.35
+    roof = _roof(tr)
+    spec = _spec((x0, y0, x1, y1), floors, wall_top, roof, FL)
+    (c0, c1), _ = inst.corridor_plan(spec, (x0, y0, x1, y1), floors, [([], [])] * storeys, rnd)
+    # the stairs stand in the corridor along its rear edge at both ends: no rear-band door there
+    spans = []
+    for st in spec["stairs"]:
+        sx = st["start"][0]
+        L = st["n"] * st["run"]
+        spans.append((min(sx, sx + st["dir"][0] * L) - 1.0, max(sx, sx + st["dir"][0] * L) + 1.0))
+    per_floor = max(2, math.ceil(want / storeys))
+    side_n = max(1, math.ceil(per_floor / 2))
+    VEST = 2.6
+    rooms, doors = spec["rooms"], spec["doors"]
+    made = 0
+    for k in range(storeys):
+        for band in ("F", "R"):
+            if band == "F" and k == 0:
+                segs = [(x0, -VEST / 2), (VEST / 2, x1)]
+                rooms.append(dict(name="VEST", floor=0, rect=(-VEST / 2, c1, VEST / 2, y1), type="hall", open_plan_to="COR0"))
+                n_seg = [max(1, side_n // 2), max(1, side_n - side_n // 2)]
+            else:
+                segs = [(x0, x1)]
+                n_seg = [side_n]
+            yc, ye = (c1, y1) if band == "F" else (c0, y0)
+            sg = 1.0 if band == "F" else -1.0
+            Dd = abs(ye - yc)
+            ds = clamp(Dd * 0.34, 2.3, 2.8)                    # kitchen + bath strip on the corridor
+            dh = 1.15                                          # the unit's hall
+            for (sa, sb), n in zip(segs, n_seg):
+                bw = (sb - sa) / n
+                for i in range(n):
+                    bx0, bx1 = sa + i * bw, sa + (i + 1) * bw
+                    u = f"A{k}{band}{i + (0 if sa < 0 or k > 0 else n_seg[0])}"
+
+                    def yr(a, c):                              # depth a..c from the corridor wall -> a y range
+                        return (yc + sg * a, yc + sg * c) if sg > 0 else (yc + sg * c, yc + sg * a)
+                    sy0, sy1 = yr(0.0, ds)
+                    hy0, hy1 = yr(ds, ds + dh)
+                    wy0, wy1 = yr(ds + dh, Dd)
+                    # service strip: kitchen on the side whose corridor wall is clear of the stairs
+                    kw = clamp(bw * 0.58, 2.4, bw - 1.8)
+                    k_left = True
+                    if band == "R":
+                        mid_l, mid_r = bx0 + kw / 2, bx1 - kw / 2
+                        if any(a_ < mid_l < b_ for a_, b_ in spans) and not any(a_ < mid_r < b_ for a_, b_ in spans):
+                            k_left = False
+                    kx = (bx0, bx0 + kw) if k_left else (bx1 - kw, bx1)
+                    tx = (bx0 + kw, bx1) if k_left else (bx0, bx1 - kw)
+                    nb = 1 if bw < 7.5 else (2 if bw < 10.5 else 3)
+                    lw = max(3.6, bw * (0.42 if nb > 1 else 0.55))
+                    while nb > 1 and (bw - lw) / nb < 2.7:
+                        nb -= 1
+                    rooms += [dict(name=f"{u}KIT", unit=u, floor=k, rect=(kx[0], sy0, kx[1], sy1), type="kitchen", floor_mat="lino"),
+                              dict(name=f"{u}BATH", unit=u, floor=k, rect=(tx[0], sy0, tx[1], sy1), type="bath", floor_mat="hextile"),
+                              dict(name=f"{u}HALL", unit=u, floor=k, rect=(bx0, hy0, bx1, hy1), type="hall"),
+                              dict(name=f"{u}LR", unit=u, floor=k, rect=(bx0, wy0, bx0 + lw, wy1), type="living")]
+                    bwid = (bw - lw) / nb
+                    for j in range(nb):
+                        rooms.append(dict(name=f"{u}BR{j + 1}", unit=u, floor=k, rect=(bx0 + lw + j * bwid, wy0, bx0 + lw + (j + 1) * bwid, wy1),
+                                          type="bed"))
+                    ex = (kx[0] + kx[1]) / 2
+                    if band == "R" and any(a_ < ex < b_ for a_, b_ in spans):
+                        ex = kx[1] - 0.7 if k_left else kx[0] + 0.7
+                    e_hall, e_win = (hy0 if sg > 0 else hy1), (hy1 if sg > 0 else hy0)
+                    doors += [dict(name=f"{u}entry", floor=k, at=(ex, yc), w=0.9, swing_into=f"{u}KIT", locked=True),
+                              dict(name=f"{u}kit", floor=k, at=((kx[0] + kx[1]) / 2, e_hall), w=0.9, cased=True),
+                              dict(name=f"{u}bath", floor=k, at=((tx[0] + tx[1]) / 2, e_hall), w=0.75, swing_into=f"{u}BATH"),
+                              dict(name=f"{u}lr", floor=k, at=(bx0 + lw / 2, e_win), w=0.9, cased=True)]
+                    for j in range(nb):
+                        doors.append(dict(name=f"{u}br{j + 1}", floor=k, at=(bx0 + lw + (j + 0.5) * bwid, e_win), w=0.8,
+                                          swing_into=f"{u}BR{j + 1}"))
+                    made += 1
+    if made < want:
+        print(f"APARTMENTS {rid}: {made} of {want} units fit")
+    spec["doors"].append(dict(name="main_entry", at=(0.0, y1), w=1.8, h=2.4, ext=True, leaves=2, glazed=(0.05, 0.05, 0.95, 0.95)))
+    spec["doors"].append(dict(name="exit_w", at=(x0, (c0 + c1) / 2 + 0.6), w=1.0, ext=True, out=True))
+    spec["doors"].append(dict(name="exit_e", at=(x1, (c0 + c1) / 2 + 0.6), w=1.0, ext=True, out=True))
+    avoid = [(d["at"], d.get("floor", 0)) for d in spec["doors"]]
+    inst.windows_all(spec, (x0, y0, x1, y1), floors, avoid, sill=0.9, h=1.4, spacing=2.4)
+    inst.add_stoops(spec, FL)
+    gh.House(b, spec).build()
+    p = b.part("lodging_ext-col")
+    p.box((-1.8, y1, floors[0][1] - 0.4), (1.8, y1 + 1.8, floors[0][1] - 0.2), "accent")      # entrance canopy
+    _site_walk(b, 0.0, y1, lot_d, width=2.0)
     return b
 
 
@@ -672,7 +784,9 @@ def build_waterfront_works(rec):
 # ------------------------------------------------------------------ dispatch
 def build(rec):
     kind = rec.get("kind")
-    if kind in ("hotel", "condo"):
+    if kind == "condo":
+        return build_apartments(rec)
+    if kind == "hotel":
         return build_lodging(rec)
     if kind == "motel":
         return build_motel(rec)

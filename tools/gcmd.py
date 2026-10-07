@@ -272,7 +272,7 @@ def main():
 
     q = sub.add_parser("query", help="where things are, as text, without rendering (WorldQuery.gd): "
                        "near S X [R] [CATS] | find TEXT | ground S X | view [N] | check S X [R] | here")
-    q.add_argument("op", choices=["near", "find", "ground", "view", "check", "here"])
+    q.add_argument("op", choices=["near", "find", "ground", "view", "check", "here", "who", "duty", "person", "roster"])
     q.add_argument("args", nargs="*")
 
     def _query(a):
