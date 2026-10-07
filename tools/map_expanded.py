@@ -610,6 +610,12 @@ WBUF = dilate(WCAT > 0, fk(4))
 # ------------------------------------------------------------------ settlements
 FT = 0.3048
 B = 91.0          # 300 ft block (§3)
+# Room at each end of a block, along main street (the user, 2026-10-07: keep all four storefronts a block): the 20 km
+# streets' legal cross-sections (tools/street_rules.py: half the carriageway + the sidewalk + 0.3 m, ~9 m) take more
+# than the 5 m the old 300 ft blocks left a storefront row at each end, and four 19.6 m storefront models no longer fit
+# between them.  Every block of a town's grid is BLOCK_ROOM longer at each end; its contents keep their places in it.
+BLOCK_ROOM = 5.0
+STRETCH_BAND = 10.0      # m either side of a cross street over which the extra room is let in (streets, loops)
 
 
 class Town:
@@ -627,21 +633,61 @@ class Town:
         self.coastal = False
         self.water_v = 0.0
         self.density = 1.0      # scales the houses / storefronts a new town lays per block side
+        self.block_room = BLOCK_ROOM     # (0: the grid as drawn -- the coastal towns' waterfronts, Calder's own plan)
+        self.ustretch = None    # (the grid's u lines, the room, the band): set by the first grid()
+
+    def ushift(self, u):
+        """How far u moves along main street to give each block of the grid block_room more at each end: a block's
+        inside moves as a piece, the band about each cross street takes up the difference, beyond the grid moves
+        with its end block (and its room)."""
+        if not self.ustretch:
+            return 0.0
+        us, room, band = self.ustretch
+        n = len(us) - 1
+        sh = lambda i: (2 * max(-1, min(n, i)) + 1 - n) * room       # block i's inside (-1, n: beyond the grid)
+        for k, uk in enumerate(us):
+            if abs(u - uk) < band:
+                f = (u - (uk - band)) / (2 * band)
+                return sh(k - 1) + (sh(k) - sh(k - 1)) * f
+        i = sum(1 for uk in us if uk < u) - 1
+        return sh(i)
+
+    def u_of(self, s, x):
+        """the local u of a ring point (the inverse of g along main street)"""
+        if self.axis == "s":
+            return wrap_d(s - self.s0)
+        return x - self.x0
+
+    def nudge(self, poly):
+        """a footprint moved as a piece with its place in the grid (by its centre)"""
+        cs = sum(p[0] for p in poly) / len(poly)
+        cx = sum(p[1] for p in poly) / len(poly)
+        d = self.ushift(self.u_of(cs, cx))
+        if not d:
+            return poly
+        return [(p[0] + d, p[1]) if self.axis == "s" else (p[0], p[1] + d) for p in poly]
 
     # local (u along main street, v across it) -> ring (s, x)
     def g(self, u, v):
+        return self.g_raw(u + self.ushift(u), v)
+
+    def g_raw(self, u, v):
         if self.axis == "s":
             return (self.s0 + u, self.x0 + self.flip * v)
         return (self.s0 + self.flip * v, self.x0 + u)
 
     def rect(self, u0, u1, v0, v1):
-        return [self.g(u0, v0), self.g(u1, v0), self.g(u1, v1), self.g(u0, v1)]
+        if abs(u1 - u0) > 60.0:          # (a lot, a park, a beach: stretched with the blocks it spans)
+            return [self.g(u0, v0), self.g(u1, v0), self.g(u1, v1), self.g(u0, v1)]
+        d = self.ushift((u0 + u1) / 2)   # (a building's footprint: moved as a piece, its size kept)
+        return [self.g_raw(u0 + d, v0), self.g_raw(u1 + d, v0), self.g_raw(u1 + d, v1), self.g_raw(u0 + d, v1)]
 
     def rrect(self, uc, vc, w, d, ang):
         c, s = math.cos(ang), math.sin(ang)
+        uc += self.ushift(uc)
         pts = []
         for du, dv in ((-w / 2, -d / 2), (w / 2, -d / 2), (w / 2, d / 2), (-w / 2, d / 2)):
-            pts.append(self.g(uc + du * c - dv * s, vc + du * s + dv * c))
+            pts.append(self.g_raw(uc + du * c - dv * s, vc + du * s + dv * c))
         return pts
 
     def street(self, pts_uv, cls="street", name=""):
@@ -661,6 +707,8 @@ class Town:
     # --- building helpers --------------------------------------------------
     def grid(self, us, vs, mains=(), ext_u=None):
         ext_u = ext_u or {}
+        if self.block_room and self.ustretch is None:
+            self.ustretch = (sorted(us), self.block_room, STRETCH_BAND)
         for v in vs:
             u0, u1 = ext_u.get(v, (us[0], us[-1]))
             self.street([(u0, v), (u1, v)], "main" if v in mains else "street")
@@ -1122,6 +1170,7 @@ def coastal_town(site_name, tier, pop, founding, arche):
     t = Town(name, tier, pop, founding, arche, sc, sg * (line - ro), "s", sg, "down" if sg < 0 else "up")
     t.coastal = True
     t.water_v = ro          # the waterline, in v
+    t.block_room = 0.0      # (the waterfronts are drawn to their sites; Oceanview's motel rows ask for it back)
     return t
 
 
@@ -1211,6 +1260,7 @@ def build_oceanview():
     # Virginia Beach oceanfront: boardwalk, a continuous hotel wall, Atlantic Ave one block back
     t = coastal_town("Oceanview", "Town", 9800, "Resort / amusement", "West Coast boardwalk resort (Santa Cruz / Venice / Santa Monica)")
     t.density = 0.45
+    t.block_room = BLOCK_ROOM   # (two 53 m motels a block between cross streets)
     us = [-540 + 120 * i for i in range(10)]
     vs = [-55, -145, -235]
     t.grid(us, vs, mains=(-55,))
@@ -1356,6 +1406,7 @@ def build_port_tamsin():
     s0 = LAKE_S + 150
     te = float(water_edges(s0)[0])
     t = Town("Port Tamsin", "Town", 3400, "Lake resort", "Great Lakes bluff resort (Petoskey)", s0, te - 90, "s", 1, "up")
+    t.block_room = 0.0      # (a waterfront drawn to its site)
     t.coastal = True
     t.density = 0.6
     t.water_v = 90
@@ -1542,6 +1593,7 @@ def build_victory_bay():
     # Perry's Victory column on the isthmus, cottages, a winery, a lighthouse on the western point
     s0, x0 = LAKE_S - 706.0, -600.0                  # (on Perry Island, 706 m west of the lake's middle)
     t = Town("Victory Bay", "Village", 900, "Island resort", "Great Lakes island village (Put-in-Bay)", s0, x0, "s", 1, "up")
+    t.block_room = 0.0      # (a waterfront drawn to its site)
     t.coastal = True
     t.water_v = 45
     isle = chaikin([(-330, 60), (-360, -80), (-280, -250), (-120, -330), (80, -320), (240, -260),
@@ -1640,6 +1692,7 @@ def build_all():
 def build_calder():
     import calder as CAL
     t = Town("Calder", "Town", 7000, "Rail-founded", "Stable ag / the southland's hospital town", CAL.S0, CAL.X0, "s", -1, "up")
+    t.block_room = 0.0
     p = CAL.plan(lambda u, v: is_water(*t.g(u, v), buf=True))
     uv = lambda poly: [t.g(u, v) for u, v in poly]
     for st in p["streets"]:
@@ -1710,9 +1763,9 @@ for _t in TOWNS:
     for _st in _INV["structures"]:
         if _st["settlement"] != _t.name:
             continue
-        _t.bldgs.append((_inv_poly(_st, _ds, _dx), _st["kind"], False))
+        _t.bldgs.append((_t.nudge(_inv_poly(_st, _ds, _dx)), _st["kind"], False))
         for _pt in _st["parts"]:
-            _t.bldgs.append((_inv_poly(_pt, _ds, _dx), "silo", True))
+            _t.bldgs.append((_t.nudge(_inv_poly(_pt, _ds, _dx)), "silo", True))
 
 _TN = {t.name: t for t in TOWNS}
 add_harrow_falls_waterfront(_TN["Harrow Falls"])
@@ -2898,7 +2951,9 @@ if "--game-data" in sys.argv:
         for st_, poly in zip(by_town[t.name], mains):
             _ds = OLD_S0[t.name] * (SS - 1)
             _dx = (-WIDEN if t.x0 < 0 else WIDEN) + (t.x0 - t.x0_3km)
-            parts = [dict(pt_, s=round((pt_["s"] + _ds) % C, 1), x=round(pt_["x"] + _dx, 1), front_edge=None) for pt_ in st_["parts"]]
+            _pp = [(pt_["s"] + _ds, pt_["x"] + _dx) for pt_ in st_["parts"]]
+            _pp = [t.nudge([q])[0] for q in _pp]          # (with their place in the stretched grid, as the bldgs were)
+            parts = [dict(pt_, s=round(q[0] % C, 1), x=round(q[1], 1), front_edge=None) for pt_, q in zip(st_["parts"], _pp)]
             inv["structures"].append({**st_, **_ri(poly), "parts": parts})
     # a generated town (Calder): its structures under their generated ids, and each one's catalog record
     for t in TOWNS:
