@@ -35,6 +35,18 @@ var _lod1_queue: Array = []          # record indices waiting for their LOD1
 var _lod1_scenes := {}               # model -> PackedScene
 var _lod1_users := {}                # model -> records using it
 var _lod1_loading := {}              # model -> path
+# the merged LOD2 / LOD3 cells, a band of the ring at a time round the player (RemakeLodClusters.band_path)
+var parent_node: Node3D              # where the cells' meshes go
+var far_side: Node                   # RemakeFarSide: they're registered with it as they go in
+const KEEP_R := 2300.0               # m of s each way whose bands are kept (the far side is an image past FLAT_ARC)
+var _banded := false
+var _cell_by_key := {}               # key2 -> cell
+var _sb_nodes := {}                  # band -> [MeshInstance3D]
+var _sb_task := {}                   # band -> worker task
+var _sb_res := {}                    # band -> BakedMeshes waiting to go in
+var _sb_loaded := {}                 # band -> true once its cells are in
+var _sb_t := 0.0
+var bake_mode := false               # (FarsideBake: the merged cells drawn at every distance, no LOD1 / LOD0 streamed)
 
 
 func setup(p_target: Node3D, p_records: Array, p_cells := {}) -> void:
@@ -43,13 +55,17 @@ func setup(p_target: Node3D, p_records: Array, p_cells := {}) -> void:
 	for i in records.size():
 		if records[i].lod1 != null:
 			_active[i] = true
+	_banded = ResourceLoader.exists(RemakeLodClusters.band_path(0)) or ResourceLoader.exists(RemakeLodClusters.band_path(1))
 	for key in p_cells:
 		var c: Dictionary = p_cells[key]
 		var begin := INF
 		if c.node != null:
 			var mi := c.node as MeshInstance3D
 			begin = mi.visibility_range_begin + mi.visibility_range_begin_margin
-		_cells.append({"node": c.node, "recs": c.recs, "begin": begin, "on": false})
+		var cell := {"node": c.node, "recs": c.recs, "begin": begin, "on": false, "key": key,
+			"band": RemakeLodClusters.band_of_s(float((key as Vector2i).x) * RemakeLodClusters.CELL2 + 0.5)}
+		_cells.append(cell)
+		_cell_by_key[key] = cell
 
 
 func lod1_count() -> int:
@@ -58,10 +74,12 @@ func lod1_count() -> int:
 
 func lod1_pending() -> int:
 	## LOD1s wanted but not in yet (the loading screen waits for the ones round the player)
-	return _lod1_queue.size() if _checked else 1
+	return _lod1_queue.size() + (1 if bands_pending() else 0) if _checked else 1
 
 
 func _process(delta: float) -> void:
+	if _banded and parent_node != null:
+		_stream_bands(delta)
 	_finish_lod1()
 	# finish background loads -- one into the world a frame (a building's full model takes 8-30 ms to put in)
 	var attached := false
@@ -80,6 +98,9 @@ func _process(delta: float) -> void:
 	if _t > 0.0 or target == null:
 		return
 	_t = 0.5
+	if bake_mode:
+		_checked = true
+		return
 	var p := target.global_position
 	_check_cells(p)
 	_checked = true
@@ -110,7 +131,13 @@ func _check_cells(p: Vector3) -> void:
 	# a cell's LOD1s go in CELL_AHEAD m before its merged mesh hands over to them, out CELL_DROP m farther
 	for c in _cells:
 		var d := 0.0
-		if c.node != null:
+		if _banded and not _sb_loaded.has(c.band):
+			continue                                         # (its band isn't in: far off)
+		if c.node == null and c.get("nomesh", false):
+			# no merged mesh of its own: by its first building, from where a mesh would have handed over
+			d = p.distance_to(records[c.recs[0]].xform.origin)
+			c.begin = RemakeLodClusters.D2 + 110.0
+		elif c.node != null:
 			d = p.distance_to((c.node as MeshInstance3D).global_transform * (c.node as MeshInstance3D).get_aabb().get_center())
 		if not c.on and d < c.begin + CELL_AHEAD:
 			c.on = true
@@ -123,6 +150,104 @@ func _check_cells(p: Vector3) -> void:
 	# nearest first
 	if _lod1_queue.size() > 1:
 		_lod1_queue.sort_custom(func(a, b): return p.distance_squared_to(records[a].xform.origin) < p.distance_squared_to(records[b].xform.origin))
+
+
+func _stream_bands(delta: float) -> void:
+	## the merged cells of the bands within KEEP_R of the player in, the rest out
+	for k in _sb_res.keys():
+		var b: BakedMeshes = _sb_res[k]
+		_sb_res.erase(k)
+		var nodes := []
+		var n3 := {}
+		for i in b.keys.size():
+			var key: Array = b.keys[i]
+			if int(key[0]) == 3:
+				var mi := RemakeLodClusters.lod3_node(b.meshes[i], key[1])
+				if bake_mode:
+					mi.visible = false                       # (the LOD2 cells are drawn instead)
+				parent_node.add_child(mi)
+				n3[key[1]] = mi
+				nodes.append(mi)
+		var with2 := {}
+		for i in b.keys.size():
+			var key: Array = b.keys[i]
+			if int(key[0]) != 2:
+				continue
+			var mi := RemakeLodClusters.lod2_node(b.meshes[i], key[1])
+			parent_node.add_child(mi)
+			var p3: MeshInstance3D = n3.get(key[2])
+			if bake_mode:
+				mi.visibility_range_begin = 0.0
+				mi.visibility_range_begin_margin = 0.0
+			elif p3:
+				mi.visibility_parent = mi.get_path_to(p3)
+			nodes.append(mi)
+			with2[key[1]] = true
+			var c = _cell_by_key.get(key[1])
+			if c != null:
+				c.node = mi
+				c.begin = mi.visibility_range_begin + mi.visibility_range_begin_margin
+		for c in _cells:
+			if c.band == k and not with2.has(c.key):
+				c.nomesh = true
+		if far_side:
+			for mi in nodes:
+				far_side.add_node(mi)
+		_sb_nodes[k] = nodes
+		_sb_loaded[k] = true
+		return                                               # (a band a frame)
+	_sb_t -= delta
+	if _sb_t > 0.0 or target == null:
+		return
+	_sb_t = 0.5
+	var sp := StationGeo.s_of(target.global_position)
+	var want := {}
+	var u := sp - KEEP_R
+	while u <= sp + KEEP_R + RemakeLodClusters.STREAM_BAND:
+		want[RemakeLodClusters.band_of_s(minf(u, sp + KEEP_R))] = true
+		u += RemakeLodClusters.STREAM_BAND
+	for k in _sb_loaded.keys():
+		if want.has(k):
+			continue
+		for c in _cells:
+			if c.band == k:
+				if c.on:
+					c.on = false
+					for i in c.recs:
+						_drop_lod1(i)
+				c.node = null
+		for mi in _sb_nodes.get(k, []):
+			(mi as Node).queue_free()
+		_sb_nodes.erase(k)
+		_sb_loaded.erase(k)
+		if far_side and far_side.has_method("prune"):
+			far_side.prune()
+	for k in _sb_task.keys():
+		if WorkerThreadPool.is_task_completed(_sb_task[k]):
+			WorkerThreadPool.wait_for_task_completion(_sb_task[k])
+			_sb_task.erase(k)
+	for k in want:
+		if _sb_loaded.has(k) or _sb_task.has(k) or _sb_res.has(k):
+			continue
+		if not ResourceLoader.exists(RemakeLodClusters.band_path(k)):
+			_sb_loaded[k] = true                         # (a band without buildings)
+			continue
+		_sb_task[k] = WorkerThreadPool.add_task(_load_sband.bind(k), false, "structures band %d" % k)
+
+
+func _load_sband(k: int) -> void:
+	var b := BakedMeshes.load_all(RemakeLodClusters.band_path(k))
+	if b == null:
+		return
+	call_deferred("_sband_loaded", k, b)
+
+
+func _sband_loaded(k: int, b: BakedMeshes) -> void:
+	_sb_res[k] = b
+
+
+func bands_pending() -> bool:
+	return not _sb_task.is_empty() or not _sb_res.is_empty() or (_banded and _sb_loaded.is_empty())
 
 
 func _finish_lod1() -> void:

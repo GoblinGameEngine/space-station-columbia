@@ -51,6 +51,7 @@ func _ready() -> void:
 	MapWater.build_small(self)
 	var roads := MapRoads.new()
 	add_child(roads)
+	roads.target = probe                                   # (streamed round the probe: the whole ring's don't fit)
 	roads.setup()
 	var trees := MapTrees.new()
 	add_child(trees)
@@ -66,10 +67,20 @@ func _ready() -> void:
 	_bake(roads, trees, walks)
 
 
+var streamer: RemakeDetailStreamer
+
+
 func _bake(roads: MapRoads, trees: MapTrees, walks: CoastalWalks) -> void:
 	var tree := get_tree()
-	await RemakeWorld.build(world, [])
-	while roads.is_processing() or not trees.loaded() or walks.is_processing():
+	var info: Dictionary = await RemakeWorld.build(world, [])
+	# the merged district cells and the buildings' LOD1s come a band at a time round the probe, as round the player
+	streamer = RemakeDetailStreamer.new()
+	streamer.parent_node = world
+	streamer.bake_mode = true
+	add_child(streamer)
+	streamer.setup(probe, info.records, info.get("cells", {}))
+	while (roads._streaming and not roads.near_done) or (not roads._streaming and roads.is_processing()) or not trees.loaded() \
+			or walks.is_processing():
 		await tree.process_frame
 	var vp := SubViewport.new()
 	vp.size = Vector2i(TILE, TILE)
@@ -99,6 +110,12 @@ func _bake(roads: MapRoads, trees: MapTrees, walks: CoastalWalks) -> void:
 			terrain._update()
 			while terrain.busy():
 				await tree.process_frame
+			# and the streamed roads and buildings round it (by s: only a new column brings new bands)
+			if tx == 0:
+				for f in 2:
+					await tree.create_timer(0.6).timeout
+				while roads.bands_busy() or streamer.bands_pending():
+					await tree.process_frame
 			# straight down: screen right = +s, screen up = -x, looking along -up
 			var up := StationGeo.up(s)
 			var b := Basis(StationGeo.forward(s), -Vector3.RIGHT, up)

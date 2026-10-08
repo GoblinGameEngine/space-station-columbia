@@ -32,6 +32,7 @@ const VACANT_WHY := ["unfilled", "chute_shortage", "just_quit", "budget_cut", "o
 const DAYS := ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 static var _manifest := {}                           # town -> {buildings}
+static var _manifest_lru: Array = []
 static var _placement := {}                          # building id -> placement structure
 static var _town_of := {}                            # building id -> town
 static var _solved := {}                             # "seed|town" -> result
@@ -52,6 +53,14 @@ static func manifest(town: String) -> Dictionary:
 	if not _manifest.has(town):
 		var p := ROOMS + town + ".json"
 		_manifest[town] = (JSON.parse_string(FileAccess.get_file_as_string(p)) as Dictionary).get("buildings", {}) if FileAccess.file_exists(p) else {}
+		# (a city's manifest is ~56 MB of JSON, ~600 MB parsed: the least recently used go past max_solved)
+		_manifest_lru.erase(town)
+		_manifest_lru.append(town)
+		while _manifest_lru.size() > max_solved:
+			_manifest.erase(_manifest_lru.pop_front())
+	else:
+		_manifest_lru.erase(town)
+		_manifest_lru.append(town)
 	var m: Dictionary = _manifest[town]
 	_mutex.unlock()
 	return m
@@ -99,7 +108,7 @@ static func unit_door(bid: String, uid: String) -> Vector2:
 
 const CACHE := "res://remake/rooms/solved/"          # (bake_lives writes the settlements it solved, a file each, and
                                                      # _seed.json; a cache, never the authority)
-static var max_solved := 4                             # settlements' solutions held at once (a city's is ~100 MB in memory)
+static var max_solved := 2                             # settlements' solutions held at once (a city's is ~100 MB in memory)
 static var _cache_seed := -1
 static var _solved_lru: Array = []
 static var ignore_cache := false                     # (bake_lives: always solve afresh)

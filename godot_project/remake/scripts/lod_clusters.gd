@@ -55,6 +55,44 @@ static func stamp() -> String:
 
 
 const BAKE_BAND := 1200.0            # m of the ring merged at a time (a multiple of CELL2 and CELL3: no cell in two)
+# The merged cells are kept a band of the ring a file, streamed round the player by RemakeDetailStreamer: all of the
+# 1:1 station's (~8,600 meshes, ~1 GB of vertex buffers) at once ran the Deck out of memory (2026-10-08).  A band is a
+# multiple of BAKE_BAND, so a LOD2 cell and the LOD3 cell over it are always in the same file.
+const STREAM_BAND := 2400.0
+
+
+static func band_count() -> int:
+	return ceili(StationGeo.CIRC / STREAM_BAND)
+
+
+static func band_of_s(s: float) -> int:
+	return floori(fposmod(s, StationGeo.CIRC) / STREAM_BAND) % band_count()
+
+
+static func band_of_key(key: Array) -> int:
+	## a baked key [2, key2, key3] or [3, key3]: its cell's band (by where the cell starts round the ring)
+	var cell := (CELL2 if int(key[0]) == 2 else CELL3)
+	return band_of_s(float((key[1] as Vector2i).x) * cell + 0.5)
+
+
+static func band_path(k: int) -> String:
+	return "res://remake/baked/structures_b%02d.res" % k
+
+
+static func lod3_node(mesh: Mesh, key: Vector2i) -> MeshInstance3D:
+	var mi := _commit(mesh, "lod3_%s" % str(key))
+	var r := _radius(mi)
+	mi.visibility_range_begin = D3 + r
+	mi.visibility_range_begin_margin = (D3 + r) * MARGIN
+	return mi
+
+
+static func lod2_node(mesh: Mesh, key: Vector2i) -> MeshInstance3D:
+	var mi := _commit(mesh, "lod2_%s" % str(key))
+	var r := _radius(mi)
+	mi.visibility_range_begin = D2 + r
+	mi.visibility_range_begin_margin = (D2 + r) * MARGIN
+	return mi
 
 
 static func bake(parent: Node3D, entries: Array) -> BakedMeshes:

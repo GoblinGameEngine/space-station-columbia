@@ -132,6 +132,8 @@ func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 	# settlement's people in turn, 10-50 MB each, round the 1:1 station -- NpcLife keeps MAX_SHARDS of them)
 	if NpcPlaces.dist(home, _here) > TRIP_REACH:
 		return {}
+	if not _life.is_loaded(pid):
+		return _parked(home, v)              # (a town whose people aren't in: its cars stay home rather than load them all)
 	var P := _life.person(pid)
 	if P.is_empty():
 		return _parked(home, v)

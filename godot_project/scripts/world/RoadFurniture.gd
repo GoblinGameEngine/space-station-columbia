@@ -58,6 +58,8 @@ func setup() -> void:
 	if not FileAccess.file_exists("res://remake/road_furniture.json"):
 		return
 	_d = JSON.parse_string(FileAccess.get_file_as_string("res://remake/road_furniture.json"))
+	for k in ["ctx", "jn", "dup", "lines", "bars", "decals"]:
+		_d.erase(k)                                     # (the roads' and TrafficSigns' parts: not kept twice)
 	var atlas := StandardMaterial3D.new()
 	atlas.albedo_texture = load("res://remake/textures/road_signs.png")
 	atlas.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
@@ -71,7 +73,15 @@ func setup() -> void:
 	_mats["concrete"] = _solid(Color(0.62, 0.61, 0.58), 0.9)
 	_mats["steel"] = _solid(Color(0.42, 0.4, 0.38), 0.4, 0.9)
 	MapTerrain.elevation(0.0, 0.0)
-	_task = WorkerThreadPool.add_task(_build_all, false, "road furniture")
+	# built a band of the ring at a time round the player (the whole 1:1 station's signs, ~233,000, were ~340 MB of
+	# vertex buffers and tens of thousands of meshes, 2026-10-08)
+	for key in ["signs", "xings", "signals"]:
+		var arr: Array = _d.get(key, [])
+		for i in arr.size():
+			var k := _band_of(float(arr[i].s))
+			if not _band_items.has(k):
+				_band_items[k] = {"signs": [], "xings": [], "signals": []}
+			_band_items[k][key].append(i)
 	set_process(true)
 
 
@@ -84,13 +94,86 @@ func _solid(c: Color, rough: float, metal := 0.0) -> StandardMaterial3D:
 	return m
 
 
+const BAND := 2400.0
+const KEEP_R := 1600.0                 # m of s each way whose bands are built (FAR, the far side past FLAT_ARC)
+var _band_items := {}                  # band -> {signs, xings, signals: [index]}
+var _band_nodes := {}                  # band -> [MeshInstance3D]
+var _band_labels := {}                 # band -> [label cell]
+var _band_building := -1
+var _band_queue: Array = []
+var _band_t := 0.0
+
+
+func _band_of(s: float) -> int:
+	return floori(fposmod(s, StationGeo.CIRC) / BAND) % ceili(StationGeo.CIRC / BAND)
+
+
+func _build_band(k: int) -> void:
+	## (worker) a band's furniture into _out and _labels
+	_cells.clear()
+	var it: Dictionary = _band_items.get(k, {})
+	var signs: Array = _d.get("signs", [])
+	for i in it.get("signs", []):
+		if not _removed.has(i):
+			_sign(signs[i])
+	for i in it.get("xings", []):
+		_xing(_d.xings[i])
+	for i in it.get("signals", []):
+		_signal(_d.signals[i])
+	var out := []
+	for key in _cells:
+		var arr := (_cells[key] as SurfaceTool).commit_to_arrays()
+		if arr[Mesh.ARRAY_VERTEX] != null and (arr[Mesh.ARRAY_VERTEX] as PackedVector3Array).size() > 0:
+			out.append([key, arr])
+	_cells.clear()
+	_out = out
+
+
 func _process(delta: float) -> void:
 	if _task >= 0:
 		if not WorkerThreadPool.is_task_completed(_task):
 			return
 		WorkerThreadPool.wait_for_task_completion(_task)
 		_task = -1
+		var before := get_child_count()
+		var lab_before := _label_grid.keys()
 		_commit()
+		var made := []
+		for i in range(before, get_child_count()):
+			made.append(get_child(i))
+		_band_nodes[_band_building] = made
+		var lab := []
+		for key in _label_grid:
+			if not lab_before.has(key):
+				lab.append(key)
+		_band_labels[_band_building] = lab
+		_band_building = -1
+	if _task < 0 and not _band_queue.is_empty():
+		_band_building = _band_queue.pop_front()
+		_task = WorkerThreadPool.add_task(_build_band.bind(_band_building), false, "road furniture band")
+	_band_t -= delta
+	if _band_t <= 0.0 and target != null:
+		_band_t = 0.5
+		var sp := StationGeo.s_of(target.global_position)
+		var want := {}
+		var u := sp - KEEP_R
+		while u <= sp + KEEP_R + BAND:
+			want[_band_of(minf(u, sp + KEEP_R))] = true
+			u += BAND
+		for k in _band_nodes.keys():
+			if want.has(k):
+				continue
+			for n in _band_nodes[k]:
+				if is_instance_valid(n):
+					(n as Node).queue_free()
+			_band_nodes.erase(k)
+			for key in _band_labels.get(k, []):
+				_label_grid.erase(key)
+			_band_labels.erase(k)
+		for k in want:
+			if _band_nodes.has(k) or _band_queue.has(k) or k == _band_building or not _band_items.has(k):
+				continue
+			_band_queue.append(k)
 	_label_t -= delta
 	if _label_t > 0.0 or target == null:
 		return
@@ -350,6 +433,11 @@ func remove_sign(i: int) -> void:
 	if i < 0 or i >= signs.size() or _removed.has(i):
 		return
 	_removed[i] = true
+	if _task >= 0:
+		WorkerThreadPool.wait_for_task_completion(_task)        # (a band building shares _cells: let it finish first)
+		_task = -1
+		_commit()
+		_band_building = -1
 	var cell := _cell_of(float(signs[i].s), float(signs[i].x))
 	_cells.clear()
 	for k in signs.size():

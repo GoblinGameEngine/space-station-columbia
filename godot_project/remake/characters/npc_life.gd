@@ -16,7 +16,7 @@ class_name NpcLife
 
 const PATH := "res://remake/characters/lives/_index.json"   # the seed, the settlements, the bicycle homes
 const DIR := "res://remake/characters/lives/"                # a file per settlement: <Name_With_Underscores>.json
-const MAX_SHARDS := 4                                        # settlements' people held at once (the 1:1 station has
+const MAX_SHARDS := 2                                        # settlements' people held at once (the 1:1 station has
                                                              # 218,000: a city's are ~50 MB of JSON, ~500 MB in memory)
 const HOURS := {                                   # occupation hours column -> (start, end)
 	"day": Vector2(9.0, 17.0), "early": Vector2(6.0, 14.0), "evening": Vector2(16.0, 24.0),
@@ -128,6 +128,11 @@ func _evict(sh: String) -> void:
 	for k in _cache.keys():
 		if gone.has(str(k).get_slice("|", 0)):
 			_cache.erase(k)
+
+
+func is_loaded(pid: String) -> bool:
+	## is this person's settlement in memory (without loading it)
+	return people.has(pid)
 
 
 func has_person(pid: String) -> bool:

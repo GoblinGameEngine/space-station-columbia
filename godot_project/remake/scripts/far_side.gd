@@ -65,6 +65,12 @@ func add_node(n: Node3D) -> void:
 	_sorted = false
 
 
+func prune() -> void:
+	## drop the entries whose nodes are gone (streamed meshes freed with their band)
+	_entries = _entries.filter(func(e): return is_instance_valid(e[0]))
+	_sorted = false
+
+
 func add_children_of(parent: Node, skip: Callable = Callable()) -> void:
 	for c in parent.get_children():
 		if c is Node3D and (not skip.is_valid() or not skip.call(c)):

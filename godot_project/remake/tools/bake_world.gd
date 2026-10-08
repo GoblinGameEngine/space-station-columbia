@@ -18,11 +18,20 @@ func _initialize() -> void:
 	var what := OS.get_cmdline_user_args()
 	var all := what.is_empty()
 	if all or what.has("roads"):
-		var t0 := Time.get_ticks_msec()
+		# a file per band of the ring (MapRoads streams them round the player)
 		var r := MapRoads.new()
-		var b := r.bake()
+		for k in MapRoads.BAND_N:
+			var t0 := Time.get_ticks_msec()
+			var b := r.bake_band(k)
+			_save(b, MapRoads.band_path(k), "roads band %d" % k, t0)
 		r.free()
-		_save(b, MapRoads.BAKED, "roads", t0)
+		var i := 0                                             # (the single file the whole ring's roads were)
+		while true:
+			var old := MapRoads.BAKED if i == 0 else BakedMeshes.part_path(MapRoads.BAKED, i)
+			if not FileAccess.file_exists(old):
+				break
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(old))
+			i += 1
 	if all or what.has("pads"):
 		var t0 := Time.get_ticks_msec()
 		var n := MapTerrain.bake_pads()
@@ -54,7 +63,26 @@ func _initialize() -> void:
 		root.add_child(holder)
 		var b: BakedMeshes = await RemakeLodClusters.bake(holder, RemakeWorld.entries_for([]))
 		holder.queue_free()
-		_save(b, RemakeLodClusters.BAKED, "structures", t0)
+		# the size classes in the one file, the merged cells a band of the ring each (RemakeDetailStreamer streams them)
+		var bands := {}
+		for i in b.keys.size():
+			var k := RemakeLodClusters.band_of_key(b.keys[i])
+			if not bands.has(k):
+				var bb := BakedMeshes.new()
+				bb.stamp = b.stamp
+				bands[k] = bb
+			bands[k].keys.append(b.keys[i])
+			bands[k].meshes.append(b.meshes[i])
+		var meta := BakedMeshes.new()
+		meta.stamp = b.stamp
+		meta.data = b.data
+		_save(meta, RemakeLodClusters.BAKED, "structures (size classes)", t0)
+		for k in RemakeLodClusters.band_count():
+			var path := RemakeLodClusters.band_path(k)
+			if bands.has(k):
+				_save(bands[k], path, "structures band %d" % k, t0)
+			elif FileAccess.file_exists(path):
+				DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 	quit()
 
 

@@ -82,6 +82,11 @@ func setup(near := Vector2(INF, INF)) -> void:
 	dm.cull_mode = BaseMaterial3D.CULL_DISABLED
 	dm.roughness = 0.7
 	_mats["decal"] = dm
+	if ResourceLoader.exists(band_path(0)):
+		# baked a band of the ring a file: only the bands near the player are loaded (_stream)
+		_streaming = true
+		set_process(true)
+		return
 	if ResourceLoader.exists(BAKED):
 		_task = WorkerThreadPool.add_task(_load_baked, false, "roads (baked)")
 	else:
@@ -120,6 +125,149 @@ func _load_baked() -> void:
 	load_data()
 	_pass = 1
 	_build_all()
+
+
+# -- streaming by band ------------------------------------------------------------------------------------------
+# The 1:1 station's roads are ~13,000 meshes, ~4 GB of vertex buffers: past the Deck's memory (2026-10-08).  Beyond
+# RemakeFarSide.FLAT_ARC the far side is drawn as an image anyway, so only the bands within KEEP_R of the player are kept.
+const BAND_N := 24
+const KEEP_R := 2300.0               # m of s each way whose bands are kept (FLAT_ARC + the far side's hysteresis + a margin)
+const COMMIT_PER_FRAME := 48
+var target: Node3D                   # whose surroundings are kept (the player)
+var far_side: Node                   # RemakeFarSide: the band's meshes are registered as they go in
+var _streaming := false
+var _bands := {}                     # band -> Node3D holding its meshes
+var _band_task := {}                 # band -> worker task loading its file
+var _band_res := {}                  # band -> BakedMeshes loaded, waiting to go in
+var _band_t := 0.0
+
+
+static func band_path(k: int) -> String:
+	return "res://remake/baked/roads_b%02d.res" % k
+
+
+static func band_of(s: float) -> int:
+	return floori(fposmod(s, StationGeo.CIRC) / (StationGeo.CIRC / BAND_N)) % BAND_N
+
+
+func _wanted(sp: float) -> Dictionary:
+	var w := {}
+	var bw := StationGeo.CIRC / BAND_N
+	var u := sp - KEEP_R
+	while u <= sp + KEEP_R + bw:
+		w[band_of(minf(u, sp + KEEP_R))] = true
+		u += bw
+	return w
+
+
+func _stream(delta: float) -> void:
+	# bands loaded: in, a few meshes a frame
+	for k in _band_res.keys():
+		var b: BakedMeshes = _band_res[k]
+		var holder: Node3D = _bands.get(k)
+		if holder == null:
+			holder = Node3D.new()
+			holder.name = "band_%02d" % k
+			add_child(holder)
+			_bands[k] = holder
+		var n := 0
+		var start: int = holder.get_meta("next", 0)
+		var i := start
+		while i < b.keys.size() and n < (100000 if StationGeo.loading else COMMIT_PER_FRAME):
+			var key: Array = b.keys[i]
+			var mi := _mesh_instance(key, b.meshes[i])
+			holder.add_child(mi)
+			if far_side:
+				far_side.add_node(mi)
+			i += 1
+			n += 1
+		holder.set_meta("next", i)
+		if i >= b.keys.size():
+			_band_res.erase(k)
+		return                                             # (one band's batch a frame)
+	for k in _band_task.keys():
+		if WorkerThreadPool.is_task_completed(_band_task[k]):
+			WorkerThreadPool.wait_for_task_completion(_band_task[k])
+			_band_task.erase(k)
+	_band_t -= delta
+	if _band_t > 0.0 or target == null:
+		return
+	_band_t = 0.5
+	var want := _wanted(StationGeo.s_of(target.global_position))
+	for k in _bands.keys():
+		if not want.has(k):
+			(_bands[k] as Node).queue_free()
+			_bands.erase(k)
+			_band_res.erase(k)
+			if far_side and far_side.has_method("prune"):
+				far_side.prune()
+	var pending := false
+	for k in want:
+		if _bands.has(k) or _band_res.has(k) or _band_task.has(k):
+			pending = pending or _band_res.has(k) or _band_task.has(k)
+			continue
+		pending = true
+		_band_task[k] = WorkerThreadPool.add_task(_load_band.bind(k), false, "roads band %d" % k)
+	if not pending and _band_res.is_empty():
+		near_done = true
+
+
+func bands_busy() -> bool:
+	## bands of the roads round the target still loading or going in
+	return not _band_task.is_empty() or not _band_res.is_empty()
+
+
+func _load_band(k: int) -> void:
+	## (worker) a band's baked meshes
+	var b := BakedMeshes.load_all(band_path(k))
+	if b == null or b.stamp != stamp():
+		push_warning("MapRoads: band %d's bake is of other map data (rerun remake/tools/bake_world.gd roads)" % k)
+		return
+	call_deferred("_band_loaded", k, b)
+
+
+func _band_loaded(k: int, b: BakedMeshes) -> void:
+	_band_res[k] = b
+
+
+func _mesh_instance(key: Array, mesh: ArrayMesh) -> MeshInstance3D:
+	mesh.surface_set_material(0, _mats[key[1]])
+	var mi := MeshInstance3D.new()
+	mi.name = "roads_%d_%d_%s" % [key[0].x, key[0].y, key[1]]
+	if FINE.has(key[1]):
+		mi.name += "_f"
+	mi.mesh = mesh
+	var far := FAR
+	if key[1] in ["paint_w", "paint_y", "decal"]:
+		far = PAINT_FAR
+	elif key[1] in ["kerb", "shoulder"]:
+		far = KERB_FAR
+	mi.visibility_range_end = far
+	mi.visibility_range_end_margin = far * 0.08
+	if far < FAR:
+		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	return mi
+
+
+func bake_band(k: int) -> BakedMeshes:
+	## one band's roads (remake/tools/bake_world.gd roads: every band, each saved to band_path(k))
+	if _roads.is_empty():
+		load_data()
+	_near = Vector2(INF, INF)
+	_pass = 0
+	var b := BakedMeshes.new()
+	b.stamp = stamp()
+	var bw := StationGeo.CIRC / BAND_N
+	_band = Vector2(bw * k, bw * (k + 1))
+	_build_all()
+	for job in _out:
+		var m := ArrayMesh.new()
+		m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, job[1])
+		b.keys.append(job[0])
+		b.meshes.append(m)
+	_out.clear()
+	_band = Vector2(-1.0, -1.0)
+	return b
 
 
 func bake() -> BakedMeshes:
@@ -169,6 +317,9 @@ func _build_all() -> void:
 
 
 func _process(_delta: float) -> void:
+	if _streaming:
+		_stream(_delta)
+		return
 	if _task < 0 or not WorkerThreadPool.is_task_completed(_task):
 		return
 	WorkerThreadPool.wait_for_task_completion(_task)

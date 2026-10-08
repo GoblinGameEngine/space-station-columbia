@@ -67,6 +67,8 @@ func _ready() -> void:
 	var roads := MapRoads.new()
 	roads.name = "Roads"
 	add_child(roads)
+	roads.target = player
+	roads.far_side = far_side
 	roads.setup(Vector2(StationGeo.s_of(player.global_position), player.global_position.x))
 	_mark("roads setup")
 	var furniture := RoadFurniture.new()
@@ -170,7 +172,7 @@ func _watch_load() -> void:
 	var waiting := {
 		"terrain (all tiers)": func() -> bool: return terrain._far_todo.is_empty() and not terrain.busy(),
 		"trees": func() -> bool: return (get_node("Trees") as MapTrees).loaded(),
-		"roads": func() -> bool: return not get_node("Roads").is_processing(),
+		"roads": func() -> bool: return (get_node("Roads") as MapRoads).near_done,
 		"walks": func() -> bool: return not get_node("Walks").is_processing(),
 		"mountains": func() -> bool: return (get_node("CapMountains") as CapMountains).loaded(),
 		"cloud skins": func() -> bool: return (get_node("Clouds") as RemakeClouds)._skin_task == -1,
@@ -387,6 +389,8 @@ static func _neutral_detail(path: String) -> ImageTexture:
 func _place_structures() -> void:
 	## Not awaited: the structures fill in a building per frame while the game runs.
 	var info: Dictionary = await RemakeWorld.build(world, SETTLEMENTS)
+	streamer.parent_node = world
+	streamer.far_side = far_side
 	streamer.setup(player, info.records, info.get("cells", {}))
 	# the far side draws them flat (RemakeFarSide): every merged district mesh and ordinary
 	# building, the trees and roads -- not the landmarks
@@ -395,10 +399,11 @@ func _place_structures() -> void:
 		if r.landmark:
 			landmarks[r.root] = true
 	far_side.add_children_of(world, func(n: Node) -> bool: return landmarks.has(n))
-	while not (get_node("Trees") as MapTrees).loaded() or get_node("Roads").is_processing() or get_node("Walks").is_processing():
+	while not (get_node("Trees") as MapTrees).loaded() or not (get_node("Roads") as MapRoads).near_done or get_node("Walks").is_processing():
 		await get_tree().process_frame
 	far_side.add_children_of(get_node("Trees"))
-	far_side.add_children_of(get_node("Roads"))
+	if not (get_node("Roads") as MapRoads)._streaming:
+		far_side.add_children_of(get_node("Roads"))           # (streamed bands register their meshes as they go in)
 	far_side.add_children_of(get_node("Walks"), func(n: Node) -> bool: return n is StaticBody3D)
 	info.erase("records")
 	info.erase("cells")
