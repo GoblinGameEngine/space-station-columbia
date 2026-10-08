@@ -23,7 +23,7 @@ static func scan(max_report := 60, spans: Array = []) -> Dictionary:
 		var rd: Dictionary = roads[ri]
 		if rd.cls == "rail":
 			continue
-		var pts: Array = rd.pts
+		var pts: PackedVector2Array = rd.pts
 		var lane: float = float(rd.w) * 0.25
 		var prev_h := NAN
 		var hist := []                           # the last few heights, for the grade over a car's length
@@ -67,7 +67,7 @@ static func _on_bridge(p: Vector2, spans: Array) -> bool:
 	for sp in spans:
 		if GreatBridges.off_line(sp, fposmod(p.x, StationGeo.CIRC), p.y) < float(sp.hw) + 3.0:
 			return true
-	for bd in MapTerrain._grid.get(Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / MapTerrain.CELL), floori(p.y / MapTerrain.CELL)), []):
+	for bd in MapTerrain._items(Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / MapTerrain.CELL), floori(p.y / MapTerrain.CELL))):
 		if bd[0] != "bridge":
 			continue
 		var b: Array = MapTerrain._bridges[bd[1]]
@@ -89,22 +89,23 @@ static func explain(s: float, x: float) -> Dictionary:
 	var pg := MapTerrain._pad_grade(s, x, base)
 	var rg := MapTerrain._road_grade(s, x, pg)
 	var roads := []
-	for it in MapTerrain._grid.get(Vector2i(floori(s / MapTerrain.CELL), floori(x / MapTerrain.CELL)), []):
+	for it in MapTerrain._items(Vector2i(floori(s / MapTerrain.CELL), floori(x / MapTerrain.CELL))):
 		if it[0] == "road":
 			var rd: Dictionary = MapTerrain._d.roads[it[1]]
-			var q: Array = rd.pts[it[2]]
-			var r: Array = rd.pts[it[2] + 1]
-			var pr := MapTerrain._seg_proj(s, x, q[0], q[1], r[0], r[1])
-			if pr.x < float(rd.w) * 0.5 + 3.0:
-				var zp: PackedFloat32Array = rd.zp
-				var cum: PackedFloat32Array = rd.cum
-				var u: float = lerpf(cum[it[2]], cum[it[2] + 1], pr.y) / 4.0
-				var k := clampi(floori(u), 0, zp.size() - 1)
-				roads.append([it[1], rd.cls, str(rd.get("name", rd.get("town", ""))), snappedf(pr.x, 0.1), snappedf(zp[k] if zp.size() else NAN, 0.01)])
+			for kk in range(it[2], it[3]):             # (an entry is a run of segments: MapTerrain.ROAD_RUN)
+				var q: Vector2 = rd.pts[kk]
+				var r: Vector2 = rd.pts[kk + 1]
+				var pr := MapTerrain._seg_proj(s, x, q[0], q[1], r[0], r[1])
+				if pr.x < float(rd.w) * 0.5 + 3.0:
+					var zp: PackedFloat32Array = rd.zp
+					var cum: PackedFloat32Array = rd.cum
+					var u: float = lerpf(cum[kk], cum[kk + 1], pr.y) / 4.0
+					var k := clampi(floori(u), 0, zp.size() - 1)
+					roads.append([it[1], rd.cls, str(rd.get("name", rd.get("town", ""))), snappedf(pr.x, 0.1), snappedf(zp[k] if zp.size() else NAN, 0.01)])
 		elif it[0] == "bridge":
 			roads.append(["crossing", it[1], MapTerrain._bridges[it[1]][8]])
 		elif it[0] == "pad":
-			roads.append(["pad", snappedf(MapTerrain._pads[it[1]][8], 0.01)])
+			roads.append(["pad", snappedf(MapTerrain._pads[it[1]* MapTerrain.PAD_N + 8], 0.01)])
 	return {"elev": snappedf(MapTerrain.elevation(s, x), 0.01), "base": snappedf(base, 0.01), "pad": snappedf(pg, 0.01),
 		"road": [snappedf(rg.x, 0.01), snappedf(rg.y, 0.01)], "water": MapTerrain.water_at(s, x),
 		"small": snappedf(MapTerrain._small_depth(s, x), 0.01), "near": roads}

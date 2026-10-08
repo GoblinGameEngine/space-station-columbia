@@ -28,7 +28,7 @@ static func build(root: Node3D, settlements: Array) -> Dictionary:
 
 static func entries_for(settlements: Array) -> Array:
 	## every placed structure: where it stands and which LOD cells it falls in
-	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json")).structures
+	var pl: Array = Placement.entries()
 	var entries := []
 	for e in pl:
 		var group: String = e.settlement if e.settlement != null else ("farms" if e.kind == "farm" else "crossings")

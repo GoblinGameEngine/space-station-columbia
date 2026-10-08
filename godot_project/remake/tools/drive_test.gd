@@ -237,7 +237,7 @@ static func street_routes(every := 1, max_len := 1000.0) -> Array:
 
 
 static func _point_on(rd: Dictionary, u: float) -> Vector2:
-	var rp: Array = rd.pts
+	var rp: PackedVector2Array = rd.pts
 	var cum: PackedFloat32Array = rd.cum
 	var k := 0
 	while k < rp.size() - 2 and cum[k + 1] < u:
@@ -259,7 +259,7 @@ static func _road_through(c: Vector2, reach: float) -> Array:
 	for i in roads.size():
 		if roads[i].cls == "rail":
 			continue
-		var pts: Array = roads[i].pts
+		var pts: PackedVector2Array = roads[i].pts
 		for k in pts.size() - 1:
 			var pr := MapTerrain._seg_proj(c.x, c.y, pts[k][0], pts[k][1], pts[k + 1][0], pts[k + 1][1])
 			if pr.x < best:
@@ -269,7 +269,7 @@ static func _road_through(c: Vector2, reach: float) -> Array:
 				tt = pr.y
 	if ri < 0:
 		return []
-	var rp: Array = roads[ri].pts
+	var rp: PackedVector2Array = roads[ri].pts
 	var cum: PackedFloat32Array = roads[ri].cum
 	var u0: float = lerpf(cum[seg], cum[seg + 1], tt)
 	var out := []

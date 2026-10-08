@@ -115,9 +115,9 @@ func _process(delta: float) -> void:
 
 func _check(i: int, sp: float) -> void:
 	var e: Array = _entries[i]
+	if not is_instance_valid(e[0]):
+		return                                           # (a streamed mesh freed with its band)
 	var nd: Node3D = e[0]
-	if not is_instance_valid(nd):
-		return
 	var d := absf(StationGeo.wrap_ds(e[1] - sp))
 	var far: bool = d > FLAT_ARC + (-HYST if e[2] else HYST)
 	if far != e[2]:

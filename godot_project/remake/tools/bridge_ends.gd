@@ -63,18 +63,19 @@ static func _road_at(p: Vector2, rail := false) -> Array:
 	var best := 15.0
 	var tang := Vector2.ZERO
 	var s := fposmod(p.x, StationGeo.CIRC)
-	for it in MapTerrain._grid.get(Vector2i(floori(s / MapTerrain.CELL), floori(p.y / MapTerrain.CELL)), []):
+	for it in MapTerrain._items(Vector2i(floori(s / MapTerrain.CELL), floori(p.y / MapTerrain.CELL))):
 		if it[0] != "road":
 			continue
 		var rd: Dictionary = MapTerrain._d.roads[it[1]]
 		if (rd.cls == "rail") != rail:
 			continue
-		var a: Array = rd.pts[it[2]]
-		var b: Array = rd.pts[it[2] + 1]
-		var pr := MapTerrain._seg_proj(s, p.y, a[0], a[1], b[0], b[1])
-		if pr.x < best:
-			best = pr.x
-			tang = Vector2(StationGeo.wrap_ds(b[0] - a[0]), b[1] - a[1]).normalized()
+		for k in range(it[2], it[3]):                  # (an entry is a run of segments: MapTerrain.ROAD_RUN)
+			var a: Vector2 = rd.pts[k]
+			var b: Vector2 = rd.pts[k + 1]
+			var pr := MapTerrain._seg_proj(s, p.y, a[0], a[1], b[0], b[1])
+			if pr.x < best:
+				best = pr.x
+				tang = Vector2(StationGeo.wrap_ds(b[0] - a[0]), b[1] - a[1]).normalized()
 	return [] if tang == Vector2.ZERO else [best, tang]
 
 

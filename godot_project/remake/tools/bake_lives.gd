@@ -248,9 +248,12 @@ func _initialize() -> void:
 			bikes.append(home)
 	var counts := {}
 	for sh in shards:
-		var f := FileAccess.open(OUT_DIR + sh + ".json", FileAccess.WRITE)
+		var f := FileAccess.open(OUT_DIR + sh + ".json", FileAccess.WRITE)      # (the tools read the JSON)
 		f.store_string(JSON.stringify({"seed": seed, "people": shards[sh]}))
 		f.close()
+		var fb := FileAccess.open(OUT_DIR + sh + ".bin", FileAccess.WRITE)       # (the game reads the packed columns)
+		fb.store_var(NpcLife.compact(shards[sh], seed))
+		fb.close()
 		counts[sh] = shards[sh].size()
 	var fi := FileAccess.open(NpcLife.PATH, FileAccess.WRITE)
 	fi.store_string(JSON.stringify({"_about": "Everyone's home, workplace, school and regular places, a file per settlement (tools: remake/tools/bake_lives.gd). NpcLife reads them.",

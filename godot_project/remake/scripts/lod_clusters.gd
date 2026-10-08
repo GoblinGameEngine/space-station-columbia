@@ -33,7 +33,7 @@ const MARGIN := 0.08                 # hysteresis at each switch, a fraction of 
 ## A coroutine (one building per frame) -- await it; returns {"buildings", "cells2", "cells3", "landmarks"}.
 const BAKED := "res://remake/baked/structures.res"
 const BAKE_VERSION := 3              # bump when the merge's output changes (3: heights above grade; landmarks tall or bridges)
-const LOD0_MAX := 90.0               # full detail (interiors, doors, lights) never past this, however big (Calder:
+const LOD0_MAX := 55.0               # full detail (interiors, doors, lights) never past this, however big (Calder:
                                      # a strip centre's 158k-triangle LOD0 was drawn 160 m off, 2026-10-06)
 
 
@@ -59,6 +59,43 @@ const BAKE_BAND := 1200.0            # m of the ring merged at a time (a multipl
 # 1:1 station's (~8,600 meshes, ~1 GB of vertex buffers) at once ran the Deck out of memory (2026-10-08).  A band is a
 # multiple of BAKE_BAND, so a LOD2 cell and the LOD3 cell over it are always in the same file.
 const STREAM_BAND := 2400.0
+
+
+# The LOD2 cells are drawn only within D3 (past it their LOD3 cell is), yet a band held every one of its LOD2 cells for
+# its 2.4 km of s and the ring's 22 km of x: 160 MB of a city's 420 (2026-10-08).  They're baked apart (split_band) into
+# tiles of TILE2 cells a side, a file per band and tile, and RemakeDetailStreamer loads only those near the player.
+const TILE2 := 4                     # CELL2 cells a tile's side: 600 m (a band is 4 tiles of s: none straddles two bands)
+
+
+static func tile2_of(key2: Vector2i) -> Vector2i:
+	return Vector2i(floori(key2.x / float(TILE2)), floori(key2.y / float(TILE2)))
+
+
+static func tile2_path(k: int, t: Vector2i) -> String:
+	return "res://remake/baked/structures_t/b%02d_%d_%d.res" % [k, t.x, t.y]
+
+
+static func split_band(b: BakedMeshes) -> Array:
+	## [the band's LOD3 cells (data.tiles2: its tiles with LOD2 cells), {tile: BakedMeshes of its LOD2 cells}]
+	var b3 := BakedMeshes.new()
+	b3.stamp = b.stamp
+	var tiles := {}
+	for i in b.keys.size():
+		var key: Array = b.keys[i]
+		if int(key[0]) == 3:
+			b3.keys.append(key)
+			b3.meshes.append(b.meshes[i])
+			continue
+		var tk := tile2_of(key[1])
+		var tb: BakedMeshes = tiles.get(tk)
+		if tb == null:
+			tb = BakedMeshes.new()
+			tb.stamp = b.stamp
+			tiles[tk] = tb
+		tb.keys.append(key)
+		tb.meshes.append(b.meshes[i])
+	b3.data = {"tiles2": tiles.keys()}
+	return [b3, tiles]
 
 
 static func band_count() -> int:

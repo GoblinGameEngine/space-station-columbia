@@ -52,8 +52,10 @@ func _ready() -> void:
 	var roads := MapRoads.new()
 	add_child(roads)
 	roads.target = probe                                   # (streamed round the probe: the whole ring's don't fit)
+	roads.fine_everywhere = true                           # (the bands' kerbs, walks and paint whole, not only near it)
 	roads.setup()
 	var trees := MapTrees.new()
+	trees.target = probe
 	add_child(trees)
 	trees.setup()
 	var walks := CoastalWalks.new()
@@ -114,7 +116,7 @@ func _bake(roads: MapRoads, trees: MapTrees, walks: CoastalWalks) -> void:
 			if tx == 0:
 				for f in 2:
 					await tree.create_timer(0.6).timeout
-				while roads.bands_busy() or streamer.bands_pending():
+				while roads.bands_busy() or streamer.bands_pending() or trees.busy():
 					await tree.process_frame
 			# straight down: screen right = +s, screen up = -x, looking along -up
 			var up := StationGeo.up(s)

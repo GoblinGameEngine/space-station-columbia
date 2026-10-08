@@ -1477,7 +1477,7 @@ func _refresh_map() -> void:
 		_map_tex = _map_overview
 	if _towns.is_empty() and FileAccess.file_exists("res://remake/placement.json"):
 		var acc := {}
-		for e in JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json")).structures:
+		for e in Placement.entries():
 			if e.settlement == null:
 				continue
 			if not acc.has(e.settlement):

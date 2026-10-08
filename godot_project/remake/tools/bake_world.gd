@@ -20,10 +20,10 @@ func _initialize() -> void:
 	if all or what.has("roads"):
 		# a file per band of the ring (MapRoads streams them round the player)
 		var r := MapRoads.new()
+		_clear_fine()
 		for k in MapRoads.BAND_N:
 			var t0 := Time.get_ticks_msec()
-			var b := r.bake_band(k)
-			_save(b, MapRoads.band_path(k), "roads band %d" % k, t0)
+			_save_split(r.bake_band(k), k, t0)
 		r.free()
 		var i := 0                                             # (the single file the whole ring's roads were)
 		while true:
@@ -32,8 +32,23 @@ func _initialize() -> void:
 				break
 			DirAccess.remove_absolute(ProjectSettings.globalize_path(old))
 			i += 1
+	if what.has("roads_split"):
+		# the band files as they are, their fine detail moved out to tiles (MapRoads.split_band)
+		_clear_fine()
+		for k in MapRoads.BAND_N:
+			var t0 := Time.get_ticks_msec()
+			var b := BakedMeshes.load_all(MapRoads.band_path(k))
+			if b == null or not b.keys.any(func(key): return MapRoads.FINE.has(key[1])):
+				push_error("roads band %d: missing, or split already (no fine detail in it): rebake the roads" % k)
+				continue
+			_save_split(b, k, t0)
 	if all or what.has("pads"):
 		var t0 := Time.get_ticks_msec()
+		MapTerrain.bake_bin()
+		RoadFurniture.bake_bin()
+		Placement.bake_bin()
+		NpcPlaces.bake_bin()
+		NpcTraffic.bake_fleet()
 		var n := MapTerrain.bake_pads()
 		print("BAKED pads: %d in %.1f s -> %s" % [n, (Time.get_ticks_msec() - t0) / 1000.0, MapTerrain.PADS_BAKED])
 	if all or what.has("terrain"):
@@ -47,7 +62,30 @@ func _initialize() -> void:
 		var tr := MapTrees.new()
 		var b := tr.bake()
 		tr.free()
-		_save(b, MapTrees.BAKED, "trees", t0)
+		# a file per band of the ring (MapTrees streams them round the player)
+		var cells: Dictionary = b.data.cells
+		var bands := {}
+		for c in cells:
+			var k := MapTrees.band_of(float(c.x) * MapTrees.CELL + 1.0)
+			if not bands.has(k):
+				bands[k] = {}
+			bands[k][c] = cells[c]
+		for k in MapTrees.band_count():
+			var path := MapTrees.band_path(k)
+			if bands.has(k):
+				var bb := BakedMeshes.new()
+				bb.stamp = b.stamp
+				bb.data["cells"] = bands[k]
+				_save(bb, path, "trees band %d" % k, t0)
+			elif FileAccess.file_exists(path):
+				DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+		var i := 0                                             # (the single file the whole ring's trees were)
+		while true:
+			var old := MapTrees.BAKED if i == 0 else BakedMeshes.part_path(MapTrees.BAKED, i)
+			if not FileAccess.file_exists(old):
+				break
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(old))
+			i += 1
 	if all or what.has("walks"):
 		var t0 := Time.get_ticks_msec()
 		var cw := CoastalWalks.new()
@@ -77,16 +115,63 @@ func _initialize() -> void:
 		meta.stamp = b.stamp
 		meta.data = b.data
 		_save(meta, RemakeLodClusters.BAKED, "structures (size classes)", t0)
+		_clear_dir("res://remake/baked/structures_t")
 		for k in RemakeLodClusters.band_count():
 			var path := RemakeLodClusters.band_path(k)
 			if bands.has(k):
-				_save(bands[k], path, "structures band %d" % k, t0)
+				_save_sband(bands[k], k, t0)
 			elif FileAccess.file_exists(path):
 				DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	if what.has("structures_split"):
+		# the band files as they are, their LOD2 cells moved out to tiles (RemakeLodClusters.split_band)
+		_clear_dir("res://remake/baked/structures_t")
+		for k in RemakeLodClusters.band_count():
+			if ResourceLoader.exists(RemakeLodClusters.band_path(k)):
+				var b := BakedMeshes.load_all(RemakeLodClusters.band_path(k))
+				if b.data.has("tiles2"):
+					push_error("structures band %d is split already: rebake the structures" % k)
+					continue
+				_save_sband(b, k, Time.get_ticks_msec())
 	quit()
 
 
+func _clear_fine() -> void:
+	_clear_dir("res://remake/baked/roads_f")
+
+
+func _clear_dir(res_dir: String) -> void:
+	## the tile files of an earlier bake (b<band>_<tile>.res)
+	var dir := ProjectSettings.globalize_path(res_dir)
+	DirAccess.make_dir_recursive_absolute(dir)
+	for f in DirAccess.get_files_at(dir):
+		if f.begins_with("b") and (f.ends_with(".res") or f.ends_with(".res.import")):
+			DirAccess.remove_absolute(dir.path_join(f))
+
+
+func _save_sband(b: BakedMeshes, k: int, t0: int) -> void:
+	var sp := RemakeLodClusters.split_band(b)
+	_save(sp[0], RemakeLodClusters.band_path(k), "structures band %d" % k, t0)
+	for tk in sp[1]:
+		var e := ResourceSaver.save(sp[1][tk], RemakeLodClusters.tile2_path(k, tk), ResourceSaver.FLAG_COMPRESS)
+		if e != OK:
+			push_error("structures tile %s: %s" % [tk, error_string(e)])
+	print("  band %d: %d LOD2 tiles" % [k, (sp[1] as Dictionary).size()])
+
+
+func _save_split(b: BakedMeshes, k: int, t0: int) -> void:
+	var sp := MapRoads.split_band(b)
+	_save(sp[0], MapRoads.band_path(k), "roads band %d" % k, t0)
+	var n := 0
+	for tk in sp[1]:
+		var e := ResourceSaver.save(sp[1][tk], MapRoads.fine_path(k, tk), ResourceSaver.FLAG_COMPRESS)
+		if e != OK:
+			push_error("roads tile %s: %s" % [tk, error_string(e)])
+		n += 1
+	print("  band %d: %d fine tiles" % [k, n])
+
+
 func _save(b: BakedMeshes, path: String, what: String, t0: int) -> void:
+	b.data.erase("_parts")                                 # (a count of its own parts, set below if it needs them)
 	var err := ResourceSaver.save(b, path, ResourceSaver.FLAG_COMPRESS)
 	# too big for one file: in parts of ~BakedMeshes.PART_MB each (BakedMeshes.load_all)
 	var mb := FileAccess.get_file_as_bytes(path).size() / 1048576.0

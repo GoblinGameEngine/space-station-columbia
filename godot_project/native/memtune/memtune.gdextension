@@ -1,0 +1,9 @@
+[configuration]
+
+entry_symbol = "ssc_memtune_init"
+compatibility_minimum = "4.1"
+
+[libraries]
+
+linux.x86_64 = "res://native/memtune/libssc_memtune.linux.x86_64.so"
+linux.arm64 = "res://native/memtune/libssc_memtune.linux.arm64.so"

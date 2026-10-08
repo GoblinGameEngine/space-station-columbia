@@ -61,6 +61,7 @@ func _ready() -> void:
 	_mark("small water")
 	var trees := MapTrees.new()
 	trees.name = "Trees"
+	trees.target = player
 	add_child(trees)
 	trees.setup()
 	_mark("trees setup")
@@ -162,8 +163,21 @@ var _aero_done := false
 func _mark(label: String) -> void:
 	## The load timeline: each startup step's cost (printed; see _watch_load for the rest).
 	var now := Time.get_ticks_msec()
-	print("LOAD %-24s %6d ms   (t=%d)" % [label, now - _t_mark, now])
+	print("LOAD %-24s %6d ms   (t=%d)   %s" % [label, now - _t_mark, now, mem_line()])
 	_t_mark = now
+
+
+static func mem_line() -> String:
+	## static (engine's own allocations), video (buffers + textures), the process's resident set
+	var rss := 0.0
+	var f := FileAccess.open("/proc/self/statm", FileAccess.READ)
+	if f:
+		var parts := f.get_line().split(" ")
+		if parts.size() > 1:
+			rss = float(parts[1]) * 4096.0 / 1048576.0
+	return "static %5.0f MB  vram %5.0f MB (buf %4.0f tex %4.0f)  rss %5.0f MB" % [
+		Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0, Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED) / 1048576.0,
+		Performance.get_monitor(Performance.RENDER_BUFFER_MEM_USED) / 1048576.0, Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED) / 1048576.0, rss]
 
 
 func _watch_load() -> void:
@@ -195,10 +209,10 @@ func _watch_load() -> void:
 		worst = maxf(worst, get_process_delta_time())
 		for k in waiting.keys():
 			if waiting[k].call():
-				print("LOAD %-24s done at t=%d  (%d ms after ready)" % [k, Time.get_ticks_msec(), Time.get_ticks_msec() - t0])
+				print("LOAD %-24s done at t=%d  (%d ms after ready)   %s" % [k, Time.get_ticks_msec(), Time.get_ticks_msec() - t0, mem_line()])
 				waiting.erase(k)
 	_hide_splash()
-	print("LOAD complete: %d frames, worst frame %.0f ms, t=%d" % [frames, worst * 1000.0, Time.get_ticks_msec()])
+	print("LOAD complete: %d frames, worst frame %.0f ms, t=%d   %s" % [frames, worst * 1000.0, Time.get_ticks_msec(), mem_line()])
 
 
 var _splash: CanvasLayer
@@ -267,11 +281,14 @@ func _place_ground_vehicles() -> void:
 	root.name = "GroundVehicles"
 	root.player = player
 	add_child(root)
+	var make_van := func(): return RemakeVan.new()
+	var make_wagon := func(): return RemakeWagon.new()
+	var make_pod := func(): return RemakePod.new()
 	for a in d.groundcars:
 		var s: float = a.s
 		var x: float = a.x
-		var mk := (func(): return RemakeVan.new()) if a.kind == "van" else ((func(): return RemakeWagon.new()) if a.kind == "wagon" else (func(): return RemakePod.new()))
-		root.add(str(a.id), mk, Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x))))
+		var mk: Callable = make_van if a.kind == "van" else (make_wagon if a.kind == "wagon" else make_pod)
+		root.add(str(a.id), mk, Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x)), true)
 	root.build_near(player.global_position)
 	print("RemakeStation: %d ground vehicles parked (%d built near the player)" % [d.groundcars.size(), root.live_count()])
 	_cars_done = true
@@ -289,10 +306,7 @@ func _place_bicycles() -> void:
 	if not FileAccess.file_exists(NpcLife.PATH):
 		return
 	var life := NpcLife.shared()
-	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
-	var by_id := {}
-	for b in st.structures:
-		by_id[b.id] = b
+	var make_bike := func(): return RemakeBicycle.new()     # (one constructor for all of them, not a closure each)
 	var root := VehicleStreamer.new()
 	root.name = "Bicycles"
 	root.player = player
@@ -304,7 +318,7 @@ func _place_bicycles() -> void:
 	# (the homes with one by the door come baked in the lives index: a resident 10-75 who keeps a bike, about a third
 	# of them, and two homes in three park it out front -- bake_lives.gd; walking all 218,000 people here would load them all)
 	for home in life.bikes:
-		var b: Dictionary = by_id.get(str(home).split("/")[0], {})
+		var b: Dictionary = Placement.entry_of(str(home).split("/")[0])
 		if b.is_empty():
 			continue
 		var door := NpcHouseholds.door(b)
@@ -315,8 +329,8 @@ func _place_bicycles() -> void:
 		var p := door + right * side * 1.3 - front * 0.45
 		# parallel to the facade, leaning on its kickstand
 		var heading := atan2(-right.y * side, right.x * side)
-		root.add("Bike_%s" % str(home).replace("/", "_"), func(): return RemakeBicycle.new(),
-			Transform3D(StationGeo.basis(p.x, heading), StationGeo.point(p.x, p.y, MapTerrain.elevation(p.x, p.y))))
+		root.add("Bike_%s" % str(home).replace("/", "_"), make_bike,
+			Transform3D(StationGeo.basis(p.x, heading), StationGeo.point(p.x, p.y)), true)   # (on the ground: when built)
 		n += 1
 		if Time.get_ticks_usec() - t0 > 4000:
 			await get_tree().process_frame
@@ -348,10 +362,11 @@ func _place_aerostats() -> void:
 	root.impostor = bal
 	root.impostor_lift = Vector3(0, AEROSTAT_BALLOON_Y, 0)
 	add_child(root)
+	var make_aerostat := func(): return RemakeAerostat.new()
 	for a in d.aerostats:
 		var s: float = a.s
 		var x: float = a.x
-		root.add(str(a.id), func(): return RemakeAerostat.new(), Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x))))
+		root.add(str(a.id), make_aerostat, Transform3D(StationGeo.basis(s, a.yaw), StationGeo.point(s, x, MapTerrain.elevation(s, x))))
 	root.build_near(player.global_position)
 	print("RemakeStation: %d aerostats parked (%d built near the player)" % [d.aerostats.size(), root.live_count()])
 	_aero_done = true

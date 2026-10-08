@@ -117,10 +117,9 @@ static func _cam() -> Camera3D:
 
 # ------------------------------------------------------------------ the things
 static func _placement() -> Dictionary:
-	if _pl.is_empty() and FileAccess.file_exists("res://remake/placement.json"):
-		for e in JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json")).structures:
-			_pl[str(e.id)] = e
-	return _pl
+	## (Placement keeps the one packed copy; this is no longer a Dictionary of every entry)
+	Placement.load_all()
+	return {}
 
 
 static func entities(cats: Array = CATS, s0 := NAN, x0 := NAN, r := INF) -> Array:
@@ -138,7 +137,7 @@ static func entities(cats: Array = CATS, s0 := NAN, x0 := NAN, r := INF) -> Arra
 			var at: Vector3 = (root as Node3D).global_position if root != null and is_instance_valid(root) else (rec.xform as Transform3D).origin
 			if not keep.call(at):
 				continue
-			var p: Dictionary = pl.get(str(rec.id), {})
+			var p: Dictionary = Placement.entry_of(str(rec.id))
 			var state := "full" if st._loaded.has(i) else "lod1" if rec.lod1 != null else "district mesh (LOD1 not streamed in)"
 			if root != null and is_instance_valid(root) and not (root as Node3D).visible:
 				state = "far-side image"
@@ -151,7 +150,8 @@ static func entities(cats: Array = CATS, s0 := NAN, x0 := NAN, r := INF) -> Arra
 			var vs = sc.get_node_or_null(nm)
 			if vs == null:
 				continue
-			for rec in vs.records:
+			for vi in vs.count():
+				var rec: Dictionary = vs.record(vi)
 				var n = rec.node
 				var pos: Vector3 = (n as Node3D).global_position if n != null and is_instance_valid(n) else (rec.xf as Transform3D).origin
 				if not keep.call(pos):
@@ -306,9 +306,10 @@ static func find(text: String) -> String:
 				break
 	# not in the scene: the placement record
 	if lines.is_empty():
-		for id in _placement():
+		for pi in Placement.count():
+			var id := Placement.id(pi)
 			if t in id.to_lower():
-				var p: Dictionary = _pl[id]
+				var p: Dictionary = Placement.entry(pi)
 				lines.append("structure %s (%s %s) s %.1f x %.1f yaw %.2f -- placed, not in the scene" % [id, p.kind, str(p.get("settlement", "")), p.s, p.x, p.yaw])
 				if lines.size() >= 40:
 					break
@@ -320,7 +321,7 @@ static func _roads_near(s: float, x: float) -> Array:
 	MapTerrain._load()
 	if _road_grid.is_empty():
 		for rd in MapTerrain._d.roads:
-			var pts: Array = rd.pts
+			var pts: PackedVector2Array = rd.pts
 			var hw := maxf(float(rd.get("hl", float(rd.get("w", 6.0)) / 2.0)), float(rd.get("hr", float(rd.get("w", 6.0)) / 2.0)))
 			for k in pts.size() - 1:
 				var a := Vector2(float(pts[k][0]), float(pts[k][1]))
@@ -366,12 +367,13 @@ static func ground(s: float, x: float) -> String:
 			"ON it" if r0[0] <= r0[1] else "off it by %.1f m" % (r0[0] - r0[1])])
 	var best := ""
 	var bd := INF
-	for id in _placement():
-		var p: Dictionary = _pl[id]
-		var d := Vector2(StationGeo.wrap_ds(float(p.s) - s), float(p.x) - x).length()
+	Placement.load_all()
+	for pi in Placement.count():
+		var id := Placement.id(pi)
+		var d := Vector2(StationGeo.wrap_ds(Placement.s(pi) - s), Placement.x(pi) - x).length()
 		if d < bd:
 			bd = d
-			best = "%s (%s, %s)" % [id, p.kind, str(p.get("settlement", ""))]
+			best = "%s (%s, %s)" % [id, Placement.kind(pi), Placement.settlement(pi)]
 	lines.append("nearest structure: %s, %.0f m" % [best, bd])
 	return "\n".join(lines)
 

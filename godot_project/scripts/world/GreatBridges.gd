@@ -278,7 +278,7 @@ func _carried_road(a: Vector2, b: Vector2, rail: bool) -> Dictionary:
 
 func _nearest_on(rd: Dictionary, p: Vector2) -> Vector2:
 	## (distance, arc length) of the point of road rd nearest p
-	var pts: Array = rd.pts
+	var pts: PackedVector2Array = rd.pts
 	var cum: PackedFloat32Array = rd.cum
 	var best := Vector2(INF, 0.0)
 	for k in pts.size() - 1:
@@ -290,7 +290,7 @@ func _nearest_on(rd: Dictionary, p: Vector2) -> Vector2:
 
 static func _road_point(rd: Dictionary, u: float) -> Vector2:
 	## road rd at arc length u (past either end, straight on along its last segment)
-	var pts: Array = rd.pts
+	var pts: PackedVector2Array = rd.pts
 	var cum: PackedFloat32Array = rd.cum
 	var n := pts.size()
 	var k := 0

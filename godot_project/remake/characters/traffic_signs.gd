@@ -18,10 +18,16 @@ const AMBER := 4.0
 const ALL_RED := 2.0
 
 static var _loaded := false
-static var _signs := {}                  # id -> sign
-static var _grid := {}                   # Vector2i -> [sign id]
-static var _bars: Array = []             # [{c (s, x), across (s, x) unit, half}]
-static var _bar_grid := {}
+# (packed: 233,000 signs and 76,000 stop bars as Dictionaries were ~200 MB on the 1:1 map, 2026-10-08; a sign or bar
+# is made a Dictionary only when a driver's query returns it)
+static var _s_t := PackedStringArray()   # id - 1 -> type ("" : gone)
+static var _s_p := PackedVector2Array()
+static var _s_face := PackedVector2Array()
+static var _grid := {}                   # Vector2i -> PackedInt32Array of sign ids
+static var _b_c := PackedVector2Array()  # the bars: centre, unit across, half length
+static var _b_across := PackedVector2Array()
+static var _b_half := PackedFloat32Array()
+static var _bar_grid := {}               # Vector2i -> PackedInt32Array of bar indices
 static var _signals: Array = []          # [{p, arms [Vector2], phases [[arm index]]}]
 static var _sig_grid := {}
 static var _lines := {}                  # Vector2i -> [[a, b, kind ("solid"/"dashed")]]
@@ -35,24 +41,31 @@ static func load_all() -> void:
 	if _loaded:
 		return
 	_loaded = true
-	if not FileAccess.file_exists("res://remake/road_furniture.json"):
+	var d: Dictionary = RoadFurniture.data()                 # (the packed copy RoadFurniture keeps)
+	if d.is_empty():
 		return
-	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/road_furniture.json"))
-	for s in d.get("signs", []):
-		add_sign(str(s.t), Vector2(float(s.s), float(s.x)), float(s.yaw))
-	for b in d.get("bars", []):
-		var q: Array = b.q
-		var p0 := Vector2(float(q[0][0]), float(q[0][1]))
-		var p1 := Vector2(float(q[1][0]), float(q[1][1]))
-		var p2 := Vector2(float(q[2][0]), float(q[2][1]))
-		var p3 := Vector2(float(q[3][0]), float(q[3][1]))
+	var strs: PackedStringArray = d.str
+	var sgs: PackedFloat64Array = d.sg_s
+	var sgx: PackedFloat64Array = d.sg_x
+	var sgy: PackedFloat32Array = d.sg_yaw
+	var sgt: PackedInt32Array = d.sg_t
+	for i in sgs.size():
+		add_sign(strs[sgt[i]], Vector2(sgs[i], sgx[i]), sgy[i])
+	var bq: PackedVector2Array = d.bar_q
+	for bi in bq.size() / 4:
+		var p0 := bq[bi * 4]
+		var p1 := bq[bi * 4 + 1]
+		var p2 := bq[bi * 4 + 2]
+		var p3 := bq[bi * 4 + 3]
 		var c := (p0 + p1 + p2 + p3) * 0.25
 		var e1 := _d(p0, p1)
 		var e2 := _d(p1, p2)
 		var across := e1 if e1.length() > e2.length() else e2           # the bar's long side
-		var bar := {"c": Vector2(fposmod(c.x, StationGeo.CIRC), c.y), "across": across.normalized(), "half": across.length() * 0.5}
-		_bars.append(bar)
-		_put(_bar_grid, bar.c, _bars.size() - 1)
+		var bc := Vector2(fposmod(c.x, StationGeo.CIRC), c.y)
+		_b_c.append(bc)
+		_b_across.append(across.normalized())
+		_b_half.append(across.length() * 0.5)
+		_put_i(_bar_grid, bc, _b_c.size() - 1)
 	for g in d.get("signals", []):
 		var arms: Array = []
 		for a in g.arms:
@@ -76,14 +89,19 @@ static func load_all() -> void:
 	# centre lines: yellow, dashed (passing allowed) or solid / double (no passing)
 	MapTerrain._load()
 	var roads: Array = MapTerrain._d.roads
-	for l in d.get("lines", []):
-		if str(l.c) != "y":
+	var ln: Dictionary = d.lines
+	var yi := -1
+	for i in strs.size():
+		if strs[i] == "y":
+			yi = i
+	for li in (ln.r as PackedInt32Array).size():
+		if ln.c[li] != yi:
 			continue
-		var r: Dictionary = roads[int(l.r)]
-		var pts: Array = r.pts
-		var kind := "dashed" if l.has("dash") else "solid"
-		var off := float(l.off)
-		for k in range(int(l.a), mini(int(l.b), pts.size() - 1)):
+		var r: Dictionary = roads[ln.r[li]]
+		var pts: PackedVector2Array = r.pts
+		var kind := "solid" if is_nan(ln.dash[li]) else "dashed"
+		var off: float = ln.off[li]
+		for k in range(ln.a[li], mini(ln.b[li], pts.size() - 1)):
 			var a := Vector2(float(pts[k][0]), float(pts[k][1]))
 			var b := Vector2(float(pts[k + 1][0]), float(pts[k + 1][1]))
 			var t := _d(a, b).normalized()
@@ -91,13 +109,12 @@ static func load_all() -> void:
 			_put_seg(a + n, b + n, kind)
 	# junctions: where three or more ways meet, from the road network
 	NpcPlaces.load_all()
-	for i in NpcPlaces._adj.size():
-		if (NpcPlaces._adj[i] as Array).size() >= 3:
-			var nd: Array = NpcPlaces._paths.nodes[i]
-			var jp := Vector2(float(nd[0]), float(nd[1]))
+	for i in NpcPlaces.node_count():
+		if NpcPlaces.degree(i) >= 3:
+			var jp: Vector2 = NpcPlaces._pn[i]
 			_junctions.append(jp)
 			_put(_jn_grid, jp, _junctions.size() - 1)
-	print("TrafficSigns: %d signs, %d stop bars, %d signals, %d crossings, %d junctions" % [_signs.size(), _bars.size(), _signals.size(), _xings.size(), _junctions.size()])
+	print("TrafficSigns: %d signs, %d stop bars, %d signals, %d crossings, %d junctions" % [_s_t.size(), _b_c.size(), _signals.size(), _xings.size(), _junctions.size()])
 
 
 # -- edits ------------------------------------------------------------------------------------------
@@ -105,25 +122,34 @@ static func load_all() -> void:
 static func add_sign(t: String, p: Vector2, yaw: float) -> int:
 	var id := _next_id
 	_next_id += 1
-	var s := {"id": id, "t": t, "p": Vector2(fposmod(p.x, StationGeo.CIRC), p.y), "face": Vector2(cos(yaw), -sin(yaw))}
-	_signs[id] = s
-	_put(_grid, s.p, id)
+	var q := Vector2(fposmod(p.x, StationGeo.CIRC), p.y)
+	_s_t.append(t)
+	_s_p.append(q)
+	_s_face.append(Vector2(cos(yaw), -sin(yaw)))
+	_put_i(_grid, q, id)
 	return id
 
 
+static func _sign(id: int) -> Dictionary:
+	return {"id": id, "t": _s_t[id - 1], "p": _s_p[id - 1], "face": _s_face[id - 1]}
+
+
 static func remove_sign(id: int) -> void:
-	var s: Dictionary = _signs.get(id, {})
-	if s.is_empty():
+	if id < 1 or id > _s_t.size() or _s_t[id - 1] == "":
 		return
-	var k := _cell(s.p)
+	var k := _cell(_s_p[id - 1])
 	if _grid.has(k):
-		(_grid[k] as Array).erase(id)
-	_signs.erase(id)
+		var a: PackedInt32Array = _grid[k]
+		var i := a.find(id)
+		if i >= 0:
+			a.remove_at(i)
+			_grid[k] = a
+	_s_t[id - 1] = ""
 
 
 static func set_sign(id: int, t: String) -> void:
-	if _signs.has(id):
-		_signs[id].t = t
+	if id >= 1 and id <= _s_t.size() and _s_t[id - 1] != "":
+		_s_t[id - 1] = t
 
 
 # -- what a driver sees -----------------------------------------------------------------------------
@@ -131,19 +157,18 @@ static func set_sign(id: int, t: String) -> void:
 static func signs_near(p: Vector2, r: float) -> Array:
 	var out: Array = []
 	for k in _cells(p, r):
-		for id in _grid.get(k, []):
-			var s: Dictionary = _signs[id]
-			if NpcPlaces.dist(s.p, p) <= r:
-				out.append(s)
+		for id in _grid.get(k, PackedInt32Array()):
+			if NpcPlaces.dist(_s_p[id - 1], p) <= r:
+				out.append(_sign(id))
 	return out
 
 
 static func bars_near(p: Vector2, r: float) -> Array:
 	var out: Array = []
 	for k in _cells(p, r):
-		for i in _bar_grid.get(k, []):
-			if NpcPlaces.dist(_bars[i].c, p) <= r:
-				out.append(_bars[i])
+		for i in _bar_grid.get(k, PackedInt32Array()):
+			if NpcPlaces.dist(_b_c[i], p) <= r:
+				out.append({"c": _b_c[i], "across": _b_across[i], "half": _b_half[i]})
 	return out
 
 
@@ -227,6 +252,15 @@ static func _cells(p: Vector2, r: float) -> Array:
 		for dy in range(-n, n + 1):
 			out.append(Vector2i(posmod(c.x + dx, wrap), c.y + dy))
 	return out
+
+
+static func _put_i(g: Dictionary, p: Vector2, v: int) -> void:
+	var k := _cell(p)
+	if not g.has(k):
+		g[k] = PackedInt32Array()
+	var a: PackedInt32Array = g[k]
+	a.append(v)
+	g[k] = a
 
 
 static func _put(g: Dictionary, p: Vector2, v: Variant) -> void:

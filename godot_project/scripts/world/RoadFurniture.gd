@@ -54,12 +54,107 @@ var _mats := {}
 var _flash: Array = []                 # crossing lamps: none flash until trains run
 
 
+# -- the furniture data, packed --------------------------------------------------------------------------------
+# road_furniture.json is ~35 MB, ~500 MB parsed (233,000 signs, 76,000 stop bars, 69,000 line runs: 2026-10-08), and
+# TrafficSigns read it too.  One packed copy for both (road_furniture.bin, baked by bake_world.gd pads); a sign is a
+# Dictionary again only while its band is being built.
+const SRC := "res://remake/road_furniture.json"
+const BIN := "res://remake/road_furniture.bin"
+static var _C: Dictionary = {}
+
+
+static func data() -> Dictionary:
+	if _C.is_empty():
+		if FileAccess.file_exists(BIN):
+			var f := FileAccess.open(BIN, FileAccess.READ)
+			var d = f.get_var()
+			f.close()
+			if typeof(d) == TYPE_DICTIONARY and str(d.get("_stamp", "")) == _stamp():
+				_C = d
+		if _C.is_empty() and FileAccess.file_exists(SRC):
+			_C = _compact(JSON.parse_string(FileAccess.get_file_as_string(SRC)))
+	return _C
+
+
+static func _stamp() -> String:
+	return BakedMeshes.fingerprint([SRC], 1)
+
+
+static func bake_bin() -> void:
+	var d := _compact(JSON.parse_string(FileAccess.get_file_as_string(SRC)))
+	d["_stamp"] = _stamp()
+	var f := FileAccess.open(BIN, FileAccess.WRITE)
+	f.store_var(d)
+	f.close()
+
+
+static func _compact(j: Dictionary) -> Dictionary:
+	var strs := PackedStringArray()
+	var sidx := {}
+	var intern := func(v) -> int:
+		if v == null:
+			return -1
+		var k := str(v)
+		if not sidx.has(k):
+			sidx[k] = strs.size()
+			strs.append(k)
+		return sidx[k]
+	var sg_s := PackedFloat64Array()
+	var sg_x := PackedFloat64Array()
+	var sg_yaw := PackedFloat32Array()
+	var sg_h := PackedFloat32Array()
+	var sg_t := PackedInt32Array()
+	var sg_txt := PackedInt32Array()
+	var sg_plate := PackedInt32Array()
+	for g in j.get("signs", []):
+		sg_s.append(float(g.s))
+		sg_x.append(float(g.x))
+		sg_yaw.append(float(g.yaw))
+		sg_h.append(float(g.get("h", 2.4)))
+		sg_t.append(intern.call(g.t))
+		sg_txt.append(intern.call(g.get("txt")))
+		sg_plate.append(intern.call(g.get("plate")))
+	var bar_q := PackedVector2Array()
+	var bar_c := PackedInt32Array()
+	for b in j.get("bars", []):
+		for q in b.q:
+			bar_q.append(Vector2(float(q[0]), float(q[1])))
+		bar_c.append(intern.call(b.get("c")))
+	var ln := {"r": PackedInt32Array(), "a": PackedInt32Array(), "b": PackedInt32Array(), "off": PackedFloat32Array(),
+		"w": PackedFloat32Array(), "c": PackedInt32Array(), "dash": PackedFloat32Array()}
+	for l in j.get("lines", []):
+		ln.r.append(int(l.r))
+		ln.a.append(int(l.a))
+		ln.b.append(int(l.b))
+		ln.off.append(float(l.off))
+		ln.w.append(float(l.get("w", 0.1)))
+		ln.c.append(intern.call(l.c))
+		ln.dash.append(1.0 if l.has("dash") else NAN)                # (dashed or not: the pattern is the roads' business)
+	return {"str": strs, "sg_s": sg_s, "sg_x": sg_x, "sg_yaw": sg_yaw, "sg_h": sg_h, "sg_t": sg_t, "sg_txt": sg_txt,
+		"sg_plate": sg_plate, "bar_q": bar_q, "bar_c": bar_c, "lines": ln, "xings": j.get("xings", []),
+		"signals": j.get("signals", []), "decals": j.get("decals", [])}
+
+
+static func sign_count() -> int:
+	return (data().get("sg_s", PackedFloat64Array()) as PackedFloat64Array).size()
+
+
+static func sign_dict(i: int) -> Dictionary:
+	var d := data()
+	var strs: PackedStringArray = d.str
+	var g := {"t": strs[d.sg_t[i]], "s": d.sg_s[i], "x": d.sg_x[i], "yaw": d.sg_yaw[i], "h": d.sg_h[i]}
+	if d.sg_txt[i] >= 0:
+		g["txt"] = strs[d.sg_txt[i]]
+	if d.sg_plate[i] >= 0:
+		g["plate"] = strs[d.sg_plate[i]]
+	return g
+
+
 func setup() -> void:
 	if not FileAccess.file_exists("res://remake/road_furniture.json"):
 		return
-	_d = JSON.parse_string(FileAccess.get_file_as_string("res://remake/road_furniture.json"))
-	for k in ["ctx", "jn", "dup", "lines", "bars", "decals"]:
-		_d.erase(k)                                     # (the roads' and TrafficSigns' parts: not kept twice)
+	var cd := data()
+	_d = {"xings": cd.xings, "signals": cd.signals}            # (the signs stay packed: sign_dict)
 	var atlas := StandardMaterial3D.new()
 	atlas.albedo_texture = load("res://remake/textures/road_signs.png")
 	atlas.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
@@ -73,12 +168,19 @@ func setup() -> void:
 	_mats["concrete"] = _solid(Color(0.62, 0.61, 0.58), 0.9)
 	_mats["steel"] = _solid(Color(0.42, 0.4, 0.38), 0.4, 0.9)
 	MapTerrain.elevation(0.0, 0.0)
-	# built a band of the ring at a time round the player (the whole 1:1 station's signs, ~233,000, were ~340 MB of
-	# vertex buffers and tens of thousands of meshes, 2026-10-08)
-	for key in ["signs", "xings", "signals"]:
+	# built a tile at a time round the player (the whole 1:1 station's signs, ~233,000, were ~340 MB of vertex buffers
+	# and tens of thousands of meshes; a band of the ring 2.4 km by the ring's 22 km, still 90 MB -- 2026-10-08)
+	var sgs: PackedFloat64Array = cd.sg_s
+	var sgx: PackedFloat64Array = cd.sg_x
+	for i in sgs.size():
+		var k := _band_of(sgs[i], sgx[i])
+		if not _band_items.has(k):
+			_band_items[k] = {"signs": [], "xings": [], "signals": []}
+		_band_items[k].signs.append(i)
+	for key in ["xings", "signals"]:
 		var arr: Array = _d.get(key, [])
 		for i in arr.size():
-			var k := _band_of(float(arr[i].s))
+			var k := _band_of(float(arr[i].s), float(arr[i].x))
 			if not _band_items.has(k):
 				_band_items[k] = {"signs": [], "xings": [], "signals": []}
 			_band_items[k][key].append(i)
@@ -94,28 +196,38 @@ func _solid(c: Color, rough: float, metal := 0.0) -> StandardMaterial3D:
 	return m
 
 
-const BAND := 2400.0
-const KEEP_R := 1600.0                 # m of s each way whose bands are built (FAR, the far side past FLAT_ARC)
-var _band_items := {}                  # band -> {signs, xings, signals: [index]}
-var _band_nodes := {}                  # band -> [MeshInstance3D]
-var _band_labels := {}                 # band -> [label cell]
-var _band_building := -1
+# ("bands" below are tiles of TILE cells a side: everything here is drawn to FAR at most)
+const TILE := 2                        # CELLs a tile's side: 800 m
+const KEEP_R := 700.0                  # m to a tile's edge: built within this (FAR and a margin)
+const FREE_R := 1000.0                 #   and freed past this
+var _band_items := {}                  # tile -> {signs, xings, signals: [index]}
+var _band_nodes := {}                  # tile -> [MeshInstance3D]
+var _band_labels := {}                 # tile -> [label cell]
+var _band_building = null
 var _band_queue: Array = []
 var _band_t := 0.0
 
 
-func _band_of(s: float) -> int:
-	return floori(fposmod(s, StationGeo.CIRC) / BAND) % ceili(StationGeo.CIRC / BAND)
+func _band_of(s: float, x: float) -> Vector2i:
+	## the tile of (s, x): of its CELL (so a cell is in one tile)
+	var c := Vector2i(floori(fposmod(s, StationGeo.CIRC) / CELL), floori(x / CELL))
+	return Vector2i(floori(c.x / float(TILE)), floori(c.y / float(TILE)))
 
 
-func _build_band(k: int) -> void:
+func _tile_dist(k: Vector2i, sp: float, xp: float) -> float:
+	var side := CELL * TILE
+	var ds := StationGeo.wrap_ds(sp - (k.x * side + side * 0.5))
+	var dx := xp - (k.y * side + side * 0.5)
+	return Vector2(maxf(absf(ds) - side * 0.5, 0.0), maxf(absf(dx) - side * 0.5, 0.0)).length()
+
+
+func _build_band(k: Vector2i) -> void:
 	## (worker) a band's furniture into _out and _labels
 	_cells.clear()
 	var it: Dictionary = _band_items.get(k, {})
-	var signs: Array = _d.get("signs", [])
 	for i in it.get("signs", []):
 		if not _removed.has(i):
-			_sign(signs[i])
+			_sign(sign_dict(i))
 	for i in it.get("xings", []):
 		_xing(_d.xings[i])
 	for i in it.get("signals", []):
@@ -147,21 +259,27 @@ func _process(delta: float) -> void:
 			if not lab_before.has(key):
 				lab.append(key)
 		_band_labels[_band_building] = lab
-		_band_building = -1
+		_band_building = null
 	if _task < 0 and not _band_queue.is_empty():
 		_band_building = _band_queue.pop_front()
 		_task = WorkerThreadPool.add_task(_build_band.bind(_band_building), false, "road furniture band")
 	_band_t -= delta
 	if _band_t <= 0.0 and target != null:
 		_band_t = 0.5
-		var sp := StationGeo.s_of(target.global_position)
+		var sp := fposmod(StationGeo.s_of(target.global_position), StationGeo.CIRC)
+		var xp := target.global_position.x
 		var want := {}
-		var u := sp - KEEP_R
-		while u <= sp + KEEP_R + BAND:
-			want[_band_of(minf(u, sp + KEEP_R))] = true
-			u += BAND
+		var side := CELL * TILE
+		var nts := ceili(ceili(StationGeo.CIRC / CELL) / float(TILE))
+		var reach := ceili(KEEP_R / side) + 1
+		var t0 := _band_of(sp, xp)
+		for i in range(-reach, reach + 1):
+			for j in range(-reach, reach + 1):
+				var k := Vector2i(posmod(t0.x + i, nts), t0.y + j)
+				if _tile_dist(k, sp, xp) <= KEEP_R:
+					want[k] = true
 		for k in _band_nodes.keys():
-			if want.has(k):
+			if want.has(k) or _tile_dist(k, sp, xp) <= FREE_R:
 				continue
 			for n in _band_nodes[k]:
 				if is_instance_valid(n):
@@ -171,7 +289,7 @@ func _process(delta: float) -> void:
 				_label_grid.erase(key)
 			_band_labels.erase(k)
 		for k in want:
-			if _band_nodes.has(k) or _band_queue.has(k) or k == _band_building or not _band_items.has(k):
+			if _band_nodes.has(k) or _band_queue.has(k) or (_band_building != null and k == _band_building) or not _band_items.has(k):
 				continue
 			_band_queue.append(k)
 	_label_t -= delta
@@ -259,8 +377,8 @@ func _ground(s: float, x: float) -> float:
 
 # ------------------------------------------------------------------ builders
 func _build_all() -> void:
-	for sg in _d.get("signs", []):
-		_sign(sg)
+	for i in sign_count():
+		_sign(sign_dict(i))
 	for xg in _d.get("xings", []):
 		_xing(xg)
 	for sig in _d.get("signals", []):
@@ -429,20 +547,20 @@ func _cell_of(s: float, x: float) -> Vector2i:
 
 func remove_sign(i: int) -> void:
 	## A sign knocked down: its cell's meshes are built again without it.
-	var signs: Array = _d.get("signs", [])
-	if i < 0 or i >= signs.size() or _removed.has(i):
+	if i < 0 or i >= sign_count() or _removed.has(i):
 		return
 	_removed[i] = true
 	if _task >= 0:
 		WorkerThreadPool.wait_for_task_completion(_task)        # (a band building shares _cells: let it finish first)
 		_task = -1
 		_commit()
-		_band_building = -1
-	var cell := _cell_of(float(signs[i].s), float(signs[i].x))
+		_band_building = null
+	var cd := data()
+	var cell := _cell_of(cd.sg_s[i], cd.sg_x[i])
 	_cells.clear()
-	for k in signs.size():
-		if not _removed.has(k) and _cell_of(float(signs[k].s), float(signs[k].x)) == cell:
-			_sign(signs[k])
+	for k in _band_items.get(_band_of(cd.sg_s[i], cd.sg_x[i]), {}).get("signs", []):
+		if not _removed.has(k) and _cell_of(cd.sg_s[k], cd.sg_x[k]) == cell:
+			_sign(sign_dict(k))
 	for xg in _d.get("xings", []):
 		if _cell_of(float(xg.s), float(xg.x)) == cell:
 			_xing(xg)
@@ -469,8 +587,7 @@ func remove_sign(i: int) -> void:
 
 func sign_mesh(i: int) -> Array:
 	## [ArrayMesh in the sign's own frame, its base transform]: the sign alone, to put on a body.
-	var signs: Array = _d.get("signs", [])
-	var sg: Dictionary = signs[i]
+	var sg: Dictionary = sign_dict(i)
 	var s: float = sg.s
 	var x: float = sg.x
 	var xf := Transform3D(StationGeo.basis(s, float(sg.yaw)), StationGeo.point(s, x, MapTerrain.elevation(s, x)))

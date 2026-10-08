@@ -36,6 +36,7 @@ const CURB_W := 0.2
 const FINE := ["paint_w", "paint_y", "decal", "kerb", "shoulder", "walk"]
 const FINE_CELL := 300.0
 const NEAR_R := 900.0
+const WALK_FAR := 1000.0              # (a sidewalk past this is a pixel's sliver; they were drawn -- and kept -- to FAR)
 const BAKED := "res://remake/baked/roads.res"
 const BAKE_VERSION := 5              # bump when the builder's output changes
 const BAKE_BANDS := 12
@@ -131,7 +132,7 @@ func _load_baked() -> void:
 # The 1:1 station's roads are ~13,000 meshes, ~4 GB of vertex buffers: past the Deck's memory (2026-10-08).  Beyond
 # RemakeFarSide.FLAT_ARC the far side is drawn as an image anyway, so only the bands within KEEP_R of the player are kept.
 const BAND_N := 24
-const KEEP_R := 2300.0               # m of s each way whose bands are kept (FLAT_ARC + the far side's hysteresis + a margin)
+const KEEP_R := 1700.0               # m of s each way whose bands are kept (FLAT_ARC + the far side's hysteresis + a margin)
 const COMMIT_PER_FRAME := 48
 var target: Node3D                   # whose surroundings are kept (the player)
 var far_side: Node                   # RemakeFarSide: the band's meshes are registered as they go in
@@ -170,6 +171,7 @@ func _stream(delta: float) -> void:
 			holder.name = "band_%02d" % k
 			add_child(holder)
 			_bands[k] = holder
+			_fine_dirty = true
 		var n := 0
 		var start: int = holder.get_meta("next", 0)
 		var i := start
@@ -214,7 +216,8 @@ func _stream(delta: float) -> void:
 
 func bands_busy() -> bool:
 	## bands of the roads round the target still loading or going in
-	return not _band_task.is_empty() or not _band_res.is_empty()
+	return not _band_task.is_empty() or not _band_res.is_empty() or not _fine_task.is_empty() or not _fine_res.is_empty() \
+		or _fine_dirty
 
 
 func _load_band(k: int) -> void:
@@ -242,6 +245,8 @@ func _mesh_instance(key: Array, mesh: ArrayMesh) -> MeshInstance3D:
 		far = PAINT_FAR
 	elif key[1] in ["kerb", "shoulder"]:
 		far = KERB_FAR
+	elif key[1] == "walk":
+		far = WALK_FAR
 	mi.visibility_range_end = far
 	mi.visibility_range_end_margin = far * 0.08
 	if far < FAR:
@@ -319,6 +324,7 @@ func _build_all() -> void:
 func _process(_delta: float) -> void:
 	if _streaming:
 		_stream(_delta)
+		_stream_fine(_delta)
 		return
 	if _task < 0 or not WorkerThreadPool.is_task_completed(_task):
 		return
@@ -655,3 +661,141 @@ func _commit() -> void:
 			mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		add_child(mi)
 	_out.clear()
+
+
+# -- the fine detail in tiles ------------------------------------------------------------------------------------
+# Kerbs, sidewalks, shoulders, paint and decals were ~90% of a band's vertex buffers (Solana Point, 2026-10-08: 730 of
+# 820 MB), kept for the whole band -- 3.4 km of s by the ring's 22 km of x -- though none of it is drawn past WALK_FAR.
+# They are baked apart (split_band) into tiles of FINE_TILE fine cells a side, a file per band and tile, and only the
+# tiles within FINE_KEEP of the player are loaded.
+const FINE_TILE := 4                         # fine cells (FINE_CELL) a tile's side: 1200 m
+const FINE_KEEP := 1150.0                    # m from the player to a tile's edge: loaded within this
+const FINE_FREE := 1450.0                    #   and freed past this
+const FINE_COMMIT := 16
+var _fine := {}                              # [band, tile] -> Node3D holding its meshes
+var _fine_task := {}                         # [band, tile] -> worker task
+var _fine_res := {}                          # [band, tile] -> BakedMeshes waiting to go in
+var _fine_t := 0.0
+var _fine_dirty := false                     # a band came in: its tiles not looked for yet
+var fine_everywhere := false                 # (FarsideBake: every tile of the bands loaded, not just those near)
+static var _fine_have := {}                  # path -> a file there
+
+
+static func fine_path(k: int, t: Vector2i) -> String:
+	return "res://remake/baked/roads_f/b%02d_%d_%d.res" % [k, t.x, t.y]
+
+
+static func fine_tiles_s() -> int:
+	return ceili(ceili(StationGeo.CIRC / FINE_CELL) / float(FINE_TILE))
+
+
+static func split_band(b: BakedMeshes) -> Array:
+	## [the band's coarse meshes, {tile: BakedMeshes of its fine ones}]
+	var coarse := BakedMeshes.new()
+	coarse.stamp = b.stamp
+	coarse.data = b.data.duplicate()
+	coarse.data.erase("_parts")                            # (the file it came from was in parts: this is one)
+	var tiles := {}
+	for i in b.keys.size():
+		var key: Array = b.keys[i]
+		if not FINE.has(key[1]):
+			coarse.keys.append(key)
+			coarse.meshes.append(b.meshes[i])
+			continue
+		var c: Vector2i = key[0]
+		var tk := Vector2i(floori(c.x / float(FINE_TILE)), floori(c.y / float(FINE_TILE)))
+		var tb: BakedMeshes = tiles.get(tk)
+		if tb == null:
+			tb = BakedMeshes.new()
+			tb.stamp = b.stamp
+			tiles[tk] = tb
+		tb.keys.append(key)
+		tb.meshes.append(b.meshes[i])
+	return [coarse, tiles]
+
+
+func _tile_dist(t: Vector2i, sp: float, xp: float) -> float:
+	var side := FINE_CELL * FINE_TILE
+	var s0 := t.x * side
+	var ds := StationGeo.wrap_ds(sp - (s0 + side * 0.5))
+	var dx := xp - (t.y * side + side * 0.5)
+	return Vector2(maxf(absf(ds) - side * 0.5, 0.0), maxf(absf(dx) - side * 0.5, 0.0)).length()
+
+
+func _stream_fine(delta: float) -> void:
+	for fk in _fine_res.keys():
+		var b: BakedMeshes = _fine_res[fk]
+		var holder: Node3D = _fine.get(fk)
+		if holder == null:
+			_fine_res.erase(fk)                            # (freed while it loaded)
+			continue
+		var start: int = holder.get_meta("next", 0)
+		var i := start
+		while i < b.keys.size() and i - start < (100000 if StationGeo.loading else FINE_COMMIT):
+			var mi := _mesh_instance(b.keys[i], b.meshes[i])
+			holder.add_child(mi)
+			if far_side:
+				far_side.add_node(mi)
+			i += 1
+		holder.set_meta("next", i)
+		if i >= b.keys.size():
+			_fine_res.erase(fk)
+		return
+	for fk in _fine_task.keys():
+		if WorkerThreadPool.is_task_completed(_fine_task[fk]):
+			WorkerThreadPool.wait_for_task_completion(_fine_task[fk])
+			_fine_task.erase(fk)
+	_fine_t -= delta
+	if _fine_t > 0.0 or target == null:
+		return
+	_fine_t = 0.5
+	var sp := fposmod(StationGeo.s_of(target.global_position), StationGeo.CIRC)
+	var xp := target.global_position.x
+	for fk in _fine.keys():
+		if (_tile_dist(fk[1], sp, xp) > FINE_FREE and not fine_everywhere) or (fine_everywhere and not _bands.has(fk[0])):
+			(_fine[fk] as Node).queue_free()
+			_fine.erase(fk)
+			_fine_res.erase(fk)
+	var side := FINE_CELL * FINE_TILE
+	var nts := fine_tiles_s()
+	var reach := ceili(FINE_KEEP / side) + 1
+	var reach_x := reach
+	if fine_everywhere:
+		reach = ceili((KEEP_R + StationGeo.CIRC / BAND_N) / side) + 1
+		reach_x = ceili(StationGeo.LENGTH / side) + 1
+	var ts0 := floori(sp / side)
+	var tx0 := floori(xp / side)
+	for i in range(-reach, reach + 1):
+		var ts := posmod(ts0 + i, nts)
+		for j in range(-reach_x, reach_x + 1):
+			var t := Vector2i(ts, tx0 + j)
+			if not fine_everywhere and _tile_dist(t, sp, xp) > FINE_KEEP:
+				continue
+			# the bands its cells were baked in (a tile can straddle two)
+			for k in [band_of(t.x * side), band_of(minf((t.x + 1) * side, StationGeo.CIRC) - 0.01)]:
+				var fk := [k, t]
+				if _fine.has(fk) or (fine_everywhere and not _bands.has(k)):
+					continue
+				var path := fine_path(k, t)
+				if not _fine_have.has(path):
+					_fine_have[path] = ResourceLoader.exists(path)
+				if not _fine_have[path]:
+					continue
+				var holder := Node3D.new()
+				holder.name = "fine_%02d_%d_%d" % [k, t.x, t.y]
+				add_child(holder)
+				_fine[fk] = holder
+				_fine_task[fk] = WorkerThreadPool.add_task(_load_fine.bind(fk, path), false, "roads tile")
+	_fine_dirty = false
+
+
+func _load_fine(fk: Array, path: String) -> void:
+	var b := ResourceLoader.load(path) as BakedMeshes
+	if b == null or b.stamp != stamp():
+		return
+	call_deferred("_fine_loaded", fk, b)
+
+
+func _fine_loaded(fk: Array, b: BakedMeshes) -> void:
+	if _fine.has(fk):
+		_fine_res[fk] = b

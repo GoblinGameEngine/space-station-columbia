@@ -40,12 +40,7 @@ static var _mutex := Mutex.new()
 
 
 static func _load_placement() -> void:
-	if not _placement.is_empty():
-		return
-	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
-	for b in st.structures:
-		_placement[str(b.id)] = b
-		_town_of[str(b.id)] = str(b.settlement) if b.get("settlement") != null else "_country"
+	Placement.load_all()                                 # (the one packed copy: Placement)
 
 
 static func manifest(town: String) -> Dictionary:
@@ -67,8 +62,11 @@ static func manifest(town: String) -> Dictionary:
 
 
 static func town_of(building: String) -> String:
-	_load_placement()
-	return _town_of.get(building, "_country")
+	var i := Placement.index(building)
+	if i < 0:
+		return "_country"
+	var t := Placement.settlement(i)
+	return t if t != "" else "_country"
 
 
 static func building(bid: String) -> Dictionary:
@@ -93,7 +91,7 @@ static func world(b: Dictionary, lx: float, lz: float, out_m := 0.0) -> Vector2:
 static func unit_door(bid: String, uid: String) -> Vector2:
 	## where a unit's people come and go: its delivery door, on the map; the building's front otherwise
 	_load_placement()
-	var b: Dictionary = _placement.get(bid, {})
+	var b: Dictionary = Placement.entry_of(bid)
 	var m := building(bid)
 	var u: Dictionary = m.get("units", {}).get(uid, {})
 	var dn = (u.get("delivery", {}) as Dictionary).get("door")
@@ -218,7 +216,7 @@ static func _solve(seed: int, town: String) -> Dictionary:
 	# 1. the households of every dwelling unit, their beds
 	for bid in bids:
 		var m: Dictionary = man[bid]
-		var b: Dictionary = _placement.get(bid, {})
+		var b: Dictionary = Placement.entry_of(bid)
 		if b.is_empty():
 			continue
 		var dunits := []

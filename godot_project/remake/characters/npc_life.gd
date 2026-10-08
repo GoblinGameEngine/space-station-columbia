@@ -33,6 +33,8 @@ static var _shared: NpcLife
 var seed := 1
 var people: Dictionary
 var _cache := {}                                  # "pid|day" -> timeline
+var _cache_old := {}
+const TIMELINES_MAX := 12000
 var by_home := {}                                 # building/flat id -> [pid]           (of the settlements loaded)
 var by_unit := {}                                 # uid -> [pid] (works there, studies there or goes regularly; loaded)
 var bikes: Array = []                             # homes with a bicycle by the door (the index: all of them)
@@ -71,39 +73,177 @@ func _shard_of(building: String) -> String:
 	return shard_name(NpcOccupancy.town_of(building))
 
 
+# -- the settlements' people, packed -------------------------------------------------------------------------------
+# A settlement's people are kept as columns (lives/<Town>.bin, NpcLife.compact): interned strings, packed numbers, the
+# lists and the regular places as offset tables -- ~15 MB for a city of 43,000 where the parsed JSON was ~1 GB of
+# Dictionaries (2026-10-08).  A person is decoded to the same Dictionary as before when asked for (person()), and kept
+# in a two-generation cache of up to CACHE_MAX.
+const STR_FIELDS := ["bed", "car", "commute", "finances", "given", "home", "lineage", "mobility", "name_heritage", "occupation",
+	"pop", "role", "settlement", "sex", "surname", "unit", "worship", "school", "work", "days", "post", "post_room"]
+const CACHE_MAX := 5000
+var _old := {}                                    # the cache's older generation
+var _where := {}                                  # pid -> [settlement file, index] (of the settlements loaded)
+
+
+static func compact(ppl: Dictionary, p_seed: int) -> Dictionary:
+	## a settlement's people as columns (bake_lives.gd writes it with store_var)
+	var strs := PackedStringArray()
+	var sidx := {}
+	var intern := func(v) -> int:
+		if v == null:
+			return -1
+		var k := str(v)
+		if not sidx.has(k):
+			sidx[k] = strs.size()
+			strs.append(k)
+		return sidx[k]
+	var pids := PackedStringArray(ppl.keys())
+	var n := pids.size()
+	var d := {"v": 1, "seed": p_seed, "pids": pids}
+	for f in STR_FIELDS:
+		var col := PackedInt32Array()
+		col.resize(n)
+		for i in n:
+			var P: Dictionary = ppl[pids[i]]
+			col[i] = intern.call(P[f]) if P.has(f) else -1
+		d["s_" + f] = col
+	var age := PackedInt32Array()
+	var hh := PackedInt32Array()
+	var fc := PackedFloat32Array()
+	var fe := PackedFloat32Array()
+	var job := PackedByteArray()
+	var door := PackedFloat64Array()
+	var add_off := PackedInt32Array([0])
+	var add := PackedInt32Array()
+	var sh_off := PackedInt32Array([0])
+	var shv := PackedFloat32Array()
+	var of_off := PackedInt32Array([0])
+	var ofv := PackedInt32Array()
+	var rg_off := PackedInt32Array([0])
+	var rgk := PackedInt32Array()
+	var rgv := PackedInt32Array()
+	var by_unit := {}
+	for i in n:
+		var P: Dictionary = ppl[pids[i]]
+		age.append(int(P.get("age", 0)))
+		hh.append(int(P.get("hh", 0)))
+		fc.append(float(P.get("C", 0.0)))
+		fe.append(float(P.get("E", 0.0)))
+		job.append(1 if P.get("jobless", false) else 0)
+		var dr: Array = P.get("door", [0.0, 0.0])
+		door.append(float(dr[0]))
+		door.append(float(dr[1]))
+		for a in P.get("addictions", []):
+			add.append(intern.call(a))
+		add_off.append(add.size())
+		for v in P.get("shift", []):
+			shv.append(float(v))
+		sh_off.append(shv.size())
+		for v in P.get("off", []):
+			ofv.append(intern.call(v))
+		of_off.append(ofv.size())
+		var us := []
+		var reg: Dictionary = P.get("reg", {})
+		for k in reg:
+			rgk.append(intern.call(k))
+			rgv.append(intern.call(reg[k]))
+			us.append(str(reg[k]))
+		rg_off.append(rgk.size())
+		if P.has("work"):
+			us.append(str(P.work))
+		if P.has("school"):
+			us.append(str(P.school))
+		var seen := {}
+		for u in us:
+			if seen.has(u):
+				continue
+			seen[u] = true
+			if not by_unit.has(u):
+				by_unit[u] = PackedInt32Array()
+			by_unit[u].append(i)
+	d.merge({"str": strs, "age": age, "hh": hh, "C": fc, "E": fe, "jobless": job, "door": door, "add_off": add_off, "add": add,
+		"shift_off": sh_off, "shift": shv, "off_off": of_off, "off": ofv, "reg_off": rg_off, "reg_k": rgk, "reg_v": rgv,
+		"by_unit": by_unit, "has_shift": PackedByteArray(), "has_off": PackedByteArray()})
+	# (an empty list and a missing one decode the same but for shift / off: kept apart)
+	var hs := PackedByteArray()
+	var ho := PackedByteArray()
+	for i in n:
+		var P: Dictionary = ppl[pids[i]]
+		hs.append(1 if P.has("shift") else 0)
+		ho.append(1 if P.has("off") else 0)
+	d.has_shift = hs
+	d.has_off = ho
+	return d
+
+
+static func _decode(d: Dictionary, i: int) -> Dictionary:
+	var strs: PackedStringArray = d.str
+	var P := {}
+	for f in STR_FIELDS:
+		var k: int = (d["s_" + f] as PackedInt32Array)[i]
+		if k >= 0:
+			P[f] = strs[k]
+	P["age"] = (d.age as PackedInt32Array)[i]
+	P["hh"] = (d.hh as PackedInt32Array)[i]
+	P["C"] = snappedf((d.C as PackedFloat32Array)[i], 0.01)
+	P["E"] = snappedf((d.E as PackedFloat32Array)[i], 0.01)
+	if (d.jobless as PackedByteArray)[i] == 1:
+		P["jobless"] = true
+	var door: PackedFloat64Array = d.door
+	P["door"] = [door[i * 2], door[i * 2 + 1]]
+	var add := []
+	for j in range((d.add_off as PackedInt32Array)[i], (d.add_off as PackedInt32Array)[i + 1]):
+		add.append(strs[(d.add as PackedInt32Array)[j]])
+	P["addictions"] = add
+	if (d.has_shift as PackedByteArray)[i] == 1:
+		var shv := []
+		for j in range((d.shift_off as PackedInt32Array)[i], (d.shift_off as PackedInt32Array)[i + 1]):
+			shv.append(snappedf((d.shift as PackedFloat32Array)[j], 0.0001))
+		P["shift"] = shv
+	if (d.has_off as PackedByteArray)[i] == 1:
+		var ofv := []
+		for j in range((d.off_off as PackedInt32Array)[i], (d.off_off as PackedInt32Array)[i + 1]):
+			ofv.append(strs[(d.off as PackedInt32Array)[j]])
+		P["off"] = ofv
+	var reg := {}
+	var rgk: PackedInt32Array = d.reg_k
+	var rgv: PackedInt32Array = d.reg_v
+	for j in range((d.reg_off as PackedInt32Array)[i], (d.reg_off as PackedInt32Array)[i + 1]):
+		reg[strs[rgk[j]]] = strs[rgv[j]]
+	P["reg"] = reg
+	return P
+
+
 func _ensure(sh: String) -> void:
-	## a settlement's people in memory (the least recently used of more than MAX_SHARDS let go)
+	## a settlement's people in memory, packed (the least recently used of more than MAX_SHARDS let go)
 	_mutex.lock()
 	if _loaded.has(sh):
 		_lru.erase(sh)
 		_lru.append(sh)
 		_mutex.unlock()
 		return
-	var p := DIR + sh + ".json"
-	var ppl: Dictionary = {}
-	if FileAccess.file_exists(p):
-		ppl = (JSON.parse_string(FileAccess.get_file_as_string(p)) as Dictionary).get("people", {})
-	var rec := {"pids": ppl.keys(), "homes": {}, "units": {}}
-	# (the duplicate check by dictionary: Array.has on a busy unit's thousands of regulars made this 9 s)
-	var seen_h := {}
-	var seen_u := {}
-	for pid in ppl:
-		var P: Dictionary = ppl[pid]
-		people[pid] = P
-		_add_once(by_home, seen_h, P.home, pid)
-		rec.homes[P.home] = true
-		var us := []
-		if P.has("work"):
-			us.append(P.work)
-		if P.has("school"):
-			us.append(P.school)
-		for q in P.reg:
-			us.append(P.reg[q])
-		for u in us:
-			_add_once(by_unit, seen_u, u, pid)
-			rec.units[u] = true
-		NpcPlaces.register_door(P.home, Vector2(float(P.door[0]), float(P.door[1])))
-	_loaded[sh] = rec
+	var d := {}
+	var pb := DIR + sh + ".bin"
+	if FileAccess.file_exists(pb):
+		var f := FileAccess.open(pb, FileAccess.READ)
+		d = f.get_var()
+		f.close()
+	elif FileAccess.file_exists(DIR + sh + ".json"):
+		# (not packed yet: the JSON, packed here)
+		d = compact((JSON.parse_string(FileAccess.get_file_as_string(DIR + sh + ".json")) as Dictionary).get("people", {}), seed)
+	var pids: PackedStringArray = d.get("pids", PackedStringArray())
+	var homes := {}
+	var hcol: PackedInt32Array = d.get("s_home", PackedInt32Array())
+	var strs: PackedStringArray = d.get("str", PackedStringArray())
+	var door: PackedFloat64Array = d.get("door", PackedFloat64Array())
+	for i in pids.size():
+		_where[pids[i]] = [sh, i]
+		var h := strs[hcol[i]]
+		if not homes.has(h):
+			homes[h] = PackedInt32Array()
+			NpcPlaces.register_door(h, Vector2(door[i * 2], door[i * 2 + 1]))
+		homes[h].append(i)
+	_loaded[sh] = {"d": d, "homes": homes}
 	_lru.append(sh)
 	while _lru.size() > MAX_SHARDS:
 		_evict(_lru.pop_front())
@@ -113,37 +253,51 @@ func _ensure(sh: String) -> void:
 func _evict(sh: String) -> void:
 	var rec: Dictionary = _loaded[sh]
 	_loaded.erase(sh)
-	var gone := {}
-	for pid in rec.pids:
+	var pids: PackedStringArray = (rec.d as Dictionary).get("pids", PackedStringArray())
+	for pid in pids:
+		_where.erase(pid)
 		people.erase(pid)
-		gone[pid] = true
-	for h in rec.homes:
-		by_home.erase(h)
-	for u in rec.units:
-		var keep := (by_unit.get(u, []) as Array).filter(func(q): return not gone.has(q))
-		if keep.is_empty():
-			by_unit.erase(u)
-		else:
-			by_unit[u] = keep
+		_old.erase(pid)
 	for k in _cache.keys():
-		if gone.has(str(k).get_slice("|", 0)):
+		if not _where.has(str(k).get_slice("|", 0)):
 			_cache.erase(k)
+	_cache_old.clear()
 
 
 func is_loaded(pid: String) -> bool:
 	## is this person's settlement in memory (without loading it)
-	return people.has(pid)
+	return _where.has(pid)
 
 
 func has_person(pid: String) -> bool:
 	_ensure(_shard_of(pid.get_slice(":", 0)))
-	return people.has(pid)
+	return _where.has(pid)
 
 
 func regulars(uid: String) -> Array:
 	## who works, studies or goes regularly to a place (of the settlements loaded: its own is loaded here)
 	_ensure(_shard_of(uid.get_slice("/", 0)))
-	return by_unit.get(uid, [])
+	var out := []
+	for sh in _loaded:
+		var d: Dictionary = _loaded[sh].d
+		var ix = (d.get("by_unit", {}) as Dictionary).get(uid)
+		if ix != null:
+			var pids: PackedStringArray = d.pids
+			for i in ix:
+				out.append(pids[i])
+	return out
+
+
+func residents_of(home: String) -> Array:
+	## the people living in a home (building or flat id) of the settlements loaded
+	var out := []
+	for sh in _loaded:
+		var ix = (_loaded[sh].homes as Dictionary).get(home)
+		if ix != null:
+			var pids: PackedStringArray = (_loaded[sh].d as Dictionary).pids
+			for i in ix:
+				out.append(pids[i])
+	return out
 
 
 static func _add_once(d: Dictionary, seen: Dictionary, k: String, pid: String) -> void:
@@ -164,9 +318,22 @@ static func _add(d: Dictionary, k: String, pid: String) -> void:
 
 
 func person(pid: String) -> Dictionary:
-	if not people.has(pid):
-		_ensure(_shard_of(pid.get_slice(":", 0)))
-	return people.get(pid, {})
+	var P = people.get(pid)
+	if P != null:
+		return P
+	P = _old.get(pid)
+	if P == null:
+		if not _where.has(pid):
+			_ensure(_shard_of(pid.get_slice(":", 0)))
+		var w = _where.get(pid)
+		if w == null:
+			return {}
+		P = _decode(_loaded[w[0]].d, w[1])
+	if people.size() >= CACHE_MAX:
+		_old = people
+		people = {}
+	people[pid] = P
+	return P
 
 
 func _r(pid: String, key: String) -> NpcRng:
@@ -367,8 +534,14 @@ func timeline(pid: String, day: int) -> Array:
 	var key := "%s|%d" % [pid, day]
 	if _cache.has(key):
 		return _cache[key]
-	if _cache.size() > 30000:                                   # (above the station's population: a cache that clears thrashes -- Calder, 2026-10-06)
-		_cache.clear()
+	if _cache_old.has(key):
+		_cache[key] = _cache_old[key]
+		return _cache[key]
+	# (two generations of TIMELINES_MAX: clearing outright thrashed -- Calder, 2026-10-06; unbounded, a 1:1 city's
+	# 21,000 in a minute)
+	if _cache.size() >= TIMELINES_MAX:
+		_cache_old = _cache
+		_cache = {}
 	var P := person(pid)
 	var segs: Array = []
 	var here := ""                                               # "" = home

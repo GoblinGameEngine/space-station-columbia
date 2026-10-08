@@ -283,7 +283,7 @@ func _label_roads(mm: float) -> void:
 			continue
 		if mm > 4.0 and not cls in ["hwy", "main", "county"]:
 			continue
-		var pts: Array = rd.pts
+		var pts: PackedVector2Array = rd.pts
 		# the longest on-screen run of the road; the name at its middle, along the chord the name spans
 		var run := PackedVector2Array()
 		var best := PackedVector2Array()

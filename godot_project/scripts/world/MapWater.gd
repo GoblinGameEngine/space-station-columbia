@@ -154,7 +154,7 @@ static func build_small(root: Node3D) -> void:
 
 static func small_arrays() -> Dictionary:
 	## cell -> mesh arrays of the creeks, spurs, ponds and oxbows in it
-	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MapTerrain.PATH))
+	var d: Dictionary = MapTerrain.data()                      # (the one copy: parsing its own was ~500 MB more)
 	MapTerrain.elevation(0.0, 0.0)                        # loads the terrain data
 	var cells := {}
 	# creeks and spurs: a ribbon along the line at the bank-full level; broken where a road crosses

@@ -51,6 +51,11 @@ func setup() -> void:
 	MapTerrain.elevation(0.0, 0.0)
 	_near_mesh = _tree_mesh(true)
 	_far_mesh = _tree_mesh(false)
+	if ResourceLoader.exists(band_path(0)) or ResourceLoader.exists(band_path(1)):
+		# baked a band of the ring a file: only the bands round the target are in (_stream)
+		_streaming = true
+		set_process(true)
+		return
 	for cs in ceili(StationGeo.CIRC / CELL):
 		for cx in ceili(StationGeo.LENGTH / CELL):
 			_cells.append(Vector2i(cs, cx))
@@ -63,6 +68,100 @@ func setup() -> void:
 
 
 var _single := false                  # _task is a plain task (the baked load), not a group task
+
+# -- streaming by band -------------------------------------------------------------------------------------------
+# Every tree of the 1:1 station was ~570 MB of instance buffers in memory and ~180 MB on the GPU (2026-10-08); they're
+# drawn to FAR (900 m) and the far side past FLAT_ARC is an image, so only the bands within KEEP_R of the target are in.
+const BAND := 2400.0                 # (a multiple of CELL: a cell is in one band)
+const KEEP_R := 1500.0
+var target: Node3D
+var _streaming := false
+var _band_cells := {}                # band -> [cell]
+var _band_task := {}                 # band -> worker task
+var _band_wanted := {}
+var _band_t := 0.0
+var _first_done := false
+var _nodes := {}                     # cell -> [MultiMeshInstance3D]
+
+
+static func band_count() -> int:
+	return ceili(StationGeo.CIRC / BAND)
+
+
+static func band_of(s: float) -> int:
+	return floori(fposmod(s, StationGeo.CIRC) / BAND) % band_count()
+
+
+static func band_path(k: int) -> String:
+	return "res://remake/baked/trees_b%02d.res" % k
+
+
+func _stream(delta: float) -> void:
+	for k in _band_task.keys():
+		if WorkerThreadPool.is_task_completed(_band_task[k]):
+			WorkerThreadPool.wait_for_task_completion(_band_task[k])
+			_band_task.erase(k)
+	_band_t -= delta
+	if _band_t > 0.0 or target == null:
+		return
+	_band_t = 0.5
+	var sp := StationGeo.s_of(target.global_position)
+	var want := {}
+	var u := sp - KEEP_R
+	while u <= sp + KEEP_R + BAND:
+		want[band_of(minf(u, sp + KEEP_R))] = true
+		u += BAND
+	for k in _band_cells.keys():
+		if want.has(k):
+			continue
+		for c in _band_cells[k]:
+			for n in _nodes.get(c, []):
+				(n as Node).queue_free()
+			_nodes.erase(c)
+			_bufs.erase(c)
+			_trees_in.erase(c)
+		_band_cells.erase(k)
+	_band_wanted = want
+	var pending := false
+	for k in want:
+		if _band_cells.has(k):
+			continue
+		pending = true
+		if not _band_task.has(k):
+			if not ResourceLoader.exists(band_path(k)):
+				_band_cells[k] = []
+				continue
+			_band_task[k] = WorkerThreadPool.add_task(_load_band.bind(k), false, "trees band %d" % k)
+	_lock.lock()
+	var queued := not _done.is_empty()
+	_lock.unlock()
+	if not pending and not queued:
+		_first_done = true
+
+
+func _load_band(k: int) -> void:
+	var b := BakedMeshes.load_all(band_path(k))
+	if b == null or b.stamp != stamp():
+		push_warning("MapTrees: band %d's bake is of other map data (rerun remake/tools/bake_world.gd trees)" % k)
+		call_deferred("_band_loaded", k, [])
+		return
+	var cells: Dictionary = b.data.get("cells", {})
+	var out := []
+	for c in cells:
+		out.append([c, cells[c]])
+	call_deferred("_band_loaded", k, out)
+
+
+func _band_loaded(k: int, out: Array) -> void:
+	if not _band_wanted.has(k):
+		return                                            # (gone past it meanwhile)
+	var cs := []
+	for job in out:
+		cs.append(job[0])
+	_band_cells[k] = cs
+	_lock.lock()
+	_done.append_array(out)
+	_lock.unlock()
 
 
 static func stamp() -> String:
@@ -137,15 +236,27 @@ func _process(_delta: float) -> void:
 			break
 		_make(job[0], job[1])
 		_made += 1
-	if _made >= _cells.size() and _task >= 0:
+	if _streaming:
+		_stream(_delta)
+	elif _made >= _cells.size() and _task >= 0:
 		_wait()
 	if Time.get_ticks_msec() >= _next_scan:
 		_next_scan = Time.get_ticks_msec() + 250
 		_stream_colliders()
 
 
+func busy() -> bool:
+	## bands of trees round the target still loading or going in
+	_lock.lock()
+	var q := not _done.is_empty()
+	_lock.unlock()
+	return q or not _band_task.is_empty()
+
+
 func loaded() -> bool:
-	## every cell's trees are drawn (collision streams on after)
+	## every cell's trees are drawn (collision streams on after); streamed: the bands round the target
+	if _streaming:
+		return _first_done
 	return _made >= _cells.size()
 
 
@@ -343,6 +454,7 @@ func _make(c: Vector2i, buf: PackedFloat32Array) -> void:
 	if buf.is_empty():
 		return
 	_bufs[c] = buf
+	_nodes[c] = []
 	for version in [[_near_mesh, 0.0, NEAR], [_far_mesh, NEAR, FAR]]:
 		var mm := MultiMesh.new()
 		mm.transform_format = MultiMesh.TRANSFORM_3D
@@ -358,6 +470,7 @@ func _make(c: Vector2i, buf: PackedFloat32Array) -> void:
 		mmi.visibility_range_end_margin = version[2] * 0.08
 		mmi.name = "trees_%d_%d_%s" % [c.x, c.y, "near" if version[1] == 0.0 else "far"]
 		add_child(mmi)
+		_nodes[c].append(mmi)
 
 
 static func _hash(a: int, b: int, salt: int) -> float:

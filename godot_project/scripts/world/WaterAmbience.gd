@@ -50,7 +50,7 @@ static var _creeks := {}              # Vector2i cell -> [[a, b, half-width]] cr
 
 
 static func _load_creeks() -> void:
-	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MapTerrain.PATH))
+	var d: Dictionary = MapTerrain.data()                      # (the one copy: parsing its own was ~500 MB more)
 	for cr in d.creeks:
 		var pts: Array = cr.pts
 		for k in pts.size() - 1:

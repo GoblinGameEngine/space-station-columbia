@@ -25,7 +25,6 @@ const SURF := {
 const ROAD_CLASS := {"hwy": "asphalt", "main": "asphalt", "county": "asphalt", "street": "street", "alley": "street", "gravel": "gravel"}
 const CELL := 32.0
 
-static var _grid := {}
 static var _loaded := false
 static var _waves: Array = []        # [n (cycles/m), direction (unit), phase, share of the band's amplitude]
 
@@ -35,28 +34,7 @@ static func _load() -> void:
 		return
 	_loaded = true
 	MapTerrain._load()
-	var roads: Array = MapTerrain._d.roads
-	for ri in roads.size():
-		var r: Dictionary = roads[ri]
-		var pts: Array = r.pts
-		var hw := float(r.get("w", 7.0)) * 0.5 + 0.4
-		for k in pts.size() - 1:
-			var a := Vector2(float(pts[k][0]), float(pts[k][1]))
-			var b := Vector2(float(pts[k + 1][0]), float(pts[k + 1][1]))
-			var seg := [a, b, hw, str(r.get("cls", "street"))]
-			var d := Vector2(StationGeo.wrap_ds(b.x - a.x), b.y - a.y)
-			var n := maxi(1, ceili(d.length() / CELL))
-			var seen := {}
-			for i in n + 1:
-				var q := a + d * (float(i) / n)
-				for dx in [-1, 0, 1]:
-					for dy in [-1, 0, 1]:
-						var c := Vector2i(posmod(floori(fposmod(q.x, StationGeo.CIRC) / CELL) + dx, ceili(StationGeo.CIRC / CELL)), floori(q.y / CELL) + dy)
-						if not seen.has(c):
-							seen[c] = true
-							if not _grid.has(c):
-								_grid[c] = []
-							(_grid[c] as Array).append(seg)
+	# (the roads come from MapTerrain's own road cells: a grid of every segment here as well was ~700 MB on the 1:1 map)
 	# the waves: 10 bands from 25 m to 1 m wavelength, 3 directions each
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 8608
@@ -75,18 +53,20 @@ static func _load() -> void:
 static func at(p: Vector2) -> String:
 	## The surface at (s, x).
 	_load()
-	var c := Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / CELL), floori(p.y / CELL))
+	var seg := MapTerrain._road_cell(Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / MapTerrain.RCELL), floori(p.y / MapTerrain.RCELL)))
+	var roads: Array = MapTerrain._d.roads
 	var best := ""
 	var bd := INF
-	for seg in _grid.get(c, []):
-		var a: Vector2 = seg[0]
-		var ab := Vector2(StationGeo.wrap_ds(seg[1].x - a.x), seg[1].y - a.y)
+	for j in range(0, seg.size(), MapTerrain.RSTRIDE):
+		var a := Vector2(seg[j], seg[j + 1])
+		var ab := Vector2(StationGeo.wrap_ds(seg[j + 2] - a.x), seg[j + 3] - a.y)
 		var ap := Vector2(StationGeo.wrap_ds(p.x - a.x), p.y - a.y)
 		var t := clampf(ap.dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
 		var dd := (ap - ab * t).length()
-		if dd < float(seg[2]) and dd < bd:
+		var hw := maxf(seg[j + 4], seg[j + 5]) + 0.4
+		if dd < hw and dd < bd:
 			bd = dd
-			best = ROAD_CLASS.get(seg[3], "street")
+			best = ROAD_CLASS.get(str(roads[int(seg[j + 9])].get("cls", "street")), "street")
 	if best != "":
 		return best
 	match MapTerrain.landcover(p.x, p.y).x:

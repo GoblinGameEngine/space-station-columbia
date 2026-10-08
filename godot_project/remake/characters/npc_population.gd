@@ -56,15 +56,17 @@ func _ready() -> void:
 	NpcHouseholds.data()
 	for n in [9, 10, NpcBody.RING, NpcBody.RING + 4, NpcBody.HEAD_AROUND, 40]:
 		NpcBody._table(n)
-	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
+	# the homes: placement indices (Placement makes the entry when a scan reaches it), the flats over shops as entries
+	Placement.load_all()
 	var homes: Array = []
-	for b in st.structures:
-		_by_id[b.id] = b
-		if NpcHouseholds.is_home(b):
-			homes.append(b)
+	for i in Placement.count():
+		var kd := Placement.kind(i)
+		var pid := Placement.id(i)
+		if NpcHouseholds.is_residential(kd) and not (kd == "farm" and pid.begins_with("FARM-") and not pid.ends_with("-house")):
+			homes.append(i)
 	if FileAccess.file_exists(NpcLife.PATH):
 		_life = NpcLife.shared()
-		homes.append_array(NpcPlaces.flats(st.structures))
+		homes.append_array(NpcPlaces.flats_placed())
 		for uid in NpcPlaces.units():
 			var u: Dictionary = NpcPlaces.unit(uid)
 			var k := _cell(float(u.door[0]), float(u.door[1]))
@@ -73,7 +75,7 @@ func _ready() -> void:
 			_unit_index[k].append(uid)
 	for b in homes:
 		_buildings.append(b)
-		var k := _cell(float(b.s), float(b.x))
+		var k := _cell(Placement.s(b), Placement.x(b)) if b is int else _cell(float(b.s), float(b.x))
 		if not _index.has(k):
 			_index[k] = []
 		_index[k].append(b)
@@ -212,7 +214,8 @@ func _scan_step() -> void:
 		# a building's households are made the first time it's in range (~2-5 ms each): at most HOUSES_PER_FRAME new
 		# ones a frame -- past that the scan picks this cell up again next frame (want is de-duplicated below)
 		var stop := false
-		for b in _index.get(cell, []):
+		for bi in _index.get(cell, []):
+			var b: Dictionary = Placement.entry(bi) if bi is int else bi
 			if not _house_cache.has(b.id) and _dist(ps, px, float(b.s), float(b.x)) <= SPAWN_R:
 				if built >= HOUSES_PER_FRAME:
 					stop = true
@@ -223,7 +226,8 @@ func _scan_step() -> void:
 			_scan.k = k
 			return
 		Prof.begin("scan.members")
-		for b in ([] if _scan.get("skip_members", false) else _index.get(cell, [])):
+		for bi in ([] if _scan.get("skip_members", false) else _index.get(cell, [])):
+			var b: Dictionary = Placement.entry(bi) if bi is int else bi
 			var d := _dist(ps, px, float(b.s), float(b.x))
 			if d > SPAWN_R:
 				continue
@@ -378,9 +382,9 @@ func _next_event(pid: String, day: int, h: float) -> float:
 
 func _home_struct(P: Dictionary) -> Dictionary:
 	var id: String = P.home
-	if _by_id.has(id):
-		return _by_id[id]
-	var b: Dictionary = (_by_id.get(id.split("/")[0], {}) as Dictionary).duplicate()
+	if Placement.index(id) >= 0:
+		return Placement.entry(Placement.index(id))
+	var b: Dictionary = Placement.entry_of(id.split("/")[0]).duplicate()
 	b.id = id
 	b.kind = "flat"
 	return b
@@ -431,7 +435,7 @@ static func _pos_along(r: PackedVector2Array, at: float) -> Vector2:
 
 func _inside(building: String, door: Vector2) -> Vector2:
 	## Two steps through the door (a flat's is its shop's street door).
-	var b: Dictionary = _by_id.get(building.split("/")[0], {})
+	var b: Dictionary = Placement.entry_of(building.split("/")[0])
 	if b.is_empty():
 		return door
 	var yaw: float = b.yaw
@@ -628,25 +632,26 @@ func _near_road(p: Vector2) -> Dictionary:
 	var c := Vector2i(floori(fposmod(p.x, StationGeo.CIRC) / MapTerrain.CELL), floori(p.y / MapTerrain.CELL))
 	for i in range(-1, 2):
 		for j in range(-1, 2):
-			for it in MapTerrain._grid.get(c + Vector2i(i, j), []):
+			for it in MapTerrain._items(c + Vector2i(i, j)):
 				if it[0] != "road":
 					continue
 				var rd: Dictionary = MapTerrain._d.roads[it[1]]
 				if rd.cls == "rail" or rd.cls == "hwy":
 					continue
-				var q: Array = rd.pts[it[2]]
-				var r: Array = rd.pts[it[2] + 1]
-				var a := Vector2(float(q[0]), float(q[1]))
-				var bb := a + Vector2(StationGeo.wrap_ds(float(r[0]) - float(q[0])), float(r[1]) - float(q[1]))
-				var pl := Vector2(a.x + StationGeo.wrap_ds(p.x - a.x), p.y)
-				var ab := bb - a
-				var t := clampf((pl - a).dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
-				var foot := a + ab * t
-				var d := (pl - foot).length()
-				if d < best:
-					best = d
-					var n := (pl - foot).normalized() if d > 0.01 else Vector2(-ab.y, ab.x).normalized()
-					out = {"side": foot + n * (float(rd.w) * 0.5 + 1.2), "dir": ab.normalized()}
+				var rp: PackedVector2Array = rd.pts
+				for k in range(it[2], it[3]):              # (an entry is a run of road segments: MapTerrain.ROAD_RUN)
+					var a: Vector2 = rp[k]
+					var r: Vector2 = rp[k + 1]
+					var bb := a + Vector2(StationGeo.wrap_ds(r.x - a.x), r.y - a.y)
+					var pl := Vector2(a.x + StationGeo.wrap_ds(p.x - a.x), p.y)
+					var ab := bb - a
+					var t := clampf((pl - a).dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
+					var foot := a + ab * t
+					var d := (pl - foot).length()
+					if d < best:
+						best = d
+						var n := (pl - foot).normalized() if d > 0.01 else Vector2(-ab.y, ab.x).normalized()
+						out = {"side": foot + n * (float(rd.w) * 0.5 + 1.2), "dir": ab.normalized()}
 	return out
 
 

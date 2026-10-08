@@ -22,6 +22,7 @@ class_name NpcTraffic
 const FLEET := "res://remake/characters/npc_fleet.json"
 const RANGE := 130.0                  # (cars are simulated and shown within this; 160 m held ~175 at a rush hour in Calder)
 const SLICE := 50                    # vehicles placed per frame (the far ones are a distance check)
+const SLICE_BUDGET_USEC := 2500
 const FAR_RECHECK_MS := 3000         # a vehicle found far away isn't looked at again for this long (3 s at
                                      # town speed is ~40 m: inside the RANGE + 100 m margin it was judged by)
 var _ms := 0
@@ -75,26 +76,153 @@ func _ready() -> void:
 	_life = NpcLife.shared()
 	TrafficSigns.load_all()
 	world_seed = _life.seed
-	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(FLEET))
-	vehicles = (d.vehicles as Array).filter(func(x): return MODEL.has(str(x.type)) or FleetBodies.has(str(x.type)))
-	var used := {}
-	for x in vehicles:
-		used[str(x.type)] = true
-	FleetBodies.warm_all(used.keys())                     # (only the types on the roads)
+	# (a type's body plan is warmed when its first car becomes a candidate near the player: _refresh_candidates --
+	# every type's at load was ~130 MB)
 	_types = (JSON.parse_string(FileAccess.get_file_as_string("res://remake/characters/npc_vehicles.json")) as Dictionary).vehicles
 	if FileAccess.file_exists("res://remake/groundcars.json"):              # the player's pods and vans: their places are taken
 		for g in (JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json")) as Dictionary).groundcars:
 			_taken.append(Vector2(float(g.s), float(g.x)))
-	var per_door := {}
-	for v in vehicles:
-		var k := "%.1f,%.1f" % [float(v.door[0]), float(v.door[1])]
-		v.slot = int(per_door.get(k, 0))
-		per_door[k] = v.slot + 1
-		v.where = {}
-	print("NpcTraffic: %d vehicles (%d with rounds)" % [vehicles.size(), vehicles.filter(func(x): return not (x.rounds as Array).is_empty()).size()])
+	_load_fleet()
+	print("NpcTraffic: %d vehicles (%d with rounds)" % [_f_id.size(), _f_rounds.size()])
 
 
 # -- the clock --------------------------------------------------------------------------------------
+
+# -- the fleet, packed ------------------------------------------------------------------------------------------
+# 135,000 vehicles at 1:1 (2026-10-08): kept as columns on a FLEET_CELL grid; a vehicle becomes a Dictionary in
+# `vehicles` only while it's a candidate -- parked within NEAR_PARKED of the player, a work vehicle with rounds within
+# ROUNDS_R, or a car of a settlement whose people are loaded within LOADED_R.  (A car from farther off passing near the
+# player isn't seen: the fake that keeps the footprint small.)
+const FLEET_CELL := 500.0
+const NEAR_PARKED := 300.0
+const ROUNDS_R := 2000.0
+const LOADED_R := 1500.0                 # (3 km held ~18,000 cars in a city: their drivers' days recomputed past the caches)
+const FLEET_BIN := "res://remake/characters/npc_fleet.bin"   # (the packed fleet: bake_fleet(); the JSON was ~400 MB parsed)
+var _f_id := PackedStringArray()
+var _f_str := PackedStringArray()        # the types, kinds and places, interned
+var _f_type := PackedInt32Array()
+var _f_kind := PackedInt32Array()
+var _f_at := PackedInt32Array()
+var _f_driver := PackedStringArray()
+var _f_door := PackedFloat64Array()
+var _f_slot := PackedInt32Array()
+var _f_rounds := {}                      # fleet index -> [rounds, hours] (the few with rounds)
+var _f_grid := {}                        # cell -> PackedInt32Array of fleet indices
+var _cand := {}                          # fleet index -> its Dictionary (the candidates)
+var _cand_t := 0.0
+var _warmed := {}                        # vehicle types whose body plans are being / have been prepared
+
+
+static func _fleet_stamp() -> String:
+	return BakedMeshes.fingerprint([FLEET], 1)
+
+
+static func bake_fleet() -> int:
+	## (remake/tools/bake_world.gd pads) npc_fleet.json packed to npc_fleet.bin
+	var d := _pack_fleet()
+	d["_stamp"] = _fleet_stamp()
+	var f := FileAccess.open(FLEET_BIN, FileAccess.WRITE)
+	f.store_var(d)
+	f.close()
+	return (d.id as PackedStringArray).size()
+
+
+func _load_fleet() -> void:
+	var d := {}
+	if FileAccess.file_exists(FLEET_BIN):
+		var f := FileAccess.open(FLEET_BIN, FileAccess.READ)
+		var v = f.get_var()
+		f.close()
+		if typeof(v) == TYPE_DICTIONARY and str(v.get("_stamp", "")) == _fleet_stamp():
+			d = v
+	if d.is_empty():
+		d = _pack_fleet()
+	_f_id = d.id
+	_f_str = d.str
+	_f_type = d.type
+	_f_kind = d.kind
+	_f_at = d.at
+	_f_driver = d.driver
+	_f_door = d.door
+	_f_slot = d.slot
+	_f_rounds = d.rounds
+	for i in _f_id.size():
+		var c := Vector2i(floori(fposmod(_f_door[i * 2], StationGeo.CIRC) / FLEET_CELL), floori(_f_door[i * 2 + 1] / FLEET_CELL))
+		var a: PackedInt32Array = _f_grid.get(c, PackedInt32Array())
+		a.append(i)
+		_f_grid[c] = a
+
+
+static func _pack_fleet() -> Dictionary:
+	## the fleet's vehicles with a model, as columns
+	var all_v := ((JSON.parse_string(FileAccess.get_file_as_string(FLEET)) as Dictionary).vehicles as Array).filter(
+		func(x): return MODEL.has(str(x.type)) or FleetBodies.has(str(x.type)))
+	var ids := PackedStringArray()
+	var strs := PackedStringArray()
+	var types := PackedInt32Array()
+	var kinds := PackedInt32Array()
+	var ats := PackedInt32Array()
+	var drivers := PackedStringArray()
+	var doors := PackedFloat64Array()
+	var slots := PackedInt32Array()
+	var rounds := {}
+	var sidx := {}
+	var per_door := {}
+	for i in all_v.size():
+		var v: Dictionary = all_v[i]
+		var k := "%.1f,%.1f" % [float(v.door[0]), float(v.door[1])]
+		var slot := int(per_door.get(k, 0))
+		per_door[k] = slot + 1
+		ids.append(str(v.id))
+		for q in [[str(v.type), types], [str(v.kind), kinds], [str(v.at), ats]]:
+			if not sidx.has(q[0]):
+				sidx[q[0]] = strs.size()
+				strs.append(q[0])
+		types.append(sidx[str(v.type)])
+		kinds.append(sidx[str(v.kind)])
+		ats.append(sidx[str(v.at)])
+		drivers.append(str(v.driver))
+		doors.append(float(v.door[0]))
+		doors.append(float(v.door[1]))
+		slots.append(slot)
+		if not (v.rounds as Array).is_empty() or not (v.hours as Array).is_empty():
+			rounds[i] = [v.rounds, v.hours]
+	return {"id": ids, "str": strs, "type": types, "kind": kinds, "at": ats, "driver": drivers, "door": doors, "slot": slots,
+		"rounds": rounds}
+
+
+func _fleet_dict(i: int) -> Dictionary:
+	var rh: Array = _f_rounds.get(i, [[], []])
+	return {"id": _f_id[i], "type": _f_str[_f_type[i]], "kind": _f_str[_f_kind[i]], "at": _f_str[_f_at[i]], "door": [_f_door[i * 2], _f_door[i * 2 + 1]],
+		"driver": _f_driver[i], "rounds": rh[0], "hours": rh[1], "slot": _f_slot[i], "where": {}}
+
+
+func _refresh_candidates() -> void:
+	var want := {}
+	var r := int(ceil(maxf(ROUNDS_R, LOADED_R) / FLEET_CELL))
+	var ncol := ceili(StationGeo.CIRC / FLEET_CELL)
+	var ci := floori(fposmod(_here.x, StationGeo.CIRC) / FLEET_CELL)
+	var cj := floori(_here.y / FLEET_CELL)
+	for di in range(-r, r + 1):
+		for dj in range(-r, r + 1):
+			for i in _f_grid.get(Vector2i(posmod(ci + di, ncol), cj + dj), PackedInt32Array()):
+				var d := NpcPlaces.dist(Vector2(_f_door[i * 2], _f_door[i * 2 + 1]), _here)
+				if d <= NEAR_PARKED or (_f_rounds.has(i) and d <= ROUNDS_R) \
+						or (d <= LOADED_R and _f_driver[i] != "" and _life.is_loaded(_f_driver[i])):
+					want[i] = true
+	for i in _cand.keys():
+		if not want.has(i) and not live.has(_cand[i].id):
+			_cand.erase(i)
+	for i in want:
+		if not _cand.has(i):
+			_cand[i] = _fleet_dict(i)
+			var t := _f_str[_f_type[i]]
+			if not _warmed.has(t):
+				_warmed[t] = true
+				FleetBodies.warm_all([t])
+	vehicles = _cand.values()
+	_i = _i % maxi(1, vehicles.size())
+
 
 func _game_h_per_s() -> float:
 	return 24.0 / DaySkySystem.DAY_LENGTH_SECONDS
@@ -355,7 +483,7 @@ func _find_spot(door: Vector2) -> Dictionary:
 	var a := NpcPlaces._attach_on(door, ROADS)
 	if a.is_empty():
 		return {}
-	var e: Array = NpcPlaces._paths.edges[int(a[0])]
+	var e: Array = NpcPlaces._edge(int(a[0]))
 	var ri := int(e[2])
 	var u := float(a[1])
 	var c := NpcPlaces._at(ri, u)
@@ -409,23 +537,25 @@ func _blocked(p: Vector2, face: Vector2) -> bool:
 
 func _in_building(q: Vector2, margin: float) -> bool:
 	if _sites.is_empty():
-		var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
-		for b in st.structures:
-			var cell := Vector2i(floori(float(b.s) / 40.0), floori(float(b.x) / 40.0))
+		Placement.load_all()
+		for i in Placement.count():
+			var cell := Vector2i(floori(Placement.s(i) / 40.0), floori(Placement.x(i) / 40.0))
 			if not _sites.has(cell):
-				_sites[cell] = []
-			(_sites[cell] as Array).append(b)
+				_sites[cell] = PackedInt32Array()
+			var a: PackedInt32Array = _sites[cell]
+			a.append(i)
+			_sites[cell] = a
 	var cs := Vector2i(floori(q.x / 40.0), floori(q.y / 40.0))
 	for dx in [-1, 0, 1]:
 		for dy in [-1, 0, 1]:
-			for b in _sites.get(Vector2i(posmod(cs.x + dx, ceili(StationGeo.CIRC / 40.0)), cs.y + dy), []):
+			for bi in _sites.get(Vector2i(posmod(cs.x + dx, ceili(StationGeo.CIRC / 40.0)), cs.y + dy), PackedInt32Array()):
 				# the footprint in the building's frame: local -Z is (cos yaw, -sin yaw), +X (sin yaw, cos yaw)
-				var rel := Vector2(StationGeo.wrap_ds(q.x - float(b.s)), q.y - float(b.x))
-				var yaw := float(b.yaw)
+				var rel := Vector2(StationGeo.wrap_ds(q.x - Placement.s(bi)), q.y - Placement.x(bi))
+				var yaw := Placement.yaw(bi)
 				var lx := rel.dot(Vector2(sin(yaw), cos(yaw)))
 				var lz := rel.dot(Vector2(-cos(yaw), sin(yaw)))
-				var fmn: Array = b.get("fmin", [-5, -5])
-				var fmx: Array = b.get("fmax", [5, 5])
+				var fmn := Placement.fmin(bi)
+				var fmx := Placement.fmax(bi)
 				if lx > float(fmn[0]) - margin and lx < float(fmx[0]) + margin and lz > float(fmn[1]) - margin and lz < float(fmx[1]) + margin:
 					return true
 	return false
@@ -443,11 +573,17 @@ func _process(delta: float) -> void:
 
 
 func _tick_traffic(delta: float) -> void:
-	if player == null or vehicles.is_empty() or StationGeo.loading:
+	if player == null or _f_id.is_empty() or StationGeo.loading:
 		return                                                     # nothing drives till the world is in
 	var t_us := Time.get_ticks_usec()
 	_ms = Time.get_ticks_msec()
 	_here = Vector2(StationGeo.s_of(player.global_position), player.global_position.x)
+	_cand_t -= delta
+	if _cand_t <= 0.0 or vehicles.is_empty():
+		_cand_t = 2.0
+		_refresh_candidates()
+	if vehicles.is_empty():
+		return
 	var now := _now()
 	var ts0 := Time.get_ticks_usec()
 	_spots_this_frame = 0
@@ -459,6 +595,8 @@ func _tick_traffic(delta: float) -> void:
 	var t_show := 0
 	# a slice of the fleet each frame: where each is, and whether it's near
 	for k in mini(SLICE, vehicles.size()):
+		if k > 0 and Time.get_ticks_usec() - t_us > SLICE_BUDGET_USEC:
+			break                                                  # (every candidate is a real look now: a time budget, not a count)
 		var v: Dictionary = vehicles[_i]
 		_i = (_i + 1) % vehicles.size()
 		if live.has(v.id) and live[v.id].sim != null:

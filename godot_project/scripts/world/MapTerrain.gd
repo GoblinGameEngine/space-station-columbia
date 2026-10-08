@@ -35,11 +35,13 @@ const PLACEMENT := "res://remake/placement.json"
 static var _d: Dictionary = {}
 const RAMP := 40.0                  # roads ramp to a bridge's deck over this, before its abutments
 const CURB_RISE := 0.15             # behind a kerb with a sidewalk the ground stands at the kerb's top (MapRoads CURB_H)
-static var _pads: Array = []         # [s, x, cos yaw, sin yaw, min x, min z, max x, max z, height]
+static var _pads := PackedFloat64Array()  # PAD_N a pad: [s, x, cos yaw, sin yaw, min x, min z, max x, max z, height, blend]
+const PAD_N := 10
 static var _bridges: Array = []      # the same, for crossings: height = the deck
-static var _pad_by_id: Dictionary = {}
+static var _pad_h := PackedFloat32Array()  # placement index -> its pad height (a crossing: its deck); NAN none
 static var _prof_step := 4.0         # m between a road's profile heights (terrain.json "prof_step")
-static var _grid: Dictionary = {}    # Vector2i -> Array of [kind, index]
+static var _grid: Dictionary = {}    # Vector2i -> PackedInt32Array of [kind, index, k0, k1] (KINDS; -1: none) -- _items()
+const KINDS := ["seg", "pond", "oxbow", "ditch", "road", "area", "pad", "bridge"]
 static var R := 500.0
 static var C := TAU * 500.0
 # version 2 (tools/map_expanded.py --game-data): the terrain as rasters sampled directly -- the base
@@ -50,15 +52,22 @@ static var _ny := 0
 static var _step := 4.0
 static var _x0 := 0.0
 static var _base := PackedByteArray()
-static var _lvl := PackedByteArray()
-static var _dep := PackedByteArray()
+# the water's level and depth: tiles of WT x WT cells, kept only where they aren't all one value (88 MB raw, ~10 sparse)
+const WT := 32
+static var _wtx := 0                         # tiles across s
+static var _lvl_slot := PackedInt32Array()   # tile -> its cells' slot in _lvl_t, or -1: all _lvl_k[tile]
+static var _lvl_k := PackedFloat32Array()
+static var _lvl_t := PackedByteArray()
+static var _dep_slot := PackedInt32Array()
+static var _dep_k := PackedFloat32Array()
+static var _dep_t := PackedByteArray()
 static var _lc_step := 2.0
 
 
 static func _load() -> void:
 	if not _d.is_empty():
 		return
-	_d = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+	_d = _read_compact()
 	R = _d.R
 	C = TAU * R
 	if int(_d.get("version", 1)) >= 2:
@@ -69,8 +78,15 @@ static func _load() -> void:
 		_x0 = rs.x0
 		_lc_step = _d.get("landcover_step_m", 2.0)
 		_base = _raster(rs.base)
-		_lvl = _raster(rs.level)
-		_dep = _raster(rs.depth)
+		_wtx = ceili(_nx / float(WT))
+		var sp := _sparse(_raster(rs.level))
+		_lvl_slot = sp[0]
+		_lvl_k = sp[1]
+		_lvl_t = sp[2]
+		sp = _sparse(_raster(rs.depth))
+		_dep_slot = sp[0]
+		_dep_k = sp[1]
+		_dep_t = sp[2]
 		_v2 = true
 	# index every feature's bounding box (grown by its bank) into the grid
 	for i in _d.creeks.size():
@@ -97,7 +113,7 @@ static func _load() -> void:
 	_prof_step = float(_d.get("prof_step", 4.0))
 	for i in _d.roads.size():
 		var rd: Dictionary = _d.roads[i]
-		var rp: Array = rd.pts
+		var rp: PackedVector2Array = rd.pts
 		# arc length at each point, for the graded profile (tools/road_profile.py)
 		var cum := PackedFloat32Array([0.0])
 		for k in rp.size() - 1:
@@ -131,9 +147,109 @@ static func _load() -> void:
 	_load_pads()
 
 
+# terrain.json is ~44 MB of JSON, ~510 MB parsed -- 1.5 million road points as [s, x] Arrays (2026-10-08).  The
+# roads' points and profiles are kept packed (PackedVector2Array / PackedFloat32Array: rd.pts[k][0] still reads), baked
+# to terrain.bin (bake_world.gd pads) so the JSON isn't parsed at all.
+const BIN := "res://remake/terrain.bin"
+
+
+static func data() -> Dictionary:
+	## the terrain data (one copy for everyone: MapWater, WaterAmbience...)
+	_load()
+	return _d
+
+
+static func _bin_stamp() -> String:
+	return BakedMeshes.fingerprint([PATH], 1)
+
+
+static func _read_compact() -> Dictionary:
+	if FileAccess.file_exists(BIN):
+		var f := FileAccess.open(BIN, FileAccess.READ)
+		var d = f.get_var()
+		f.close()
+		if typeof(d) == TYPE_DICTIONARY and str(d.get("_stamp", "")) == _bin_stamp():
+			return d
+	return _pack(JSON.parse_string(FileAccess.get_file_as_string(PATH)))
+
+
+static func _pack(d: Dictionary) -> Dictionary:
+	for rd in d.get("roads", []):
+		rd["pts"] = _packed_pts(rd.pts)
+		if rd.has("prof"):
+			rd["prof"] = PackedFloat32Array(rd.prof)
+	if d.has("rail"):
+		d.rail["pts"] = _packed_pts(d.rail.pts)
+		if d.rail.has("prof"):
+			d.rail["prof"] = PackedFloat32Array(d.rail.prof)
+	return d
+
+
+static func _packed_pts(a: Array) -> PackedVector2Array:
+	var out := PackedVector2Array()
+	out.resize(a.size())
+	for k in a.size():
+		out[k] = Vector2(float(a[k][0]), float(a[k][1]))
+	return out
+
+
+static func bake_bin() -> void:
+	## (remake/tools/bake_world.gd pads) terrain.json packed, as terrain.bin
+	var d := _pack(JSON.parse_string(FileAccess.get_file_as_string(PATH)))
+	d["_stamp"] = _bin_stamp()
+	var f := FileAccess.open(BIN, FileAccess.WRITE)
+	f.store_var(d)
+	f.close()
+
+
 static func _raster(file: String) -> PackedByteArray:
 	var raw := FileAccess.get_file_as_bytes("res://remake/" + file)
 	return raw.decompress(_nx * _ny * 2, FileAccess.COMPRESSION_GZIP)
+
+
+static func _sparse(buf: PackedByteArray) -> Array:
+	## [slot per tile, value per tile, the non-uniform tiles' cells (WT rows of WT halves each)]
+	var nty := ceili(_ny / float(WT))
+	var slot := PackedInt32Array()
+	var k := PackedFloat32Array()
+	var tiles := PackedByteArray()
+	slot.resize(_wtx * nty)
+	k.resize(_wtx * nty)
+	var rowb := WT * 2
+	var n := 0
+	for tj in nty:
+		for ti in _wtx:
+			var tile := PackedByteArray()
+			for r in WT:
+				var j := mini(tj * WT + r, _ny - 1)
+				var a := (j * _nx + ti * WT) * 2
+				var row := buf.slice(a, a + mini(rowb, (_nx - ti * WT) * 2))
+				if row.size() < rowb:
+					row.resize(rowb)                     # (past the edge: never read)
+				tile.append_array(row)
+			var v := tile.decode_half(0)
+			var one := PackedByteArray()
+			one.resize(2)
+			one.encode_half(0, v)
+			var uni := tile.slice(0, 2)
+			while uni.size() < tile.size():
+				uni.append_array(uni)
+			if uni == tile:
+				slot[tj * _wtx + ti] = -1
+				k[tj * _wtx + ti] = v
+			else:
+				slot[tj * _wtx + ti] = n
+				tiles.append_array(tile)
+				n += 1
+	return [slot, k, tiles]
+
+
+static func _sv(slot: PackedInt32Array, k: PackedFloat32Array, tiles: PackedByteArray, i: int, j: int) -> float:
+	var ti := (j / WT) * _wtx + i / WT
+	var sl := slot[ti]
+	if sl < 0:
+		return k[ti]
+	return tiles.decode_half((sl * WT * WT + (j % WT) * WT + i % WT) * 2)
 
 
 static func _cell(s: float, x: float) -> Vector2:
@@ -165,10 +281,19 @@ static func water_at(s: float, x: float) -> Vector2:
 	var f := _cell(s, x)
 	var i := posmod(roundi(f.x), _nx)
 	var j := clampi(roundi(f.y), 0, _ny - 1)
-	var lv := _lvl.decode_half((j * _nx + i) * 2)
+	var lv := _sv(_lvl_slot, _lvl_k, _lvl_t, i, j)
 	if lv < -9000.0:
 		return Vector2(-9999.0, 0.0)
-	return Vector2(lv, _bil(_dep, s, x))
+	# (the depth, bilinear)
+	var i0 := floori(f.x)
+	var j0 := clampi(floori(f.y), 0, _ny - 2)
+	var tx := f.x - i0
+	var ty := clampf(f.y - j0, 0.0, 1.0)
+	i0 = posmod(i0, _nx)
+	var i1 := (i0 + 1) % _nx
+	var a := lerpf(_sv(_dep_slot, _dep_k, _dep_t, i0, j0), _sv(_dep_slot, _dep_k, _dep_t, i1, j0), tx)
+	var b := lerpf(_sv(_dep_slot, _dep_k, _dep_t, i0, j0 + 1), _sv(_dep_slot, _dep_k, _dep_t, i1, j0 + 1), tx)
+	return Vector2(lv, lerpf(a, b, ty))
 
 
 static func _index(item: Array, s0: float, x0: float, s1: float, x1: float, grow: float) -> void:
@@ -186,10 +311,48 @@ static func _index(item: Array, s0: float, x0: float, s1: float, x1: float, grow
 		if u >= hi:
 			break
 		u += CELL * 0.5
+	var kind := KINDS.find(item[0])
+	var rec := PackedInt32Array([kind, item[1], item[2] if item.size() > 2 else -1, item[3] if item.size() > 3 else -1])
+	_gmx.lock()
 	for key in keys:
-		if not _grid.has(key):
-			_grid[key] = []
-		_grid[key].append(item)
+		var a: PackedInt32Array = _grid.get(key, PackedInt32Array())
+		a.append_array(rec)
+		_grid[key] = a
+		_gcache.erase(key)
+		_gcache_old.erase(key)
+	_gmx.unlock()
+
+
+# The grid was ~968,000 little Arrays on the 1:1 map (~200 MB): it's packed, and a cell's items are made as they're
+# asked for (kept a while, two generations of GCACHE_MAX cells: the lookups round the player ask for the same ones).
+static var _gcache := {}
+static var _gcache_old := {}
+static var _gmx := Mutex.new()
+const GCACHE_MAX := 16384
+
+
+static func _items(key: Vector2i) -> Array:
+	## a grid cell's items: ["road", i, k0, k1], ["seg", i, k], [kind, i]
+	_gmx.lock()
+	var got = _gcache.get(key)
+	if got == null:
+		got = _gcache_old.get(key)
+		if got == null:
+			got = []
+			var a: PackedInt32Array = _grid.get(key, PackedInt32Array())
+			for j in range(0, a.size(), 4):
+				if a[j + 3] >= 0:
+					got.append([KINDS[a[j]], a[j + 1], a[j + 2], a[j + 3]])
+				elif a[j + 2] >= 0:
+					got.append([KINDS[a[j]], a[j + 1], a[j + 2]])
+				else:
+					got.append([KINDS[a[j]], a[j + 1]])
+		if _gcache.size() >= GCACHE_MAX:
+			_gcache_old = _gcache
+			_gcache = {}
+		_gcache[key] = got
+	_gmx.unlock()
+	return got
 
 
 static func _wrap(ds: float) -> float:
@@ -311,7 +474,7 @@ static func _kind_cell(cache: Dictionary, key: Vector2i, kinds: Array) -> Array:
 	if got != null:
 		return got
 	var out: Array = []
-	for it in _grid.get(key, []):
+	for it in _items(key):
 		if kinds.has(it[0]):
 			out.append(it)
 	_cache_mx.lock()
@@ -380,6 +543,8 @@ static func sample(s: float, x: float) -> Vector2:
 const RCELL := 16.0                   # the roads' own fine grid (_road_cell)
 const RSTRIDE := 11                  # per segment: a.s a.x b.s b.x kerb_r kerb_l verge cum0 cum1 road k
 static var _rcells := {}             # Vector2i -> PackedFloat32Array, built on first use
+static var _rcells_old := {}         # (two generations of RCELLS_MAX: 82,000 cells in a minute in a 1:1 city, unbounded)
+const RCELLS_MAX := 12000
 
 
 static func _road_cell(key: Vector2i) -> PackedFloat32Array:
@@ -387,6 +552,10 @@ static func _road_cell(key: Vector2i) -> PackedFloat32Array:
 	## numbers: the height lookup's inner loop then touches no Dictionary).
 	_cache_mx.lock()
 	var got = _rcells.get(key)
+	if got == null:
+		got = _rcells_old.get(key)
+		if got != null:
+			_rcells[key] = got
 	_cache_mx.unlock()
 	if got != null:
 		return got
@@ -394,7 +563,7 @@ static func _road_cell(key: Vector2i) -> PackedFloat32Array:
 	var cs := (key.x + 0.5) * RCELL
 	var cx := (key.y + 0.5) * RCELL
 	var half_diag := RCELL * 0.7072
-	for it in _grid.get(Vector2i(floori(cs / CELL), floori(cx / CELL)), []):
+	for it in _items(Vector2i(floori(cs / CELL), floori(cx / CELL))):
 		if it[0] != "road":
 			continue
 		var rd: Dictionary = _d.roads[it[1]]
@@ -403,12 +572,15 @@ static func _road_cell(key: Vector2i) -> PackedFloat32Array:
 		var verge: float = float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0))
 		var cum: PackedFloat32Array = rd.cum
 		for k in range(it[2], it[3]):
-			var a: Array = rd.pts[k]
-			var bq: Array = rd.pts[k + 1]
+			var a: Vector2 = rd.pts[k]
+			var bq: Vector2 = rd.pts[k + 1]
 			if _seg_dist(cs, cx, a[0], a[1], bq[0], bq[1]) > maxf(kr, kl) + verge + 0.5 + BLEND_MAX + half_diag:
 				continue
 			out.append_array(PackedFloat32Array([a[0], a[1], bq[0], bq[1], kr, kl, verge, cum[k], cum[k + 1], it[1], k]))
 	_cache_mx.lock()
+	if _rcells.size() >= RCELLS_MAX:
+		_rcells_old = _rcells
+		_rcells = {}
 	_rcells[key] = out
 	_cache_mx.unlock()
 	return out
@@ -493,7 +665,7 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 
 static func _ramp_to_bridge(s: float, x: float, h: float) -> float:
 	## A road near a crossing ramps to its deck over RAMP m (so both approaches meet the deck).
-	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
+	for it in _items(Vector2i(floori(s / CELL), floori(x / CELL))):
 		if it[0] != "bridge":
 			continue
 		var bd: Array = _bridges[it[1]]
@@ -514,7 +686,7 @@ static func _pad_grade(s: float, x: float, h: float) -> float:
 	var best_w := 0.0
 	var best_h := h
 	for it in _kind_cell(_pad_cells, Vector2i(floori(s / CELL), floori(x / CELL)), ["pad"]):
-		var pd: Array = _pads[it[1]]
+		var pd := _pads.slice(it[1] * PAD_N, it[1] * PAD_N + PAD_N)
 		var ds := _wrap(s - pd[0])
 		var dx: float = x - pd[1]
 		var lx: float = dx * pd[2] + ds * pd[3]             # into the building's own frame
@@ -534,21 +706,28 @@ static func _load_pads() -> void:
 	## height instead, which the roads ramp to.
 	if not FileAccess.file_exists(PLACEMENT):
 		return
-	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string(PLACEMENT)).structures
+	Placement.load_all()
+	_pad_h.resize(Placement.count())
+	_pad_h.fill(NAN)
 	# the pads come baked (remake/tools/bake_world.gd pads): working out ~64,000 of them here, five road grades
 	# each, took a minute at every launch on the 1:1 map (2026-10-08)
 	var baked := _read_pads_baked()
-	for e in pl:
-		if e.kind == "crossing":
-			_load_bridge(e)
+	var bv: PackedFloat64Array = baked.get("v", PackedFloat64Array())
+	var brow: Dictionary = baked.get("row", {})
+	for pi in Placement.count():
+		if Placement.kind(pi) == "crossing":
+			_load_bridge(Placement.entry(pi))
 			continue
-		if baked.has(e.id):
-			var pb: Array = baked[e.id]
-			_pad_by_id[e.id] = pb[8]
-			_pads.append(pb)
+		var row: int = brow.get(Placement.id(pi), -1)
+		if row >= 0:
+			var pb := bv.slice(row * PAD_N, row * PAD_N + PAD_N)
+			_pad_h[pi] = pb[8]
+			var np := _pads.size() / PAD_N
+			_pads.append_array(pb)
 			var rch := Vector2(maxf(absf(pb[4]), absf(pb[6])), maxf(absf(pb[5]), absf(pb[7]))).length()
-			_index(["pad", _pads.size() - 1], pb[0] - rch, pb[1] - rch, pb[0] + rch, pb[1] + rch, PAD_MARGIN + float(pb[9]))
+			_index(["pad", np], pb[0] - rch, pb[1] - rch, pb[0] + rch, pb[1] + rch, PAD_MARGIN + float(pb[9]))
 			continue
+		var e := Placement.entry(pi)
 		var s0: float = e.s
 		var x0: float = e.x
 		var c := cos(float(e.yaw))
@@ -569,11 +748,12 @@ static func _load_pads() -> void:
 				var cx_: float = x0 + float(cx) * c + float(cz) * sn
 				diff = maxf(diff, absf(hpad - _road_grade(fposmod(cs_, C), cx_, base_elev(cs_, cx_)).x))
 		var blend := clampf(diff * PAD_SLOPE, PAD_BLEND, PAD_BLEND_MAX)
-		var pd := [s0, x0, c, sn, e.min[0], e.min[2], e.max[0], e.max[2], hpad, blend]
-		_pad_by_id[e.id] = hpad
-		_pads.append(pd)
+		var pd := PackedFloat64Array([s0, x0, c, sn, e.min[0], e.min[2], e.max[0], e.max[2], hpad, blend])
+		_pad_h[pi] = hpad
+		var np := _pads.size() / PAD_N
+		_pads.append_array(pd)
 		var reach := Vector2(maxf(absf(e.min[0]), absf(e.max[0])), maxf(absf(e.min[2]), absf(e.max[2]))).length()
-		_index(["pad", _pads.size() - 1], s0 - reach, x0 - reach, s0 + reach, x0 + reach, PAD_MARGIN + blend)
+		_index(["pad", np], s0 - reach, x0 - reach, s0 + reach, x0 + reach, PAD_MARGIN + blend)
 
 
 const PADS_BAKED := "res://remake/baked/pads.bin"
@@ -586,7 +766,7 @@ static func pads_stamp() -> String:
 
 
 static func _read_pads_baked() -> Dictionary:
-	## id -> pad record, if the baked pads are of this data
+	## {row: id -> its row in v, v: PAD_N a pad}, if the baked pads are of this data
 	if not FileAccess.file_exists(PADS_BAKED):
 		return {}
 	var f := FileAccess.open(PADS_BAKED, FileAccess.READ)
@@ -595,13 +775,11 @@ static func _read_pads_baked() -> Dictionary:
 	if typeof(d) != TYPE_DICTIONARY or str(d.get("stamp", "")) != pads_stamp():
 		push_warning("MapTerrain: the baked pads are of other data -- working them out (rerun remake/tools/bake_world.gd pads)")
 		return {}
-	var out := {}
+	var row := {}
 	var ids: PackedStringArray = d.ids
-	var v: PackedFloat64Array = d.v
 	for i in ids.size():
-		var o := i * 10
-		out[ids[i]] = [v[o], v[o + 1], v[o + 2], v[o + 3], v[o + 4], v[o + 5], v[o + 6], v[o + 7], v[o + 8], v[o + 9]]
-	return out
+		row[ids[i]] = i
+	return {"row": row, "v": d.v}
 
 
 static func bake_pads() -> int:
@@ -609,16 +787,13 @@ static func bake_pads() -> int:
 	_load()
 	var ids := PackedStringArray()
 	var v := PackedFloat64Array()
-	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string(PLACEMENT)).structures
 	var k := 0
-	for e in pl:
-		if e.kind == "crossing":
+	for pi in Placement.count():
+		if Placement.kind(pi) == "crossing":
 			continue
-		var pd: Array = _pads[k]
+		ids.append(Placement.id(pi))
+		v.append_array(_pads.slice(k * PAD_N, k * PAD_N + PAD_N))
 		k += 1
-		ids.append(str(e.id))
-		for q in pd:
-			v.append(float(q))
 	var f := FileAccess.open(PADS_BAKED, FileAccess.WRITE)
 	f.store_var({"stamp": pads_stamp(), "ids": ids, "v": v})
 	f.close()
@@ -642,7 +817,7 @@ static func _load_bridge(e: Dictionary) -> void:
 	deck = float(_d.get("decks", {}).get(e.id, deck))
 	var dk: Array = e.get("deck", [0.0, 0.0])            # the bridge proper's length and width (placement.py)
 	_bridges.append([s0, x0, c, sn, e.fmin[0], e.fmin[1], e.fmax[0], e.fmax[1], deck, float(dk[0]), float(dk[1])])
-	_pad_by_id[e.id] = deck
+	_pad_h[Placement.index(e.id)] = deck
 	var reach := Vector2(maxf(absf(e.fmin[0]), absf(e.fmax[0])), maxf(absf(e.fmin[1]), absf(e.fmax[1]))).length()
 	_index(["bridge", _bridges.size() - 1], s0 - reach, x0 - reach, s0 + reach, x0 + reach, RAMP)
 
@@ -653,7 +828,7 @@ static func on_small_bridge(s: float, x: float, reach := 8.0, before := 0.0) -> 
 	## the bridge model carries them.
 	_load()
 	s = fposmod(s, C)
-	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
+	for it in _items(Vector2i(floori(s / CELL), floori(x / CELL))):
 		if it[0] != "bridge":
 			continue
 		var bd: Array = _bridges[it[1]]
@@ -671,7 +846,8 @@ static func on_small_bridge(s: float, x: float, reach := 8.0, before := 0.0) -> 
 static func pad_height(id: String) -> float:
 	## The height a placed structure stands at (its pad, or a crossing's deck).
 	_load()
-	return _pad_by_id.get(id, NAN)
+	var i := Placement.index(id)
+	return NAN if i < 0 else _pad_h[i]
 
 
 static var _lc: Image = null
@@ -679,9 +855,18 @@ static var _lc: Image = null
 
 static func landcover_image() -> Image:
 	if _lc == null:
-		_load()
-		_lc = load("res://remake/landcover.png")
+		_load_lc()
 	return _lc
+
+
+static func _load_lc() -> void:
+	_load()
+	var im: Image = load("res://remake/landcover.png")
+	# (class and field id only: RG, not the PNG's RGB -- 44 MB, not 66 here and 88 as an RGBA texture)
+	if im.get_format() != Image.FORMAT_RG8:
+		im = im.duplicate()
+		im.convert(Image.FORMAT_RG8)
+	_lc = im
 
 
 static func landcover_step() -> float:
@@ -694,8 +879,7 @@ static func landcover(s: float, x: float) -> Vector2i:
 	## 1 built-up, 2 floodplain meadow, 3 woods, 4 farm field (id picks its crop), 5 windbreak grove,
 	## 0 anything else.
 	if _lc == null:
-		_load()
-		_lc = load("res://remake/landcover.png")
+		_load_lc()
 	var px := clampi(floori(fposmod(s, C) / _lc_step), 0, _lc.get_width() - 1)
 	var py := clampi(floori((x + StationGeo.HALF_LEN) / _lc_step), 0, _lc.get_height() - 1)
 	var c := _lc.get_pixel(px, py)
@@ -706,7 +890,7 @@ static func area_kind(s: float, x: float) -> String:
 	## The town area at (s, x) -- "lawn", "parking", "square", "schoolground"... -- or "".
 	_load()
 	s = fposmod(s, C)
-	for it in _grid.get(Vector2i(floori(s / CELL), floori(x / CELL)), []):
+	for it in _items(Vector2i(floori(s / CELL), floori(x / CELL))):
 		if it[0] == "area" and _poly_inside_dist(_d.areas[it[1]].poly, s, x) > 0.0:
 			return _d.areas[it[1]].kind
 	return ""

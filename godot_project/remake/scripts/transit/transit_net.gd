@@ -206,7 +206,7 @@ static func _build() -> void:
 		_lines.append(line)
 	# the Ring Line
 	MapTerrain._load()
-	var rail: Array = MapTerrain._d.rail.pts
+	var rail: PackedVector2Array = MapTerrain._d.rail.pts
 	var rp := PackedVector2Array()
 	for p in rail:
 		var v := Vector2(fposmod(float(p[0]), StationGeo.CIRC), float(p[1]))
@@ -216,8 +216,7 @@ static func _build() -> void:
 	var train := {"id": "ring", "name": "the Ring Line", "kind": "train", "pts": rp, "speed": TRAIN_SPEED, "dwell": 30.0, "stops": []}
 	_finish(train)
 	var centres := {}
-	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
-	for b in st.structures:
+	for b in Placement.entries():
 		if b.get("settlement") == null:
 			continue
 		var k := str(b.settlement)
@@ -370,8 +369,7 @@ static func _smooth(raw: PackedVector2Array) -> PackedVector2Array:
 
 static func _buildings_near(p: Vector2, reach: float) -> Array:
 	if _sites.is_empty():
-		var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
-		for b in st.structures:
+		for b in Placement.entries():
 			var fmn: Array = b.get("fmin", [-5, -5])
 			var fmx: Array = b.get("fmax", [5, 5])
 			_sites.append([Vector2(float(b.s), float(b.x)), 0.5 * Vector2(float(fmx[0]) - float(fmn[0]), float(fmx[1]) - float(fmn[1])).length()])

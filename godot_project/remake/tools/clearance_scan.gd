@@ -46,7 +46,7 @@ func _ready() -> void:
 		var rd: Dictionary = roads[ri]
 		if rd.cls == "rail":
 			continue
-		var pts: Array = rd.pts
+		var pts: PackedVector2Array = rd.pts
 		var lanes := [0.0] if float(rd.w) < 5.0 else [float(rd.w) * 0.25, -float(rd.w) * 0.25]
 		for k in pts.size() - 1:
 			var a := Vector2(pts[k][0], pts[k][1])

@@ -87,7 +87,7 @@ func _finish() -> void:
 			_img.set_pixel(x, y, col)
 	# the roads, in grey over it
 	for rd in MapTerrain._d.roads:
-		var pts: Array = rd.pts
+		var pts: PackedVector2Array = rd.pts
 		for k in pts.size() - 1:
 			var a := Vector2(pts[k][0], pts[k][1])
 			var b := Vector2(pts[k + 1][0], pts[k + 1][1])
