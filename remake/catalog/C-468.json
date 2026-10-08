@@ -1,17 +1,17 @@
 {
  "id": "C-468",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.1,
-  "d": 41.5
+  "w": 12.3,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "side_gable_cottage",
-  "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 28,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 35,
@@ -19,7 +19,7 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
    "rail": "spindle"
   },
@@ -48,11 +48,12 @@
   "condition": "worn",
   "year_built": 1908,
   "band": "streetcar",
-  "form_token": "pyramidal_cottage"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Brannock",
-  "house_number": 420
+  "house_number": 480
  },
- "brief": "streetcar band pyramidal_cottage: 1 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,27 +1,56 @@
 {
  "id": "C-1555",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 54.8,
-  "d": 24.7
+  "w": 20.6,
+  "d": 28.9
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "i_house",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#d8d7c5"
+  "main_w_ft": 31,
+  "main_d_ft": 25,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2007,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#798974",
+   "trim": "#2e3a4a",
+   "accent": "#2e3a4a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2018,
+  "band": "current",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Castellanos",
+  "house_number": 722
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

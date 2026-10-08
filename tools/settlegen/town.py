@@ -43,6 +43,8 @@ BANDS = {
     "suburban":  dict(w=(28.0, 38.0), d=(40.0, 48.0), sb=(10.0, 14.0), alley=False, band="suburban_1965_1990", years=(1966, 1989)),
     "late":      dict(w=(22.0, 27.0), d=(34.0, 38.0), sb=(7.5, 9.5), alley=False, band="late_1990_2010", years=(1991, 2009)),
     "current":   dict(w=(20.0, 23.0), d=(32.0, 35.0), sb=(6.0, 7.5), alley=False, band="current_2010_on", years=(2011, 2024)),
+    # the island's summer estates (Victory Bay, the user 2026-10-07: "the houses larger than the mainland")
+    "estate":    dict(w=(38.0, 55.0), d=(55.0, 70.0), sb=(12.0, 18.0), alley=False, band="streetcar_1890_1930", years=(1885, 1925)),
 }
 
 

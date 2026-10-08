@@ -127,8 +127,12 @@ func _locate(v: Dictionary, now: Array) -> Dictionary:
 
 func _locate_home(v: Dictionary, now: Array) -> Dictionary:
 	var pid: String = v.driver
-	var P := _life.person(pid)
 	var home := Vector2(float(v.door[0]), float(v.door[1]))
+	# a driver living farther off than any trip reaches can't be near: not looked up (looking every one up loaded each
+	# settlement's people in turn, 10-50 MB each, round the 1:1 station -- NpcLife keeps MAX_SHARDS of them)
+	if NpcPlaces.dist(home, _here) > TRIP_REACH:
+		return {}
+	var P := _life.person(pid)
 	if P.is_empty():
 		return _parked(home, v)
 	var day: int = now[0]
@@ -426,6 +430,9 @@ func _in_building(q: Vector2, margin: float) -> bool:
 
 
 # -- the frame --------------------------------------------------------------------------------------
+
+const TRIP_REACH := 9500.0           # m: the farthest a car trip takes anyone from home (bake_lives WORK_CAR 9 km)
+
 
 func _process(delta: float) -> void:
 	Prof.begin("traffic")

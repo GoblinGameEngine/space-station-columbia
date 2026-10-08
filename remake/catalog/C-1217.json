@@ -1,31 +1,60 @@
 {
  "id": "C-1217",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 43.4,
-  "d": 36.0
+  "w": 25.6,
+  "d": 31.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#e5c98b",
-   "trim": "#e8e0c8",
-   "accent": "#1f2a33",
-   "roof": "#5a4a40"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 29,
   "roof": {
-   "pitch_deg": 33
+   "type": "cross_gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1993,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#945243",
+   "trim": "#3a3f44",
+   "accent": "#6a4a2a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1994,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "DeCarlo",
+  "house_number": 365
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

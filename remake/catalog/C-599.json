@@ -1,38 +1,38 @@
 {
  "id": "C-599",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.7,
-  "d": 41.6
+  "w": 14.3,
+  "d": 41.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 20,
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "wrap",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#904737",
-   "trim": "#f2efe6",
-   "accent": "#1f2a33",
-   "roof": "#4a4a48"
+   "body": "#87a8bc",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#2f3133"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -40,23 +40,22 @@
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "fence": "iron",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "garden",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1897,
+  "year_built": 1896,
   "band": "streetcar",
-  "form_token": "double_house",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Kowal",
-  "house_number": 379
+  "family": "Haddad",
+  "house_number": 580
  },
- "brief": "streetcar band double_house: 2 storeys, brick walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

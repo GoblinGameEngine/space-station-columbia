@@ -1,0 +1,66 @@
+{
+ "id": "M-0256",
+ "settlement": "Marlowe",
+ "generated": "tools/settlegen (Marlowe)",
+ "lot": {
+  "w": 13.8,
+  "d": 38.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e9e5c8",
+   "trim": "#e8e0c8",
+   "accent": "#1f2a33",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "hedge",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1926,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Castellanos",
+  "house_number": 225
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1187"
+}

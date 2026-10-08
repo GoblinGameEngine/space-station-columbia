@@ -1,27 +1,27 @@
 {
  "id": "C-631",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.4,
-  "d": 41.8
+  "w": 11.1,
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "main_w_ft": 26,
+  "main_d_ft": 39,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 34,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "shingle",
   "foundation": "brick",
@@ -51,11 +51,12 @@
   "condition": "kept",
   "year_built": 1897,
   "band": "streetcar",
-  "form_token": "foursquare"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Szabo",
-  "house_number": 154
+  "house_number": 112
  },
- "brief": "streetcar band foursquare: 2 storeys, shingle walls, stoop porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, shingle walls, stacked porch, garage none (generated from the Great Lakes tokens)."
 }

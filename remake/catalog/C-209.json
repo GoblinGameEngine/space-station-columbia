@@ -1,32 +1,41 @@
 {
  "id": "C-209",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.3,
-  "d": 30.2
+  "w": 13.7,
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 1.5,
-  "main_w_ft": 23,
-  "main_d_ft": 33,
+  "main_w_ft": 22,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
    "pitch_deg": 33,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "front_partial",
    "posts": "turned",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "shingle",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#f1f4de",
+   "body": "#897f60",
    "trim": "#2e3a4a",
    "accent": "#7a2e28",
    "roof": "#555350"
@@ -38,7 +47,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "iron",
    "side": "chainlink",
@@ -46,13 +55,13 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1919,
+  "year_built": 1910,
   "band": "streetcar",
   "form_token": "gable_front"
  },
  "names": {
   "family": "Wisniewski",
-  "house_number": 456
+  "house_number": 463
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

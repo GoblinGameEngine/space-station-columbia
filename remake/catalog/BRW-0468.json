@@ -1,0 +1,69 @@
+{
+ "id": "BRW-0468",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 14.1,
+  "d": 26.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1919,
+  "band": "streetcar",
+  "form_token": "shingle_style"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Dunmore",
+  "house_number": 468
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0703"
+}

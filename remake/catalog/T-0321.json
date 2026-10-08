@@ -1,0 +1,73 @@
+{
+ "id": "T-0321",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 13.2,
+  "d": 35.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#894f2d",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 11
+  }
+ },
+ "names": {
+  "family": "Duquesne",
+  "house_number": 369
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, brick walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-2284"
+}

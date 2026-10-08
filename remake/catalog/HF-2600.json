@@ -1,0 +1,68 @@
+{
+ "id": "HF-2600",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 19.9,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 46,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f2e0c6",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Villalobos",
+  "house_number": 1768
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1191"
+}

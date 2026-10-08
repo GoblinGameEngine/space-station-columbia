@@ -1,31 +1,58 @@
 {
  "id": "C-1407",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 41.6,
-  "d": 32.7
+  "w": 23.4,
+  "d": 31.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 36,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#a0be96",
-   "trim": "#f2efe6",
-   "accent": "#4a5a48",
-   "roof": "#4a4a48"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 37,
+  "main_d_ft": 22,
   "roof": {
-   "pitch_deg": 29
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2023,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#f1eee5",
+   "trim": "#5a3a28",
+   "accent": "#2e3a4a",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "new",
+  "year_built": 2005,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Osei",
+  "house_number": 554
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,69 @@
+{
+ "id": "TRN-0181",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 13.6,
+  "d": 40.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 45,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1928,
+  "band": "streetcar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Loomis",
+  "house_number": 340
+ },
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0820"
+}

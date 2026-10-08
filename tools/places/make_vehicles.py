@@ -6,7 +6,7 @@ to do -- with how many the station needs, counted from the baked population and 
     python3 tools/places/make_vehicles.py
 
 Writes godot_project/remake/characters/npc_vehicles.json (the engine reads it) and
-research/lives/06_vehicles.md. Reads npc_places.json, npc_place_index.json, npc_lives.json (RERUN
+research/lives/06_vehicles.md. Reads npc_places.json, npc_place_index.json, lives/*.json (RERUN
 after rebaking those), npc_traits.json and research/roles/roles.json to validate every link.
 
 As with buildings, these are TYPES and roles, not designs: the station's design language (the
@@ -602,7 +602,11 @@ def phys(k, x):
 def main():
     places = json.load(open(os.path.join(CH, "npc_places.json")))["types"]
     units = json.load(open(os.path.join(CH, "npc_place_index.json")))["units"]
-    people = json.load(open(os.path.join(CH, "npc_lives.json")))["people"]
+    # (a file per settlement since the 1:1 station: lives/<Settlement>.json, the index lives/_index.json)
+    people = {}
+    for fn in sorted(os.listdir(os.path.join(CH, "lives"))):
+        if fn.endswith(".json") and not fn.startswith("_"):
+            people.update(json.load(open(os.path.join(CH, "lives", fn)))["people"])
     settle = json.load(open(os.path.join(CH, "npc_settlements.json")))["settlements"]
     occ = json.load(open(os.path.join(CH, "npc_traits.json")))["tables"]["occupations"]
     roles = {r["id"] for r in json.load(open(os.path.join(ROOT, "research", "roles", "roles.json")))["roles"]}

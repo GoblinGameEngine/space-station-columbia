@@ -1,0 +1,71 @@
+{
+ "id": "M-0633",
+ "settlement": "Marlowe",
+ "generated": "tools/settlegen (Marlowe)",
+ "lot": {
+  "w": 12.2,
+  "d": 31.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 36,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c6a790",
+   "trim": "#2e3a4a",
+   "accent": "#4a5a48",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Pham",
+  "house_number": 632
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, brick walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1682"
+}

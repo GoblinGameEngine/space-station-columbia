@@ -1,0 +1,72 @@
+{
+ "id": "TRN-0126",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 12.2,
+  "d": 40.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f1ead2",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Haskins",
+  "house_number": 217
+ },
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0665"
+}

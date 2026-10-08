@@ -1,0 +1,68 @@
+{
+ "id": "CF-0172",
+ "settlement": "Cedar Ford",
+ "generated": "tools/settlegen (Cedar Ford)",
+ "lot": {
+  "w": 17.6,
+  "d": 33.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c8b98c",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Carrow",
+  "house_number": 137
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1196"
+}

@@ -1,0 +1,72 @@
+{
+ "id": "PCR-1958",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 14.3,
+  "d": 39.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Arrieta",
+  "house_number": 366
+ },
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0851"
+}

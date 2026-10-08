@@ -1,32 +1,32 @@
 {
  "id": "C-782",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 15.0,
-  "d": 26.0
+  "w": 11.4,
+  "d": 41.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 32,
+  "main_w_ft": 23,
+  "main_d_ft": 38,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 32,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "turned",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#92a8be",
+   "body": "#606d7e",
    "trim": "#e8e0c8",
    "accent": "#7a2e28",
    "roof": "#6a5e52"
@@ -51,11 +51,12 @@
   "condition": "worn",
   "year_built": 1927,
   "band": "streetcar",
-  "form_token": "foursquare"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Stroud",
-  "house_number": 370
+  "house_number": 542
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens)."
 }

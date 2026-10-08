@@ -1,0 +1,65 @@
+{
+ "id": "PCR-2510",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 17.3,
+  "d": 20.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f6f5f0",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Loomis",
+  "house_number": 1678
+ },
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0831"
+}

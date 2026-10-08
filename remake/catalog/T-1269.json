@@ -1,0 +1,67 @@
+{
+ "id": "T-1269",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 18.5,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 42,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f4e0c1",
+   "trim": "#ffffff",
+   "accent": "#3a2a1e",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Yoder",
+  "house_number": 926
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1191"
+}

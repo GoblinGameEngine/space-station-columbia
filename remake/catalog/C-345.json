@@ -1,38 +1,38 @@
 {
  "id": "C-345",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.8,
-  "d": 41.8
+  "w": 12.0,
+  "d": 24.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "upright_and_wing",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 27,
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 41,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 33,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
    "posts": "tapered_on_piers",
-   "rail": "solid"
+   "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#c5ba92",
-   "trim": "#e8e0c8",
+   "body": "#8fa8b3",
+   "trim": "#ffffff",
    "accent": "#6a4a2a",
-   "roof": "#5a4a40"
+   "roof": "#4a4a48"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -42,21 +42,22 @@
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed",
-    "clothesline"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1916,
+  "year_built": 1915,
   "band": "streetcar",
-  "form_token": "upright_and_wing"
+  "form_token": "bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 9
+  }
  },
  "names": {
-  "family": "Castellanos",
-  "house_number": 179
+  "family": "Nowicki",
+  "house_number": 180
  },
- "brief": "streetcar band upright_and_wing: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band bungalow: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -22,6 +22,7 @@ farmsteads from their exported parts (the house faces away from the barn, everyt
 house), crossings from their road ends (the road runs along the glb's local forward axis).
 Entries whose glb isn't built yet are listed on stderr and skipped.
 """
+import functools
 import json
 import math
 import os
@@ -41,13 +42,15 @@ ALIAS = {"P-001": ["P-STORE", "P-TAVERN"], "P-002": ["P-CHURCH"], "P-003": ["P-P
          "P-005": ["P-HOUSE2"], "P-006": ["P-HOUSE3"], "P-007": ["P-HOUSE4"], "P-008": ["P-ELEV"], "P-009": ["P-DEPOT"]}
 
 
+@functools.lru_cache(maxsize=None)
 def glb_bounds(path, any_mesh=False):
     """Bounds of the *_visual mesh (union of its primitives' POSITION accessors), glb frame; with
-    any_mesh, of every mesh (a .lod2.glb's single massing mesh)."""
+    any_mesh, of every mesh (a .lod2.glb's single massing mesh).  Remembered per file: the 1:1 towns place ~60,000
+    buildings from ~5,000 library models (tools/settlegen/city.py)."""
     with open(path, "rb") as f:
-        data = f.read()
-    n = struct.unpack("<I", data[12:16])[0]
-    j = json.loads(data[20:20 + n])
+        head = f.read(20)                                  # (the JSON chunk only, not the megabytes of buffers)
+        n = struct.unpack("<I", head[12:16])[0]
+        j = json.loads(f.read(n))
     lo, hi = [1e9] * 3, [-1e9] * 3
     for node in j["nodes"]:
         if "mesh" not in node or not (any_mesh or node.get("name", "").endswith("_visual")):
@@ -61,35 +64,32 @@ def glb_bounds(path, any_mesh=False):
     return (lo, hi) if lo[0] < 1e9 else None
 
 
+@functools.lru_cache(maxsize=None)
+def catalog_record(path):
+    """a catalog record (None: none), read once"""
+    return json.load(open(path)) if os.path.exists(path) else None
+
+
 def yaw_facing(ds, dx):
     return math.atan2(-dx, ds)
 
 
 def road_heading(s, x, reach=15.0):
-    """(ds, dx) along the road nearest (s, x), from remake/terrain.json -- for a crossing whose ends
-    don't give its road's direction (a culvert, a span of 0: both ends at one point)."""
-    ter = road_heading.ter
-    if ter is None:
-        ter = road_heading.ter = json.load(open(os.path.join(ROOT, "godot_project", "remake", "terrain.json")))
-    C = 2 * math.pi * ter["R"]
-    wrap = lambda d: (d + C / 2) % C - C / 2
+    """(ds, dx) along the road nearest (s, x) -- for a crossing whose ends don't give its road's direction (a culvert, a
+    span of 0: both ends at one point).  From _road_lines' 50 m grid (scanning every segment of the 1:1 map's roads
+    took ~5 s a crossing)."""
+    C, wrap, G, grid, segs = _road_lines()
     best, hd = reach, None
-    for rd in ter["roads"]:
-        pts = rd["pts"]
-        for a, b in zip(pts, pts[1:]):
-            bs, bx = wrap(b[0] - a[0]), b[1] - a[1]
-            ps, px = wrap(s - a[0]), x - a[1]
-            l2 = bs * bs + bx * bx
-            if l2 < 1e-9:
-                continue
-            t = max(0.0, min(1.0, (ps * bs + px * bx) / l2))
-            d = math.hypot(ps - bs * t, px - bx * t)
-            if d < best:
-                best, hd = d, (bs, bx)
+    for k in grid.get((int((s % C) // G) % int(C // G + 1), int(x // G)), ()):
+        a0, a1, us, ux, L = segs[k][:5]
+        ps, px = wrap(s - a0), x - a1
+        t = max(0.0, min(L, ps * us + px * ux))
+        d = math.hypot(ps - us * t, px - ux * t)
+        if d < best:
+            best, hd = d, (us * L, ux * L)
     return hd
 
 
-road_heading.ter = None
 
 
 ROAD_MARGIN = 1.0      # m past a carriageway's edge a building must stand (the shoulder and a little)
@@ -167,14 +167,14 @@ def road_conflict(e, s=None, x=None):
     return best
 
 
-def clear_of_roads(out, quiet=False):
+def clear_of_roads(out, quiet=False, only=None):
     """A building standing in a road's carriageway (the map's roads and lots come from different
     passes and sometimes overlap) is moved straight back from that road until it's ROAD_MARGIN
     clear -- the least change that gets it out of the way.  Crossings are on their roads by design."""
     C = _road_lines()[0]
     moved, stuck = 0, []
     for e in out:
-        if e["kind"] == "crossing" or e.get("over_water"):
+        if e["kind"] == "crossing" or e.get("over_water") or (only is not None and e["id"] not in only):
             continue
         home = (e["s"], e["x"])
         total = 0.0
@@ -228,7 +228,7 @@ def clear_of_each_other(out):
     yard = set()
     for e in out:
         cp = os.path.join(ROOT, "remake", "catalog", f"{e.get('model') or e['id']}.json")
-        if e["kind"] != "crossing" and os.path.exists(cp) and json.load(open(cp)).get("generated"):
+        if e["kind"] != "crossing" and (catalog_record(cp) or {}).get("generated"):
             yard.add(e["id"])
 
     def allowed(a, b):
@@ -268,16 +268,20 @@ def clear_of_each_other(out):
             return a if sa > sb else b
         return a if area(a) < area(b) else b
 
-    def overlaps(items):
+    def overlaps(items, dirty=None):
+        """overlapping pairs; dirty: the cells (and their neighbours) where something moved last round -- only
+        there can a new overlap be (the 1:1 map's ~65,000 buildings over up to 150 rounds, 2026-10-07)"""
         grid = {}
         for e in items:
-            r = max(math.hypot(px, pz) for px in (e["fmin"][0], e["fmax"][0]) for pz in (e["fmin"][1], e["fmax"][1]))
-            e["_r"] = r
+            if "_r" not in e:
+                e["_r"] = max(math.hypot(px, pz) for px in (e["fmin"][0], e["fmax"][0]) for pz in (e["fmin"][1], e["fmax"][1]))
             grid.setdefault((int((e["s"] % C) // G), int(e["x"] // G)), []).append(e)
         n = int(C // G) + 1
         seen = set()
         for e in items:
             ci, cj = int((e["s"] % C) // G), int(e["x"] // G)
+            if dirty is not None and (ci % n, cj) not in dirty:
+                continue
             for i in (-1, 0, 1):
                 for j in (-1, 0, 1):
                     for f in grid.get(((ci + i) % n, cj + j), ()):
@@ -309,9 +313,10 @@ def clear_of_each_other(out):
     dropped, crowded, moved = [], [], set()
     hist = []                       # each round's {pair: depth}
     last_cut = -99
+    dirty = None
     for rnd in range(150):
         items = [e for e in out if e["kind"] != "crossing"]
-        pairs = list(overlaps(items))
+        pairs = list(overlaps(items, dirty))
         if not pairs:
             break
         hist.append({(a["id"], b["id"]): ways[0][0] for a, b, ways in pairs})
@@ -365,7 +370,17 @@ def clear_of_each_other(out):
                 crowded.append(lo["id"])
                 last_cut = rnd                 # (then give the rest six rounds to spread into the gap)
         out[:] = [e for e in out if e["id"] not in out_ids]
-        clear_of_roads(out, quiet=True)
+        touched = {a["id"] for a, b, _ in pairs} | {b["id"] for a, b, _ in pairs}
+        clear_of_roads(out, quiet=True, only=touched)
+        # next round: the cells round everything that was in a pair (moved, pushed, or beside one that left)
+        n_ = int(C // G) + 1
+        dirty = set()
+        for e in out:
+            if e["id"] in touched:
+                ci, cj = int((e["s"] % C) // G), int(e["x"] // G)
+                for i in (-1, 0, 1):
+                    for j in (-1, 0, 1):
+                        dirty.add(((ci + i) % n_, cj + j))
     left = [(a["id"], b["id"]) for a, b, _ in overlaps([e for e in out if e["kind"] != "crossing"])]
     for e in out:
         e.pop("_r", None)
@@ -384,6 +399,13 @@ def snap_crossings(out):
     C = 2 * math.pi * ter["R"]
     wrap = lambda d: (d + C / 2) % C - C / 2
     lines = [(rd["pts"], False) for rd in ter["roads"]] + [(ter["rail"]["pts"], True)]
+    # which lines pass each 400 m cell (every line's every point, for every crossing, was ~290 M tests on the 1:1 map)
+    CELL = 400.0
+    ncell = int(C // CELL) + 1
+    by_cell = {}
+    for li, (pts, _) in enumerate(lines):
+        for q in pts:
+            by_cell.setdefault((int((q[0] % C) // CELL), int(q[1] // CELL)), set()).add(li)
     moved = 0
     ends = []
     for e in out:
@@ -391,7 +413,13 @@ def snap_crossings(out):
             continue
         rail = e["id"].startswith("RAIL-")
         best = None
-        for pts, is_rail in lines:
+        ci, cj = int((e["s"] % C) // CELL), int(e["x"] // CELL)
+        near = set()
+        for i in (-1, 0, 1):
+            for j in (-1, 0, 1):
+                near |= by_cell.get(((ci + i) % ncell, cj + j), set())
+        for li in sorted(near):
+            pts, is_rail = lines[li]
             if is_rail != rail:
                 continue
             u = 0.0
@@ -640,15 +668,22 @@ def main():
         # a building that says how many households it holds (Calder's doubles, rows and apartment blocks:
         # tools/settlegen) carries the count for NpcHouseholds, overriding its kind's default
         cp = os.path.join(ROOT, "remake", "catalog", f"{model or rid}.json")
-        if os.path.exists(cp):
-            u = (json.load(open(cp)).get("traits") or {}).get("units")
+        if catalog_record(cp) is not None:
+            u = (catalog_record(cp).get("traits") or {}).get("units")
             if isinstance(u, int) and u > 0:
                 out[-1]["households"] = u
 
     for st in inv["structures"]:
         (a0, a1), (b0, b1) = st["front_edge"] if st.get("front_edge") else ((st["s"], st["x"]), (st["s"], st["x"] + 1))
         fs, fx = (a0 + b0) / 2 - st["s"], (a1 + b1) / 2 - st["x"]
-        add(st["id"], st["kind"], st["settlement"], st["s"], st["x"], yaw_facing(fs, fx))
+        n = len(out)
+        if st.get("model"):
+            # (a library model: the building another record describes, placed again here -- tools/settlegen/city.py)
+            _add(st["id"], st["kind"], st["settlement"], st["s"], st["x"], yaw_facing(fs, fx), model=st["model"])
+        else:
+            add(st["id"], st["kind"], st["settlement"], st["s"], st["x"], yaw_facing(fs, fx))
+        if st.get("over_water") and len(out) > n:
+            out[-1]["over_water"] = True
 
     # the coast's new communities (tools/map_expanded.py --coastal-inventory); over-water ones stand on
     # the pier deck (the placer puts them on the water level + the deck height, not on the bed)

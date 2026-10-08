@@ -1,0 +1,71 @@
+{
+ "id": "VBY-0102",
+ "settlement": "Victory Bay",
+ "generated": "tools/settlegen (Victory Bay)",
+ "lot": {
+  "w": 51.5,
+  "d": 49.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 40,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#2b4f6e",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "shingle_style"
+ },
+ "region": "isle",
+ "names": {
+  "family": "Osei",
+  "house_number": 353
+ },
+ "brief": "estate band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+}

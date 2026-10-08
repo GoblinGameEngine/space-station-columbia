@@ -1,0 +1,71 @@
+{
+ "id": "F-0503",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 13.0,
+  "d": 24.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#819279",
+   "trim": "#f2efe6",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Leclerc",
+  "house_number": 567
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0575"
+}

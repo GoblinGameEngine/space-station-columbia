@@ -1,0 +1,68 @@
+{
+ "id": "B-0877",
+ "settlement": "Bellhaven",
+ "generated": "tools/settlegen (Bellhaven)",
+ "lot": {
+  "w": 16.9,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 32,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#dbcea7",
+   "trim": "#5a3a28",
+   "accent": "#5b6b3a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Pham",
+  "house_number": 716
+ },
+ "brief": "interwar band tudor: 1.5 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-2040"
+}

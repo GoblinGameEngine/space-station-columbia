@@ -182,7 +182,7 @@ def main():
             continue
         sch = [u for u in units if u["settlement"] == st and u["type"] == "school"]
         if sch:
-            max(sch, key=lambda u: u["area"])["type"] = "college"
+            max(sch, key=lambda u: u.get("area", 0.0))["type"] = "college"
 
     # flexible units: demand-driven, per settlement
     pool = {tid: t for tid, t in types.items() if t["per1000"] > 0 and not t["station"]}

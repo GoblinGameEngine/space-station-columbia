@@ -1,37 +1,32 @@
 {
  "id": "C-307",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.2,
-  "d": 40.6
+  "w": 14.3,
+  "d": 40.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
    "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "front_full",
    "posts": "tapered_on_piers",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "brick",
   "foundation": "brick",
   "colors": {
-   "body": "#cabd88",
+   "body": "#9b6340",
    "trim": "#e8e0c8",
    "accent": "#7a2e28",
    "roof": "#3e3e3c"
@@ -43,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "picket",
    "side": "none",
@@ -54,13 +49,13 @@
    ]
   },
   "condition": "worn",
-  "year_built": 1921,
+  "year_built": 1925,
   "band": "streetcar",
   "form_token": "gable_front"
  },
  "names": {
   "family": "Osei",
-  "house_number": 538
+  "house_number": 577
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, brick walls, front_full porch, garage none (generated from the Great Lakes tokens)."
 }

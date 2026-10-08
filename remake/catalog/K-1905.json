@@ -1,0 +1,68 @@
+{
+ "id": "K-1905",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 18.0,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#ccb18d",
+   "trim": "#5a3a28",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Foxworth",
+  "house_number": 817
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1487"
+}

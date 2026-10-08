@@ -1,0 +1,68 @@
+{
+ "id": "T-0587",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 14.1,
+  "d": 37.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "stucco",
+  "foundation": "brick",
+  "colors": {
+   "body": "#dfd0b0",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Holloway",
+  "house_number": 555
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1421"
+}

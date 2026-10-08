@@ -1,0 +1,70 @@
+{
+ "id": "HF-1056",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.2,
+  "d": 38.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#8a7c65",
+   "trim": "#f2efe6",
+   "accent": "#5b6b3a",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1907,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Kowal",
+  "house_number": 947
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

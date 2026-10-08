@@ -1,0 +1,71 @@
+{
+ "id": "HF-1295",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 14.8,
+  "d": 37.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#838779",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Kowal",
+  "house_number": 572
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

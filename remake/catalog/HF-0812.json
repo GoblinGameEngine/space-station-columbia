@@ -1,0 +1,74 @@
+{
+ "id": "HF-0812",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.2,
+  "d": 38.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#7f3f2e",
+   "trim": "#5a3a28",
+   "accent": "#7a2e28",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1907,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 11
+  }
+ },
+ "names": {
+  "family": "Leclerc",
+  "house_number": 967
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

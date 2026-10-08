@@ -1,0 +1,73 @@
+{
+ "id": "HVN-0383",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 14.4,
+  "d": 31.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Smith",
+  "house_number": 427
+ },
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0918"
+}

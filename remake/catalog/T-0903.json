@@ -1,0 +1,70 @@
+{
+ "id": "T-0903",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 18.8,
+  "d": 34.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#cdb685",
+   "trim": "#f2efe6",
+   "accent": "#3a2a1e",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Garcia",
+  "house_number": 149
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1483"
+}

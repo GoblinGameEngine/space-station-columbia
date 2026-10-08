@@ -1,0 +1,68 @@
+{
+ "id": "HF-3468",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 19.4,
+  "d": 21.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#9d5d4b",
+   "trim": "#ffffff",
+   "accent": "#6a4a2a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Wainwright",
+  "house_number": 2270
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1263"
+}

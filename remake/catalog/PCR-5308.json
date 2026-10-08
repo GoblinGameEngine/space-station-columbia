@@ -1,0 +1,68 @@
+{
+ "id": "PCR-5308",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 30.5,
+  "d": 21.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e6e2d8",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1984,
+  "band": "suburban",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Haskins",
+  "house_number": 2221
+ },
+ "brief": "suburban band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
+}

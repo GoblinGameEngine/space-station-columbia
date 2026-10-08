@@ -1,39 +1,39 @@
 {
  "id": "C-240",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.2,
-  "d": 41.8
+  "w": 11.6,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 1.5,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#cfbc92",
-   "trim": "#5a3a28",
-   "accent": "#2b4f6b",
-   "roof": "#555350"
+   "body": "#b05848",
+   "trim": "#f4f1e8",
+   "accent": "#7a2e28",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -44,18 +44,24 @@
    "side": "none",
    "rear": "none",
    "extras": [
-    "garden"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1904,
+  "year_built": 1916,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "two_flat",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 12
+  }
  },
  "names": {
   "family": "Villalobos",
-  "house_number": 232
+  "house_number": 243
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

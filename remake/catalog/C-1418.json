@@ -1,31 +1,56 @@
 {
  "id": "C-1418",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 46.0,
-  "d": 33.6
+  "w": 22.7,
+  "d": 31.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#d0cdae",
-   "trim": "#5a3a28",
-   "accent": "#1f2a33",
-   "roof": "#4a4a48"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 37,
   "roof": {
-   "pitch_deg": 31
+   "type": "gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2021,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#d9d1a4",
+   "trim": "#ffffff",
+   "accent": "#2e3a4a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2017,
+  "band": "current",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Nguyen",
+  "house_number": 325
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band builder_contemporary: 2 storeys, vinyl walls, front_full porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

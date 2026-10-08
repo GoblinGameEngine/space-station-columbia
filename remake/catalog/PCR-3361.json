@@ -1,0 +1,69 @@
+{
+ "id": "PCR-3361",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 16.7,
+  "d": 34.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#c9cfcf",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Solano",
+  "house_number": 2176
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0577"
+}

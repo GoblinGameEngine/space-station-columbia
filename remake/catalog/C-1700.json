@@ -1,28 +1,32 @@
 {
  "id": "C-1700",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 119.2,
-  "d": 96.4
+  "w": 33.4,
+  "d": 42.0
  },
- "kind": "bigbox",
+ "kind": "store",
  "traits": {
-  "stores": [
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "none",
+  "storefronts": [
    {
-    "business": "Calder Market",
-    "type": "grocery",
-    "sign": "CALDER MARKET",
-    "sign_style": "awning_lettering",
-    "awning": false,
-    "tenant": "supermarket"
+    "business": "Highway Garage",
+    "type": "auto_repair",
+    "sign": "HIGHWAY GARAGE",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
-  "era": 1994
+  "condition": "kept",
+  "year_built": 2004,
+  "colors": {
+   "body": "#c2b392"
+  }
  },
- "names": {
-  "name": "Calder Commons",
-  "sign": "CALDER COMMONS"
- },
- "brief": "bigbox (bigbox) generated for Calder."
+ "names": {},
+ "brief": "store (car_wash) generated for Calder."
 }

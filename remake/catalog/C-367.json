@@ -1,27 +1,27 @@
 {
  "id": "C-367",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.9,
-  "d": 25.5
+  "w": 11.8,
+  "d": 40.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "queen_anne",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
-   "type": "cross_gable",
+   "type": "gable",
    "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
@@ -50,11 +50,12 @@
   "condition": "kept",
   "year_built": 1908,
   "band": "streetcar",
-  "form_token": "queen_anne_irregular"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Castellanos",
-  "house_number": 353
+  "house_number": 224
  },
- "brief": "streetcar band queen_anne_irregular: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

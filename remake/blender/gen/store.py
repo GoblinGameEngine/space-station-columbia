@@ -41,6 +41,7 @@ def facade_materials(b, tr, cond):
     pal.surf("party", "brick_common" if fac != "frame_false_front" else "drop_siding",
              darken(hexcol(body), wear) if fac == "frame_false_front" else None, rough=0.9)
     pal.surf("roof_m", "concrete", rough=0.95)
+    pal.surf("tile", "roof_clay", rough=0.8)                  # (the California shore's pent roofs and copings)
     pal.surf("floor", "floor_maple" if tr.get("year_built", 1900) < 1940 else "vct", rough=0.45)
     pal.surf("plaster", "plaster", "#efe9dc", rough=0.85)
     pal.surf("ceiling", "tin_ceiling" if tr.get("year_built", 1900) < 1935 else "acoustic", rough=0.5)
@@ -264,6 +265,19 @@ def build(rec, vacant=False):
     return b
 
 
+def _pent(p, x0, x1, y, z, depth, drop, mat, t=0.08):
+    """a closed sloping slab from the wall line y (at height z) out to y + depth (z - drop): top, underside, ends, eave"""
+    a, b_ = (x0, y, z), (x1, y, z)
+    c, d = (x1, y + depth, z - drop), (x0, y + depth, z - drop)
+    a2, b2, c2, d2 = [(q[0], q[1], q[2] - t) for q in (a, b_, c, d)]
+    p.face([a, b_, c, d], mat)                     # top (the tiles)
+    p.face([d2, c2, b2, a2], "trim")               # underside
+    p.face([d, c, c2, d2], "trim")                 # eave edge
+    p.face([a, d, d2, a2], "trim")                 # ends
+    p.face([c, b_, b2, c2], "trim")
+    p.face([b_, a, a2, b2], "trim")                # (against the wall)
+
+
 def facade_dressing(b, tr, rec, fronts_info, x0, x1, y0, y1, floors, wall_top, parapet, sb, rnd):
     """Cornice, sign band + signs, awnings, pilasters, hours lettering."""
     p = b.part("facade_trim-col")
@@ -295,6 +309,12 @@ def facade_dressing(b, tr, rec, fronts_info, x0, x1, y0, y1, floors, wall_top, p
         cx = (x0 + x1) / 2
         hw = (x1 - x0) * 0.3
         p.face([(cx - hw, y1 + 0.02, top), (cx + hw, y1 + 0.02, top), (cx, y1 + 0.02, top + 1.2)], "trim")
+    elif cornice == "mission_parapet":
+        import institution
+        institution.mission_parapet(p, x0, x1, y1, top, t=0.3, wall="facade")
+    elif cornice == "tile_roof":
+        # a clay-tile pent roof along the parapet (Santa Barbara's State Street): a closed slab, sloping out and down
+        _pent(p, x0, x1, y1, top - 0.15, 1.0, 0.45, "tile")
     # signs
     font = FONT_SERIF if rec.get("traits", {}).get("year_built", 1900) < 1935 else FONT_SANS
     for i, (sf, bx0, bx1, dcx, dw) in enumerate(fronts_info):

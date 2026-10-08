@@ -1,39 +1,48 @@
 {
  "id": "C-357",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.2,
-  "d": 41.3
+  "w": 16.5,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "upright_and_wing",
-  "storeys": 2,
+  "archetype": "gable_front",
+  "storeys": 1.5,
   "main_w_ft": 23,
-  "main_d_ft": 33,
+  "main_d_ft": 36,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 44,
+   "type": "gable",
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "front_full",
-   "posts": "square",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#e5d986",
-   "trim": "#5a3a28",
-   "accent": "#2e3a4a",
-   "roof": "#5a5a58"
+   "body": "#fbe6e1",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -42,19 +51,18 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline"
-   ]
+   "rear": "none",
+   "extras": []
   },
-  "condition": "shabby",
-  "year_built": 1923,
+  "condition": "kept",
+  "year_built": 1909,
   "band": "streetcar",
-  "form_token": "upright_and_wing"
+  "form_token": "gable_front",
+  "units": 2
  },
  "names": {
-  "family": "Wisniewski",
-  "house_number": 279
+  "family": "Mbeki",
+  "house_number": 118
  },
- "brief": "streetcar band upright_and_wing: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

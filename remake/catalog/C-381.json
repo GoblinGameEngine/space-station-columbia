@@ -1,39 +1,39 @@
 {
  "id": "C-381",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 16.3,
-  "d": 40.6
+  "w": 13.7,
+  "d": 41.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 34,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
+   "type": "gable",
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "posts": "columns",
+   "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#b65c4e",
-   "trim": "#5a3a28",
+   "body": "#ead28d",
+   "trim": "#f4f1e8",
    "accent": "#2e3a4a",
-   "roof": "#555350"
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -44,25 +44,17 @@
    "side": "chainlink",
    "rear": "none",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1896,
   "band": "streetcar",
-  "form_token": "foursquare",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
-  }
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Harrow",
-  "house_number": 454
+  "family": "Villalobos",
+  "house_number": 469
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

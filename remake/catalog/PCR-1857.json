@@ -1,0 +1,69 @@
+{
+ "id": "PCR-1857",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 13.8,
+  "d": 33.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#d9dcd8",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Castellanos",
+  "house_number": 1266
+ },
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0521"
+}

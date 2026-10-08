@@ -1,0 +1,70 @@
+{
+ "id": "K-2347",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 19.2,
+  "d": 31.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 37,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c5bb8f",
+   "trim": "#e9e2d2",
+   "accent": "#3a2a1e",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Kowal",
+  "house_number": 890
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1038"
+}

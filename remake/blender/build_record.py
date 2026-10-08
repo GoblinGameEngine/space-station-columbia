@@ -85,7 +85,7 @@ _install_recorder()
 
 def generator(kind):
     if kind not in GENERATORS:
-        if kind in ("house", "farmhouse", "cottage", "beachhouse", "bungalow", "shingle", "singlehouse", "rowhouse"):
+        if kind in ("house", "farmhouse", "cottage", "beachhouse", "bungalow", "shingle", "singlehouse", "rowhouse", "clubhouse"):
             import house
             GENERATORS[kind] = house.build
         elif kind in ("store", "restaurant", "bait", "market"):

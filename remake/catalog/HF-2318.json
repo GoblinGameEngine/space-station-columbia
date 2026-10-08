@@ -1,0 +1,71 @@
+{
+ "id": "HF-2318",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 19.1,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 43,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#bc4e42",
+   "trim": "#e9e2d2",
+   "accent": "#2b4f6b",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Delmar",
+  "house_number": 1637
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1191"
+}

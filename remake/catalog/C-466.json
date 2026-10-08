@@ -1,17 +1,17 @@
 {
  "id": "C-466",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.1,
-  "d": 41.5
+  "w": 12.3,
+  "d": 25.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "bungalow",
-  "storeys": 1,
-  "main_w_ft": 24,
-  "main_d_ft": 42,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
    "pitch_deg": 32,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "brick",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#af5648",
+   "body": "#a7694a",
    "trim": "#3a3f44",
    "accent": "#2b4f6b",
    "roof": "#6a5e52"
@@ -48,13 +48,14 @@
    ]
   },
   "condition": "worn",
-  "year_built": 1920,
+  "year_built": 1912,
   "band": "streetcar",
-  "form_token": "bungalow"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Marlowe",
-  "house_number": 442
+  "house_number": 463
  },
- "brief": "streetcar band bungalow: 1 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

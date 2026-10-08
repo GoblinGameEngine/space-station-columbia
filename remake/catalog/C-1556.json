@@ -1,31 +1,59 @@
 {
  "id": "C-1556",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 41.4,
-  "d": 32.3
+  "w": 21.5,
+  "d": 30.1
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 20,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#c6b680",
-   "trim": "#f2efe6",
-   "accent": "#1f2a33",
+   "body": "#e5cd8f",
+   "trim": "#f4f1e8",
+   "accent": "#4a5a48",
    "roof": "#555350"
   },
-  "roof": {
-   "pitch_deg": 29
+  "windows": {
+   "type": "picture",
+   "shutters": true
   },
-  "year_built": 2015,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2022,
+  "band": "current",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Booker",
+  "house_number": 704
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band builder_contemporary: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

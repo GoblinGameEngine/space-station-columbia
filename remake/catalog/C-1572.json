@@ -1,31 +1,56 @@
 {
  "id": "C-1572",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 42.1,
-  "d": 32.9
+  "w": 20.8,
+  "d": 30.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
   "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#dad8c2",
-   "trim": "#f4f1e8",
-   "accent": "#4a5a48",
+   "body": "#eae5da",
+   "trim": "#3a3f44",
+   "accent": "#5b6b3a",
    "roof": "#4e5155"
   },
-  "roof": {
-   "pitch_deg": 32
+  "windows": {
+   "type": "picture",
+   "shutters": false
   },
-  "year_built": 2016,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2015,
+  "band": "current",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "DeCarlo",
+  "house_number": 194
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band builder_contemporary: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

@@ -67,12 +67,20 @@ def main():
     for town, ris in sorted(by_town.items()):
         used = {ter["roads"][r]["name"] for r in ris if ter["roads"][r].get("name")}
 
+        nxt = {}
+
         def take(name):
+            # (a numbered street's second run is "5th St Ext", its third "5th St Ext 2": it was " Ext" every time, a
+            # loop without end once the 1:1 towns needed a third; and the counter starts where it left off)
             base = name
-            k = 2
+            k = nxt.get(base, 2)
             while name in used:
-                name = "%s %d" % (base, k) if not base[0].isdigit() else base + " Ext"
+                if base[0].isdigit():
+                    name = base + " Ext" if k == 2 else "%s Ext %d" % (base, k - 1)
+                else:
+                    name = "%s %d" % (base, k)
                 k += 1
+            nxt[base] = k
             used.add(name)
             return name
 

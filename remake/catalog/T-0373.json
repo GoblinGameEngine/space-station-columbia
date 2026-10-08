@@ -1,0 +1,70 @@
+{
+ "id": "T-0373",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 12.8,
+  "d": 32.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e2d9db",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Achterberg",
+  "house_number": 352
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0605"
+}

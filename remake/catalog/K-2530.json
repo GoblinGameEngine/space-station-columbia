@@ -1,0 +1,70 @@
+{
+ "id": "K-2530",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 16.6,
+  "d": 35.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e2d293",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Mbeki",
+  "house_number": 681
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1446"
+}

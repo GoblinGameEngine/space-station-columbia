@@ -1,25 +1,34 @@
 {
  "id": "C-310",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.0,
-  "d": 40.3
+  "w": 14.1,
+  "d": 41.9
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "enclosed",
+   "type": "front_full",
    "posts": "turned",
    "rail": "spindle"
   },
@@ -38,7 +47,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -49,7 +58,7 @@
    ]
   },
   "condition": "worn",
-  "year_built": 1897,
+  "year_built": 1917,
   "band": "streetcar",
   "form_token": "gable_front",
   "wing": {
@@ -60,7 +69,7 @@
  },
  "names": {
   "family": "Kowal",
-  "house_number": 381
+  "house_number": 552
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

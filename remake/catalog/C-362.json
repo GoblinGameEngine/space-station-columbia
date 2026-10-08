@@ -1,38 +1,38 @@
 {
  "id": "C-362",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.2,
-  "d": 41.6
+  "w": 13.5,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
+  "main_w_ft": 22,
+  "main_d_ft": 41,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 41,
+   "type": "gable",
+   "pitch_deg": 32,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "posts": "square",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#bfbdbb",
-   "trim": "#f4f1e8",
-   "accent": "#4a5a48",
-   "roof": "#4e5155"
+   "body": "#7d867c",
+   "trim": "#f2efe6",
+   "accent": "#2b4f6b",
+   "roof": "#2f3133"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -42,19 +42,19 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1912,
   "band": "streetcar",
-  "form_token": "foursquare"
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Stroud",
-  "house_number": 228
+  "family": "Marlowe",
+  "house_number": 269
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

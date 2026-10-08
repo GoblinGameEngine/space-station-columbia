@@ -1,0 +1,68 @@
+{
+ "id": "PCR-3930",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 18.0,
+  "d": 34.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "nantucket_cape"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Reyes",
+  "house_number": 2463
+ },
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0503"
+}

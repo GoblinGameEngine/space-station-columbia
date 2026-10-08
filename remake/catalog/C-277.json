@@ -1,58 +1,66 @@
 {
  "id": "C-277",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.9,
-  "d": 40.6
+  "w": 10.8,
+  "d": 40.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "workers_cottage",
-  "storeys": 1,
-  "main_w_ft": 18,
-  "main_d_ft": 33,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#d3c5b0",
-   "trim": "#3a3f44",
-   "accent": "#2e3a4a",
+   "body": "#596572",
+   "trim": "#f2efe6",
+   "accent": "#1f2a33",
    "roof": "#555350"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1902,
+  "year_built": 1910,
   "band": "streetcar",
-  "form_token": "workers_cottage"
+  "form_token": "two_flat",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 10
+  }
  },
  "names": {
-  "family": "Garcia",
-  "house_number": 345
+  "family": "Okonkwo",
+  "house_number": 234
  },
- "brief": "streetcar band workers_cottage: 1 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

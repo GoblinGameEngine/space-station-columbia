@@ -1,0 +1,77 @@
+{
+ "id": "HF-1831",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.2,
+  "d": 39.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "brick",
+  "colors": {
+   "body": "#eaf3d2",
+   "trim": "#f2efe6",
+   "accent": "#6a4a2a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
+ },
+ "names": {
+  "family": "Haddad",
+  "house_number": 417
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, stucco walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0946"
+}

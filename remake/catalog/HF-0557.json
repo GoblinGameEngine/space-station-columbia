@@ -1,0 +1,68 @@
+{
+ "id": "HF-0557",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 17.7,
+  "d": 30.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#edda96",
+   "trim": "#e9e2d2",
+   "accent": "#6a4a2a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "shabby",
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
+ },
+ "names": {
+  "family": "Brannock",
+  "house_number": 640
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+}

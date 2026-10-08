@@ -1,0 +1,70 @@
+{
+ "id": "HF-2140",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.5,
+  "d": 28.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#bc5242",
+   "trim": "#2e3a4a",
+   "accent": "#3a2a1e",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Loomis",
+  "house_number": 539
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0618"
+}

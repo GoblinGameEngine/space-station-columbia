@@ -1,0 +1,72 @@
+{
+ "id": "HC-0123",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 12.9,
+  "d": 38.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e3d9ce",
+   "trim": "#ffffff",
+   "accent": "#2b4f6b",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1918,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 12
+  }
+ },
+ "names": {
+  "family": "Moriarty",
+  "house_number": 154
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1873"
+}

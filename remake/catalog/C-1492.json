@@ -1,31 +1,58 @@
 {
  "id": "C-1492",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 44.4,
-  "d": 32.3
+  "w": 20.3,
+  "d": 25.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#9e8e6d",
-   "trim": "#ffffff",
-   "accent": "#2e3a4a",
-   "roof": "#4a4a48"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 30,
+  "main_d_ft": 26,
   "roof": {
-   "pitch_deg": 31
+   "type": "gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2011,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "board_and_batten",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#353b47",
+   "trim": "#ffffff",
+   "accent": "#2b4f6b",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2019,
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Solano",
+  "house_number": 388
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band ranch: 1 storeys, board_and_batten walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

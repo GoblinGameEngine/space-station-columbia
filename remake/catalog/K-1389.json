@@ -1,0 +1,64 @@
+{
+ "id": "K-1389",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 16.8,
+  "d": 30.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#dcc8af",
+   "trim": "#5a3a28",
+   "accent": "#6a4a2a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Brandvold",
+  "house_number": 670
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1939"
+}

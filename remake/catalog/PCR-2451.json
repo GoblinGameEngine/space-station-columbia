@@ -1,0 +1,71 @@
+{
+ "id": "PCR-2451",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 12.6,
+  "d": 36.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e9e8e2",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Wainwright",
+  "house_number": 1666
+ },
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0665"
+}

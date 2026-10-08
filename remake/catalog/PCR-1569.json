@@ -1,0 +1,72 @@
+{
+ "id": "PCR-1569",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 13.5,
+  "d": 41.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f6f5f0",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1907,
+  "band": "streetcar",
+  "form_token": "cape_cod"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Kowalczyk",
+  "house_number": 1015
+ },
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0311"
+}

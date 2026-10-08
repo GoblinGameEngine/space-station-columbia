@@ -1,0 +1,70 @@
+{
+ "id": "HF-1065",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.5,
+  "d": 27.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#758f8d",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Pike",
+  "house_number": 1160
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

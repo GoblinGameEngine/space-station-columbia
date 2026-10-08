@@ -1,59 +1,61 @@
 {
  "id": "C-372",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.2,
-  "d": 40.4
+  "w": 14.4,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 1.5,
-  "main_w_ft": 25,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 31,
   "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 35,
+   "type": "hip",
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "wrap",
+   "type": "front_partial",
    "posts": "columns",
-   "rail": "solid"
+   "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#d5cbb6",
-   "trim": "#f2efe6",
-   "accent": "#2b4f6b",
-   "roof": "#4a4a48"
+   "body": "#f8e2d1",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#4e5155"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1899,
+  "year_built": 1914,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "foursquare"
  },
  "names": {
-  "family": "Okafor",
-  "house_number": 328
+  "family": "Arrieta",
+  "house_number": 380
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,71 @@
+{
+ "id": "HF-1801",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.7,
+  "d": 39.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#766650",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Reyes",
+  "house_number": 319
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

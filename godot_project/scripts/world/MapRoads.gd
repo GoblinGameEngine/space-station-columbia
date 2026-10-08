@@ -19,7 +19,7 @@ class_name MapRoads
 const STEP := 3.0
 const LIFT := 0.06
 const PAINT := 0.03                 # paint over the road surface
-const CELL := 400.0
+const CELL := 800.0                   # (400 m and 100 m gave 65,626 meshes on the 1:1 map: past the renderer's limits)
 const FAR := 1800.0                  # past this a road is under a pixel wide
 const PAINT_FAR := 320.0
 const KERB_FAR := 700.0
@@ -34,10 +34,11 @@ const GUTTER := 0.45
 const CURB_H := 0.15
 const CURB_W := 0.2
 const FINE := ["paint_w", "paint_y", "decal", "kerb", "shoulder", "walk"]
-const FINE_CELL := 100.0
+const FINE_CELL := 300.0
 const NEAR_R := 900.0
 const BAKED := "res://remake/baked/roads.res"
-const BAKE_VERSION := 4              # bump when the builder's output changes
+const BAKE_VERSION := 5              # bump when the builder's output changes
+const BAKE_BANDS := 12
 const RXR_CELL := 19                 # tools/sign_atlas.py: the RXR marking's cell
 
 var _roads: Array = []
@@ -126,15 +127,20 @@ func bake() -> BakedMeshes:
 	load_data()
 	_near = Vector2(INF, INF)
 	_pass = 0
-	_build_all()
 	var b := BakedMeshes.new()
 	b.stamp = stamp()
-	for job in _out:
-		var m := ArrayMesh.new()
-		m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, job[1])
-		b.keys.append(job[0])
-		b.meshes.append(m)
-	_out.clear()
+	# a band of the ring at a time (cells are keyed by where they start, so each lands in one band), its SurfaceTools
+	# committed and freed before the next
+	for k in BAKE_BANDS:
+		_band = Vector2(StationGeo.CIRC * k / BAKE_BANDS, StationGeo.CIRC * (k + 1) / BAKE_BANDS)
+		_build_all()
+		for job in _out:
+			var m := ArrayMesh.new()
+			m.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, job[1])
+			b.keys.append(job[0])
+			b.meshes.append(m)
+		_out.clear()
+	_band = Vector2(-1.0, -1.0)
 	return b
 
 
@@ -182,7 +188,13 @@ func _exit_tree() -> void:
 		WorkerThreadPool.wait_for_task_completion(_task)
 
 
+var _band := Vector2(-1.0, -1.0)      # baking: only this s range (start, end) -- the whole ring's cells at once took 11+ GB
+
+
 func _in_pass(c: Vector2) -> bool:
+	if _band.x >= 0.0:
+		var s := fposmod(c.x, StationGeo.CIRC)
+		return s >= _band.x and s < _band.y
 	if _near.x == INF:
 		return _pass == 0
 	var near := Vector2(StationGeo.wrap_ds(c.x - _near.x), c.y - _near.y).length() < NEAR_R

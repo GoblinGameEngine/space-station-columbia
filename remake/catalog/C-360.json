@@ -1,17 +1,17 @@
 {
  "id": "C-360",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 19.0,
-  "d": 41.2
+  "w": 14.2,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 22,
+  "main_w_ft": 40,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "enclosed",
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "shingle",
+  "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#75615f",
+   "body": "#7f9777",
    "trim": "#e8e0c8",
    "accent": "#5b6b3a",
    "roof": "#5a4a40"
@@ -38,24 +38,23 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1907,
+  "condition": "kept",
+  "year_built": 1902,
   "band": "streetcar",
-  "form_token": "double_house",
-  "units": 2
+  "form_token": "i_house"
  },
  "names": {
   "family": "Adebayo",
-  "house_number": 252
+  "house_number": 243
  },
- "brief": "streetcar band double_house: 2 storeys, shingle walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

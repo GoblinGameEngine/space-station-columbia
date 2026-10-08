@@ -1,0 +1,67 @@
+{
+ "id": "HF-4175",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 21.0,
+  "d": 33.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 22,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#8a726c",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "chainlink",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1959,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Villalobos",
+  "house_number": 158
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1955"
+}

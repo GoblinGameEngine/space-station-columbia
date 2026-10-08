@@ -269,8 +269,8 @@ def diner(ctx):
     ctx.wall(min(5.0, ctx.d * 0.6), 0.7, False,
              lambda pos, yaw: fu.bar_counter(ctx.p, pos, yaw, min(5.0, ctx.d * 0.6), "formica", "formica", "chrome_s", h=1.0),
              prefer=["E", "W"])
-    ctx.wall(2.0, 0.6, False, lambda pos, yaw: fu.range_stove(ctx.p, pos, yaw, "steel", "iron", w=1.2), prefer=["S"])
-    ctx.wall(1.2, 0.6, False, lambda pos, yaw: fu.fryer(ctx.p, pos, yaw, "steel", "goods2"), prefer=["S"])
+    ctx.wall(2.0, 0.72, False, lambda pos, yaw: fu.range_stove(ctx.p, pos, yaw, "steel", "iron", w=1.2), prefer=["S"])
+    ctx.wall(1.2, 0.72, False, lambda pos, yaw: fu.fryer(ctx.p, pos, yaw, "steel", "goods2"), prefer=["S"])
     n = max(1, int((ctx.d - 3.0) / 2.2))
     for k in range(n):
         ctx.island(x0 + 1.25, y0 + 1.8 + k * 2.2, 0.62, 1.05, lambda pos: booth(ctx.p, pos, 0))
@@ -912,8 +912,9 @@ def snack_stand(ctx):
     L = max(1.5, ctx.w - 1.2)
     ctx.wall(L, 0.7, False, lambda pos, yaw: fu.bar_counter(ctx.p, pos, yaw, L, "formica", "counter_top", "chrome_s", h=1.05),
              prefer=["N"])
-    ctx.wall(1.2, 0.6, False, lambda pos, yaw: fu.fryer(ctx.p, pos, yaw, "steel", "goods2"), prefer=["S"])
-    ctx.wall(1.2, 0.6, False, lambda pos, yaw: fu.range_stove(ctx.p, pos, yaw, "steel", "iron", w=1.2), prefer=["S"])
+    # (their real depths: the fryer and the range are 0.7 m -- declared 0.6 they stood 3-7 cm in the back wall, gbaudit)
+    ctx.wall(1.2, 0.72, False, lambda pos, yaw: fu.fryer(ctx.p, pos, yaw, "steel", "goods2"), prefer=["S"])
+    ctx.wall(1.2, 0.72, False, lambda pos, yaw: fu.range_stove(ctx.p, pos, yaw, "steel", "iron", w=1.2), prefer=["S"])
     ctx.wall(0.8, 0.7, True, lambda pos, yaw: fu.fridge(ctx.p, pos, yaw, "enamel", "chrome_s"), prefer=["S", "E", "W"])
     ctx.wall(1.6, 0.4, True, lambda pos, yaw: fu.shelves(ctx.p, pos, yaw, 1.6, 0.35, 1.8, 5, "steel"), prefer=["E", "W"])
 

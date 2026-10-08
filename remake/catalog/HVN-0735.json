@@ -1,0 +1,67 @@
+{
+ "id": "HVN-0735",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 17.1,
+  "d": 34.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a2e24",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Szabo",
+  "house_number": 577
+ },
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0797"
+}

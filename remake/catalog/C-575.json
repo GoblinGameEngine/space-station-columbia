@@ -1,38 +1,38 @@
 {
  "id": "C-575",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 18.0,
-  "d": 41.7
+  "w": 13.8,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 34,
+  "main_w_ft": 28,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 33,
+   "type": "cross_gable",
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "turned",
-   "rail": "solid"
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "concrete_block",
+  "walls": "shingle",
+  "foundation": "brick",
   "colors": {
-   "body": "#96a3b1",
-   "trim": "#5a3a28",
+   "body": "#9d988e",
+   "trim": "#e9e2d2",
    "accent": "#2b4f6b",
-   "roof": "#4e5155"
+   "roof": "#5a5a58"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -43,17 +43,23 @@
    "fence": "none",
    "side": "none",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1922,
+  "condition": "kept",
+  "year_built": 1920,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "queen_anne_irregular",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 10
+  }
  },
  "names": {
-  "family": "Kowal",
-  "house_number": 164
+  "family": "Szabo",
+  "house_number": 138
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band queen_anne_irregular: 2 storeys, shingle walls, front_full porch, garage none (generated from the Great Lakes tokens)."
 }

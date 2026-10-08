@@ -1,0 +1,72 @@
+{
+ "id": "HVN-0781",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 13.2,
+  "d": 42.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#2f3e52",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "i_house",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 10
+  }
+ },
+ "region": "ne",
+ "names": {
+  "family": "Stroud",
+  "house_number": 160
+ },
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0820"
+}

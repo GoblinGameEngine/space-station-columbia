@@ -229,7 +229,7 @@ func _scan_step() -> void:
 				continue
 			var hh: Dictionary = _house_cache.get(b.id, {})
 			for m in hh.members:
-				if _life and _life.people.has(m.pid):
+				if _life and _life.has_person(m.pid):
 					_consider(want, m.pid, ps, px)
 				elif out_now(m.pid, m.pinned) and str(_gone_in.get(m.pid, "")) != str(floori(hour() * 2.0)):
 					want.append([d, m, b, hh.population, {}])
@@ -241,7 +241,7 @@ func _scan_step() -> void:
 			if not _scan.has("upids"):
 				var pids: Array = []
 				for uid in _unit_index.get(cell, []):
-					pids.append_array(_life.by_unit.get(uid, []))
+					pids.append_array(_life.regulars(uid))
 				_scan.upids = pids
 				_scan.ui = 0
 			var pids2: Array = _scan.upids

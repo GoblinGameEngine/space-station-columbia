@@ -1,61 +1,58 @@
 {
  "id": "C-1006",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 33.2,
-  "d": 23.6
+  "w": 18.9,
+  "d": 27.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 41,
-  "main_d_ft": 25,
+  "main_w_ft": 37,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "gambrel",
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "solid"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#d5cfa5",
+   "body": "#ad6744",
    "trim": "#2e3a4a",
-   "accent": "#3a2a1e",
-   "roof": "#4a4a48"
+   "accent": "#7a2e28",
+   "roof": "#2f3133"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "right_end"
   ],
-  "garage": "attached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "tree_line",
-   "extras": [
-    "shed",
-    "swing_set"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1984,
-  "band": "suburban",
-  "form_token": "two_storey_colonial"
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
  },
  "names": {
-  "family": "Yoder",
-  "house_number": 988
+  "family": "Delmar",
+  "house_number": 467
  },
- "brief": "suburban band two_storey_colonial: 2 storeys, vinyl walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "interwar band dutch_colonial: 2 storeys, brick walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

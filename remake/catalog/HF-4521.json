@@ -1,0 +1,68 @@
+{
+ "id": "HF-4521",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 24.5,
+  "d": 21.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 23,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#794537",
+   "trim": "#f2efe6",
+   "accent": "#6a4a2a",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Foxworth",
+  "house_number": 178
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1888"
+}

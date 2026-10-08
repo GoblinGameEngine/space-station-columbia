@@ -1,58 +1,61 @@
 {
  "id": "C-1676",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 26.0,
-  "d": 20.0
+  "w": 21.1,
+  "d": 25.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
-  "storeys": 2,
-  "main_w_ft": 32,
+  "archetype": "american_small_house",
+  "storeys": 1,
+  "main_w_ft": 28,
   "main_d_ft": 31,
   "roof": {
-   "type": "cross_gable",
+   "type": "gable",
    "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
   },
-  "walls": "vinyl",
+  "walls": "brick",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#bfcab9",
-   "trim": "#ffffff",
+   "body": "#754537",
+   "trim": "#3a3f44",
    "accent": "#1f2a33",
-   "roof": "#6a5e52"
+   "roof": "#2f3133"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "privacy",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
+    "clothesline",
     "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1998,
-  "band": "late",
-  "form_token": "neo_eclectic"
+  "condition": "new",
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "american_small_house"
  },
  "names": {
-  "family": "Raghunathan",
-  "house_number": 750
+  "family": "Marlowe",
+  "house_number": 526
  },
- "brief": "late band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "postwar band american_small_house: 1 storeys, brick walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

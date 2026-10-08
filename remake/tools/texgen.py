@@ -464,6 +464,51 @@ def ashlar(out, name, base="#a89a82", mortar="#8d8578", tile_m=2.0, seed=240):
     save(out, name, albedo, h, np.where(joint, 0.95, 0.85), 16)
 
 
+def clay_tile(out, name, base="#b5583a", tile_w=0.22, course_m=0.33, tile_m=1.32, seed=250):
+    """Mission / Spanish clay barrel tile (the California shore's roofs, 2026-10-07): pans and caps alternating across the
+    roof, courses down it, every tile its own fired colour (terracotta, some darker, a few lighter), a shadow under each
+    course's lower edge."""
+    r = rng(seed)
+    y = (np.arange(N) + 0.5)[:, None] / N * tile_m
+    x = (np.arange(N) + 0.5)[None, :] / N * tile_m
+    ncol = int(round(tile_m / tile_w))
+    w = tile_m / ncol
+    col_i = np.floor(x / w).astype(int) % ncol
+    fx = (x / w) % 1.0
+    cap = (col_i % 2 == 0)
+    # a cap is convex (high in its middle), a pan concave (low in its middle) and sits a little lower
+    prof = np.where(cap, np.sin(np.pi * fx) * 1.0, 0.35 - 0.3 * np.sin(np.pi * fx))
+    course = np.floor(y / course_m).astype(int)
+    fy = (y / course_m) % 1.0
+    # each course's tile is a touch fatter at its lower (exposed) end; a dark lap shadow at the lower edge
+    taper = 0.85 + 0.15 * fy
+    h = prof * taper
+    lap = np.clip((fy - 0.9) / 0.1, 0, 1)
+    h = h - 0.35 * lap
+    tid = (course * 97 + np.floor(x / w).astype(int)) % 4096
+    tv = r.uniform(0.82, 1.12, 4096)[tid]
+    dark = r.random(4096)[tid] < 0.08
+    grain = fbm(seed + 1, 60)
+    c = col(base)[None, None, :] * (tv * (0.9 + 0.2 * grain))[..., None]
+    c = np.where(dark[..., None], c * 0.72, c)
+    c = c * (1.0 - 0.5 * lap[..., None]) * (0.55 + 0.5 * prof[..., None])        # (the barrel: lit crowns, shaded troughs)
+    save(out, name, np.clip(c, 0, 1), np.clip(h, 0, 1), np.clip(0.75 + 0.15 * grain, 0, 1), 14)
+
+
+def granite(out, name, base="#9c958e", mortar="#7d7872", tile_m=2.0, seed=251, pink=0.0):
+    """Coursed granite (the North Sea's stone: wharves, customs house, foundations, sea walls): rock-faced ashlar with the
+    stone's black-and-white speckle and a faint pink feldspar cast."""
+    ashlar(out, name, base=base, mortar=mortar, tile_m=tile_m, seed=seed)
+    a = np.asarray(Image.open(os.path.join(out, name + "_albedo.png"))).astype(np.float32) / 255.0
+    r = rng(seed + 7)
+    sp = r.random((N, N))
+    a = np.where((sp < 0.05)[..., None], a * 0.45, a)
+    a = np.where((sp > 0.96)[..., None], np.minimum(1, a * 1.35), a)
+    if pink:
+        a = a * (1.0 + pink * np.array([0.08, -0.02, -0.03]))[None, None, :]
+    Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)).save(os.path.join(out, name + "_albedo.png"))
+
+
 def gravel(out, name, base="#7c7870", seed=241, size=35):
     n1 = fbm(seed, size, octaves=2)
     n2 = rng(seed + 1).random((N, N))
@@ -683,6 +728,10 @@ RECIPES = {
         (fieldstone, "fieldstone", dict(seed=428)),
         (ashlar, "limestone", dict(base="#c2b69a", mortar="#a89d86", seed=429)),
         (ashlar, "sandstone", dict(base="#a8805e", mortar="#8e7058", seed=430)),
+        (clay_tile, "roof_clay", dict(seed=450)),
+        (clay_tile, "roof_clay_old", dict(base="#9c4a34", seed=451)),
+        (granite, "granite", dict(seed=452)),
+        (granite, "granite_pink", dict(base="#a8968c", seed=453, pink=1.0)),
         (concrete, "concrete", dict(seed=431)),
         (concrete_block, "block", dict(seed=432)),
         (log_wall, "logs", dict(seed=433)),

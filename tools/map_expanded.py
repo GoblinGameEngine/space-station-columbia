@@ -205,10 +205,40 @@ def site_weight(s, sg):
     return w, line, off
 
 
+def harbour_shape(s, sg):
+    """the harbours (the user, 2026-10-07: the North Sea's towns "on protected harbors", the South Sea's "several inviting
+    natural harbors"): metres the waterline moves seaward (+) of a site's line.  North: a cove pressed into the granite
+    between two headland arms (Camden, Stonington, Rockport).  South: a shallow bay behind a long point on one side (Dana
+    Point, Morro Bay)."""
+    s = np.asarray(s, dtype=np.float64)
+    out = np.zeros_like(s)
+    for name, side, sc, half, ln, ro in SITES:
+        if side != sg:
+            continue
+        d = wrap_d(s - sc)
+        a = np.abs(d)
+        if sg < 0:
+            depth = min(420.0, 0.55 * half)
+            cove = np.where(a < half, -depth * np.cos(np.pi / 2 * a / half) ** 2, 0.0)
+            arms = 260.0 * np.exp(-((a - 1.05 * half) / (0.28 * half)) ** 2)
+            out += cove + arms
+        else:
+            # the point stands at the end of the town's stretch farther from the sea's islands (they keep 1.5 km of water)
+            isl_s = [f * C for f in (0.217, 0.55, 0.883)]
+            gap_e = min(abs(wrap_d(sc + half - q)) for q in isl_s)
+            gap_w = min(abs(wrap_d(sc - half - q)) for q in isl_s)
+            east = gap_e >= gap_w
+            dd = d if east else -d
+            bay = np.where(a < half, -140.0 * np.cos(np.pi / 2 * a / half) ** 2, 0.0)
+            point = 380.0 * np.exp(-((dd - 1.0 * half) / (0.22 * half)) ** 2)
+            out += bay + point
+    return out
+
+
 def coast(s, sg):
     """|x| of the sea's waterline at s on side sg."""
     w, line, _ = site_weight(s, sg)
-    return (COAST_MEAN + coast_amp(s, sg)) * w + line * (1 - w)
+    return (COAST_MEAN + coast_amp(s, sg)) * w + (line + harbour_shape(s, sg)) * (1 - w) + harbour_shape(s, sg) * w * 0.35
 
 
 def coastf(s, sg):
@@ -572,6 +602,12 @@ for sg in (-1, 1):
         CROSS_PATHS.append((CROSS_NAMES[len(CROSS_PATHS) % len(CROSS_NAMES)], path, None))
         draw_line(cdr, path, fill=cid, width=6)
 CREEK_PATHS += CROSS_PATHS
+# Harrow Run (the user, 2026-10-07): from the spring high on Harrow Hill, over the cliff's lip -- the falls Harrow Falls
+# is named for -- down its gorge to Lake Tamsin (tools/terrain_relief.py HARROW)
+import terrain_relief as TR
+_hr = chaikin(TR.harrow_run(), 3)
+draw_line(cdr, _hr, fill=len(CREEK_PATHS) + 1, width=6)
+CREEK_PATHS.append(("Harrow Run", _hr, None))
 CID = np.array(creek_img)
 WCAT[(CID > 0) & (WCAT == 0)] = 3
 # ponds are category 4 (drawn again so they read as ponds, not creek)
@@ -1695,8 +1731,48 @@ def build_calder():
     t.block_room = 0.0
     p = CAL.plan(lambda u, v: is_water(*t.g(u, v), buf=True))
     uv = lambda poly: [t.g(u, v) for u, v in poly]
+    # a landmark building's site is closed to the plan's streets (Kessler Works' 220 x 140 m site was found after the grid
+    # was laid, two streets through it -- the works closes them, as works do; the network joins their ends)
+    from records import LANDMARK_RECIPE as _LR
+    # an institution's or landmark's site closes the streets that meet it: none through it (Kessler Works' site was found
+    # after the grid, two streets through it), and a street the plan cut at a site ends SITE_TRIM m short of it -- room for
+    # its turnaround and its kerb clear of the grounds (stubs ending against a school or church left 42 of them out
+    # of placement, 2026-10-08)
+    _sites = [lm["poly"] for lm in p.get("landmarks", []) if "poly" in lm and not lm.get("ring") and lm["kind"] in _LR]
+    _sites += [l_["poly"] for l_ in p.get("lots", []) if l_.get("institution")]
+    _boxes = [(min(c[0] for c in q_), max(c[0] for c in q_), min(c[1] for c in q_), max(c[1] for c in q_)) for q_ in _sites]
+    SITE_TRIM, SITE_NEAR = 16.0, 8.0
+
+    def _in_site(q):
+        return any(b_[0] + 2.0 < q[0] < b_[1] - 2.0 and b_[2] + 2.0 < q[1] < b_[3] - 2.0 for b_ in _boxes)
+
+    def _near_site(q):
+        return any(b_[0] - SITE_NEAR < q[0] < b_[1] + SITE_NEAR and b_[2] - SITE_NEAR < q[1] < b_[3] + SITE_NEAR for b_ in _boxes)
+
+    def _trim(run_, end_):
+        r_ = run_ if end_ == 0 else run_[::-1]
+        acc = 0.0
+        while len(r_) > 2 and acc < SITE_TRIM:
+            acc += math.dist(r_[0], r_[1])
+            r_ = r_[1:]
+        return r_ if end_ == 0 else r_[::-1]
     for st in p["streets"]:
-        t.street(st["pts"], st["cls"], st["name"])
+        # the plan's classes onto the game's (ROAD_W, street_rules): a collector is built as a main road, a pod's drive
+        # and court as streets (the plan graded them to their own limits already)
+        cls_ = {"collector": "main", "drive": "street", "court": "street"}.get(st["cls"], st["cls"])
+        pts_ = densify(list(st["pts"]), 3.0) if _boxes else st["pts"]
+        run_ = []
+        for q in pts_ + [None]:
+            if q is not None and not _in_site(q):
+                run_.append(q)
+                continue
+            if len(run_) > 1 and _near_site(run_[0]):
+                run_ = _trim(run_, 0)
+            if len(run_) > 1 and _near_site(run_[-1]):
+                run_ = _trim(run_, -1)
+            if len(run_) > 1 and math.dist(run_[0], run_[-1]) >= 12.0:
+                t.street(run_, cls_, st["name"])
+            run_ = []
     for a in p["areas"]:
         t.area(uv(a["poly"]), a["kind"])
     for c in p["centres"]:
@@ -1732,47 +1808,245 @@ def build_calder():
     return t
 
 
-TOWNS = build_all()
+# Every settlement at 1:1 (the user, 2026-10-07): each one laid out by tools/settlegen/city.py from its spec
+# (tools/settlegen/towns.py) over the hills (tools/terrain_relief.py) -- Calder keeps its own plan.  Largest first; each
+# town's footprint is TAKEN so the next keeps clear of it.  (The hand-drawn layouts above -- build_all, the coastal
+# builders -- are the old 3 km map's and are no longer called.)
+import city as CY
+import towns as TS
+import terrain_relief as TR
+TAKEN_K = 8.0
+_TAKEN = Image.new("L", (int(C / TAKEN_K) + 1, int(W / TAKEN_K) + 1), 0)
+_TAKEN_D = ImageDraw.Draw(_TAKEN)
+_TAKEN_A = None
 
-# No buildings are added or lost in the expansion: each community's structures are exactly those of
-# the current map (remake/inventory/map_inventory_pre_expansion.json -- same ids, same footprints), moved as a
-# piece with its town: 6x further round the ring, 500 m further from the river.
-OLD_S0 = {"Harrow Falls": 395.0, "Kessler": 2130.0, "Marlowe": 1500.0, "Fenwick": 2150.0, "Bellhaven": 1050.0,
-          "Tamarack": 2820.0, "Cedar Ford": 1250.0, "Pruett": 1500.0, "Dunmore Crossing": 650.0,
-          "Loomis Grove": 2580.0, "Haskins Corner": 2955.0}
+
+def _taken_mark(t):
+    global _TAKEN_A
+    tp = lambda q: ((q[0] % C) / TAKEN_K, (q[1] + HW) / TAKEN_K)
+    for pts, cls in t.streets:
+        _TAKEN_D.line([tp(q) for q in pts], fill=1, width=4)
+    for poly, _, _ in t.bldgs:
+        _TAKEN_D.polygon([tp(q) for q in poly], fill=1)
+    for poly, _ in t.areas:
+        _TAKEN_D.polygon([tp(q) for q in poly], fill=1)
+    _TAKEN_A = None
+
+
+def _taken(s_, x_):
+    global _TAKEN_A
+    if _TAKEN_A is None:
+        _TAKEN_A = np.asarray(_TAKEN)
+    i_, j_ = int((s_ % C) / TAKEN_K), int((x_ + HW) / TAKEN_K)
+    if j_ < 0 or j_ >= _TAKEN_A.shape[0]:
+        return True
+    return bool(_TAKEN_A[j_, i_ % _TAKEN_A.shape[1]])
+
+
+PLAN_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "reference", "tmp", "plan_cache")
+
+
+def _plan_cached(spec, blocked, height, where):
+    """CY.plan_city, kept on disk: a city takes ~10 min to plan and the full map ~1 h.  The key is the planner's sources,
+    the spec, and a probe of what the plan sees -- blocked() and height() on a 96 x 96 grid 5 km round the heart -- so
+    a change to the water, the terrain or the towns already placed misses it."""
+    import hashlib
+    import pickle
+    d = os.path.dirname(os.path.abspath(__file__))
+    g = np.linspace(-5000.0, 5000.0, 96)
+    U_, V_ = np.meshgrid(g, g)
+    probe = (repr(sorted((k, v) for k, v in spec.items() if not callable(v))).encode() + repr(where).encode()
+             + bytes(bool(blocked(float(u), float(v))) for u in g for v in g)
+             + np.round(np.asarray(height(U_, V_), dtype=np.float32), 1).tobytes())
+
+    def key(city_src):
+        h = hashlib.sha1()
+        for f in ("city.py", "town.py", "centers.py", "../terrain_relief.py"):
+            h.update(city_src if f == "city.py" else open(os.path.join(d, "settlegen", f), "rb").read())
+        h.update(probe)
+        return os.path.join(PLAN_CACHE, "%s_%s.pkl" % (where[0].replace(" ", "_"), h.hexdigest()[:16]))
+    # (the planner's own code only: city.py up to its records part, less structures() -- the plan's buildings out of the
+    # plan, after it -- with town.py, centers.py and the relief; editing the records, the regional styles, structures()
+    # or the specs' other towns doesn't throw away an hour of plans)
+    src = open(os.path.join(d, "settlegen", "city.py"), "rb").read().split(b"\ndef library_key")[0]
+    a_, b_ = src.find(b"\ndef structures("), src.find(b"\ndef club_scale(")
+    path = key(src[:a_] + src[b_:] if a_ >= 0 and b_ > a_ else src)
+    if not os.path.exists(path):
+        # a plan cached under the first key (all of city.py up to library_key, as it stood: plan_cache/city_key_v1.py)
+        old = os.path.join(PLAN_CACHE, "city_key_v1.py")
+        if os.path.exists(old):
+            p1 = key(open(old, "rb").read().split(b"\ndef library_key")[0])
+            if os.path.exists(p1):
+                import shutil
+                shutil.copyfile(p1, path)
+    if os.path.exists(path):
+        print("  (plan of %s from the cache)" % where[0])
+        return pickle.load(open(path, "rb"))
+    p = CY.plan_city(spec, blocked, height)
+    try:
+        os.makedirs(PLAN_CACHE, exist_ok=True)
+        pickle.dump(p, open(path + ".tmp", "wb"))
+        os.replace(path + ".tmp", path)
+    except Exception as ex:
+        print("  (plan of %s not cached: %s)" % (where[0], ex))
+    return p
+
+
+def build_generated(spec):
+    name = spec["name"]
+    if spec.get("coast"):
+        st_ = SITE[name]
+        s0 = st_[2]
+        side = st_[1]
+        shore = side * float(coast(s0, side))
+        x0 = shore - side * 150.0                                   # Main Street 150 m inland of the harbour's waterline
+    else:
+        s0, x0 = spec["s"], spec["x"]
+    # v grows inland (the heart and the old town stand back from the water): find which way the water lies
+    wet_p = is_water(s0, x0 + 260.0) or is_sea(s0, x0 + 260.0)
+    wet_m = is_water(s0, x0 - 260.0) or is_sea(s0, x0 - 260.0)
+    flip = -1 if wet_p and not wet_m else 1
+    tier_label = {"city": "City", "town": "Town", "village": "Village"}[spec["tier"]]
+    t = Town(name, tier_label, spec["pop"], spec.get("archetype", ""), spec.get("character", spec.get("archetype", "")), s0, x0, "s", flip,
+             "up")
+    t.block_room = 0.0
+    t.generated = True
+    t.coastal = False                       # (its structures go out through the generated path, not the coastal inventory's)
+    t.spec = spec
+    rail = spec.get("rail")
+    if rail:
+        spec = dict(spec, rail_v=lambda u, s0_=s0, x0_=x0, f_=flip: (rail_x(s0_ + u) - x0_) * f_)
+
+    on_isle = bool(spec.get("island"))
+    # a lake town keeps to its own shore: not round the lake's ends onto the far bank (Harrow Falls reached Port Tamsin's)
+    shore_side = 0 if on_isle or not spec.get("lake") else (1 if x0 > float(lake_params(s0)[1]) else -1)
+
+    def blocked(u, v):
+        s_, x_ = t.g(u, v)
+        if abs(x_) > HW - 50 or is_sea(s_, x_) or is_water(s_, x_, buf=True):
+            return True
+        i_, j_ = idx(s_, x_)
+        if bool(VB_ISLE[j_, i_]) != on_isle:
+            return True                  # (Lake Tamsin's island is Victory Bay's alone, and Victory Bay is the island)
+        if shore_side and (1 if x_ > float(lake_params(s_)[1]) else -1) != shore_side:
+            return True
+        if on_isle and abs(wrap_d(s_ - VB_BRIDGE_S)) < 16.0 and x_ > VB_BRIDGE_X0 - 10.0:
+            return True                  # (the Tamsin Bridge's landfall)
+        return _taken(s_, x_)
+
+    def height(u, v):
+        u = np.asarray(u, dtype=np.float32)
+        v = np.asarray(v, dtype=np.float32)
+        return TR.relief((s0 + u) % C, x0 + flip * v)
+    spec = dict(spec, wet=lambda u, v: (lambda q: is_sea(*q) or is_water(*q))(t.g(u, v)))
+    # the map's own features as the plan's anchors (Harrow Hill's summit, the falls)
+    to_uv = lambda q: (wrap_d(q[0] - s0), (q[1] - x0) * flip)
+    if name == "Harrow Falls":
+        H_ = TR.HARROW
+        spec["anchors"] = {"summit": to_uv((H_["s"], H_["x"])), "falls": to_uv(H_["foot"]), "hill": to_uv(H_["lip"])}
+    p = _plan_cached(spec, blocked, height, (name, round(s0, 1), round(x0, 1), flip))
+    uv = lambda poly: [t.g(u, v) for u, v in poly]
+    for w_ in p.get("walks", []):
+        t.walks.append((uv(w_["pts"]), w_["w"], w_["kind"]))
+    # a landmark building's site is closed to the plan's streets (Kessler Works' 220 x 140 m site was found after the grid
+    # was laid, two streets through it -- the works closes them, as works do; the network joins their ends)
+    from records import LANDMARK_RECIPE as _LR
+    # an institution's or landmark's site closes the streets that meet it: none through it (Kessler Works' site was found
+    # after the grid, two streets through it), and a street the plan cut at a site ends SITE_TRIM m short of it -- room for
+    # its turnaround and its kerb clear of the grounds (stubs ending against a school or church left 42 of them out
+    # of placement, 2026-10-08)
+    _sites = [lm["poly"] for lm in p.get("landmarks", []) if "poly" in lm and not lm.get("ring") and lm["kind"] in _LR]
+    _sites += [l_["poly"] for l_ in p.get("lots", []) if l_.get("institution")]
+    _boxes = [(min(c[0] for c in q_), max(c[0] for c in q_), min(c[1] for c in q_), max(c[1] for c in q_)) for q_ in _sites]
+    SITE_TRIM, SITE_NEAR = 16.0, 8.0
+
+    def _in_site(q):
+        return any(b_[0] + 2.0 < q[0] < b_[1] - 2.0 and b_[2] + 2.0 < q[1] < b_[3] - 2.0 for b_ in _boxes)
+
+    def _near_site(q):
+        return any(b_[0] - SITE_NEAR < q[0] < b_[1] + SITE_NEAR and b_[2] - SITE_NEAR < q[1] < b_[3] + SITE_NEAR for b_ in _boxes)
+
+    def _trim(run_, end_):
+        r_ = run_ if end_ == 0 else run_[::-1]
+        acc = 0.0
+        while len(r_) > 2 and acc < SITE_TRIM:
+            acc += math.dist(r_[0], r_[1])
+            r_ = r_[1:]
+        return r_ if end_ == 0 else r_[::-1]
+    for st in p["streets"]:
+        # the plan's classes onto the game's (ROAD_W, street_rules): a collector is built as a main road, a pod's drive
+        # and court as streets (the plan graded them to their own limits already)
+        cls_ = {"collector": "main", "drive": "street", "court": "street"}.get(st["cls"], st["cls"])
+        pts_ = densify(list(st["pts"]), 3.0) if _boxes else st["pts"]
+        run_ = []
+        for q in pts_ + [None]:
+            if q is not None and not _in_site(q):
+                run_.append(q)
+                continue
+            if len(run_) > 1 and _near_site(run_[0]):
+                run_ = _trim(run_, 0)
+            if len(run_) > 1 and _near_site(run_[-1]):
+                run_ = _trim(run_, -1)
+            if len(run_) > 1 and math.dist(run_[0], run_[-1]) >= 12.0:
+                t.street(run_, cls_, st["name"])
+            run_ = []
+    for a in p["areas"]:
+        if a.get("kind"):
+            t.area(uv(a["poly"]), a["kind"])
+    for (q, txt) in p["marks"]:
+        t.mark(q[0], q[1], txt)
+    for c in p["centres"]:
+        f = (lambda c_: (lambda u, v: (u, c_["v_road"] + c_["dirn"] * v)))(c)
+        for a in c["plan"]["areas"]:
+            t.area(uv([f(*q) for q in a["poly"]]), a["kind"])
+    t.stairs = [(uv(st["pts"]), st["name"]) for st in p["stairs"]]
+    t.landmarks = [dict(lm, poly=uv(lm["poly"])) if "poly" in lm else dict(lm) for lm in p["landmarks"]]
+    def region_at(ring, reg=spec.get("region", "gl")):
+        # the coast's style near the sea, the Great Lakes' toward the river (the user: "It will transition to the great
+        # lakes aesthetic toward the river"): past 1.5 km inland a building is more and more likely Great Lakes, by 4 km all
+        if reg not in ("ne", "ca"):
+            return reg                       # (Great Lakes country, and the island's own "isle")
+        cs_ = sum(q[0] for q in ring) / len(ring)
+        cx_ = sum(q[1] for q in ring) / len(ring)
+        sg_ = -1 if cx_ < 0 else 1
+        d_in = float(coast(cs_, sg_)) - abs(cx_)
+        w_ = min(1.0, max(0.0, (d_in - 1500.0) / 2500.0))
+        h_ = (int(abs(cs_) * 7.13 + abs(cx_) * 3.71) % 1000) / 1000.0
+        return "gl" if h_ < w_ else reg
+    t.gen_structs = CY.structures(p, spec, uv, region_at)
+    for e in t.gen_structs:
+        t.bld(e["poly"], e["kind"])
+    print(f"   {name}: {p['stats']}", file=sys.stderr)
+    _taken_mark(t)
+    return t
+
+
+# Victory Bay's island (the user, 2026-10-07: "an island too to the lake ... a lot of trees and a big bridge with the
+# mainland ... shopping"): Perry Island grown to ~1.1 x 0.66 km in Lake Tamsin, before the towns are planned on it
+VB_S, VB_X = 7700.0, -600.0
+VB_RS, VB_RX = 720.0, 500.0       # (Lake Tamsin runs x -1650 .. +645 here: ~450 m of water north, ~650 m to the bridge's far shore)
+VB_BRIDGE_S, VB_BRIDGE_X0 = 7760.0, -400.0        # the Tamsin Bridge's line (s) and its island end (x)
+_vb = Image.new("L", (CW, WH), 0)
+_vbd = ImageDraw.Draw(_vb)
+_vb_poly = [(VB_S + VB_RS * math.cos(a) * (1 + 0.12 * math.sin(3 * a + 0.7) + 0.07 * math.sin(7 * a)),
+             VB_X + VB_RX * math.sin(a) * (1 + 0.1 * math.sin(4 * a + 1.9))) for a in np.linspace(0, 2 * math.pi, 64)]
+draw_poly(_vbd, _vb_poly, fill=1)
+VB_ISLE = np.array(_vb) > 0
+del _vb, _vbd
+WCAT[VB_ISLE] = 0
+WBUF = dilate(WCAT > 0, fk(4))
 import json as _json
-# (read from the frozen pre-expansion copy: --game-data rewrites map_inventory.json at the new positions)
+# the pre-expansion inventory (frozen: --game-data rewrites map_inventory.json): the settlements' metadata, the crossings'
+# models, the old coastal ids
 _INV = _json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "remake", "inventory",
                                     "map_inventory_pre_expansion.json")))
-
-
-def _inv_poly(st, ds, dx):
-    if st.get("front_edge"):
-        p0, p1 = st["front_edge"]
-        cs, cx = st["s"], st["x"]
-        pts = [tuple(p0), tuple(p1), (2 * cs - p0[0], 2 * cx - p0[1]), (2 * cs - p1[0], 2 * cx - p1[1])]
-    else:
-        pts = circle(st["s"], st["x"], st["w"] / 2, 14)
-    return [(q[0] + ds, q[1] + dx) for q in pts]
-
-
-for _t in TOWNS:
-    _ds = OLD_S0[_t.name] * (SS - 1)
-    _dx = (-WIDEN if _t.x0 < 0 else WIDEN) + (_t.x0 - _t.x0_3km)     # (the town's move into the new land too)
-    _t.bldgs = []
-    for _st in _INV["structures"]:
-        if _st["settlement"] != _t.name:
-            continue
-        _t.bldgs.append((_t.nudge(_inv_poly(_st, _ds, _dx)), _st["kind"], False))
-        for _pt in _st["parts"]:
-            _t.bldgs.append((_t.nudge(_inv_poly(_pt, _ds, _dx)), "silo", True))
-
-_TN = {t.name: t for t in TOWNS}
-add_harrow_falls_waterfront(_TN["Harrow Falls"])
-add_cedar_ford_boardwalk(_TN["Cedar Ford"])
-TOWNS += [build_port_carrow(), build_tern_harbor(), build_brightwater(), build_haven_point(),
-          build_solana_point(), build_pelican_cove(), build_playa_verde(), build_oceanview(), build_victory_bay(),
-          build_port_tamsin(), build_calder()]
+TOWNS = [build_calder()]
+_taken_mark(TOWNS[0])
+_only = [n for n in os.environ.get("SSC_TOWNS_ONLY", "").split(",") if n]     # (a quick test of a few towns)
+for _sp in sorted(TS.SPECS, key=lambda sp: -sp["pop"]):
+    if _only and _sp["name"] not in _only:
+        _sp = dict(_sp, pop=max(300, int(_sp["pop"] * 0.03)), landmarks=[])     # (a stand-in, so the rest of the run still works)
+    TOWNS.append(build_generated(_sp))
 
 # harbour water cut into the land, and land built out into the water (the Battery, a headland,
 # Harbor Island): painted into the water raster
@@ -1889,6 +2163,36 @@ H = H_BLUFF * (1 + 0.3 * np.sin(2 * th + PHI4))
 ELEV = (H * np.maximum(0, np.tanh((dist - d0) / Lb)) - Z1 * np.cos(th - math.pi / 4)
         + 1.2 * np.sin(S / 97 + X / 131) + 0.8 * np.sin(X / 53 - S / 211)).astype(np.float32)
 del Lb, H
+# the hills and small mountains (tools/terrain_relief.py; the user, 2026-10-07): computed on an 8 m grid in row bands and
+# interpolated to the 4 m rasters, added before the coasts and the rivers' valleys shape the ground
+import terrain_relief as TR
+
+
+def _relief_raster():
+    st_ = 8.0
+    ns_ = int(round(C / st_))
+    s8 = ((np.arange(ns_) + 0.5) * st_)[None, :].astype(np.float32)
+    out = np.zeros((WH, CW), dtype=np.float32)
+    band = 256
+    for r0 in range(0, WH, band):
+        r1 = min(WH, r0 + band)
+        xr = X[r0:r1, 0]
+        x8 = np.arange(np.floor(xr[0] / st_) * st_ - st_, xr[-1] + 2 * st_, st_, dtype=np.float32)
+        h8 = TR.relief(s8, x8[:, None])                                  # (len(x8), ns_)
+        # interpolate: along x (rows) then along s (columns, wrapping)
+        fx = (xr - x8[0]) / st_
+        jx = np.clip(np.floor(fx).astype(np.int32), 0, len(x8) - 2)
+        tx = (fx - jx).astype(np.float32)[:, None]
+        hx = h8[jx] * (1 - tx) + h8[jx + 1] * tx                          # (rows, ns_)
+        fs = (S[0] / st_ - 0.5)
+        i0_ = np.floor(fs).astype(np.int32)
+        ts_ = (fs - i0_).astype(np.float32)[None, :]
+        out[r0:r1] = hx[:, i0_ % ns_] * (1 - ts_) + hx[:, (i0_ + 1) % ns_] * ts_
+    return out
+
+
+RELIEF_H = _relief_raster()
+ELEV = (ELEV + RELIEF_H).astype(np.float32)
 ELEV_INLAND = ELEV.copy()                                        # (woods follow the inland slopes only)
 # the coasts: distance inland from each sea's waterline; headlands (proud of the mean line, outside
 # the towns' straightened stretches) end in rocky cliffs, the bays in sandy beaches
@@ -1902,8 +2206,12 @@ def _amp_big(s_, sg):
     ph = 0.0 if sg < 0 else 2.1
     return (140 * np.sin(TAU * s_ / 2600 + ph) + 95 * np.sin(TAU * s_ / 1130 + 2 * ph + 0.7)
             + 55 * np.sin(TAU * s_ / 610 + ph + 2.0))
-HEADW_N = _headw(_amp_big(S[0], -1), 40, 110, _wn)[None, :].astype(np.float32)     # 0..1: how much a headland
+HEADW_N = _headw(_amp_big(S[0], -1), -90, -30, _wn)[None, :].astype(np.float32)   # 0..1: how much a headland (the
+#   North Sea is rocky New England granite almost everywhere: only the deepest bays keep a pocket beach)
 HEADW_S = _headw(_amp_big(S[0], 1), 130, 210, _ws)[None, :].astype(np.float32)    # (the South Sea: mostly beaches)
+# the harbours' arms and points are granite (a cove's two headlands; the South's sheltering point)
+HEADW_N = np.maximum(HEADW_N, np.clip(harbour_shape(S[0], -1) / 180.0, 0, 1)[None, :].astype(np.float32))
+HEADW_S = np.maximum(HEADW_S, np.clip(harbour_shape(S[0], 1) / 220.0, 0, 1)[None, :].astype(np.float32))
 HEAD_N = HEADW_N > 0.5
 HEAD_S = HEADW_S > 0.5
 DCOAST = np.where(X < 0, COAST_N + X, COAST_S - X)                 # metres inland of the waterline
@@ -1916,6 +2224,25 @@ del _hw
 _rv = dilate(RIVMASK, fk(RIVER_BASIN))                                    # the great rivers' valleys
 ELEV = np.where(_rv, ELEV * 0.15, np.where(dilate(_rv, fk(260)), ELEV * 0.55, ELEV)).astype(np.float32)
 del _rv
+# Victory Bay's island stands above Lake Tamsin: from its banks' height (the lake stands at its lowest bank) 1.2 m at the
+# water's edge up a gentle wooded rise (~16 m) in the middle
+_i0, _i1 = int((VB_S - VB_RS * 1.3) / PX), int((VB_S + VB_RS * 1.3) / PX)
+_j0, _j1 = int((VB_X - VB_RX * 1.3 + HW) / PX), int((VB_X + VB_RX * 1.3 + HW) / PX)
+_ss = S[0, _i0:_i1][None, :]
+_xx = X[_j0:_j1, 0][:, None]
+_rr = np.sqrt(((_ss - VB_S) / VB_RS) ** 2 + ((_xx - VB_X) / VB_RX) ** 2)
+_bank = []
+for _s in np.arange(6900.0, 8700.0, 50.0):
+    _te, _be = water_edges(_s)
+    for _x in (float(_te) - 30.0, float(_be) + 30.0):
+        _bi, _bj = idx(_s, _x)
+        _bank.append(float(ELEV[_bj, _bi]))
+_bank_lo = min(_bank)
+_vu = np.clip((1.0 - _rr) / 0.35, 0, 1)
+_vu = _vu * _vu * (3 - 2 * _vu)
+_isl_h = (_bank_lo + 1.2 + 16.0 * _vu + 1.2 * np.sin(_ss / 47.0 + _xx / 61.0) * _vu).astype(np.float32)
+ELEV[_j0:_j1, _i0:_i1] = np.where(VB_ISLE[_j0:_j1, _i0:_i1], _isl_h, ELEV[_j0:_j1, _i0:_i1])
+del _ss, _xx, _rr, _vu, _isl_h
 # the islands: beaches round a low rolling upland (to ~14-22 m), cut into the sea by DCOAST like the mainland's coasts
 _isn = (1.6 * np.sin(S / 173 + X / 211) + 1.1 * np.sin(X / 97 - S / 139) + 0.6 * np.sin(S / 41 + X / 59)).astype(np.float32)
 _isu = np.clip(ISL_D / 450.0, 0, 1)
@@ -1995,6 +2322,19 @@ def big_water(s, x):
     return is_sea(s, x) or WCAT[j, i] in (1, 2, 7)
 
 
+# steep ground a section road can't take (the hills' and mountains' flanks: over 12%, on a 16 m grid), and where it stops
+_E16 = ELEV[::4, ::4].astype(np.float32)
+_gy16, _gx16 = np.gradient(_E16, 16.0)
+STEEP16 = (np.hypot(_gx16, _gy16) > 0.12) & (RELIEF_H[::4, ::4] > 25.0)
+STEEP16 = dilate(STEEP16, fk(2))
+del _gy16, _gx16
+
+
+def too_steep(s_, x_):
+    i_, j_ = idx(s_, x_)
+    return bool(STEEP16[min(STEEP16.shape[0] - 1, j_ // 4), (i_ // 4) % STEEP16.shape[1]])
+
+
 for s in SECTION_S:
     # the surveyed line, nudged (as a real section road jogs) off any creek that runs along it
     best = None
@@ -2003,15 +2343,152 @@ for s in SECTION_S:
         sc = _creek_run(pts)
         if best is None or sc < best[0] - 12:
             best = (sc, pts)
-    for run in clip_runs(best[1], lambda p: near_river(p) or in_blocked(*p) or near_great_river(*p)):
+    for run in clip_runs(best[1], lambda p: near_river(p) or in_blocked(*p) or near_great_river(*p) or too_steep(*p)):
         if math.dist(run[0], run[-1]) > 60:
             ROADS.append((run, "gravel", ""))
 for x in SECTION_X:
     pts = densify([(0, x), (C, x)], 3.0)
-    for run in clip_runs(pts, lambda p: in_blocked(*p) or big_water(*p)):
+    for run in clip_runs(pts, lambda p: in_blocked(*p) or big_water(*p) or too_steep(*p)):
         if math.dist(run[0], run[-1]) > 60:
             ROADS.append((run, "gravel", ""))
 
+
+# a gravel road to the top of every mountain and large hill (the user, 2026-10-07): a least-cost path on the 16 m height
+# grid from the summit to the nearest road, every step at most 12% (14% for a short pitch), gentler preferred -- the
+# switchbacks come out of the grade limit (research/terrain_and_cities: fire-access roads 15-16% max, switchbacks 10%)
+import heapq
+
+
+def summit_road(name, ps, px, rs, rx):
+    G = 16.0
+    n16 = _E16.shape[1]
+    ic, jc = int(ps / G) % n16, int((px + HW) / G)
+    hi_, hj = int(2.6 * rs / G), int(2.6 * rx / G)
+    j0w, j1w = max(1, jc - hj), min(_E16.shape[0] - 1, jc + hj)
+    cols = [(ic + k) % n16 for k in range(-hi_, hi_ + 1)]
+    E = _E16[j0w:j1w][:, cols]
+    H_, W_ = E.shape
+    # the summit: the highest cell near the massif's centre
+    cj, ci = jc - j0w, hi_
+    win = E[max(0, cj - hj // 2):cj + hj // 2, max(0, ci - hi_ // 2):ci + hi_ // 2]
+    pj, pi = np.unravel_index(int(np.argmax(win)), win.shape)
+    pj += max(0, cj - hj // 2)
+    pi += max(0, ci - hi_ // 2)
+    # the goal: cells on an existing road (not this massif's steep ground), not water -- a town's streets too (Loma Alta
+    # stands behind Solana Point's)
+    goal = np.zeros((H_, W_), dtype=bool)
+    for pts_, cls_ in [(r_[0], r_[1]) for r_ in ROADS] + [st_ for t_ in TOWNS for st_ in t_.streets]:
+        if cls_ not in ("gravel", "county", "hwy", "main", "street"):
+            continue
+        for q in pts_[::3]:
+            gi = int(wrap_d(q[0] - ps) / G) + hi_
+            gj = int((q[1] + HW) / G) - j0w
+            if 0 <= gi < W_ and 0 <= gj < H_:
+                goal[gj, gi] = True
+    if not goal.any():
+        return None
+    wet = np.zeros((H_, W_), dtype=bool)
+    for gj in range(0, H_, 1):
+        xw = (j0w + gj) * G - HW
+        for gi in range(0, W_, 2):
+            if big_water(ps + (gi - hi_) * G, xw):
+                wet[gj, gi:gi + 2] = True
+    moves = [(1, 0), (0, 1), (-1, 0), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1),
+             (2, 1), (1, 2), (-1, 2), (-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1)]
+    INF = float("inf")
+    dist_ = np.full((H_, W_), INF)
+    prev = np.full((H_, W_, 2), -1, dtype=np.int32)
+    dist_[pj, pi] = 0.0
+    pq = [(0.0, pj, pi)]
+    end = None
+    while pq:
+        d_, j_, i_ = heapq.heappop(pq)
+        if d_ > dist_[j_, i_]:
+            continue
+        if goal[j_, i_]:
+            end = (j_, i_)
+            break
+        for di, dj in moves:
+            nj, ni = j_ + dj, i_ + di
+            if not (0 <= nj < H_ and 0 <= ni < W_) or wet[nj, ni]:
+                continue
+            L = G * math.hypot(di, dj)
+            g = abs(float(E[nj, ni]) - float(E[j_, i_])) / L
+            if g > 0.14:
+                continue
+            c = L * (1.0 + 8.0 * max(0.0, g - 0.06) + (40.0 * (g - 0.12) if g > 0.12 else 0.0))
+            nd = d_ + c
+            if nd < dist_[nj, ni]:
+                dist_[nj, ni] = nd
+                prev[nj, ni] = (j_, i_)
+                heapq.heappush(pq, (nd, nj, ni))
+    if end is None:
+        # no way up within the grade from the very top (its crown too steep all round, Loma Alta): from the roads instead,
+        # within the grade, to the highest ground it reaches near the summit
+        dist_ = np.full((H_, W_), INF)
+        prev = np.full((H_, W_, 2), -1, dtype=np.int32)
+        pq = []
+        for gj, gi in zip(*np.nonzero(goal)):
+            dist_[gj, gi] = 0.0
+            pq.append((0.0, int(gj), int(gi)))
+        heapq.heapify(pq)
+        while pq:
+            d_, j_, i_ = heapq.heappop(pq)
+            if d_ > dist_[j_, i_]:
+                continue
+            for di, dj in moves:
+                nj, ni = j_ + dj, i_ + di
+                if not (0 <= nj < H_ and 0 <= ni < W_) or wet[nj, ni]:
+                    continue
+                L = G * math.hypot(di, dj)
+                g = abs(float(E[nj, ni]) - float(E[j_, i_])) / L
+                if g > 0.14:
+                    continue
+                nd = d_ + L * (1.0 + 8.0 * max(0.0, g - 0.06) + (40.0 * (g - 0.12) if g > 0.12 else 0.0))
+                if nd < dist_[nj, ni]:
+                    dist_[nj, ni] = nd
+                    prev[nj, ni] = (j_, i_)
+                    heapq.heappush(pq, (nd, nj, ni))
+        near = np.zeros((H_, W_), dtype=bool)
+        near[max(0, pj - hj // 3):pj + hj // 3, max(0, pi - hi_ // 3):pi + hi_ // 3] = True
+        reach = np.isfinite(dist_) & near & ~goal
+        if not reach.any():
+            return None
+        top = np.where(reach, E, -1e9)
+        tj, ti = np.unravel_index(int(np.argmax(top)), top.shape)
+        print(f"   summit road: {name} to {float(E[tj, ti]):.0f} m of {float(E[pj, pi]):.0f} m (its crown too steep)", file=sys.stderr)
+        path = []
+        j_, i_ = int(tj), int(ti)
+        while (j_, i_) != (-1, -1):
+            path.append((ps + (i_ - hi_) * G, (j0w + j_) * G - HW + G / 2))
+            j_, i_ = prev[j_, i_]
+            if j_ == -1:
+                break
+        return chaikin(path[::-1], 2, False)            # (road end first, the top last)
+    path = []
+    j_, i_ = end
+    while (j_, i_) != (-1, -1):
+        path.append((ps + (i_ - hi_) * G, (j0w + j_) * G - HW + G / 2))
+        j_, i_ = prev[j_, i_]
+        if j_ == -1:
+            break
+    path = path[::-1]                                   # (road end first, the summit last)
+    return chaikin(path, 2, False)
+
+
+SUMMITS = []
+for _m in TR.RELIEF + [(TR.HARROW["name"], TR.HARROW["s"], TR.HARROW["x"], TR.HARROW["peak"], TR.HARROW["rs"], TR.HARROW["rx"], "rocky", 0.0)]:
+    _p = summit_road(_m[0], _m[1], _m[2], _m[4], _m[5])
+    if _p is None:
+        print(f"   summit road: none found for {_m[0]}", file=sys.stderr)
+        continue
+    ROADS.append((densify(_p, 3.0), "gravel", f"{_m[0]} Rd"))
+    SUMMITS.append((_m[0], _p[-1]))
+print(f"summit roads: {len(SUMMITS)} of {len(TR.RELIEF) + 1}", file=sys.stderr)
+
+# the Tamsin Bridge: Victory Bay's island to Harrow Falls across Lake Tamsin (~880 m: the map's great-bridge scan makes it
+# a major crossing, and the game's GreatBridges builds it)
+ROADS.append((densify([(VB_BRIDGE_S, VB_BRIDGE_X0), (VB_BRIDGE_S, 760.0)], 3.0), "county", "Tamsin Bridge"))
 # Every road end joins another road (SSC road standard §6: tools/road_network.py) -- the roads and
 # every town's streets as one network; an end with nowhere to go gets a turning circle
 from road_network import Network
@@ -2029,6 +2506,37 @@ def _road_clear(s, x):
     return not (_BLD[j, i] or big_water(s, x))
 
 
+# A regional road (highway, county road, gravel road) routed before the 1:1 towns were planned ran across their lots (US 30
+# through Kessler's blocks, College Rd through its stores: 996 buildings left out by placement, 2026-10-07).  Where it
+# meets a town's built-up ground it ends: the network below joins its ends to the town's own streets (as a state route
+# becomes Main Street).
+def _clip_to_open(pts):
+    runs, cur = [], []
+    for q in pts:
+        i, j = idx(*q)
+        if _BLD[j, i]:
+            if len(cur) > 1:
+                runs.append(cur)
+            cur = []
+        else:
+            cur.append(q)
+    if len(cur) > 1:
+        runs.append(cur)
+    return [r_ for r_ in runs if sum(math.dist(a_, b_) for a_, b_ in zip(r_, r_[1:])) >= 25.0]
+
+
+_clipped = []
+_n_cut = 0
+for pts, cls, nm in ROADS:
+    if cls in ("hwy", "county", "gravel") and nm != "Tamsin Bridge":
+        runs = _clip_to_open(densify(list(pts), 3.0))
+        if len(runs) != 1 or len(runs[0]) < len(densify(list(pts), 3.0)):
+            _n_cut += 1
+        _clipped += [(r_, cls, nm) for r_ in runs]
+    else:
+        _clipped.append((pts, cls, nm))
+ROADS[:] = _clipped
+print(f"regional roads ended at towns' built-up ground: {_n_cut}", file=sys.stderr)
 _NET_ROADS = [[list(pts), cls, nm] for pts, cls, nm in ROADS]
 _NET_TOWN = []
 for t in TOWNS:
@@ -2105,7 +2613,7 @@ for t in TOWNS:
     t.bldgs = keep
 
 # ------------------------------------------------------------------ farmland: fields, ditches, farmsteads
-FARM = (~FP) & (~WATER) & (~FLOOD) & (~BEACH) & (~CLIFF) & (~ISL)
+FARM = (~FP) & (~WATER) & (~FLOOD) & (~BEACH) & (~CLIFF) & (~ISL) & ~(RELIEF_H > 80.0)    # (no fields up the mountains)
 rng_np = np.random.default_rng(7)
 # Farmland, organically (research/coastal_communities -- and Iowa / Illinois practice): the PLSS
 # mile-square SECTIONS the section roads outline, each split by its owners into quarters (160 ac),
@@ -2314,8 +2822,15 @@ creek_band = dilate((WCAT == 3) | (WCAT == 4), fk(9))
 WOODS = (((slope > 0.11) & (w_cut > 0.5)) | creek_band | ((WOODLOT | HEDGE) & FARM)) & ~WATER & ~FP & ~RMASK
 _isw = ISL & (ISL_D > 90) & ((np.sin(S / 157 + X / 233) + np.sin(X / 119 - S / 181) + 0.7 * np.sin(S / 61)) > 0.6)
 WOODS |= _isw & ~RMASK                                                   # (the islands: woods in clumps over meadow)
+# the hills and mountains (tools/terrain_relief.py): wooded flanks, bare granite on the steepest faces and the high crests
+WOODS |= (slope > 0.13) & (RELIEF_H > 25.0) & ~WATER & ~FP & ~RMASK
+ROCKY = (((slope > 0.55) & (RELIEF_H > 50.0)) | (RELIEF_H > 380.0)) & ~WATER & ~FP
+WOODS &= ~ROCKY
+# Victory Bay's island (the user, 2026-10-07: "a lot of trees"): woods everywhere the village isn't
+WOODS |= VB_ISLE & ~FP & ~RMASK & ~BEACH
 img[ISL & ~BEACH & ~WOODS] = (212, 230, 195)
 img[WOODS] = (134, 173, 109)
+img[ROCKY] = (150, 144, 134)
 speck = rng_np.random((WH, CW), dtype=np.float32) < 0.10
 img[WOODS & speck] = (96, 140, 78)
 img[FP] = (236, 231, 221)
@@ -2356,7 +2871,7 @@ AREA_COL = {"park": (170, 214, 145), "square": (190, 226, 165), "lawn": (205, 22
             "beach": (242, 230, 188), "plaza": (228, 222, 210), "pool": (120, 196, 232)}
 for t in TOWNS:
     for poly, kind in t.areas:
-        draw_poly(dr, poly, fill=AREA_COL[kind], outline=(150, 150, 140) if kind in ("parking", "lot") else None)
+        draw_poly(dr, poly, fill=AREA_COL.get(kind, (206, 204, 196)), outline=(150, 150, 140) if kind in ("parking", "lot") else None)
         if kind == "cemetery":
             cs = sum(p[0] for p in poly) / 4
             cx = sum(p[1] for p in poly) / 4
@@ -2445,14 +2960,14 @@ WALK = {"boardwalk": ((120, 84, 50), (184, 140, 92)), "pier": ((110, 78, 48), (1
 DECK_COL = {"deck": (176, 132, 86), "amusement": (232, 200, 120)}
 for t in TOWNS:
     for poly, kind in t.decks:
-        draw_poly(dr, poly, fill=DECK_COL[kind], outline=(110, 78, 48))
+        draw_poly(dr, poly, fill=DECK_COL.get(kind, (176, 132, 86)), outline=(110, 78, 48))
 for t in TOWNS:
     for pts, w, kind in t.walks:
-        case, fill = WALK[kind]
+        case, fill = WALK.get(kind, WALK["dock"])
         draw_line(dr, pts, fill=case, width=w + 2)
 for t in TOWNS:
     for pts, w, kind in t.walks:
-        case, fill = WALK[kind]
+        case, fill = WALK.get(kind, WALK["dock"])
         draw_line(dr, pts, fill=fill, width=w)
 
 # buildings
@@ -2470,15 +2985,15 @@ BCOL = {"house": (118, 100, 84), "store": (165, 70, 58), "vacant": (222, 212, 20
         "townhouse": (215, 120, 110)}
 for t in TOWNS:
     for poly, kind, _ in t.bldgs:
-        draw_poly(dr, poly, fill=BCOL[kind], outline=(40, 30, 25) if kind != "vacant" else (140, 70, 60))
+        draw_poly(dr, poly, fill=BCOL.get(kind, (140, 110, 120)), outline=(40, 30, 25) if kind != "vacant" else (140, 70, 60))
 FS_POLYS = []          # what was drawn, per farmstead (farmstead_polys draws its side at random)
 for t in TOWNS:
     for poly, kind in t.wbldgs:
-        draw_poly(dr, poly, fill=BCOL[kind], outline=(40, 30, 25))
+        draw_poly(dr, poly, fill=BCOL.get(kind, (140, 110, 120)), outline=(40, 30, 25))
 for c in FARMSTEADS:
     FS_POLYS.append(farmstead_polys(c))
     for poly, kind in FS_POLYS[-1]:
-        draw_poly(dr, poly, fill=BCOL[kind], outline=(40, 30, 25))
+        draw_poly(dr, poly, fill=BCOL.get(kind, (140, 110, 120)), outline=(40, 30, 25))
 
 # ------------------------------------------------------------------ labels (on the layer)
 FD = "/usr/share/fonts/noto/"
@@ -2730,7 +3245,9 @@ if "--coastal-inventory" in sys.argv:
         # land buildings: all of a new town's; for Harrow Falls / Cedar Ford only the pieces added now
         n = 0
         items = []
-        if new_town:
+        if getattr(t, "generated", False):
+            items = []                       # (a generated town's buildings go out through the map inventory)
+        elif new_town:
             items = [(poly, kind, False) for poly, kind, part in t.bldgs if not part]
         else:
             old_n = sum(1 for st_ in _INV["structures"] if st_["settlement"] == t.name)
@@ -2849,6 +3366,7 @@ if "--game-data" in sys.argv:
     cls_[FLOOD] = 2
     cls_[ISL] = 2                                     # (the islands: meadow under the woods)
     cls_[WOODS] = 3
+    cls_[ROCKY] = 7
     cls_[FP] = 1
     wb = Image.new("L", (CW, WH), 0)
     wbd = ImageDraw.Draw(wb)
@@ -2912,6 +3430,11 @@ if "--game-data" in sys.argv:
                       for n, path, pond in CREEK_PATHS]
                      + [{"name": "spur", "hw": 2.0, "depth": 0.7, "pts": [[round(a % C, 1), round(b_, 1)] for a, b_ in sp]}
                         for sp in SPUR_PATHS],
+           "falls": [{"name": "Harrow Falls", "creek": "Harrow Run", "lip": [round(TR.HARROW["lip"][0], 1), TR.HARROW["lip"][1]],
+                      "foot": [round(TR.HARROW["foot"][0], 1), TR.HARROW["foot"][1]], "width": 9.0,
+                      "top": round(float(ELEV[idx(*TR.HARROW["lip"])[::-1]]), 2), "bottom": round(float(ELEV[idx(*TR.HARROW["foot"])[::-1]]), 2)}],
+           "summits": [{"name": nm, "s": round(p_[0] % C, 1), "x": round(p_[1], 1), "h": round(float(ELEV[idx(*p_)[::-1]]), 1)}
+                       for nm, p_ in SUMMITS],
            "ponds": [{"name": n, "s": pond[0] % C, "x": pond[1], "a": pond[2] / 2, "b": pond[3], "rot": 0.25, "depth": 1.8}
                      for n, path, pond in CREEK_PATHS if pond],
            "oxbows": [],
@@ -2940,13 +3463,15 @@ if "--game-data" in sys.argv:
             w = d = 2 * max(math.dist((cs, cx), p_) for p_ in poly)
             ang, fe = 0.0, None
         return {"s": round(cs % C, 1), "x": round(cx, 1), "w": round(w, 1), "d": round(d, 1), "angle_deg": round(ang, 1), "front_edge": fe}
-    inv = {"settlements": _INV["settlements"], "structures": [], "farmsteads": [], "crossings": []}
+    _gen_names = {t.name for t in TOWNS if getattr(t, "generated", False) or hasattr(t, "calder_structs")}
+    inv = {"settlements": [st_ for st_ in _INV["settlements"] if st_["name"] not in _gen_names], "structures": [], "farmsteads": [],
+           "crossings": []}
     by_town = {}
     for st_ in _INV["structures"]:
         by_town.setdefault(st_["settlement"], []).append(st_)
     for t in TOWNS:
-        if t.coastal or t.name not in by_town:
-            continue
+        if t.coastal or t.name not in by_town or t.name in _gen_names:
+            continue                                          # (a generated town's are its own, below)
         mains = [poly for poly, kind, part in t.bldgs if not part]
         for st_, poly in zip(by_town[t.name], mains):
             _ds = OLD_S0[t.name] * (SS - 1)
@@ -2966,6 +3491,22 @@ if "--game-data" in sys.argv:
             inv["structures"].append({"id": e["id"], "settlement": t.name, "kind": CAL.KIND.get(e["use"], "store"), "label": e.get("label"),
                                       **_ri(e["poly"]), "parts": []})
         print("Calder records:", CAL.write_records(t.calder_structs), file=sys.stderr)
+    # every other settlement at 1:1 (tools/settlegen/city.py): structures, records, the shared model library
+    _LIB = {}
+    for t in TOWNS:
+        if not getattr(t, "generated", False):
+            continue
+        inv["settlements"] = inv["settlements"] + [{"name": t.name, "tier": t.tier, "pop": t.pop, "founding": t.founding,
+                                                    "archetype": t.archetype, "region": t.spec.get("region", "gl")}]
+        built_, reused_ = CY.write_records(t.gen_structs, t.name, t.spec.get("seed", 1), library=_LIB)
+        for e in t.gen_structs:
+            ent = {"id": e["id"], "settlement": t.name, "kind": e["kind"], "label": e.get("label"), **_ri(e["poly"]), "parts": []}
+            if e.get("model"):
+                ent["model"] = e["model"]
+            if e.get("over_water"):
+                ent["over_water"] = True
+            inv["structures"].append(ent)
+        print(f"{t.name} records: {len(t.gen_structs)} ({built_} models, {reused_} reusing one)", file=sys.stderr)
     for k_, c_ in enumerate(FARMSTEADS, 1):
         parts = []
         for poly, kind in FS_POLYS[k_ - 1]:

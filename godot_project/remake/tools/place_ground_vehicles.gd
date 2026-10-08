@@ -21,6 +21,24 @@ const STREETS := ["street", "main", "county"]
 
 var _rects: Array = []                # [s, x, yaw, half size] of every structure
 var _taken: Array = []                # [s, x, r]
+var _rect_grid := {}                  # 50 m cell -> rects / taken spots (the 1:1 station's ~64,000 structures: every
+var _taken_grid := {}                 # candidate against all of them, 2026-10-08)
+var _rect_reach := 1
+const RG := 50.0
+
+
+func _cell(s: float, x: float) -> Vector2i:
+	return Vector2i(int(floor(fposmod(s, StationGeo.CIRC) / RG)), int(floor(x / RG)))
+
+
+func _near(grid: Dictionary, s: float, x: float, reach: int) -> Array:
+	var out := []
+	var c := _cell(s, x)
+	var ncol := int(ceil(StationGeo.CIRC / RG))
+	for i in range(-reach, reach + 1):
+		for j in range(-reach, reach + 1):
+			out.append_array(grid.get(Vector2i(posmod(c.x + i, ncol), c.y + j), []))
+	return out
 
 
 func _init() -> void:
@@ -38,9 +56,14 @@ func _init() -> void:
 		var ds := c.x * sin(yaw) - c.y * cos(yaw)
 		var dx := c.x * cos(yaw) + c.y * sin(yaw)
 		_rects.append([float(e.s) + ds, float(e.x) + dx, yaw, hs])
+		var rc := _cell(float(e.s) + ds, float(e.x) + dx)
+		if not _rect_grid.has(rc):
+			_rect_grid[rc] = []
+		_rect_grid[rc].append(_rects[-1])
+		_rect_reach = maxi(_rect_reach, int(ceil((hs.length() + CLEAR + 8.0) / RG)))
 	if FileAccess.file_exists("res://remake/aerostats.json"):
 		for a in JSON.parse_string(FileAccess.get_file_as_string("res://remake/aerostats.json")).aerostats:
-			_taken.append([float(a.s), float(a.x), 10.0])        # keep 10 m from an aerostat
+			_take_r(float(a.s), float(a.x), 10.0)                # keep 10 m from an aerostat
 	var out := []
 	# towns
 	var towns := {}
@@ -182,7 +205,7 @@ func _kerbside(roads: Array, c: Vector2, reach: float) -> Array:
 func _clear(s: float, x: float, yaw: float) -> bool:
 	if absf(x) > StationGeo.HALF_LEN - 60.0:
 		return false
-	for q in _taken:
+	for q in _near(_taken_grid, s, x, 1):
 		if Vector2(StationGeo.wrap_ds(s - q[0]), x - q[1]).length() < float(q[2]):
 			return false
 	# the vehicle's corners and centre against every structure's rectangle
@@ -192,7 +215,7 @@ func _clear(s: float, x: float, yaw: float) -> bool:
 	for i in [-1.0, 1.0]:
 		for j in [-1.0, 1.0]:
 			pts.append(Vector2(s, x) + fwd * HALF.y * i + right * HALF.x * j)
-	for r in _rects:
+	for r in _near(_rect_grid, s, x, _rect_reach):
 		for p in pts:
 			var ds := StationGeo.wrap_ds(p.x - r[0])
 			if absf(ds) > 60.0 or absf(p.y - r[1]) > 60.0:
@@ -214,4 +237,12 @@ func _clear(s: float, x: float, yaw: float) -> bool:
 
 
 func _take(s: float, x: float) -> void:
-	_taken.append([s, x, APART])
+	_take_r(s, x, APART)
+
+
+func _take_r(s: float, x: float, r: float) -> void:
+	_taken.append([s, x, r])
+	var c := _cell(s, x)
+	if not _taken_grid.has(c):
+		_taken_grid[c] = []
+	_taken_grid[c].append([s, x, r])

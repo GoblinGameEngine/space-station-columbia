@@ -1,0 +1,70 @@
+{
+ "id": "PCR-1488",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 14.2,
+  "d": 42.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f1ead2",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 12
+  }
+ },
+ "region": "ne",
+ "names": {
+  "family": "DeCarlo",
+  "house_number": 1046
+ },
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0311"
+}

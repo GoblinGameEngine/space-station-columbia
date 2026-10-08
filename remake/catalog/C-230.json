@@ -1,17 +1,17 @@
 {
  "id": "C-230",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.1,
-  "d": 41.8
+  "w": 10.1,
+  "d": 40.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "bungalow",
-  "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
    "pitch_deg": 35,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#b07253",
+   "body": "#b85f51",
    "trim": "#ffffff",
    "accent": "#2e3a4a",
    "roof": "#3e3e3c"
@@ -48,13 +48,14 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1904,
+  "year_built": 1895,
   "band": "streetcar",
-  "form_token": "bungalow"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Kowal",
-  "house_number": 340
+  "house_number": 319
  },
- "brief": "streetcar band bungalow: 1 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

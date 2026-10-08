@@ -1,0 +1,71 @@
+{
+ "id": "BRW-0501",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 16.5,
+  "d": 32.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Loomis",
+  "house_number": 145
+ },
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0581"
+}

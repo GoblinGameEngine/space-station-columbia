@@ -1,35 +1,44 @@
 {
  "id": "C-712",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.5,
-  "d": 40.3
+  "w": 12.0,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 33,
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "brick",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#cfa98e",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
-   "roof": "#6a5e52"
+   "body": "#754036",
+   "trim": "#5a3a28",
+   "accent": "#2b4f6b",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
@@ -38,24 +47,23 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
-   "fence": "picket",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1906,
+  "year_built": 1898,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Villalobos",
-  "house_number": 276
+  "family": "Desai",
+  "house_number": 215
  },
- "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, brick walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
 }

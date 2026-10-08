@@ -1,0 +1,77 @@
+{
+ "id": "HVN-0243",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 12.1,
+  "d": 39.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 45,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "nantucket_cape",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 10
+  }
+ },
+ "region": "ne",
+ "names": {
+  "family": "Marlowe",
+  "house_number": 375
+ },
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0701"
+}

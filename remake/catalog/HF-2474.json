@@ -1,0 +1,73 @@
+{
+ "id": "HF-2474",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 13.8,
+  "d": 36.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#e8d588",
+   "trim": "#f2efe6",
+   "accent": "#4a5a48",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 10
+  }
+ },
+ "names": {
+  "family": "Foxworth",
+  "house_number": 1841
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-2094"
+}

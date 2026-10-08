@@ -1,0 +1,72 @@
+{
+ "id": "HC-0268",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 14.9,
+  "d": 32.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#9e9684",
+   "trim": "#f4f1e8",
+   "accent": "#6a4a2a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 10
+  }
+ },
+ "names": {
+  "family": "Yoder",
+  "house_number": 413
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1181"
+}

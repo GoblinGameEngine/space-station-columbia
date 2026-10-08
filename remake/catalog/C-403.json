@@ -1,38 +1,47 @@
 {
  "id": "C-403",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 16.3,
-  "d": 41.5
+  "w": 13.4,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 24,
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "front_full",
-   "posts": "tapered_on_piers",
+   "posts": "turned",
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#f7edc0",
-   "trim": "#e9e2d2",
-   "accent": "#1f2a33",
-   "roof": "#5a5a58"
+   "body": "#d8c5ab",
+   "trim": "#f2efe6",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
   },
   "windows": {
-   "type": "2over2",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -42,25 +51,20 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "shed"
+    "garden",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1913,
+  "condition": "shabby",
+  "year_built": 1928,
   "band": "streetcar",
-  "form_token": "double_house",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 10
-  }
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Desai",
-  "house_number": 342
+  "family": "Osei",
+  "house_number": 333
  },
- "brief": "streetcar band double_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

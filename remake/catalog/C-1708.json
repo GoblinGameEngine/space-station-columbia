@@ -1,28 +1,68 @@
 {
  "id": "C-1708",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 91.1,
-  "d": 75.9
+  "w": 77.2,
+  "d": 45.2
  },
- "kind": "bigbox",
+ "kind": "strip",
  "traits": {
   "stores": [
    {
-    "business": "Stroud Market",
-    "type": "grocery",
-    "sign": "STROUD MARKET",
+    "business": "Stroud Variety",
+    "type": "variety_store",
+    "sign": "STROUD VARIETY",
     "sign_style": "flat_board",
     "awning": false,
-    "tenant": "supermarket"
+    "tenant": "cards_and_gifts"
+   },
+   {
+    "business": "Calder Furniture",
+    "type": "furniture",
+    "sign": "CALDER FURNITURE",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "rent_to_own"
+   },
+   {
+    "business": "DeCarlo Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "DECARLO BEAUTY SHOP",
+    "sign_style": "awning_lettering",
+    "awning": false,
+    "tenant": "tanning_salon"
+   },
+   {
+    "business": "Pike Nails",
+    "type": "nail_salon",
+    "sign": "PIKE NAILS",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "nail_salon"
+   },
+   {
+    "business": "Leclerc Savings Bank",
+    "type": "bank",
+    "sign": "LECLERC SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "bank_branch"
+   },
+   {
+    "business": "Yoder & Wisniewski Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "YODER & WISNIEWSKI BEAUTY SHOP",
+    "sign_style": "awning_lettering",
+    "awning": true,
+    "tenant": "hair_salon"
    }
   ],
-  "era": 1968
+  "era": 1994
  },
  "names": {
-  "name": "Westgate Plaza",
-  "sign": "WESTGATE PLAZA"
+  "name": "Calder Commons",
+  "sign": "CALDER COMMONS"
  },
- "brief": "bigbox (bigbox) generated for Calder."
+ "brief": "strip (strip_row) generated for Calder."
 }

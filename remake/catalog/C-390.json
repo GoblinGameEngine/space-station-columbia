@@ -1,19 +1,19 @@
 {
  "id": "C-390",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.1,
-  "d": 41.6
+  "w": 17.5,
+  "d": 41.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "queen_anne",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 29,
+  "main_w_ft": 36,
+  "main_d_ft": 22,
   "roof": {
-   "type": "cross_gable",
+   "type": "gable",
    "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
@@ -38,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -49,13 +49,14 @@
    ]
   },
   "condition": "worn",
-  "year_built": 1908,
+  "year_built": 1910,
   "band": "streetcar",
-  "form_token": "queen_anne_irregular"
+  "form_token": "double_house",
+  "units": 2
  },
  "names": {
   "family": "Ostrowski",
-  "house_number": 580
+  "house_number": 543
  },
- "brief": "streetcar band queen_anne_irregular: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band double_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

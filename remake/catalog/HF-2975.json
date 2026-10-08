@@ -1,0 +1,70 @@
+{
+ "id": "HF-2975",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 19.3,
+  "d": 34.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 42,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e8e2cf",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Castellanos",
+  "house_number": 202
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1244"
+}

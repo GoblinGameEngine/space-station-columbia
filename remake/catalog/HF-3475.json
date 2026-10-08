@@ -1,0 +1,71 @@
+{
+ "id": "HF-3475",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 18.8,
+  "d": 34.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 28,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#b7664d",
+   "trim": "#5a3a28",
+   "accent": "#7a2e28",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Foxworth",
+  "house_number": 577
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1326"
+}

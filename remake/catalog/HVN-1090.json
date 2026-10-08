@@ -1,0 +1,72 @@
+{
+ "id": "HVN-1090",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 16.4,
+  "d": 27.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 38,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gambrel",
+   "pitch_deg": 44,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Patel",
+  "house_number": 1051
+ },
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0622"
+}

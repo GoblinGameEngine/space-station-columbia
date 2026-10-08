@@ -1,0 +1,69 @@
+{
+ "id": "HVN-0576",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 19.6,
+  "d": 35.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Harrow",
+  "house_number": 576
+ },
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0797"
+}

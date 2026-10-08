@@ -1,38 +1,38 @@
 {
  "id": "C-456",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.9,
-  "d": 41.3
+  "w": 12.4,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "italianate",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 32,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
+   "type": "hip",
+   "pitch_deg": 33,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#909db7",
-   "trim": "#f2efe6",
-   "accent": "#6a4a2a",
-   "roof": "#4e5155"
+   "body": "#f2e7bf",
+   "trim": "#5a3a28",
+   "accent": "#4a5a48",
+   "roof": "#5a5a58"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
@@ -44,18 +44,18 @@
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "garden",
+    "shed"
    ]
   },
   "condition": "shabby",
   "year_built": 1907,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "italianate_cube"
  },
  "names": {
-  "family": "Pike",
-  "house_number": 328
+  "family": "Achterberg",
+  "house_number": 377
  },
- "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band italianate_cube: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

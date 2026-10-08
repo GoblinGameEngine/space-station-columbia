@@ -1,0 +1,69 @@
+{
+ "id": "PCR-1978",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 16.6,
+  "d": 22.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Pike",
+  "house_number": 1274
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0284"
+}

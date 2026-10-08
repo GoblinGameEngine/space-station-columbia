@@ -1,0 +1,76 @@
+{
+ "id": "T-0666",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 14.4,
+  "d": 30.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "brick",
+  "colors": {
+   "body": "#8d443f",
+   "trim": "#3a3f44",
+   "accent": "#6a4a2a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 11
+  }
+ },
+ "names": {
+  "family": "Ostrowski",
+  "house_number": 600
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, brick walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1682"
+}

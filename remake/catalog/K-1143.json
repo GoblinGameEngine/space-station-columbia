@@ -1,0 +1,67 @@
+{
+ "id": "K-1143",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 14.0,
+  "d": 39.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#eaeed9",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Foxworth",
+  "house_number": 819
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1192"
+}

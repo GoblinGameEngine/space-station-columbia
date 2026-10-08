@@ -1,0 +1,67 @@
+{
+ "id": "K-1602",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 19.5,
+  "d": 29.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f8f2ec",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Nguyen",
+  "house_number": 917
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0858"
+}

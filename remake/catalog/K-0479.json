@@ -1,0 +1,67 @@
+{
+ "id": "K-0479",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 13.1,
+  "d": 26.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a05248",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1909,
+  "band": "streetcar",
+  "form_token": "workers_cottage"
+ },
+ "names": {
+  "family": "Stroud",
+  "house_number": 368
+ },
+ "brief": "streetcar band workers_cottage: 1.5 storeys, brick walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
+}

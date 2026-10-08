@@ -1,0 +1,72 @@
+{
+ "id": "HVN-0302",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 18.5,
+  "d": 38.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
+ },
+ "region": "ne",
+ "names": {
+  "family": "Duquesne",
+  "house_number": 522
+ },
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0731"
+}

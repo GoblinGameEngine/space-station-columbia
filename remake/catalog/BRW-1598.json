@@ -1,0 +1,65 @@
+{
+ "id": "BRW-1598",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 21.9,
+  "d": 23.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Carrow",
+  "house_number": 273
+ },
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0473"
+}

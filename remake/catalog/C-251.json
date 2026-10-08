@@ -1,35 +1,40 @@
 {
  "id": "C-251",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.4,
-  "d": 41.4
+  "w": 12.0,
+  "d": 41.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "upright_and_wing",
   "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 32,
-   "material": "slate"
+   "type": "cross_gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_full",
+   "type": "enclosed",
    "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "concrete_block",
+  "walls": "clapboard",
+  "foundation": "brick",
   "colors": {
-   "body": "#c7a78e",
-   "trim": "#f2efe6",
+   "body": "#c5b988",
+   "trim": "#e8e0c8",
    "accent": "#2b4f6b",
-   "roof": "#4e5155"
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -38,24 +43,24 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "shed",
-    "clothesline"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1915,
+  "year_built": 1904,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "gable_front_and_wing"
  },
  "names": {
-  "family": "Duquesne",
-  "house_number": 128
+  "family": "Smith",
+  "house_number": 151
  },
- "brief": "streetcar band gable_front: 1.5 storeys, brick walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

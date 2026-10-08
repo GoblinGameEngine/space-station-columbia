@@ -1,17 +1,17 @@
 {
  "id": "C-289",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.5,
-  "d": 41.8
+  "w": 13.9,
+  "d": 40.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 32,
+  "main_w_ft": 20,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "front_full",
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#8e4937",
+   "body": "#eae5d5",
    "trim": "#f2efe6",
    "accent": "#7a2e28",
    "roof": "#3e3e3c"
@@ -48,14 +48,13 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1927,
+  "year_built": 1909,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
   "family": "Osei",
-  "house_number": 439
+  "house_number": 328
  },
- "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

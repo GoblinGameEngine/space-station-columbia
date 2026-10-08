@@ -1,0 +1,72 @@
+{
+ "id": "T-0402",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 12.3,
+  "d": 37.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#ded28e",
+   "trim": "#e8e0c8",
+   "accent": "#4a5a48",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Wisniewski",
+  "house_number": 358
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0936"
+}

@@ -1,0 +1,71 @@
+{
+ "id": "PCR-3987",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 19.9,
+  "d": 37.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#c9cfcf",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Holloway",
+  "house_number": 2522
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0664"
+}

@@ -1,0 +1,70 @@
+{
+ "id": "HF-5129",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 24.5,
+  "d": 30.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#956047",
+   "trim": "#e9e2d2",
+   "accent": "#5b6b3a",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Pham",
+  "house_number": 652
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, brick walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4316"
+}

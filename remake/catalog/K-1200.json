@@ -1,0 +1,64 @@
+{
+ "id": "K-1200",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 19.9,
+  "d": 22.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#79908d",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Kowal",
+  "house_number": 640
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0927"
+}

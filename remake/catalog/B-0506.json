@@ -1,0 +1,70 @@
+{
+ "id": "B-0506",
+ "settlement": "Bellhaven",
+ "generated": "tools/settlegen (Bellhaven)",
+ "lot": {
+  "w": 18.8,
+  "d": 34.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 43,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#dfc896",
+   "trim": "#3a3f44",
+   "accent": "#1f2a33",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Haskins",
+  "house_number": 245
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1244"
+}

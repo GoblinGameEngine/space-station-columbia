@@ -1,0 +1,70 @@
+{
+ "id": "F-0664",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 17.7,
+  "d": 35.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 33,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#eee3d7",
+   "trim": "#f2efe6",
+   "accent": "#4a5a48",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Brannock",
+  "house_number": 586
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-0665"
+}

@@ -1,0 +1,71 @@
+{
+ "id": "T-0229",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 12.8,
+  "d": 42.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#f5eec7",
+   "trim": "#3a3f44",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1928,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Desai",
+  "house_number": 357
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1076"
+}

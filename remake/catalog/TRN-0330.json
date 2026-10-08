@@ -1,0 +1,67 @@
+{
+ "id": "TRN-0330",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 15.0,
+  "d": 38.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "shingle_style"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Brandvold",
+  "house_number": 486
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
+}

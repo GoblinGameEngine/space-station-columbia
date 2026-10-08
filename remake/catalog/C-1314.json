@@ -1,31 +1,61 @@
 {
  "id": "C-1314",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 44.4,
-  "d": 31.7
+  "w": 24.3,
+  "d": 32.0
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 34,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#bbc4c7",
-   "trim": "#2e3a4a",
-   "accent": "#5b6b3a",
-   "roof": "#5a5a58"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 30,
   "roof": {
-   "pitch_deg": 28
+   "type": "cross_gable",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2008,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#934a3b",
+   "trim": "#3a3f44",
+   "accent": "#6a4a2a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2006,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Bazzi",
+  "house_number": 363
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

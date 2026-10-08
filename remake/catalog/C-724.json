@@ -1,34 +1,34 @@
 {
  "id": "C-724",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.2,
-  "d": 41.0
+  "w": 12.8,
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 2,
+  "storeys": 1.5,
   "main_w_ft": 26,
-  "main_d_ft": 38,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 35,
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#ddcbb8",
-   "trim": "#ffffff",
-   "accent": "#6a4a2a",
+   "body": "#a7b2a5",
+   "trim": "#5a3a28",
+   "accent": "#7a2e28",
    "roof": "#5a4a40"
   },
   "windows": {
@@ -42,22 +42,21 @@
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
     "garden",
     "shed",
-    "clothesline"
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1910,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Bazzi",
-  "house_number": 117
+  "family": "Booker",
+  "house_number": 114
  },
- "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

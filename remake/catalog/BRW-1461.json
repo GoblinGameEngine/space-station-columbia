@@ -1,0 +1,72 @@
+{
+ "id": "BRW-1461",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 16.4,
+  "d": 24.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "nantucket_cape"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Kowal",
+  "house_number": 1255
+ },
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0914"
+}

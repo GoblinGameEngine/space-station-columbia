@@ -1,0 +1,71 @@
+{
+ "id": "HF-3516",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 16.0,
+  "d": 36.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f1dec0",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Nguyen",
+  "house_number": 655
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-0844"
+}

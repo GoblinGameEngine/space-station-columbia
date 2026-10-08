@@ -1,59 +1,61 @@
 {
  "id": "C-299",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 18.8,
-  "d": 42.0
+  "w": 12.2,
+  "d": 42.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "turned",
-   "rail": "solid"
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "shingle",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#7a9780",
-   "trim": "#3a3f44",
+   "body": "#788e8b",
+   "trim": "#e9e2d2",
    "accent": "#3a2a1e",
    "roof": "#3e3e3c"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
   },
   "condition": "worn",
-  "year_built": 1908,
+  "year_built": 1914,
   "band": "streetcar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "workers_cottage"
  },
  "names": {
-  "family": "Castellanos",
-  "house_number": 529
+  "family": "Achterberg",
+  "house_number": 442
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band workers_cottage: 1.5 storeys, shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

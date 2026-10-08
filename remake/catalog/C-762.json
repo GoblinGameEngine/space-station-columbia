@@ -1,60 +1,59 @@
 {
  "id": "C-762",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.7,
-  "d": 40.8
+  "w": 11.8,
+  "d": 41.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 26,
+  "main_w_ft": 22,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#5f717c",
+   "body": "#b15547",
    "trim": "#e8e0c8",
-   "accent": "#7a2e28",
-   "roof": "#4e5155"
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "none",
+   "fence": "picket",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1914,
   "band": "streetcar",
-  "form_token": "foursquare"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
-  "family": "Patel",
-  "house_number": 455
+  "family": "Adebayo",
+  "house_number": 330
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

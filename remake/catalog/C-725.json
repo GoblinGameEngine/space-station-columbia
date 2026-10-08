@@ -1,35 +1,35 @@
 {
  "id": "C-725",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.1,
-  "d": 40.5
+  "w": 12.5,
+  "d": 42.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 24,
+  "archetype": "bungalow",
+  "storeys": 1,
+  "main_w_ft": 25,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
+   "pitch_deg": 33,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "enclosed",
-   "posts": "turned",
-   "rail": "spindle"
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "shingle",
   "foundation": "brick",
   "colors": {
-   "body": "#cbab82",
-   "trim": "#3a3f44",
-   "accent": "#2e3a4a",
-   "roof": "#5a4a40"
+   "body": "#645c5e",
+   "trim": "#ffffff",
+   "accent": "#1f2a33",
+   "roof": "#555350"
   },
   "windows": {
    "type": "1over1",
@@ -41,26 +41,20 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1913,
+  "condition": "worn",
+  "year_built": 1910,
   "band": "streetcar",
-  "form_token": "double_house",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 12
-  }
+  "form_token": "bungalow"
  },
  "names": {
-  "family": "Booker",
-  "house_number": 131
+  "family": "Pham",
+  "house_number": 126
  },
- "brief": "streetcar band double_house: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band bungalow: 1 storeys, shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

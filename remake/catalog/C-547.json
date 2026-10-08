@@ -1,20 +1,58 @@
 {
  "id": "C-547",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 34.1,
-  "d": 60.0
+  "w": 13.1,
+  "d": 27.4
  },
- "kind": "industrial",
+ "kind": "house",
  "traits": {
-  "use": "warehouse",
-  "storeys": 1,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 28,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "brick",
-  "year_built": 1925,
-  "components": [],
-  "condition": "worn"
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#aa8c72",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1912,
+  "band": "streetcar",
+  "form_token": "foursquare"
  },
- "names": {},
- "brief": "industrial (works) generated for Calder."
+ "names": {
+  "family": "Raghunathan",
+  "house_number": 361
+ },
+ "brief": "streetcar band foursquare: 2 storeys, brick walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
 }

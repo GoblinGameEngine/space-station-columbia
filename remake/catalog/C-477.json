@@ -1,32 +1,32 @@
 {
  "id": "C-477",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.7,
-  "d": 40.2
+  "w": 14.4,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 36,
+  "main_w_ft": 29,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
+   "type": "cross_gable",
    "pitch_deg": 45,
-   "material": "asphalt_shingle"
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#e7d78e",
+   "body": "#587179",
    "trim": "#f4f1e8",
    "accent": "#2b4f6b",
    "roof": "#4e5155"
@@ -41,22 +41,21 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "garden",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1907,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "queen_anne_irregular"
  },
  "names": {
   "family": "Dunmore",
-  "house_number": 542
+  "house_number": 551
  },
- "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band queen_anne_irregular: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
 }

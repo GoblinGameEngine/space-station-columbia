@@ -1,0 +1,68 @@
+{
+ "id": "P-0065",
+ "settlement": "Pruett",
+ "generated": "tools/settlegen (Pruett)",
+ "lot": {
+  "w": 13.5,
+  "d": 28.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#9baaa6",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Pruett",
+  "house_number": 286
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0641"
+}

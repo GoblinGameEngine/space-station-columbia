@@ -1,0 +1,76 @@
+{
+ "id": "BRW-0717",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 14.6,
+  "d": 28.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f2f1ea",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1918,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 12
+  }
+ },
+ "region": "ne",
+ "names": {
+  "family": "Pham",
+  "house_number": 144
+ },
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0505"
+}

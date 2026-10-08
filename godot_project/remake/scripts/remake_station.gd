@@ -73,6 +73,7 @@ func _ready() -> void:
 	furniture.name = "RoadFurniture"
 	add_child(furniture)
 	furniture.setup()
+	furniture.target = player
 	_mark("road furniture setup")
 	var walks := CoastalWalks.new()
 	walks.name = "Walks"
@@ -173,7 +174,7 @@ func _watch_load() -> void:
 		"walks": func() -> bool: return not get_node("Walks").is_processing(),
 		"mountains": func() -> bool: return (get_node("CapMountains") as CapMountains).loaded(),
 		"cloud skins": func() -> bool: return (get_node("Clouds") as RemakeClouds)._skin_task == -1,
-		"structures": func() -> bool: return streamer.records.size() > 0,
+		"structures": func() -> bool: return streamer.records.size() > 0 and streamer.lod1_pending() == 0,
 		"aerostats": func() -> bool: return _aero_done,
 		"ground vehicles": func() -> bool: return _cars_done,
 	}
@@ -298,15 +299,9 @@ func _place_bicycles() -> void:
 	add_child(root)
 	var n := 0
 	var t0 := Time.get_ticks_usec()
-	for home in life.by_home:
-		var owner := false
-		for pid in life.by_home[home]:
-			var P: Dictionary = life.person(pid)
-			if int(P.age) >= 10 and int(P.age) <= 75 and NpcRng.for_trait(life.seed, pid, "owns_bike").rand() < 0.35:
-				owner = true
-				break
-		if not owner or NpcRng.for_trait(life.seed, str(home), "bike_parked").rand() > 0.66:
-			continue
+	# (the homes with one by the door come baked in the lives index: a resident 10-75 who keeps a bike, about a third
+	# of them, and two homes in three park it out front -- bake_lives.gd; walking all 218,000 people here would load them all)
+	for home in life.bikes:
 		var b: Dictionary = by_id.get(str(home).split("/")[0], {})
 		if b.is_empty():
 			continue
@@ -392,7 +387,7 @@ static func _neutral_detail(path: String) -> ImageTexture:
 func _place_structures() -> void:
 	## Not awaited: the structures fill in a building per frame while the game runs.
 	var info: Dictionary = await RemakeWorld.build(world, SETTLEMENTS)
-	streamer.setup(player, info.records)
+	streamer.setup(player, info.records, info.get("cells", {}))
 	# the far side draws them flat (RemakeFarSide): every merged district mesh and ordinary
 	# building, the trees and roads -- not the landmarks
 	var landmarks := {}
@@ -406,6 +401,7 @@ func _place_structures() -> void:
 	far_side.add_children_of(get_node("Roads"))
 	far_side.add_children_of(get_node("Walks"), func(n: Node) -> bool: return n is StaticBody3D)
 	info.erase("records")
+	info.erase("cells")
 	print("RemakeStation: placed ", info)
 
 

@@ -173,9 +173,11 @@ def audit(b):
                     over = max(over, q.z - ru)
             if over > 0:
                 count += 1
+                if over >= worst:
+                    at = [round(q.x, 2), round(q.y, 2), round(q.z, 2)]
                 worst = max(worst, over)
         if count:
-            res["clips"].append({"part": o.name, "verts": count, "worst_m": round(worst, 3)})
+            res["clips"].append({"part": o.name, "verts": count, "worst_m": round(worst, 3), "e.g.": at})
     # --- doors: solid or glass over the whole face, closed solids
     for o in meshes:
         n = o.name.lower()

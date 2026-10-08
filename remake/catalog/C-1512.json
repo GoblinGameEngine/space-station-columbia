@@ -1,31 +1,58 @@
 {
  "id": "C-1512",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 44.3,
-  "d": 32.8
+  "w": 20.5,
+  "d": 30.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 34,
-  "walls": "brick",
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#ae6f56",
-   "trim": "#f4f1e8",
-   "accent": "#7a2e28",
+   "body": "#e6f2e0",
+   "trim": "#e9e2d2",
+   "accent": "#6a4a2a",
    "roof": "#4e5155"
   },
-  "roof": {
-   "pitch_deg": 25
+  "windows": {
+   "type": "1over1",
+   "shutters": true
   },
-  "year_built": 2016,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2014,
+  "band": "current",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Holloway",
+  "house_number": 173
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

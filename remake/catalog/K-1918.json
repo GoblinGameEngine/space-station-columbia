@@ -1,0 +1,71 @@
+{
+ "id": "K-1918",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 17.1,
+  "d": 35.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 42,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 31,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a39a8f",
+   "trim": "#ffffff",
+   "accent": "#6a4a2a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Harrow",
+  "house_number": 859
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1195"
+}

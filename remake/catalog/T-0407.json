@@ -1,0 +1,66 @@
+{
+ "id": "T-0407",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 14.8,
+  "d": 29.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#ecce97",
+   "trim": "#e9e2d2",
+   "accent": "#5b6b3a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Kowal",
+  "house_number": 268
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1379"
+}

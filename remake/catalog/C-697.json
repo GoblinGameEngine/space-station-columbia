@@ -1,35 +1,35 @@
 {
  "id": "C-697",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.5,
-  "d": 41.6
+  "w": 11.9,
+  "d": 41.3
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 40,
+  "main_w_ft": 21,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 35,
+   "pitch_deg": 32,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
    "rail": "spindle"
   },
   "walls": "brick",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#a78a65",
-   "trim": "#e8e0c8",
-   "accent": "#2b4f6b",
-   "roof": "#4e5155"
+   "body": "#884e38",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
@@ -41,22 +41,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "garden",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1912,
+  "condition": "kept",
+  "year_built": 1922,
   "band": "streetcar",
-  "form_token": "gable_front",
+  "form_token": "two_flat",
   "units": 2
  },
  "names": {
-  "family": "Desai",
-  "house_number": 328
+  "family": "Achterberg",
+  "house_number": 371
  },
- "brief": "streetcar band gable_front: 2 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,31 +1,56 @@
 {
  "id": "C-1541",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 43.1,
-  "d": 33.2
+  "w": 21.4,
+  "d": 30.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#c3bfbb",
-   "trim": "#ffffff",
-   "accent": "#5b6b3a",
-   "roof": "#4a4a48"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 32,
   "roof": {
-   "pitch_deg": 27
+   "type": "cross_gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2020,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "board_and_batten",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c6beb3",
+   "trim": "#e8e0c8",
+   "accent": "#5b6b3a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2018,
+  "band": "current",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Castellanos",
+  "house_number": 941
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band neo_eclectic: 2 storeys, board_and_batten walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

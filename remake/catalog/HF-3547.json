@@ -1,0 +1,64 @@
+{
+ "id": "HF-3547",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 16.8,
+  "d": 35.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e2d9c7",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1936,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Bazzi",
+  "house_number": 154
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, stucco walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1195"
+}

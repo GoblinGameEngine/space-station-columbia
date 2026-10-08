@@ -78,12 +78,13 @@ WALL_TEX = {"clapboard": "clapboard", "drop_siding": "drop_siding", "wood_shingl
             "brick": "brick_red", "block": "block", "metal": "corrugated", "concrete": "concrete",
             "cast_iron_front": "brick_red", "frame_false_front": "drop_siding", "glass_modern": "stucco",
             "fiber_cement": "clapboard_wide", "shingle": "wall_shingle", "cedar_shingle": "wall_shingle", "wood": "board_batten",
-            "frame": "clapboard", "glass_curtain": "stucco", "tabby": "stucco"}
+            "frame": "clapboard", "glass_curtain": "stucco", "tabby": "stucco", "granite": "granite", "granite_pink": "granite_pink",
+            "adobe": "stucco", "smooth_stucco": "stucco"}
 PAINTABLE = {"clapboard", "clapboard_wide", "drop_siding", "wall_shingle", "stucco", "asbestos", "aluminum", "vinyl",
              "board_batten", "paint", "paint_gloss", "barn_board", "floor_painted", "beadboard", "plaster", "drywall",
              "roof_asphalt", "metal_roof", "brick_painted", "carpet", "fabric"}
 ROOF_TEX = {"asphalt_shingle": "roof_asphalt", "wood_shingle": "roof_wood", "slate": "roof_slate", "metal": "metal_roof",
-            "tile": "roof_asphalt"}
+            "tile": "roof_clay", "clay_tile": "roof_clay", "barrel_tile": "roof_clay", "clay_tile_old": "roof_clay_old"}
 FOUND_TEX = {"fieldstone": "fieldstone", "brick": "brick_common", "concrete_block": "block", "poured_concrete": "concrete",
              "cut_stone": "limestone", "piles": "concrete", "slab": "concrete"}
 BRICKS = [("brick_red", (0.56, 0.29, 0.21)), ("brick_brown", (0.43, 0.27, 0.2)), ("brick_buff", (0.79, 0.67, 0.49)),

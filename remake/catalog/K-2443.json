@@ -1,0 +1,71 @@
+{
+ "id": "K-2443",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 18.4,
+  "d": 34.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 33,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#eecf93",
+   "trim": "#3a3f44",
+   "accent": "#4a5a48",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Haddad",
+  "house_number": 1331
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1101"
+}

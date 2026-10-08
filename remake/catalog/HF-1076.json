@@ -1,0 +1,69 @@
+{
+ "id": "HF-1076",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 14.0,
+  "d": 42.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#72624f",
+   "trim": "#5a3a28",
+   "accent": "#2e3a4a",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1897,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Foxworth",
+  "house_number": 334
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens)."
+}

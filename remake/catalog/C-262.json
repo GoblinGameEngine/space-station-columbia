@@ -1,15 +1,15 @@
 {
  "id": "C-262",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.7,
-  "d": 41.5
+  "w": 12.2,
+  "d": 41.9
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 1.5,
+  "storeys": 2,
   "main_w_ft": 22,
   "main_d_ft": 38,
   "roof": {
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "brick",
   "foundation": "concrete_block",
@@ -48,11 +48,12 @@
   "condition": "kept",
   "year_built": 1914,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Loomis",
-  "house_number": 158
+  "house_number": 141
  },
- "brief": "streetcar band gable_front: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

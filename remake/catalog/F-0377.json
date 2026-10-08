@@ -1,0 +1,71 @@
+{
+ "id": "F-0377",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 12.6,
+  "d": 37.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#847c69",
+   "trim": "#f4f1e8",
+   "accent": "#4a5a48",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1905,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Reyes",
+  "house_number": 353
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-0628"
+}

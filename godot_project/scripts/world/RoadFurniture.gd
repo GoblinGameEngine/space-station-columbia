@@ -14,7 +14,7 @@ class_name RoadFurniture
 ##   signals   a mast arm over each approach's lane with a three-aspect head
 ## Merged per CELL m cell and material on a worker thread, like MapRoads.
 
-const CELL := 150.0
+const CELL := 400.0                    # (150 m: tens of thousands of meshes on the 1:1 map, past the renderer's limits)
 const FAR := 420.0
 const TEXT_FAR := 90.0
 const POST := 0.035                    # post half width
@@ -42,6 +42,14 @@ var _task := -1
 var _out: Array = []
 var _cells := {}
 var _labels: Array = []                # [position, basis, text, size] made on the main thread
+var target: Node3D                     # the street-name labels are made round it (23,000 Label3Ds at once: renderer limits)
+var _label_grid := {}                  # LABEL_CELL cell -> [label spec]
+var _label_nodes := {}                 # cell -> [Label3D]
+var _label_t := 0.0
+var _font: Font
+const LABEL_CELL := 100.0
+const LABEL_IN := 2                    # cells round the player's that have their labels
+const LABEL_OUT := 3                   # ... and past which they're freed
 var _mats := {}
 var _flash: Array = []                 # crossing lamps: none flash until trains run
 
@@ -76,13 +84,35 @@ func _solid(c: Color, rough: float, metal := 0.0) -> StandardMaterial3D:
 	return m
 
 
-func _process(_delta: float) -> void:
-	if _task < 0 or not WorkerThreadPool.is_task_completed(_task):
+func _process(delta: float) -> void:
+	if _task >= 0:
+		if not WorkerThreadPool.is_task_completed(_task):
+			return
+		WorkerThreadPool.wait_for_task_completion(_task)
+		_task = -1
+		_commit()
+	_label_t -= delta
+	if _label_t > 0.0 or target == null:
 		return
-	WorkerThreadPool.wait_for_task_completion(_task)
-	_task = -1
-	_commit()
-	set_process(false)
+	_label_t = 0.5
+	var p := target.global_position
+	var c := Vector2i(floori(fposmod(StationGeo.s_of(p), StationGeo.CIRC) / LABEL_CELL), floori(p.x / LABEL_CELL))
+	var ncol := ceili(StationGeo.CIRC / LABEL_CELL)
+	for k in _label_nodes.keys():
+		var di: int = absi(posmod(k.x - c.x + ncol / 2, ncol) - ncol / 2)
+		if di > LABEL_OUT or absi(k.y - c.y) > LABEL_OUT:
+			for l in _label_nodes[k]:
+				l.queue_free()
+			_label_nodes.erase(k)
+	for i in range(-LABEL_IN, LABEL_IN + 1):
+		for j in range(-LABEL_IN, LABEL_IN + 1):
+			var k := Vector2i(posmod(c.x + i, ncol), c.y + j)
+			if _label_nodes.has(k) or not _label_grid.has(k):
+				continue
+			var made := []
+			for lb in _label_grid[k]:
+				made.append(_make_label(lb))
+			_label_nodes[k] = made
 
 
 func _exit_tree() -> void:
@@ -392,21 +422,32 @@ func _commit() -> void:
 		mi.visibility_range_end_margin = FAR * 0.1
 		add_child(mi)
 	_out.clear()
-	var font: Font = load("res://ui/pda/DejaVuSans-Bold.ttf")
+	# the labels: filed by cell, made near the player (_process)
 	for lb in _labels:
-		var l := Label3D.new()
-		l.text = lb[2]
-		l.font = font
-		l.pixel_size = 0.001
-		l.font_size = int(lb[3] * 1000.0)
-		l.outline_size = 0
-		l.modulate = Color(0.97, 0.97, 0.95)
-		l.shaded = true
-		l.double_sided = false
-		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		l.visibility_range_end = TEXT_FAR
-		var b: Basis = lb[1]
-		# a Label3D reads toward its +z: turn it to face the sign's front (-b.z), or its back
-		l.transform = Transform3D(b if lb[4] else b.rotated(b.y, PI), lb[0])
-		add_child(l)
+		var pos: Vector3 = lb[0]
+		var k := Vector2i(floori(fposmod(StationGeo.s_of(pos), StationGeo.CIRC) / LABEL_CELL), floori(pos.x / LABEL_CELL))
+		if not _label_grid.has(k):
+			_label_grid[k] = []
+		_label_grid[k].append(lb)
 	_labels.clear()
+
+
+func _make_label(lb: Array) -> Label3D:
+	if _font == null:
+		_font = load("res://ui/pda/DejaVuSans-Bold.ttf")
+	var l := Label3D.new()
+	l.text = lb[2]
+	l.font = _font
+	l.pixel_size = 0.001
+	l.font_size = int(lb[3] * 1000.0)
+	l.outline_size = 0
+	l.modulate = Color(0.97, 0.97, 0.95)
+	l.shaded = true
+	l.double_sided = false
+	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	l.visibility_range_end = TEXT_FAR
+	var b: Basis = lb[1]
+	# a Label3D reads toward its +z: turn it to face the sign's front (-b.z), or its back
+	l.transform = Transform3D(b if lb[4] else b.rotated(b.y, PI), lb[0])
+	add_child(l)
+	return l

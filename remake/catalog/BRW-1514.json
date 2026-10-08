@@ -1,0 +1,67 @@
+{
+ "id": "BRW-1514",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 19.8,
+  "d": 36.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Osei",
+  "house_number": 1326
+ },
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0578"
+}

@@ -1,0 +1,70 @@
+{
+ "id": "F-0841",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 19.6,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 37,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e5ddda",
+   "trim": "#3a3f44",
+   "accent": "#1f2a33",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Brandvold",
+  "house_number": 816
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1263"
+}

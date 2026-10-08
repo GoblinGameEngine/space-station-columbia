@@ -1,31 +1,56 @@
 {
  "id": "C-1228",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 42.4,
-  "d": 34.3
+  "w": 24.8,
+  "d": 20.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 42,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 35,
+   "material": "slate"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
   "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#bfc7b2",
-   "trim": "#e9e2d2",
-   "accent": "#4a5a48",
+   "body": "#e3f0e6",
+   "trim": "#f2efe6",
+   "accent": "#2b4f6b",
    "roof": "#6a5e52"
   },
-  "roof": {
-   "pitch_deg": 31
+  "windows": {
+   "type": "1over1",
+   "shutters": false
   },
-  "year_built": 2007,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2002,
+  "band": "late",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Merriweather",
+  "house_number": 165
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

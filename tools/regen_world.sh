@@ -38,7 +38,13 @@ step parking_lots    $P tools/parking_lots.py
 step road_furniture  $P tools/road_furniture.py
 step place_aerostats gd --headless --path . --script res://remake/tools/place_aerostats.gd
 step place_ground    gd --headless --path . --script res://remake/tools/place_ground_vehicles.gd
-step bake_world      gd --headless --path . --script res://remake/tools/bake_world.gd -- roads terrain trees walks water
+# (one process each: all five in one ran past the Deck's 14 GB on the 1:1 map and earlyoom killed it, 2026-10-08)
+step bake_pads       gd --headless --path . --script res://remake/tools/bake_world.gd -- pads
+step bake_roads      gd --headless --path . --script res://remake/tools/bake_world.gd -- roads
+step bake_terrain    gd --headless --path . --script res://remake/tools/bake_world.gd -- terrain
+step bake_trees      gd --headless --path . --script res://remake/tools/bake_world.gd -- trees
+step bake_walks      gd --headless --path . --script res://remake/tools/bake_world.gd -- walks
+step bake_water      gd --headless --path . --script res://remake/tools/bake_world.gd -- water
 step bake_structures gd --path . --script res://remake/tools/bake_world.gd -- structures
 step pda_political   $P tools/pda_political_map.py
 step pda_detail      $P tools/pda_detail_map.py

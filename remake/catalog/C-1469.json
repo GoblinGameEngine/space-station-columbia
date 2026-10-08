@@ -1,27 +1,56 @@
 {
  "id": "C-1469",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 55.1,
-  "d": 33.9
+  "w": 20.8,
+  "d": 21.7
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#e1ded4"
+  "main_w_ft": 24,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 35,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#a18e6e",
+   "trim": "#5a3a28",
+   "accent": "#1f2a33",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2015,
+  "band": "current",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Yoder",
+  "house_number": 614
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band builder_contemporary: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

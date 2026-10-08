@@ -1,0 +1,69 @@
+{
+ "id": "BRW-0699",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 14.7,
+  "d": 38.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1902,
+  "band": "streetcar",
+  "form_token": "shingle_style"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Smith",
+  "house_number": 116
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
+}

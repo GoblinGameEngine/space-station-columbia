@@ -1,47 +1,43 @@
 {
  "id": "C-651",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 16.3,
-  "d": 41.8
+  "w": 13.8,
+  "d": 40.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "upright_and_wing",
   "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 40,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 35,
+   "type": "cross_gable",
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [
    {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
+    "type": "shed",
     "side": "front"
    }
   ],
   "porch": {
-   "type": "enclosed",
-   "posts": "turned",
-   "rail": "solid"
+   "type": "front_full",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#bd5750",
-   "trim": "#3a3f44",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
+   "body": "#e3e5d9",
+   "trim": "#f2efe6",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -50,21 +46,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
+    "shed",
     "swing_set"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1927,
+  "condition": "kept",
+  "year_built": 1926,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front_and_wing"
  },
  "names": {
-  "family": "Haskins",
-  "house_number": 254
+  "family": "Osei",
+  "house_number": 239
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,68 @@
+{
+ "id": "PCR-2316",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 14.1,
+  "d": 38.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 41,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Haskins",
+  "house_number": 119
+ },
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0740"
+}

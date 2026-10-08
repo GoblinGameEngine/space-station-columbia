@@ -1,0 +1,65 @@
+{
+ "id": "PCR-1868",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 19.6,
+  "d": 36.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 36,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#d9dcd8",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Harrow",
+  "house_number": 789
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0664"
+}

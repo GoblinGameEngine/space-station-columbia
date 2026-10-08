@@ -1,20 +1,20 @@
 {
  "id": "C-351",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.1,
-  "d": 35.0
+  "w": 14.0,
+  "d": 40.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "upright_and_wing",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 32,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
+   "type": "cross_gable",
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,38 +24,37 @@
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#c8b890",
-   "trim": "#f2efe6",
-   "accent": "#4a5a48",
-   "roof": "#4a4a48"
+   "body": "#ebe1c6",
+   "trim": "#5a3a28",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1927,
+  "year_built": 1928,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "upright_and_wing"
  },
  "names": {
-  "family": "Szabo",
-  "house_number": 120
+  "family": "Tomczak",
+  "house_number": 177
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band upright_and_wing: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,70 @@
+{
+ "id": "B-0977",
+ "settlement": "Bellhaven",
+ "generated": "tools/settlegen (Bellhaven)",
+ "lot": {
+  "w": 16.1,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 31,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#cfb78f",
+   "trim": "#3a3f44",
+   "accent": "#2b4f6b",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Booker",
+  "house_number": 610
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-0739"
+}

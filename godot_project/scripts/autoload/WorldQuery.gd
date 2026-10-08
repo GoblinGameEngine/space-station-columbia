@@ -134,17 +134,18 @@ static func entities(cats: Array = CATS, s0 := NAN, x0 := NAN, r := INF) -> Arra
 		var pl := _placement()
 		for i in st.records.size():
 			var rec: Dictionary = st.records[i]
-			var root: Node3D = rec.root
-			if not is_instance_valid(root) or not keep.call(root.global_position):
+			var root = rec.root
+			var at: Vector3 = (root as Node3D).global_position if root != null and is_instance_valid(root) else (rec.xform as Transform3D).origin
+			if not keep.call(at):
 				continue
 			var p: Dictionary = pl.get(str(rec.id), {})
-			var state := "full" if st._loaded.has(i) else "lod1"
-			if not root.visible:
+			var state := "full" if st._loaded.has(i) else "lod1" if rec.lod1 != null else "district mesh (LOD1 not streamed in)"
+			if root != null and is_instance_valid(root) and not (root as Node3D).visible:
 				state = "far-side image"
 			if rec.get("landmark", false):
 				state += ", landmark"
 			out.append({"id": str(rec.id), "cat": "structure", "kind": "%s %s" % [p.get("kind", "?"), str(p.get("settlement", ""))],
-				"node": root, "pos": root.global_position, "state": state, "rec": p})
+				"node": root, "pos": at, "state": state, "rec": p})
 	if "vehicle" in cats:
 		for nm in ["Aerostats", "GroundVehicles", "Bicycles"]:
 			var vs = sc.get_node_or_null(nm)

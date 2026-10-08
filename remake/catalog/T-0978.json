@@ -1,0 +1,70 @@
+{
+ "id": "T-0978",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 18.8,
+  "d": 23.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#ae6e4b",
+   "trim": "#5a3a28",
+   "accent": "#3a2a1e",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Osei",
+  "house_number": 725
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1516"
+}

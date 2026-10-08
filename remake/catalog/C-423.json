@@ -1,35 +1,44 @@
 {
  "id": "C-423",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 16.6,
-  "d": 41.6
+  "w": 14.9,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 39,
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 18,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 36,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "front_full",
    "posts": "columns",
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#799181",
-   "trim": "#f4f1e8",
-   "accent": "#3a2a1e",
-   "roof": "#5a4a40"
+   "body": "#778b73",
+   "trim": "#e9e2d2",
+   "accent": "#2b4f6b",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -38,25 +47,23 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1904,
+  "condition": "kept",
+  "year_built": 1899,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "workers_cottage"
  },
  "names": {
-  "family": "Arrieta",
-  "house_number": 116
+  "family": "DeCarlo",
+  "house_number": 171
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

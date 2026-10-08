@@ -1,0 +1,69 @@
+{
+ "id": "HF-1260",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 18.9,
+  "d": 33.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a8ac99",
+   "trim": "#f2efe6",
+   "accent": "#4a5a48",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Yoder",
+  "house_number": 1248
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens)."
+}

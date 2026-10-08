@@ -1,27 +1,56 @@
 {
  "id": "C-1582",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 54.8,
-  "d": 31.5
+  "w": 21.6,
+  "d": 29.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#a4aaa0"
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 25,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1980,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#606d7e",
+   "trim": "#f4f1e8",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2019,
+  "band": "current",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Foxworth",
+  "house_number": 342
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

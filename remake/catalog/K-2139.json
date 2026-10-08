@@ -1,0 +1,70 @@
+{
+ "id": "K-2139",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 18.1,
+  "d": 36.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 35,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8aa8b3",
+   "trim": "#e8e0c8",
+   "accent": "#4a5a48",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Pike",
+  "house_number": 341
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1101"
+}

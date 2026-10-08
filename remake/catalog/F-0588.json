@@ -1,0 +1,70 @@
+{
+ "id": "F-0588",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 18.5,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c0b886",
+   "trim": "#ffffff",
+   "accent": "#2b4f6b",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Ostrowski",
+  "house_number": 609
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, front_full porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1263"
+}

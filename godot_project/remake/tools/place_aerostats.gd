@@ -20,6 +20,9 @@ const APART := 45.0
 const OPEN_AREAS := ["park", "lawn", "square", "schoolground", "campus"]
 
 var _foot: Array = []                # [s, x, r] of every structure
+var _foot_grid := {}                 # 50 m cell -> [s, x, r] (every spot against all ~64,000 footprints was ~10^9 tests)
+var _foot_rmax := 0.0
+const FG := 50.0
 var _chosen: Array = []              # [s, x]
 
 
@@ -31,6 +34,11 @@ func _init() -> void:
 		var fmax: Array = e.get("fmax", e.max)
 		var r := maxf(Vector2(fmin[0], fmin[1]).length(), Vector2(fmax[0], fmax[1]).length())
 		_foot.append([float(e.s), float(e.x), r])
+		var cell := Vector2i(int(floor(fposmod(float(e.s), StationGeo.CIRC) / FG)), int(floor(float(e.x) / FG)))
+		if not _foot_grid.has(cell):
+			_foot_grid[cell] = []
+		_foot_grid[cell].append([float(e.s), float(e.x), r])
+		_foot_rmax = maxf(_foot_rmax, r)
 	var out := []
 	# towns
 	var towns := {}
@@ -122,10 +130,16 @@ func _clear(p: Vector2) -> bool:
 	for q in _chosen:
 		if absf(StationGeo.wrap_ds(p.x - q.x)) < APART and absf(p.y - q.y) < APART:
 			return false
-	for f in _foot:
-		var d := Vector2(StationGeo.wrap_ds(p.x - f[0]), p.y - f[1]).length()
-		if d < f[2] + FOOT_R + SPOT_CLEAR:
-			return false
+	var reach := int(ceil((_foot_rmax + FOOT_R + SPOT_CLEAR) / FG))
+	var ncol := int(ceil(StationGeo.CIRC / FG))
+	var ci := int(floor(fposmod(p.x, StationGeo.CIRC) / FG))
+	var cj := int(floor(p.y / FG))
+	for i in range(-reach, reach + 1):
+		for j in range(-reach, reach + 1):
+			for f in _foot_grid.get(Vector2i(posmod(ci + i, ncol), cj + j), []):
+				var d := Vector2(StationGeo.wrap_ds(p.x - f[0]), p.y - f[1]).length()
+				if d < f[2] + FOOT_R + SPOT_CLEAR:
+					return false
 	var h0 := MapTerrain.elevation(p.x, p.y)
 	for d in [Vector2.ZERO, Vector2(3, 3), Vector2(-3, 3), Vector2(3, -3), Vector2(-3, -3), Vector2(4.5, 0), Vector2(-4.5, 0), Vector2(0, 4.5), Vector2(0, -4.5)]:
 		var q: Vector2 = p + d

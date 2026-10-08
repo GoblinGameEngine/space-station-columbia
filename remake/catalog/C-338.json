@@ -1,32 +1,32 @@
 {
  "id": "C-338",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.3,
-  "d": 41.4
+  "w": 14.9,
+  "d": 31.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "bungalow",
-  "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 38,
+  "archetype": "upright_and_wing",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
+   "type": "cross_gable",
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "wrap",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "brick",
+  "walls": "stucco",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#c6b583",
+   "body": "#f0e7dd",
    "trim": "#f2efe6",
    "accent": "#3a2a1e",
    "roof": "#555350"
@@ -38,23 +38,23 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1909,
+  "year_built": 1910,
   "band": "streetcar",
-  "form_token": "bungalow"
+  "form_token": "upright_and_wing"
  },
  "names": {
   "family": "Foxworth",
-  "house_number": 154
+  "house_number": 131
  },
- "brief": "streetcar band bungalow: 1 storeys, brick walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band upright_and_wing: 2 storeys, stucco walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
 }

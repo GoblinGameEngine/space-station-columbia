@@ -1,0 +1,71 @@
+{
+ "id": "PCR-3416",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 19.5,
+  "d": 20.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "new",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Achterberg",
+  "house_number": 2147
+ },
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0473"
+}

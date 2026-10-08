@@ -1,67 +1,27 @@
 {
  "id": "C-1603",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 21.2,
-  "d": 32.8
+  "w": 38.0,
+  "d": 24.0
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 31,
-  "main_d_ft": 30,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
   "walls": "brick",
-  "foundation": "poured_concrete",
   "colors": {
-   "body": "#793d2f",
-   "trim": "#f4f1e8",
-   "accent": "#1f2a33",
-   "roof": "#5a4a40"
+   "body": "#e5e1e0"
   },
-  "windows": {
-   "type": "picture",
-   "shutters": false
-  },
-  "chimneys": [
-   "exterior_right"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
-  },
-  "condition": "worn",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1995,
+  "condition": "kept"
  },
  "names": {
-  "family": "Dunmore",
-  "house_number": 611
+  "name": ""
  },
- "brief": "postwar band cape_cod: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "condo (apartment) generated for Calder."
 }

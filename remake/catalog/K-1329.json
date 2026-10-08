@@ -1,0 +1,67 @@
+{
+ "id": "K-1329",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 14.2,
+  "d": 39.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 19,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#f6dec7",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "workers_cottage"
+ },
+ "names": {
+  "family": "Brandvold",
+  "house_number": 938
+ },
+ "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+}

@@ -1,34 +1,34 @@
 {
  "id": "C-422",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.9,
-  "d": 40.8
+  "w": 11.1,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "queen_anne",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 33,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 32,
+   "type": "gable",
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "brick",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#8f4c3f",
-   "trim": "#e8e0c8",
-   "accent": "#7a2e28",
+   "body": "#cfb98f",
+   "trim": "#ffffff",
+   "accent": "#1f2a33",
    "roof": "#6a5e52"
   },
   "windows": {
@@ -41,20 +41,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
   "year_built": 1902,
   "band": "streetcar",
-  "form_token": "queen_anne_irregular"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
-  "family": "Bazzi",
-  "house_number": 123
+  "family": "Raghunathan",
+  "house_number": 183
  },
- "brief": "streetcar band queen_anne_irregular: 2 storeys, brick walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -174,7 +174,7 @@ class Rules:
         return self.face[face]
 
     def house(self, s, r):
-        band = s["band"]
+        band = {"estate": "interwar"}.get(s["band"], s["band"])      # (an estate is a lot size: the island's style sets its form)
         f0, share = self.face_theme(s.get("face") or s["id"], band, r)
         form = f0 if r.random() < share else wpick(r, self.form_weights(band))
         use = s["use"]
@@ -322,11 +322,52 @@ CIVIC = {"city_hall": ("civic", "city_hall", 2, "romanesque", 1898), "police": (
          "fieldhouse": ("school", "gym", 1, "modern", 1971)}
 
 
+# landmark kind -> (generator kind, traits): the landmarks are made by the existing generators (church, civic, works,
+# coastal) dressed as themselves; open-space landmarks (plaza, paseo, park, harbour...) are map areas, not buildings
+LANDMARK_RECIPE = {
+    "mission": ("church", {"style": "mission_revival", "walls": "stucco", "plan": "rect",
+                           "tower": {"position": "front_corner", "top": "hip"}, "twin_towers": True, "colors": {"body": "#f1e7d6"},
+                           "roof": {"material": "clay_tile"}, "year_built": 1787}),
+    "meetinghouse": ("church", {"style": "colonial_revival", "walls": "clapboard", "plan": "rect", "colors": {"body": "#f7f6f0"},
+                                "year_built": 1792}),
+    "courthouse": ("civic", {"use": "courthouse", "storeys": 2, "style": "classical_revival", "dome": True, "walls": "limestone",
+                             "year_built": 1894}),
+    "courthouse_tower": ("civic", {"use": "courthouse", "storeys": 2, "style": "mission_revival", "clock_tower": True, "walls": "stucco",
+                                   "roof_material": "clay_tile", "colors": {"body": "#efe4d0"}, "year_built": 1929}),
+    "custom_house": ("civic", {"use": "custom_house", "storeys": 2, "style": "classical_revival", "walls": "granite", "year_built": 1872}),
+    "union_station": ("civic", {"use": "depot", "storeys": 2, "style": "art_deco", "clock_tower": True, "walls": "limestone", "year_built": 1931}),
+    "city_hall_deco": ("civic", {"use": "city_hall", "storeys": 3, "style": "art_deco", "walls": "limestone", "year_built": 1936}),
+    "opera_house": ("civic", {"use": "opera_house", "storeys": 2, "style": "romanesque", "walls": "brick", "year_built": 1888}),
+    "casino": ("civic", {"use": "opera_house", "storeys": 2, "style": "mission_revival", "walls": "stucco", "roof_material": "clay_tile",
+                         "colors": {"body": "#f4ecdc"}, "year_built": 1907}),
+    "signal_tower": ("lighthouse", {"form": "octagonal", "material": "shingle", "height_m": 26, "keeper_house": False, "lantern": "cupola",
+                                    "year_built": 1807}),
+    "lookout_tower": ("lighthouse", {"form": "round", "material": "stone", "height_m": 24, "keeper_house": False, "lantern": "none",
+                                     "year_built": 1939}),
+    "roundhouse": ("industrial", {"use": "roundhouse", "storeys": 1, "walls": "brick", "year_built": 1902, "components": []}),
+    "works": ("industrial", {"use": "machine_shop", "storeys": 2, "walls": "brick", "year_built": 1911, "components": ["stack", "stack"]}),
+    "mill_lofts": ("industrial", {"use": "mill", "storeys": 4, "walls": "brick", "year_built": 1871, "components": ["stack"]}),
+    "water_tower": ("tower", {"type": "multi_leg_tank", "year_built": 1938}),
+    "carousel": ("ride", {"ride": "carousel", "year_built": 1911}),
+    "victory_column": ("monument", {"type": "column", "year_built": 1915}),
+    "island_market": ("market", {"storeys": 1, "facade": "clapboard", "storefronts": [{"type": "grocery"}, {"type": "variety_store"},
+                                                                                      {"type": "cafe"}, {"type": "bakery"}], "year_built": 1925}),
+    "grand_arcade": ("market", {"storeys": 2, "facade": "cast_iron_front", "cornice": "bracketed_metal",
+                                "storefronts": [{"type": "jeweler"}, {"type": "clothing"}, {"type": "florist"}, {"type": "bookstore"},
+                                                {"type": "cafe"}, {"type": "art_gallery"}, {"type": "shoe_store"}, {"type": "bakery"}],
+                                "year_built": 1902}),
+    "college": ("school", {"use": "college", "storeys": 3, "style": "collegiate_gothic", "walls": "brick", "year_built": 1889}),
+    "incline": ("civic", {"use": "depot", "storeys": 1, "style": "vernacular", "walls": "brick", "year_built": 1891}),
+}
+OPEN_LANDMARKS = {"common", "plaza", "square", "paseo", "harbor", "wharves", "fish_pier", "old_port", "promenade_park", "bluff_park",
+                  "park_pond", "ballpark", "falls_park", "boardwalk", "pier", "lake_bridge", "breakwater_light", "lighthouse"}
+
+
 def make_record(s, rules, town, seed):
     r = rnd_for(seed, s["id"])
     use = s["use"]
     lot = {"w": round(s["lot_w"], 1), "d": round(s["lot_d"], 1)}
-    rec = {"id": s["id"], "settlement": town, "generated": "tools/settlegen (Calder, 2026-10-06)", "lot": lot}
+    rec = {"id": s["id"], "settlement": town, "generated": f"tools/settlegen ({town})", "lot": lot}
     names = {}
     if use in ("house", "duplex", "two_flat"):
         rec["kind"] = "house"
@@ -343,7 +384,7 @@ def make_record(s, rules, town, seed):
         names = {"name": s.get("label") or ""}
     elif use == "apartment":
         rec["kind"] = "condo"
-        rec["traits"] = {"storeys": r.choice([2, 2, 3]), "form": "slab", "units": int(s.get("units", 12)),
+        rec["traits"] = {"storeys": int(s.get("storeys") or r.choice([2, 2, 3])), "form": "slab", "units": int(s.get("units", 12)),
                          "balconies": r.choice(["none", "front"]), "ground_floor": "apartments",
                          "walls": r.choice(["brick", "vinyl", "brick"]), "colors": {"body": jitter(r.choice(BODY["brick"] + BODY["vinyl"]), r)},
                          "year_built": r.randint(1968, 2016), "condition": "kept"}
@@ -401,8 +442,45 @@ def make_record(s, rules, town, seed):
         rec["kind"] = {"bigbox": "bigbox", "strip_row": "strip", "pad": "strip"}[use]
         rec["traits"] = {"stores": s["stores"], "era": s.get("era", 1986)}
         names = {"name": s.get("centre"), "sign": (s.get("centre") or "").upper()}
+    elif use in ("restaurant", "bait", "lifeguard", "kiosk", "fishhouse", "shed", "shingle", "cannery", "lighthouse", "comfort_station"):
+        # the waterfront's buildings (tools/settlegen/city.py waterfront): the coastal generators' kinds
+        k_ = {"shingle": "shed", "comfort_station": "kiosk"}.get(use, use)
+        rec["kind"] = k_
+        tr_ = {"year_built": r.randint(1900, 1985), "over_water": bool(s.get("over_water"))}
+        if use == "comfort_station":
+            tr_.update(type="restrooms", use="restrooms")
+        if use == "restaurant":
+            tr_.update(storeys=1, storefronts=[business(r, "restaurant", rules.surnames, town, [town, "Pier", "Harbor", "Bay"])])
+        if use == "lighthouse":
+            tr_.update(form="round", material="masonry", height_m=18, keeper_house=False, lantern="lantern")
+        rec["traits"] = tr_
+        names = {"name": s.get("label") or ""}
+    elif use == "clubhouse":
+        # the yacht club (research/waterfront section 4): a big clubhouse on the house generator's plan in the region's
+        # style; its rooms are the members' dining room and bar (a business unit, not a home)
+        rec["kind"] = "clubhouse"
+        rec["traits"] = {"archetype": "shingle_style", "storeys": 2, "walls": "cedar_shingle", "main_w_ft": 60, "main_d_ft": 44,
+                         "roof": {"type": "gable", "pitch_deg": 38, "material": "wood_shingle"}, "porch": {"type": "wrap", "posts": "square", "rail": "spindle"},
+                         "use": "yacht_club", "members": s.get("members"), "slips": s.get("slips"), "area_m2": s.get("area_m2"),
+                         "garage": "none", "year_built": r.randint(1890, 1930)}
+        names = {"name": s.get("label") or f"{town} Yacht Club"}
+    elif use == "landmark":
+        # each landmark kind is built by an existing generator, given the traits that make it that landmark
+        # (research/terrain_and_cities/README.md section 7)
+        kind, tr = LANDMARK_RECIPE[s["landmark"]]
+        rec["kind"] = kind
+        rec["traits"] = dict(tr, landmark=s["landmark"], year_built=tr.get("year_built", r.randint(1880, 1935)))
+        names = {"name": s.get("label") or s["landmark"].replace("_", " ").title()}
+    elif use == "college":
+        rec["kind"] = "school"
+        rec["traits"] = {"use": "college", "storeys": 3, "style": "collegiate_gothic", "year_built": r.randint(1890, 1925), "walls": "brick",
+                         "colors": {"body": jitter(r.choice(BODY["brick"]), r, 6)}}
+        names = {"name": s.get("label") or f"{town} College"}
     else:
         raise ValueError(f"no record rule for use {use}")
+    if s.get("region") in ("ne", "ca", "isle"):
+        import regions as RG
+        RG.apply(rec, s["region"], r)
     rec["names"] = names
     rec["brief"] = brief(rec, s)
     return rec

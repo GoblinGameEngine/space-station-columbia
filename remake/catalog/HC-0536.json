@@ -1,0 +1,68 @@
+{
+ "id": "HC-0536",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 16.2,
+  "d": 33.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 41,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8ea6bd",
+   "trim": "#e9e2d2",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Wainwright",
+  "house_number": 481
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-0817"
+}

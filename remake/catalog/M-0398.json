@@ -1,0 +1,69 @@
+{
+ "id": "M-0398",
+ "settlement": "Marlowe",
+ "generated": "tools/settlegen (Marlowe)",
+ "lot": {
+  "w": 12.4,
+  "d": 29.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#efe7e0",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 12
+  }
+ },
+ "names": {
+  "family": "Merriweather",
+  "house_number": 522
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0605"
+}

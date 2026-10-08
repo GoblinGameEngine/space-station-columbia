@@ -1,0 +1,64 @@
+{
+ "id": "HC-0247",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 14.9,
+  "d": 41.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#85826f",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Patel",
+  "house_number": 120
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1156"
+}

@@ -1,0 +1,70 @@
+{
+ "id": "K-2173",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 18.8,
+  "d": 21.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#726a5d",
+   "trim": "#e8e0c8",
+   "accent": "#6a4a2a",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Yoder",
+  "house_number": 752
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-0927"
+}

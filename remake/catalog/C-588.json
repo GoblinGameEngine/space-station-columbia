@@ -1,39 +1,39 @@
 {
  "id": "C-588",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.4,
-  "d": 40.9
+  "w": 16.3,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 1.5,
-  "main_w_ft": 21,
-  "main_d_ft": 41,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 34,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
    "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "rail": "solid"
   },
   "walls": "shingle",
   "foundation": "brick",
   "colors": {
-   "body": "#8b8260",
-   "trim": "#ffffff",
-   "accent": "#5b6b3a",
-   "roof": "#3e3e3c"
+   "body": "#6b5d59",
+   "trim": "#f2efe6",
+   "accent": "#7a2e28",
+   "roof": "#4a4a48"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -42,24 +42,20 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1904,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 11
-  }
+  "form_token": "double_house",
+  "units": 2
  },
  "names": {
-  "family": "Raghunathan",
-  "house_number": 480
+  "family": "Nowicki",
+  "house_number": 230
  },
- "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band double_house: 2 storeys, shingle walls, front_full porch, garage none (generated from the Great Lakes tokens)."
 }

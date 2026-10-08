@@ -1,0 +1,70 @@
+{
+ "id": "M-0289",
+ "settlement": "Marlowe",
+ "generated": "tools/settlegen (Marlowe)",
+ "lot": {
+  "w": 12.8,
+  "d": 30.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#ddd48e",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Yoder",
+  "house_number": 386
+ },
+ "brief": "streetcar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1160"
+}

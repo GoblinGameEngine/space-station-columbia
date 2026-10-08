@@ -1,44 +1,35 @@
 {
  "id": "C-128",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.2,
-  "d": 42.0
+  "w": 12.1,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 36,
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
-   "pitch_deg": 34,
-   "material": "slate"
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#874439",
-   "trim": "#e9e2d2",
-   "accent": "#7a2e28",
-   "roof": "#5a4a40"
+   "body": "#eee6e1",
+   "trim": "#5a3a28",
+   "accent": "#4a5a48",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
@@ -52,16 +43,19 @@
    "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1915,
+  "year_built": 1902,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
-  "family": "Delmar",
-  "house_number": 354
+  "family": "Brandvold",
+  "house_number": 348
  },
- "brief": "streetcar band gable_front: 1.5 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,70 @@
+{
+ "id": "DC-0091",
+ "settlement": "Dunmore Crossing",
+ "generated": "tools/settlegen (Dunmore Crossing)",
+ "lot": {
+  "w": 18.7,
+  "d": 28.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#c8b09b",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1905,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 11
+  }
+ },
+ "names": {
+  "family": "Brannock",
+  "house_number": 300
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0674"
+}

@@ -1,20 +1,20 @@
 {
  "id": "C-214",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.4,
-  "d": 41.0
+  "w": 19.5,
+  "d": 40.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 39,
+  "main_w_ft": 39,
+  "main_d_ft": 24,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 36,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,15 +24,15 @@
    "rail": "spindle"
   },
   "walls": "shingle",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#a79d86",
-   "trim": "#e8e0c8",
-   "accent": "#5b6b3a",
-   "roof": "#2f3133"
+   "body": "#758886",
+   "trim": "#5a3a28",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -41,18 +41,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1929,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "double_house",
+  "units": 2
  },
  "names": {
-  "family": "Marlowe",
-  "house_number": 557
+  "family": "Kowal",
+  "house_number": 440
  },
- "brief": "streetcar band gable_front: 2 storeys, shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band double_house: 2 storeys, shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

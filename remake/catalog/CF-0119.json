@@ -1,0 +1,76 @@
+{
+ "id": "CF-0119",
+ "settlement": "Cedar Ford",
+ "generated": "tools/settlegen (Cedar Ford)",
+ "lot": {
+  "w": 12.8,
+  "d": 32.7
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#84917e",
+   "trim": "#5a3a28",
+   "accent": "#3a2a1e",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 9
+  }
+ },
+ "names": {
+  "family": "Delmar",
+  "house_number": 191
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0641"
+}

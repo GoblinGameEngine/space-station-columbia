@@ -1,0 +1,70 @@
+{
+ "id": "HC-0152",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 12.6,
+  "d": 41.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c4b9ba",
+   "trim": "#3a3f44",
+   "accent": "#6a4a2a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Leclerc",
+  "house_number": 338
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1076"
+}

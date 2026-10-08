@@ -1,0 +1,68 @@
+{
+ "id": "K-1746",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 20.0,
+  "d": 32.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 38,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a6bca0",
+   "trim": "#e8e0c8",
+   "accent": "#7a2e28",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Tomczak",
+  "house_number": 1137
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-2265"
+}

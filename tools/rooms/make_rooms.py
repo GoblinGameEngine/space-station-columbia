@@ -66,7 +66,9 @@ CIVIC_USE = {"city_hall": "town_hall", "police": "police_fire", "fire_station": 
              "library": "library", "depot": "transit_station", "hospital": "hospital", "clinic": "doctor_office",
              "elementary": "school", "high_school": "school", "gym": "school", "creamery": "factory", "farm_equipment": "repair_shop",
              "feed_mill": "mill", "grain_elevator": "grain_elevator", "lumber_yard": "warehouse", "machine_shop": "machine_works",
-             "warehouse": "warehouse"}
+             "warehouse": "warehouse", "yacht_club": "restaurant", "restrooms": "park_pavilion", "courthouse": "courthouse",
+             "custom_house": "admin_center", "opera_house": "community_hall", "college": "college", "roundhouse": "machine_works",
+             "mill": "mill"}
 # furniture -> what it offers
 BED = {"bed"}
 SEAT = {"chair": 1, "armchair": 1, "sofa": 3, "bench": 3, "stool": 1, "booth": 4, "barber_chair": 1, "_table_set": 4, "_pupil_desk": 1}

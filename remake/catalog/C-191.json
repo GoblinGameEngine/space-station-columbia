@@ -1,44 +1,44 @@
 {
  "id": "C-191",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.9,
-  "d": 41.9
+  "w": 16.2,
+  "d": 40.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 34,
+  "main_w_ft": 37,
+  "main_d_ft": 21,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "side",
+   "posts": "turned",
    "rail": "none"
   },
-  "walls": "stucco",
-  "foundation": "brick",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#f2ead1",
+   "body": "#ba5743",
    "trim": "#e9e2d2",
    "accent": "#6a4a2a",
    "roof": "#555350"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
@@ -46,9 +46,9 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1918,
-  "band": "streetcar",
-  "form_token": "gable_front",
+  "year_built": 1891,
+  "band": "rail",
+  "form_token": "i_house",
   "wing": {
    "side": "rear",
    "w_ft": 15,
@@ -57,7 +57,7 @@
  },
  "names": {
   "family": "Nguyen",
-  "house_number": 315
+  "house_number": 266
  },
- "brief": "streetcar band gable_front: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band i_house: 2 storeys, clapboard walls, side porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

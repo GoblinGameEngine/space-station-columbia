@@ -1,0 +1,70 @@
+{
+ "id": "F-0785",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 18.6,
+  "d": 35.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#738e93",
+   "trim": "#5a3a28",
+   "accent": "#1f2a33",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "new",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Delmar",
+  "house_number": 602
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0781"
+}

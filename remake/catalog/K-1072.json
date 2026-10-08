@@ -1,0 +1,70 @@
+{
+ "id": "K-1072",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 17.4,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 33,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#945b4b",
+   "trim": "#3a3f44",
+   "accent": "#7a2e28",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Nguyen",
+  "house_number": 900
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-2040"
+}

@@ -1,43 +1,38 @@
 {
  "id": "C-404",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
   "w": 13.2,
-  "d": 41.9
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "workers_cottage",
-  "storeys": 1.5,
-  "main_w_ft": 17,
-  "main_d_ft": 31,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "square",
-   "rail": "none"
+   "posts": "columns",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#d2ad86",
+   "body": "#ecdfdd",
    "trim": "#3a3f44",
-   "accent": "#2e3a4a",
+   "accent": "#6a4a2a",
    "roof": "#6a5e52"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
@@ -56,11 +51,11 @@
   "condition": "kept",
   "year_built": 1914,
   "band": "streetcar",
-  "form_token": "workers_cottage"
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Ostrowski",
-  "house_number": 354
+  "family": "Loomis",
+  "house_number": 321
  },
- "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

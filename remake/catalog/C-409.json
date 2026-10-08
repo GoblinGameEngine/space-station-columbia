@@ -1,32 +1,23 @@
 {
  "id": "C-409",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.2,
-  "d": 40.3
+  "w": 12.8,
+  "d": 41.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 1.5,
-  "main_w_ft": 24,
-  "main_d_ft": 34,
+  "archetype": "workers_cottage",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "front_partial",
    "posts": "square",
@@ -35,14 +26,14 @@
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#616279",
-   "trim": "#5a3a28",
-   "accent": "#1f2a33",
-   "roof": "#2f3133"
+   "body": "#a6b4a4",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#555350"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "2over2",
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -50,22 +41,20 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": [
-    "garden",
-    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1899,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "workers_cottage"
  },
  "names": {
-  "family": "DeCarlo",
-  "house_number": 245
+  "family": "Tomczak",
+  "house_number": 366
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band workers_cottage: 1 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

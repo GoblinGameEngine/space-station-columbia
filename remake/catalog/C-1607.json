@@ -1,60 +1,27 @@
 {
  "id": "C-1607",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 24.0,
-  "d": 31.1
+  "w": 38.0,
+  "d": 24.0
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 31,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "solid"
-  },
+  "storeys": 2,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
   "walls": "brick",
-  "foundation": "poured_concrete",
   "colors": {
-   "body": "#9c5241",
-   "trim": "#ffffff",
-   "accent": "#4a5a48",
-   "roof": "#2f3133"
+   "body": "#c2b981"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "rear"
-  ],
-  "garage": "attached_1",
-  "yard": {
-   "fence": "chainlink",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "ranch"
+  "year_built": 2015,
+  "condition": "kept"
  },
  "names": {
-  "family": "Szabo",
-  "house_number": 531
+  "name": ""
  },
- "brief": "postwar band ranch: 1 storeys, brick walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens)."
+ "brief": "condo (apartment) generated for Calder."
 }

@@ -1,32 +1,41 @@
 {
  "id": "C-643",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 16.8,
-  "d": 24.7
+  "w": 13.0,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 22,
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
+   "type": "cross_gable",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "solid"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#943e34",
+   "body": "#758d78",
    "trim": "#5a3a28",
    "accent": "#4a5a48",
    "roof": "#5a4a40"
@@ -38,25 +47,23 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1895,
+  "year_built": 1904,
   "band": "streetcar",
-  "form_token": "double_house",
-  "units": 2
+  "form_token": "gable_front_and_wing"
  },
  "names": {
   "family": "Adebayo",
-  "house_number": 126
+  "house_number": 180
  },
- "brief": "streetcar band double_house: 2 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,69 @@
+{
+ "id": "TRN-0202",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 14.1,
+  "d": 39.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "i_house"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Ostrowski",
+  "house_number": 119
+ },
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0820"
+}

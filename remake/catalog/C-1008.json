@@ -1,58 +1,60 @@
 {
  "id": "C-1008",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 31.0,
-  "d": 31.2
+  "w": 17.0,
+  "d": 27.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 31,
+  "archetype": "prairie_box",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
+   "type": "hip",
+   "pitch_deg": 36,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
+   "posts": "tapered_on_piers",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#d2c6af",
-   "trim": "#3a3f44",
-   "accent": "#5b6b3a",
-   "roof": "#5a5a58"
+   "body": "#873f31",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#6a5e52"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "left_end"
   ],
-  "garage": "attached_2",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1985,
-  "band": "suburban",
-  "form_token": "ranch"
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "modern_box"
  },
  "names": {
-  "family": "DeCarlo",
-  "house_number": 790
+  "family": "Delmar",
+  "house_number": 435
  },
- "brief": "suburban band ranch: 1 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "interwar band modern_box: 2 storeys, brick walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

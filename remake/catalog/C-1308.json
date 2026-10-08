@@ -1,31 +1,58 @@
 {
  "id": "C-1308",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 42.4,
-  "d": 39.2
+  "w": 26.1,
+  "d": 30.0
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#ece1da",
-   "trim": "#e8e0c8",
-   "accent": "#7a2e28",
-   "roof": "#4a4a48"
-  },
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 49,
+  "main_d_ft": 27,
   "roof": {
-   "pitch_deg": 26
+   "type": "hip",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#cac5b1",
+   "trim": "#e8e0c8",
+   "accent": "#3a2a1e",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "split_level"
  },
  "names": {
-  "name": ""
+  "family": "Adebayo",
+  "house_number": 547
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band split_level: 1 storeys, vinyl walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,70 @@
+{
+ "id": "K-1608",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 16.3,
+  "d": 20.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 38,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 34,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f4e3c0",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Holloway",
+  "house_number": 916
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1954"
+}

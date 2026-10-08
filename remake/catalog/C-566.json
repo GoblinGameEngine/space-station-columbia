@@ -1,17 +1,17 @@
 {
  "id": "C-566",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.2,
-  "d": 40.6
+  "w": 13.9,
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 33,
+  "main_w_ft": 21,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#8f4b39",
+   "body": "#ebe7d7",
    "trim": "#f2efe6",
    "accent": "#2b4f6b",
    "roof": "#4e5155"
@@ -46,10 +46,9 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1902,
+  "year_built": 1927,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2,
+  "form_token": "gable_front",
   "wing": {
    "side": "rear",
    "w_ft": 14,
@@ -58,7 +57,7 @@
  },
  "names": {
   "family": "Reyes",
-  "house_number": 266
+  "house_number": 368
  },
- "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

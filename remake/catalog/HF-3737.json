@@ -1,0 +1,64 @@
+{
+ "id": "HF-3737",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 17.2,
+  "d": 20.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 36,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 35,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#874333",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Harrow",
+  "house_number": 2358
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1200"
+}

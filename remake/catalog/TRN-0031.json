@@ -1,0 +1,71 @@
+{
+ "id": "TRN-0031",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 17.1,
+  "d": 39.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "side",
+   "posts": "turned",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1880,
+  "band": "rail",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Duquesne",
+  "house_number": 246
+ },
+ "brief": "rail band gable_front: 2 storeys, clapboard walls, side porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0731"
+}

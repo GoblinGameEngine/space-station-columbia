@@ -1,0 +1,78 @@
+{
+ "id": "T-0472",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 19.1,
+  "d": 29.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c4c3b6",
+   "trim": "#f4f1e8",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 10
+  }
+ },
+ "names": {
+  "family": "Wainwright",
+  "house_number": 342
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-0674"
+}

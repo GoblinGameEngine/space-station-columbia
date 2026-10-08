@@ -1,38 +1,38 @@
 {
  "id": "C-470",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.6,
-  "d": 41.0
+  "w": 14.8,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "queen_anne",
-  "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 33,
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 44,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 37,
+   "type": "gable",
+   "pitch_deg": 33,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "stucco",
   "foundation": "brick",
   "colors": {
-   "body": "#d1ccab",
-   "trim": "#ffffff",
-   "accent": "#7a2e28",
-   "roof": "#555350"
+   "body": "#f7e6d4",
+   "trim": "#e9e2d2",
+   "accent": "#6a4a2a",
+   "roof": "#5a4a40"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -41,21 +41,25 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "garden",
     "clothesline"
    ]
   },
   "condition": "kept",
   "year_built": 1901,
   "band": "streetcar",
-  "form_token": "queen_anne_irregular"
+  "form_token": "bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 12
+  }
  },
  "names": {
-  "family": "Okonkwo",
-  "house_number": 527
+  "family": "Dunmore",
+  "house_number": 454
  },
- "brief": "streetcar band queen_anne_irregular: 2 storeys, stucco walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band bungalow: 1.5 storeys, stucco walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,71 @@
+{
+ "id": "CF-0122",
+ "settlement": "Cedar Ford",
+ "generated": "tools/settlegen (Cedar Ford)",
+ "lot": {
+  "w": 19.1,
+  "d": 31.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#838a82",
+   "trim": "#f2efe6",
+   "accent": "#7a2e28",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
+ },
+ "names": {
+  "family": "Loomis",
+  "house_number": 255
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-0674"
+}

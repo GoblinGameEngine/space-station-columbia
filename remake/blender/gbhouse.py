@@ -912,6 +912,9 @@ class House:
                     if not all(headroom(q) >= h_req + 0.05 for q in [back] + ends):
                         return False
                     corners = ends + [q + sl["n"] * (d + 0.02) for q in ends]
+                    # (the front under the roof too: against an inner wall the slope can fall away from it)
+                    if not all(headroom(q) >= h_req + 0.05 for q in corners[2:]):
+                        return False
                     # (and inside the room: a 2 m bed doesn't go across a 1.9 m room, through the far wall)
                     if not all(x0 - 0.01 <= q.x <= x1 + 0.01 and y0 - 0.01 <= q.y <= y1 + 0.01 for q in corners):
                         return False
@@ -932,7 +935,8 @@ class House:
                 r["fitout"](self, r, p, against, (x0, y0, x1, y1), fz, cz)
             elif typ == "bed":
                 bw = 1.4 if (x1 - x0) * (y1 - y0) > 9 else 1.0
-                res = against(bw + 0.9, 2.05, False, lambda pos, yaw: (fu.bed(p, pos, yaw, bw, 1.95, fm, r.get("linen", "quilt")),))
+                res = against(bw + 0.9, 2.05, False, lambda pos, yaw: (fu.bed(p, pos, yaw, bw, 1.95, fm, r.get("linen", "quilt")),),
+                              h=1.25)                       # (its headboard stands ~1.1 m: under an attic's slope it clipped)
                 against(1.0, 0.5, not low, lambda pos, yaw: fu.dresser(p, pos, yaw, 1.0, 0.5, 0.85, fm, m["brass"],
                                                                         mirror_mat=None if low else "glass"))
                 against(0.5, 0.45, False, lambda pos, yaw: fu.chair(p, pos, yaw, fm))

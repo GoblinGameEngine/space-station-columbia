@@ -1,19 +1,19 @@
 {
  "id": "C-776",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 18.3,
-  "d": 41.0
+  "w": 12.4,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 31,
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 22,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 33,
    "material": "asphalt_shingle"
   },
@@ -24,15 +24,15 @@
    "rail": "spindle"
   },
   "walls": "stucco",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#edead9",
-   "trim": "#e8e0c8",
-   "accent": "#5b6b3a",
+   "body": "#d8caa4",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
    "roof": "#6a5e52"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -41,19 +41,18 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
   "year_built": 1896,
   "band": "streetcar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "workers_cottage"
  },
  "names": {
-  "family": "DeCarlo",
-  "house_number": 568
+  "family": "Pham",
+  "house_number": 539
  },
- "brief": "streetcar band foursquare: 2 storeys, stucco walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band workers_cottage: 1.5 storeys, stucco walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

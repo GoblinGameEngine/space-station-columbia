@@ -1,27 +1,58 @@
 {
  "id": "C-1351",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 48.6,
-  "d": 25.4
+  "w": 26.0,
+  "d": 21.7
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "tudor_revival",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#905e45"
+  "main_w_ft": 33,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2002,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#cfd0b0",
+   "trim": "#ffffff",
+   "accent": "#2e3a4a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Villalobos",
+  "house_number": 945
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "late band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

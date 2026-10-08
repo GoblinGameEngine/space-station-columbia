@@ -1,0 +1,75 @@
+{
+ "id": "HF-2472",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 12.1,
+  "d": 39.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#ede6cb",
+   "trim": "#f2efe6",
+   "accent": "#6a4a2a",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 10
+  }
+ },
+ "names": {
+  "family": "Duquesne",
+  "house_number": 120
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1271"
+}

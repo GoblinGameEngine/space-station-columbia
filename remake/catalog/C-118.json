@@ -1,17 +1,17 @@
 {
  "id": "C-118",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.0,
-  "d": 40.2
+  "w": 18.5,
+  "d": 40.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 40,
+  "main_w_ft": 41,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "side",
    "posts": "turned",
    "rail": "solid"
   },
-  "walls": "brick",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#b67155",
+   "body": "#ecd898",
    "trim": "#2e3a4a",
    "accent": "#7a2e28",
    "roof": "#555350"
@@ -46,13 +46,14 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1878,
+  "year_built": 1877,
   "band": "rail",
-  "form_token": "gable_front"
+  "form_token": "double_house",
+  "units": 2
  },
  "names": {
   "family": "Achterberg",
-  "house_number": 262
+  "house_number": 264
  },
- "brief": "rail band gable_front: 2 storeys, brick walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "rail band double_house: 2 storeys, clapboard walls, side porch, garage none (generated from the Great Lakes tokens)."
 }

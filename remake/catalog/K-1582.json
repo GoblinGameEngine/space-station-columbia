@@ -1,0 +1,71 @@
+{
+ "id": "K-1582",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 17.2,
+  "d": 37.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 34,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a8714a",
+   "trim": "#5a3a28",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Okonkwo",
+  "house_number": 1063
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1446"
+}

@@ -1,0 +1,70 @@
+{
+ "id": "P-0131",
+ "settlement": "Pruett",
+ "generated": "tools/settlegen (Pruett)",
+ "lot": {
+  "w": 13.3,
+  "d": 41.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "shingle",
+  "foundation": "brick",
+  "colors": {
+   "body": "#646c5a",
+   "trim": "#2e3a4a",
+   "accent": "#6a4a2a",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "gable_front"
+ },
+ "names": {
+  "family": "Mbeki",
+  "house_number": 207
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1192"
+}

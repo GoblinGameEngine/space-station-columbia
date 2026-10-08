@@ -1,27 +1,56 @@
 {
  "id": "C-1380",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 48.6,
-  "d": 35.3
+  "w": 25.6,
+  "d": 31.9
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "i_house",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#a7ad96"
+  "main_w_ft": 40,
+  "main_d_ft": 24,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1972,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#e8c989",
+   "trim": "#f2efe6",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2006,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Arrieta",
+  "house_number": 418
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

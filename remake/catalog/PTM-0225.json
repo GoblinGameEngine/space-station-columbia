@@ -1,0 +1,66 @@
+{
+ "id": "PTM-0225",
+ "settlement": "Port Tamsin",
+ "generated": "tools/settlegen (Port Tamsin)",
+ "lot": {
+  "w": 19.2,
+  "d": 20.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a79368",
+   "trim": "#f4f1e8",
+   "accent": "#2e3a4a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Holloway",
+  "house_number": 175
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, brick walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1518"
+}

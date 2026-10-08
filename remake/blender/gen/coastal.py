@@ -438,10 +438,11 @@ def build_stand(rec):
                                   fitout=shopfit.fitout_for(rec_i, rnd)))
         if i > 0:
             spec["doors"].append(dict(name=f"bay{i}", at=(bx0, (y0 + y1) / 2), w=0.9, swing_into=f"BAY{i}"))
-        # the open front: a wide roll-up opening (door with no leaf) or a service window over a counter
-        if tr.get("open_front", True) and not shelter:
+        # the open front: a wide glazed shopfront leaf (an open hole is a leak in the envelope: gbaudit, the user
+        # 2026-10-07 "doors can have glass, but they cannot have manifold holes"); restrooms have a plain door
+        if tr.get("open_front", True) and not shelter and use != "restrooms":
             spec["doors"].append(dict(name=f"front{i}", at=((bx0 + bx1) / 2, y1), w=min(bx1 - bx0 - 1.0, 6.0), h=2.6, ext=True,
-                                      cased=True))
+                                      leaves=2, glazed=(0.05, 0.1, 0.95, 0.95)))
         else:
             spec["doors"].append(dict(name=f"front{i}", at=((bx0 + bx1) / 2, y1), w=0.9, ext=True, glazed=(0.1, 0.5, 0.9, 0.95)))
     spec["doors"].append(dict(name="back", at=(x0 + 1.2, y0), w=0.9, ext=True, out=True))

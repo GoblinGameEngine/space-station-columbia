@@ -1,35 +1,35 @@
 {
  "id": "C-175",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 16.3,
-  "d": 40.5
+  "w": 17.3,
+  "d": 41.3
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 32,
+  "main_w_ft": 21,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 36,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "brick",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f9e6c0",
-   "trim": "#f2efe6",
-   "accent": "#4a5a48",
-   "roof": "#4e5155"
+   "body": "#b56755",
+   "trim": "#e9e2d2",
+   "accent": "#5b6b3a",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "6over6",
@@ -38,22 +38,25 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "picket",
-   "rear": "chainlink",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1889,
+  "year_built": 1891,
   "band": "rail",
-  "form_token": "two_flat",
+  "form_token": "gable_front",
   "units": 2
  },
  "names": {
-  "family": "Merriweather",
-  "house_number": 135
+  "family": "Wainwright",
+  "house_number": 133
  },
- "brief": "rail band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band gable_front: 2 storeys, brick walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,71 @@
+{
+ "id": "F-0589",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 19.0,
+  "d": 22.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#a4836d",
+   "trim": "#f4f1e8",
+   "accent": "#2e3a4a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Ostrowski",
+  "house_number": 585
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1461"
+}

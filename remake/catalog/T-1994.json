@@ -1,0 +1,70 @@
+{
+ "id": "T-1994",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 21.2,
+  "d": 23.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "recessed",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#7c422e",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "carport",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "DeCarlo",
+  "house_number": 368
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, brick walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "HF-1888"
+}

@@ -1,32 +1,32 @@
 {
  "id": "C-224",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.8,
-  "d": 40.0
+  "w": 19.9,
+  "d": 40.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 33,
+  "main_w_ft": 37,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#86a7b1",
+   "body": "#a1aaa1",
    "trim": "#3a3f44",
    "accent": "#6a4a2a",
    "roof": "#4a4a48"
@@ -41,23 +41,22 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
     "shed",
-    "clothesline"
+    "swing_set"
    ]
   },
-  "condition": "kept",
+  "condition": "shabby",
   "year_built": 1923,
   "band": "streetcar",
-  "form_token": "two_flat",
+  "form_token": "double_house",
   "units": 2
  },
  "names": {
   "family": "Leclerc",
-  "house_number": 357
+  "house_number": 522
  },
- "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band double_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

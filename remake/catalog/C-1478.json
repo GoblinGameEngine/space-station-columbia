@@ -1,31 +1,58 @@
 {
  "id": "C-1478",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 44.8,
-  "d": 31.5
+  "w": 21.3,
+  "d": 30.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 33,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
   "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#cfad80",
-   "trim": "#5a3a28",
-   "accent": "#7a2e28",
+   "body": "#ecdec6",
+   "trim": "#2e3a4a",
+   "accent": "#5b6b3a",
    "roof": "#4a4a48"
   },
-  "roof": {
-   "pitch_deg": 34
+  "windows": {
+   "type": "casement",
+   "shutters": false
   },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
   "year_built": 2015,
-  "condition": "kept"
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Haddad",
+  "house_number": 312
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

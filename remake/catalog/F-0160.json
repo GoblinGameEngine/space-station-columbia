@@ -1,0 +1,71 @@
+{
+ "id": "F-0160",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 14.3,
+  "d": 39.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e2d88b",
+   "trim": "#e8e0c8",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "workers_cottage"
+ },
+ "names": {
+  "family": "Holloway",
+  "house_number": 341
+ },
+ "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0925"
+}

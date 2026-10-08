@@ -1,0 +1,65 @@
+{
+ "id": "PCR-2966",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 25.0,
+  "d": 33.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#5b6b5a",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1956,
+  "band": "postwar",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Osei",
+  "house_number": 1403
+ },
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2954"
+}

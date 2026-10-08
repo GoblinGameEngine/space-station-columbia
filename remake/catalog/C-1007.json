@@ -1,58 +1,60 @@
 {
  "id": "C-1007",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 30.5,
-  "d": 27.5
+  "w": 17.2,
+  "d": 27.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 23,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
+  "main_w_ft": 35,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "enclosed",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#b66b55",
-   "trim": "#f4f1e8",
+   "body": "#989eb7",
+   "trim": "#2e3a4a",
    "accent": "#2b4f6b",
-   "roof": "#4e5155"
+   "roof": "#5a4a40"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1989,
-  "band": "suburban",
-  "form_token": "two_storey_colonial"
+  "condition": "new",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "names": {
-  "family": "Foxworth",
-  "house_number": 892
+  "family": "Nowicki",
+  "house_number": 451
  },
- "brief": "suburban band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "interwar band minimal_traditional: 1 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,74 @@
+{
+ "id": "M-0285",
+ "settlement": "Marlowe",
+ "generated": "tools/settlegen (Marlowe)",
+ "lot": {
+  "w": 19.6,
+  "d": 31.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8f4438",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 9
+  }
+ },
+ "names": {
+  "family": "Merriweather",
+  "house_number": 367
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, brick walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0674"
+}

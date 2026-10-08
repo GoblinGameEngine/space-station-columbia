@@ -1,17 +1,17 @@
 {
  "id": "C-705",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.7,
-  "d": 24.7
+  "w": 16.1,
+  "d": 41.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "side_gable_cottage",
-  "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 34,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 42,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "front_partial",
    "posts": "turned",
    "rail": "spindle"
   },
-  "walls": "shingle",
+  "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#755f56",
+   "body": "#a7ae9e",
    "trim": "#f2efe6",
    "accent": "#1f2a33",
    "roof": "#555350"
@@ -38,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
@@ -51,11 +51,12 @@
   "condition": "kept",
   "year_built": 1902,
   "band": "streetcar",
-  "form_token": "pyramidal_cottage"
+  "form_token": "double_house",
+  "units": 2
  },
  "names": {
   "family": "Moriarty",
-  "house_number": 237
+  "house_number": 358
  },
- "brief": "streetcar band pyramidal_cottage: 1 storeys, shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band double_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

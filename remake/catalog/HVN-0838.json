@@ -1,0 +1,71 @@
+{
+ "id": "HVN-0838",
+ "settlement": "Haven Point",
+ "generated": "tools/settlegen (Haven Point)",
+ "lot": {
+  "w": 22.9,
+  "d": 35.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "carport",
+  "yard": {
+   "fence": "chainlink",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Dunmore",
+  "house_number": 528
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0664"
+}

@@ -1,0 +1,71 @@
+{
+ "id": "HC-0472",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 18.9,
+  "d": 38.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 34,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e1d190",
+   "trim": "#f2efe6",
+   "accent": "#3a2a1e",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Booker",
+  "house_number": 533
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1939"
+}

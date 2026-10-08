@@ -25,7 +25,11 @@ const MARGIN := 0.08                 # hysteresis at each switch, a fraction of 
 ## entries: Array of Dictionaries {id: String, xform: Transform3D (in parent's space),
 ##   key2: Variant, key3: Variant (cell keys: buildings with equal keys merge)}.
 ## full: build each building's LOD0 too; false: LOD1 draws from 0 m and the returned "records"
-## ({id, root, lod1, k}) go to a RemakeDetailStreamer, which loads LOD0 near the player.
+## ({id, root, lod1, k}) go to a RemakeDetailStreamer, which loads LOD0 near the player.  With the
+## cells baked and full false, an ordinary building gets no nodes at all here (root and lod1 null,
+## its xform and parent kept): the streamer puts its LOD1 in while its cell's LOD2 mesh is near
+## enough to hand over to it ("cells": key2 -> {node, recs}) -- 50,000 buildings at 1:1 (2026-10-07)
+## can't each keep a LOD1 in the scene.
 ## A coroutine (one building per frame) -- await it; returns {"buildings", "cells2", "cells3", "landmarks"}.
 const BAKED := "res://remake/baked/structures.res"
 const BAKE_VERSION := 3              # bump when the merge's output changes (3: heights above grade; landmarks tall or bridges)
@@ -50,12 +54,77 @@ static func stamp() -> String:
 		"res://remake/terrain_level.bin.gz", "res://remake/terrain_depth.bin.gz"], BAKE_VERSION)
 
 
+const BAKE_BAND := 1200.0            # m of the ring merged at a time (a multiple of CELL2 and CELL3: no cell in two)
+
+
 static func bake(parent: Node3D, entries: Array) -> BakedMeshes:
 	## The merged LOD2 / LOD3 cells and each building's size class, for build() to load next time
-	## (remake/tools/bake_world.gd).
+	## (remake/tools/bake_world.gd).  A band of the ring at a time, its cells committed to meshes before the next and
+	## only the LOD2 / LOD3 of each model loaded: the whole 1:1 station's cells at once, with every model's LOD1 too,
+	## ran past the Deck's memory (2026-10-08).
 	var out := BakedMeshes.new()
 	out.stamp = stamp()
-	var info: Dictionary = await build(parent, entries, false, out)
+	out.data["meta"] = {}
+	var bands := {}
+	for e in entries:
+		var s := fposmod(float((e.key2 as Vector2i).x) * CELL2 + 1.0, StationGeo.CIRC)
+		var b := floori(s / BAKE_BAND)
+		if not bands.has(b):
+			bands[b] = []
+		bands[b].append(e)
+	var lods := {}                                       # model -> [lod2, lod3] (PackedScene or null)
+	var keys := bands.keys()
+	keys.sort()
+	for bk in keys:
+		var cells2 := {}
+		var cells3 := {}
+		for e in bands[bk]:
+			var id: String = e.id
+			var model: String = e.get("model", id)
+			if not lods.has(model):
+				var two := []
+				for l in [2, 3]:
+					var p := "res://remake/buildings/%s.lod%d.glb" % [model, l]
+					two.append(load(p) if ResourceLoader.exists(p) else null)
+				lods[model] = two
+			var sc: Array = lods[model]
+			var l2: Node3D = sc[0].instantiate() if sc[0] else null
+			var probe: Node3D = l2
+			if probe == null:
+				var p1 := "res://remake/buildings/%s.lod1.glb" % model
+				if not ResourceLoader.exists(p1):
+					continue
+				probe = (load(p1) as PackedScene).instantiate()
+			var ab := _aabb(probe)
+			var wide := maxf(ab.size.x, ab.size.z)
+			var tall := ab.end.y
+			var k := clampf(maxf(tall, wide * 0.8) / 12.0, 0.7, 4.0)
+			var landmark := tall >= LANDMARK_H or (wide >= LANDMARK_W and _is_crossing(id))
+			out.data.meta[id] = [k, landmark]
+			if probe != l2:
+				probe.free()
+			if landmark:
+				if l2:
+					l2.free()
+				continue
+			if l2:
+				if not cells2.has(e.key2):
+					cells2[e.key2] = {"st": SurfaceTool.new(), "key3": e.key3}
+					cells2[e.key2].st.begin(Mesh.PRIMITIVE_TRIANGLES)
+				_append(cells2[e.key2].st, l2, e.xform)            # (frees the instance)
+			if sc[1]:
+				if not cells3.has(e.key3):
+					cells3[e.key3] = SurfaceTool.new()
+					cells3[e.key3].begin(Mesh.PRIMITIVE_TRIANGLES)
+				_append(cells3[e.key3], sc[1].instantiate(), e.xform)
+		for key in cells3:
+			out.keys.append([3, key])
+			out.meshes.append(cells3[key].commit())
+		for key in cells2:
+			out.keys.append([2, key, cells2[key].key3])
+			out.meshes.append(cells2[key].st.commit())
+		cells2.clear()
+		cells3.clear()
 	return out
 
 
@@ -85,13 +154,16 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 	var lod1_of_cell2 := {}
 	var landmarks := 0
 	var records := []
+	var stream := baked != null and not full and bake_into == null
+	var streamed_of_cell2 := {}
 	for idx in entries.size():
 		var e: Dictionary = entries[idx]
 		# (behind the loading screen they load right here instead: hitches don't matter there, and Godot
 		# 4.5 can crash when many scenes sharing materials load on sub-threads at once)
 		while not StationGeo.loading and ahead < mini(entries.size(), idx + LOOKAHEAD):
 			var am: String = entries[ahead].get("model", entries[ahead].id)
-			for l in ([1] if baked and not meta.get(entries[ahead].id, [1.0, true])[1] else [1, 2, 3]):
+			var am_meta: Array = meta.get(entries[ahead].id, [1.0, true])
+			for l in ([] if stream and not am_meta[1] else [1] if baked and not am_meta[1] else [1, 2, 3]):
 				var ap := "res://remake/buildings/%s.lod%d.glb" % [am, l]
 				if ResourceLoader.exists(ap):
 					ResourceLoader.load_threaded_request(ap)
@@ -99,6 +171,14 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 		var id: String = e.id
 		var model: String = e.get("model", id)             # the glbs it uses (a crossing may reuse another's)
 		var known: Array = meta.get(id, [])
+		if stream and not known.is_empty() and not known[1]:
+			# streamed: nothing in the scene until its cell comes near (RemakeDetailStreamer)
+			records.append({"id": id, "model": model, "root": null, "lod1": null, "k": known[0], "landmark": false,
+				"xform": e.xform, "parent": parent, "key2": e.key2})
+			if not streamed_of_cell2.has(e.key2):
+				streamed_of_cell2[e.key2] = []
+			streamed_of_cell2[e.key2].append(records.size() - 1)
+			continue
 		var need := [1] if not known.is_empty() and not known[1] else [1, 2, 3]
 		if not lod_scenes.has(model) or lod_scenes[model].size() < need.size():
 			lod_scenes[model] = []
@@ -157,7 +237,8 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 			_ranges(b, 0.0, lod0_end(k))
 			_light_fade(b)
 		else:
-			records.append({"id": id, "model": model, "root": root, "lod1": lod1, "k": k, "landmark": landmark})
+			records.append({"id": id, "model": model, "root": root, "lod1": lod1, "k": k, "landmark": landmark,
+				"xform": e.xform, "parent": parent, "key2": e.key2})
 		var lod1_begin := lod0_end(k) if full else 0.0      # no full detail yet: LOD1 from 0 m (the streamer swaps it)
 		if not landmark:
 			# Godot's own mesh LOD (generated on import) thins an ordinary building's exterior with distance; only
@@ -178,10 +259,15 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 				await tree.process_frame
 				frame_start = Time.get_ticks_usec()
 			continue
-		_ranges(lod1, lod1_begin, 0.0)
-		if not lod1_of_cell2.has(e.key2):
-			lod1_of_cell2[e.key2] = []
-		lod1_of_cell2[e.key2].append(lod1)
+		if bake_into:
+			# baking: an ordinary building's own nodes aren't kept (the game streams them) -- only its merge
+			root.free()
+			records.pop_back()
+		else:
+			_ranges(lod1, lod1_begin, 0.0)
+			if not lod1_of_cell2.has(e.key2):
+				lod1_of_cell2[e.key2] = []
+			lod1_of_cell2[e.key2].append(lod1)
 		if baked:
 			# its cells come baked
 			if Time.get_ticks_usec() - frame_start > (LOADING_BUDGET_USEC if StationGeo.loading else BUDGET_USEC):
@@ -229,6 +315,7 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 			bake_into.keys.append([2, key, key3_of[key]])
 			bake_into.meshes.append(mesh2[key])
 	var nodes3 := {}
+	var nodes2 := {}
 	for key in mesh3:
 		var mi := _commit(mesh3[key], "lod3_%s" % str(key))
 		parent.add_child(mi)
@@ -247,9 +334,14 @@ static func build(parent: Node3D, entries: Array, full := true, bake_into: Baked
 			mi.visibility_parent = mi.get_path_to(p3)
 		for lod1 in lod1_of_cell2.get(key, []):
 			_parent_all(lod1, mi)
+		nodes2[key] = mi
+	# the streamed buildings by cell (a cell without a LOD2 mesh: node null -- its LOD1s are wanted at any distance)
+	var cells := {}
+	for key in streamed_of_cell2:
+		cells[key] = {"node": nodes2.get(key), "recs": streamed_of_cell2[key]}
 	return {"buildings": entries.size(), "cells2": mesh2.size(), "cells3": mesh3.size(), "landmarks": landmarks,
-		"baked": baked != null,
-		"records": records}
+		"baked": baked != null, "streamed": records.size() - landmarks if stream else 0,
+		"records": records, "cells": cells}
 
 
 static func _append(st: SurfaceTool, inst: Node, xform: Transform3D) -> void:

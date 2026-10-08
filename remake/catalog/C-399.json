@@ -1,59 +1,67 @@
 {
  "id": "C-399",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.8,
-  "d": 41.6
+  "w": 12.2,
+  "d": 42.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 39,
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "enclosed",
+   "posts": "columns",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "brick",
   "colors": {
-   "body": "#8daab4",
-   "trim": "#3a3f44",
-   "accent": "#3a2a1e",
-   "roof": "#3e3e3c"
+   "body": "#c5b992",
+   "trim": "#ffffff",
+   "accent": "#5b6b3a",
+   "roof": "#5a4a40"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1910,
+  "year_built": 1895,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Tomczak",
-  "house_number": 341
+  "family": "Arrieta",
+  "house_number": 381
  },
- "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
 }

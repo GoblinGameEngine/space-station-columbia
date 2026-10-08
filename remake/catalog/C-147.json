@@ -1,61 +1,58 @@
 {
  "id": "C-147",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.0,
-  "d": 40.5
+  "w": 12.4,
+  "d": 41.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "workers_cottage",
-  "storeys": 1.5,
-  "main_w_ft": 19,
-  "main_d_ft": 34,
+  "archetype": "side_gable_cottage",
+  "storeys": 1,
+  "main_w_ft": 30,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "square",
-   "rail": "solid"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#dfd0b6",
+   "body": "#ded1b7",
    "trim": "#f4f1e8",
-   "accent": "#2e3a4a",
-   "roof": "#4e5155"
+   "accent": "#1f2a33",
+   "roof": "#4a4a48"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed",
-    "clothesline"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1902,
+  "year_built": 1914,
   "band": "streetcar",
-  "form_token": "workers_cottage"
+  "form_token": "pyramidal_cottage"
  },
  "names": {
-  "family": "Castellanos",
-  "house_number": 580
+  "family": "Booker",
+  "house_number": 577
  },
- "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band pyramidal_cottage: 1 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

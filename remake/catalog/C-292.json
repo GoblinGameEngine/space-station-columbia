@@ -1,17 +1,17 @@
 {
  "id": "C-292",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 12.2,
-  "d": 40.6
+  "w": 13.6,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 38,
+  "main_w_ft": 21,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "brick",
@@ -48,14 +48,13 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1897,
+  "year_built": 1912,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
   "family": "Wainwright",
-  "house_number": 480
+  "house_number": 433
  },
- "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

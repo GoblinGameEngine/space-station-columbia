@@ -1,43 +1,38 @@
 {
  "id": "C-620",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.5,
-  "d": 42.1
+  "w": 18.6,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
-  "storeys": 1.5,
+  "storeys": 2,
   "main_w_ft": 25,
   "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "front_partial",
    "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#ccb885",
-   "trim": "#e9e2d2",
-   "accent": "#4a5a48",
-   "roof": "#4e5155"
+   "body": "#636d76",
+   "trim": "#3a3f44",
+   "accent": "#7a2e28",
+   "roof": "#555350"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -46,20 +41,19 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1899,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "names": {
-  "family": "Wisniewski",
-  "house_number": 268
+  "family": "Tomczak",
+  "house_number": 223
  },
- "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

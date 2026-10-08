@@ -1,35 +1,35 @@
 {
  "id": "C-197",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 18.9,
-  "d": 40.7
+  "w": 10.9,
+  "d": 24.5
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 21,
-  "main_d_ft": 33,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "asphalt_shingle"
+   "pitch_deg": 43,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "brick",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#9aada6",
-   "trim": "#5a3a28",
+   "body": "#77372f",
+   "trim": "#e9e2d2",
    "accent": "#1f2a33",
-   "roof": "#4a4a48"
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "1over1",
@@ -40,25 +40,20 @@
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "picket",
    "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1899,
+  "condition": "worn",
+  "year_built": 1918,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
-  }
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
-  "family": "Pham",
-  "house_number": 378
+  "family": "Marlowe",
+  "house_number": 367
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

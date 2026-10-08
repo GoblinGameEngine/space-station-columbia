@@ -1,0 +1,66 @@
+{
+ "id": "F-0747",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 19.0,
+  "d": 33.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#dec4a2",
+   "trim": "#e9e2d2",
+   "accent": "#5b6b3a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Yoder",
+  "house_number": 710
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1034"
+}

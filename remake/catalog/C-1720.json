@@ -1,28 +1,76 @@
 {
  "id": "C-1720",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 21.6,
-  "d": 29.2
+  "w": 84.5,
+  "d": 28.0
  },
  "kind": "strip",
  "traits": {
   "stores": [
    {
-    "business": "Deer Variety",
-    "type": "variety_store",
-    "sign": "DEER VARIETY",
+    "business": "Bluff Market",
+    "type": "grocery",
+    "sign": "BLUFF MARKET",
     "sign_style": "projecting",
     "awning": true,
-    "tenant": "pharmacy_drive_thru"
+    "tenant": "convenience_store"
+   },
+   {
+    "business": "Haddad & Nguyen Video Rental",
+    "type": "video_rental",
+    "sign": "HADDAD & NGUYEN VIDEO RENTAL",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "video_rental"
+   },
+   {
+    "business": "Villalobos & Kowal Barber Shop",
+    "type": "barber",
+    "sign": "VILLALOBOS & KOWAL BARBER SHOP",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "barber"
+   },
+   {
+    "business": "Okafor & Reyes Video Rental",
+    "type": "video_rental",
+    "sign": "OKAFOR & REYES VIDEO RENTAL",
+    "sign_style": "projecting",
+    "awning": true,
+    "tenant": "video_rental"
+   },
+   {
+    "business": "Brandvold Barber Shop",
+    "type": "barber",
+    "sign": "BRANDVOLD BARBER SHOP",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "barber"
+   },
+   {
+    "business": "Pruett & Merriweather Video Rental",
+    "type": "video_rental",
+    "sign": "PRUETT & MERRIWEATHER VIDEO RENTAL",
+    "sign_style": "awning_lettering",
+    "awning": false,
+    "tenant": "video_rental"
+   },
+   {
+    "business": "Calder Dollar Store",
+    "type": "dollar",
+    "sign": "CALDER DOLLAR STORE",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "dollar_store"
    }
   ],
-  "era": 1974
+  "era": 2006
  },
  "names": {
-  "name": "Deer Creek Corners",
-  "sign": "DEER CREEK CORNERS"
+  "name": "Bluff Shoppes",
+  "sign": "BLUFF SHOPPES"
  },
- "brief": "strip (pad) generated for Calder."
+ "brief": "strip (strip_row) generated for Calder."
 }

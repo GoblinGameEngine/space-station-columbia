@@ -1,27 +1,58 @@
 {
  "id": "C-1531",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 50.2,
-  "d": 23.8
+  "w": 22.0,
+  "d": 30.5
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#f1e5e5"
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1969,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#a2aba0",
+   "trim": "#e8e0c8",
+   "accent": "#3a2a1e",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2023,
+  "band": "current",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Haskins",
+  "house_number": 685
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band builder_contemporary: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

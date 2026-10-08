@@ -1,0 +1,76 @@
+{
+ "id": "PCR-1375",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 12.5,
+  "d": 24.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "slate"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "i_house",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 9
+  }
+ },
+ "region": "ne",
+ "names": {
+  "family": "Okafor",
+  "house_number": 1162
+ },
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0479"
+}

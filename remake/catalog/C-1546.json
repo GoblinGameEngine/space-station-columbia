@@ -1,31 +1,59 @@
 {
  "id": "C-1546",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 41.5,
-  "d": 23.9
+  "w": 20.4,
+  "d": 27.2
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 36,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#99b0bf",
-   "trim": "#e9e2d2",
-   "accent": "#7a2e28",
-   "roof": "#2f3133"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 30,
+  "main_d_ft": 34,
   "roof": {
-   "pitch_deg": 29
+   "type": "cross_gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2023,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#eeedee",
+   "trim": "#3a3f44",
+   "accent": "#2e3a4a",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "new",
+  "year_built": 2012,
+  "band": "current",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Stroud",
+  "house_number": 1066
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band neo_eclectic: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,20 +1,62 @@
 {
  "id": "C-1690",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 33.3,
-  "d": 42.0
+  "w": 24.9,
+  "d": 33.6
  },
- "kind": "motel",
+ "kind": "house",
  "traits": {
-  "rooms": 14,
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "year_built": 1958
+  "main_w_ft": 38,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c7c9b5",
+   "trim": "#3a3f44",
+   "accent": "#2b4f6b",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "names": {
-  "name": "Calder Motel",
-  "sign": "CALDER MOTEL"
+  "family": "Reyes",
+  "house_number": 174
  },
- "brief": "motel (motel) generated for Calder."
+ "brief": "postwar band minimal_traditional: 1 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

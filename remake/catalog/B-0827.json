@@ -1,0 +1,70 @@
+{
+ "id": "B-0827",
+ "settlement": "Bellhaven",
+ "generated": "tools/settlegen (Bellhaven)",
+ "lot": {
+  "w": 18.0,
+  "d": 37.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "bungalow",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 42,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f4e1e0",
+   "trim": "#f4f1e8",
+   "accent": "#6a4a2a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "bungalow"
+ },
+ "names": {
+  "family": "Merriweather",
+  "house_number": 483
+ },
+ "brief": "interwar band bungalow: 1.5 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1195"
+}

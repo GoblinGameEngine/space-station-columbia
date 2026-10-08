@@ -1,60 +1,69 @@
 {
  "id": "C-801",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 19.0,
-  "d": 42.8
+  "w": 14.3,
+  "d": 26.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 29,
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 39,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 38,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "columns",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#f4f5ec",
-   "trim": "#e8e0c8",
-   "accent": "#2b4f6b",
+   "body": "#a1ba9d",
+   "trim": "#3a3f44",
+   "accent": "#4a5a48",
    "roof": "#2f3133"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "foursquare"
+  "condition": "worn",
+  "year_built": 1897,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Mbeki",
-  "house_number": 579
+  "family": "Okafor",
+  "house_number": 393
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

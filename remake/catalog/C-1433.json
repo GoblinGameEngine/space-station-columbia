@@ -1,31 +1,58 @@
 {
  "id": "C-1433",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 44.5,
-  "d": 31.3
+  "w": 21.6,
+  "d": 32.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#c1c0c7",
-   "trim": "#e9e2d2",
-   "accent": "#4a5a48",
-   "roof": "#4a4a48"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 36,
   "roof": {
-   "pitch_deg": 26
+   "type": "gable",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2012,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#9eb798",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2016,
+  "band": "current",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Leclerc",
+  "house_number": 333
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band builder_contemporary: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

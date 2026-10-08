@@ -1,0 +1,68 @@
+{
+ "id": "M-0780",
+ "settlement": "Marlowe",
+ "generated": "tools/settlegen (Marlowe)",
+ "lot": {
+  "w": 19.1,
+  "d": 31.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 35,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e8d9dc",
+   "trim": "#3a3f44",
+   "accent": "#1f2a33",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Smith",
+  "house_number": 502
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1038"
+}

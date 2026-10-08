@@ -1,35 +1,35 @@
 {
  "id": "C-311",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 17.0,
-  "d": 40.1
+  "w": 14.0,
+  "d": 41.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 24,
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "tapered_on_piers",
+   "posts": "turned",
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#e2dcd9",
-   "trim": "#e9e2d2",
-   "accent": "#5b6b3a",
-   "roof": "#555350"
+   "body": "#ede7d3",
+   "trim": "#f4f1e8",
+   "accent": "#4a5a48",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
@@ -41,21 +41,18 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1902,
   "band": "streetcar",
-  "form_token": "double_house",
-  "units": 2
+  "form_token": "gable_front"
  },
  "names": {
-  "family": "Carrow",
-  "house_number": 369
+  "family": "Duquesne",
+  "house_number": 540
  },
- "brief": "streetcar band double_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

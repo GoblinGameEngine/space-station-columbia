@@ -1,35 +1,35 @@
 {
  "id": "C-364",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.8,
-  "d": 41.0
+  "w": 14.1,
+  "d": 40.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 37,
+  "main_w_ft": 27,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
+   "type": "hip",
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "brick",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#d2ad89",
+   "body": "#a39367",
    "trim": "#ffffff",
-   "accent": "#2e3a4a",
-   "roof": "#2f3133"
+   "accent": "#7a2e28",
+   "roof": "#555350"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -42,20 +42,24 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1911,
   "band": "streetcar",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "foursquare",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 10
+  }
  },
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 315
+  "family": "Smith",
+  "house_number": 266
  },
- "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band foursquare: 2 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

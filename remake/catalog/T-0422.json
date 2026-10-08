@@ -1,0 +1,70 @@
+{
+ "id": "T-0422",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 12.6,
+  "d": 31.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c5b881",
+   "trim": "#e9e2d2",
+   "accent": "#6a4a2a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing"
+ },
+ "names": {
+  "family": "Reyes",
+  "house_number": 504
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, brick walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1092"
+}

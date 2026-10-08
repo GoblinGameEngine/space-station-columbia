@@ -1,27 +1,60 @@
 {
  "id": "C-1321",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 51.7,
-  "d": 37.3
+  "w": 22.3,
+  "d": 32.1
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#acab98"
+  "main_w_ft": 24,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1972,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#dcddce",
+   "trim": "#3a3f44",
+   "accent": "#1f2a33",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2005,
+  "band": "late",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Smith",
+  "house_number": 167
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "late band builder_contemporary: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,76 @@
+{
+ "id": "K-1103",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 12.6,
+  "d": 40.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "upright_and_wing",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#768680",
+   "trim": "#5a3a28",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1905,
+  "band": "streetcar",
+  "form_token": "gable_front_and_wing",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 11
+  }
+ },
+ "names": {
+  "family": "Okafor",
+  "house_number": 705
+ },
+ "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1076"
+}

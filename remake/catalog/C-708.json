@@ -1,43 +1,38 @@
 {
  "id": "C-708",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.6,
-  "d": 40.5
+  "w": 17.5,
+  "d": 41.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "upright_and_wing",
-  "storeys": 1.5,
-  "main_w_ft": 27,
-  "main_d_ft": 27,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 35,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 39,
+   "type": "gable",
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#a1b7a1",
-   "trim": "#5a3a28",
+   "body": "#d2c4af",
+   "trim": "#3a3f44",
    "accent": "#6a4a2a",
    "roof": "#5a5a58"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -46,20 +41,22 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
+  "year_built": 1897,
   "band": "streetcar",
-  "form_token": "gable_front_and_wing"
+  "form_token": "gable_front",
+  "units": 2
  },
  "names": {
-  "family": "Mbeki",
-  "house_number": 228
+  "family": "Foxworth",
+  "house_number": 267
  },
- "brief": "streetcar band gable_front_and_wing: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

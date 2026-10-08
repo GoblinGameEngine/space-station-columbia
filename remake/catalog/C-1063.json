@@ -1,27 +1,61 @@
 {
  "id": "C-1063",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 38.0,
-  "d": 26.0
+  "w": 31.7,
+  "d": 28.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 24,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#9f9ba8"
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 41,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 21,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1982,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#ece0e9",
+   "trim": "#ffffff",
+   "accent": "#2b4f6b",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "sliding",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "new",
+  "year_built": 1978,
+  "band": "suburban",
+  "form_token": "raised_ranch"
  },
  "names": {
-  "name": ""
+  "family": "Wainwright",
+  "house_number": 1107
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "suburban band raised_ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

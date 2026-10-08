@@ -1,0 +1,70 @@
+{
+ "id": "HF-4284",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 24.6,
+  "d": 30.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#aa8a65",
+   "trim": "#3a3f44",
+   "accent": "#1f2a33",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1956,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Raghunathan",
+  "house_number": 2513
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, brick walls, recessed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-4316"
+}

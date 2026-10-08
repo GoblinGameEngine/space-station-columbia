@@ -1,0 +1,70 @@
+{
+ "id": "HF-2348",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 18.8,
+  "d": 34.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#cbbaab",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Arrieta",
+  "house_number": 1371
+ },
+ "brief": "interwar band tudor: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1326"
+}

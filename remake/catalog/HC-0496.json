@@ -1,0 +1,66 @@
+{
+ "id": "HC-0496",
+ "settlement": "Haskins Corner",
+ "generated": "tools/settlegen (Haskins Corner)",
+ "lot": {
+  "w": 16.3,
+  "d": 34.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#834330",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "tudor"
+ },
+ "names": {
+  "family": "Wainwright",
+  "house_number": 301
+ },
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1446"
+}

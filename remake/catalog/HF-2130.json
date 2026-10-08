@@ -1,0 +1,70 @@
+{
+ "id": "HF-2130",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 15.0,
+  "d": 23.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#c15444",
+   "trim": "#2e3a4a",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "workers_cottage"
+ },
+ "names": {
+  "family": "Wainwright",
+  "house_number": 1639
+ },
+ "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens)."
+}

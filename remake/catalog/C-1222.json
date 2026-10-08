@@ -1,27 +1,58 @@
 {
  "id": "C-1222",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 52.2,
-  "d": 36.8
+  "w": 26.2,
+  "d": 32.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#af6747"
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2004,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#94a1aa",
+   "trim": "#e8e0c8",
+   "accent": "#7a2e28",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1997,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Wainwright",
+  "house_number": 207
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "late band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

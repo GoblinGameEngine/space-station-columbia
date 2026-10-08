@@ -1,21 +1,77 @@
 {
  "id": "C-1707",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 21.6,
-  "d": 32.5
+  "w": 91.8,
+  "d": 45.2
  },
  "kind": "strip",
  "traits": {
   "stores": [
    {
-    "business": "Smith Cafe",
-    "type": "cafe",
-    "sign": "SMITH CAFE",
+    "business": "Smith Variety",
+    "type": "variety_store",
+    "sign": "SMITH VARIETY",
     "sign_style": "awning_lettering",
     "awning": false,
-    "tenant": "coffee_drive_thru"
+    "tenant": "cards_and_gifts"
+   },
+   {
+    "business": "Brannock Dry Goods",
+    "type": "dry_goods",
+    "sign": "BRANNOCK DRY GOODS",
+    "sign_style": "awning_lettering",
+    "awning": true,
+    "tenant": "fabric_store"
+   },
+   {
+    "business": "Yoder Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "YODER BEAUTY SHOP",
+    "sign_style": "awning_lettering",
+    "awning": false,
+    "tenant": "hair_salon"
+   },
+   {
+    "business": "Loomis Dry Goods",
+    "type": "dry_goods",
+    "sign": "LOOMIS DRY GOODS",
+    "sign_style": "flat_board",
+    "awning": false,
+    "tenant": "fabric_store"
+   },
+   {
+    "business": "Calder Variety",
+    "type": "variety_store",
+    "sign": "CALDER VARIETY",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "mobile_phone"
+   },
+   {
+    "business": "Wisniewski & Desai Restaurant",
+    "type": "restaurant",
+    "sign": "WISNIEWSKI & DESAI RESTAURANT",
+    "sign_style": "awning_lettering",
+    "awning": false,
+    "tenant": "chinese_buffet"
+   },
+   {
+    "business": "Dunmore Family Medicine",
+    "type": "doctor_office",
+    "sign": "DUNMORE FAMILY MEDICINE",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "optician"
+   },
+   {
+    "business": "Haddad & Moriarty Family Medicine",
+    "type": "doctor_office",
+    "sign": "HADDAD & MORIARTY FAMILY MEDICINE",
+    "sign_style": "flat_board",
+    "awning": true,
+    "tenant": "optician"
    }
   ],
   "era": 1994
@@ -24,5 +80,5 @@
   "name": "Calder Commons",
   "sign": "CALDER COMMONS"
  },
- "brief": "strip (pad) generated for Calder."
+ "brief": "strip (strip_row) generated for Calder."
 }

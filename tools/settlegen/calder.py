@@ -209,7 +209,11 @@ def write_records(structs, out_dir=None):
             e["stores"] = [dict(RC.business(r, st["type"], rules.surnames, "Calder", ["Calder", "Southland", "Ring Line", e.get("centre", "")
                                                                                   .split()[0]]), tenant=st["tenant"]) for st in e["stores"]]
         rec = RC.make_record(e, rules, "Calder", CFG["seed"])
-        json.dump(rec, open(os.path.join(out_dir, rec["id"] + ".json"), "w"), indent=1)
+        txt = json.dumps(rec, indent=1)                     # (unchanged: the file and its time stay -- build_library)
+        fp = os.path.join(out_dir, rec["id"] + ".json")
+        if not os.path.exists(fp) or open(fp).read() != txt:
+            with open(fp, "w") as f:
+                f.write(txt)
         n += 1
     return n
 

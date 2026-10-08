@@ -1,10 +1,10 @@
 {
  "id": "C-377",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 13.7,
-  "d": 40.9
+  "w": 11.9,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "shingle",
   "foundation": "concrete_block",
@@ -51,7 +51,8 @@
   "condition": "kept",
   "year_built": 1902,
   "band": "streetcar",
-  "form_token": "gable_front",
+  "form_token": "two_flat",
+  "units": 2,
   "wing": {
    "side": "rear",
    "w_ft": 14,
@@ -60,7 +61,7 @@
  },
  "names": {
   "family": "Ostrowski",
-  "house_number": 457
+  "house_number": 415
  },
- "brief": "streetcar band gable_front: 2 storeys, shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

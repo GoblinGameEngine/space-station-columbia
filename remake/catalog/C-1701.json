@@ -1,84 +1,32 @@
 {
  "id": "C-1701",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 91.8,
-  "d": 45.2
+  "w": 34.4,
+  "d": 42.0
  },
- "kind": "strip",
+ "kind": "store",
  "traits": {
-  "stores": [
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "none",
+  "storefronts": [
    {
-    "business": "Ring Line Variety",
-    "type": "variety_store",
-    "sign": "RING LINE VARIETY",
+    "business": "Pike Diner",
+    "type": "diner",
+    "sign": "PIKE DINER",
     "sign_style": "flat_board",
-    "awning": false,
-    "tenant": "cards_and_gifts"
-   },
-   {
-    "business": "Nowicki & Foxworth Dry Goods",
-    "type": "dry_goods",
-    "sign": "NOWICKI & FOXWORTH DRY GOODS",
-    "sign_style": "projecting",
-    "awning": false,
-    "tenant": "fabric_store"
-   },
-   {
-    "business": "Merriweather & Osei Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "MERRIWEATHER & OSEI BEAUTY SHOP",
-    "sign_style": "projecting",
-    "awning": false,
-    "tenant": "hair_salon"
-   },
-   {
-    "business": "Desai Dry Goods",
-    "type": "dry_goods",
-    "sign": "DESAI DRY GOODS",
-    "sign_style": "projecting",
-    "awning": true,
-    "tenant": "fabric_store"
-   },
-   {
-    "business": "Raghunathan Variety",
-    "type": "variety_store",
-    "sign": "RAGHUNATHAN VARIETY",
-    "sign_style": "flat_board",
-    "awning": false,
-    "tenant": "mobile_phone"
-   },
-   {
-    "business": "Szabo Restaurant",
-    "type": "restaurant",
-    "sign": "SZABO RESTAURANT",
-    "sign_style": "flat_board",
-    "awning": false,
-    "tenant": "chinese_buffet"
-   },
-   {
-    "business": "Moriarty Family Medicine",
-    "type": "doctor_office",
-    "sign": "MORIARTY FAMILY MEDICINE",
-    "sign_style": "flat_board",
-    "awning": true,
-    "tenant": "optician"
-   },
-   {
-    "business": "Castellanos Family Medicine",
-    "type": "doctor_office",
-    "sign": "CASTELLANOS FAMILY MEDICINE",
-    "sign_style": "flat_board",
-    "awning": false,
-    "tenant": "optician"
+    "awning": false
    }
   ],
-  "era": 1994
+  "condition": "kept",
+  "year_built": 1962,
+  "colors": {
+   "body": "#77372a"
+  }
  },
- "names": {
-  "name": "Calder Commons",
-  "sign": "CALDER COMMONS"
- },
- "brief": "strip (strip_row) generated for Calder."
+ "names": {},
+ "brief": "store (fast_food) generated for Calder."
 }

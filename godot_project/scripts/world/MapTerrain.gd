@@ -21,6 +21,7 @@ class_name MapTerrain
 
 const PATH := "res://remake/terrain.json"
 const CELL := 64.0                   # spatial grid for the polyline/polygon features
+const ROAD_RUN := 8                  # road segments indexed together
 
 const ROAD_BLEND := 5.0             # a road's grade blends back into the terrain over this, past its shoulder, at least
 const SIDE_SLOPE := 2.0             # cut and fill slopes: 2 horizontal to 1 vertical (research/roads/grading.md)
@@ -106,8 +107,19 @@ static func _load() -> void:
 		# (indexed as far as it can reach: its wider side's kerb, the lawn and walk, the shoulder, the blend)
 		var reach: float = maxf(float(rd.get("hr", rd.w * 0.5)), float(rd.get("hl", rd.w * 0.5))) \
 			+ float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0)) + 0.5 + BLEND_MAX
-		for k in rp.size() - 1:
-			_index(["road", i, k], rp[k][0], rp[k][1], rp[k + 1][0], rp[k + 1][1], reach)
+		# a run of ROAD_RUN segments an entry: their box (one each was ~1.5 M _index calls on the 1:1 map: 80 s to load)
+		var k0 := 0
+		while k0 < rp.size() - 1:
+			var k1 := mini(k0 + ROAD_RUN, rp.size() - 1)
+			var lo := Vector2(INF, INF)
+			var hi := Vector2(-INF, -INF)
+			var s_ref: float = rp[k0][0]
+			for k in range(k0, k1 + 1):
+				var su: float = s_ref + _wrap(float(rp[k][0]) - s_ref)
+				lo = Vector2(minf(lo.x, su), minf(lo.y, rp[k][1]))
+				hi = Vector2(maxf(hi.x, su), maxf(hi.y, rp[k][1]))
+			_index(["road", i, k0, k1], lo.x, lo.y, hi.x, hi.y, reach)
+			k0 = k1
 	for i in _d.areas.size():
 		var ap: Array = _d.areas[i].poly
 		var lo := Vector2(1e9, 1e9)
@@ -386,15 +398,16 @@ static func _road_cell(key: Vector2i) -> PackedFloat32Array:
 		if it[0] != "road":
 			continue
 		var rd: Dictionary = _d.roads[it[1]]
-		var a: Array = rd.pts[it[2]]
-		var bq: Array = rd.pts[it[2] + 1]
 		var kr: float = rd.get("hr", rd.w * 0.5)
 		var kl: float = rd.get("hl", rd.w * 0.5)
 		var verge: float = float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0))
-		if _seg_dist(cs, cx, a[0], a[1], bq[0], bq[1]) > maxf(kr, kl) + verge + 0.5 + BLEND_MAX + half_diag:
-			continue
 		var cum: PackedFloat32Array = rd.cum
-		out.append_array(PackedFloat32Array([a[0], a[1], bq[0], bq[1], kr, kl, verge, cum[it[2]], cum[it[2] + 1], it[1], it[2]]))
+		for k in range(it[2], it[3]):
+			var a: Array = rd.pts[k]
+			var bq: Array = rd.pts[k + 1]
+			if _seg_dist(cs, cx, a[0], a[1], bq[0], bq[1]) > maxf(kr, kl) + verge + 0.5 + BLEND_MAX + half_diag:
+				continue
+			out.append_array(PackedFloat32Array([a[0], a[1], bq[0], bq[1], kr, kl, verge, cum[k], cum[k + 1], it[1], k]))
 	_cache_mx.lock()
 	_rcells[key] = out
 	_cache_mx.unlock()
@@ -522,9 +535,19 @@ static func _load_pads() -> void:
 	if not FileAccess.file_exists(PLACEMENT):
 		return
 	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string(PLACEMENT)).structures
+	# the pads come baked (remake/tools/bake_world.gd pads): working out ~64,000 of them here, five road grades
+	# each, took a minute at every launch on the 1:1 map (2026-10-08)
+	var baked := _read_pads_baked()
 	for e in pl:
 		if e.kind == "crossing":
 			_load_bridge(e)
+			continue
+		if baked.has(e.id):
+			var pb: Array = baked[e.id]
+			_pad_by_id[e.id] = pb[8]
+			_pads.append(pb)
+			var rch := Vector2(maxf(absf(pb[4]), absf(pb[6])), maxf(absf(pb[5]), absf(pb[7]))).length()
+			_index(["pad", _pads.size() - 1], pb[0] - rch, pb[1] - rch, pb[0] + rch, pb[1] + rch, PAD_MARGIN + float(pb[9]))
 			continue
 		var s0: float = e.s
 		var x0: float = e.x
@@ -551,6 +574,55 @@ static func _load_pads() -> void:
 		_pads.append(pd)
 		var reach := Vector2(maxf(absf(e.min[0]), absf(e.max[0])), maxf(absf(e.min[2]), absf(e.max[2]))).length()
 		_index(["pad", _pads.size() - 1], s0 - reach, x0 - reach, s0 + reach, x0 + reach, PAD_MARGIN + blend)
+
+
+const PADS_BAKED := "res://remake/baked/pads.bin"
+const PADS_VERSION := 1
+
+
+static func pads_stamp() -> String:
+	return BakedMeshes.fingerprint([PATH, PLACEMENT, "res://remake/terrain_base.bin.gz", "res://remake/terrain_level.bin.gz",
+		"res://remake/terrain_depth.bin.gz"], PADS_VERSION)
+
+
+static func _read_pads_baked() -> Dictionary:
+	## id -> pad record, if the baked pads are of this data
+	if not FileAccess.file_exists(PADS_BAKED):
+		return {}
+	var f := FileAccess.open(PADS_BAKED, FileAccess.READ)
+	var d: Variant = f.get_var()
+	f.close()
+	if typeof(d) != TYPE_DICTIONARY or str(d.get("stamp", "")) != pads_stamp():
+		push_warning("MapTerrain: the baked pads are of other data -- working them out (rerun remake/tools/bake_world.gd pads)")
+		return {}
+	var out := {}
+	var ids: PackedStringArray = d.ids
+	var v: PackedFloat64Array = d.v
+	for i in ids.size():
+		var o := i * 10
+		out[ids[i]] = [v[o], v[o + 1], v[o + 2], v[o + 3], v[o + 4], v[o + 5], v[o + 6], v[o + 7], v[o + 8], v[o + 9]]
+	return out
+
+
+static func bake_pads() -> int:
+	## (remake/tools/bake_world.gd) every pad worked out afresh and saved
+	_load()
+	var ids := PackedStringArray()
+	var v := PackedFloat64Array()
+	var pl: Array = JSON.parse_string(FileAccess.get_file_as_string(PLACEMENT)).structures
+	var k := 0
+	for e in pl:
+		if e.kind == "crossing":
+			continue
+		var pd: Array = _pads[k]
+		k += 1
+		ids.append(str(e.id))
+		for q in pd:
+			v.append(float(q))
+	var f := FileAccess.open(PADS_BAKED, FileAccess.WRITE)
+	f.store_var({"stamp": pads_stamp(), "ids": ids, "v": v})
+	f.close()
+	return ids.size()
 
 
 static func _load_bridge(e: Dictionary) -> void:

@@ -1,0 +1,68 @@
+{
+ "id": "T-1834",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 23.3,
+  "d": 26.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 20,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#6d6455",
+   "trim": "#2e3a4a",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "DeCarlo",
+  "house_number": 347
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4316"
+}

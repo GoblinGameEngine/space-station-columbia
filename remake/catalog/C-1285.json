@@ -1,27 +1,56 @@
 {
  "id": "C-1285",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 54.1,
-  "d": 31.4
+  "w": 26.0,
+  "d": 29.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#b5684c"
+  "main_w_ft": 26,
+  "main_d_ft": 41,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1996,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#f3e5cc",
+   "trim": "#e9e2d2",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1992,
+  "band": "late",
+  "form_token": "builder_contemporary"
  },
  "names": {
-  "name": ""
+  "family": "Szabo",
+  "house_number": 226
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "late band builder_contemporary: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

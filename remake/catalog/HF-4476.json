@@ -1,0 +1,64 @@
+{
+ "id": "HF-4476",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 22.2,
+  "d": 30.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 33,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 24,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "recessed",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c0b8ac",
+   "trim": "#f4f1e8",
+   "accent": "#2b4f6b",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "sliding",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Garcia",
+  "house_number": 379
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4620"
+}

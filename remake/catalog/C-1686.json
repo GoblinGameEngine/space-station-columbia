@@ -1,24 +1,58 @@
 {
  "id": "C-1686",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 31.8,
-  "d": 42.0
+  "w": 23.0,
+  "d": 22.0
  },
- "kind": "strip",
+ "kind": "house",
  "traits": {
-  "stores": [
-   {
-    "business": "Calder Service",
-    "type": "gas_station",
-    "sign": "CALDER SERVICE",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 46,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#7d8c7e",
+   "trim": "#e9e2d2",
+   "accent": "#5b6b3a",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_right"
   ],
-  "era": 1988
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1950,
+  "band": "postwar",
+  "form_token": "ranch"
  },
- "names": {},
- "brief": "strip (gas_station) generated for Calder."
+ "names": {
+  "family": "Tomczak",
+  "house_number": 861
+ },
+ "brief": "postwar band ranch: 1 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens)."
 }

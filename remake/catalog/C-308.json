@@ -1,32 +1,32 @@
 {
  "id": "C-308",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.5,
-  "d": 35.0
+  "w": 18.4,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "bungalow",
-  "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 46,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
+   "type": "hip",
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "wrap",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#d2c6b6",
+   "body": "#788a73",
    "trim": "#e9e2d2",
    "accent": "#1f2a33",
    "roof": "#5a4a40"
@@ -38,23 +38,24 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1929,
+  "year_built": 1913,
   "band": "streetcar",
-  "form_token": "bungalow"
+  "form_token": "foursquare",
+  "units": 2
  },
  "names": {
   "family": "Marlowe",
-  "house_number": 526
+  "house_number": 578
  },
- "brief": "streetcar band bungalow: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band foursquare: 2 storeys, clapboard walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

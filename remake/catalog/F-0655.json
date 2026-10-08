@@ -1,0 +1,68 @@
+{
+ "id": "F-0655",
+ "settlement": "Fenwick",
+ "generated": "tools/settlegen (Fenwick)",
+ "lot": {
+  "w": 16.5,
+  "d": 35.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#d0cfaa",
+   "trim": "#2e3a4a",
+   "accent": "#6a4a2a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "shabby",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Mbeki",
+  "house_number": 500
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1798"
+}

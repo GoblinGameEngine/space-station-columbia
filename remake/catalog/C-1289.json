@@ -1,27 +1,56 @@
 {
  "id": "C-1289",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 49.1,
-  "d": 34.3
+  "w": 24.1,
+  "d": 30.5
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#909fa4"
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 38,
+  "main_d_ft": 21,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2002,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#95472d",
+   "trim": "#f4f1e8",
+   "accent": "#5b6b3a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 2008,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Carrow",
+  "house_number": 118
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "late band two_storey_colonial: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

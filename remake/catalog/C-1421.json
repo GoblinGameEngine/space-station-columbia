@@ -1,31 +1,56 @@
 {
  "id": "C-1421",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 43.9,
-  "d": 31.8
+  "w": 22.3,
+  "d": 22.1
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#d4cba9",
-   "trim": "#f4f1e8",
-   "accent": "#1f2a33",
-   "roof": "#4a4a48"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 36,
+  "main_d_ft": 27,
   "roof": {
-   "pitch_deg": 31
+   "type": "gable",
+   "pitch_deg": 33,
+   "material": "metal"
   },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#eee0cf",
+   "trim": "#2e3a4a",
+   "accent": "#3a2a1e",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
   "year_built": 2012,
-  "condition": "kept"
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Achterberg",
+  "house_number": 243
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

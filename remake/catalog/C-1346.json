@@ -1,31 +1,58 @@
 {
  "id": "C-1346",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 40.2,
-  "d": 33.8
+  "w": 23.5,
+  "d": 30.8
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 36,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#dcded6",
-   "trim": "#e9e2d2",
-   "accent": "#2b4f6b",
-   "roof": "#555350"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 37,
+  "main_d_ft": 31,
   "roof": {
-   "pitch_deg": 31
+   "type": "cross_gable",
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2004,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#9aa2a7",
+   "trim": "#5a3a28",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2003,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Mbeki",
+  "house_number": 803
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

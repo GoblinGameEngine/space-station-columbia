@@ -1,0 +1,71 @@
+{
+ "id": "BRW-1503",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 18.4,
+  "d": 31.6
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "gambrel",
+   "pitch_deg": 47,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a2e24",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Bazzi",
+  "house_number": 149
+ },
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1760"
+}

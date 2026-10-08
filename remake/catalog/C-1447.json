@@ -1,31 +1,58 @@
 {
  "id": "C-1447",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 40.9,
-  "d": 32.1
+  "w": 22.9,
+  "d": 30.8
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 36,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#d8d0a0",
-   "trim": "#2e3a4a",
-   "accent": "#2b4f6b",
-   "roof": "#4a4a48"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 21,
   "roof": {
-   "pitch_deg": 27
+   "type": "gable",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2014,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#f3ece7",
+   "trim": "#3a3f44",
+   "accent": "#5b6b3a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 2017,
+  "band": "current",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Loomis",
+  "house_number": 791
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

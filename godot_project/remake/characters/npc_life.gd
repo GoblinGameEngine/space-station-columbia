@@ -14,7 +14,10 @@ class_name NpcLife
 ##   life.state(pid, day, hour)    -> the segment now (hours past 24 run into the next day)
 ##   life.card(pid, day, hour)     -> the [LIFE] lines of the dialogue prompt
 
-const PATH := "res://remake/characters/npc_lives.json"
+const PATH := "res://remake/characters/lives/_index.json"   # the seed, the settlements, the bicycle homes
+const DIR := "res://remake/characters/lives/"                # a file per settlement: <Name_With_Underscores>.json
+const MAX_SHARDS := 4                                        # settlements' people held at once (the 1:1 station has
+                                                             # 218,000: a city's are ~50 MB of JSON, ~500 MB in memory)
 const HOURS := {                                   # occupation hours column -> (start, end)
 	"day": Vector2(9.0, 17.0), "early": Vector2(6.0, 14.0), "evening": Vector2(16.0, 24.0),
 	"school": Vector2(8.0, 15.5)}
@@ -30,8 +33,12 @@ static var _shared: NpcLife
 var seed := 1
 var people: Dictionary
 var _cache := {}                                  # "pid|day" -> timeline
-var by_home := {}                                 # building/flat id -> [pid]
-var by_unit := {}                                 # uid -> [pid] (works there, studies there or goes regularly)
+var by_home := {}                                 # building/flat id -> [pid]           (of the settlements loaded)
+var by_unit := {}                                 # uid -> [pid] (works there, studies there or goes regularly; loaded)
+var bikes: Array = []                             # homes with a bicycle by the door (the index: all of them)
+var _loaded := {}                                 # settlement file -> {pids, homes, units}
+var _lru: Array = []
+var _mutex := Mutex.new()
 var _occ_hours: Dictionary
 
 
@@ -45,26 +52,93 @@ static func shared() -> NpcLife:
 func _load() -> void:
 	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	seed = int(d.seed)
-	people = d.people
+	bikes = d.get("bikes", [])
+	people = {}
 	NpcPlaces.load_all()
-	# (the duplicate check by dictionary: Array.has on a busy unit's thousands of regulars made this 9 s)
-	var seen_h := {}
-	var seen_u := {}
-	for pid in people:
-		var P: Dictionary = people[pid]
-		_add_once(by_home, seen_h, P.home, pid)
-		if P.has("work"):
-			_add_once(by_unit, seen_u, P.work, pid)
-		if P.has("school"):
-			_add_once(by_unit, seen_u, P.school, pid)
-		for p in P.reg:
-			_add_once(by_unit, seen_u, P.reg[p], pid)
-		NpcPlaces.register_door(P.home, Vector2(float(P.door[0]), float(P.door[1])))
 	var occ: Dictionary = NpcTraits.shared().tables.occupations
 	var col := (occ._cols as Array).find("hours")
 	for o in occ:
 		if o != "_cols":
 			_occ_hours[o] = occ[o][col]
+
+
+static func shard_name(town: String) -> String:
+	## a settlement's lives file ("" and the country between towns: "_country")
+	return "_country" if town == "" or town == "_country" else town.replace(" ", "_")
+
+
+func _shard_of(building: String) -> String:
+	return shard_name(NpcOccupancy.town_of(building))
+
+
+func _ensure(sh: String) -> void:
+	## a settlement's people in memory (the least recently used of more than MAX_SHARDS let go)
+	_mutex.lock()
+	if _loaded.has(sh):
+		_lru.erase(sh)
+		_lru.append(sh)
+		_mutex.unlock()
+		return
+	var p := DIR + sh + ".json"
+	var ppl: Dictionary = {}
+	if FileAccess.file_exists(p):
+		ppl = (JSON.parse_string(FileAccess.get_file_as_string(p)) as Dictionary).get("people", {})
+	var rec := {"pids": ppl.keys(), "homes": {}, "units": {}}
+	# (the duplicate check by dictionary: Array.has on a busy unit's thousands of regulars made this 9 s)
+	var seen_h := {}
+	var seen_u := {}
+	for pid in ppl:
+		var P: Dictionary = ppl[pid]
+		people[pid] = P
+		_add_once(by_home, seen_h, P.home, pid)
+		rec.homes[P.home] = true
+		var us := []
+		if P.has("work"):
+			us.append(P.work)
+		if P.has("school"):
+			us.append(P.school)
+		for q in P.reg:
+			us.append(P.reg[q])
+		for u in us:
+			_add_once(by_unit, seen_u, u, pid)
+			rec.units[u] = true
+		NpcPlaces.register_door(P.home, Vector2(float(P.door[0]), float(P.door[1])))
+	_loaded[sh] = rec
+	_lru.append(sh)
+	while _lru.size() > MAX_SHARDS:
+		_evict(_lru.pop_front())
+	_mutex.unlock()
+
+
+func _evict(sh: String) -> void:
+	var rec: Dictionary = _loaded[sh]
+	_loaded.erase(sh)
+	var gone := {}
+	for pid in rec.pids:
+		people.erase(pid)
+		gone[pid] = true
+	for h in rec.homes:
+		by_home.erase(h)
+	for u in rec.units:
+		var keep := (by_unit.get(u, []) as Array).filter(func(q): return not gone.has(q))
+		if keep.is_empty():
+			by_unit.erase(u)
+		else:
+			by_unit[u] = keep
+	for k in _cache.keys():
+		if gone.has(str(k).get_slice("|", 0)):
+			_cache.erase(k)
+
+
+func has_person(pid: String) -> bool:
+	_ensure(_shard_of(pid.get_slice(":", 0)))
+	return people.has(pid)
+
+
+func regulars(uid: String) -> Array:
+	## who works, studies or goes regularly to a place (of the settlements loaded: its own is loaded here)
+	_ensure(_shard_of(uid.get_slice("/", 0)))
+	return by_unit.get(uid, [])
 
 
 static func _add_once(d: Dictionary, seen: Dictionary, k: String, pid: String) -> void:
@@ -85,6 +159,8 @@ static func _add(d: Dictionary, k: String, pid: String) -> void:
 
 
 func person(pid: String) -> Dictionary:
+	if not people.has(pid):
+		_ensure(_shard_of(pid.get_slice(":", 0)))
 	return people.get(pid, {})
 
 

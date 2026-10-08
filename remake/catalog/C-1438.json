@@ -1,27 +1,58 @@
 {
  "id": "C-1438",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 55.9,
-  "d": 28.0
+  "w": 21.9,
+  "d": 20.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "tudor_revival",
   "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#ebe5db"
+  "main_w_ft": 35,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1976,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#d2d2cf",
+   "trim": "#e8e0c8",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2011,
+  "band": "current",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Haskins",
+  "house_number": 491
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

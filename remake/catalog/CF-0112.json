@@ -1,0 +1,72 @@
+{
+ "id": "CF-0112",
+ "settlement": "Cedar Ford",
+ "generated": "tools/settlegen (Cedar Ford)",
+ "lot": {
+  "w": 16.7,
+  "d": 24.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#9dab9c",
+   "trim": "#2e3a4a",
+   "accent": "#2e3a4a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
+ },
+ "names": {
+  "family": "Haskins",
+  "house_number": 304
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-1347"
+}

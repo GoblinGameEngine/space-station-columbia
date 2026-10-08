@@ -1,31 +1,58 @@
 {
  "id": "C-1252",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 44.9,
-  "d": 25.9
+  "w": 23.0,
+  "d": 31.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
-  "walls": "brick",
-  "colors": {
-   "body": "#cfaf81",
-   "trim": "#e9e2d2",
-   "accent": "#3a2a1e",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 36,
+  "main_d_ft": 25,
   "roof": {
-   "pitch_deg": 30
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#ae876d",
+   "trim": "#2e3a4a",
+   "accent": "#5b6b3a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Garcia",
+  "house_number": 1051
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band two_storey_colonial: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

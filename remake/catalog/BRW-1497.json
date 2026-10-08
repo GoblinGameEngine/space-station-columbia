@@ -1,0 +1,71 @@
+{
+ "id": "BRW-1497",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 19.6,
+  "d": 33.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gambrel",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Castellanos",
+  "house_number": 1336
+ },
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1979"
+}

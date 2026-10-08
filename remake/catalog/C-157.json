@@ -1,27 +1,27 @@
 {
  "id": "C-157",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.5,
-  "d": 40.7
+  "w": 10.2,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "queen_anne",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 28,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
   "roof": {
-   "type": "cross_gable",
+   "type": "gable",
    "pitch_deg": 34,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "concrete_block",
@@ -50,11 +50,12 @@
   "condition": "kept",
   "year_built": 1899,
   "band": "streetcar",
-  "form_token": "queen_anne_irregular"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Osei",
-  "house_number": 329
+  "house_number": 345
  },
- "brief": "streetcar band queen_anne_irregular: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,69 @@
+{
+ "id": "HF-6106",
+ "settlement": "Harrow Falls",
+ "generated": "tools/settlegen (Harrow Falls)",
+ "lot": {
+  "w": 28.9,
+  "d": 35.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "a_frame",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#556d81",
+   "trim": "#3a3f44",
+   "accent": "#2e3a4a",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1979,
+  "band": "suburban",
+  "form_token": "a_frame"
+ },
+ "names": {
+  "family": "Szabo",
+  "house_number": 3148
+ },
+ "brief": "suburban band a_frame: 1.5 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens)."
+}

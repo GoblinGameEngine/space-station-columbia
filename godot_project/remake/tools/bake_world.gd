@@ -7,6 +7,7 @@ extends SceneTree
 ##   roads        MapRoads: every road ribbon, curb and gutter, shoulder, line and marking
 ##   structures   RemakeLodClusters: the merged LOD2 / LOD3 district meshes, each building's size class
 ##                (needs the real renderer: run it with a display, not --headless)
+##   pads         MapTerrain: every structure's pad height and blend (a minute at every launch, worked out live)
 ##   terrain      MapTerrainMesh: the far tier (T3) of every group
 ##   trees        MapTrees: every tree's place, size, turn and tint, as MultiMesh buffers
 ##   walks        CoastalWalks: the boardwalks, piers, docks and breakwaters, and their collision
@@ -22,6 +23,10 @@ func _initialize() -> void:
 		var b := r.bake()
 		r.free()
 		_save(b, MapRoads.BAKED, "roads", t0)
+	if all or what.has("pads"):
+		var t0 := Time.get_ticks_msec()
+		var n := MapTerrain.bake_pads()
+		print("BAKED pads: %d in %.1f s -> %s" % [n, (Time.get_ticks_msec() - t0) / 1000.0, MapTerrain.PADS_BAKED])
 	if all or what.has("terrain"):
 		var t0 := Time.get_ticks_msec()
 		var tm := MapTerrainMesh.new()

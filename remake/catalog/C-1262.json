@@ -1,31 +1,59 @@
 {
  "id": "C-1262",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 41.6,
-  "d": 22.6
+  "w": 23.5,
+  "d": 32.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#d7cdb6",
-   "trim": "#5a3a28",
-   "accent": "#2b4f6b",
-   "roof": "#4e5155"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 46,
+  "main_d_ft": 31,
   "roof": {
-   "pitch_deg": 29
+   "type": "gable",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2006,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#b1c1c7",
+   "trim": "#2e3a4a",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1991,
+  "band": "late",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Yoder",
+  "house_number": 924
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

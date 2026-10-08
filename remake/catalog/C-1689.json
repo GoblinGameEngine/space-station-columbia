@@ -1,32 +1,58 @@
 {
  "id": "C-1689",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 31.9,
-  "d": 42.0
+  "w": 22.1,
+  "d": 33.2
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Kowalczyk Garage",
-    "type": "auto_repair",
-    "sign": "KOWALCZYK GARAGE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 2004,
+  "main_w_ft": 29,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 21,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7a3334"
-  }
+   "body": "#94423d",
+   "trim": "#ffffff",
+   "accent": "#2e3a4a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
- "names": {},
- "brief": "store (auto_repair) generated for Calder."
+ "names": {
+  "family": "Achterberg",
+  "house_number": 220
+ },
+ "brief": "postwar band minimal_traditional: 1 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

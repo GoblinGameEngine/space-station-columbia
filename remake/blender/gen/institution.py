@@ -12,7 +12,7 @@ Plans (x across the lot, +y = street, origin at the lot centre):
 """
 import math
 
-from common import (dget, Palette, WALL_TEX, brick_for, clamp, hexcol, lib_building, rng, std_materials, darken, g, FONT_SANS,
+from common import (ROOF_TEX, dget, Palette, WALL_TEX, brick_for, clamp, hexcol, lib_building, rng, std_materials, darken, g, FONT_SANS,
                     FONT_SERIF, sign_board)
 import gbhouse as gh
 import shopfit
@@ -34,8 +34,10 @@ def materials(b, tr):
         tex = brick_for(hexcol(body))
     pal.surf("ext", tex, hexcol(body), rough=0.85)
     pal.surf("stone", "limestone", rough=0.85)
-    pal.surf("roof", "roof_slate" if dget(tr, "roof").get("material") == "slate" else "roof_asphalt",
-             hexcol(col.get("roof") or "#5a5a58"), rough=0.85)
+    rmat = tr.get("roof_material") or dget(tr, "roof").get("material") or "asphalt_shingle"
+    rtex = ROOF_TEX.get(rmat, "roof_asphalt")
+    # (clay tile keeps its own fired colour: a tint would muddy it)
+    pal.surf("roof", rtex, None if rtex.startswith("roof_clay") else hexcol(col.get("roof") or "#5a5a58"), rough=0.85)
     pal.surf("roof_m", "concrete", rough=0.95)
     pal.surf("floor", "terrazzo" if tr.get("year_built", tr.get("era", 1920)) > 1925 else "floor_oak", rough=0.4)
     pal.surf("plaster", "plaster", "#eee8da", rough=0.85)
@@ -230,7 +232,7 @@ def flat_roofed(tr):
     return dget(tr, "roof").get("type") == "flat" or is_mission(tr)
 
 
-def mission_parapet(p, x0, x1, y, z, t=0.3):
+def mission_parapet(p, x0, x1, y, z, t=0.3, wall="ext"):
     """A Mission Revival curvilinear front parapet above the wall top z on the front wall y: low
     at the corners, curving up over each shoulder to a raised centre with a small arched crest,
     outlined by a cast-stone coping.  Built as vertical strips so any profile shape works."""
@@ -250,8 +252,8 @@ def mission_parapet(p, x0, x1, y, z, t=0.3):
             hgt = 0.9 + rise + (0.7 * math.cos(d / 0.18 * math.pi / 2) if d < 0.18 else 0.0)
         prof.append((x0 + W * u, hgt))
     for (xa, ha), (xb, hb) in zip(prof, prof[1:]):
-        p.face([(xa, y + t, z), (xb, y + t, z), (xb, y + t, z + hb), (xa, y + t, z + ha)], "ext")      # street face
-        p.face([(xb, y, z), (xa, y, z), (xa, y, z + ha), (xb, y, z + hb)], "ext")                      # back face
+        p.face([(xa, y + t, z), (xb, y + t, z), (xb, y + t, z + hb), (xa, y + t, z + ha)], wall)       # street face
+        p.face([(xb, y, z), (xa, y, z), (xa, y, z + ha), (xb, y, z + hb)], wall)                       # back face
         p.face([(xa, y, z + ha + 0.2), (xb, y, z + hb + 0.2), (xb, y + t + 0.06, z + hb + 0.2), (xa, y + t + 0.06, z + ha + 0.2)],
                "trim")                                                                                    # cast-stone coping top
         p.face([(xa, y + t + 0.06, z + ha - 0.05), (xb, y + t + 0.06, z + hb - 0.05), (xb, y + t + 0.06, z + hb + 0.2),
@@ -362,7 +364,7 @@ def build(rec):
     style = tr.get("style", "vernacular")
     W = clamp(lot_w - 4.0, 9.0, 60.0)
     D = clamp(lot_d - 6.0, 8.0, 40.0)
-    if use in ("post_office", "library", "depot") or (W < 14 and kind != "school"):
+    if (use in ("post_office", "library", "depot") or (W < 14 and kind != "school")) and not tr.get("clock_tower"):
         return build_hall(b, rec, tr, names, use, W, D, lot_w, lot_d, storeys, rnd)
     # wing for the big room
     bands, wing = program(kind, use, storeys, W, D)
@@ -370,7 +372,10 @@ def build(rec):
     if wing and D >= 22:
         wing_d = min(14.0, D * 0.42)
     main_d = D - wing_d
-    y1 = lot_d / 2 - 3.0
+    tower_ts = clamp(W * 0.16, 4.2, 6.5) if tr.get("clock_tower") else 0.0
+    if tower_ts:
+        main_d -= tower_ts                    # (the clock tower stands in front of the main block, at its corner)
+    y1 = lot_d / 2 - 3.0 - tower_ts
     y0 = y1 - main_d
     x0, x1 = -W / 2, W / 2
     FL = 0.9 if year < 1940 else 0.45
@@ -383,9 +388,15 @@ def build(rec):
         floors.append((fz, fz + H))
     wall_top = floors[-1][1] + 0.35
     flat = style in ("classical_revival", "beaux_arts", "art_deco", "modern") or kind == "school" and year > 1915 or flat_roofed(tr)
+    if style in ("spanish_colonial", "federal"):
+        flat = False
     roof = dict(type="flat", thick=0.35, parapet=0.9, coping="stone") if flat else dict(type="hip", pitch=30, eave_oh=0.6, thick=0.2)
     if style == "prairie":
         roof = dict(type="hip", pitch=18, eave_oh=1.2, thick=0.2)
+    elif style == "spanish_colonial":
+        roof = dict(type="hip", pitch=22, eave_oh=0.7, thick=0.2)       # (a low clay-tile hip, deep eaves: Santa Barbara)
+    elif style == "federal":
+        roof = dict(type="hip", pitch=26, eave_oh=0.35, thick=0.2)      # (the New England brick or granite block)
     spec = dict(t_ext=TE, t_int=TI, era="old" if year < 1940 else "modern",
                 mats=dict(ext="ext", int="plaster", roof="roof" if not flat else "roof_m", roof_under="roof_under", found="found",
                           floor="floor", ceiling="ceiling", trim="trim", door="door", fascia="trim", porch="stone", post="stone",
@@ -415,11 +426,52 @@ def build(rec):
             for kx in range(2):
                 spec["doors"].append(dict(name=f"bay{kx}", at=(wrect[0] + (wrect[2] - wrect[0]) * (0.3 + 0.4 * kx), wrect[1]), w=3.2, h=3.6,
                                           ext=True, leaves=2, out=True, panels=[(0.1, 0.5, 0.9, 0.9), (0.1, 0.08, 0.9, 0.45)]))
+    # the landmarks' own features (research/terrain_and_cities section 7): a clock tower at a front corner (Union Station,
+    # the Spanish courthouse), a dome on a drum (the county courthouse)
+    ctower = None
+    if tower_ts:
+        ts = tower_ts
+        th = wall_top + clamp(W * 0.45, 9.0, 18.0)
+        cx_ = x1 - ts / 2
+        ctower = (cx_ - ts / 2, y1, cx_ + ts / 2, y1 + ts, th, ts)
+        spec["blocks"].append(dict(name="clocktower", rect=ctower[:4], floors=[floors[0]], wall_top=th, found_top=FL - 0.05,
+                                   roof=dict(type="flat", thick=0.3, parapet=0.0)))
     avoid = [(d["at"], d.get("floor", 0)) for d in spec["doors"]]
     windows_all(spec, (x0, y0, x1, y1), floors, avoid)
     add_stoops(spec, FL)
     gh.House(b, spec).build()
     exterior(b, rec, tr, names, (x0, y0, x1, y1), floors, wall_top, flat, style, lot_d, rnd, kind)
+    lp = b.part("landmark_trim-col")
+    if ctower:
+        tx0, ty0, tx1, ty1, th, ts = ctower
+        tx, ty = (tx0 + tx1) / 2, (ty0 + ty1) / 2
+        for sx, sy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            # a clock face on each side near the top: a white disc, its hands
+            fx, fy = tx + sx * (ts / 2 + 0.02), ty + sy * ((ty1 - ty0) / 2 + 0.02)
+            if sy:
+                lp.box((fx - ts * 0.3, fy - 0.03 * sy, th - ts * 0.75), (fx + ts * 0.3, fy + 0.04 * sy if sy > 0 else fy, th - ts * 0.15), "trim")
+                lp.box((fx - 0.05, fy, th - ts * 0.45), (fx + 0.05, fy + 0.06 * sy if sy > 0 else fy + 0.0, th - ts * 0.2), "black")
+            else:
+                lp.box((fx - 0.03 * sx if sx > 0 else fx, fy - ts * 0.3, th - ts * 0.75), (fx + 0.04 * sx if sx > 0 else fx + 0.03, fy + ts * 0.3, th - ts * 0.15), "trim")
+        if style in ("mission_revival", "spanish_colonial") or tr.get("roof_material") == "clay_tile":
+            gh.hip_roof(lp, tx0 - 0.3, tx1 + 0.3, ty0 - 0.3, ty1 + 0.3, th, 30, 0.3, 0.12, "roof", "trim", "trim")
+        else:
+            lp.box((tx0 + 0.4, ty0 + 0.4, th), (tx1 - 0.4, ty1 - 0.4, th + 2.2), "ext")         # the deco stepped crown
+            lp.box((tx0 + 1.0, ty0 + 1.0, th + 2.2), (tx1 - 1.0, ty1 - 1.0, th + 4.0), "ext")
+            lp.cylinder((tx, ty), 0.12, th + 4.0, th + 7.0, "gold", n=8)
+    if tr.get("dome"):
+        # a drum and a dome over the centre of the flat roof, a lantern and a finial on it
+        r_ = clamp(min(W, D) * 0.22, 3.5, 8.0)
+        z0 = wall_top + 0.9
+        cx_, cy_ = 0.0, (y0 + y1) / 2
+        lp.cylinder((cx_, cy_), r_, z0, z0 + r_ * 0.7, "stone", n=24)
+        n = 8
+        for k in range(n):
+            a0, a1 = k / n * math.pi / 2, (k + 1) / n * math.pi / 2
+            lp.cylinder((cx_, cy_), r_ * math.cos(a0) + 0.15, z0 + r_ * 0.7 + r_ * math.sin(a0), z0 + r_ * 0.7 + r_ * math.sin(a1), "copper",
+                        n=24, r1=r_ * math.cos(a1) + 0.15)
+        lp.cylinder((cx_, cy_), r_ * 0.22, z0 + r_ * 1.7, z0 + r_ * 1.7 + 1.6, "trim", n=12)
+        lp.cylinder((cx_, cy_), 0.08, z0 + r_ * 1.7 + 1.6, z0 + r_ * 1.7 + 3.2, "gold", n=6)
     return b
 
 

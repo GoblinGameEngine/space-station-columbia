@@ -1,0 +1,70 @@
+{
+ "id": "PTM-0100",
+ "settlement": "Port Tamsin",
+ "generated": "tools/settlegen (Port Tamsin)",
+ "lot": {
+  "w": 13.0,
+  "d": 39.9
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "workers_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#f3ede2",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "workers_cottage"
+ },
+ "names": {
+  "family": "Loomis",
+  "house_number": 354
+ },
+ "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-0925"
+}

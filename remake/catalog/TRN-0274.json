@@ -1,0 +1,67 @@
+{
+ "id": "TRN-0274",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 19.0,
+  "d": 24.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "gable_front"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Castellanos",
+  "house_number": 400
+ },
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_full porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0511"
+}

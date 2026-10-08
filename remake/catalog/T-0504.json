@@ -1,0 +1,67 @@
+{
+ "id": "T-0504",
+ "settlement": "Tamarack",
+ "generated": "tools/settlegen (Tamarack)",
+ "lot": {
+  "w": 12.4,
+  "d": 28.0
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "gable_front",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#938064",
+   "trim": "#2e3a4a",
+   "accent": "#6a4a2a",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1927,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 12
+  }
+ },
+ "names": {
+  "family": "Castellanos",
+  "house_number": 449
+ },
+ "brief": "streetcar band gable_front: 1.5 storeys, shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-0618"
+}

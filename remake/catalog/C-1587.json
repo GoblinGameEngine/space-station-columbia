@@ -1,27 +1,56 @@
 {
  "id": "C-1587",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 38.0,
-  "d": 24.0
+  "w": 20.1,
+  "d": 31.6
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#c3ab8d"
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 25,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 35,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2002,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#f7e6c0",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2013,
+  "band": "current",
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 504
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band two_storey_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

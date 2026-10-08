@@ -97,45 +97,104 @@ static func unit_door(bid: String, uid: String) -> Vector2:
 
 # -- solving a settlement --------------------------------------------------------------------------------------------
 
-const CACHE := "res://remake/rooms/_solved.json"     # (bake_lives writes the settlements it solved; a cache, never the authority)
+const CACHE := "res://remake/rooms/solved/"          # (bake_lives writes the settlements it solved, a file each, and
+                                                     # _seed.json; a cache, never the authority)
+static var max_solved := 4                             # settlements' solutions held at once (a city's is ~100 MB in memory)
 static var _cache_seed := -1
+static var _solved_lru: Array = []
 static var ignore_cache := false                     # (bake_lives: always solve afresh)
 
 
-static func _load_cache() -> void:
-	if ignore_cache or _cache_seed != -1 or not FileAccess.file_exists(CACHE):
-		return
-	var d: Variant = JSON.parse_string(FileAccess.get_file_as_string(CACHE))
-	if typeof(d) != TYPE_DICTIONARY:
-		return
-	_cache_seed = int(d.seed)
-	for town in d.towns:
-		_solved["%d|%s" % [_cache_seed, town]] = d.towns[town]
+static func _load_cache(town: String) -> Variant:
+	## the baked solution of a settlement for the world seed, or null
+	if ignore_cache:
+		return null
+	if _cache_seed == -1:
+		_cache_seed = -2
+		if FileAccess.file_exists(CACHE + "_seed.json"):
+			_cache_seed = int((JSON.parse_string(FileAccess.get_file_as_string(CACHE + "_seed.json")) as Dictionary).seed)
+	var p := CACHE + town.replace(" ", "_") + ".json"
+	if not FileAccess.file_exists(p):
+		return null
+	return JSON.parse_string(FileAccess.get_file_as_string(p))
 
 
 static func save_cache(seed: int, towns: Array) -> void:
-	var out := {}
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(CACHE))
 	for town in towns:
-		out[town] = solve(seed, town)
-	var f := FileAccess.open(CACHE, FileAccess.WRITE)
-	f.store_string(JSON.stringify({"_about": "NpcOccupancy.solve() for the world seed, cached by bake_lives.gd (recomputed on the fly for any other seed)",
-		"seed": seed, "towns": out}))
-	f.close()
+		var S: Dictionary = solve(seed, town).duplicate()
+		S.erase("_posts_at")                             # (the indexes are rebuilt on load)
+		S.erase("_homes_of")
+		var f := FileAccess.open(CACHE + town.replace(" ", "_") + ".json", FileAccess.WRITE)
+		f.store_string(JSON.stringify(S))
+		f.close()
+	var fs := FileAccess.open(CACHE + "_seed.json", FileAccess.WRITE)
+	fs.store_string(JSON.stringify({"_about": "NpcOccupancy.solve() for the world seed, cached by bake_lives.gd (recomputed on the fly for any other seed)",
+		"seed": seed, "towns": towns}))
+	fs.close()
+	var old := "res://remake/rooms/_solved.json"                  # (the single file it was)
+	if FileAccess.file_exists(old):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(old))
+
+
+static func _remember(key: String, r: Dictionary) -> void:
+	## (called locked) keep a solution, letting the least recently used go past max_solved
+	_solved[key] = r
+	_solved_lru.erase(key)
+	_solved_lru.append(key)
+	while _solved_lru.size() > max_solved:
+		_solved.erase(_solved_lru.pop_front())
 
 
 static func solve(seed: int, town: String) -> Dictionary:
 	var key := "%d|%s" % [seed, town]
 	_mutex.lock()
-	_load_cache()
 	var have: Variant = _solved.get(key)
+	if have != null:
+		_solved_lru.erase(key)
+		_solved_lru.append(key)
 	_mutex.unlock()
 	if have != null:
 		return have
-	var r := _solve(seed, town)
+	var r: Dictionary
+	var cached: Variant = _load_cache(town)
+	if cached != null and seed == _cache_seed and typeof(cached) == TYPE_DICTIONARY:
+		r = cached
+	else:
+		r = _solve(seed, town)
+	_index(r)
 	_mutex.lock()
-	_solved[key] = r
+	_remember(key, r)
 	_mutex.unlock()
 	return r
+
+
+static func _index(r: Dictionary) -> void:
+	## lookups by place (a 1:1 city has ~20,000 posts and ~18,000 homes: on_duty / residents scanned them all per query)
+	var by_place := {}
+	for post in r.posts:
+		var p: Dictionary = r.posts[post]
+		for k in [p.uid, p.room]:
+			if not by_place.has(k):
+				by_place[k] = []
+			by_place[k].append(post)
+	var homes_of := {}
+	for hk in r.homes:
+		var bid: String = hk.get_slice("/", 0)
+		if not homes_of.has(bid):
+			homes_of[bid] = []
+		homes_of[bid].append(hk)
+	r["_posts_at"] = by_place
+	r["_homes_of"] = homes_of
+
+
+static func _indexed(S: Dictionary) -> Dictionary:
+	if not S.has("_posts_at"):
+		_mutex.lock()
+		if not S.has("_posts_at"):
+			_index(S)                                    # (a solve from the cache file)
+		_mutex.unlock()
+	return S
 
 
 static func _solve(seed: int, town: String) -> Dictionary:
@@ -377,21 +436,23 @@ static func _covers(p: Dictionary, day: int, hour: float) -> bool:
 static func on_duty(seed: int, place: String, day: int, hour: float) -> Array:
 	## place: a business unit "C-015/B0" or a room "C-077#R1F0_0" (the posts whose room it is)
 	var bid := place.get_slice("/", 0).get_slice("#", 0)
-	var S := solve(seed, town_of(bid))
+	var S := _indexed(solve(seed, town_of(bid)))
 	var out := []
-	for post in S.posts:
-		var p: Dictionary = S.posts[post]
-		if p.uid != place and p.room != place:
+	var seen := {}
+	for post in S._posts_at.get(place, []):
+		if seen.has(post):
 			continue
+		seen[post] = true
+		var p: Dictionary = S.posts[post]
 		if _covers(p, day, hour):
 			out.append({"post": post, "pid": p.pid, "role": p.role, "room": p.room, "vacant": S.vacant.get(post, "")})
 	return out
 
 
 static func roster(seed: int, uid: String) -> Array:
-	var S := solve(seed, town_of(uid.get_slice("/", 0)))
+	var S := _indexed(solve(seed, town_of(uid.get_slice("/", 0))))
 	var out := []
-	for post in S.posts:
+	for post in S._posts_at.get(uid, []):
 		var p: Dictionary = S.posts[post]
 		if p.uid == uid:
 			out.append({"post": post, "pid": p.pid, "role": p.role, "room": p.room, "shift": p.shift, "days": p.days,
@@ -405,10 +466,10 @@ static func person(seed: int, pid: String) -> Dictionary:
 
 
 static func residents(seed: int, bid: String, uid := "") -> Array:
-	var S := solve(seed, town_of(bid))
+	var S := _indexed(solve(seed, town_of(bid)))
 	var out := []
-	for hk in S.homes:
-		if hk.get_slice("/", 0) == bid and (uid == "" or hk.get_slice("/", 1) == uid):
+	for hk in S._homes_of.get(bid, []):
+		if uid == "" or hk.get_slice("/", 1) == uid:
 			out.append_array(S.homes[hk])
 	return out
 

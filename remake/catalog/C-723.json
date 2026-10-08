@@ -1,17 +1,17 @@
 {
  "id": "C-723",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 14.5,
-  "d": 41.0
+  "w": 11.3,
+  "d": 40.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "workers_cottage",
-  "storeys": 1.5,
-  "main_w_ft": 20,
-  "main_d_ft": 31,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
    "pitch_deg": 34,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "brick",
   "foundation": "brick",
   "colors": {
-   "body": "#bb5f4c",
+   "body": "#b3724e",
    "trim": "#3a3f44",
    "accent": "#2e3a4a",
    "roof": "#2f3133"
@@ -38,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "hedge",
@@ -49,13 +49,14 @@
    ]
   },
   "condition": "worn",
-  "year_built": 1898,
+  "year_built": 1916,
   "band": "streetcar",
-  "form_token": "workers_cottage"
+  "form_token": "two_flat",
+  "units": 2
  },
  "names": {
   "family": "Tremblay",
-  "house_number": 172
+  "house_number": 119
  },
- "brief": "streetcar band workers_cottage: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band two_flat: 2 storeys, brick walls, stacked porch, garage none (generated from the Great Lakes tokens)."
 }

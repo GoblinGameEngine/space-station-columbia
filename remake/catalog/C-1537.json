@@ -1,31 +1,58 @@
 {
  "id": "C-1537",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 42.8,
-  "d": 32.8
+  "w": 22.3,
+  "d": 29.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#aab196",
-   "trim": "#2e3a4a",
-   "accent": "#1f2a33",
-   "roof": "#4e5155"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 36,
+  "main_d_ft": 26,
   "roof": {
-   "pitch_deg": 27
+   "type": "hip",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2021,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#a35d4a",
+   "trim": "#e9e2d2",
+   "accent": "#1f2a33",
+   "roof": "#3e3e3c"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2023,
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Brandvold",
+  "house_number": 819
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

@@ -1,32 +1,32 @@
 {
  "id": "C-168",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 15.0,
-  "d": 40.2
+  "w": 16.9,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "upright_and_wing",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 39,
+  "main_w_ft": 25,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
+   "type": "cross_gable",
    "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#96a6b4",
+   "body": "#cbbb8a",
    "trim": "#f4f1e8",
    "accent": "#1f2a33",
    "roof": "#5a4a40"
@@ -42,7 +42,7 @@
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "clothesline"
    ]
@@ -50,12 +50,11 @@
   "condition": "kept",
   "year_built": 1894,
   "band": "rail",
-  "form_token": "two_flat",
-  "units": 2
+  "form_token": "upright_and_wing"
  },
  "names": {
   "family": "Dunmore",
-  "house_number": 215
+  "house_number": 231
  },
- "brief": "rail band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band upright_and_wing: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -1,0 +1,72 @@
+{
+ "id": "DC-0049",
+ "settlement": "Dunmore Crossing",
+ "generated": "tools/settlegen (Dunmore Crossing)",
+ "lot": {
+  "w": 17.6,
+  "d": 28.2
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "side_gable_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "metal"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "side",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#57657e",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "shabby",
+  "year_built": 1897,
+  "band": "rail",
+  "form_token": "ontario_cottage",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 10
+  }
+ },
+ "names": {
+  "family": "Okonkwo",
+  "house_number": 300
+ },
+ "brief": "rail band ontario_cottage: 1.5 storeys, clapboard walls, side porch, garage detached_2 (generated from the Great Lakes tokens)."
+}

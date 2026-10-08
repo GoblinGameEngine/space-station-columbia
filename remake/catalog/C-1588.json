@@ -1,27 +1,56 @@
 {
  "id": "C-1588",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 38.0,
-  "d": 24.0
+  "w": 21.2,
+  "d": 25.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#99623f"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 33,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 35,
+   "material": "metal"
   },
-  "year_built": 1983,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c8b885",
+   "trim": "#e8e0c8",
+   "accent": "#2e3a4a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2015,
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Brannock",
+  "house_number": 522
  },
- "brief": "condo (apartment) generated for Calder."
+ "brief": "current band ranch: 1 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

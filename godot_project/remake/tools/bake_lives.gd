@@ -6,10 +6,11 @@ extends SceneTree
 ## crowded), their school, and the one place of each kind they go to regularly (the nearest-ish
 ## grocery, barber, bar, church; a gravity choice: closer is likelier, a car widens the reach).
 ##   ../godot/godot4 --headless --path . --script res://remake/tools/bake_lives.gd [-- seed]
-## Writes res://remake/characters/npc_lives.json; NpcLife reads it. RERUN after the traits,
+## Writes res://remake/characters/lives/<Settlement>.json and lives/_index.json; NpcLife reads them. RERUN after the traits,
 ## households, placement or places change (and after tools/places/bake_places.py).
 
-const OUT := "res://remake/characters/npc_lives.json"
+const OUT := "res://remake/characters/npc_lives.json"   # (the old single file: removed when the shards are written)
+const OUT_DIR := "res://remake/characters/lives/"
 const NEED := ["age", "sex", "occupation", "wage", "car_access", "commute_mode", "mobility_aid", "worship", "addictions", "finances", "personality"]
 const NO_WORK := ["retired", "preschool", "student", "homemaker", "unemployed", "university_student"]
 const REACH_WALK := 400.0        # m: the gravity choice's distance scale without a car
@@ -24,6 +25,7 @@ func _initialize() -> void:
 	var seed := int(a[0]) if a.size() > 0 else 1
 	var t0 := Time.get_ticks_msec()
 	NpcOccupancy.ignore_cache = true
+	NpcOccupancy.max_solved = 1000                       # (all of them: save_cache writes each)
 	var db := NpcTraits.shared()
 	NpcPlaces.load_all()
 	var st: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://remake/placement.json"))
@@ -219,19 +221,104 @@ func _initialize() -> void:
 		if solved_towns[town]:
 			solved.append(town)
 	NpcOccupancy.save_cache(seed, solved)
-	var f := FileAccess.open(OUT, FileAccess.WRITE)
-	f.store_string(JSON.stringify({"_about": "Everyone's home, workplace, school and regular places (tools: remake/tools/bake_lives.gd). NpcLife reads it.",
-		"seed": seed, "people": people}))
-	f.close()
+	# one file per settlement (the 1:1 station's 218,000 people were 242 MB in one: NpcLife loads a town's when it's needed),
+	# and the index: the seed, the settlements, the homes with a bicycle by the door (remake_station places them at start)
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT_DIR))
+	var shards := {}
+	var by_home := {}
+	for pid in people:
+		var P: Dictionary = people[pid]
+		var sh := NpcLife.shard_name(str(P.get("settlement", "")) if P.get("settlement") != null else "")
+		if sh == NpcLife.shard_name(""):
+			sh = NpcLife.shard_name(NpcOccupancy.town_of(str(P.home)))
+		if not shards.has(sh):
+			shards[sh] = {}
+		shards[sh][pid] = P
+		if not by_home.has(P.home):
+			by_home[P.home] = []
+		by_home[P.home].append(pid)
+	var bikes := []
+	for home in by_home:
+		var owner := false
+		for pid in by_home[home]:
+			if int(people[pid].age) >= 10 and int(people[pid].age) <= 75 and NpcRng.for_trait(seed, pid, "owns_bike").rand() < 0.35:
+				owner = true
+				break
+		if owner and NpcRng.for_trait(seed, str(home), "bike_parked").rand() <= 0.66:
+			bikes.append(home)
+	var counts := {}
+	for sh in shards:
+		var f := FileAccess.open(OUT_DIR + sh + ".json", FileAccess.WRITE)
+		f.store_string(JSON.stringify({"seed": seed, "people": shards[sh]}))
+		f.close()
+		counts[sh] = shards[sh].size()
+	var fi := FileAccess.open(NpcLife.PATH, FileAccess.WRITE)
+	fi.store_string(JSON.stringify({"_about": "Everyone's home, workplace, school and regular places, a file per settlement (tools: remake/tools/bake_lives.gd). NpcLife reads them.",
+		"seed": seed, "shards": counts, "bikes": bikes}))
+	fi.close()
+	if FileAccess.file_exists(OUT):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(OUT))      # (the old single file)
 	print("people %d (traits %.1f s); workers %d, unplaced %d; workplaces %d, staffed %d (%.0f%%); total %.1f s" % [
 		people.size(), (t1 - t0) / 1000.0, workers, unplaced, workplaces, staffed.size(), 100.0 * staffed.size() / maxf(1, workplaces), (Time.get_ticks_msec() - t0) / 1000.0])
 	quit()
+
+
+const GRID := 1000.0             # m: the cells places are filed in for _gravity
+const FAR := 6.0                 # reaches past which a place's weight (exp(-6) = 0.25 %) isn't worth weighing
+var _grids := {}                 # a uids array's key (size, first, last) -> {cell: [uid]}
+var _near_cache := {}            # (places, home cell, radius) -> the nearest places
+const HOME_CELL := 200.0         # m: homes this close share their candidate places
+const NEAREST := 16              # places weighed per choice (the nearest: the farther ones' weight is next to nothing)
+
+
+func _near(uids: Array, home: Vector2, reach: float) -> Array:
+	## the places within FAR reaches of home, from a grid of them (242,000 people weighing every place of a kind on the
+	## ring was ~10^9 tests, 2026-10-08); all of them when that radius is most of the ring or none fall inside it
+	var R := reach * FAR
+	if R > 12000.0 or uids.size() < 40:
+		return uids
+	var gk := "%d|%s|%s" % [uids.size(), uids[0], uids[uids.size() - 1]]
+	if not _grids.has(gk):
+		var g := {}
+		for uid in uids:
+			var u: Dictionary = NpcPlaces.unit(uid)
+			var c := Vector2i(int(floor(fposmod(float(u.door[0]), StationGeo.CIRC) / GRID)), int(floor(float(u.door[1]) / GRID)))
+			if not g.has(c):
+				g[c] = []
+			g[c].append(uid)
+		_grids[gk] = g
+	# the NEAREST places within R of the home's HOME_CELL cell, once per cell (everyone living there shares the list;
+	# weighing the hundred-odd shops of a city with a generator each, for 3.6 M choices, didn't finish in an hour)
+	var hk := "%s|%d|%d|%d" % [gk, int(floor(fposmod(home.x, StationGeo.CIRC) / HOME_CELL)), int(floor(home.y / HOME_CELL)), int(R)]
+	if _near_cache.has(hk):
+		return _near_cache[hk]
+	var g: Dictionary = _grids[gk]
+	var n := int(ceil(R / GRID))
+	var ncol := int(ceil(StationGeo.CIRC / GRID))
+	var ci := int(floor(fposmod(home.x, StationGeo.CIRC) / GRID))
+	var cj := int(floor(home.y / GRID))
+	var cand := []
+	for i in range(-n, n + 1):
+		for j in range(-n, n + 1):
+			for uid in g.get(Vector2i(posmod(ci + i, ncol), cj + j), []):
+				var u: Dictionary = NpcPlaces.unit(uid)
+				cand.append([NpcPlaces.dist(home, Vector2(float(u.door[0]), float(u.door[1]))), uid])
+	var out := []
+	if cand.is_empty():
+		out = uids
+	else:
+		cand.sort_custom(func(p_, q_): return p_[0] < q_[0])
+		for k in mini(NEAREST, cand.size()):
+			out.append(cand[k][1])
+	_near_cache[hk] = out
+	return out
 
 
 func _gravity(seed: int, pid: String, key: String, uids: Array, home: Vector2, reach: float, town := "") -> String:
 	## Closer is likelier (Huff): weight exp(-d / reach) times a personal liking.
 	if uids.is_empty():
 		return ""
+	uids = _near(uids, home, reach)
 	var rng := NpcRng.for_trait(seed, pid, key)
 	var ws := []
 	var tot := 0.0

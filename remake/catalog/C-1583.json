@@ -1,31 +1,58 @@
 {
  "id": "C-1583",
  "settlement": "Calder",
- "generated": "tools/settlegen (Calder, 2026-10-06)",
+ "generated": "tools/settlegen (Calder)",
  "lot": {
-  "w": 43.5,
-  "d": 32.4
+  "w": 21.2,
+  "d": 31.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#e2d7c2",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
-   "roof": "#4e5155"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 33,
+  "main_d_ft": 30,
   "roof": {
-   "pitch_deg": 34
+   "type": "hip",
+   "pitch_deg": 37,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2015,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#b35441",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 2024,
+  "band": "current",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Tremblay",
+  "house_number": 362
  },
- "brief": "townhouse (townhouse) generated for Calder."
+ "brief": "current band ranch: 1 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

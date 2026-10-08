@@ -1,0 +1,76 @@
+{
+ "id": "BRW-0343",
+ "settlement": "Brightwater",
+ "generated": "tools/settlegen (Brightwater)",
+ "lot": {
+  "w": 14.8,
+  "d": 32.8
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "i_house",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 12
+  }
+ },
+ "region": "ne",
+ "names": {
+  "family": "Foxworth",
+  "house_number": 503
+ },
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0562"
+}

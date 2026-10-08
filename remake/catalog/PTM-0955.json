@@ -1,0 +1,70 @@
+{
+ "id": "PTM-0955",
+ "settlement": "Port Tamsin",
+ "generated": "tools/settlegen (Port Tamsin)",
+ "lot": {
+  "w": 22.5,
+  "d": 31.3
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "solid"
+  },
+  "walls": "shingle",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#6e6252",
+   "trim": "#5a3a28",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Achterberg",
+  "house_number": 990
+ },
+ "brief": "postwar band cape_cod: 1.5 storeys, shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2581"
+}

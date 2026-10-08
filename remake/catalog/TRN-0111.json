@@ -1,0 +1,65 @@
+{
+ "id": "TRN-0111",
+ "settlement": "Tern Harbor",
+ "generated": "tools/settlegen (Tern Harbor)",
+ "lot": {
+  "w": 14.9,
+  "d": 32.5
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 47,
+   "material": "wood_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Nguyen",
+  "house_number": 267
+ },
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0918"
+}

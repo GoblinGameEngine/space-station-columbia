@@ -1,0 +1,69 @@
+{
+ "id": "PCR-3163",
+ "settlement": "Port Carrow",
+ "generated": "tools/settlegen (Port Carrow)",
+ "lot": {
+  "w": 23.5,
+  "d": 31.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "chainlink",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1949,
+  "band": "postwar",
+  "form_token": "nantucket_cape"
+ },
+ "region": "ne",
+ "names": {
+  "family": "Desai",
+  "house_number": 1633
+ },
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0967"
+}

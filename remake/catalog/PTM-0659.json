@@ -1,0 +1,68 @@
+{
+ "id": "PTM-0659",
+ "settlement": "Port Tamsin",
+ "generated": "tools/settlegen (Port Tamsin)",
+ "lot": {
+  "w": 19.8,
+  "d": 34.1
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#dbd1aa",
+   "trim": "#ffffff",
+   "accent": "#3a2a1e",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "cape_cod"
+ },
+ "names": {
+  "family": "Nowicki",
+  "house_number": 705
+ },
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1278"
+}

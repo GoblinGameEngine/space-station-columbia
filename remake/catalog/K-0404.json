@@ -1,0 +1,70 @@
+{
+ "id": "K-0404",
+ "settlement": "Kessler",
+ "generated": "tools/settlegen (Kessler)",
+ "lot": {
+  "w": 16.1,
+  "d": 30.4
+ },
+ "kind": "house",
+ "traits": {
+  "archetype": "side_gable_cottage",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e2e7d2",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1880,
+  "band": "rail",
+  "form_token": "ontario_cottage"
+ },
+ "names": {
+  "family": "Stroud",
+  "house_number": 461
+ },
+ "brief": "rail band ontario_cottage: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens)."
+}
