@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.8,
-  "d": 27.9
+  "w": 19.4,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 37,
+  "main_w_ft": 26,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
-   "material": "slate"
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
+   "body": "#8a8378",
    "trim": "#f4f3ec",
    "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Merriweather",
-  "house_number": 928
+  "family": "Brannock",
+  "house_number": 919
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0545"
+ "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

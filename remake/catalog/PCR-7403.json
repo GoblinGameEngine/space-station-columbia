@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.3,
-  "d": 29.6
+  "w": 26.6,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 35,
   "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 25,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#b3c9bd",
-   "trim": "#f4f1e8",
-   "accent": "#5b6b3a",
-   "roof": "#5a5a58"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 1859
+  "house_number": 3094
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6190"
+ "brief": "late band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.1,
-  "d": 28.2
+  "w": 25.7,
+  "d": 28.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 33,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 45,
   "main_d_ft": 26,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 25,
+   "type": "gable",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#874536",
-   "trim": "#5a3a28",
-   "accent": "#3a2a1e",
-   "roof": "#4a4a48"
+   "body": "#f1ead2",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 2006,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Arrieta",
-  "house_number": 1611
+  "house_number": 2701
  },
- "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2280"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

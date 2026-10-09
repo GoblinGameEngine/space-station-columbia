@@ -3,32 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 34.2
+  "w": 37.7,
+  "d": 36.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 25,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 55,
   "main_d_ft": 28,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
    "type": "recessed",
-   "posts": "iron",
-   "rail": "solid"
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "body": "#e8dcc0",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
    "roof": "#3a3836"
   },
   "windows": {
@@ -36,28 +36,27 @@
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
     "garden"
    ]
   },
-  "condition": "new",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1972,
+  "band": "suburban",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 921
+  "family": "Booker",
+  "house_number": 2075
  },
- "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1732"
+ "brief": "suburban band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3008"
 }

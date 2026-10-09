@@ -3,14 +3,14 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.7,
-  "d": 31.6
+  "w": 24.2,
+  "d": 29.6
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 20,
+  "main_w_ft": 49,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
@@ -32,28 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1970,
-  "band": "suburban",
-  "form_token": "california_bungalow",
-  "units": 2
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Castellanos",
-  "house_number": 1776
+  "house_number": 214
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0364"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2306"
 }

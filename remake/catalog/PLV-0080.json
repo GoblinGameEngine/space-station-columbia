@@ -6,30 +6,22 @@
   "w": 16.6,
   "d": 40.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Szabo Market",
-    "type": "grocery",
-    "sign": "SZABO MARKET",
-    "sign_style": "projecting",
-    "awning": true
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1885,
-  "colors": {
-   "body": "#e9d6c8"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "metal",
+  "year_built": 1920,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "name": "Garcia Machine Works",
+  "sign": "GARCIA MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Playa Verde."
 }

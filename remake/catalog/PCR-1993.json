@@ -3,27 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 52.9,
-  "d": 25.9
+  "w": 14.2,
+  "d": 24.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#8a2e24"
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1975,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#d9dcd8",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1918,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Pruett",
+  "house_number": 376
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0190"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0551"
 }

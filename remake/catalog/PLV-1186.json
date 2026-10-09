@@ -3,12 +3,12 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.4,
-  "d": 36.0
+  "w": 22.5,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "spanish_revival",
   "storeys": 1,
   "main_w_ft": 57,
   "main_d_ft": 25,
@@ -19,42 +19,42 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "body": "#f4f0e6",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "carport",
+  "chimneys": [],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1980,
-  "band": "suburban",
-  "form_token": "minimal_traditional"
+  "condition": "kept",
+  "year_built": 1961,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Nowicki",
-  "house_number": 1451
+  "family": "Okonkwo",
+  "house_number": 279
  },
- "brief": "suburban band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-3942"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

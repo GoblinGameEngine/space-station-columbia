@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.6,
-  "d": 21.5
+  "w": 26.7,
+  "d": 32.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "gable_front",
+  "storeys": 2,
   "main_w_ft": 48,
   "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 36,
+   "type": "gable",
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#b36c47",
-   "trim": "#f2efe6",
-   "accent": "#2b4f6b",
-   "roof": "#4a4a48"
+   "body": "#d9dcd8",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 2000,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 3285
+  "house_number": 2373
  },
- "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5217"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

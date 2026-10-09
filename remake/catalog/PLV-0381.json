@@ -3,32 +3,32 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 16.8,
-  "d": 31.3
+  "w": 13.5,
+  "d": 37.0
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 37,
+  "main_w_ft": 25,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 22,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#2e2a26",
-   "accent": "#8a4a20",
+   "body": "#e8d8c0",
+   "trim": "#2f3b2a",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
@@ -38,23 +38,25 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
+  "year_built": 1928,
+  "band": "streetcar",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 136
+  "family": "Osei",
+  "house_number": 434
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0636"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0613"
 }

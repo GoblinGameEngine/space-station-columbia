@@ -3,17 +3,17 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 10.6,
-  "d": 40.8
+  "w": 14.8,
+  "d": 27.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 33,
+  "main_w_ft": 22,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 19,
    "material": "clay_tile"
   },
@@ -26,36 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#e8d8c0",
+   "trim": "#4a3324",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1925,
+  "year_built": 1899,
   "band": "streetcar",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Booker",
-  "house_number": 775
+  "family": "Adebayo",
+  "house_number": 740
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0708"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0498"
 }

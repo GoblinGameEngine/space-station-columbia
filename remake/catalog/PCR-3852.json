@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.9,
-  "d": 26.0
+  "w": 18.3,
+  "d": 22.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 32,
+  "main_w_ft": 50,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 40,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "stoop",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#8a2e24",
    "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "right_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "garden"
    ]
   },
   "condition": "worn",
-  "year_built": 1955,
-  "band": "postwar",
-  "form_token": "dutch_colonial"
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 2134
+  "family": "Solano",
+  "house_number": 2377
  },
- "brief": "postwar band dutch_colonial: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0838"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

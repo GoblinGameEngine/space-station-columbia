@@ -3,59 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.4,
-  "d": 34.7
+  "w": 19.6,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 32,
+  "main_w_ft": 27,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
+   "body": "#e9dcc2",
    "trim": "#2e2a26",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "attached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "tree_line",
+   "rear": "hedge",
    "extras": [
     "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1971,
-  "band": "suburban",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Brandvold",
-  "house_number": 1412
+  "family": "Garcia",
+  "house_number": 1459
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

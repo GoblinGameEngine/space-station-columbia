@@ -3,58 +3,34 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.9,
-  "d": 28.6
+  "w": 38.6,
+  "d": 35.4
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 29,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "court",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#4a3324",
-   "accent": "#6a2c22",
+   "body": "#f6f1e7",
+   "trim": "#3b2a1e",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "attached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
-  },
+  "year_built": 1991,
   "condition": "kept",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "roof": {
+   "type": "gable",
+   "material": "clay_tile",
+   "pitch_deg": 21
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Brandvold",
-  "house_number": 590
+  "name": ""
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "condo (apartment) generated for Playa Verde.",
+ "model": "SOL-0971"
 }

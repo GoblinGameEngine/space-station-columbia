@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.5,
-  "d": 29.1
+  "w": 26.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 23,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#934b35",
+   "trim": "#ffffff",
+   "accent": "#6a4a2a",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,12 @@
   "condition": "worn",
   "year_built": 1992,
   "band": "late",
-  "form_token": "i_house"
+  "form_token": "builder_contemporary"
  },
- "region": "ne",
  "names": {
   "family": "Tomczak",
-  "house_number": 666
+  "house_number": 2314
  },
- "brief": "late band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "late band builder_contemporary: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-7227"
 }

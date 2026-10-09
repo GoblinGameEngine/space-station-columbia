@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 28.1,
-  "d": 37.1
+  "w": 21.1,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 44,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 39,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 25,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,37 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#985c48",
-   "trim": "#3a3f44",
-   "accent": "#6a4a2a",
-   "roof": "#2f3133"
+   "body": "#e8dcc0",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "side": "none",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1981,
-  "band": "suburban",
-  "form_token": "ranch"
+  "condition": "shabby",
+  "year_built": 1962,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Villalobos",
-  "house_number": 2626
+  "house_number": 3216
  },
- "brief": "suburban band ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3443"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

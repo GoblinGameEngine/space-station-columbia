@@ -3,24 +3,24 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.4,
-  "d": 24.7
+  "w": 30.4,
+  "d": 28.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 29,
-  "main_d_ft": 31,
+  "main_w_ft": 45,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,29 +32,29 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "tree_line",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1963,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "condition": "shabby",
+  "year_built": 1982,
+  "band": "suburban",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 2962
+  "family": "Castellanos",
+  "house_number": 2603
  },
- "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-2457"
+ "brief": "suburban band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-3927"
 }

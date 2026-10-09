@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.1,
-  "d": 30.9
+  "w": 24.7,
+  "d": 28.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 30,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 24,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "wood_shingle"
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#e9e8e2",
    "trim": "#f4f3ec",
    "accent": "#1f2e44",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -41,21 +41,22 @@
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Mbeki",
-  "house_number": 164
+  "family": "Tremblay",
+  "house_number": 1731
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.1,
-  "d": 39.3
+  "w": 11.3,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 37,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
@@ -19,49 +19,43 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
+   "body": "#9a9184",
    "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1912,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 10
-  }
+  "year_built": 1936,
+  "band": "interwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 544
+  "family": "Booker",
+  "house_number": 815
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0525"
 }

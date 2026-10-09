@@ -3,42 +3,42 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.0,
-  "d": 32.3
+  "w": 19.3,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 40,
-  "main_d_ft": 30,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 22,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
+   "type": "gable",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ccb388",
-   "trim": "#5a3a28",
-   "accent": "#7a2e28",
-   "roof": "#555350"
+   "body": "#d9dcd8",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -46,14 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "split_level"
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
-  "family": "Delmar",
-  "house_number": 1523
+  "family": "Duquesne",
+  "house_number": 1776
  },
- "brief": "postwar band split_level: 1 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2088"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1204"
 }

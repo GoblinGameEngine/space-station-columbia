@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "cast_iron_front",
-  "cornice": "bracketed_metal",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "brick",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Reyes Realty",
-    "type": "real_estate",
-    "sign": "REYES REALTY",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "college_extension"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "college_extension"
    }
   ],
-  "condition": "worn",
-  "year_built": 1878,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Union Savings Bank",
+    "type": "bank",
+    "sign": "UNION SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1913,
   "colors": {
-   "body": "#b16847"
+   "body": "#9b533d"
   }
  },
- "names": {},
- "brief": "store (store) generated for Tamarack."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Tamarack."
 }

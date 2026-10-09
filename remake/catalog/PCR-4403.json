@@ -3,30 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 41.5,
-  "d": 48.0
+  "w": 22.7,
+  "d": 33.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#a0886b",
-   "trim": "#5a3a28",
-   "accent": "#2e3a4a",
-   "roof": "#2f3133"
-  },
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 34,
   "roof": {
-   "pitch_deg": 30
+   "type": "hip",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1985,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "chainlink",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "foursquare"
  },
+ "region": "ne",
  "names": {
-  "name": ""
+  "family": "Brannock",
+  "house_number": 3031
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "SOL-7306"
+ "brief": "postwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

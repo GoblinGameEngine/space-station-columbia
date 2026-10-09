@@ -8,25 +8,48 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "stucco",
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Kessler Savings Bank",
-    "type": "bank",
-    "sign": "KESSLER SAVINGS BANK",
-    "sign_style": "projecting",
-    "awning": true
+    "type": "courier_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "doctor_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1891,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Smith & Tremblay Savings Bank",
+    "type": "bank",
+    "sign": "SMITH & TREMBLAY SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1960,
   "colors": {
-   "body": "#b56351"
+   "body": "#aa624a"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Holloway Building"
+ },
+ "brief": "store (office) generated for Kessler."
 }

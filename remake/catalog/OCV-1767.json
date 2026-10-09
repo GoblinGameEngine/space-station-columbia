@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 34.1,
-  "d": 30.2
+  "w": 22.5,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 52,
-  "main_d_ft": 31,
+  "main_w_ft": 34,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,37 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "body": "#efd9c4",
+   "trim": "#2f3b2a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "carport",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "swing_set"
-   ]
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1983,
-  "band": "suburban",
-  "form_token": "ranch"
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Carrow",
-  "house_number": 2255
+  "family": "Duquesne",
+  "house_number": 2108
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2729"
+ "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-2455"
 }

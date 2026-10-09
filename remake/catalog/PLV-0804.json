@@ -3,32 +3,32 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.5,
-  "d": 35.7
+  "w": 23.1,
+  "d": 26.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 28,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 19,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#efe6d2",
+   "trim": "#2e2a26",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
@@ -36,23 +36,26 @@
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1959,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Harrow",
-  "house_number": 803
+  "family": "Szabo",
+  "house_number": 853
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0447"
+ "brief": "postwar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

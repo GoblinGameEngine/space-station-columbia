@@ -3,61 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 36.0
+  "w": 19.3,
+  "d": 41.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 27,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
+   "body": "#c9cfcf",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "garden",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 1001
+  "family": "Brannock",
+  "house_number": 921
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0616"
 }

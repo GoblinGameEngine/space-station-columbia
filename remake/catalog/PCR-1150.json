@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.7,
-  "d": 37.9
+  "w": 12.4,
+  "d": 25.5
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 32,
+  "main_w_ft": 23,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -50,13 +50,14 @@
   "condition": "kept",
   "year_built": 1913,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Delmar",
-  "house_number": 1065
+  "house_number": 739
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0667"
 }

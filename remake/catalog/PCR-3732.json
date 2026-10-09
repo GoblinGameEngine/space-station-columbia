@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.8,
-  "d": 33.0
+  "w": 18.5,
+  "d": 20.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 29,
+  "main_w_ft": 49,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,31 +32,32 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
-   "fence": "chainlink",
-   "side": "none",
-   "rear": "chainlink",
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1957,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "worn",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 2051
+  "family": "Tomczak",
+  "house_number": 2256
  },
- "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

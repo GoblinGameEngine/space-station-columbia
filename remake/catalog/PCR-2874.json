@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.2,
-  "d": 33.6
+  "w": 22.2,
+  "d": 34.3
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 36,
+  "main_w_ft": 43,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,34 +32,32 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
     "garden",
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Holloway",
-  "house_number": 1856
+  "house_number": 1319
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0608"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

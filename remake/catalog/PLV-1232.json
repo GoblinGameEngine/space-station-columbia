@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.8,
-  "d": 34.1
+  "w": 22.5,
+  "d": 21.6
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 24,
+  "storeys": 2,
+  "main_w_ft": 30,
+  "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
+   "type": "gable",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
+   "body": "#e6d4bb",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "carport",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1970,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 1779
+  "family": "Pruett",
+  "house_number": 1447
  },
- "brief": "suburban band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2778"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0930"
 }

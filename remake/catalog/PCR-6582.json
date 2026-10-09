@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.0,
-  "d": 29.7
+  "w": 17.1,
+  "d": 21.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 29,
+  "main_w_ft": 20,
+  "main_d_ft": 27,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 30,
+   "type": "gable",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,18 +24,20 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c6c1bc",
-   "trim": "#e8e0c8",
-   "accent": "#2b4f6b",
-   "roof": "#6a5e52"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -46,12 +48,14 @@
   "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "i_house",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 2701
+  "house_number": 1258
  },
- "brief": "late band neo_eclectic: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6482"
+ "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0364"
 }

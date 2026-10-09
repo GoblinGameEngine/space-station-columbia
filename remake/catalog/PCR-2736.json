@@ -3,69 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.4,
-  "d": 20.9
+  "w": 19.1,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "shingle_style",
   "storeys": 2,
   "main_w_ft": 33,
-  "main_d_ft": 34,
+  "main_d_ft": 25,
   "roof": {
-   "type": "gambrel",
+   "type": "gable",
    "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "attached_1",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "fence": "chainlink",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
+    "garden",
     "swing_set"
    ]
   },
   "condition": "worn",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "dutch_colonial"
+  "year_built": 1959,
+  "band": "postwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1763
+  "family": "Smith",
+  "house_number": 1255
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2200"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

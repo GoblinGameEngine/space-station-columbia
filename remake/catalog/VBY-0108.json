@@ -3,40 +3,31 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 39.1,
-  "d": 46.5
+  "w": 12.5,
+  "d": 37.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 50,
+  "main_w_ft": 44,
   "main_d_ft": 37,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "type": "cross_gable",
+   "pitch_deg": 47,
+   "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "brick",
   "colors": {
-   "body": "#e9f0e6",
-   "trim": "#ffffff",
+   "body": "#eef2f4",
+   "trim": "#f7f6f0",
    "accent": "#244d3a",
    "roof": "#4a4440"
   },
@@ -45,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
@@ -58,14 +49,15 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1933,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "queen_anne"
  },
  "region": "isle",
  "names": {
-  "family": "Loomis",
-  "house_number": 241
+  "family": "Booker",
+  "house_number": 136
  },
- "brief": "estate band i_house: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "VBY-0046"
 }

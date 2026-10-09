@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.6,
-  "d": 33.0
+  "w": 14.9,
+  "d": 27.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 44,
+  "main_w_ft": 26,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -32,27 +32,34 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1925,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 10
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 847
+  "family": "Reyes",
+  "house_number": 952
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0294"
 }

@@ -3,8 +3,8 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 13.1,
-  "d": 30.1
+  "w": 16.1,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
@@ -14,26 +14,26 @@
   "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 23,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#efe6d2",
+   "trim": "#2f3b2a",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,23 +41,22 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1902,
-  "band": "streetcar",
+  "condition": "worn",
+  "year_built": 1925,
+  "band": "interwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 593
+  "family": "Osei",
+  "house_number": 591
  },
- "brief": "streetcar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0498"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

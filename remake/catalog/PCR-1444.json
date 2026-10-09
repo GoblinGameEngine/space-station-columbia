@@ -3,65 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.0,
-  "d": 29.8
+  "w": 19.2,
+  "d": 36.1
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 32,
+  "main_w_ft": 39,
+  "main_d_ft": 24,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
-   "material": "wood_shingle"
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "wrap",
-   "posts": "columns",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
-   "fence": "iron",
-   "side": "chainlink",
+   "fence": "none",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "shed"
+    "garden",
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
+  "condition": "new",
+  "year_built": 1933,
+  "band": "interwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 751
+  "family": "Osei",
+  "house_number": 868
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, wrap porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0562"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, enclosed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0832"
 }

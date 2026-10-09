@@ -3,59 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 31.3
+  "w": 20.0,
+  "d": 32.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 30,
+  "main_w_ft": 28,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
+   "pitch_deg": 46,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "gable_front",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Arrieta",
-  "house_number": 1033
+  "family": "Carrow",
+  "house_number": 331
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

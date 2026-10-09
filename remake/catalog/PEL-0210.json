@@ -3,31 +3,31 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 13.6,
-  "d": 36.3
+  "w": 16.9,
+  "d": 25.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 44,
+  "main_w_ft": 35,
+  "main_d_ft": 27,
   "roof": {
    "type": "hip",
-   "pitch_deg": 20,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#2f3b2a",
+   "body": "#e9d6c8",
+   "trim": "#4a3324",
    "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
@@ -35,26 +35,28 @@
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1901,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 140
+  "family": "Kowal",
+  "house_number": 300
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0473"
+ "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0814"
 }

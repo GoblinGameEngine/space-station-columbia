@@ -6,27 +6,22 @@
   "w": 18.3,
   "d": 25.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Moriarty Flowers",
-    "type": "florist",
-    "sign": "MORIARTY FLOWERS",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1893,
-  "colors": {
-   "body": "#c9a78b"
-  }
+  "walls": "metal",
+  "year_built": 1901,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Reyes Foundry",
+  "sign": "REYES FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.5,
-  "d": 39.0
+  "w": 12.3,
+  "d": 37.2
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 38,
+  "main_w_ft": 22,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "turned",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -38,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -48,15 +48,16 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1927,
+  "year_built": 1926,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Raghunathan",
-  "house_number": 1378
+  "house_number": 1358
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

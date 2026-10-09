@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.0,
-  "d": 32.9
+  "w": 12.9,
+  "d": 39.8
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 29,
+  "main_w_ft": 25,
   "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,42 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#3b2a1e",
+   "body": "#f3eadb",
+   "trim": "#5a3a28",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "fence": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 527
+  "family": "Ostrowski",
+  "house_number": 340
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4682"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0581"
 }

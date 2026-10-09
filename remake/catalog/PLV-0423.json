@@ -3,58 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.7,
-  "d": 23.7
+  "w": 19.2,
+  "d": 31.3
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 39,
+  "main_w_ft": 31,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
+   "body": "#f3eadb",
    "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "worn",
-  "year_built": 1928,
-  "band": "streetcar",
+  "year_built": 1938,
+  "band": "interwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Szabo",
-  "house_number": 709
+  "family": "Harrow",
+  "house_number": 153
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1605"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

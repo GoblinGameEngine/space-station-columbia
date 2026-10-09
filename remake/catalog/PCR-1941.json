@@ -3,58 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.8,
-  "d": 30.2
+  "w": 10.8,
+  "d": 38.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "shabby",
+  "year_built": 1896,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 958
+  "family": "Osei",
+  "house_number": 158
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0805"
 }

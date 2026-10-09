@@ -3,27 +3,26 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 50.5,
-  "d": 29.5
+  "w": 17.7,
+  "d": 31.8
  },
- "kind": "condo",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#8a2e24"
-  },
-  "year_built": 2010,
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
+  ],
+  "walls": "block",
+  "year_built": 1903,
   "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "name": "DeCarlo Foundry",
+  "sign": "DECARLO FOUNDRY"
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0142"
+ "brief": "industrial (industry) generated for Port Carrow."
 }

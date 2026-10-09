@@ -6,30 +6,22 @@
   "w": 16.6,
   "d": 25.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Holloway Diner",
-    "type": "diner",
-    "sign": "HOLLOWAY DINER",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1924,
-  "colors": {
-   "body": "#f4f0e6"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1908,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Osei & Arrieta Machine Works",
+  "sign": "OSEI & ARRIETA MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

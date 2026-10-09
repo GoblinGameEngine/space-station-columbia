@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.7,
-  "d": 29.7
+  "w": 15.2,
+  "d": 23.1
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 40,
+  "main_w_ft": 24,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,33 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#4a3324",
+   "body": "#efd9c4",
+   "trim": "#5a3a28",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "2over2",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1906,
-  "band": "streetcar",
+  "year_built": 1895,
+  "band": "rail",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Okafor",
-  "house_number": 501
+  "family": "Stroud",
+  "house_number": 517
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0294"
+ "brief": "rail band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0365"
 }

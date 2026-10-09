@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.3,
-  "d": 41.9
+  "w": 28.0,
+  "d": 31.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f4f1e8",
-   "accent": "#2b4f6b",
-   "roof": "#6a5e52"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 41,
+  "main_d_ft": 33,
   "roof": {
-   "pitch_deg": 27
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1966,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1988,
+  "band": "suburban",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Wisniewski",
+  "house_number": 2071
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0304"
+ "brief": "suburban band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

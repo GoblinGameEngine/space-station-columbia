@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.0,
-  "d": 31.5
+  "w": 12.2,
+  "d": 30.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 29,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,31 +32,32 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Wisniewski",
-  "house_number": 1642
+  "house_number": 2411
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0630"
 }

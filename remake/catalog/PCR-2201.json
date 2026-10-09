@@ -3,42 +3,42 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.4,
-  "d": 28.5
+  "w": 18.1,
+  "d": 33.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 36,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 44,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 45,
+   "type": "gable",
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#f1ead2",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "casement",
+   "shutters": false
   },
   "chimneys": [
    "right_end"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
@@ -48,16 +48,15 @@
    ]
   },
   "condition": "worn",
-  "year_built": 1924,
+  "year_built": 1930,
   "band": "interwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 914
+  "family": "Patel",
+  "house_number": 1359
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0743"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

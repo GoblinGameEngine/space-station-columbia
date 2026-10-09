@@ -3,58 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.7,
-  "d": 32.2
+  "w": 22.0,
+  "d": 35.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "spanish_revival",
   "storeys": 1,
   "main_w_ft": 32,
-  "main_d_ft": 30,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "hip",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#5a3a28",
-   "accent": "#6a2c22",
+   "body": "#dcc7a6",
+   "trim": "#3b2a1e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "detached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1961,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 1327
+  "family": "Tremblay",
+  "house_number": 857
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2768"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

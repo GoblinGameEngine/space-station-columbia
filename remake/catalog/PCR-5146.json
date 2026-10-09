@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.8,
-  "d": 21.5
+  "w": 23.9,
+  "d": 28.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "american_small_house",
-  "storeys": 1,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 32,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c0ad8d",
-   "trim": "#f2efe6",
-   "accent": "#5b6b3a",
-   "roof": "#6a5e52"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_right"
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 1947,
   "band": "postwar",
-  "form_token": "american_small_house"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Ostrowski",
-  "house_number": 1062
+  "house_number": 718
  },
- "brief": "postwar band american_small_house: 1 storeys, brick walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-4651"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

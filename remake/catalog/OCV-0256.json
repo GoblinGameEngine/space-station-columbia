@@ -3,63 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 28.6
+  "w": 15.9,
+  "d": 30.0
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 33,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 17,
-   "material": "clay_tile_old"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [
-   "exterior_left"
+  "storeys": 2,
+  "facade": "stucco",
+  "cornice": "tile_roof",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Kowal & Pike Dental",
+    "type": "dentist",
+    "sign": "KOWAL & PIKE DENTAL",
+    "sign_style": "projecting",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": []
-  },
   "condition": "kept",
-  "year_built": 1887,
-  "band": "rail",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 9
-  }
+  "year_built": 1909,
+  "colors": {
+   "body": "#e6d4bb"
+  },
+  "arcade": false,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Nowicki",
-  "house_number": 487
- },
- "brief": "rail band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0617"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

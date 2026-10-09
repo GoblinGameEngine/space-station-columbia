@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.5,
-  "d": 28.3
+  "w": 14.2,
+  "d": 37.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#e8e0c8",
-   "accent": "#4a5a48",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
   "roof": {
-   "pitch_deg": 24
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "wood_shingle"
   },
-  "year_built": 1926,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Reyes",
+  "house_number": 404
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0978"
 }

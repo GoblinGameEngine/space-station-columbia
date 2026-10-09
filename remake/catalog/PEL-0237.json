@@ -3,61 +3,56 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 17.8,
-  "d": 33.7
+  "w": 23.1,
+  "d": 31.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 34,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 40,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 17,
+   "type": "hip",
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#efd9c4",
+   "trim": "#3b2a1e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
-  "condition": "new",
-  "year_built": 1937,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1962,
+  "band": "postwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Nowicki",
-  "house_number": 430
+  "family": "Pike",
+  "house_number": 550
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0761"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

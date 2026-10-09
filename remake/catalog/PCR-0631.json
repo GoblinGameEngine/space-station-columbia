@@ -3,31 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 25.0
+  "w": 43.9,
+  "d": 28.9
  },
- "kind": "store",
+ "kind": "townhouse",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Port Carrow Drug",
-    "type": "drug_store",
-    "sign": "PORT CARROW DRUG",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1922,
+  "units": 6,
+  "unit_w_ft": 20,
+  "depth_ft": 38,
+  "walls": "brick",
   "colors": {
-   "body": "#8e4a36"
-  }
+   "body": "#8e4a36",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#3e3e3c"
+  },
+  "roof": {
+   "pitch_deg": 25
+  },
+  "year_built": 1898,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": ""
+ },
+ "brief": "townhouse (townhouse) generated for Port Carrow.",
+ "model": "PCR-0037"
 }

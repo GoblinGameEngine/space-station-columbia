@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 21.5,
-  "d": 20.0
+  "w": 16.8,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 32,
-  "main_d_ft": 32,
+  "main_w_ft": 39,
+  "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
+   "type": "gable",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,37 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#2f3b2a",
+   "body": "#e8d8c0",
+   "trim": "#3b2a1e",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1960,
+  "year_built": 1963,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Holloway",
-  "house_number": 1717
+  "family": "Wainwright",
+  "house_number": 901
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1551"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0364"
 }

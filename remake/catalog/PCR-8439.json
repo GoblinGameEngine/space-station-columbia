@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 30.1
+  "w": 23.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 28,
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 37,
+   "type": "cross_gable",
+   "pitch_deg": 34,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,35 +26,37 @@
   "walls": "vinyl",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#f4ebde",
-   "trim": "#e8e0c8",
+   "body": "#d0d3aa",
+   "trim": "#f2efe6",
    "accent": "#2b4f6b",
-   "roof": "#3e3e3c"
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "privacy",
    "rear": "privacy",
    "extras": [
-    "garden"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1996,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "family": "Leclerc",
-  "house_number": 433
+  "family": "Ostrowski",
+  "house_number": 1856
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3901"
+ "brief": "late band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-7769"
 }

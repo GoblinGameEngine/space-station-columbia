@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 29.4,
-  "d": 30.8
+  "w": 16.5,
+  "d": 20.4
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 23,
+  "main_w_ft": 24,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,39 +23,41 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a08b6f",
-   "trim": "#e9e2d2",
-   "accent": "#4a5a48",
-   "roof": "#4e5155"
+   "body": "#8a2e24",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1967,
-  "band": "suburban",
-  "form_token": "two_storey_colonial"
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 2669
+  "family": "Stroud",
+  "house_number": 3152
  },
- "brief": "suburban band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5485"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0806"
 }

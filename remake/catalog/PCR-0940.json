@@ -3,34 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.6,
-  "d": 24.1
+  "w": 11.5,
+  "d": 23.1
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 26,
+  "main_w_ft": 23,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -41,7 +32,7 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [
@@ -50,16 +41,15 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
+  "year_built": 1890,
+  "band": "rail",
   "form_token": "gable_front",
+  "units": 2,
   "wing": {
    "side": "rear",
    "w_ft": 12,
@@ -69,8 +59,8 @@
  "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 615
+  "house_number": 968
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0660"
+ "brief": "rail band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0602"
 }

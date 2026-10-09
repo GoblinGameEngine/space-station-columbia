@@ -3,42 +3,51 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.2,
-  "d": 24.8
+  "w": 16.4,
+  "d": 39.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 24,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 27,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
+   "body": "#f6f5f0",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "2over2",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
@@ -48,17 +57,17 @@
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1916,
+  "condition": "worn",
+  "year_built": 1919,
   "band": "streetcar",
-  "form_token": "cape_cod",
+  "form_token": "gable_front",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Smith",
-  "house_number": 914
+  "family": "Delmar",
+  "house_number": 661
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0552"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0738"
 }

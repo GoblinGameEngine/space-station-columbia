@@ -3,60 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.2,
-  "d": 29.9
+  "w": 10.4,
+  "d": 40.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 27,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 23,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#4a3324",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "ranch"
+  "condition": "worn",
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2,
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Pham",
-  "house_number": 520
+  "family": "Loomis",
+  "house_number": 695
  },
- "brief": "interwar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0636"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0380"
 }

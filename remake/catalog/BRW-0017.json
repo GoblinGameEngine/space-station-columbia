@@ -8,26 +8,40 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "clapboard",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
   "cornice": "bracketed_wood",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Nguyen & Arrieta Realty",
-    "type": "real_estate",
-    "sign": "NGUYEN & ARRIETA REALTY",
+    "business": "Brightwater Law Office",
+    "type": "law_office",
+    "sign": "BRIGHTWATER LAW OFFICE",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
-  "condition": "shabby",
-  "year_built": 1922,
+  "condition": "kept",
+  "year_built": 1915,
   "colors": {
-   "body": "#5b6b5a"
+   "body": "#f6f5f0"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Brightwater."
 }

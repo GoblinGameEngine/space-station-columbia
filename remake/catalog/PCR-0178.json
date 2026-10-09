@@ -3,30 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 41.4,
-  "d": 24.8
+  "w": 18.1,
+  "d": 29.7
  },
- "kind": "townhouse",
+ "kind": "store",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 34,
-  "walls": "brick",
+  "storeys": 2,
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Okonkwo Family Medicine",
+    "type": "doctor_office",
+    "sign": "OKONKWO FAMILY MEDICINE",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1876,
   "colors": {
-   "body": "#8e4a36",
-   "trim": "#ffffff",
-   "accent": "#3a2a1e",
-   "roof": "#555350"
-  },
-  "roof": {
-   "pitch_deg": 25
-  },
-  "year_built": 1897,
-  "condition": "kept"
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "townhouse (townhouse) generated for Port Carrow."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

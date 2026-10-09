@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.7,
-  "d": 29.9
+  "w": 16.5,
+  "d": 28.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 22,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,21 +23,19 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#eff2e2",
-   "trim": "#f2efe6",
-   "accent": "#2b4f6b",
-   "roof": "#3e3e3c"
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -50,12 +48,14 @@
   "condition": "kept",
   "year_built": 2008,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "cape_cod",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "DeCarlo",
-  "house_number": 1293
+  "house_number": 644
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6136"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0479"
 }

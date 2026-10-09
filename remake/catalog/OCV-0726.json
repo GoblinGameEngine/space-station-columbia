@@ -3,33 +3,56 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 40.2,
-  "d": 25.5
+  "w": 12.1,
+  "d": 38.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "stucco",
-  "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2f3b2a",
-   "accent": "#3a2a1e",
-   "roof": "#a8492f"
-  },
+  "archetype": "minimal_traditional",
+  "storeys": 1,
+  "main_w_ft": 28,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "material": "clay_tile",
-   "pitch_deg": 17
+   "pitch_deg": 17,
+   "material": "clay_tile"
   },
-  "year_built": 1906,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f6f1e7",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 719
  },
- "brief": "townhouse (townhouse) generated for Oceanview.",
- "model": "SOL-0063"
+ "brief": "streetcar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-1030"
 }

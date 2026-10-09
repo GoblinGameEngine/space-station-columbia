@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.4,
-  "d": 27.0
+  "w": 19.7,
+  "d": 30.6
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 31,
+  "main_w_ft": 25,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -35,7 +35,9 @@
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -48,13 +50,14 @@
   "condition": "kept",
   "year_built": 1999,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Booker",
-  "house_number": 257
+  "house_number": 2001
  },
  "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0534"
+ "model": "PCR-0971"
 }

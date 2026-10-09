@@ -3,59 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.2,
-  "d": 33.6
+  "w": 17.6,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 35,
+  "main_w_ft": 29,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "type": "gambrel",
+   "pitch_deg": 47,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
    "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "shabby",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "i_house",
+  "condition": "kept",
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "dutch_colonial",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 2304
+  "family": "Okafor",
+  "house_number": 873
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0287"
+ "brief": "postwar band dutch_colonial: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-1946"
 }

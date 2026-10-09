@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.2,
-  "d": 31.5
+  "w": 12.2,
+  "d": 20.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 33,
+  "main_w_ft": 22,
+  "main_d_ft": 39,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 29,
+   "type": "gable",
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#f1ead2",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "rear"
+   "right_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1959,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 1159
+  "family": "Pruett",
+  "house_number": 1952
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0761"
 }

@@ -3,39 +3,41 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 27.8
+  "w": 23.6,
+  "d": 28.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 25,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 38,
+  "main_d_ft": 20,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
-  "walls": "board_and_batten",
-  "foundation": "slab",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
-   "roof": "#a8492f"
+   "body": "#e5dfd2",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -49,14 +51,12 @@
   "condition": "kept",
   "year_built": 2006,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
- "region": "ca",
  "names": {
-  "family": "Delmar",
-  "house_number": 744
+  "family": "Castellanos",
+  "house_number": 544
  },
- "brief": "late band ranch: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0636"
+ "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6034"
 }

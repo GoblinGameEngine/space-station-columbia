@@ -3,58 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 33.8
+  "w": 19.8,
+  "d": 35.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 31,
+  "main_w_ft": 53,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "body": "#e9e8e2",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1931,
+  "year_built": 1942,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 450
+  "family": "Pham",
+  "house_number": 1083
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0685"
 }

@@ -3,23 +3,23 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 34.5,
-  "d": 35.9
+  "w": 23.7,
+  "d": 30.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 50,
-  "main_d_ft": 29,
+  "main_w_ft": 32,
+  "main_d_ft": 31,
   "roof": {
    "type": "hip",
-   "pitch_deg": 24,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
@@ -32,27 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "fence": "chainlink",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1980,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1961,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Yoder",
-  "house_number": 1444
+  "family": "Leclerc",
+  "house_number": 1239
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2726"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

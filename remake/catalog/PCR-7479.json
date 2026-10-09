@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.3,
-  "d": 22.8
+  "w": 24.6,
+  "d": 20.0
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#ffffff",
-   "accent": "#1f2a33",
-   "roof": "#6a5e52"
-  },
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 25,
   "roof": {
-   "pitch_deg": 28
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "wood_shingle"
   },
-  "year_built": 2004,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2008,
+  "band": "late",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 854
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "late band foursquare: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-4841"
 }

@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 20.0
+  "w": 23.2,
+  "d": 30.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 26,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 37,
+  "main_d_ft": 21,
   "roof": {
    "type": "gable",
-   "pitch_deg": 30,
+   "pitch_deg": 25,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
    "posts": "columns",
-   "rail": "solid"
+   "rail": "none"
   },
   "walls": "vinyl",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e5dc",
+   "body": "#a0a1a5",
    "trim": "#e8e0c8",
-   "accent": "#1f2a33",
-   "roof": "#555350"
+   "accent": "#4a5a48",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,22 +41,19 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
-   "extras": [
-    "clothesline"
-   ]
+   "extras": []
   },
-  "condition": "new",
+  "condition": "kept",
   "year_built": 2000,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "family": "Villalobos",
-  "house_number": 1176
+  "family": "Solano",
+  "house_number": 864
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4350"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5730"
 }

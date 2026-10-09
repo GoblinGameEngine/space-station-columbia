@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 20.0
+  "w": 19.5,
+  "d": 30.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 31,
+  "main_w_ft": 35,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "tapered_on_piers",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "body": "#8a2e24",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Wainwright",
-  "house_number": 2523
+  "family": "Reyes",
+  "house_number": 2457
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

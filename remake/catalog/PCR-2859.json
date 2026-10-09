@@ -3,63 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 32.6
+  "w": 17.4,
+  "d": 28.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 46,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 31,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#e9e8e2",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
    "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
-    "garden",
-    "shed",
     "swing_set"
    ]
   },
-  "condition": "new",
+  "condition": "kept",
   "year_built": 1932,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 789
+  "family": "Loomis",
+  "house_number": 1866
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0363"
 }

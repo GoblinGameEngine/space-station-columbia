@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.8,
-  "d": 31.5
+  "w": 10.5,
+  "d": 34.5
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 37,
-  "main_d_ft": 28,
+  "main_w_ft": 25,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 47,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,29 +32,33 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1964,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Haddad",
-  "house_number": 739
+  "house_number": 979
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0297"
 }

@@ -3,34 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.2,
-  "d": 40.2
+  "w": 11.9,
+  "d": 39.3
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 40,
+  "main_w_ft": 21,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -41,7 +32,7 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
@@ -57,9 +48,10 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
+  "year_built": 1890,
+  "band": "rail",
   "form_token": "gable_front",
+  "units": 2,
   "wing": {
    "side": "rear",
    "w_ft": 13,
@@ -69,7 +61,7 @@
  "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 553
+  "house_number": 486
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

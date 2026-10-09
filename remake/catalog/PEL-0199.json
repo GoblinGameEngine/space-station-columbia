@@ -3,61 +3,60 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 17.7,
-  "d": 20.0
+  "w": 18.2,
+  "d": 38.2
  },
  "kind": "house",
  "traits": {
   "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 30,
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "body": "#f6f1e7",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
+  "year_built": 1898,
+  "band": "streetcar",
   "form_token": "minimal_traditional",
   "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Mbeki",
-  "house_number": 354
+  "family": "Brandvold",
+  "house_number": 488
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2550"
+ "brief": "streetcar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1163"
 }

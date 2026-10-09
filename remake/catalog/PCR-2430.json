@@ -3,27 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 54.5,
-  "d": 37.0
+  "w": 24.5,
+  "d": 33.7
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 45,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 22,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1973,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "shingle",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#798287",
+   "trim": "#2e3a4a",
+   "accent": "#7a2e28",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Tomczak",
+  "house_number": 789
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1085"
+ "brief": "postwar band ranch: 1 storeys, shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4341"
 }

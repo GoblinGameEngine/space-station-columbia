@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.1,
-  "d": 31.7
+  "w": 22.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "ranch",
+  "storeys": 1,
   "main_w_ft": 55,
   "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "shingle",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#746c52",
+   "trim": "#e8e0c8",
+   "accent": "#7a2e28",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "center"
@@ -48,13 +48,12 @@
   "condition": "kept",
   "year_built": 1962,
   "band": "postwar",
-  "form_token": "i_house"
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
   "family": "Stroud",
-  "house_number": 2027
+  "house_number": 1453
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "postwar band ranch: 1 storeys, shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2193"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.2,
-  "d": 23.0
+  "w": 11.6,
+  "d": 35.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 36,
+  "main_w_ft": 21,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,44 +23,39 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "2over2",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1879,
-  "band": "rail",
-  "form_token": "gable_front",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 12
-  }
+  "condition": "worn",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 1014
+  "family": "Pruett",
+  "house_number": 922
  },
- "brief": "rail band gable_front: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0660"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0975"
 }

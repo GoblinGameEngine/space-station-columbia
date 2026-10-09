@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 20.1
+  "w": 10.1,
+  "d": 37.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
+  "main_w_ft": 20,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "wood_shingle"
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
    "body": "#9a9184",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "left_end"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1942,
   "band": "interwar",
-  "form_token": "shingle_style"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 2360
+  "family": "Smith",
+  "house_number": 2281
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0996"
+ "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0383"
 }

@@ -3,63 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 34.2
+  "w": 23.4,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 40,
+  "main_w_ft": 48,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "slate"
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#e9e8e2",
    "trim": "#ffffff",
    "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "casement",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 744
+  "family": "Delmar",
+  "house_number": 2164
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0608"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

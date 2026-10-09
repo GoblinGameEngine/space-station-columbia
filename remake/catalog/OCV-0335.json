@@ -3,33 +3,61 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.2,
-  "d": 31.7
+  "w": 11.2,
+  "d": 38.8
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Infirmary Variety",
-    "type": "variety_store",
-    "sign": "INFIRMARY VARIETY",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1897,
-  "colors": {
-   "body": "#e8d8c0"
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 36,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 21,
+   "material": "clay_tile"
   },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "board_and_batten",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f3eadb",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1871,
+  "band": "rail",
+  "form_token": "spanish_revival",
+  "units": 2,
+  "balcony": "monterey"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "family": "Pham",
+  "house_number": 246
+ },
+ "brief": "rail band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0380"
 }

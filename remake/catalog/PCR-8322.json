@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.9,
-  "d": 20.0
+  "w": 17.8,
+  "d": 24.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 33,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 26,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
+   "type": "hip",
+   "pitch_deg": 26,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#b2c1be",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,13 @@
   "condition": "kept",
   "year_built": 1998,
   "band": "late",
-  "form_token": "gable_front"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Booker",
-  "house_number": 3022
+  "house_number": 2523
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4318"
 }

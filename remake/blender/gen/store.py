@@ -69,16 +69,20 @@ def build(rec, vacant=False):
     lot_w, lot_d = lot["w"], lot["d"]
     fronts = (tr.get("storefronts") or [])[:3] or [{"business": "Main Street Mercantile", "type": "variety_store",
                                                     "sign": "MERCANTILE", "sign_style": "flat_board"}]
-    storeys = int(clamp(tr.get("storeys") or 2, 1, 3))
+    # an office block (research/jobs: downtown lots turned to offices): 4-12 storeys, each floor one tenant (unit O<k>)
+    office = tr.get("form") == "office_block"
+    storeys = int(clamp(tr.get("storeys") or 2, 1, 12 if office else 3))
     upper = tr.get("upper_use") or ("apartments" if storeys > 1 else "none")
+    if office:
+        upper = "offices"
     if storeys == 1:
         upper = "none"
     year = tr.get("year_built", 1900)
     b = lib_building(rid)
     facade_materials(b, tr, cond)
     # ---- block rectangle
-    W = min(lot_w - 0.1, 24.0)
-    D = clamp(lot_d - 3.5, 10.0, 26.0)
+    W = min(lot_w - 0.1, 40.0 if office else 24.0)
+    D = clamp(lot_d - 3.5, 10.0, 30.0 if office else 26.0)
     x0, x1 = -W / 2, W / 2
     y1 = lot_d / 2 - 0.3
     y0 = y1 - D
@@ -97,7 +101,7 @@ def build(rec, vacant=False):
     # ---- bays: stair bay (if upstairs) + storefront bays
     has_up = upper != "none"
     # stair bay against a party wall: wall + flight(s) + a 1.2 m passage (2 storeys) / second lane (3)
-    stair_bay_w = TE + ((STAIR_W + 1.25) if storeys == 2 else (2 * STAIR_W + 0.35 if storeys == 3 else 0.0))
+    stair_bay_w = TE + ((STAIR_W + 1.25) if storeys == 2 else (2 * STAIR_W + 0.35 if storeys >= 3 else 0.0))
     if not has_up:
         stair_bay_w = 0.0
     mirror = rnd.random() < 0.5
@@ -169,22 +173,26 @@ def build(rec, vacant=False):
         doors.append(dict(name="street_up", at=(sdx if storeys == 3 else (sb[1] - 0.6 if not mirror else sb[0] + 0.6), y1), w=0.95,
                           ext=True, glazed=(0.15, 0.45, 0.85, 0.92), transom=0.5))
         doors.append(dict(name="stair_alley", at=(sdx, y0), w=0.9, ext=True))
+        y_at = y1 - TE - 1.0                               # where the next flight starts
         for k in range(1, storeys):
             rise = floors[k][0] - floors[k - 1][0]
             nr = math.ceil(rise / 0.19)
             run = 0.25
             L = nr * run
-            lane = 0 if k == 1 else 1
+            lane = (k - 1) % 2
             sx0 = (sb[0] + TE + 0.05 + lane * (STAIR_W + 0.2)) if not mirror else (sb[1] - TE - 0.05 - STAIR_W - lane * (STAIR_W + 0.2))
-            if k == 1:
-                st = dict(start=(sx0, y1 - TE - 1.0), dir=(0, -1), width=STAIR_W, n=nr, run=run, floor=0, to_floor=1,
+            if lane == 0:
+                st = dict(start=(sx0, y_at), dir=(0, -1), width=STAIR_W, n=nr, run=run, floor=k - 1, to_floor=k,
                           rail_side="left" if not mirror else "right")
-                top_y = y1 - TE - 1.0 - L
+                y_at -= L
+                if k == 1:
+                    top_y = y_at
             else:
-                # second flight climbs back toward the street from the first flight's head
-                # dir (0, 1): width runs toward -x from the start edge, so start on the lane's +x side
-                st = dict(start=(sx0 + STAIR_W, top_y), dir=(0, 1), width=STAIR_W,
+                # the next flight climbs back toward the street from the last one's head (the two lanes alternate up the
+                # building); dir (0, 1): width runs toward -x from the start edge, so start on the lane's +x side
+                st = dict(start=(sx0 + STAIR_W, y_at), dir=(0, 1), width=STAIR_W,
                           n=nr, run=run, floor=k - 1, to_floor=k, rail_side="right" if not mirror else "left")
+                y_at += L
             spec["stairs"].append(st)
         # upper floors: corridor band at the first flight's head, rooms in front of and behind it
         cy1 = top_y
@@ -194,7 +202,7 @@ def build(rec, vacant=False):
             ux0, ux1 = shops_x
             rooms.append(dict(name=f"UCOR{k}", floor=k, rect=(ux0, cy0, ux1, cy1), type=None, no_light=False,
                               open_plan_to=f"UHALL{k}"))
-            nb = max(1, int((ux1 - ux0) / 5.0))
+            nb = max(1, int((ux1 - ux0) / (6.5 if office else 5.0)))
             uw = (ux1 - ux0) / nb
             for j in range(nb):
                 a0, a1 = ux0 + uw * j, ux0 + uw * (j + 1)
@@ -204,6 +212,8 @@ def build(rec, vacant=False):
                                       fitout=shopfit.fitout_for("office", rnd)))
                     rooms.append(dict(name=bk_, floor=k, rect=(a0, y0, a1, cy0), type="office",
                                       fitout=shopfit.fitout_for("office", rnd)))
+                    if office:
+                        rooms[-1]["unit"] = rooms[-2]["unit"] = f"O{k}"     # (the floor's one tenant)
                 elif upper == "storage":
                     rooms.append(dict(name=ft_, floor=k, rect=(a0, cy1, a1, y1), type="stock",
                                       fitout=shopfit.fitout_for("stockroom", rnd)))
@@ -226,9 +236,15 @@ def build(rec, vacant=False):
                                   fitout=shopfit.fitout_for("funeral_home", rnd)))
                 doors.append(dict(name=f"lodge{k}", floor=k, at=((ux0 + ux1) / 2, cy1), w=1.6, leaves=2, swing_into=f"LODGE{k}"))
             # upper windows across the front and rear
-            nwin = max(2, int(W / 2.2))
+            nwin = max(2, int(W / (1.8 if office else 2.2)))
             for j in range(nwin):
                 wx = x0 + W * (j + 0.5) / nwin
+                if office:
+                    # an office floor's regular grid, front and back (Chicago windows on the old ones)
+                    wins.append(dict(at=(wx, y1), floor=k, w=1.3, sill=0.8, h=2.0, kind="dh", cols=2 if year < 1945 else 1,
+                                     head_cap=year < 1945))
+                    wins.append(dict(at=(wx, y0), floor=k, w=1.3, sill=0.8, h=2.0, kind="dh", cols=1))
+                    continue
                 wins.append(dict(at=(wx, y1), floor=k, w=0.95, sill=0.75, h=1.9, kind="dh", cols=1, head_cap=True))
                 if j % 2 == 0:
                     wins.append(dict(at=(wx, y0), floor=k, w=0.9, sill=0.8, h=1.6, kind="dh", cols=1))

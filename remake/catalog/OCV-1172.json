@@ -3,34 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 39.8,
-  "d": 33.5
+  "w": 16.3,
+  "d": 35.6
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 16,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#3b2a1e",
+   "body": "#dcc7a6",
+   "trim": "#4a3324",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
-  "year_built": 2015,
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
   "condition": "kept",
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 19
-  }
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Carrow",
+  "house_number": 228
  },
- "brief": "condo (apartment) generated for Oceanview.",
- "model": "SOL-1022"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

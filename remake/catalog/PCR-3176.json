@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.3,
-  "d": 20.2
+  "w": 21.3,
+  "d": 30.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 46,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 40,
   "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 30,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c3ab8e",
-   "trim": "#e9e2d2",
-   "accent": "#2e3a4a",
-   "roof": "#3e3e3c"
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1956,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Haskins",
-  "house_number": 1378
+  "house_number": 1715
  },
- "brief": "postwar band ranch: 1 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2193"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

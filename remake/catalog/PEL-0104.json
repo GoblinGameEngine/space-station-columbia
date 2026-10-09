@@ -3,60 +3,33 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 13.0,
-  "d": 35.5
+  "w": 41.1,
+  "d": 36.5
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 26,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "units": 6,
+  "unit_w_ft": 24,
+  "depth_ft": 36,
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "body": "#e6d4bb",
+   "trim": "#5a3a28",
+   "accent": "#6a4a2a",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+  "roof": {
+   "type": "gable",
+   "material": "clay_tile",
+   "pitch_deg": 22
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1908,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "year_built": 1929,
+  "condition": "kept"
  },
  "region": "ca",
  "names": {
-  "family": "Nguyen",
-  "house_number": 351
+  "name": ""
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "townhouse (townhouse) generated for Pelican Cove.",
+ "model": "SOL-0063"
 }

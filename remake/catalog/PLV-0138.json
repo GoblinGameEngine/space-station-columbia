@@ -3,33 +3,25 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.4,
-  "d": 30.9
+  "w": 16.2,
+  "d": 30.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Main Street Shoes",
-    "type": "shoe_store",
-    "sign": "MAIN STREET SHOES",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "textile_mill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1920,
-  "colors": {
-   "body": "#e9dcc2"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "metal",
+  "year_built": 1891,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "name": "Valley Mills",
+  "sign": "VALLEY MILLS"
+ },
+ "brief": "industrial (industry) generated for Playa Verde."
 }

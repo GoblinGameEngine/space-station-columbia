@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.2,
-  "d": 22.0
+  "w": 18.8,
+  "d": 22.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 32,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 22,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
+   "type": "hip",
+   "pitch_deg": 27,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#e3efd9",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -50,13 +50,13 @@
   "condition": "new",
   "year_built": 1999,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 1166
+  "house_number": 1618
  },
- "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-6043"
+ "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2193"
 }

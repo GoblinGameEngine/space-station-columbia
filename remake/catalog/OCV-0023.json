@@ -8,28 +8,48 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Yoder Furniture",
-    "type": "furniture",
-    "sign": "YODER FURNITURE",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "engineering_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1880,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Wisniewski Cafe",
+    "type": "cafe",
+    "sign": "WISNIEWSKI CAFE",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1967,
   "colors": {
    "body": "#dcc7a6"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "block_name": "Pham Building"
+ },
+ "brief": "store (office) generated for Oceanview."
 }

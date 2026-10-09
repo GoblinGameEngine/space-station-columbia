@@ -3,22 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 8.0,
-  "d": 8.0
+  "w": 23.9,
+  "d": 30.3
  },
- "kind": "lighthouse",
+ "kind": "house",
  "traits": {
-  "year_built": 1962,
-  "over_water": false,
-  "form": "round",
-  "material": "masonry",
-  "height_m": 18,
-  "keeper_house": false,
-  "lantern": "lantern"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 39,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#d5c8a6",
+   "trim": "#f4f1e8",
+   "accent": "#5b6b3a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2001,
+  "band": "late",
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
-  "name": "Carrow Head Light"
+  "family": "Adebayo",
+  "house_number": 848
  },
- "brief": "lighthouse (lighthouse) generated for Port Carrow."
+ "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2280"
 }

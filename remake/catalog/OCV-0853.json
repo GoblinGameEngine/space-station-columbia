@@ -3,31 +3,31 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.3,
-  "d": 24.8
+  "w": 14.4,
+  "d": 38.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 38,
-  "main_d_ft": 29,
+  "main_w_ft": 24,
+  "main_d_ft": 44,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#2f3b2a",
+   "body": "#e9d6c8",
+   "trim": "#3b2a1e",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
@@ -38,23 +38,25 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "condition": "shabby",
+  "year_built": 1909,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Pike",
-  "house_number": 707
+  "family": "Carrow",
+  "house_number": 135
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0320"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

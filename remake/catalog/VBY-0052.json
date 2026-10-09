@@ -3,60 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 14.9,
-  "d": 29.7
+  "w": 17.9,
+  "d": 37.3
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 55,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "brick",
-  "colors": {
-   "body": "#e9f0e6",
-   "trim": "#f7f6f0",
-   "accent": "#244d3a",
-   "roof": "#4a4440"
-  },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Mbeki Bakery",
+    "type": "bakery",
+    "sign": "MBEKI BAKERY",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
-  "form_token": "queen_anne"
+  "year_built": 1892,
+  "colors": {
+   "body": "#f3ede0",
+   "trim": "#ffffff",
+   "accent": "#244d3a"
+  },
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "family": "Pham",
-  "house_number": 138
- },
- "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

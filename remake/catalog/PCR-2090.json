@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.7,
-  "d": 35.5
+  "w": 11.1,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
@@ -14,7 +14,7 @@
   "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,19 +24,19 @@
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#808674",
-   "trim": "#f4f1e8",
-   "accent": "#4a5a48",
-   "roof": "#6a5e52"
+   "body": "#e6e2d8",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
@@ -44,19 +44,22 @@
    "side": "hedge",
    "rear": "none",
    "extras": [
-    "shed"
+    "garden",
+    "clothesline",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "two_flat",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "gable_front",
   "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 1173
+  "family": "Pike",
+  "house_number": 1480
  },
- "brief": "interwar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "HF-0259"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0870"
 }

@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 10.4,
-  "d": 24.2
+  "w": 12.4,
+  "d": 38.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 24,
-  "main_d_ft": 39,
+  "main_w_ft": 25,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,34 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#5a3a28",
+   "body": "#e4cfb2",
+   "trim": "#2e2a26",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Carrow",
-  "house_number": 428
+  "family": "Kowalczyk",
+  "house_number": 963
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0647"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0581"
 }

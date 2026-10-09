@@ -3,41 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.5,
-  "d": 30.9
+  "w": 19.0,
+  "d": 28.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 36,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 47,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
+   "body": "#f6f5f0",
    "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "accent": "#1d1f22",
    "roof": "#4a4440"
   },
   "windows": {
@@ -45,27 +36,28 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 914
+  "family": "Haddad",
+  "house_number": 1211
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

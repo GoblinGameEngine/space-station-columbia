@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Pruett & Tremblay Insurance",
-    "type": "insurance_office",
-    "sign": "PRUETT & TREMBLAY INSURANCE",
-    "sign_style": "flat_board",
+    "business": "Brandvold Cafe",
+    "type": "cafe",
+    "sign": "BRANDVOLD CAFE",
+    "sign_style": "projecting",
+    "awning": true
+   },
+   {
+    "business": "Main Street Savings Bank",
+    "type": "bank",
+    "sign": "MAIN STREET SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1914,
+  "year_built": 1900,
   "colors": {
-   "body": "#a18f68"
+   "body": "#a68073"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Holloway Building"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

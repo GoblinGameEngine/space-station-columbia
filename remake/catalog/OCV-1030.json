@@ -3,31 +3,31 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 24.7,
-  "d": 31.1
+  "w": 14.1,
+  "d": 40.3
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 57,
-  "main_d_ft": 31,
+  "main_w_ft": 26,
+  "main_d_ft": 37,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
-   "material": "clay_tile_old"
+   "type": "hip",
+   "pitch_deg": 22,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#3b2a1e",
+   "body": "#f2e8dc",
+   "trim": "#5a3a28",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
@@ -40,23 +40,28 @@
   ],
   "garage": "none",
   "yard": {
-   "fence": "chainlink",
+   "fence": "hedge",
    "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1961,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Solano",
-  "house_number": 991
+  "family": "Stroud",
+  "house_number": 123
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "streetcar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

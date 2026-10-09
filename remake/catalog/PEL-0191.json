@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 19.8,
-  "d": 33.9
+  "w": 14.1,
+  "d": 27.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 33,
+  "archetype": "minimal_traditional",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
-   "pitch_deg": 22,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,40 +23,39 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#5a3a28",
+   "body": "#e9d6c8",
+   "trim": "#3b2a1e",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1936,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "condition": "shabby",
+  "year_built": 1909,
+  "band": "streetcar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 263
+  "family": "Pham",
+  "house_number": 321
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band minimal_traditional: 2 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0440"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.4,
-  "d": 26.6
+  "w": 24.6,
+  "d": 21.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 32,
   "main_d_ft": 34,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 29,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#b36a49",
-   "trim": "#e9e2d2",
-   "accent": "#5b6b3a",
-   "roof": "#3e3e3c"
+   "body": "#e8dcc0",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "worn",
   "year_built": 2007,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 2820
+  "house_number": 4278
  },
- "brief": "late band neo_eclectic: 2 storeys, brick walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6421"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

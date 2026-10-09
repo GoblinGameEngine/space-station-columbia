@@ -3,25 +3,21 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.0,
-  "d": 41.1
+  "w": 15.5,
+  "d": 29.5
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
   "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
    {
     "type": "shed",
     "side": "front"
@@ -29,7 +25,7 @@
   ],
   "porch": {
    "type": "front_full",
-   "posts": "tapered_on_piers",
+   "posts": "turned",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -41,32 +37,29 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline",
-    "swing_set"
-   ]
+   "rear": "none",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1921,
-  "band": "streetcar",
+  "condition": "kept",
+  "year_built": 1874,
+  "band": "rail",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 774
+  "family": "Bazzi",
+  "house_number": 929
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0794"
+ "brief": "rail band gable_front: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0583"
 }

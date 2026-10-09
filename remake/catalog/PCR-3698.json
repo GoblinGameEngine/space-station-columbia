@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.3,
-  "d": 32.1
+  "w": 18.4,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 51,
-  "main_d_ft": 27,
+  "main_w_ft": 34,
+  "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
+    "garden",
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1955,
-  "band": "postwar",
+  "condition": "worn",
+  "year_built": 1934,
+  "band": "interwar",
   "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 2161
+  "family": "Smith",
+  "house_number": 2277
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

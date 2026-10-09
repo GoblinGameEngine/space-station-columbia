@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.1,
-  "d": 34.3
+  "w": 18.4,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 37,
-  "main_d_ft": 29,
+  "main_w_ft": 32,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 23,
@@ -33,7 +33,7 @@
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,20 +41,23 @@
   "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "hedge",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
   "year_built": 1951,
   "band": "postwar",
-  "form_token": "spanish_revival"
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Adebayo",
-  "house_number": 1487
+  "family": "Osei",
+  "house_number": 334
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

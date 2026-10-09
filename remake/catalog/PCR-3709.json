@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.0,
-  "d": 26.6
+  "w": 17.5,
+  "d": 30.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 45,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
+   "pitch_deg": 24,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "board_and_batten",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#83382f",
+   "trim": "#ffffff",
+   "accent": "#6a4a2a",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 1978,
   "band": "suburban",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 1914
+  "house_number": 1889
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "suburban band ranch: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3901"
 }

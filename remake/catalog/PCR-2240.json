@@ -3,36 +3,45 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.7,
-  "d": 24.1
+  "w": 14.7,
+  "d": 28.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 40,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "turned",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#f6f5f0",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
@@ -45,21 +54,19 @@
    "rear": "none",
    "extras": [
     "garden",
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1920,
   "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Dunmore",
-  "house_number": 1513
+  "house_number": 465
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0723"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0582"
 }

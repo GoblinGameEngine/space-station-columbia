@@ -8,25 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "none",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Pike Shoes",
-    "type": "shoe_store",
-    "sign": "PIKE SHOES",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "insurance_agency"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "engineering_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1921,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Moriarty Cafe",
+    "type": "cafe",
+    "sign": "MORIARTY CAFE",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Brandvold & Loomis Savings Bank",
+    "type": "bank",
+    "sign": "BRANDVOLD & LOOMIS SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1929,
   "colors": {
-   "body": "#9e9068"
+   "body": "#b1704b"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Marlowe Block"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

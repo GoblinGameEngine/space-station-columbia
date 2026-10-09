@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.2,
-  "d": 32.1
+  "w": 23.2,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 38,
+  "main_w_ft": 46,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
-   "material": "wood_shingle"
+   "pitch_deg": 49,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
+   "body": "#f2f1ea",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Dunmore",
-  "house_number": 336
+  "family": "Pham",
+  "house_number": 989
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0369"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

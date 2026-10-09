@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 30.8
+  "w": 19.7,
+  "d": 37.0
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 23,
-  "main_d_ft": 38,
+  "main_w_ft": 38,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,38 +26,39 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "body": "#f4f2e8",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1936,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "condition": "worn",
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 1001
+  "family": "Bazzi",
+  "house_number": 827
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0514"
 }

@@ -8,26 +8,62 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
+  "form": "office_block",
+  "storeys": 9,
+  "facade": "brick",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "doctor_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Main Street Cafe",
-    "type": "cafe",
-    "sign": "MAIN STREET CAFE",
+    "business": "Marlowe & Okafor Clothiers",
+    "type": "clothing",
+    "sign": "MARLOWE & OKAFOR CLOTHIERS",
     "sign_style": "projecting",
     "awning": false
+   },
+   {
+    "business": "Booker Law Office",
+    "type": "law_office",
+    "sign": "BOOKER LAW OFFICE",
+    "sign_style": "awning_lettering",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1909,
+  "year_built": 1912,
   "colors": {
-   "body": "#2f3e52"
+   "body": "#9c5a42"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Wainwright Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

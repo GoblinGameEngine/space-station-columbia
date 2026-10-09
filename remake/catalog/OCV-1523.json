@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.6,
-  "d": 28.1
+  "w": 17.3,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 51,
-  "main_d_ft": 27,
+  "main_w_ft": 24,
+  "main_d_ft": 40,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
+   "type": "gable",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,34 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#efd9c4",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1941,
+  "year_built": 1939,
   "band": "interwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1488
+  "family": "Leclerc",
+  "house_number": 1430
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

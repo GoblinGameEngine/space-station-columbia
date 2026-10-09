@@ -3,63 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.3,
+  "w": 10.5,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 27,
+  "main_w_ft": 23,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
-   "material": "wood_shingle"
+   "pitch_deg": 40,
+   "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
    "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "right_end"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1923,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1825
+  "family": "Duquesne",
+  "house_number": 1768
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0994"
 }

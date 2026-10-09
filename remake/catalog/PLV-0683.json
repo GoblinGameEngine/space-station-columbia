@@ -3,59 +3,66 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.8,
-  "d": 32.7
+  "w": 12.8,
+  "d": 32.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 27,
+  "main_w_ft": 25,
+  "main_d_ft": 39,
   "roof": {
    "type": "hip",
-   "pitch_deg": 19,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "body": "#f2e8dc",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
+    "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1931,
-  "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "minimal_traditional",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 793
+  "family": "Raghunathan",
+  "house_number": 295
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "streetcar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1125"
 }

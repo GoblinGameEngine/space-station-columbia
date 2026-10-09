@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 10.5,
-  "d": 34.1
+  "w": 17.2,
+  "d": 26.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 36,
+  "main_w_ft": 37,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#efd9c4",
+   "trim": "#4a3324",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1938,
   "band": "interwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 415
+  "family": "Ostrowski",
+  "house_number": 270
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0489"
+ "brief": "interwar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

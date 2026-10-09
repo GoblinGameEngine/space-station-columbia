@@ -3,70 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.7,
-  "d": 32.0
+  "w": 45.2,
+  "d": 38.9
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 27,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
-  "porch": {
-   "type": "enclosed",
-   "posts": "square",
-   "rail": "solid"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "units": 6,
+  "unit_w_ft": 22,
+  "depth_ft": 34,
+  "walls": "brick",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#7a4232",
+   "trim": "#2e3a4a",
+   "accent": "#3a2a1e",
+   "roof": "#555350"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": false
+  "roof": {
+   "pitch_deg": 34
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1898,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 870
+  "name": ""
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "townhouse (townhouse) generated for Port Carrow.",
+ "model": "PCR-0037"
 }

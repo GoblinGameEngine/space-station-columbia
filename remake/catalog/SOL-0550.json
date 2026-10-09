@@ -6,30 +6,23 @@
   "w": 17.7,
   "d": 36.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Wisniewski Books",
-    "type": "bookstore",
-    "sign": "WISNIEWSKI BOOKS",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1881,
-  "colors": {
-   "body": "#e9dcc2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1882,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Dunmore Foundry",
+  "sign": "DUNMORE FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

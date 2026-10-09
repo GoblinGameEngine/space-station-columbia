@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.4,
-  "d": 31.9
+  "w": 25.4,
+  "d": 29.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 41,
   "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,16 +24,16 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#f7e4c6",
-   "trim": "#e9e2d2",
-   "accent": "#1f2a33",
-   "roof": "#4a4a48"
+   "body": "#c9cfcf",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Yoder",
-  "house_number": 1583
+  "house_number": 3346
  },
- "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

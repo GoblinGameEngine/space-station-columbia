@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 51.4,
-  "d": 30.3
+  "w": 15.7,
+  "d": 24.7
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
   "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
+  "facade": "brick",
+  "cornice": "corbelled_brick",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Villalobos Pizza",
+    "type": "pizza",
+    "sign": "VILLALOBOS PIZZA",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1875,
   "colors": {
-   "body": "#8e4a36"
-  },
-  "year_built": 1999,
-  "condition": "kept"
+   "body": "#7a4232"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0036"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

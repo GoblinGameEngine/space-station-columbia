@@ -6,27 +6,21 @@
   "w": 17.3,
   "d": 25.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
+  "use": "printing_plant",
+  "form": "loft",
   "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Smith Music",
-    "type": "music_store",
-    "sign": "SMITH MUSIC",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1913,
-  "colors": {
-   "body": "#c0b38d"
-  }
+  "walls": "brick",
+  "year_built": 1899,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "DeCarlo Press",
+  "sign": "DECARLO PRESS"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

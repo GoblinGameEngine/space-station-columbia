@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.0,
+  "w": 17.3,
   "d": 22.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 41,
-  "main_d_ft": 34,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#94aca4",
-   "trim": "#e8e0c8",
-   "accent": "#7a2e28",
-   "roof": "#3e3e3c"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "rear"
@@ -48,12 +48,14 @@
   "condition": "kept",
   "year_built": 1977,
   "band": "suburban",
-  "form_token": "split_level"
+  "form_token": "nantucket_cape",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Yoder",
-  "house_number": 1357
+  "house_number": 236
  },
- "brief": "suburban band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5469"
+ "brief": "suburban band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1047"
 }

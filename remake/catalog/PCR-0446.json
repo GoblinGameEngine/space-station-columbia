@@ -3,31 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 30.9
+  "w": 17.7,
+  "d": 24.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Merriweather Market",
-    "type": "grocery",
-    "sign": "MERRIWEATHER MARKET",
-    "sign_style": "projecting",
-    "awning": true
-   }
+  "use": "cell_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1881,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "brick",
+  "year_built": 1911,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Pike Cell Works",
+  "sign": "PIKE CELL WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

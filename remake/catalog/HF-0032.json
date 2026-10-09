@@ -8,25 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "frame_false_front",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "architect_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Dunmore Appliance",
-    "type": "appliance_repair",
-    "sign": "DUNMORE APPLIANCE",
+    "business": "Union Cafe",
+    "type": "cafe",
+    "sign": "UNION CAFE",
+    "sign_style": "awning_lettering",
+    "awning": true
+   },
+   {
+    "business": "Exchange Drug",
+    "type": "drug_store",
+    "sign": "EXCHANGE DRUG",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1918,
+  "year_built": 1970,
   "colors": {
-   "body": "#c8ba8c"
+   "body": "#7d4333"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Harrow Falls Trust"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

@@ -3,24 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 37.7
+  "w": 16.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 41,
+  "main_w_ft": 32,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "spindle"
   },
   "walls": "cedar_shingle",
@@ -36,28 +45,28 @@
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "clothesline",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1923,
+  "year_built": 1940,
   "band": "interwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 1979
+  "house_number": 1914
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0979"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0988"
 }

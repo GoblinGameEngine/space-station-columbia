@@ -3,56 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 22.1,
-  "d": 32.0
+  "w": 32.7,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 25,
+  "main_w_ft": 49,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 23,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "privacy",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1995,
-  "band": "late",
-  "form_token": "spanish_revival"
+  "year_built": 1970,
+  "band": "suburban",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 388
+  "family": "Kowal",
+  "house_number": 2280
  },
- "brief": "late band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3312"
 }

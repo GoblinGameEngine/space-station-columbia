@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.5,
-  "d": 20.0
+  "w": 13.9,
+  "d": 29.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 41,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
+   "type": "gable",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
+   "body": "#e9d6c8",
    "trim": "#2e2a26",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [],
   "garage": "detached_2",
   "yard": {
-   "fence": "none",
+   "fence": "picket",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Harrow",
-  "house_number": 633
+  "family": "Holloway",
+  "house_number": 404
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-1170"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0583"
 }

@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Wisniewski Clothiers",
-    "type": "clothing",
-    "sign": "WISNIEWSKI CLOTHIERS",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "dentist"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
    }
   ],
-  "condition": "shabby",
-  "year_built": 1913,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Haddad Savings Bank",
+    "type": "bank",
+    "sign": "HADDAD SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1964,
   "colors": {
-   "body": "#7f442c"
+   "body": "#96432c"
   }
  },
- "names": {},
- "brief": "store (store) generated for Bellhaven."
+ "names": {
+  "block_name": "Merriweather Building"
+ },
+ "brief": "store (office) generated for Bellhaven."
 }

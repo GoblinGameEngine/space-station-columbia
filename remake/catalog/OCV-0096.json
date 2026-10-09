@@ -3,33 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.6,
-  "d": 36.1
+  "w": 16.4,
+  "d": 35.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Moriarty Flowers",
-    "type": "florist",
-    "sign": "MORIARTY FLOWERS",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1892,
-  "colors": {
-   "body": "#e9dcc2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [],
+  "walls": "metal",
+  "year_built": 1891,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Moriarty Machine Works",
+  "sign": "MORIARTY MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

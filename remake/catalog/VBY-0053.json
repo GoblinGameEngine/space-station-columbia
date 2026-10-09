@@ -3,40 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 43.2,
-  "d": 35.8
+  "w": 18.4,
+  "d": 36.2
  },
- "kind": "townhouse",
+ "kind": "store",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#fbf5e6",
-   "trim": "#f7f6f0",
-   "accent": "#244d3a",
-   "roof": "#3c4048"
-  },
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
-   "material": "slate"
-  },
-  "year_built": 1908,
+  "storeys": 2,
+  "facade": "cast_iron_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Ring Line Dental",
+    "type": "dentist",
+    "sign": "RING LINE DENTAL",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
   "condition": "kept",
-  "windows": {
-   "shutters": true
+  "year_built": 1901,
+  "colors": {
+   "body": "#eef2f4",
+   "trim": "#ffffff",
+   "accent": "#1a3d2c"
   },
-  "porch": {
-   "type": "full",
-   "posts": "turned",
-   "rail": "spindle"
-  }
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "name": ""
- },
- "brief": "townhouse (townhouse) generated for Victory Bay."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

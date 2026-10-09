@@ -3,61 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.0,
-  "d": 23.8
+  "w": 11.0,
+  "d": 21.1
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 50,
-  "main_d_ft": 27,
+  "main_w_ft": 23,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#2f3e52",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "accent": "#1f2e44",
    "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "none",
-   "extras": [
-    "garden"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1925,
-  "band": "interwar",
+  "year_built": 1901,
+  "band": "streetcar",
   "form_token": "cape_cod",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Mbeki",
-  "house_number": 1241
+  "family": "Marlowe",
+  "house_number": 1539
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0290"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0301"
 }

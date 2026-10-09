@@ -3,33 +3,25 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.1,
-  "d": 43.5
+  "w": 16.3,
+  "d": 26.1
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Holloway Insurance",
-    "type": "insurance_office",
-    "sign": "HOLLOWAY INSURANCE",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "sawmill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1896,
-  "colors": {
-   "body": "#f4f0e6"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "metal",
+  "year_built": 1887,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "name": "Castellanos Lumber & Joinery",
+  "sign": "CASTELLANOS LUMBER & JOINERY"
+ },
+ "brief": "industrial (industry) generated for Playa Verde."
 }

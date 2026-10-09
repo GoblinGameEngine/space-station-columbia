@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stucco",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Solano Realty",
-    "type": "real_estate",
-    "sign": "SOLANO REALTY",
-    "sign_style": "flat_board",
+    "business": "Reyes Savings Bank",
+    "type": "bank",
+    "sign": "REYES SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": true
+   },
+   {
+    "business": "Bazzi Diner",
+    "type": "diner",
+    "sign": "BAZZI DINER",
+    "sign_style": "projecting",
     "awning": true
    }
   ],
   "condition": "worn",
-  "year_built": 1882,
+  "year_built": 1950,
   "colors": {
-   "body": "#c0b087"
+   "body": "#b36846"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

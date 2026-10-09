@@ -6,30 +6,22 @@
   "w": 17.6,
   "d": 26.5
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Wisniewski Barber Shop",
-    "type": "barber",
-    "sign": "WISNIEWSKI BARBER SHOP",
-    "sign_style": "projecting",
-    "awning": true
-   }
+  "use": "glass_works",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1879,
-  "colors": {
-   "body": "#efe6d2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1907,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Ostrowski Glass Works",
+  "sign": "OSTROWSKI GLASS WORKS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

@@ -3,26 +3,64 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 49.2,
-  "d": 38.1
+  "w": 11.4,
+  "d": 39.6
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#8a2e24"
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1995,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 11
+  }
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Holloway",
+  "house_number": 912
  },
- "brief": "condo (apartment) generated for Port Carrow."
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0297"
 }

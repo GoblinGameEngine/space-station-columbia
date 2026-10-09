@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.2,
-  "d": 29.8
+  "w": 22.5,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 28,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -20,20 +20,20 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#e6e2d8",
    "trim": "#f4f3ec",
    "accent": "#3a2a24",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
    "exterior_right"
@@ -41,21 +41,22 @@
   "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1958,
   "band": "postwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 323
+  "family": "Holloway",
+  "house_number": 213
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0923"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

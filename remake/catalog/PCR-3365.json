@@ -3,42 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.9,
+  "w": 11.0,
   "d": 26.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 28,
+  "main_w_ft": 23,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
    "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -46,23 +41,24 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "none",
    "extras": [
-    "garden",
+    "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1942,
+  "year_built": 1935,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Tomczak",
-  "house_number": 2149
+  "family": "Carrow",
+  "house_number": 2143
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0511"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0452"
 }

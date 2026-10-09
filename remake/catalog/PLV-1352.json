@@ -3,19 +3,19 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.4,
-  "d": 30.2
+  "w": 30.1,
+  "d": 35.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 31,
+  "main_w_ft": 50,
+  "main_d_ft": 30,
   "roof": {
    "type": "hip",
-   "pitch_deg": 17,
-   "material": "clay_tile_old"
+   "pitch_deg": 16,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -26,35 +26,33 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#4a3324",
-   "accent": "#1f4a6e",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "swing_set"
-   ]
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1964,
-  "band": "postwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1988,
+  "band": "suburban",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 844
+  "family": "Desai",
+  "house_number": 1884
  },
- "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2222"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3532"
 }

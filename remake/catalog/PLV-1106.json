@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.1,
+  "w": 19.4,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 27,
+  "main_w_ft": 31,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,38 +23,41 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
+   "body": "#f4f0e6",
    "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "shed"
+    "garden",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1952,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 1346
+  "family": "Bazzi",
+  "house_number": 1261
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "interwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-1012"
 }

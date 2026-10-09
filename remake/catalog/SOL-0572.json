@@ -6,30 +6,23 @@
   "w": 16.6,
   "d": 35.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Booker Tavern",
-    "type": "bar",
-    "sign": "BOOKER TAVERN",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "textile_mill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "monitor",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1889,
-  "colors": {
-   "body": "#dcc7a6"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1927,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Castellanos Mills",
+  "sign": "CASTELLANOS MILLS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

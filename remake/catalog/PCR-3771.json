@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.2,
-  "d": 32.2
+  "w": 19.5,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 32,
+  "main_w_ft": 31,
+  "main_d_ft": 27,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 40,
+   "type": "gable",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,38 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "dutch_colonial"
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 919
+  "family": "Szabo",
+  "house_number": 580
  },
- "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1760"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

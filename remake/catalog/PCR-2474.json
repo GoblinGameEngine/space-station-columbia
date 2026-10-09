@@ -3,61 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 32.4
+  "w": 12.8,
+  "d": 21.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 39,
-  "main_d_ft": 23,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 20,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
-   "material": "asphalt_shingle"
+   "type": "hip",
+   "pitch_deg": 31,
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "enclosed",
-   "posts": "square",
+   "type": "front_full",
+   "posts": "columns",
    "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
    "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "shed",
-    "swing_set"
-   ]
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1936,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "year_built": 1897,
+  "band": "streetcar",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Pike",
-  "house_number": 1633
+  "family": "Achterberg",
+  "house_number": 1635
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "streetcar band foursquare: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1097"
 }

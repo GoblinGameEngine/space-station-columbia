@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.6,
-  "d": 32.3
+  "w": 18.4,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 33,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 50,
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -36,27 +36,28 @@
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "center"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1962,
   "band": "postwar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 190
+  "house_number": 416
  },
  "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "model": "PCR-0362"
 }

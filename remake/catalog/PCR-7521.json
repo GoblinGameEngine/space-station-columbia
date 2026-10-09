@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.2,
-  "d": 20.6
+  "w": 24.4,
+  "d": 25.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 43,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 41,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 31,
-   "material": "slate"
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#96aea6",
-   "trim": "#5a3a28",
-   "accent": "#2b4f6b",
-   "roof": "#5a5a58"
+   "body": "#f6f5f0",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1994,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Arrieta",
-  "house_number": 1882
+  "house_number": 273
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6437"
+ "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5949"
 }

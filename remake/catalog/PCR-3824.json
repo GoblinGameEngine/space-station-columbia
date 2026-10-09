@@ -3,40 +3,49 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.6,
-  "d": 30.5
+  "w": 18.2,
+  "d": 37.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 37,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 31,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "asphalt_shingle"
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#9a9184",
    "trim": "#ffffff",
-   "accent": "#24382a",
+   "accent": "#7a1f1a",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
@@ -44,21 +53,19 @@
    "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed",
-    "clothesline"
+    "garden"
    ]
   },
-  "condition": "worn",
-  "year_built": 1963,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Solano",
-  "house_number": 1633
+  "family": "Moriarty",
+  "house_number": 2374
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0514"
 }

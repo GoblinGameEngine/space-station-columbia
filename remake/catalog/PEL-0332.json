@@ -3,15 +3,15 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 21.7,
-  "d": 30.3
+  "w": 11.0,
+  "d": 21.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 29,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 21,
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
    "body": "#f6f1e7",
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2,
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 331
+  "family": "Szabo",
+  "house_number": 595
  },
- "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2158"
+ "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0517"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.3,
-  "d": 33.3
+  "w": 24.8,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "main_w_ft": 51,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,29 +32,29 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
+  "year_built": 1964,
+  "band": "postwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Okafor",
-  "house_number": 222
+  "house_number": 1410
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

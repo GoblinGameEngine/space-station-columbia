@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.4,
-  "d": 34.6
+  "w": 17.6,
+  "d": 25.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 29,
+  "main_w_ft": 37,
+  "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "front_partial",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
+  "condition": "worn",
+  "year_built": 1937,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Wainwright",
-  "house_number": 2042
+  "family": "Desai",
+  "house_number": 2275
  },
- "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

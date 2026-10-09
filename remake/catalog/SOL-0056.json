@@ -8,28 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "tile_roof",
   "storefronts": [
    {
-    "business": "Bazzi Drug",
-    "type": "drug_store",
-    "sign": "BAZZI DRUG",
-    "sign_style": "awning_lettering",
+    "business": "Wainwright & Loomis Cafe",
+    "type": "cafe",
+    "sign": "WAINWRIGHT & LOOMIS CAFE",
+    "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Brandvold & Booker Diner",
+    "type": "diner",
+    "sign": "BRANDVOLD & BOOKER DINER",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1919,
+  "condition": "kept",
+  "year_built": 1905,
   "colors": {
-   "body": "#e6d4bb"
+   "body": "#e9dcc2"
   },
-  "arcade": false,
+  "arcade": true,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

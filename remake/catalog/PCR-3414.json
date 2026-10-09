@@ -3,24 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.5,
-  "d": 31.9
+  "w": 18.6,
+  "d": 34.8
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 31,
+  "main_w_ft": 25,
+  "main_d_ft": 44,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,32 +41,32 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "sliding",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Tomczak",
-  "house_number": 1125
+  "house_number": 2161
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0928"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0964"
 }

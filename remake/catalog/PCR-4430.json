@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 35.3,
-  "d": 32.3
+  "w": 24.7,
+  "d": 29.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 48,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 33,
   "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 27,
+   "type": "gambrel",
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "stoop",
    "posts": "iron",
-   "rail": "solid"
+   "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#95adbb",
-   "trim": "#f4f1e8",
-   "accent": "#2e3a4a",
-   "roof": "#4a4a48"
+   "body": "#e8dcc0",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
-   "extras": [
-    "garden"
-   ]
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1967,
-  "band": "suburban",
-  "form_token": "raised_ranch"
+  "condition": "worn",
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Villalobos",
-  "house_number": 3008
+  "house_number": 3113
  },
- "brief": "suburban band raised_ranch: 1 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4050"
+ "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1157"
 }

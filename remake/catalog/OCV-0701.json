@@ -3,58 +3,34 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.5,
-  "d": 40.4
+  "w": 43.6,
+  "d": 30.5
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 24,
-  "main_d_ft": 28,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 20,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "slab",
+  "units": 8,
+  "balconies": "none",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#efe6d2",
+   "trim": "#2f3b2a",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
-  },
+  "year_built": 1975,
   "condition": "kept",
-  "year_built": 1914,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 17
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 300
+  "name": ""
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "condo (apartment) generated for Oceanview.",
+ "model": "SOL-0578"
 }

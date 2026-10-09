@@ -3,64 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.6,
-  "d": 32.8
+  "w": 17.6,
+  "d": 29.9
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 3,
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Ring Line Tavern",
+    "type": "bar",
+    "sign": "RING LINE TAVERN",
+    "sign_style": "flat_board",
+    "awning": false
+   }
   ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1924,
-  "band": "streetcar",
-  "form_token": "shingle_style",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 9
+  "condition": "shabby",
+  "year_built": 1874,
+  "colors": {
+   "body": "#f1ead2"
   }
  },
  "region": "ne",
- "names": {
-  "family": "DeCarlo",
-  "house_number": 787
- },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

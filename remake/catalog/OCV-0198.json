@@ -3,33 +3,65 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.1,
-  "d": 29.7
+  "w": 13.2,
+  "d": 30.0
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Pizza",
-    "type": "pizza",
-    "sign": "DEPOT PIZZA",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1905,
-  "colors": {
-   "body": "#f3eadb"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 18,
+  "main_d_ft": 26,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "clay_tile"
   },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f3eadb",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 11
+  }
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "family": "Delmar",
+  "house_number": 123
+ },
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0689"
 }

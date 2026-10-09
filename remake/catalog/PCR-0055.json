@@ -8,26 +8,56 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Duquesne Furniture",
-    "type": "furniture",
-    "sign": "DUQUESNE FURNITURE",
+    "business": "Commerce Savings Bank",
+    "type": "bank",
+    "sign": "COMMERCE SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Loomis Law Office",
+    "type": "law_office",
+    "sign": "LOOMIS LAW OFFICE",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1874,
+  "year_built": 1931,
   "colors": {
-   "body": "#7a4232"
+   "body": "#9c5a42"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Haskins Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

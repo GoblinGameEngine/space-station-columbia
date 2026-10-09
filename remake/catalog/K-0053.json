@@ -8,25 +8,54 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
+  "form": "office_block",
+  "storeys": 9,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Kessler Hardware",
-    "type": "hardware",
-    "sign": "KESSLER HARDWARE",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
    }
   ],
-  "condition": "shabby",
-  "year_built": 1901,
+  "cornice": "corbelled_brick",
+  "storefronts": [
+   {
+    "business": "Adebayo & Kowalczyk Savings Bank",
+    "type": "bank",
+    "sign": "ADEBAYO & KOWALCZYK SAVINGS BANK",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1903,
   "colors": {
-   "body": "#c8b28e"
+   "body": "#b57343"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Kessler."
 }

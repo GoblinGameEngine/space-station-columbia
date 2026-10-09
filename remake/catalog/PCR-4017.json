@@ -3,59 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.8,
-  "d": 35.6
+  "w": 21.7,
+  "d": 30.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 46,
+  "main_w_ft": 42,
   "main_d_ft": 31,
   "roof": {
-   "type": "gambrel",
+   "type": "gable",
    "pitch_deg": 41,
-   "material": "slate"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#5b6b5a",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
+    "shed",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1986,
-  "band": "suburban",
-  "form_token": "dutch_colonial"
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 2501
+  "family": "Solano",
+  "house_number": 494
  },
- "brief": "suburban band dutch_colonial: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

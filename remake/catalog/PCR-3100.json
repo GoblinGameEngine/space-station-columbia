@@ -3,25 +3,34 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.5,
-  "d": 33.3
+  "w": 18.1,
+  "d": 32.6
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 23,
-  "main_d_ft": 37,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,28 +45,28 @@
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "left_end"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
+    "clothesline",
     "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1935,
+  "condition": "worn",
+  "year_built": 1940,
   "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 1841
+  "house_number": 1764
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0513"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

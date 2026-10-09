@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.7,
-  "d": 28.4
+  "w": 16.3,
+  "d": 22.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 27,
+  "main_w_ft": 20,
+  "main_d_ft": 25,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 30,
+   "type": "gable",
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d0c49f",
-   "trim": "#f4f1e8",
-   "accent": "#5b6b3a",
-   "roof": "#5a4a40"
+   "body": "#e8dcc0",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
@@ -50,12 +50,14 @@
   "condition": "kept",
   "year_built": 2006,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "i_house",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Wisniewski",
-  "house_number": 3715
+  "house_number": 1411
  },
- "brief": "late band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-7252"
+ "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0364"
 }

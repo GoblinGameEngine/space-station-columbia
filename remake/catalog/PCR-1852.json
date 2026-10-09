@@ -3,27 +3,71 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 39.4,
-  "d": 36.8
+  "w": 16.3,
+  "d": 34.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f2f1ea"
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 36,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1999,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Booker",
+  "house_number": 777
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1172"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0599"
 }

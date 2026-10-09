@@ -8,25 +8,48 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "stone",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Solano Shoe Repair",
-    "type": "shoe_repair",
-    "sign": "SOLANO SHOE REPAIR",
+    "business": "Union Diner",
+    "type": "diner",
+    "sign": "UNION DINER",
     "sign_style": "awning_lettering",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1923,
+  "year_built": 1950,
   "colors": {
-   "body": "#7c442f"
+   "body": "#774338"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Okafor Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

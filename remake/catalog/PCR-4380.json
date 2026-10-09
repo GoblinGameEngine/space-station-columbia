@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.1,
-  "d": 33.0
+  "w": 17.8,
+  "d": 20.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 32,
+  "main_w_ft": 43,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
+   "body": "#6f6a62",
    "trim": "#ffffff",
    "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
   "year_built": 1947,
   "band": "postwar",
-  "form_token": "i_house"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 223
+  "family": "Kowalczyk",
+  "house_number": 123
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.7,
-  "d": 31.6
+  "w": 23.8,
+  "d": 20.7
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 40,
-  "main_d_ft": 32,
+  "main_w_ft": 47,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 20,
@@ -36,23 +36,25 @@
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1981,
-  "band": "suburban",
+  "condition": "worn",
+  "year_built": 1962,
+  "band": "postwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Moriarty",
-  "house_number": 1016
+  "house_number": 1503
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4967"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2498"
 }

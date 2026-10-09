@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 31.9
+  "w": 10.3,
+  "d": 21.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 31,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
    "pitch_deg": 48,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,13 +32,13 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
@@ -46,15 +46,16 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1936,
+  "year_built": 1930,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Tremblay",
-  "house_number": 288
+  "house_number": 2143
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0776"
 }

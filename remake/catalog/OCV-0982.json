@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.5,
-  "d": 40.3
+  "w": 17.0,
+  "d": 27.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 18,
-  "main_d_ft": 29,
+  "main_w_ft": 41,
+  "main_d_ft": 20,
   "roof": {
    "type": "hip",
-   "pitch_deg": 21,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,33 +26,39 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
+   "body": "#e4cfb2",
    "trim": "#5a3a28",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1915,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Merriweather",
-  "house_number": 939
+  "family": "Osei",
+  "house_number": 961
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0763"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

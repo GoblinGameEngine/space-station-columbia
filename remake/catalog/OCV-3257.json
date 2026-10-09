@@ -3,39 +3,41 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 26.3,
-  "d": 22.7
+  "w": 25.3,
+  "d": 21.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 35,
   "main_d_ft": 21,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "board_and_batten",
-  "foundation": "slab",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
-   "roof": "#a8492f"
+   "body": "#cdc4ad",
+   "trim": "#e9e2d2",
+   "accent": "#3a2a1e",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -46,13 +48,12 @@
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "minimal_traditional"
+  "form_token": "two_storey_colonial"
  },
- "region": "ca",
  "names": {
   "family": "Nguyen",
-  "house_number": 2104
+  "house_number": 915
  },
- "brief": "late band minimal_traditional: 2 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5800"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6214"
 }

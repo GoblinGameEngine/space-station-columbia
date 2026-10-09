@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 31.9
+  "w": 23.7,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 28,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 37,
+  "main_d_ft": 22,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
+   "type": "gable",
+   "pitch_deg": 33,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
   },
   "walls": "vinyl",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#d6c7a0",
-   "trim": "#e9e2d2",
-   "accent": "#6a4a2a",
-   "roof": "#6a5e52"
+   "body": "#aeb5a8",
+   "trim": "#e8e0c8",
+   "accent": "#5b6b3a",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -42,22 +42,20 @@
   "yard": {
    "fence": "none",
    "side": "privacy",
-   "rear": "tree_line",
+   "rear": "privacy",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "family": "Nguyen",
-  "house_number": 4331
+  "family": "Szabo",
+  "house_number": 941
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3901"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6034"
 }

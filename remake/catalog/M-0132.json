@@ -6,27 +6,22 @@
   "w": 17.2,
   "d": 24.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Pham Tavern",
-    "type": "bar",
-    "sign": "PHAM TAVERN",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1911,
-  "colors": {
-   "body": "#a35f4c"
-  }
+  "walls": "brick",
+  "year_built": 1928,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Stroud Foods",
+  "sign": "STROUD FOODS"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

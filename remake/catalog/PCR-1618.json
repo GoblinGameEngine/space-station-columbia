@@ -3,60 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.0,
-  "d": 22.7
+  "w": 53.2,
+  "d": 37.4
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 33,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "concrete_block",
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
+  "walls": "brick",
   "colors": {
-   "body": "#e0c5b8",
-   "trim": "#ffffff",
-   "accent": "#5b6b3a",
-   "roof": "#5a5a58"
+   "body": "#7a4232"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "left_end"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "two_flat",
-  "units": 2
+  "year_built": 1995,
+  "condition": "kept"
  },
+ "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 814
+  "name": ""
  },
- "brief": "interwar band two_flat: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "HF-0287"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-0759"
 }

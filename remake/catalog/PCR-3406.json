@@ -3,45 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.7,
-  "d": 20.0
+  "w": 11.3,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 42,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#ffffff",
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
    "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
@@ -51,21 +42,22 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1942,
+  "year_built": 1940,
   "band": "interwar",
-  "form_token": "cape_cod"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Nguyen",
-  "house_number": 2062
+  "family": "Marlowe",
+  "house_number": 2080
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0303"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0788"
 }

@@ -3,59 +3,63 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.6,
-  "d": 41.1
+  "w": 18.0,
+  "d": 32.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 32,
+  "main_w_ft": 33,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
    "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#e8dcc0",
    "trim": "#f7f6f0",
    "accent": "#1d1f22",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1899,
-  "band": "streetcar",
-  "form_token": "shingle_style",
-  "units": 2
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 1272
+  "family": "Reyes",
+  "house_number": 912
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0943"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0556"
 }

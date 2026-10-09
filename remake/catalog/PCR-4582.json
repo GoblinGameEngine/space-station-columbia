@@ -3,58 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 31.8,
-  "d": 38.7
+  "w": 24.9,
+  "d": 33.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 34,
+  "main_w_ft": 46,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
-   "material": "wood_shingle"
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#f2f1ea",
    "trim": "#ffffff",
-   "accent": "#1f2e44",
+   "accent": "#7a1f1a",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1970,
-  "band": "suburban",
-  "form_token": "shingle_style"
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 2436
+  "family": "Foxworth",
+  "house_number": 3492
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3961"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

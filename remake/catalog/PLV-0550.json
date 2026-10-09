@@ -3,59 +3,34 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.2,
-  "d": 31.2
+  "w": 54.1,
+  "d": 38.2
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 50,
-  "main_d_ft": 28,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
+   "body": "#e9d6c8",
    "trim": "#4a3324",
-   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "picture",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
-  },
+  "year_built": 1997,
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 16
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 243
+  "name": ""
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "condo (apartment) generated for Playa Verde.",
+ "model": "SOL-0827"
 }

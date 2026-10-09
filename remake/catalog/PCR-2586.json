@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 26.8
+  "w": 24.8,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 56,
   "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 29,
+   "type": "gable",
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "iron",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ceac8f",
-   "trim": "#5a3a28",
-   "accent": "#4a5a48",
-   "roof": "#6a5e52"
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1951,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Arrieta",
-  "house_number": 988
+  "house_number": 1036
  },
- "brief": "postwar band ranch: 1 storeys, brick walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2300"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.4,
-  "d": 21.0
+  "w": 26.9,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 28,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 42,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 28,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#cdc3b1",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,14 +46,12 @@
   "condition": "kept",
   "year_built": 2000,
   "band": "late",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 215
+  "house_number": 1682
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0473"
+ "brief": "late band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5723"
 }

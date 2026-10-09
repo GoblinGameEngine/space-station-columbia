@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.4,
-  "d": 21.5
+  "w": 22.7,
+  "d": 28.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 41,
+  "main_w_ft": 35,
   "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 33,
-   "material": "asphalt_shingle"
+   "pitch_deg": 47,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#915e42",
-   "trim": "#ffffff",
-   "accent": "#4a5a48",
-   "roof": "#6a5e52"
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 2003,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Merriweather",
-  "house_number": 2029
+  "house_number": 391
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5806"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.0,
-  "d": 39.1
+  "w": 17.7,
+  "d": 28.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 37,
+  "main_w_ft": 28,
+  "main_d_ft": 42,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,33 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#4a3324",
-   "accent": "#6a2c22",
+   "body": "#efd9c4",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "none",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
-   "fence": "picket",
-   "side": "chainlink",
+   "fence": "none",
+   "side": "none",
    "rear": "none",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "shabby",
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 736
+  "family": "Garcia",
+  "house_number": 510
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0763"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

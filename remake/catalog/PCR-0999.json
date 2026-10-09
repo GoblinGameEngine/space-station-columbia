@@ -3,32 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 29.8
+  "w": 10.1,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 32,
+  "main_w_ft": 21,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "slate"
+   "pitch_deg": 47,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#f6f5f0",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
+   "accent": "#24382a",
    "roof": "#3a3836"
   },
   "windows": {
@@ -43,23 +43,21 @@
    "fence": "none",
    "side": "none",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1888,
-  "band": "rail",
-  "form_token": "i_house",
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 9
-  }
+  "condition": "kept",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 961
+  "family": "Villalobos",
+  "house_number": 482
  },
- "brief": "rail band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0581"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0537"
 }

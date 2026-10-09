@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
+  "w": 10.4,
   "d": 34.2
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
    "pitch_deg": 50,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -48,13 +48,14 @@
   "condition": "kept",
   "year_built": 1933,
   "band": "interwar",
-  "form_token": "shingle_style"
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 120
+  "house_number": 2389
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0875"
 }

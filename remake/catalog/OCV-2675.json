@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 25.4,
-  "d": 21.3
+  "w": 34.1,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 39,
-  "main_d_ft": 20,
+  "main_w_ft": 45,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 23,
@@ -32,8 +32,8 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,20 +41,22 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "privacy",
-   "extras": []
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 2006,
-  "band": "late",
+  "year_built": 1981,
+  "band": "suburban",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 2184
+  "family": "Tremblay",
+  "house_number": 2394
  },
- "brief": "late band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2498"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4919"
 }

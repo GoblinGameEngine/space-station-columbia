@@ -6,28 +6,23 @@
   "w": 17.4,
   "d": 30.1
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Main Street Clothiers",
-    "type": "clothing",
-    "sign": "MAIN STREET CLOTHIERS",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1908,
-  "colors": {
-   "body": "#9c5a42"
-  }
+  "walls": "brick",
+  "year_built": 1918,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "name": "Ring Line Foundry",
+  "sign": "RING LINE FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Brightwater."
 }

@@ -3,61 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.5,
-  "d": 33.6
+  "w": 13.2,
+  "d": 38.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 29,
+  "main_w_ft": 26,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
+   "type": "front_full",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
+   "body": "#6f6a62",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1952,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 669
+  "family": "Foxworth",
+  "house_number": 141
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0837"
 }

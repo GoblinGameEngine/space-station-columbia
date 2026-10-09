@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.8,
-  "d": 33.3
+  "w": 23.0,
+  "d": 36.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 56,
   "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 25,
+   "type": "gable",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,16 +24,16 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#f7f2e5",
-   "trim": "#2e3a4a",
-   "accent": "#3a2a1e",
-   "roof": "#4e5155"
+   "body": "#2f3e52",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_right"
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 1951,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Haddad",
-  "house_number": 880
+  "house_number": 1147
  },
- "brief": "postwar band ranch: 1 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4341"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0832"
 }

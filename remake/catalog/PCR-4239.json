@@ -3,59 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 36.3
+  "w": 35.1,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 41,
-  "main_d_ft": 29,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 42,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "front_partial",
    "posts": "iron",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#8b4d3e",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1947,
-  "band": "postwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1966,
+  "band": "suburban",
+  "form_token": "raised_ranch"
  },
- "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 2739
+  "family": "Kowalczyk",
+  "house_number": 2752
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0778"
+ "brief": "suburban band raised_ranch: 1 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4953"
 }

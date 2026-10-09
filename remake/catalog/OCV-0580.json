@@ -3,14 +3,14 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.1,
-  "d": 32.3
+  "w": 12.8,
+  "d": 25.2
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 36,
+  "main_w_ft": 29,
   "main_d_ft": 27,
   "roof": {
    "type": "hip",
@@ -32,31 +32,37 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "shed"
+    "garden",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 10
+  }
  },
  "region": "ca",
  "names": {
   "family": "Brandvold",
-  "house_number": 573
+  "house_number": 407
  },
- "brief": "interwar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0418"
 }

@@ -3,31 +3,73 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.4,
-  "d": 29.5
+  "w": 12.0,
+  "d": 40.8
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "offices",
-  "storefronts": [
+  "main_w_ft": 24,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [
    {
-    "business": "Depot Thrift",
-    "type": "thrift_store",
-    "sign": "DEPOT THRIFT",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
    }
   ],
-  "condition": "shabby",
-  "year_built": 1879,
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf"
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 11
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Desai",
+  "house_number": 587
+ },
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

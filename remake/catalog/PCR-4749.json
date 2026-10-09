@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 36.9,
-  "d": 34.5
+  "w": 24.1,
+  "d": 32.0
  },
  "kind": "house",
  "traits": {
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -36,25 +36,27 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1975,
-  "band": "suburban",
+  "condition": "worn",
+  "year_built": 1956,
+  "band": "postwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 4290
+  "house_number": 186
  },
- "brief": "suburban band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3708"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

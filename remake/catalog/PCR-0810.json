@@ -3,58 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.9,
-  "d": 28.1
+  "w": 18.2,
+  "d": 29.2
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 22,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
-  },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "corbelled_brick",
+  "upper_use": "none",
+  "storefronts": [
+   {
+    "business": "Pruett Drug",
+    "type": "drug_store",
+    "sign": "PRUETT DRUG",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
-  },
-  "condition": "shabby",
-  "year_built": 1897,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1921,
+  "colors": {
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Holloway",
-  "house_number": 674
- },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

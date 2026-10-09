@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.2,
-  "d": 31.5
+  "w": 16.9,
+  "d": 20.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "shingle_style",
   "storeys": 2,
   "main_w_ft": 28,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "concrete_block",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#cbb491",
-   "trim": "#ffffff",
-   "accent": "#2b4f6b",
-   "roof": "#5a5a58"
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "right_end"
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 1925,
   "band": "interwar",
-  "form_token": "foursquare"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 1210
+  "house_number": 1346
  },
- "brief": "interwar band foursquare: 2 storeys, brick walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "HF-0755"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0280"
 }

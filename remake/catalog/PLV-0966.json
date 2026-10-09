@@ -3,23 +3,23 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.4,
-  "d": 33.3
+  "w": 19.0,
+  "d": 31.4
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "storeys": 1,
+  "main_w_ft": 27,
+  "main_d_ft": 28,
   "roof": {
    "type": "hip",
-   "pitch_deg": 24,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
@@ -27,37 +27,34 @@
   "foundation": "slab",
   "colors": {
    "body": "#e9d6c8",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "casement",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "swing_set"
-   ]
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Bazzi",
-  "house_number": 1105
+  "family": "Nowicki",
+  "house_number": 1046
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

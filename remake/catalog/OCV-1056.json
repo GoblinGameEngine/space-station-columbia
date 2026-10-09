@@ -3,32 +3,32 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 21.8,
-  "d": 32.7
+  "w": 14.7,
+  "d": 31.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 29,
+  "main_w_ft": 31,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2e2a26",
-   "accent": "#8a4a20",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
@@ -38,23 +38,28 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 10
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 718
+  "family": "Smith",
+  "house_number": 234
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0331"
 }

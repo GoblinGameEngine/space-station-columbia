@@ -3,59 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.5,
-  "d": 29.4
+  "w": 21.8,
+  "d": 32.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 34,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#8a2e24",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
+   "accent": "#7a1f1a",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Brandvold",
-  "house_number": 992
+  "family": "Tomczak",
+  "house_number": 587
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0545"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

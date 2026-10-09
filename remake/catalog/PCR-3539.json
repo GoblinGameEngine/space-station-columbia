@@ -3,61 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.8,
-  "d": 37.1
+  "w": 23.2,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 33,
+  "main_w_ft": 47,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
+   "pitch_deg": 47,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed",
+    "garden",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Carrow",
-  "house_number": 2155
+  "family": "Wainwright",
+  "house_number": 1213
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0778"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

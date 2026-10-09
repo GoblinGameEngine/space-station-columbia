@@ -3,27 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 51.5,
-  "d": 36.9
+  "w": 12.2,
+  "d": 33.3
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36"
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
-  "year_built": 2008,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 154
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1085"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0604"
 }

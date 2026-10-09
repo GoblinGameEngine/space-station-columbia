@@ -8,25 +8,43 @@
  },
  "kind": "store",
  "traits": {
+  "form": "office_block",
   "storeys": 3,
-  "facade": "brick",
+  "facade": "stucco",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
   "cornice": "parapet_flat",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Ring Line Pizza",
-    "type": "pizza",
-    "sign": "RING LINE PIZZA",
+    "business": "Brandvold Cafe",
+    "type": "cafe",
+    "sign": "BRANDVOLD CAFE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   },
+   {
+    "business": "Raghunathan Cafe",
+    "type": "cafe",
+    "sign": "RAGHUNATHAN CAFE",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1886,
+  "year_built": 1974,
   "colors": {
-   "body": "#915a38"
+   "body": "#763a34"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Patel Block"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.2,
-  "d": 33.5
+  "w": 21.9,
+  "d": 30.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 31,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
+   "type": "gambrel",
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
-   "rail": "spindle"
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9f5248",
-   "trim": "#2e3a4a",
-   "accent": "#3a2a1e",
-   "roof": "#6a5e52"
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1973,
-  "band": "suburban",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 2441
+  "family": "Smith",
+  "house_number": 3479
  },
- "brief": "suburban band ranch: 1 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2453"
+ "brief": "postwar band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

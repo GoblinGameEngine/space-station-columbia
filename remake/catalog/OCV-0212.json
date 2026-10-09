@@ -3,33 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.4,
-  "d": 40.4
+  "w": 45.3,
+  "d": 34.9
  },
- "kind": "store",
+ "kind": "townhouse",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Szabo Printing",
-    "type": "print_shop",
-    "sign": "SZABO PRINTING",
-    "sign_style": "projecting",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1884,
+  "units": 6,
+  "unit_w_ft": 22,
+  "depth_ft": 34,
+  "walls": "stucco",
   "colors": {
-   "body": "#f0e2cf"
+   "body": "#efe6d2",
+   "trim": "#2f3b2a",
+   "accent": "#5b6b3a",
+   "roof": "#a8492f"
   },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 21
+  },
+  "year_built": 1928,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": ""
+ },
+ "brief": "townhouse (townhouse) generated for Oceanview.",
+ "model": "SOL-0287"
 }

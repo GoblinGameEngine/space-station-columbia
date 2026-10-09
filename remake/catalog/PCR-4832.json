@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.6,
-  "d": 35.6
+  "w": 24.3,
+  "d": 27.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 35,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 29,
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "shingle",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#656757",
-   "trim": "#5a3a28",
-   "accent": "#4a5a48",
-   "roof": "#3e3e3c"
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_right"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1951,
   "band": "postwar",
-  "form_token": "minimal_traditional"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Nguyen",
-  "house_number": 1069
+  "house_number": 872
  },
- "brief": "postwar band minimal_traditional: 1 storeys, shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "HF-1779"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

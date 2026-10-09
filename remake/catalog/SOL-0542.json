@@ -6,30 +6,22 @@
   "w": 16.1,
   "d": 29.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Leclerc Barber Shop",
-    "type": "barber",
-    "sign": "LECLERC BARBER SHOP",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "remelting_works",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1872,
-  "colors": {
-   "body": "#efe6d2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1911,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Okafor Remelting Co.",
+  "sign": "OKAFOR REMELTING CO."
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

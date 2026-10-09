@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.8,
-  "d": 35.9
+  "w": 17.4,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 37,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -36,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "right_end"
   ],
   "garage": "detached_2",
   "yard": {
@@ -50,14 +50,13 @@
   "condition": "kept",
   "year_built": 1927,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 619
+  "house_number": 2062
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0431"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

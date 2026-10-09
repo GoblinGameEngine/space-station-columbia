@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.3,
-  "d": 39.5
+  "w": 13.3,
+  "d": 36.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 29,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 40,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 17,
+   "type": "hip",
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,9 +26,9 @@
   "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2e2a26",
-   "accent": "#6a2c22",
+   "body": "#efd9c4",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
@@ -38,30 +38,26 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1899,
+  "year_built": 1895,
   "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 12
-  },
-  "balcony": "monterey"
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Desai",
-  "house_number": 535
+  "family": "Haddad",
+  "house_number": 538
  },
- "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0758"
+ "brief": "streetcar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0488"
 }

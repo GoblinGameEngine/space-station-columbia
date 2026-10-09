@@ -3,31 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
-  "d": 35.4
+  "w": 11.2,
+  "d": 23.3
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Adebayo Savings Bank",
-    "type": "bank",
-    "sign": "ADEBAYO SAVINGS BANK",
-    "sign_style": "projecting",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1896,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "wood_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1924,
+  "band": "streetcar",
+  "form_token": "shingle_style",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 12
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Mbeki",
+  "house_number": 756
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0572"
 }

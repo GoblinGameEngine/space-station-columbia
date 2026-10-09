@@ -3,31 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.7,
-  "d": 23.7
+  "w": 19.2,
+  "d": 35.5
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#8a2e24",
-   "trim": "#f4f1e8",
-   "accent": "#5b6b3a",
-   "roof": "#6a5e52"
-  },
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 52,
+  "main_d_ft": 30,
   "roof": {
-   "pitch_deg": 31
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "wood_shingle"
   },
-  "year_built": 1926,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Garcia",
+  "house_number": 1750
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0304"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0964"
 }

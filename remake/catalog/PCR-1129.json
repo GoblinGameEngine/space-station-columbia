@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.4,
-  "d": 39.7
+  "w": 10.4,
+  "d": 35.0
  },
  "kind": "house",
  "traits": {
   "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 24,
-  "main_d_ft": 30,
+  "main_w_ft": 22,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,33 +32,33 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
-    "clothesline",
+    "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
-  "form_token": "nantucket_cape"
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Okafor",
-  "house_number": 1072
+  "house_number": 551
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0701"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0843"
 }

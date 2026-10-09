@@ -3,61 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.9,
-  "d": 40.9
+  "w": 15.2,
+  "d": 41.4
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#6f6a62",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "brick",
+  "cornice": "corbelled_brick",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Tomczak Tax Service",
+    "type": "tax_office",
+    "sign": "TOMCZAK TAX SERVICE",
+    "sign_style": "projecting",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
-  },
   "condition": "worn",
-  "year_built": 1928,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1900,
+  "colors": {
+   "body": "#7a4232"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Castellanos",
-  "house_number": 704
- },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

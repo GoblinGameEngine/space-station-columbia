@@ -3,17 +3,17 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.3,
-  "d": 28.7
+  "w": 33.2,
+  "d": 21.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 21,
+  "main_w_ft": 40,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 18,
    "material": "clay_tile"
   },
@@ -32,30 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "hedge",
-   "extras": [
-    "garden",
-    "swing_set"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "year_built": 1973,
+  "band": "suburban",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 1058
+  "family": "Yoder",
+  "house_number": 923
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "suburban band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3943"
 }

@@ -3,59 +3,57 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 12.3,
-  "d": 37.9
+  "w": 14.8,
+  "d": 27.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 40,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 20,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
+   "body": "#f4f0e6",
+   "trim": "#2f3b2a",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": []
   },
-  "condition": "worn",
-  "year_built": 1923,
+  "condition": "kept",
+  "year_built": 1906,
   "band": "streetcar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 900
+  "family": "Brandvold",
+  "house_number": 803
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0598"
 }

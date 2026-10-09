@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.3,
-  "d": 30.6
+  "w": 17.5,
+  "d": 29.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 23,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 35,
+   "type": "hip",
+   "pitch_deg": 31,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d2d2c5",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
-   "roof": "#5a4a40"
+   "body": "#8a2e24",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -42,18 +42,20 @@
    "side": "none",
    "rear": "privacy",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1992,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "foursquare",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Solano",
-  "house_number": 2208
+  "house_number": 461
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5777"
+ "brief": "late band foursquare: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0474"
 }

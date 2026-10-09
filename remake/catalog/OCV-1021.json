@@ -3,59 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.0,
-  "d": 33.0
+  "w": 12.1,
+  "d": 26.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 36,
+  "main_w_ft": 25,
+  "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 16,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#e9dcc2",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
     "garden",
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1896,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 829
+  "family": "Carrow",
+  "house_number": 940
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0464"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0480"
 }

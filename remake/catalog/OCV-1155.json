@@ -3,59 +3,65 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.9,
-  "d": 24.4
+  "w": 12.7,
+  "d": 27.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 47,
-  "main_d_ft": 32,
+  "main_w_ft": 23,
+  "main_d_ft": 39,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "body": "#f2e8dc",
+   "trim": "#5a3a28",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Pham",
-  "house_number": 262
+  "family": "Duquesne",
+  "house_number": 1044
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0617"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0689"
 }

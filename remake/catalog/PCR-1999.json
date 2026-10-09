@@ -3,27 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 49.8,
-  "d": 24.7
+  "w": 10.5,
+  "d": 32.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#c9cfcf"
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "wood_shingle"
   },
-  "year_built": 1995,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Solano",
+  "house_number": 826
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0254"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0843"
 }

@@ -3,62 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 24.6
+  "w": 50.3,
+  "d": 42.3
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 26,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "front",
+  "ground_floor": "apartments",
+  "walls": "brick",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#7a4232"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "right_end"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
-  },
-  "condition": "worn",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 2013,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 1372
+  "name": ""
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0726"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-0961"
 }

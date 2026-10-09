@@ -3,59 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.7,
-  "d": 34.6
+  "w": 11.8,
+  "d": 32.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 28,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 38,
+   "type": "gable",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#5b6b5a",
    "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "dutch_colonial"
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 1123
+  "family": "Wainwright",
+  "house_number": 1272
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0525"
 }

@@ -3,65 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 28.6
+  "w": 10.5,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "bungalow",
-  "storeys": 1.5,
-  "main_w_ft": 24,
-  "main_d_ft": 36,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "brick",
-  "foundation": "concrete_block",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#cbb28b",
-   "trim": "#f4f1e8",
-   "accent": "#2e3a4a",
-   "roof": "#3e3e3c"
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "bungalow"
+  "year_built": 1914,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "Bazzi",
-  "house_number": 1041
+  "family": "Dunmore",
+  "house_number": 1455
  },
- "brief": "interwar band bungalow: 1.5 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "HF-1106"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0805"
 }

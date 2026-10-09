@@ -3,19 +3,19 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 14.7,
-  "d": 39.1
+  "w": 21.9,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 34,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 32,
   "main_d_ft": 29,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 16,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -32,31 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
-   "fence": "hedge",
-   "side": "none",
+   "fence": "chainlink",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1899,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1949,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 171
+  "family": "Achterberg",
+  "house_number": 646
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0763"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

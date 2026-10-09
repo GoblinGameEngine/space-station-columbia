@@ -3,32 +3,32 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.7,
-  "d": 22.7
+  "w": 18.5,
+  "d": 34.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 31,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 17,
+   "type": "gable",
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
@@ -36,26 +36,26 @@
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 703
+  "family": "Pruett",
+  "house_number": 136
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0439"
+ "brief": "interwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

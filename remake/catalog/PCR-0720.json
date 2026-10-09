@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 30.8
+  "w": 13.2,
+  "d": 24.2
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 32,
+  "main_w_ft": 26,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "front_partial",
    "posts": "columns",
-   "rail": "none"
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#4a4440"
+   "body": "#5b6b5a",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -43,20 +43,17 @@
    "fence": "none",
    "side": "hedge",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1903,
+  "year_built": 1913,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 537
+  "family": "Desai",
+  "house_number": 424
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

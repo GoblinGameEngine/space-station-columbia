@@ -3,58 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.9,
-  "d": 39.2
+  "w": 17.1,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "main_w_ft": 46,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "square",
-   "rail": "solid"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f4f3ec",
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
    "accent": "#3a2a24",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 1479
+  "family": "Brandvold",
+  "house_number": 1164
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

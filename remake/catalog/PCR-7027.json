@@ -3,59 +3,55 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.2,
-  "d": 31.0
+  "w": 24.7,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 31,
+  "main_w_ft": 38,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 30,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "front_full",
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#dad6d2",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "privacy",
    "extras": []
   },
   "condition": "kept",
   "year_built": 2008,
   "band": "late",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
   "family": "Duquesne",
-  "house_number": 2305
+  "house_number": 1184
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6126"
 }

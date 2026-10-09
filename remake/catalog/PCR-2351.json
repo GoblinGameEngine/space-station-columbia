@@ -3,62 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 20.0
+  "w": 13.0,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 31,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 46,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "asphalt_shingle"
+   "pitch_deg": 46,
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
+   "body": "#8a8378",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "rear": "none",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 1448
+  "family": "Dunmore",
+  "house_number": 1570
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0877"
 }

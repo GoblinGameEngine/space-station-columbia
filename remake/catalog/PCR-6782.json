@@ -3,27 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 52.0,
-  "d": 34.8
+  "w": 20.0,
+  "d": 31.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232"
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1984,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f6f5f0",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2006,
+  "band": "late",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Pike",
+  "house_number": 1033
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1085"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

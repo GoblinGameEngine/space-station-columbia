@@ -3,33 +3,34 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.2,
-  "d": 30.3
+  "w": 48.8,
+  "d": 31.8
  },
- "kind": "store",
+ "kind": "condo",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Brannock & Okonkwo Thrift",
-    "type": "thrift_store",
-    "sign": "BRANNOCK & OKONKWO THRIFT",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1924,
+  "storeys": 4,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
+  "walls": "stucco",
   "colors": {
-   "body": "#f6f1e7"
+   "body": "#f3eadb",
+   "trim": "#4a3324",
+   "roof": "#a8492f"
   },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "year_built": 1984,
+  "condition": "kept",
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 17
+  }
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": ""
+ },
+ "brief": "condo (apartment) generated for Oceanview.",
+ "model": "SOL-0095"
 }

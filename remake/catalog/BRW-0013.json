@@ -8,26 +8,47 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "works_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Main Street Courier",
-    "type": "newspaper",
-    "sign": "MAIN STREET COURIER",
+    "business": "Harrow Clothiers",
+    "type": "clothing",
+    "sign": "HARROW CLOTHIERS",
     "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Haskins Law Office",
+    "type": "law_office",
+    "sign": "HASKINS LAW OFFICE",
+    "sign_style": "awning_lettering",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1913,
+  "year_built": 1911,
   "colors": {
-   "body": "#9c5a42"
+   "body": "#7a4232"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Brightwater."
 }

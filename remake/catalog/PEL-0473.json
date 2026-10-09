@@ -3,15 +3,15 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 11.6,
-  "d": 34.3
+  "w": 23.1,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 32,
+  "archetype": "minimal_traditional",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 28,
   "roof": {
    "type": "hip",
    "pitch_deg": 20,
@@ -19,43 +19,40 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#3b2a1e",
+   "body": "#e4cfb2",
+   "trim": "#2e2a26",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "hedge",
    "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1936,
-  "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1962,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Szabo",
-  "house_number": 149
+  "family": "Pike",
+  "house_number": 545
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0518"
+ "brief": "postwar band minimal_traditional: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1413"
 }

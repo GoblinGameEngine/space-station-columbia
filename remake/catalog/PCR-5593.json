@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 28.4,
-  "d": 23.9
+  "w": 31.5,
+  "d": 21.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 44,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 48,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
+   "type": "gable",
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#99a1aa",
-   "trim": "#e8e0c8",
-   "accent": "#2e3a4a",
-   "roof": "#4a4a48"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "rear"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1969,
   "band": "suburban",
-  "form_token": "ranch"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Foxworth",
-  "house_number": 838
+  "house_number": 512
  },
- "brief": "suburban band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5217"
+ "brief": "suburban band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5306"
 }

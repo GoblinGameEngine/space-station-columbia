@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.9,
-  "d": 31.5
+  "w": 17.7,
+  "d": 34.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 33,
+  "main_w_ft": 29,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "recessed",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -36,25 +36,28 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Foxworth",
-  "house_number": 2179
+  "house_number": 1937
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

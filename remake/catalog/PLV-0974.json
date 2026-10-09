@@ -3,57 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 35.8,
-  "d": 37.4
+  "w": 18.0,
+  "d": 32.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 53,
-  "main_d_ft": 32,
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
-   "material": "clay_tile_old"
+   "type": "hip",
+   "pitch_deg": 24,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
+   "body": "#e6d4bb",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "casement",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1987,
-  "band": "suburban",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Foxworth",
-  "house_number": 1100
+  "family": "Osei",
+  "house_number": 1067
  },
- "brief": "suburban band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2728"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

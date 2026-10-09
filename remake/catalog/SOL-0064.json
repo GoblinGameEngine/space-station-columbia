@@ -8,28 +8,54 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
+   }
+  ],
+  "cornice": "tile_roof",
   "storefronts": [
    {
-    "business": "Reyes Law Office",
-    "type": "law_office",
-    "sign": "REYES LAW OFFICE",
-    "sign_style": "awning_lettering",
+    "business": "Wainwright & Wainwright Savings Bank",
+    "type": "bank",
+    "sign": "WAINWRIGHT & WAINWRIGHT SAVINGS BANK",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1894,
+  "year_built": 1904,
   "colors": {
-   "body": "#efd9c4"
+   "body": "#f0e2cf"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

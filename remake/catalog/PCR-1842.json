@@ -3,67 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.5,
-  "d": 38.1
+  "w": 19.4,
+  "d": 36.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 37,
+  "main_w_ft": 26,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "asphalt_shingle"
+   "pitch_deg": 48,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "turned",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#e8dcc0",
    "trim": "#f4f3ec",
    "accent": "#1d1f22",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
-   "side": "chainlink",
-   "rear": "none",
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1929,
-  "band": "streetcar",
-  "form_token": "shingle_style"
+  "condition": "worn",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Bazzi",
-  "house_number": 1339
+  "family": "Marlowe",
+  "house_number": 977
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0987"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0676"
 }

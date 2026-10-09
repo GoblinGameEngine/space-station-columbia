@@ -6,30 +6,23 @@
   "w": 17.3,
   "d": 25.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Smith Tavern",
-    "type": "bar",
-    "sign": "SMITH TAVERN",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1906,
-  "colors": {
-   "body": "#e9dcc2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1900,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Dunmore Foundry",
+  "sign": "DUNMORE FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

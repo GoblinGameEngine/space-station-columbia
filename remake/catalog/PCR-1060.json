@@ -3,25 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.2,
-  "d": 29.9
+  "w": 19.9,
+  "d": 24.7
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 32,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 48,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "turned",
-   "rail": "solid"
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,7 +32,7 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
@@ -41,20 +41,29 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1877,
-  "band": "rail",
-  "form_token": "shingle_style"
+  "condition": "worn",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "shingle_style",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 9
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Leclerc",
-  "house_number": 1067
+  "family": "Dunmore",
+  "house_number": 546
  },
- "brief": "rail band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0923"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0280"
 }

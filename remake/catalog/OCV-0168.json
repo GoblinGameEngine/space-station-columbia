@@ -3,33 +3,25 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.1,
-  "d": 31.4
+  "w": 18.4,
+  "d": 40.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Brandvold & Booker Family Medicine",
-    "type": "doctor_office",
-    "sign": "BRANDVOLD & BOOKER FAMILY MEDICINE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "motor_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1879,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1903,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Pham Motor Winding",
+  "sign": "PHAM MOTOR WINDING"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

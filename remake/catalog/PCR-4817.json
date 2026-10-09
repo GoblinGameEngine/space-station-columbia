@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.2,
-  "d": 24.7
+  "w": 22.9,
+  "d": 31.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 39,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 45,
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 26,
-   "material": "slate"
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#89a4bb",
-   "trim": "#e9e2d2",
-   "accent": "#5b6b3a",
-   "roof": "#4e5155"
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "sliding",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1961,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 1422
+  "house_number": 1491
  },
- "brief": "postwar band ranch: 1 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4318"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

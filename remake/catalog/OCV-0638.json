@@ -3,57 +3,61 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 13.5,
-  "d": 40.3
+  "w": 16.8,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 39,
+  "storeys": 1,
+  "main_w_ft": 45,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#2e2a26",
+   "body": "#f4f0e6",
+   "trim": "#5a3a28",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
-   "side": "none",
+   "fence": "none",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1899,
-  "band": "streetcar",
+  "condition": "shabby",
+  "year_built": 1940,
+  "band": "interwar",
   "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Smith",
-  "house_number": 134
+  "family": "Harrow",
+  "house_number": 604
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0758"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0617"
 }

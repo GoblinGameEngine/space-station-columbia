@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Achterberg Drug",
-    "type": "drug_store",
-    "sign": "ACHTERBERG DRUG",
-    "sign_style": "awning_lettering",
-    "awning": false
+    "type": "works_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "doctor_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1919,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Commerce Diner",
+    "type": "diner",
+    "sign": "COMMERCE DINER",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1953,
   "colors": {
-   "body": "#c9aa8a"
+   "body": "#c9ae8c"
   }
  },
- "names": {},
- "brief": "store (store) generated for Port Tamsin."
+ "names": {
+  "block_name": "Achterberg Building"
+ },
+ "brief": "store (office) generated for Port Tamsin."
 }

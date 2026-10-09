@@ -3,61 +3,70 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.8,
-  "d": 36.1
+  "w": 19.8,
+  "d": 28.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 46,
-  "main_d_ft": 32,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 28,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "front_partial",
-   "posts": "columns",
-   "rail": "spindle"
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#9a9184",
    "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
+    "garden",
     "shed"
    ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1926,
   "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 525
+  "family": "Holloway",
+  "house_number": 1178
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0992"
 }

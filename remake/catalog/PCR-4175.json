@@ -3,61 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.1,
-  "d": 32.6
+  "w": 29.8,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 31,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 49,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 24,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#915b39",
+   "trim": "#f2efe6",
+   "accent": "#5b6b3a",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "garden",
-    "shed"
+    "swing_set"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1964,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1983,
+  "band": "suburban",
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
-  "family": "Arrieta",
-  "house_number": 2666
+  "family": "Pham",
+  "house_number": 2665
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "suburban band ranch: 1 storeys, brick walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3973"
 }

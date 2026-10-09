@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.9,
-  "d": 36.1
+  "w": 16.8,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
   "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 34,
+  "main_w_ft": 32,
+  "main_d_ft": 28,
   "roof": {
    "type": "gambrel",
    "pitch_deg": 50,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,11 +32,11 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "6over6",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "left_end"
   ],
   "garage": "none",
   "yard": {
@@ -44,20 +44,20 @@
    "side": "none",
    "rear": "hedge",
    "extras": [
-    "garden"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1940,
   "band": "interwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 574
+  "house_number": 2260
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0860"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0930"
 }

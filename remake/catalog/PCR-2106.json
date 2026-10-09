@@ -3,31 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.3,
-  "d": 40.9
+  "w": 11.3,
+  "d": 37.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#f4f1e8",
-   "accent": "#6a4a2a",
-   "roof": "#6a5e52"
-  },
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 32,
   "roof": {
-   "pitch_deg": 29
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1926,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1907,
+  "band": "streetcar",
+  "form_token": "shingle_style",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 12
+  }
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Stroud",
+  "house_number": 155
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0384"
 }

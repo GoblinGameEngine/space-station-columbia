@@ -6,30 +6,23 @@
   "w": 17.5,
   "d": 31.5
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "DeCarlo Cafe",
-    "type": "cafe",
-    "sign": "DECARLO CAFE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1923,
-  "colors": {
-   "body": "#f2e8dc"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1924,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "name": "Tremblay & DeCarlo Foods",
+  "sign": "TREMBLAY & DECARLO FOODS"
+ },
+ "brief": "industrial (industry) generated for Playa Verde."
 }

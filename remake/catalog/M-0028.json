@@ -8,25 +8,45 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Reyes & Arrieta Cafe",
-    "type": "cafe",
-    "sign": "REYES & ARRIETA CAFE",
-    "sign_style": "projecting",
-    "awning": false
+    "type": "dentist"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "college_extension"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "law_office"
    }
   ],
-  "condition": "shabby",
-  "year_built": 1890,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Marlowe Cafe",
+    "type": "cafe",
+    "sign": "MARLOWE CAFE",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1957,
   "colors": {
-   "body": "#c5b593"
+   "body": "#cdb683"
   }
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "block_name": "Loomis Block"
+ },
+ "brief": "store (office) generated for Marlowe."
 }

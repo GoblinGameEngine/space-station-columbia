@@ -3,33 +3,26 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.8,
-  "d": 31.0
+  "w": 16.9,
+  "d": 33.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Foxworth Variety",
-    "type": "variety_store",
-    "sign": "FOXWORTH VARIETY",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1874,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1885,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Loomis Foundry",
+  "sign": "LOOMIS FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

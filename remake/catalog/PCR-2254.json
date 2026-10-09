@@ -3,25 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.9,
-  "d": 20.0
+  "w": 21.5,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 55,
+  "main_w_ft": 40,
   "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
+   "type": "gable",
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,32 +32,29 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 1456
+  "house_number": 539
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1168"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

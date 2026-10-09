@@ -3,58 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 21.7
+  "w": 18.5,
+  "d": 29.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 23,
+  "main_w_ft": 21,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "columns",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#8a8378",
    "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "privacy",
-   "rear": "tree_line",
+   "rear": "privacy",
    "extras": [
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1996,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 717
+  "family": "Okonkwo",
+  "house_number": 3238
  },
- "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "late band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

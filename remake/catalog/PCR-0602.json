@@ -3,31 +3,64 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 24.9
+  "w": 12.3,
+  "d": 26.0
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Tomczak Furniture",
-    "type": "furniture",
-    "sign": "TOMCZAK FURNITURE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1886,
+  "main_w_ft": 25,
+  "main_d_ft": 42,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "wood_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9c5a42"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1914,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 10
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Okonkwo",
+  "house_number": 145
+ },
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

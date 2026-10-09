@@ -3,59 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.2,
-  "d": 26.4
+  "w": 19.1,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 26,
+  "main_w_ft": 24,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#f4f0e6",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Castellanos",
-  "house_number": 1378
+  "family": "Yoder",
+  "house_number": 1511
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0520"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

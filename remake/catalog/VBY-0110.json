@@ -3,60 +3,41 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 13.4,
-  "d": 33.5
+  "w": 45.1,
+  "d": 39.3
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 45,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "concrete_block",
+  "units": 6,
+  "unit_w_ft": 20,
+  "depth_ft": 36,
+  "walls": "clapboard",
   "colors": {
-   "body": "#8a8378",
+   "body": "#f3ede0",
    "trim": "#f7f6f0",
-   "accent": "#1a3d2c",
+   "accent": "#1f4a33",
    "roof": "#3c4048"
   },
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "slate"
+  },
+  "year_built": 1904,
+  "condition": "kept",
   "windows": {
-   "type": "3over1_craftsman",
    "shutters": true
   },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "shingle_style"
+  "porch": {
+   "type": "full",
+   "posts": "turned",
+   "rail": "spindle"
+  }
  },
  "region": "isle",
  "names": {
-  "family": "Brannock",
-  "house_number": 120
+  "name": ""
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "townhouse (townhouse) generated for Victory Bay.",
+ "model": "VBY-0058"
 }

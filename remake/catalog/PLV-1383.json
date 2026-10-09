@@ -3,61 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 21.5,
-  "d": 20.0
+  "w": 17.2,
+  "d": 25.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 30,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
+   "type": "hip",
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
+   "body": "#e6d4bb",
    "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "picture",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "tree_line",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "new",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1987,
+  "band": "suburban",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 1072
+  "family": "Tremblay",
+  "house_number": 2153
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0930"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0320"
 }

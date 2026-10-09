@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 32.2,
-  "d": 25.8
+  "w": 23.6,
+  "d": 20.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 46,
-  "main_d_ft": 27,
+  "main_w_ft": 30,
+  "main_d_ft": 29,
   "roof": {
    "type": "hip",
    "pitch_deg": 17,
@@ -19,44 +19,40 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#e8d8c0",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_2",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": [
-    "garden"
-   ]
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1971,
-  "band": "suburban",
-  "form_token": "ranch"
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 279
+  "family": "Adebayo",
+  "house_number": 913
  },
- "brief": "suburban band ranch: 1 storeys, board_and_batten walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3943"
+ "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2694"
 }

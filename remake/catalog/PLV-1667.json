@@ -3,58 +3,58 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 35.2,
-  "d": 25.8
+  "w": 22.0,
+  "d": 32.0
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
   "main_w_ft": 43,
-  "main_d_ft": 31,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
-   "material": "clay_tile"
+   "pitch_deg": 16,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
+   "body": "#f3eadb",
+   "trim": "#2f3b2a",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1978,
-  "band": "suburban",
+  "year_built": 1959,
+  "band": "postwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Dunmore",
-  "house_number": 433
+  "family": "Carrow",
+  "house_number": 1400
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3378"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

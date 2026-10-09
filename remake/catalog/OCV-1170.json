@@ -3,58 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.2,
-  "d": 35.7
+  "w": 19.6,
+  "d": 32.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "storeys": 2,
+  "main_w_ft": 44,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 21,
-   "material": "clay_tile_old"
+   "pitch_deg": 24,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
+   "body": "#efe6d2",
    "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "kept",
+  "condition": "new",
   "year_built": 1930,
   "band": "interwar",
-  "form_token": "spanish_revival"
+  "form_token": "spanish_revival",
+  "units": 2,
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1053
+  "family": "Marlowe",
+  "house_number": 211
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "interwar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

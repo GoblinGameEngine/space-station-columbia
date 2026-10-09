@@ -8,25 +8,58 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "none",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "board_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Kessler Drug",
-    "type": "drug_store",
-    "sign": "KESSLER DRUG",
+    "business": "Pham Law Office",
+    "type": "law_office",
+    "sign": "PHAM LAW OFFICE",
     "sign_style": "awning_lettering",
-    "awning": true
+    "awning": false
+   },
+   {
+    "business": "Reyes Drug",
+    "type": "drug_store",
+    "sign": "REYES DRUG",
+    "sign_style": "flat_board",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1874,
+  "year_built": 1906,
   "colors": {
-   "body": "#86432e"
+   "body": "#ad8364"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Kessler Trust"
+ },
+ "brief": "store (office) generated for Kessler."
 }

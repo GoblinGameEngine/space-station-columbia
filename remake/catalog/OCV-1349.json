@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.6,
-  "d": 30.7
+  "w": 30.8,
+  "d": 38.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
+  "archetype": "spanish_revival",
+  "storeys": 2,
   "main_w_ft": 42,
   "main_d_ft": 23,
   "roof": {
    "type": "hip",
-   "pitch_deg": 16,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,34 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
+   "body": "#e4cfb2",
    "trim": "#2e2a26",
-   "accent": "#2c4a2e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "sliding",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "tree_line",
    "extras": []
   },
   "condition": "worn",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1976,
+  "band": "suburban",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Smith",
-  "house_number": 1255
+  "family": "Leclerc",
+  "house_number": 1233
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2728"
 }

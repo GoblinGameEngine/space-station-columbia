@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.4,
-  "d": 39.1
+  "w": 11.3,
+  "d": 25.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 26,
-  "main_d_ft": 32,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "turned",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#5b6b5a",
    "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "cape_cod"
+  "condition": "kept",
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 1051
+  "family": "Osei",
+  "house_number": 906
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0311"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0760"
 }

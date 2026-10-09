@@ -3,57 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 31.1,
-  "d": 36.0
+  "w": 19.1,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 46,
-  "main_d_ft": 27,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 26,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 25,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 47,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
+   "posts": "iron",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#93433c",
-   "trim": "#e9e2d2",
-   "accent": "#1f2a33",
-   "roof": "#2f3133"
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1967,
-  "band": "suburban",
-  "form_token": "split_level"
+  "condition": "worn",
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 2310
+  "house_number": 3390
  },
- "brief": "suburban band split_level: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3765"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

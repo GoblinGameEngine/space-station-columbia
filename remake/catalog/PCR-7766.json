@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 32.5
+  "w": 26.7,
+  "d": 30.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 34,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 48,
   "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 25,
+   "type": "gable",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d8d5d3",
-   "trim": "#f4f1e8",
-   "accent": "#2b4f6b",
-   "roof": "#4a4a48"
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1996,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Okonkwo",
-  "house_number": 2506
+  "house_number": 271
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4333"
+ "brief": "late band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-4658"
 }

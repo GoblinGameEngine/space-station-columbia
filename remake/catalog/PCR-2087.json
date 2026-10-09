@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.7,
-  "d": 34.5
+  "w": 17.5,
+  "d": 34.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 32,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "asphalt_shingle"
+   "pitch_deg": 40,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "casement",
+   "shutters": true
   },
   "chimneys": [
    "left_end"
@@ -41,21 +41,20 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
+  "condition": "new",
   "year_built": 1934,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Wainwright",
-  "house_number": 1146
+  "family": "Brandvold",
+  "house_number": 1361
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0620"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

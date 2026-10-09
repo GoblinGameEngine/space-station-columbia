@@ -3,56 +3,34 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.1,
-  "d": 24.4
+  "w": 43.6,
+  "d": 29.2
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 40,
-  "main_d_ft": 22,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "slab",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
+   "body": "#e6d4bb",
    "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
-  },
+  "year_built": 2000,
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 22
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 1287
+  "name": ""
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0357"
+ "brief": "condo (apartment) generated for Oceanview.",
+ "model": "SOL-0578"
 }

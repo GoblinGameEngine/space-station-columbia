@@ -3,33 +3,62 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 44.0,
-  "d": 34.8
+  "w": 19.0,
+  "d": 35.0
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "stucco",
-  "colors": {
-   "body": "#f0e2cf",
-   "trim": "#5a3a28",
-   "accent": "#2e3a4a",
-   "roof": "#a8492f"
-  },
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "material": "clay_tile",
-   "pitch_deg": 18
+   "pitch_deg": 24,
+   "material": "clay_tile"
   },
-  "year_built": 1906,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#ead9c8",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Marlowe",
+  "house_number": 121
  },
- "brief": "townhouse (townhouse) generated for Oceanview.",
- "model": "SOL-0287"
+ "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

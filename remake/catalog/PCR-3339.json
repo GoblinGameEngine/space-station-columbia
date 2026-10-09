@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 30.0,
-  "d": 35.8
+  "w": 21.7,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 47,
-  "main_d_ft": 29,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 41,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 22,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,37 +24,36 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#818b7d",
+   "trim": "#e8e0c8",
+   "accent": "#2b4f6b",
+   "roof": "#4e5155"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "tree_line",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1984,
-  "band": "suburban",
-  "form_token": "cape_cod"
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
-  "family": "Merriweather",
-  "house_number": 1734
+  "family": "Reyes",
+  "house_number": 1416
  },
- "brief": "suburban band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3146"
+ "brief": "postwar band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4346"
 }

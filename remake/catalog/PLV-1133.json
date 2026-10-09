@@ -3,58 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.6,
-  "d": 20.0
+  "w": 32.0,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 34,
+  "main_w_ft": 53,
   "main_d_ft": 29,
   "roof": {
    "type": "hip",
-   "pitch_deg": 20,
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#2e2a26",
-   "accent": "#2f5e5a",
+   "body": "#e8d8c0",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "carport",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "privacy",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
+  "year_built": 1987,
+  "band": "suburban",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 142
+  "family": "Kowal",
+  "house_number": 1186
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-4716"
+ "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2729"
 }

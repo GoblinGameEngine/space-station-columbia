@@ -8,28 +8,61 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Achterberg Flowers",
-    "type": "florist",
-    "sign": "ACHTERBERG FLOWERS",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "accounting_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1913,
+  "cornice": "tile_roof",
+  "storefronts": [
+   {
+    "business": "Garcia Law Office",
+    "type": "law_office",
+    "sign": "GARCIA LAW OFFICE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Solana Point Drug",
+    "type": "drug_store",
+    "sign": "SOLANA POINT DRUG",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1925,
   "colors": {
-   "body": "#efd9c4"
+   "body": "#f4f0e6"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Solana Point Trust"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

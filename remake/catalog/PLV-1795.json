@@ -3,58 +3,41 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 35.9,
-  "d": 23.5
+  "w": 16.6,
+  "d": 16.6
  },
- "kind": "house",
+ "kind": "clubhouse",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 31,
+  "storeys": 2,
+  "walls": "stucco",
+  "main_w_ft": 60,
+  "main_d_ft": 44,
   "roof": {
    "type": "hip",
-   "pitch_deg": 19,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
-  "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "wrap",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "stucco",
-  "foundation": "slab",
+  "use": "yacht_club",
+  "members": 80,
+  "slips": 25,
+  "area_m2": 176,
+  "garage": "none",
+  "year_built": 1924,
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "sliding",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "carport",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1986,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+   "body": "#e8d8c0",
+   "trim": "#3b2a1e",
+   "accent": "#2c4a2e"
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 788
+  "name": "Playa Verde Yacht Club"
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-3378"
+ "brief": "clubhouse (clubhouse) generated for Playa Verde."
 }

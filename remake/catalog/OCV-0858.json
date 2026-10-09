@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 21.5,
-  "d": 32.3
+  "w": 12.3,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 40,
-  "main_d_ft": 32,
+  "main_w_ft": 27,
+  "main_d_ft": 36,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 23,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -32,29 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
+   "fence": "picket",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Szabo",
-  "house_number": 272
+  "family": "Dunmore",
+  "house_number": 155
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0613"
 }

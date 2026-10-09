@@ -3,69 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.3,
-  "d": 36.8
+  "w": 17.9,
+  "d": 24.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 37,
+  "main_w_ft": 37,
+  "main_d_ft": 21,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "tapered_on_piers",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "casement",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "condition": "kept",
+  "year_built": 1897,
+  "band": "rail",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Holloway",
-  "house_number": 957
+  "family": "Stroud",
+  "house_number": 1022
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "rail band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens)."
 }

@@ -8,28 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "board_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Main Street Dental",
-    "type": "dentist",
-    "sign": "MAIN STREET DENTAL",
-    "sign_style": "awning_lettering",
+    "business": "Nowicki Savings Bank",
+    "type": "bank",
+    "sign": "NOWICKI SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Commerce Savings Bank",
+    "type": "bank",
+    "sign": "COMMERCE SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": true
    }
   ],
-  "condition": "shabby",
-  "year_built": 1875,
+  "condition": "worn",
+  "year_built": 1908,
   "colors": {
-   "body": "#e9d6c8"
+   "body": "#ead9c8"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "block_name": "Oceanview Trust"
+ },
+ "brief": "store (office) generated for Oceanview."
 }

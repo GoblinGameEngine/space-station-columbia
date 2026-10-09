@@ -8,25 +8,58 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "dentist"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Wainwright Variety",
-    "type": "variety_store",
-    "sign": "WAINWRIGHT VARIETY",
-    "sign_style": "projecting",
-    "awning": true
+    "business": "Desai Savings Bank",
+    "type": "bank",
+    "sign": "DESAI SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Leclerc Savings Bank",
+    "type": "bank",
+    "sign": "LECLERC SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1872,
+  "year_built": 1951,
   "colors": {
-   "body": "#c7a987"
+   "body": "#864425"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Loomis Block"
+ },
+ "brief": "store (office) generated for Kessler."
 }

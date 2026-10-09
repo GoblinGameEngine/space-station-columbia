@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.1,
-  "d": 28.9
+  "w": 24.3,
+  "d": 24.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "american_small_house",
-  "storeys": 1,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 32,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9a523d",
-   "trim": "#3a3f44",
-   "accent": "#7a2e28",
-   "roof": "#4e5155"
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "sliding",
@@ -51,12 +51,13 @@
   "condition": "kept",
   "year_built": 1958,
   "band": "postwar",
-  "form_token": "american_small_house"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Dunmore",
-  "house_number": 1481
+  "house_number": 1830
  },
- "brief": "postwar band american_small_house: 1 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "HF-1766"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1204"
 }

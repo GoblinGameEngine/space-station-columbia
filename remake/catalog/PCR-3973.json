@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
+  "w": 16.2,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 31,
+  "main_w_ft": 37,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 44,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,29 +32,32 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Mbeki",
-  "house_number": 2475
+  "house_number": 2328
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0806"
 }

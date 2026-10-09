@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.0,
-  "d": 28.6
+  "w": 34.5,
+  "d": 40.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
+  "archetype": "split_level",
+  "storeys": 1,
   "main_w_ft": 43,
   "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#d1bcb0",
+   "trim": "#e8e0c8",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "sliding",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -48,13 +48,12 @@
   "condition": "kept",
   "year_built": 1970,
   "band": "suburban",
-  "form_token": "shingle_style"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Merriweather",
-  "house_number": 708
+  "house_number": 1069
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3961"
+ "brief": "suburban band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-5463"
 }

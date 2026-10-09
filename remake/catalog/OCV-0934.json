@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.4,
-  "d": 34.8
+  "w": 13.7,
+  "d": 40.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "archetype": "minimal_traditional",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,36 +26,42 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "body": "#dcc7a6",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
-  "condition": "worn",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "condition": "shabby",
+  "year_built": 1905,
+  "band": "streetcar",
+  "form_token": "minimal_traditional",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 407
+  "family": "Wainwright",
+  "house_number": 948
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0252"
+ "brief": "streetcar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1028"
 }

@@ -8,21 +8,37 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "stucco",
-  "cornice": "mission_parapet",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "dispatch_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Tremblay Barber Shop",
-    "type": "barber",
-    "sign": "TREMBLAY BARBER SHOP",
-    "sign_style": "projecting",
+    "business": "Commerce Savings Bank",
+    "type": "bank",
+    "sign": "COMMERCE SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Haddad Savings Bank",
+    "type": "bank",
+    "sign": "HADDAD SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1907,
+  "year_built": 1920,
   "colors": {
    "body": "#f3eadb"
   },
@@ -30,6 +46,8 @@
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Playa Verde."
 }

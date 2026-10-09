@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 34.1
+  "w": 24.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 38,
+  "main_w_ft": 50,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 44,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,28 +36,27 @@
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "fence": "chainlink",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "swing_set"
    ]
   },
   "condition": "new",
-  "year_built": 1933,
-  "band": "interwar",
+  "year_built": 1956,
+  "band": "postwar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Haddad",
-  "house_number": 2258
+  "house_number": 2144
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0928"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2750"
 }

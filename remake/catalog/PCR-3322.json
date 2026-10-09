@@ -3,61 +3,70 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 20.8
+  "w": 22.0,
+  "d": 23.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 25,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
-   "material": "wood_shingle"
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
+   "type": "stoop",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#e8dcc0",
    "trim": "#f4f3ec",
    "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Dunmore",
-  "house_number": 328
+  "family": "Leclerc",
+  "house_number": 1324
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0727"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0284"
 }

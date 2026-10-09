@@ -3,30 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 41.1,
-  "d": 36.3
+  "w": 22.8,
+  "d": 30.2
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#a5b598",
-   "trim": "#e9e2d2",
-   "accent": "#4a5a48",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 33,
   "roof": {
-   "pitch_deg": 24
+   "type": "cross_gable",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2000,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#834d35",
+   "trim": "#2e3a4a",
+   "accent": "#7a2e28",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2009,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Yoder",
+  "house_number": 293
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "SOL-7611"
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6119"
 }

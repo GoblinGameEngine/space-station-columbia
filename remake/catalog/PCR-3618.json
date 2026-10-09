@@ -3,32 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
-  "d": 20.6
+  "w": 16.4,
+  "d": 33.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 50,
-  "main_d_ft": 25,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "wood_shingle"
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "tapered_on_piers",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
+   "body": "#f2f1ea",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
@@ -41,21 +41,20 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1931,
+  "year_built": 1925,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 2260
+  "family": "Wisniewski",
+  "house_number": 583
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0576"
 }

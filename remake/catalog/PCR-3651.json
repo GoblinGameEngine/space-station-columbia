@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.5,
-  "d": 20.0
+  "w": 10.3,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
   "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 31,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
   "roof": {
    "type": "gambrel",
    "pitch_deg": 48,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,27 +36,26 @@
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "new",
+  "condition": "kept",
   "year_built": 1941,
   "band": "interwar",
-  "form_token": "dutch_colonial"
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 2231
+  "house_number": 2233
  },
- "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-2200"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0743"
 }

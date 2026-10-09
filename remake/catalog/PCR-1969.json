@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.8,
-  "d": 39.2
+  "w": 19.8,
+  "d": 23.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 34,
+  "main_w_ft": 55,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#ffffff",
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
    "accent": "#7a1f1a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "garden",
-    "clothesline"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "shingle_style"
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 1465
+  "family": "Holloway",
+  "house_number": 1266
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0987"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0362"
 }

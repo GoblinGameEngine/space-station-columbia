@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.4,
-  "d": 31.5
+  "w": 25.8,
+  "d": 25.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 44,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 45,
   "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
+   "type": "hip",
+   "pitch_deg": 36,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#d0d1ae",
+   "trim": "#5a3a28",
+   "accent": "#5b6b3a",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,12 @@
   "condition": "kept",
   "year_built": 2003,
   "band": "late",
-  "form_token": "cape_cod"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 182
+  "house_number": 1975
  },
- "brief": "late band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2457"
+ "brief": "late band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5723"
 }

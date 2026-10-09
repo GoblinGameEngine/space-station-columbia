@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.5,
-  "d": 37.5
+  "w": 10.2,
+  "d": 38.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 25,
   "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "asphalt_shingle"
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -26,19 +26,19 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "2over2",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -48,16 +48,20 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1873,
-  "band": "rail",
-  "form_token": "cape_cod",
-  "units": 2
+  "year_built": 1900,
+  "band": "streetcar",
+  "form_token": "i_house",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 379
+  "family": "Osei",
+  "house_number": 584
  },
- "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0576"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

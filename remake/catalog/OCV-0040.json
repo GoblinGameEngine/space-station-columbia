@@ -3,33 +3,54 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.3,
-  "d": 31.6
+  "w": 15.5,
+  "d": 30.5
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "stucco",
-  "cornice": "tile_roof",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "college_extension"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "courier_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Ostrowski & Merriweather Gallery",
-    "type": "art_gallery",
-    "sign": "OSTROWSKI & MERRIWEATHER GALLERY",
-    "sign_style": "flat_board",
+    "business": "Nowicki Savings Bank",
+    "type": "bank",
+    "sign": "NOWICKI SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": true
+   },
+   {
+    "business": "Union Law Office",
+    "type": "law_office",
+    "sign": "UNION LAW OFFICE",
+    "sign_style": "flat_board",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1874,
+  "year_built": 1950,
   "colors": {
-   "body": "#f6f1e7"
+   "body": "#f4f0e6"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "block_name": "Mbeki Building"
+ },
+ "brief": "store (office) generated for Oceanview."
 }

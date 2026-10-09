@@ -6,27 +6,22 @@
   "w": 16.2,
   "d": 30.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Harrow Falls Savings Bank",
-    "type": "bank",
-    "sign": "HARROW FALLS SAVINGS BANK",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1902,
-  "colors": {
-   "body": "#84412b"
-  }
+  "walls": "block",
+  "year_built": 1917,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Ring Line Foundry",
+  "sign": "RING LINE FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

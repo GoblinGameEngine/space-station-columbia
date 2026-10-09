@@ -3,14 +3,14 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.2,
-  "d": 37.6
+  "w": 22.2,
+  "d": 28.0
  },
  "kind": "house",
  "traits": {
   "archetype": "minimal_traditional",
-  "storeys": 2,
-  "main_w_ft": 31,
+  "storeys": 1,
+  "main_w_ft": 28,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "hedge",
    "extras": [
+    "shed",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
+  "year_built": 1953,
+  "band": "postwar",
   "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
   "family": "Nguyen",
-  "house_number": 1430
+  "house_number": 1415
  },
- "brief": "interwar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1413"
+ "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2477"
 }

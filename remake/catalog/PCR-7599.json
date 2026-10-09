@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.1,
-  "d": 24.1
+  "w": 23.5,
+  "d": 21.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
   "main_w_ft": 34,
   "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 36,
-   "material": "asphalt_shingle"
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a9ba9f",
-   "trim": "#5a3a28",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 2006,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "nantucket_cape"
  },
+ "region": "ne",
  "names": {
   "family": "Tremblay",
-  "house_number": 2734
+  "house_number": 2274
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6214"
+ "brief": "late band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

@@ -3,17 +3,17 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 22.6,
-  "d": 34.0
+  "w": 19.3,
+  "d": 26.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 33,
+  "main_w_ft": 33,
+  "main_d_ft": 25,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 23,
    "material": "clay_tile"
   },
@@ -32,7 +32,7 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -42,21 +42,19 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1947,
-  "band": "postwar",
-  "form_token": "ranch"
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 1252
+  "family": "Patel",
+  "house_number": 1177
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

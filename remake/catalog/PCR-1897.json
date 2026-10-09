@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.6,
-  "d": 40.3
+  "w": 11.8,
+  "d": 38.2
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 28,
+  "main_w_ft": 21,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -48,13 +48,14 @@
   "condition": "shabby",
   "year_built": 1912,
   "band": "streetcar",
-  "form_token": "i_house"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 1358
+  "house_number": 543
  },
- "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0665"
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0797"
 }

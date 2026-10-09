@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 13.5,
-  "d": 39.5
+  "w": 17.9,
+  "d": 36.8
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 31,
+  "main_w_ft": 40,
+  "main_d_ft": 24,
   "roof": {
    "type": "gable",
    "pitch_deg": 22,
@@ -32,7 +32,7 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -41,24 +41,29 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "clothesline",
-    "swing_set"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1903,
+  "condition": "worn",
+  "year_built": 1923,
   "band": "streetcar",
-  "form_token": "california_bungalow"
+  "form_token": "california_bungalow",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 11
+  }
  },
  "region": "ca",
  "names": {
   "family": "Duquesne",
-  "house_number": 388
+  "house_number": 302
  },
  "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "model": "SOL-0316"
 }

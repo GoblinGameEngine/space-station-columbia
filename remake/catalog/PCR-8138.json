@@ -3,30 +3,30 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.4,
-  "d": 33.3
+  "w": 16.3,
+  "d": 30.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 23,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 26,
-   "material": "slate"
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
+   "type": "front_partial",
+   "posts": "square",
    "rail": "solid"
   },
   "walls": "brick",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#cfb28f",
+   "body": "#b26f51",
    "trim": "#ffffff",
    "accent": "#2b4f6b",
    "roof": "#2f3133"
@@ -35,25 +35,26 @@
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "privacy",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1991,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "ranch",
+  "units": 2
  },
  "names": {
   "family": "Dunmore",
-  "house_number": 1487
+  "house_number": 2932
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4051"
 }

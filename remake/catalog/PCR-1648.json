@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.0,
-  "d": 37.6
+  "w": 10.9,
+  "d": 22.2
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 19,
-  "main_d_ft": 29,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -38,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
@@ -46,15 +46,16 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1918,
+  "year_built": 1917,
   "band": "streetcar",
-  "form_token": "cape_cod"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 487
+  "house_number": 1281
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0311"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0575"
 }

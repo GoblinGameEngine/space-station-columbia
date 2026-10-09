@@ -3,32 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.4,
-  "d": 40.6
+  "w": 17.6,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 39,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 48,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#7d776d",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "accent": "#3a2a24",
    "roof": "#2f3438"
   },
   "windows": {
@@ -36,28 +36,29 @@
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "none",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1913,
-  "band": "streetcar",
-  "form_token": "nantucket_cape",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "gable_front",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 235
+  "family": "Smith",
+  "house_number": 836
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0732"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0685"
 }

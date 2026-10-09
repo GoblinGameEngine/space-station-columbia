@@ -3,60 +3,57 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 10.2,
-  "d": 38.6
+  "w": 17.2,
+  "d": 27.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
+  "main_w_ft": 21,
+  "main_d_ft": 41,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 23,
+   "type": "gable",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#4a3324",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
-   "extras": [
-    "shed",
-    "clothesline"
-   ]
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1916,
+  "condition": "kept",
+  "year_built": 1924,
   "band": "streetcar",
-  "form_token": "ranch",
+  "form_token": "minimal_traditional",
   "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 206
+  "family": "Delmar",
+  "house_number": 580
  },
- "brief": "streetcar band ranch: 1 storeys, board_and_batten walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0708"
+ "brief": "streetcar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0814"
 }

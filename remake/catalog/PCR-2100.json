@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 37.3
+  "w": 12.2,
+  "d": 21.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 25,
   "main_d_ft": 33,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 47,
+   "type": "gable",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,36 +26,36 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "casement",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "worn",
-  "year_built": 1937,
-  "band": "interwar",
-  "form_token": "dutch_colonial",
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 837
+  "family": "Booker",
+  "house_number": 1474
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0932"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0806"
 }

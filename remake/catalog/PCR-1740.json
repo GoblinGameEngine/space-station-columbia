@@ -3,58 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 25.2
+  "w": 12.2,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 30,
+  "main_w_ft": 25,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
+   "body": "#5b6b5a",
    "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1923,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Pike",
-  "house_number": 986
+  "family": "Tomczak",
+  "house_number": 1067
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0564"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0392"
 }

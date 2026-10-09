@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.2,
-  "d": 35.8
+  "w": 11.8,
+  "d": 37.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "asphalt_shingle"
+   "pitch_deg": 41,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#ffffff",
-   "accent": "#24382a",
+   "body": "#e6e2d8",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "shabby",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "worn",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Mbeki",
-  "house_number": 675
+  "family": "Solano",
+  "house_number": 1276
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0297"
 }

@@ -3,56 +3,66 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 24.3,
-  "d": 20.0
+  "w": 14.6,
+  "d": 37.1
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 31,
-  "main_d_ft": 29,
+  "main_w_ft": 19,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 23,
+   "type": "gable",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "body": "#ead9c8",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "2over2",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "carport",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1963,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "condition": "worn",
+  "year_built": 1928,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 10
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 471
+  "family": "Wainwright",
+  "house_number": 355
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2498"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0252"
 }

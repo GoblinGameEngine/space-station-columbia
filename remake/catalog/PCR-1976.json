@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 33.1
+  "w": 18.7,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
   "main_w_ft": 31,
   "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 49,
+   "type": "cross_gable",
+   "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#975748",
+   "trim": "#e8e0c8",
+   "accent": "#2b4f6b",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "casement",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "left_end"
@@ -48,13 +48,12 @@
   "condition": "kept",
   "year_built": 1939,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "tudor"
  },
- "region": "ne",
  "names": {
   "family": "Reyes",
-  "house_number": 1257
+  "house_number": 1137
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "interwar band tudor: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1326"
 }

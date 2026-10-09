@@ -3,42 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 51.5,
-  "d": 24.9
+  "w": 17.3,
+  "d": 35.8
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f8f7f2",
-   "trim": "#ffffff",
-   "accent": "#1f4a33",
-   "roof": "#3c4048"
-  },
-  "year_built": 1994,
+  "storeys": 1,
+  "facade": "cast_iron_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "none",
+  "storefronts": [
+   {
+    "business": "Tremblay & Stroud Barber Shop",
+    "type": "barber",
+    "sign": "TREMBLAY & STROUD BARBER SHOP",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
   "condition": "kept",
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 40,
-   "material": "slate"
+  "year_built": 1898,
+  "colors": {
+   "body": "#f5e9e4",
+   "trim": "#ffffff",
+   "accent": "#1f4a33"
   },
-  "windows": {
-   "shutters": true
-  },
-  "porch": {
-   "type": "full",
-   "posts": "turned",
-   "rail": "spindle"
-  }
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Victory Bay."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

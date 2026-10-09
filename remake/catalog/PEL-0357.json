@@ -3,60 +3,57 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 13.5,
-  "d": 37.6
+  "w": 11.8,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 38,
+  "main_w_ft": 23,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#e9d6c8",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1897,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Mbeki",
-  "house_number": 117
+  "family": "Szabo",
+  "house_number": 583
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0473"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0518"
 }

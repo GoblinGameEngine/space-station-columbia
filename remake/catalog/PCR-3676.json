@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.2,
-  "d": 20.0
+  "w": 19.0,
+  "d": 36.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 44,
-  "main_d_ft": 28,
+  "main_w_ft": 24,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "columns",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,31 +32,32 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1956,
-  "band": "postwar",
+  "condition": "kept",
+  "year_built": 1924,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Raghunathan",
-  "house_number": 1874
+  "house_number": 2219
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0861"
 }

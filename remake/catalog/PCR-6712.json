@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 23.6
+  "w": 25.5,
+  "d": 28.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 30,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 42,
+  "main_d_ft": 24,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,39 +23,39 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#e9e8e2",
    "trim": "#ffffff",
    "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
-   "extras": []
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
   "year_built": 1994,
   "band": "late",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Delmar",
-  "house_number": 1257
+  "family": "Okafor",
+  "house_number": 179
  },
- "brief": "late band foursquare: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0569"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

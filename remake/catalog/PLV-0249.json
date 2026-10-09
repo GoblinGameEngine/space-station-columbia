@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.1,
-  "d": 23.7
+  "w": 13.2,
+  "d": 30.4
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 34,
+  "main_w_ft": 21,
+  "main_d_ft": 41,
   "roof": {
    "type": "hip",
    "pitch_deg": 18,
@@ -32,7 +32,7 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -41,13 +41,15 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1873,
-  "band": "rail",
+  "year_built": 1900,
+  "band": "streetcar",
   "form_token": "california_bungalow",
   "wing": {
    "side": "rear",
@@ -58,8 +60,8 @@
  "region": "ca",
  "names": {
   "family": "Tomczak",
-  "house_number": 171
+  "house_number": 350
  },
- "brief": "rail band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0320"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0385"
 }

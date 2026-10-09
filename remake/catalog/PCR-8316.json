@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 20.9
+  "w": 25.0,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 31,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 43,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#cecaa8",
+   "trim": "#f2efe6",
+   "accent": "#1f2a33",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
@@ -48,14 +48,12 @@
   "condition": "new",
   "year_built": 2007,
   "band": "late",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 3291
+  "house_number": 2429
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "late band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5723"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.5,
-  "d": 29.9
+  "w": 24.1,
+  "d": 21.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 44,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 40,
   "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#954831",
+   "trim": "#f4f1e8",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,12 @@
   "condition": "kept",
   "year_built": 2000,
   "band": "late",
-  "form_token": "i_house"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 943
+  "house_number": 469
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "late band split_level: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5723"
 }

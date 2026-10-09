@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.6,
-  "d": 20.0
+  "w": 19.9,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 43,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 30,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
@@ -19,43 +19,42 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "iron",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
    "accent": "#24382a",
-   "roof": "#3a3836"
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "left_end"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "condition": "worn",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 1160
+  "family": "Garcia",
+  "house_number": 787
  },
- "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage carport (generated from the Great Lakes tokens)."
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

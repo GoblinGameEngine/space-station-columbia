@@ -3,34 +3,41 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 17.7,
-  "d": 40.8
+  "w": 45.6,
+  "d": 28.9
  },
- "kind": "store",
+ "kind": "townhouse",
  "traits": {
-  "storeys": 1,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Infirmary Thrift",
-    "type": "thrift_store",
-    "sign": "INFIRMARY THRIFT",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1913,
+  "units": 6,
+  "unit_w_ft": 22,
+  "depth_ft": 38,
+  "walls": "clapboard",
   "colors": {
-   "body": "#eef0f6",
-   "trim": "#ffffff",
-   "accent": "#2b4f6e"
+   "body": "#f5e9e4",
+   "trim": "#f7f6f0",
+   "accent": "#2b4f6e",
+   "roof": "#3c4048"
   },
-  "awning_style": "striped"
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 35,
+   "material": "slate"
+  },
+  "year_built": 1917,
+  "condition": "kept",
+  "windows": {
+   "shutters": true
+  },
+  "porch": {
+   "type": "full",
+   "posts": "turned",
+   "rail": "spindle"
+  }
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "name": ""
+ },
+ "brief": "townhouse (townhouse) generated for Victory Bay.",
+ "model": "VBY-0058"
 }

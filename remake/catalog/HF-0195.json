@@ -6,27 +6,22 @@
   "w": 16.3,
   "d": 30.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Patel Savings Bank",
-    "type": "bank",
-    "sign": "PATEL SAVINGS BANK",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "shabby",
-  "year_built": 1911,
-  "colors": {
-   "body": "#83412e"
-  }
+  "walls": "brick",
+  "year_built": 1893,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Booker Foundry",
+  "sign": "BOOKER FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

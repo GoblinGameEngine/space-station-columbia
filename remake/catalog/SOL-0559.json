@@ -6,30 +6,22 @@
   "w": 17.4,
   "d": 26.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Depot Diner",
-    "type": "diner",
-    "sign": "DEPOT DINER",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "remelting_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1892,
-  "colors": {
-   "body": "#efe6d2"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1900,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Kowal Remelting Co.",
+  "sign": "KOWAL REMELTING CO."
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

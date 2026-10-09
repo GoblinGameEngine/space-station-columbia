@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 33.6
+  "w": 23.7,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 32,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 47,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#2f3e52",
    "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 2276
+  "family": "Nowicki",
+  "house_number": 2120
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

@@ -3,60 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 36.1,
-  "d": 20.0
+  "w": 24.1,
+  "d": 30.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 25,
+  "main_w_ft": 32,
+  "main_d_ft": 27,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
+   "type": "hip",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
+   "body": "#f6f1e7",
    "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1983,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "condition": "kept",
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 300
+  "family": "Tremblay",
+  "house_number": 978
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4919"
+ "brief": "postwar band minimal_traditional: 1 storeys, board_and_batten walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2222"
 }

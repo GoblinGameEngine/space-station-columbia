@@ -3,59 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 20.0
+  "w": 10.5,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 45,
-  "main_d_ft": 27,
+  "main_w_ft": 24,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#e8dcc0",
    "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
+  "year_built": 1900,
+  "band": "streetcar",
   "form_token": "cape_cod",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 957
+  "family": "Villalobos",
+  "house_number": 119
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0303"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0311"
 }

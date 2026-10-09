@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 38.3
+  "w": 18.0,
+  "d": 20.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 26,
-  "main_d_ft": 38,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 26,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
+   "type": "gambrel",
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "2over2",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1916,
-  "band": "streetcar",
-  "form_token": "cape_cod",
+  "condition": "worn",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "dutch_colonial",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 1319
+  "family": "Achterberg",
+  "house_number": 1048
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0311"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

@@ -3,59 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.0,
-  "d": 36.3
+  "w": 16.9,
+  "d": 29.1
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 35,
+  "main_w_ft": 23,
+  "main_d_ft": 43,
   "roof": {
    "type": "hip",
-   "pitch_deg": 28,
+   "pitch_deg": 26,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
    "type": "casement",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "left_end"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "hedge",
    "extras": []
   },
-  "condition": "worn",
-  "year_built": 1925,
+  "condition": "kept",
+  "year_built": 1939,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 2381
+  "family": "Delmar",
+  "house_number": 2379
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0821"
+ "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0686"
 }

@@ -3,58 +3,34 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 24.3,
-  "d": 22.0
+  "w": 38.7,
+  "d": 36.5
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 32,
-  "main_d_ft": 34,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "court",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#efd9c4",
+   "trim": "#3b2a1e",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "carport",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
-  },
+  "year_built": 1987,
   "condition": "kept",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 22
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Reyes",
-  "house_number": 594
+  "name": ""
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2498"
+ "brief": "condo (apartment) generated for Pelican Cove.",
+ "model": "SOL-0971"
 }

@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.8,
-  "d": 40.8
+  "w": 19.8,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 33,
+  "main_w_ft": 51,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 22,
-   "material": "clay_tile"
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
+   "body": "#e6d4bb",
    "trim": "#2e2a26",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -40,28 +40,24 @@
   ],
   "garage": "none",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1912,
-  "band": "streetcar",
+  "condition": "new",
+  "year_built": 1930,
+  "band": "interwar",
   "form_token": "california_bungalow",
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
-  }
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 317
+  "family": "Nguyen",
+  "house_number": 279
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0252"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

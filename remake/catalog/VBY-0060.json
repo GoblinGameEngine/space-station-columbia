@@ -3,60 +3,42 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 12.9,
-  "d": 28.7
+  "w": 50.0,
+  "d": 30.6
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "queen_anne",
-  "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 49,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "clapboard",
-  "foundation": "brick",
   "colors": {
-   "body": "#eef0f6",
+   "body": "#f5e9e4",
    "trim": "#f7f6f0",
-   "accent": "#2b4f6e",
-   "roof": "#4a4440"
+   "accent": "#244d3a",
+   "roof": "#3c4048"
+  },
+  "year_built": 2006,
+  "condition": "kept",
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 39,
+   "material": "slate"
   },
   "windows": {
-   "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1897,
-  "band": "streetcar",
-  "form_token": "queen_anne"
+  "porch": {
+   "type": "full",
+   "posts": "turned",
+   "rail": "spindle"
+  }
  },
  "region": "isle",
  "names": {
-  "family": "Pruett",
-  "house_number": 244
+  "name": ""
  },
- "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "condo (apartment) generated for Victory Bay."
 }

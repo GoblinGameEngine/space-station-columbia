@@ -3,34 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 39.2
+  "w": 16.6,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 26,
-  "main_d_ft": 35,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 28,
+  "main_d_ft": 44,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 42,
    "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "turned",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -41,33 +32,32 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "2over2",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": [
     "garden",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1920,
-  "band": "streetcar",
-  "form_token": "nantucket_cape",
-  "units": 2
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 412
+  "family": "Adebayo",
+  "house_number": 1048
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0299"
+ "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

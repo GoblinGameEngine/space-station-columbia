@@ -3,61 +3,63 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.3,
-  "d": 22.3
+  "w": 13.0,
+  "d": 28.2
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "none",
    "extras": [
-    "garden"
+    "garden",
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1933,
-  "band": "interwar",
+  "condition": "shabby",
+  "year_built": 1918,
+  "band": "streetcar",
   "form_token": "spanish_revival",
   "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Adebayo",
-  "house_number": 617
+  "family": "Smith",
+  "house_number": 388
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0930"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0376"
 }

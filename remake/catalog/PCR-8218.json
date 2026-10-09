@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.7,
-  "d": 20.0
+  "w": 17.4,
+  "d": 30.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 21,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 27,
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,20 +26,22 @@
   "walls": "clapboard",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#e9ead8",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
+   "body": "#818f71",
+   "trim": "#e8e0c8",
+   "accent": "#2b4f6b",
    "roof": "#4e5155"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "tree_line",
    "extras": [
     "shed"
@@ -48,12 +50,13 @@
   "condition": "kept",
   "year_built": 1994,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "ranch",
+  "units": 2
  },
  "names": {
-  "family": "Marlowe",
-  "house_number": 1002
+  "family": "Osei",
+  "house_number": 954
  },
- "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5806"
+ "brief": "late band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3855"
 }

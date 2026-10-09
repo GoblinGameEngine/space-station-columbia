@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 28.2,
-  "d": 20.5
+  "w": 36.1,
+  "d": 33.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 40,
   "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#8b403c",
-   "trim": "#2e3a4a",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1985,
   "band": "suburban",
-  "form_token": "split_level"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Yoder",
-  "house_number": 1272
+  "house_number": 2210
  },
- "brief": "suburban band split_level: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4937"
+ "brief": "suburban band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3008"
 }

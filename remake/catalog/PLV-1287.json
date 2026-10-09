@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 32.8,
-  "d": 39.3
+  "w": 21.5,
+  "d": 33.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 39,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 26,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "body": "#e6d4bb",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_2",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "new",
-  "year_built": 1979,
-  "band": "suburban",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Reyes",
-  "house_number": 2124
+  "family": "Desai",
+  "house_number": 1595
  },
- "brief": "suburban band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2728"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

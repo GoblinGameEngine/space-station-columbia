@@ -3,60 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.4,
-  "d": 20.0
+  "w": 24.6,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 27,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "body": "#f4f0e6",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "shed",
-    "clothesline"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1954,
+  "condition": "kept",
+  "year_built": 1953,
   "band": "postwar",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
-  "house_number": 1656
+  "family": "Reyes",
+  "house_number": 165
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-1902"
+ "brief": "postwar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-5638"
 }

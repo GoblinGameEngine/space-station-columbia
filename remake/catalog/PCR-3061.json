@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.4,
-  "d": 23.6
+  "w": 21.6,
+  "d": 32.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f4f2e8",
-   "trim": "#5a3a28",
-   "accent": "#2b4f6b",
-   "roof": "#4a4a48"
-  },
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 28,
+  "main_d_ft": 31,
   "roof": {
-   "pitch_deg": 27
+   "type": "gambrel",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1927,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Nowicki",
+  "house_number": 1619
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0304"
+ "brief": "postwar band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

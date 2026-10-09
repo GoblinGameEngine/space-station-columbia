@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 14.8,
-  "d": 29.8
+  "w": 17.2,
+  "d": 23.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 33,
+  "main_w_ft": 47,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 18,
+   "type": "gable",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -27,32 +27,38 @@
   "foundation": "slab",
   "colors": {
    "body": "#e6d4bb",
-   "trim": "#5a3a28",
-   "accent": "#6a2c22",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1914,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "worn",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "minimal_traditional",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 572
+  "family": "Haskins",
+  "house_number": 327
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0363"
+ "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-1170"
 }

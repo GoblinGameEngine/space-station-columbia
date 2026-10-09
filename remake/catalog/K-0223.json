@@ -6,27 +6,22 @@
   "w": 16.4,
   "d": 24.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Adebayo Music",
-    "type": "music_store",
-    "sign": "ADEBAYO MUSIC",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1900,
-  "colors": {
-   "body": "#ac6345"
-  }
+  "walls": "block",
+  "year_built": 1916,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "name": "Brannock Foundry",
+  "sign": "BRANNOCK FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Kessler."
 }

@@ -6,28 +6,23 @@
   "w": 16.9,
   "d": 34.5
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Holloway Family Medicine",
-    "type": "doctor_office",
-    "sign": "HOLLOWAY FAMILY MEDICINE",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1906,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "walls": "metal",
+  "year_built": 1896,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Haven Point."
+ "names": {
+  "name": "Pham Foundry",
+  "sign": "PHAM FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Haven Point."
 }

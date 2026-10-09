@@ -3,19 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.0,
-  "d": 10.0
+  "w": 18.5,
+  "d": 20.0
  },
- "kind": "kiosk",
+ "kind": "house",
  "traits": {
-  "year_built": 1962,
-  "over_water": false,
-  "type": "restrooms",
-  "use": "restrooms"
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 21,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 20,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#efe6d2",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 2001,
+  "band": "late",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Delmar",
+  "house_number": 2553
  },
- "brief": "kiosk (comfort_station) generated for Oceanview."
+ "brief": "late band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-1012"
 }

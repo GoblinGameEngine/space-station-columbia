@@ -3,27 +3,55 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 52.5,
-  "d": 36.1
+  "w": 23.5,
+  "d": 25.5
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36"
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 22,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2000,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c5c8a7",
+   "trim": "#ffffff",
+   "accent": "#5b6b3a",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Desai",
+  "house_number": 655
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1085"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6214"
 }

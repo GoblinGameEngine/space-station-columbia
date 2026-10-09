@@ -6,30 +6,23 @@
   "w": 16.0,
   "d": 27.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Drug",
-    "type": "drug_store",
-    "sign": "DEPOT DRUG",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "rolling_mill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "monitor",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1908,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1918,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Delmar Rolling Mill",
+  "sign": "DELMAR ROLLING MILL"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 54.3,
-  "d": 30.0
+  "w": 18.4,
+  "d": 26.4
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
+  "storeys": 2,
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Castellanos Realty",
+    "type": "real_estate",
+    "sign": "CASTELLANOS REALTY",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1895,
   "colors": {
-   "body": "#e8dcc0"
-  },
-  "year_built": 1983,
-  "condition": "kept"
+   "body": "#f2f1ea"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0080"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

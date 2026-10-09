@@ -3,31 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.6,
-  "d": 21.9
+  "w": 17.5,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 33,
-  "main_d_ft": 23,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
-   "material": "wood_shingle"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "columns",
-   "rail": "spindle"
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f7f6f0",
+   "body": "#e6e2d8",
+   "trim": "#ffffff",
    "accent": "#3a2a24",
    "roof": "#3a3836"
   },
@@ -39,22 +39,24 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
    "extras": [
-    "swing_set"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "cape_cod"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Carrow",
-  "house_number": 2045
+  "family": "Ostrowski",
+  "house_number": 300
  },
- "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2457"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

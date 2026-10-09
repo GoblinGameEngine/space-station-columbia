@@ -3,60 +3,40 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 14.9,
-  "d": 38.0
+  "w": 41.8,
+  "d": 38.4
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 45,
+  "units": 6,
+  "unit_w_ft": 20,
+  "depth_ft": 34,
+  "walls": "clapboard",
+  "colors": {
+   "body": "#eef0f6",
+   "trim": "#f7f6f0",
+   "accent": "#1f4a33",
+   "roof": "#3c4048"
+  },
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 42,
    "material": "slate"
   },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "brick",
-  "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#244d3a",
-   "roof": "#2f3438"
-  },
+  "year_built": 1911,
+  "condition": "kept",
   "windows": {
-   "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1899,
-  "band": "streetcar",
-  "form_token": "shingle_style"
+  "porch": {
+   "type": "full",
+   "posts": "turned",
+   "rail": "spindle"
+  }
  },
  "region": "isle",
  "names": {
-  "family": "Haddad",
-  "house_number": 119
+  "name": ""
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "townhouse (townhouse) generated for Victory Bay."
 }

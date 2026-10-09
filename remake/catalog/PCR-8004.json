@@ -3,31 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.9,
-  "d": 22.8
+  "w": 25.6,
+  "d": 28.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 36,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f1ead2",
-   "trim": "#2e3a4a",
-   "accent": "#7a2e28",
-   "roof": "#5a4a40"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 27,
   "roof": {
-   "pitch_deg": 33
+   "type": "cross_gable",
+   "pitch_deg": 26,
+   "material": "slate"
   },
-  "year_built": 1999,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#bec0c6",
+   "trim": "#5a3a28",
+   "accent": "#7a2e28",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1991,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Villalobos",
+  "house_number": 355
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0304"
+ "brief": "late band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6834"
 }

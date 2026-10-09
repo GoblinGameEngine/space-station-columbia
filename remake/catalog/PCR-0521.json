@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.6,
-  "d": 30.6
+  "w": 18.6,
+  "d": 40.1
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 33,
+  "main_w_ft": 40,
+  "main_d_ft": 21,
   "roof": {
    "type": "gable",
    "pitch_deg": 47,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
+   "type": "front_partial",
+   "posts": "turned",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,13 +32,13 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
@@ -46,14 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1897,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 1898,
+  "band": "rail",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Tremblay",
-  "house_number": 229
+  "house_number": 460
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

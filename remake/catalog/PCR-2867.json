@@ -3,59 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.5,
-  "d": 32.2
+  "w": 16.9,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "prairie_box",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 32,
+  "main_w_ft": 28,
   "main_d_ft": 33,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
+   "type": "gable",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
-  "walls": "shingle",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#685f54",
-   "trim": "#f4f1e8",
-   "accent": "#2e3a4a",
-   "roof": "#4a4a48"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "modern_box"
+  "condition": "kept",
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Solano",
-  "house_number": 1293
+  "house_number": 809
  },
- "brief": "postwar band modern_box: 2 storeys, shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "HF-2606"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

@@ -3,59 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 29.7
+  "w": 23.0,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 20,
-  "main_d_ft": 28,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 22,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
+   "type": "gambrel",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "privacy",
-   "rear": "privacy",
+   "rear": "tree_line",
    "extras": [
-    "garden"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 2002,
   "band": "late",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 301
+  "family": "Carrow",
+  "house_number": 1230
  },
- "brief": "late band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1892"
 }

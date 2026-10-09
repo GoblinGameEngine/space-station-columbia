@@ -3,61 +3,63 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.6,
-  "d": 31.6
+  "w": 10.4,
+  "d": 38.5
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 29,
+  "main_w_ft": 24,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "center"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
+    "garden",
     "shed",
     "swing_set"
    ]
   },
   "condition": "worn",
-  "year_built": 1957,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 164
+  "family": "Delmar",
+  "house_number": 201
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0384"
 }

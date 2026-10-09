@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 21.0
+  "w": 24.3,
+  "d": 22.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 32,
-  "main_d_ft": 30,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "slate"
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -27,37 +27,36 @@
   "foundation": "cut_stone",
   "colors": {
    "body": "#6f6a62",
-   "trim": "#f7f6f0",
+   "trim": "#ffffff",
    "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_right"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 1678
+  "family": "Arrieta",
+  "house_number": 1193
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0375"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

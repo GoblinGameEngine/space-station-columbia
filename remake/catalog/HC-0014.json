@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Osei Hardware",
-    "type": "hardware",
-    "sign": "OSEI HARDWARE",
-    "sign_style": "awning_lettering",
-    "awning": false
+    "business": "Haskins Corner Cafe",
+    "type": "cafe",
+    "sign": "HASKINS CORNER CAFE",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1897,
+  "year_built": 1952,
   "colors": {
-   "body": "#a45f48"
+   "body": "#ac7050"
   }
  },
- "names": {},
- "brief": "store (store) generated for Haskins Corner."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Haskins Corner."
 }

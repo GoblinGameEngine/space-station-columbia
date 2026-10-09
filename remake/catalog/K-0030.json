@@ -8,25 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 10,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Desai Diner",
+    "business": "Commerce Cafe",
+    "type": "cafe",
+    "sign": "COMMERCE CAFE",
+    "sign_style": "awning_lettering",
+    "awning": true
+   },
+   {
+    "business": "Marlowe & Loomis Diner",
     "type": "diner",
-    "sign": "DESAI DINER",
+    "sign": "MARLOWE & LOOMIS DINER",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1920,
+  "condition": "kept",
+  "year_built": 1955,
   "colors": {
-   "body": "#c1b794"
+   "body": "#9f633b"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Kessler Trust"
+ },
+ "brief": "store (office) generated for Kessler."
 }

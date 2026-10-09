@@ -3,33 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 44.5,
-  "d": 35.2
+  "w": 19.4,
+  "d": 33.1
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
+  "main_w_ft": 26,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 20,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#2f3b2a",
-   "accent": "#2e3a4a",
+   "body": "#e9dcc2",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 21
+  "windows": {
+   "type": "6over6",
+   "shutters": true
   },
-  "year_built": 1922,
-  "condition": "kept"
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "DeCarlo",
+  "house_number": 623
  },
- "brief": "townhouse (townhouse) generated for Oceanview.",
- "model": "SOL-0287"
+ "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1355"
 }

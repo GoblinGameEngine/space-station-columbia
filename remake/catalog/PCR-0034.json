@@ -8,26 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "clapboard",
-  "cornice": "bracketed_wood",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Holloway Theatre",
-    "type": "movie_theater",
-    "sign": "HOLLOWAY THEATRE",
-    "sign_style": "projecting",
-    "awning": true
+    "type": "dentist"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "works_office"
    }
   ],
-  "condition": "shabby",
-  "year_built": 1924,
+  "cornice": "bracketed_wood",
+  "storefronts": [
+   {
+    "business": "Pruett Savings Bank",
+    "type": "bank",
+    "sign": "PRUETT SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1973,
   "colors": {
-   "body": "#d9dcd8"
+   "body": "#5b6b5a"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Mbeki Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

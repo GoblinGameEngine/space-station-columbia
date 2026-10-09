@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.8,
-  "d": 27.5
+  "w": 22.5,
+  "d": 27.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 48,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 34,
   "main_d_ft": 26,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
+   "type": "hip",
+   "pitch_deg": 28,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#eae5e6",
+   "trim": "#ffffff",
+   "accent": "#3a2a1e",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -49,13 +49,12 @@
   "condition": "kept",
   "year_built": 1996,
   "band": "late",
-  "form_token": "gable_front"
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
   "family": "Tomczak",
-  "house_number": 581
+  "house_number": 1807
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2300"
 }

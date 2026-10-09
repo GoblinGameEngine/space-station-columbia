@@ -3,62 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 39.7
+  "w": 16.9,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 28,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 30,
   "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "solid"
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1921,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Solano",
-  "house_number": 459
+  "family": "Garcia",
+  "house_number": 617
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0735"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

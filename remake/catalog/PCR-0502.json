@@ -3,31 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.3,
-  "d": 41.5
+  "w": 17.3,
+  "d": 41.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Ostrowski Diner",
-    "type": "diner",
-    "sign": "OSTROWSKI DINER",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "glass_works",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "shabby",
-  "year_built": 1911,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "metal",
+  "year_built": 1897,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Yoder & Pham Glass Works",
+  "sign": "YODER & PHAM GLASS WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

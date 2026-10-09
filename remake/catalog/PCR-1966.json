@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.5,
-  "d": 36.6
+  "w": 12.4,
+  "d": 20.3
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 32,
-  "main_d_ft": 27,
+  "main_w_ft": 23,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
+   "pitch_deg": 38,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
+   "body": "#8a8378",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
+   "accent": "#1f2e44",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
@@ -41,20 +41,24 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 1940,
   "band": "interwar",
-  "form_token": "cape_cod"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Smith",
-  "house_number": 954
+  "family": "Pike",
+  "house_number": 1118
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0512"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0605"
 }

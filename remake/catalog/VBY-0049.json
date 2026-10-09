@@ -3,34 +3,65 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 15.3,
-  "d": 30.6
+  "w": 12.7,
+  "d": 29.4
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "queen_anne",
   "storeys": 2,
-  "facade": "cast_iron_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Castellanos Flowers",
-    "type": "florist",
-    "sign": "CASTELLANOS FLOWERS",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1895,
-  "colors": {
-   "body": "#f6f4ec",
-   "trim": "#ffffff",
-   "accent": "#244d3a"
+  "main_w_ft": 34,
+  "main_d_ft": 54,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 47,
+   "material": "wood_shingle"
   },
-  "awning_style": "striped"
+  "dormers": [],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#eef0f6",
+   "trim": "#ffffff",
+   "accent": "#2b4f6e",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1918,
+  "band": "streetcar",
+  "form_token": "queen_anne",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 11
+  }
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "family": "Raghunathan",
+  "house_number": 132
+ },
+ "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

@@ -4,55 +4,32 @@
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
   "w": 15.2,
-  "d": 28.0
+  "d": 24.9
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 21,
-  "main_d_ft": 34,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "board_and_batten",
-  "foundation": "slab",
+  "storeys": 3,
+  "facade": "stucco",
+  "cornice": "tile_roof",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Brandvold & Achterberg Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "BRANDVOLD & ACHTERBERG BEAUTY SHOP",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1873,
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
-   "roof": "#a8492f"
+   "body": "#efd9c4"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
-  },
-  "condition": "kept",
-  "year_built": 1886,
-  "band": "rail",
-  "form_token": "ranch"
+  "arcade": false,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Tremblay",
-  "house_number": 490
- },
- "brief": "rail band ranch: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0363"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

@@ -6,30 +6,22 @@
   "w": 18.4,
   "d": 25.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Castellanos Gallery",
-    "type": "art_gallery",
-    "sign": "CASTELLANOS GALLERY",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "remelting_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "shabby",
+  "walls": "metal",
   "year_built": 1883,
-  "colors": {
-   "body": "#ead9c8"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Kowalczyk Remelting Co.",
+  "sign": "KOWALCZYK REMELTING CO."
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

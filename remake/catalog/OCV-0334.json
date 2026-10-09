@@ -3,33 +3,63 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.4,
-  "d": 31.8
+  "w": 15.3,
+  "d": 37.5
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Smith & Solano Gallery",
-    "type": "art_gallery",
-    "sign": "SMITH & SOLANO GALLERY",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1877,
-  "colors": {
-   "body": "#f4f0e6"
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 24,
+   "material": "clay_tile_old"
   },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f6f1e7",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1876,
+  "band": "rail",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 12
+  }
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "family": "Delmar",
+  "house_number": 218
+ },
+ "brief": "rail band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0672"
 }

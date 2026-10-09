@@ -6,27 +6,22 @@
   "w": 16.2,
   "d": 25.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Kowal Shoe Repair",
-    "type": "shoe_repair",
-    "sign": "KOWAL SHOE REPAIR",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1903,
-  "colors": {
-   "body": "#884440"
-  }
+  "walls": "brick",
+  "year_built": 1891,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Patel Foods",
+  "sign": "PATEL FOODS"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

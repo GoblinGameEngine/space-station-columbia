@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.7,
-  "d": 24.3
+  "w": 16.5,
+  "d": 33.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 43,
+  "main_w_ft": 30,
+  "main_d_ft": 28,
   "roof": {
    "type": "hip",
-   "pitch_deg": 23,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,39 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "body": "#e9dcc2",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "casement",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
     "garden",
-    "shed",
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1904,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 718
+  "family": "Stroud",
+  "house_number": 157
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0402"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0364"
 }

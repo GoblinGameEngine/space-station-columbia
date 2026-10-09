@@ -3,27 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.8,
-  "d": 32.9
+  "w": 21.3,
+  "d": 34.3
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232"
+  "main_w_ft": 54,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1991,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Garcia",
+  "house_number": 680
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0533"
+ "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

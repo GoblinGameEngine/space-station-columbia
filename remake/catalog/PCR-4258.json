@@ -3,59 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.9,
-  "d": 35.6
+  "w": 23.1,
+  "d": 24.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 23,
+  "main_w_ft": 28,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
-   "material": "asphalt_shingle"
+   "pitch_deg": 39,
+   "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d1c7a3",
-   "trim": "#2e3a4a",
-   "accent": "#6a4a2a",
-   "roof": "#4e5155"
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "tree_line",
-   "extras": [
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1984,
-  "band": "suburban",
-  "form_token": "two_storey_colonial"
+  "condition": "kept",
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 2752
+  "family": "Ostrowski",
+  "house_number": 614
  },
- "brief": "suburban band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3473"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.9,
-  "d": 26.3
+  "w": 18.3,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 54,
-  "main_d_ft": 27,
+  "main_w_ft": 24,
+  "main_d_ft": 40,
   "roof": {
-   "type": "gable",
+   "type": "gambrel",
    "pitch_deg": 50,
-   "material": "slate"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 1623
+  "family": "Desai",
+  "house_number": 1976
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1364"
 }

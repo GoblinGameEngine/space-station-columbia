@@ -3,60 +3,57 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 21.7,
-  "d": 33.4
+  "w": 16.2,
+  "d": 30.9
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 32,
-  "main_d_ft": 34,
+  "main_w_ft": 37,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#dcc7a6",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1959,
+  "condition": "shabby",
+  "year_built": 1950,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Reyes",
-  "house_number": 1555
+  "family": "Nguyen",
+  "house_number": 1343
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0803"
 }

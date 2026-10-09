@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.0,
-  "d": 24.2
+  "w": 18.7,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 20,
+  "main_w_ft": 22,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 33,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a7b598",
-   "trim": "#f4f1e8",
-   "accent": "#6a4a2a",
-   "roof": "#4e5155"
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
@@ -43,15 +43,17 @@
    "rear": "privacy",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 2001,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "i_house",
+  "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 1524
+  "family": "Carrow",
+  "house_number": 3447
  },
- "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5780"
+ "brief": "late band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

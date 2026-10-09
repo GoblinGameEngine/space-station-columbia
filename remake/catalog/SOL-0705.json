@@ -6,30 +6,22 @@
   "w": 16.4,
   "d": 42.5
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Booker Billiards",
-    "type": "pool_hall",
-    "sign": "BOOKER BILLIARDS",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1915,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1904,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Loomis Machine Works",
+  "sign": "LOOMIS MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

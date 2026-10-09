@@ -3,32 +3,32 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.0,
-  "d": 36.0
+  "w": 13.6,
+  "d": 29.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 22,
+  "archetype": "spanish_revival",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
+   "body": "#e9dcc2",
    "trim": "#4a3324",
-   "accent": "#1f4a6e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
@@ -39,20 +39,23 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1925,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "condition": "worn",
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Achterberg",
-  "house_number": 728
+  "family": "Garcia",
+  "house_number": 129
  },
- "brief": "interwar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-1006"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0498"
 }

@@ -3,26 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.7,
-  "d": 38.6
+  "w": 12.6,
+  "d": 22.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#e6e2d8"
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1975,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Haskins",
+  "house_number": 880
  },
- "brief": "condo (apartment) generated for Port Carrow."
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0605"
 }

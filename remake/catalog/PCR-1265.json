@@ -3,58 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.2,
-  "d": 32.8
+  "w": 13.1,
+  "d": 28.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 37,
+  "main_w_ft": 28,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "enclosed",
+   "posts": "turned",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed",
+    "clothesline"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "shabby",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 918
+  "family": "Arrieta",
+  "house_number": 949
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0667"
 }

@@ -3,67 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.6,
-  "d": 28.1
+  "w": 16.8,
+  "d": 32.1
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "main_w_ft": 42,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "wrap",
+   "type": "enclosed",
    "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#9a9184",
    "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
+  "year_built": 1935,
+  "band": "interwar",
   "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 1067
+  "family": "Booker",
+  "house_number": 639
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0702"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0479"
 }

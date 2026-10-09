@@ -3,41 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.3,
-  "d": 35.5
+  "w": 14.2,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 37,
+  "main_w_ft": 30,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 43,
+   "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "columns",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
    "roof": "#2e2e30"
   },
   "windows": {
@@ -45,25 +36,27 @@
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1896,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Pike",
-  "house_number": 1232
+  "family": "Foxworth",
+  "house_number": 334
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0761"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

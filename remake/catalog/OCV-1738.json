@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 36.0,
-  "d": 22.6
+  "w": 21.5,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 25,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 26,
+  "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 23,
-   "material": "clay_tile"
+   "pitch_deg": 19,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -26,33 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
+   "body": "#e9d6c8",
    "trim": "#3b2a1e",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1976,
-  "band": "suburban",
-  "form_token": "minimal_traditional"
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Adebayo",
-  "house_number": 1882
+  "family": "Haddad",
+  "house_number": 2068
  },
- "brief": "suburban band minimal_traditional: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-5501"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

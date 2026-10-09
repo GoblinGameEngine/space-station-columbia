@@ -3,25 +3,34 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.4,
-  "d": 38.7
+  "w": 16.6,
+  "d": 27.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 38,
+  "main_w_ft": 21,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
    "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
+   "type": "side",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,7 +41,7 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [
@@ -46,16 +55,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1889,
+  "band": "rail",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Smith",
-  "house_number": 569
+  "house_number": 132
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0738"
+ "brief": "rail band i_house: 2 storeys, clapboard walls, side porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0300"
 }

@@ -8,25 +8,49 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
+  "form": "office_block",
+  "storeys": 5,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Holloway & Stroud Clothiers",
-    "type": "clothing",
-    "sign": "HOLLOWAY & STROUD CLOTHIERS",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "doctor_office"
+   },
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
    }
   ],
-  "condition": "worn",
-  "year_built": 1894,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Haskins & Merriweather Cafe",
+    "type": "cafe",
+    "sign": "HASKINS & MERRIWEATHER CAFE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Union Savings Bank",
+    "type": "bank",
+    "sign": "UNION SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1926,
   "colors": {
-   "body": "#9c8e67"
+   "body": "#964936"
   }
  },
- "names": {},
- "brief": "store (store) generated for Tamarack."
+ "names": {
+  "block_name": "Tamarack Trust"
+ },
+ "brief": "store (office) generated for Tamarack."
 }

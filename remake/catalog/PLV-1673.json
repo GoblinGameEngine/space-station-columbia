@@ -3,61 +3,58 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 29.2,
-  "d": 38.0
+  "w": 21.8,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 47,
-  "main_d_ft": 28,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 38,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
-   "pitch_deg": 21,
-   "material": "clay_tile_old"
+   "pitch_deg": 20,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
+   "body": "#f0e2cf",
    "trim": "#3b2a1e",
-   "accent": "#2f5e5a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_2",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1988,
-  "band": "suburban",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Bazzi",
-  "house_number": 689
+  "family": "Haskins",
+  "house_number": 1259
  },
- "brief": "suburban band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3129"
+ "brief": "postwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

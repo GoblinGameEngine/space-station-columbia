@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 37.3
+  "w": 21.5,
+  "d": 31.4
  },
  "kind": "house",
  "traits": {
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,32 +32,31 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
+  "year_built": 1960,
+  "band": "postwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 1867
+  "house_number": 1567
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0300"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.1,
-  "d": 39.0
+  "w": 11.8,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "slate"
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "turned",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -42,24 +42,23 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
   },
   "condition": "kept",
   "year_built": 1925,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
-  }
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Harrow",
-  "house_number": 1673
+  "family": "Dunmore",
+  "house_number": 1656
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0399"
 }

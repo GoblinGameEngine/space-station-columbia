@@ -3,23 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.0,
-  "d": 35.4
+  "w": 16.8,
+  "d": 20.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 35,
+  "main_w_ft": 31,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -27,39 +27,33 @@
   "foundation": "slab",
   "colors": {
    "body": "#e9d6c8",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "trim": "#2f3b2a",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1907,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 10
-  }
+  "condition": "worn",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 672
+  "family": "Foxworth",
+  "house_number": 300
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1441"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.5,
-  "d": 26.7
+  "w": 12.2,
+  "d": 24.5
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 35,
+  "main_w_ft": 22,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -38,26 +38,26 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1896,
+  "condition": "worn",
+  "year_built": 1912,
   "band": "streetcar",
-  "form_token": "cape_cod"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Osei",
-  "house_number": 1547
+  "house_number": 1577
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0505"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0605"
 }

@@ -3,30 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 43.9,
-  "d": 36.1
+  "w": 22.0,
+  "d": 31.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 36,
-  "walls": "brick",
-  "colors": {
-   "body": "#b06b4d",
-   "trim": "#5a3a28",
-   "accent": "#1f2a33",
-   "roof": "#4e5155"
-  },
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 41,
   "roof": {
-   "pitch_deg": 30
+   "type": "gambrel",
+   "pitch_deg": 50,
+   "material": "slate"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f4f2e8",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2006,
+  "band": "late",
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
-  "name": ""
+  "family": "Garcia",
+  "house_number": 1067
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "SOL-4364"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

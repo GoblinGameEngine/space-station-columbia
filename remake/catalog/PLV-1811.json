@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 33.1,
-  "d": 38.7
+  "w": 20.0,
+  "d": 25.6
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 32,
+  "main_w_ft": 35,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
    "pitch_deg": 16,
@@ -33,29 +33,32 @@
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1986,
-  "band": "suburban",
+  "condition": "shabby",
+  "year_built": 1960,
+  "band": "postwar",
   "form_token": "spanish_revival",
+  "units": 2,
   "balcony": "monterey"
  },
  "region": "ca",
  "names": {
   "family": "Pruett",
-  "house_number": 1208
+  "house_number": 164
  },
- "brief": "suburban band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2728"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

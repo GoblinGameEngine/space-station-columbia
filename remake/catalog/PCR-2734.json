@@ -3,58 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.2,
-  "d": 31.9
+  "w": 16.3,
+  "d": 35.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 29,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
+   "pitch_deg": 48,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "stoop",
    "posts": "square",
-   "rail": "solid"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
+   "body": "#5b6b5a",
    "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "right_end"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "condition": "worn",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 1471
+  "family": "Stroud",
+  "house_number": 1531
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0576"
 }

@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.4,
-  "d": 30.6
+  "w": 16.9,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
@@ -17,11 +17,16 @@
    "pitch_deg": 27,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -36,28 +41,27 @@
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "clothesline"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
+  "year_built": 1928,
+  "band": "interwar",
   "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 2418
+  "house_number": 2559
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 30.5,
-  "d": 34.6
+  "w": 22.6,
+  "d": 32.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 47,
-  "main_d_ft": 30,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 28,
+   "type": "hip",
+   "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
+   "posts": "iron",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a36245",
-   "trim": "#e9e2d2",
-   "accent": "#2e3a4a",
-   "roof": "#3e3e3c"
+   "body": "#f4f2e8",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "sliding",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_right"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "hedge",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1979,
-  "band": "suburban",
-  "form_token": "ranch"
+  "condition": "worn",
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "foursquare"
  },
+ "region": "ne",
  "names": {
   "family": "DeCarlo",
-  "house_number": 2956
+  "house_number": 2984
  },
- "brief": "suburban band ranch: 1 storeys, brick walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-3973"
+ "brief": "postwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

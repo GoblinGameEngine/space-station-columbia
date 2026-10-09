@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 29.8,
-  "d": 36.7
+  "w": 21.2,
+  "d": 20.9
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 27,
+  "main_w_ft": 54,
+  "main_d_ft": 25,
   "roof": {
    "type": "hip",
    "pitch_deg": 22,
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
    "body": "#e9d6c8",
@@ -32,27 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1977,
-  "band": "suburban",
+  "year_built": 1958,
+  "band": "postwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 266
+  "family": "Haddad",
+  "house_number": 327
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3001"
+ "brief": "postwar band spanish_revival: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0997"
 }

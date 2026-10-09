@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.7,
-  "d": 33.4
+  "w": 10.3,
+  "d": 36.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 31,
-  "main_d_ft": 30,
+  "main_w_ft": 24,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#6f6a62",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 1813
+  "family": "Brannock",
+  "house_number": 411
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0843"
 }

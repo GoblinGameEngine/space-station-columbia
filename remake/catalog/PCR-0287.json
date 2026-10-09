@@ -3,65 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 28.5
+  "w": 15.3,
+  "d": 43.5
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 41,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 49,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
-  },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Tremblay & Garcia Market",
+    "type": "grocery",
+    "sign": "TREMBLAY & GARCIA MARKET",
+    "sign_style": "flat_board",
+    "awning": false
+   }
   ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1868,
-  "band": "rail",
-  "form_token": "i_house",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 9
+  "condition": "worn",
+  "year_built": 1908,
+  "colors": {
+   "body": "#e6e2d8"
   }
  },
  "region": "ne",
- "names": {
-  "family": "Okafor",
-  "house_number": 181
- },
- "brief": "rail band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

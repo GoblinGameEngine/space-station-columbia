@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.8,
-  "d": 31.6
+  "w": 16.7,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 33,
+  "main_w_ft": 20,
+  "main_d_ft": 30,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 33,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ceb885",
-   "trim": "#5a3a28",
-   "accent": "#1f2a33",
-   "roof": "#5a5a58"
+   "body": "#f2f1ea",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,14 @@
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "gable_front",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Villalobos",
-  "house_number": 3073
+  "house_number": 2938
  },
- "brief": "late band neo_eclectic: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-7276"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

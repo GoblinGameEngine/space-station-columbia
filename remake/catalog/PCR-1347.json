@@ -3,59 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 23.1
+  "w": 12.0,
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
   "main_w_ft": 24,
-  "main_d_ft": 39,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "wood_shingle"
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "2over2",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1905,
+  "year_built": 1914,
   "band": "streetcar",
-  "form_token": "cape_cod",
+  "form_token": "nantucket_cape",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Smith",
-  "house_number": 935
+  "family": "Solano",
+  "house_number": 727
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0284"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0784"
 }

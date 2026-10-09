@@ -3,65 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.7,
-  "d": 23.5
+  "w": 32.3,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 30,
+  "main_w_ft": 39,
+  "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 24,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "recessed",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#783a2d",
+   "trim": "#f4f1e8",
+   "accent": "#2e3a4a",
+   "roof": "#6a5e52"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "garden"
-   ]
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1972,
+  "band": "suburban",
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 625
+  "family": "Ostrowski",
+  "house_number": 2045
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "suburban band two_storey_colonial: 2 storeys, brick walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5460"
 }

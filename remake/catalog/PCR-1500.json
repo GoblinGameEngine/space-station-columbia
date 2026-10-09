@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.6,
-  "d": 41.2
+  "w": 13.4,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 35,
+  "main_w_ft": 26,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#9a9184",
    "trim": "#f7f6f0",
    "accent": "#1d1f22",
    "roof": "#3a3836"
@@ -41,23 +41,22 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "garden"
    ]
   },
-  "condition": "worn",
-  "year_built": 1902,
+  "condition": "kept",
+  "year_built": 1916,
   "band": "streetcar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Garcia",
-  "house_number": 621
+  "family": "Osei",
+  "house_number": 1155
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0576"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0978"
 }

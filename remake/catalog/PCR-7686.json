@@ -3,26 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 54.4,
-  "d": 35.0
+  "w": 23.2,
+  "d": 33.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#91aea8"
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "gambrel",
+   "pitch_deg": 49,
+   "material": "wood_shingle"
   },
-  "year_built": 1998,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#5b6b5a",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 2002,
+  "band": "late",
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
-  "name": ""
+  "family": "Leclerc",
+  "house_number": 1923
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "SOL-8712"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 28.9,
-  "d": 32.1
+  "w": 24.5,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 46,
-  "main_d_ft": 31,
+  "main_w_ft": 30,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -32,29 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "carport",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
+    "garden",
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1977,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 2225
+  "family": "Yoder",
+  "house_number": 2132
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-1964"
 }

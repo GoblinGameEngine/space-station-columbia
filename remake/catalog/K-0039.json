@@ -8,25 +8,54 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "brick",
-  "cornice": "parapet_stepped",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Moriarty Barber Shop",
-    "type": "barber",
-    "sign": "MORIARTY BARBER SHOP",
-    "sign_style": "awning_lettering",
-    "awning": false
+    "type": "dentist"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "registry_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1915,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Pike Clothiers",
+    "type": "clothing",
+    "sign": "PIKE CLOTHIERS",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1961,
   "colors": {
-   "body": "#863d33"
+   "body": "#915840"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Kessler."
 }

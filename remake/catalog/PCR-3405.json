@@ -3,42 +3,42 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.9,
-  "d": 22.0
+  "w": 19.7,
+  "d": 36.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 34,
+  "main_w_ft": 29,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
+   "body": "#e8dcc0",
    "trim": "#ffffff",
-   "accent": "#1d1f22",
+   "accent": "#24382a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "casement",
+   "shutters": false
   },
   "chimneys": [
    "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -48,16 +48,15 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1925,
+  "year_built": 1923,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 2029
+  "family": "Wainwright",
+  "house_number": 2021
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0278"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0832"
 }

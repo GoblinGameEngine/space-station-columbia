@@ -3,19 +3,19 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 16.7,
-  "d": 22.5
+  "w": 13.9,
+  "d": 37.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
+  "archetype": "spanish_revival",
+  "storeys": 2,
   "main_w_ft": 29,
   "main_d_ft": 27,
   "roof": {
    "type": "hip",
    "pitch_deg": 23,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -32,34 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "picket",
    "side": "none",
    "rear": "none",
    "extras": [
-    "clothesline"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1879,
-  "band": "rail",
-  "form_token": "california_bungalow",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 12
-  }
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 168
+  "family": "Brannock",
+  "house_number": 183
  },
- "brief": "rail band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0637"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

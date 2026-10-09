@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "cast_iron_front",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "brick",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Carrow Tavern",
-    "type": "bar",
-    "sign": "CARROW TAVERN",
+    "business": "Fenwick Savings Bank",
+    "type": "bank",
+    "sign": "FENWICK SAVINGS BANK",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1922,
+  "year_built": 1917,
   "colors": {
-   "body": "#813b36"
+   "body": "#94423c"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

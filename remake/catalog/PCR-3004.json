@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 20.0
+  "w": 17.9,
+  "d": 37.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 40,
-  "main_d_ft": 25,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
+   "body": "#e9e8e2",
    "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 1304
+  "family": "Okonkwo",
+  "house_number": 1731
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0303"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0521"
 }

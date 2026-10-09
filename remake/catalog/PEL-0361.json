@@ -3,17 +3,17 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 13.5,
-  "d": 41.6
+  "w": 21.7,
+  "d": 31.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 45,
+  "main_w_ft": 33,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 23,
    "material": "clay_tile"
   },
@@ -26,37 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
+   "body": "#e4cfb2",
    "trim": "#2f3b2a",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "worn",
-  "year_built": 1921,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Desai",
-  "house_number": 157
+  "family": "Haskins",
+  "house_number": 666
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2225"
 }

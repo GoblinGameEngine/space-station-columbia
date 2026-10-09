@@ -3,31 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 44.1,
-  "d": 39.4
+  "w": 16.6,
+  "d": 36.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 36,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#5a3a28",
-   "accent": "#4a5a48",
-   "roof": "#6a5e52"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 44,
   "roof": {
-   "pitch_deg": 32
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1918,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Delmar",
+  "house_number": 1058
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0832"
 }

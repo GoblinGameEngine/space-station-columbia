@@ -3,57 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.5,
-  "d": 36.0
+  "w": 14.8,
+  "d": 27.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 28,
+  "main_w_ft": 23,
+  "main_d_ft": 41,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
-   "material": "clay_tile_old"
+   "type": "hip",
+   "pitch_deg": 23,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#6a2c22",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Bazzi",
-  "house_number": 631
+  "family": "Reyes",
+  "house_number": 710
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0363"
 }

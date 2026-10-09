@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.6,
-  "d": 22.4
+  "w": 28.6,
+  "d": 35.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 47,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 45,
   "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
+   "type": "hip",
+   "pitch_deg": 25,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#758c72",
+   "trim": "#5a3a28",
+   "accent": "#4a5a48",
+   "roof": "#4a4a48"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "tree_line",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1979,
+  "band": "suburban",
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 194
+  "family": "Duquesne",
+  "house_number": 2954
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "suburban band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3530"
 }

@@ -3,26 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 48.6,
-  "d": 27.9
+  "w": 25.7,
+  "d": 30.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#b0c7c2"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 45,
+  "main_d_ft": 26,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2008,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#bcc2bc",
+   "trim": "#2e3a4a",
+   "accent": "#1f2a33",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1997,
+  "band": "late",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Okonkwo",
+  "house_number": 1363
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "SOL-5157"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2280"
 }

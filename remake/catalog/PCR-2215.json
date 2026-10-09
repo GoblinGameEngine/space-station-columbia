@@ -3,60 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.3,
-  "d": 30.2
+  "w": 17.9,
+  "d": 32.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
+  "archetype": "american_small_house",
+  "storeys": 1,
   "main_w_ft": 30,
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#c1ab8f",
+   "trim": "#e8e0c8",
+   "accent": "#4a5a48",
+   "roof": "#555350"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "right_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "american_small_house"
  },
- "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 489
+  "family": "Arrieta",
+  "house_number": 1251
  },
- "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band american_small_house: 1 storeys, brick walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-1162"
 }

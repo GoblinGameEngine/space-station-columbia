@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.5,
-  "d": 34.1
+  "w": 14.0,
+  "d": 41.1
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 29,
+  "main_w_ft": 23,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,34 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "body": "#e8d8c0",
+   "trim": "#2e2a26",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "worn",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1919,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 377
+  "family": "Reyes",
+  "house_number": 721
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

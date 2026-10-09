@@ -3,41 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 43.2,
-  "d": 40.3
+  "w": 45.4,
+  "d": 49.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#eef0f6",
-   "trim": "#f7f6f0",
-   "accent": "#1f4a33",
-   "roof": "#3c4048"
-  },
+  "archetype": "queen_anne",
+  "storeys": 2,
+  "main_w_ft": 44,
+  "main_d_ft": 39,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
+   "type": "cross_gable",
+   "pitch_deg": 40,
    "material": "slate"
   },
-  "year_built": 1881,
-  "condition": "kept",
-  "windows": {
-   "shutters": true
-  },
+  "dormers": [],
   "porch": {
-   "type": "full",
+   "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
-  }
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#f8f7f2",
+   "trim": "#ffffff",
+   "accent": "#1a3d2c",
+   "roof": "#3c4048"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "queen_anne"
  },
  "region": "isle",
  "names": {
-  "name": ""
+  "family": "Loomis",
+  "house_number": 316
  },
- "brief": "townhouse (townhouse) generated for Victory Bay.",
- "model": "VBY-0053"
+ "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

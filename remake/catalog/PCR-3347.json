@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.9,
-  "d": 37.1
+  "w": 36.0,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 52,
+  "main_w_ft": 56,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,33 +32,31 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
     "shed",
     "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1978,
+  "band": "suburban",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Stroud",
-  "house_number": 482
+  "house_number": 1738
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0778"
+ "brief": "suburban band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

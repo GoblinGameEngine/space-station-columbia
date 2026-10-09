@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.8,
-  "d": 35.5
+  "w": 17.0,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
   "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 35,
+  "main_w_ft": 26,
+  "main_d_ft": 29,
   "roof": {
    "type": "gambrel",
    "pitch_deg": 47,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "left_end"
   ],
   "garage": "none",
   "yard": {
@@ -50,14 +50,13 @@
   "condition": "kept",
   "year_built": 1939,
   "band": "interwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
   "family": "Nguyen",
-  "house_number": 370
+  "house_number": 2362
  },
- "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0531"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1946"
 }

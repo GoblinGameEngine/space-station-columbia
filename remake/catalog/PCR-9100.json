@@ -3,36 +3,55 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 20.0,
-  "d": 20.0
+  "w": 26.5,
+  "d": 30.5
  },
- "kind": "clubhouse",
+ "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "walls": "cedar_shingle",
-  "main_w_ft": 60,
-  "main_d_ft": 44,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 43,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 31,
+   "material": "asphalt_shingle"
   },
+  "dormers": [],
   "porch": {
-   "type": "wrap",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
-  "use": "yacht_club",
-  "members": 193,
-  "slips": 61,
-  "area_m2": 255,
-  "garage": "none",
-  "year_built": 1895
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#8fa4c0",
+   "trim": "#f2efe6",
+   "accent": "#5b6b3a",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
-  "name": "Port Carrow Yacht Club"
+  "family": "Achterberg",
+  "house_number": 822
  },
- "brief": "clubhouse (clubhouse) generated for Port Carrow."
+ "brief": "late band split_level: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2088"
 }

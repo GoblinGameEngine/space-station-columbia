@@ -3,17 +3,17 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 23.7,
-  "d": 33.2
+  "w": 13.9,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 56,
-  "main_d_ft": 31,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 30,
+  "main_d_ft": 33,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 16,
    "material": "clay_tile"
   },
@@ -32,8 +32,8 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "2over2",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -42,19 +42,20 @@
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1959,
-  "band": "postwar",
-  "form_token": "ranch"
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Carrow",
-  "house_number": 493
+  "family": "Kowal",
+  "house_number": 164
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-4075"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

@@ -3,56 +3,61 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.2,
-  "d": 29.1
+  "w": 12.0,
+  "d": 39.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 28,
+  "archetype": "minimal_traditional",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#4a3324",
-   "accent": "#1f4a6e",
+   "body": "#f0e2cf",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "condition": "worn",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "minimal_traditional",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Achterberg",
-  "house_number": 823
+  "family": "Booker",
+  "house_number": 172
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band minimal_traditional: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1028"
 }

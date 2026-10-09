@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 31.5,
-  "d": 41.0
+  "w": 38.0,
+  "d": 35.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
+  "archetype": "split_level",
+  "storeys": 1,
   "main_w_ft": 47,
   "main_d_ft": 27,
   "roof": {
    "type": "hip",
-   "pitch_deg": 32,
+   "pitch_deg": 19,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#c0ae82",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -50,13 +50,12 @@
   "condition": "worn",
   "year_built": 1970,
   "band": "suburban",
-  "form_token": "foursquare"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Haskins",
-  "house_number": 2861
+  "house_number": 2423
  },
- "brief": "suburban band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3951"
+ "brief": "suburban band split_level: 1 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4924"
 }

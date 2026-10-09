@@ -8,25 +8,36 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Castellanos Barber Shop",
-    "type": "barber",
-    "sign": "CASTELLANOS BARBER SHOP",
-    "sign_style": "projecting",
+    "business": "Dunmore Cafe",
+    "type": "cafe",
+    "sign": "DUNMORE CAFE",
+    "sign_style": "awning_lettering",
     "awning": true
    }
   ],
-  "condition": "kept",
-  "year_built": 1903,
+  "condition": "worn",
+  "year_built": 1921,
   "colors": {
-   "body": "#8c413b"
+   "body": "#b17148"
   }
  },
- "names": {},
- "brief": "store (store) generated for Port Tamsin."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Port Tamsin."
 }

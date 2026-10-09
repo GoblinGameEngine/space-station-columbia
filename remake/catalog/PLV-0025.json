@@ -8,28 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "stucco",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
   "cornice": "tile_roof",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Moriarty Courier",
-    "type": "newspaper",
-    "sign": "MORIARTY COURIER",
+    "business": "Playa Verde Savings Bank",
+    "type": "bank",
+    "sign": "PLAYA VERDE SAVINGS BANK",
     "sign_style": "flat_board",
-    "awning": false
+    "awning": true
+   },
+   {
+    "business": "Exchange Savings Bank",
+    "type": "bank",
+    "sign": "EXCHANGE SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1890,
+  "year_built": 1972,
   "colors": {
-   "body": "#e8d8c0"
+   "body": "#e6d4bb"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "block_name": "Playa Verde Trust"
+ },
+ "brief": "store (office) generated for Playa Verde."
 }

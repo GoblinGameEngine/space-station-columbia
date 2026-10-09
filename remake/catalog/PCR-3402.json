@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.1,
-  "d": 34.6
+  "w": 16.3,
+  "d": 34.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 53,
-  "main_d_ft": 31,
+  "main_w_ft": 33,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
    "posts": "columns",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#e8dcc0",
    "trim": "#f7f6f0",
    "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1942,
   "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 2160
+  "family": "Villalobos",
+  "house_number": 2077
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0578"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.4,
-  "d": 29.3
+  "w": 21.9,
+  "d": 26.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 35,
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 28,
-   "material": "asphalt_shingle"
+   "pitch_deg": 43,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "shingle",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#aea28f",
-   "trim": "#3a3f44",
-   "accent": "#1f2a33",
-   "roof": "#555350"
+   "body": "#d9dcd8",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "picture",
@@ -48,12 +48,13 @@
   "condition": "worn",
   "year_built": 1963,
   "band": "postwar",
-  "form_token": "cape_cod"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Brandvold",
-  "house_number": 1369
+  "house_number": 2025
  },
- "brief": "postwar band cape_cod: 1.5 storeys, shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4620"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.3,
-  "d": 35.1
+  "w": 29.4,
+  "d": 34.5
  },
  "kind": "house",
  "traits": {
   "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 33,
-  "main_d_ft": 29,
+  "main_w_ft": 41,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -20,8 +20,8 @@
   "dormers": [],
   "porch": {
    "type": "recessed",
-   "posts": "square",
-   "rail": "solid"
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,32 +32,29 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed",
-    "clothesline"
-   ]
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1960,
-  "band": "postwar",
+  "year_built": 1970,
+  "band": "suburban",
   "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
   "family": "Wainwright",
-  "house_number": 638
+  "house_number": 1928
  },
- "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0503"
+ "brief": "suburban band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-3927"
 }

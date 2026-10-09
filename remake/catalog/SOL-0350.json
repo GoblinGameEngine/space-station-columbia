@@ -6,30 +6,23 @@
   "w": 17.7,
   "d": 27.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Solana Point Pizza",
-    "type": "pizza",
-    "sign": "SOLANA POINT PIZZA",
-    "sign_style": "projecting",
-    "awning": true
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1876,
-  "colors": {
-   "body": "#efe6d2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1907,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Smith & Kowalczyk Foods",
+  "sign": "SMITH & KOWALCZYK FOODS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

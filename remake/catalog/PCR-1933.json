@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
-  "d": 39.0
+  "w": 12.3,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 41,
-  "main_d_ft": 24,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
@@ -19,7 +19,7 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "front_partial",
    "posts": "columns",
    "rail": "none"
   },
@@ -38,7 +38,7 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -46,16 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1920,
+  "year_built": 1902,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 1360
+  "house_number": 1379
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0731"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

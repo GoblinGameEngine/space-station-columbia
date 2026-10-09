@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.9,
-  "d": 33.1
+  "w": 17.4,
+  "d": 21.3
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 50,
-  "main_d_ft": 28,
+  "main_w_ft": 28,
+  "main_d_ft": 37,
   "roof": {
    "type": "hip",
    "pitch_deg": 23,
@@ -32,31 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
+    "garden",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
+  "year_built": 1934,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 225
+  "house_number": 673
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-1964"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-1012"
 }

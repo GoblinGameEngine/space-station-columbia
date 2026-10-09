@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.2,
-  "d": 31.4
+  "w": 23.9,
+  "d": 23.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "american_small_house",
-  "storeys": 1,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
   "main_w_ft": 28,
   "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
-   "material": "asphalt_shingle"
+   "type": "gambrel",
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -24,16 +24,16 @@
    "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#8b9db0",
-   "trim": "#e9e2d2",
-   "accent": "#7a2e28",
-   "roof": "#4e5155"
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "sliding",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_right"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1961,
   "band": "postwar",
-  "form_token": "american_small_house"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 2177
+  "house_number": 1912
  },
- "brief": "postwar band american_small_house: 1 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4327"
+ "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1128"
 }

@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 33.2,
-  "d": 31.1
+  "w": 24.2,
+  "d": 34.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 27,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 39,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,33 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#4a3324",
-   "accent": "#6a2c22",
+   "body": "#ead9c8",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1987,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Delmar",
-  "house_number": 1955
+  "family": "Booker",
+  "house_number": 2133
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3312"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

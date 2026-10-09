@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 22.6,
-  "d": 21.0
+  "w": 16.9,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 27,
+  "main_w_ft": 31,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 18,
@@ -32,32 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden",
     "shed"
    ]
   },
-  "condition": "new",
-  "year_built": 1958,
-  "band": "postwar",
+  "condition": "kept",
+  "year_built": 1931,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Brannock",
-  "house_number": 1368
+  "family": "Garcia",
+  "house_number": 1277
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
  "model": "SOL-1012"
 }

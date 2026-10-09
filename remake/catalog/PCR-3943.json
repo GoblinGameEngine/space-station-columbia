@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.0,
-  "d": 36.1
+  "w": 23.7,
+  "d": 35.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 33,
+  "main_w_ft": 30,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,38 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#2f3e52",
    "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "shingle_style"
+  "condition": "worn",
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Dunmore",
-  "house_number": 2458
+  "family": "Osei",
+  "house_number": 662
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0928"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

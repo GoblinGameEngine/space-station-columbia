@@ -3,56 +3,61 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.1,
-  "d": 34.6
+  "w": 14.6,
+  "d": 40.3
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
+  "storeys": 2,
   "main_w_ft": 25,
-  "main_d_ft": 28,
+  "main_d_ft": 35,
   "roof": {
    "type": "hip",
-   "pitch_deg": 16,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#f4f0e6",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1888,
-  "band": "rail",
-  "form_token": "spanish_revival"
+  "condition": "kept",
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Haddad",
-  "house_number": 477
+  "family": "Achterberg",
+  "house_number": 357
  },
- "brief": "rail band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

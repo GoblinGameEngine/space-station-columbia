@@ -3,58 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 32.7
+  "w": 16.7,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 30,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 38,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "sliding",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "left_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "condition": "worn",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 1961
+  "family": "Adebayo",
+  "house_number": 118
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0576"
 }

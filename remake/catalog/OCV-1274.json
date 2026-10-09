@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.3,
-  "d": 32.9
+  "w": 21.9,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "main_w_ft": 37,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -32,30 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
+  "year_built": 1952,
+  "band": "postwar",
   "form_token": "spanish_revival",
   "balcony": "monterey"
  },
  "region": "ca",
  "names": {
   "family": "Okonkwo",
-  "house_number": 252
+  "house_number": 995
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
  "model": "SOL-0419"
 }

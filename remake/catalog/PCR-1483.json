@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 37.2
+  "w": 10.5,
+  "d": 39.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 36,
-  "main_d_ft": 31,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
@@ -19,16 +19,16 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
    "roof": "#2f3438"
   },
   "windows": {
@@ -36,25 +36,28 @@
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 837
+  "family": "Tomczak",
+  "house_number": 705
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0515"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0742"
 }

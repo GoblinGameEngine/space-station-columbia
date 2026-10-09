@@ -3,25 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.9,
-  "d": 23.1
+  "w": 20.0,
+  "d": 37.0
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 28,
-  "main_d_ft": 33,
+  "main_w_ft": 26,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "turned",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,32 +32,31 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "2over2",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_2",
   "yard": {
-   "fence": "hedge",
+   "fence": "none",
    "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1869,
-  "band": "rail",
+  "year_built": 1939,
+  "band": "interwar",
   "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Leclerc",
-  "house_number": 968
+  "family": "Harrow",
+  "house_number": 256
  },
- "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0582"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0514"
 }

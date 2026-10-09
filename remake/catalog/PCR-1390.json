@@ -3,63 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 20.7
+  "w": 12.5,
+  "d": 39.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 33,
+  "main_w_ft": 24,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 39,
    "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#e9e8e2",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "2over2",
+   "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1931,
-  "band": "interwar",
-  "form_token": "shingle_style"
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 848
+  "family": "Merriweather",
+  "house_number": 961
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0727"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0805"
 }

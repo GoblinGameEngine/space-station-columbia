@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 31.2
+  "w": 10.2,
+  "d": 29.4
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Reyes & Tomczak Pharmacy",
-    "type": "pharmacy",
-    "sign": "REYES & TOMCZAK PHARMACY",
-    "sign_style": "projecting",
-    "awning": false
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1895,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9c5a42"
-  }
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1889,
+  "band": "rail",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Pham",
+  "house_number": 515
+ },
+ "brief": "rail band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens)."
 }

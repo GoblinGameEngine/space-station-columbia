@@ -6,27 +6,22 @@
   "w": 18.4,
   "d": 30.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Wainwright Variety",
-    "type": "variety_store",
-    "sign": "WAINWRIGHT VARIETY",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1903,
-  "colors": {
-   "body": "#8a3d34"
-  }
+  "walls": "block",
+  "year_built": 1913,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Drop Yard Foundry",
+  "sign": "DROP YARD FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

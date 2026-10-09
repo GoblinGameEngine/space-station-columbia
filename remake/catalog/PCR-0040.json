@@ -8,26 +8,49 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Okonkwo & Reyes Books",
-    "type": "bookstore",
-    "sign": "OKONKWO & REYES BOOKS",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "architect_office"
+   },
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "board_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1920,
+  "cornice": "bracketed_metal",
+  "storefronts": [
+   {
+    "business": "Union Cafe",
+    "type": "cafe",
+    "sign": "UNION CAFE",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1973,
   "colors": {
-   "body": "#9c5a42"
+   "body": "#7a4232"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Stroud Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

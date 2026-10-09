@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 54.6,
-  "d": 30.9
+  "w": 18.0,
+  "d": 42.1
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
+  "storeys": 2,
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Infirmary Pizza",
+    "type": "pizza",
+    "sign": "INFIRMARY PIZZA",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1889,
   "colors": {
-   "body": "#2f3e52"
-  },
-  "year_built": 1989,
-  "condition": "kept"
+   "body": "#f4f2e8"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0080"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

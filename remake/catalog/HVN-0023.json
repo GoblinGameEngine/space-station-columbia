@@ -8,26 +8,47 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "clapboard",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
+  "cornice": "bracketed_wood",
   "storefronts": [
    {
-    "business": "Bazzi & Pham Diner",
-    "type": "diner",
-    "sign": "BAZZI & PHAM DINER",
-    "sign_style": "awning_lettering",
+    "business": "Nguyen Cafe",
+    "type": "cafe",
+    "sign": "NGUYEN CAFE",
+    "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Patel Cafe",
+    "type": "cafe",
+    "sign": "PATEL CAFE",
+    "sign_style": "projecting",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1894,
+  "year_built": 1954,
   "colors": {
-   "body": "#9c5a42"
+   "body": "#f2f1ea"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Haven Point."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Haven Point."
 }

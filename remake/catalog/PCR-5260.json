@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 31.9,
-  "d": 22.0
+  "w": 22.5,
+  "d": 35.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 54,
+  "main_w_ft": 37,
   "main_d_ft": 27,
   "roof": {
-   "type": "gambrel",
+   "type": "gable",
    "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -26,36 +26,35 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
+   "body": "#e9e8e2",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1984,
-  "band": "suburban",
-  "form_token": "dutch_colonial"
+  "condition": "kept",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Desai",
-  "house_number": 558
+  "family": "Wainwright",
+  "house_number": 445
  },
- "brief": "suburban band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

@@ -6,27 +6,21 @@
   "w": 18.2,
   "d": 41.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Stroud & Carrow Diner",
-    "type": "diner",
-    "sign": "STROUD & CARROW DINER",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "tank"
   ],
-  "condition": "kept",
-  "year_built": 1913,
-  "colors": {
-   "body": "#a38871"
-  }
+  "walls": "brick",
+  "year_built": 1909,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Union Foods",
+  "sign": "UNION FOODS"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

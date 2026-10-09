@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.6,
-  "d": 35.0
+  "w": 18.4,
+  "d": 28.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 34,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 41,
+  "main_d_ft": 21,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 44,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
    "body": "#6f6a62",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "worn",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "gable_front",
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "nantucket_cape",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 1153
+  "family": "Patel",
+  "house_number": 401
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0608"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0724"
 }

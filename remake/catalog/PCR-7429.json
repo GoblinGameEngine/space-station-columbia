@@ -3,26 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 55.6,
-  "d": 35.8
+  "w": 24.8,
+  "d": 27.2
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#925b47"
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 36,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "slate"
   },
-  "year_built": 1974,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1994,
+  "band": "late",
+  "form_token": "nantucket_cape"
  },
+ "region": "ne",
  "names": {
-  "name": ""
+  "family": "DeCarlo",
+  "house_number": 2520
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "HF-0993"
+ "brief": "late band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-6027"
 }

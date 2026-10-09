@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.4,
-  "d": 35.2
+  "w": 11.7,
+  "d": 24.4
  },
  "kind": "house",
  "traits": {
   "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 22,
+  "main_w_ft": 20,
+  "main_d_ft": 36,
   "roof": {
    "type": "gambrel",
    "pitch_deg": 50,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,25 +36,28 @@
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "left_end"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1932,
   "band": "interwar",
-  "form_token": "dutch_colonial"
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 553
+  "house_number": 547
  },
- "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, enclosed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1760"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1730"
 }

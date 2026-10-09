@@ -3,57 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.4,
-  "d": 33.3
+  "w": 21.7,
+  "d": 28.0
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 29,
+  "main_w_ft": 31,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
+   "type": "gable",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#dcc7a6",
+   "trim": "#2e2a26",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 1959,
   "band": "postwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 253
+  "family": "Brannock",
+  "house_number": 202
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
  "model": "SOL-0504"
 }

@@ -3,61 +3,57 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 23.9,
-  "d": 34.4
+  "w": 19.0,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 36,
-  "main_d_ft": 30,
+  "main_w_ft": 53,
+  "main_d_ft": 28,
   "roof": {
    "type": "hip",
-   "pitch_deg": 16,
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "body": "#f4f0e6",
+   "trim": "#5a3a28",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
-   "fence": "chainlink",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": [
-    "shed",
-    "swing_set"
-   ]
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "shabby",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Mbeki",
-  "house_number": 954
+  "family": "Dunmore",
+  "house_number": 523
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4075"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

@@ -3,17 +3,17 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.8,
-  "d": 31.7
+  "w": 36.9,
+  "d": 35.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 38,
+  "main_w_ft": 30,
   "main_d_ft": 31,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 16,
    "material": "clay_tile"
   },
@@ -23,36 +23,41 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "carport",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "hedge",
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "condition": "worn",
+  "year_built": 1977,
+  "band": "suburban",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 144
+  "family": "Yoder",
+  "house_number": 1181
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2306"
+ "brief": "suburban band ranch: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2967"
 }

@@ -8,28 +8,49 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "stucco",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
   "cornice": "tile_roof",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Ring Line Pizza",
-    "type": "pizza",
-    "sign": "RING LINE PIZZA",
+    "business": "Main Street Savings Bank",
+    "type": "bank",
+    "sign": "MAIN STREET SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Holloway & DeCarlo Savings Bank",
+    "type": "bank",
+    "sign": "HOLLOWAY & DECARLO SAVINGS BANK",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1890,
+  "year_built": 1974,
   "colors": {
-   "body": "#dcc7a6"
+   "body": "#e8d8c0"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "block_name": "Playa Verde Trust"
+ },
+ "brief": "store (office) generated for Playa Verde."
 }

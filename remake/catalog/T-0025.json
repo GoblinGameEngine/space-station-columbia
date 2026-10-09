@@ -8,25 +8,42 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 5,
   "facade": "brick",
-  "cornice": "parapet_flat",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "DeCarlo & Delmar Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "DECARLO & DELMAR BEAUTY SHOP",
-    "sign_style": "projecting",
+    "business": "Tamarack Savings Bank",
+    "type": "bank",
+    "sign": "TAMARACK SAVINGS BANK",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1898,
+  "year_built": 1963,
   "colors": {
-   "body": "#b96548"
+   "body": "#926147"
   }
  },
- "names": {},
- "brief": "store (store) generated for Tamarack."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Tamarack."
 }

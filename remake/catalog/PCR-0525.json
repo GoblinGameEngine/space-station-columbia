@@ -3,31 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 31.0
+  "w": 12.7,
+  "d": 29.7
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Okafor & Bazzi Cafe",
-    "type": "cafe",
-    "sign": "OKAFOR & BAZZI CAFE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1903,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "slate"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#7a4232"
-  }
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1896,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Loomis",
+  "house_number": 229
+ },
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

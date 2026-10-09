@@ -3,23 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 28.0,
-  "d": 36.0
+  "w": 26.6,
+  "d": 33.8
  },
- "kind": "church",
+ "kind": "house",
  "traits": {
-  "style": "colonial_revival",
-  "walls": "clapboard",
-  "plan": "rect",
-  "colors": {
-   "body": "#f7f6f0"
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 37,
+  "main_d_ft": 33,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1792,
-  "landmark": "meetinghouse"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#7a9779",
+   "trim": "#2e3a4a",
+   "accent": "#7a2e28",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1991,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
- "region": "ne",
  "names": {
-  "name": "First Parish Church"
+  "family": "Marlowe",
+  "house_number": 1185
  },
- "brief": "church (landmark) generated for Port Carrow."
+ "brief": "late band neo_eclectic: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-7276"
 }

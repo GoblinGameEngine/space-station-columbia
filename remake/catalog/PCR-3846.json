@@ -3,59 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 29.3,
-  "d": 32.8
+  "w": 22.4,
+  "d": 32.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 20,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 21,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6575",
-   "trim": "#f2efe6",
-   "accent": "#2b4f6b",
-   "roof": "#5a4a40"
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "tree_line",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1977,
-  "band": "suburban",
-  "form_token": "two_storey_colonial"
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "nantucket_cape"
  },
+ "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 1956
+  "family": "Leclerc",
+  "house_number": 2260
  },
- "brief": "suburban band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5485"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

@@ -3,32 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.8,
-  "d": 33.5
+  "w": 16.2,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 33,
-  "main_d_ft": 34,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 43,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
+   "type": "hip",
+   "pitch_deg": 32,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
+   "body": "#9a9184",
    "trim": "#f4f3ec",
-   "accent": "#1f2e44",
+   "accent": "#7a1f1a",
    "roof": "#3a3836"
   },
   "windows": {
@@ -36,27 +36,26 @@
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 1838
+  "family": "Reyes",
+  "house_number": 382
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

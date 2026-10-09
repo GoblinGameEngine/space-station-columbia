@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 29.6,
-  "d": 20.9
+  "w": 30.9,
+  "d": 37.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "split_level",
+  "storeys": 1,
   "main_w_ft": 48,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
-   "material": "wood_shingle"
+   "pitch_deg": 26,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -24,12 +24,12 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#c2b292",
+   "trim": "#f2efe6",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "sliding",
@@ -48,13 +48,12 @@
   "condition": "kept",
   "year_built": 1984,
   "band": "suburban",
-  "form_token": "i_house"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Okonkwo",
-  "house_number": 215
+  "house_number": 1958
  },
- "brief": "suburban band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-5308"
+ "brief": "suburban band split_level: 1 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3765"
 }

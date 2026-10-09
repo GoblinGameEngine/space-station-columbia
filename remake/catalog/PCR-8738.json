@@ -3,31 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.6,
-  "d": 30.7
+  "w": 17.4,
+  "d": 21.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 20,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 26,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 34,
+   "type": "hip",
+   "pitch_deg": 28,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "vinyl",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#bebbbc",
-   "trim": "#2e3a4a",
+   "body": "#e4e2e4",
+   "trim": "#ffffff",
    "accent": "#7a2e28",
    "roof": "#5a4a40"
   },
@@ -39,21 +39,20 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1994,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "ranch",
+  "units": 2
  },
  "names": {
-  "family": "Bazzi",
-  "house_number": 801
+  "family": "Haskins",
+  "house_number": 1048
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5730"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2136"
 }

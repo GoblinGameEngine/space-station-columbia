@@ -6,27 +6,22 @@
   "w": 16.2,
   "d": 37.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
+  "use": "food_plant",
+  "form": "loft",
   "storeys": 3,
-  "facade": "cast_iron_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Desai Bakery",
-    "type": "bakery",
-    "sign": "DESAI BAKERY",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1915,
-  "colors": {
-   "body": "#ceac83"
-  }
+  "walls": "brick",
+  "year_built": 1896,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Loomis Foods",
+  "sign": "LOOMIS FOODS"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

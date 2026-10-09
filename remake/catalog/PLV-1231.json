@@ -3,58 +3,61 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 29.0,
-  "d": 35.3
+  "w": 23.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 46,
+  "main_w_ft": 58,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
+   "type": "gable",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
+   "body": "#f0e2cf",
    "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1987,
-  "band": "suburban",
+  "condition": "worn",
+  "year_built": 1957,
+  "band": "postwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Haskins",
-  "house_number": 1749
+  "family": "Raghunathan",
+  "house_number": 1425
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-3001"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

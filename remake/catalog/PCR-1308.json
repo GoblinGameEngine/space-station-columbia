@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.5,
-  "d": 38.8
+  "w": 12.3,
+  "d": 40.2
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 31,
+  "main_w_ft": 22,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "body": "#f2f1ea",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -45,16 +45,17 @@
    "rear": "none",
    "extras": []
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1908,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 1016
+  "family": "Nguyen",
+  "house_number": 974
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0794"
 }

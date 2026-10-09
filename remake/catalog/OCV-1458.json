@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.7,
-  "d": 32.3
+  "w": 23.7,
+  "d": 35.9
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 25,
+  "storeys": 1,
+  "main_w_ft": 30,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
-   "material": "clay_tile"
+   "pitch_deg": 22,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -32,33 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "garden"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2,
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Loomis",
-  "house_number": 1401
+  "family": "Ostrowski",
+  "house_number": 528
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0615"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4682"
 }

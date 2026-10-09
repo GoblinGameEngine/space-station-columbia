@@ -3,34 +3,58 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 40.2,
-  "d": 27.7
+  "w": 18.2,
+  "d": 35.2
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "stucco",
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 21,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "board_and_batten",
+  "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
+   "body": "#f4f0e6",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
-  "year_built": 1971,
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
   "condition": "kept",
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 20
-  }
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Leclerc",
+  "house_number": 517
  },
- "brief": "condo (apartment) generated for Playa Verde.",
- "model": "SOL-0319"
+ "brief": "interwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

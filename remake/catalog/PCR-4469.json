@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 29.3,
-  "d": 36.1
+  "w": 17.3,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 24,
+  "main_w_ft": 41,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
@@ -36,28 +36,28 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1978,
-  "band": "suburban",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1959,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 2650
+  "house_number": 3194
  },
- "brief": "suburban band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0806"
 }

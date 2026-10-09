@@ -3,36 +3,45 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.4,
-  "d": 40.9
+  "w": 14.4,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 32,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 36,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#f2f1ea",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -40,24 +49,21 @@
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1922,
   "band": "streetcar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 452
+  "family": "Carrow",
+  "house_number": 1051
  },
- "brief": "streetcar band foursquare: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1372"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0513"
 }

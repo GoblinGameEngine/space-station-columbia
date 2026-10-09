@@ -3,23 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.8,
-  "d": 39.4
+  "w": 18.3,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "minimal_traditional",
   "storeys": 2,
-  "main_w_ft": 29,
+  "main_w_ft": 38,
   "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -27,35 +27,37 @@
   "foundation": "slab",
   "colors": {
    "body": "#e9dcc2",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
+   "trim": "#3b2a1e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
+    "garden",
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1926,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "worn",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 993
+  "family": "Pham",
+  "house_number": 925
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0825"
+ "brief": "interwar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1684"
 }

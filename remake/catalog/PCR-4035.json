@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.2,
-  "d": 35.5
+  "w": 24.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 54,
-  "main_d_ft": 31,
+  "main_w_ft": 37,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 48,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "recessed",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,31 +32,29 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1989,
-  "band": "suburban",
+  "year_built": 1956,
+  "band": "postwar",
   "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
   "family": "Foxworth",
-  "house_number": 1727
+  "house_number": 581
  },
- "brief": "suburban band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3900"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

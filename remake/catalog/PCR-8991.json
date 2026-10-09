@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.2,
-  "d": 20.0
+  "w": 22.4,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 22,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
-   "material": "asphalt_shingle"
+   "pitch_deg": 39,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c9bcaa",
-   "trim": "#3a3f44",
-   "accent": "#6a4a2a",
-   "roof": "#4a4a48"
+   "body": "#8a2e24",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1994,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Marlowe",
-  "house_number": 195
+  "house_number": 2262
  },
- "brief": "late band builder_contemporary: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6827"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0284"
 }

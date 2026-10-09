@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.8,
-  "d": 27.9
+  "w": 24.9,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 36,
   "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 28,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#adab98",
-   "trim": "#5a3a28",
-   "accent": "#6a4a2a",
-   "roof": "#5a5a58"
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1999,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Brandvold",
-  "house_number": 833
+  "house_number": 264
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6068"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

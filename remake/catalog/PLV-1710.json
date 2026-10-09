@@ -3,14 +3,14 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 28.9,
-  "d": 31.1
+  "w": 24.1,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 44,
+  "main_w_ft": 30,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
@@ -32,27 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1978,
-  "band": "suburban",
+  "condition": "shabby",
+  "year_built": 1959,
+  "band": "postwar",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
   "family": "Desai",
-  "house_number": 171
+  "house_number": 368
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2729"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4075"
 }

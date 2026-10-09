@@ -3,31 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.3,
-  "d": 31.7
+  "w": 17.6,
+  "d": 23.5
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "foursquare",
   "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Cafe",
-    "type": "cafe",
-    "sign": "DEPOT CAFE",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1910,
+  "main_w_ft": 38,
+  "main_d_ft": 23,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#7a4232"
-  }
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1882,
+  "band": "rail",
+  "form_token": "foursquare"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Leclerc",
+  "house_number": 524
+ },
+ "brief": "rail band foursquare: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

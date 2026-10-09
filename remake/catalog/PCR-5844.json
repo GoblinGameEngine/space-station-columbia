@@ -3,26 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 54.0,
-  "d": 38.4
+  "w": 17.2,
+  "d": 29.5
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#ccaa8b"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 26,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "slate"
   },
-  "year_built": 2009,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#ccb490",
+   "trim": "#2e3a4a",
+   "accent": "#4a5a48",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1976,
+  "band": "suburban",
+  "form_token": "ranch",
+  "units": 2
  },
  "names": {
-  "name": ""
+  "family": "Haskins",
+  "house_number": 122
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "HF-0993"
+ "brief": "suburban band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4051"
 }

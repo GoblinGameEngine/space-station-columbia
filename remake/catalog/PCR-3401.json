@@ -3,31 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.4,
-  "d": 32.7
+  "w": 11.4,
+  "d": 35.1
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#e9e2d2",
-   "accent": "#2b4f6b",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 41,
   "roof": {
-   "pitch_deg": 26
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f2f1ea",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
   "year_built": 1936,
-  "condition": "kept"
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Tremblay",
+  "house_number": 2135
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0788"
 }

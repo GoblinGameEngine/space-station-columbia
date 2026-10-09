@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.0,
-  "d": 23.7
+  "w": 22.7,
+  "d": 25.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 27,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 25,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ddc8a1",
-   "trim": "#e9e2d2",
-   "accent": "#3a2a1e",
-   "roof": "#4e5155"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
@@ -50,12 +50,13 @@
   "condition": "worn",
   "year_built": 1998,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Wisniewski",
-  "house_number": 2513
+  "house_number": 613
  },
- "brief": "late band builder_contemporary: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-9138"
+ "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

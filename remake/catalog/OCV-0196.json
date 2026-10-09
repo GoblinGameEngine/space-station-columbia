@@ -3,33 +3,26 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.2,
-  "d": 33.5
+  "w": 17.8,
+  "d": 30.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Depot Cafe",
-    "type": "cafe",
-    "sign": "DEPOT CAFE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1910,
-  "colors": {
-   "body": "#e9dcc2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1884,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Ring Line Foundry",
+  "sign": "RING LINE FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

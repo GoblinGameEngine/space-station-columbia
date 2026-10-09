@@ -3,17 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.1,
-  "d": 9.0
+  "w": 23.2,
+  "d": 28.8
  },
- "kind": "fishhouse",
+ "kind": "house",
  "traits": {
-  "year_built": 1935,
-  "over_water": true
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 30,
+   "material": "slate"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#ae8371",
+   "trim": "#2e3a4a",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "tree_line",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1992,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Holloway",
+  "house_number": 324
  },
- "brief": "fishhouse (fishhouse) generated for Port Carrow."
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6925"
 }

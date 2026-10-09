@@ -3,60 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 32.9
+  "w": 16.7,
+  "d": 23.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 31,
-  "main_d_ft": 34,
+  "main_w_ft": 41,
+  "main_d_ft": 24,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 18,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 19,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
+   "body": "#f6f1e7",
    "trim": "#4a3324",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1925,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 592
+  "family": "Tomczak",
+  "house_number": 692
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0364"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0617"
 }

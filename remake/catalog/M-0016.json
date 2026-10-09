@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Stroud Jewelers",
-    "type": "jeweler",
-    "sign": "STROUD JEWELERS",
-    "sign_style": "projecting",
+    "business": "Raghunathan Drug",
+    "type": "drug_store",
+    "sign": "RAGHUNATHAN DRUG",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Exchange Savings Bank",
+    "type": "bank",
+    "sign": "EXCHANGE SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1920,
+  "year_built": 1966,
   "colors": {
-   "body": "#b56944"
+   "body": "#d0ac85"
   }
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Marlowe."
 }

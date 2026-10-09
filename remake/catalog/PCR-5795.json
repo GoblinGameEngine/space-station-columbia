@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 29.5,
-  "d": 31.6
+  "w": 37.9,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
+  "archetype": "foursquare",
+  "storeys": 2,
   "main_w_ft": 40,
   "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#aa614d",
-   "trim": "#f4f1e8",
-   "accent": "#1f2a33",
-   "roof": "#6a5e52"
+   "body": "#e6e2d8",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "sliding",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1987,
   "band": "suburban",
-  "form_token": "split_level"
+  "form_token": "foursquare"
  },
+ "region": "ne",
  "names": {
   "family": "Patel",
-  "house_number": 977
+  "house_number": 2148
  },
- "brief": "suburban band split_level: 1 storeys, brick walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-5448"
+ "brief": "suburban band foursquare: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-5294"
 }

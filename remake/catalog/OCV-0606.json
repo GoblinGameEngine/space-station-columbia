@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.6,
-  "d": 40.1
+  "w": 19.8,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,40 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
+   "body": "#dcc7a6",
    "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "none",
+  "chimneys": [],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1904,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 11
-  }
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Nguyen",
-  "house_number": 708
+  "family": "Solano",
+  "house_number": 569
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0368"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

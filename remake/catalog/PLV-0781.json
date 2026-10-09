@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.0,
-  "d": 31.6
+  "w": 14.1,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 25,
+  "main_w_ft": 21,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 19,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,42 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#f4f0e6",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
     "garden",
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1955,
-  "band": "postwar",
-  "form_token": "ranch"
+  "condition": "worn",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 673
+  "family": "Leclerc",
+  "house_number": 883
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "streetcar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0378"
 }

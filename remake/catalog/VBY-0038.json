@@ -3,60 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 16.5,
-  "d": 38.8
+  "w": 17.9,
+  "d": 29.1
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 49,
-  "main_d_ft": 43,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#1f4a33",
-   "roof": "#3c4048"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Main Street Sporting Goods",
+    "type": "sporting_goods",
+    "sign": "MAIN STREET SPORTING GOODS",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "hedge",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1888,
-  "band": "rail",
-  "form_token": "shingle_style"
+  "year_built": 1909,
+  "colors": {
+   "body": "#eef0f6",
+   "trim": "#ffffff",
+   "accent": "#1a3d2c"
+  },
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "family": "Booker",
-  "house_number": 211
- },
- "brief": "rail band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

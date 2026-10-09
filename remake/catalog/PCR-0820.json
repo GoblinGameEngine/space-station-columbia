@@ -3,57 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.7,
-  "d": 42.3
+  "w": 18.2,
+  "d": 23.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 35,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 41,
+  "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "type": "side",
+   "posts": "square",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "year_built": 1875,
+  "band": "rail",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Delmar",
-  "house_number": 887
+  "family": "Wisniewski",
+  "house_number": 872
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "rail band nantucket_cape: 1.5 storeys, cedar_shingle walls, side porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

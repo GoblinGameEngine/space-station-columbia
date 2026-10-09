@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.5,
-  "d": 32.8
+  "w": 16.0,
+  "d": 35.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 40,
+  "main_w_ft": 43,
   "main_d_ft": 26,
   "roof": {
    "type": "gable",
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,32 +32,32 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "sliding",
+   "type": "casement",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Brandvold",
-  "house_number": 1973
+  "house_number": 2158
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

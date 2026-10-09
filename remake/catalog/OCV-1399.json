@@ -3,8 +3,8 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.3,
-  "d": 35.0
+  "w": 23.8,
+  "d": 31.0
  },
  "kind": "house",
  "traits": {
@@ -13,46 +13,48 @@
   "main_w_ft": 31,
   "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "body": "#ead9c8",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
+  "year_built": 1959,
+  "band": "postwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Patel",
-  "house_number": 340
+  "family": "Adebayo",
+  "house_number": 868
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0252"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2306"
 }

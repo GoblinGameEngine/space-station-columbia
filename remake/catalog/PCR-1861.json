@@ -3,40 +3,40 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 36.2
+  "w": 12.4,
+  "d": 38.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 33,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 41,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "casement",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
@@ -46,16 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "year_built": 1912,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 755
+  "family": "Wisniewski",
+  "house_number": 413
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0932"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0585"
 }

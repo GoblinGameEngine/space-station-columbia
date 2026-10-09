@@ -3,33 +3,25 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.4,
-  "d": 29.8
+  "w": 16.6,
+  "d": 35.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Castellanos Courier",
-    "type": "newspaper",
-    "sign": "CASTELLANOS COURIER",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank"
   ],
-  "condition": "worn",
-  "year_built": 1923,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1893,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Mbeki Foods",
+  "sign": "MBEKI FOODS"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

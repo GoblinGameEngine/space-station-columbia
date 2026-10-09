@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.2,
-  "d": 27.3
+  "w": 38.0,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 39,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 46,
   "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#874b31",
+   "trim": "#f4f1e8",
+   "accent": "#2e3a4a",
+   "roof": "#4a4a48"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "tree_line",
    "extras": [
-    "clothesline"
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "shabby",
+  "year_built": 1968,
+  "band": "suburban",
+  "form_token": "raised_ranch"
  },
- "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 2801
+  "house_number": 1941
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "suburban band raised_ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4924"
 }

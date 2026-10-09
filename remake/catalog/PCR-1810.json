@@ -3,61 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 35.8
+  "w": 14.7,
+  "d": 37.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 50,
-  "main_d_ft": 31,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "shed",
+    "clothesline",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 9
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 1145
+  "family": "Pruett",
+  "house_number": 1320
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

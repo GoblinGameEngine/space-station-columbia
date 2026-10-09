@@ -3,60 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.7,
-  "d": 25.4
+  "w": 21.2,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 35,
+  "main_w_ft": 31,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "slate"
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "square",
-   "rail": "solid"
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f7f6f0",
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
    "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
+  "year_built": 1960,
+  "band": "postwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 1367
+  "family": "Ostrowski",
+  "house_number": 1490
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0581"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

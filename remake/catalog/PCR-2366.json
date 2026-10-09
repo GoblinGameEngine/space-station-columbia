@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 23.5
+  "w": 16.1,
+  "d": 22.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 28,
+  "main_w_ft": 23,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "square",
+   "type": "recessed",
+   "posts": "iron",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#f6f5f0",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "2over2",
+   "type": "sliding",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1917,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Arrieta",
-  "house_number": 1567
+  "family": "Wainwright",
+  "house_number": 673
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0660"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0726"
 }

@@ -3,23 +3,23 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 11.9,
-  "d": 37.1
+  "w": 16.4,
+  "d": 21.0
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 37,
+  "main_w_ft": 26,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
@@ -27,38 +27,35 @@
   "foundation": "slab",
   "colors": {
    "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#6a2c22",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1924,
   "band": "streetcar",
   "form_token": "california_bungalow",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 10
-  }
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
-  "house_number": 830
+  "family": "DeCarlo",
+  "house_number": 731
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0365"
 }

@@ -3,19 +3,19 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 23.3,
-  "d": 31.8
+  "w": 16.4,
+  "d": 33.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 34,
+  "main_w_ft": 34,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 19,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -27,37 +27,36 @@
   "foundation": "slab",
   "colors": {
    "body": "#f3eadb",
-   "trim": "#4a3324",
-   "accent": "#6a2c22",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "garden",
-    "clothesline"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1955,
-  "band": "postwar",
-  "form_token": "minimal_traditional"
+  "condition": "worn",
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 175
+  "family": "Pham",
+  "house_number": 455
  },
- "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2225"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0252"
 }

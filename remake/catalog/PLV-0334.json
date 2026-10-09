@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.9,
-  "d": 33.4
+  "w": 13.8,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 28,
+  "main_w_ft": 22,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,40 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#e6d4bb",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": [
-    "swing_set"
-   ]
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1937,
-  "band": "interwar",
-  "form_token": "ranch"
+  "condition": "shabby",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 363
+  "family": "Booker",
+  "house_number": 385
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0488"
 }

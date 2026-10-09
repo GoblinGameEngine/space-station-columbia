@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 53.5,
-  "d": 28.6
+  "w": 18.5,
+  "d": 31.6
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
   "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Wisniewski Barber Shop",
+    "type": "barber",
+    "sign": "WISNIEWSKI BARBER SHOP",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1897,
   "colors": {
-   "body": "#8a2e24"
-  },
-  "year_built": 2005,
-  "condition": "kept"
+   "body": "#8e4a36"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0080"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

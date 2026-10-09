@@ -3,17 +3,17 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 32.4,
-  "d": 29.7
+  "w": 23.1,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
+  "archetype": "spanish_revival",
+  "storeys": 2,
   "main_w_ft": 40,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 20,
    "material": "clay_tile"
   },
@@ -26,35 +26,38 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#ead9c8",
+   "trim": "#3b2a1e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1974,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 768
+  "family": "Ostrowski",
+  "house_number": 1241
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-3614"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

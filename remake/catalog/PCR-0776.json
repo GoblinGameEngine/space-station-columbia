@@ -3,60 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 38.4
+  "w": 11.2,
+  "d": 23.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 26,
-  "main_d_ft": 30,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
+   "pitch_deg": 49,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
-    "clothesline"
+    "garden"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1929,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1895,
+  "band": "rail",
+  "form_token": "i_house",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 12
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 658
+  "family": "Leclerc",
+  "house_number": 868
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "rail band i_house: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

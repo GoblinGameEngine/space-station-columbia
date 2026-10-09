@@ -6,27 +6,22 @@
   "w": 17.6,
   "d": 25.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Haskins Shoes",
-    "type": "shoe_store",
-    "sign": "HASKINS SHOES",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1911,
-  "colors": {
-   "body": "#a66d43"
-  }
+  "walls": "brick",
+  "year_built": 1884,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "name": "Patel & Ostrowski Foundry",
+  "sign": "PATEL & OSTROWSKI FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Kessler."
 }

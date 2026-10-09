@@ -6,30 +6,22 @@
   "w": 18.1,
   "d": 30.5
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Brandvold & Brandvold Theatre",
-    "type": "movie_theater",
-    "sign": "BRANDVOLD & BRANDVOLD THEATRE",
-    "sign_style": "projecting",
-    "awning": true
-   }
+  "use": "motor_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1905,
-  "colors": {
-   "body": "#efd9c4"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1900,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Solana Point Motor Winding",
+  "sign": "SOLANA POINT MOTOR WINDING"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

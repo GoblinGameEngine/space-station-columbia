@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.3,
-  "d": 33.7
+  "w": 24.5,
+  "d": 29.9
  },
  "kind": "house",
  "traits": {
@@ -14,49 +14,57 @@
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 20,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "recessed",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#f6e9c4",
+   "trim": "#f4f1e8",
+   "accent": "#2b4f6b",
+   "roof": "#6a5e52"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1908,
-  "band": "streetcar",
+  "year_built": 1953,
+  "band": "postwar",
   "form_token": "cape_cod"
  },
- "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 335
+  "family": "Moriarty",
+  "house_number": 669
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0666"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-4316"
 }

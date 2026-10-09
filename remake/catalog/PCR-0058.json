@@ -8,26 +8,53 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
+  "form": "office_block",
+  "storeys": 6,
+  "facade": "clapboard",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Brannock & Pike Tavern",
-    "type": "bar",
-    "sign": "BRANNOCK & PIKE TAVERN",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "accounting_office"
    }
   ],
-  "condition": "shabby",
-  "year_built": 1893,
+  "cornice": "bracketed_wood",
+  "storefronts": [
+   {
+    "business": "Tomczak Clothiers",
+    "type": "clothing",
+    "sign": "TOMCZAK CLOTHIERS",
+    "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Adebayo & Brandvold Law Office",
+    "type": "law_office",
+    "sign": "ADEBAYO & BRANDVOLD LAW OFFICE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1958,
   "colors": {
-   "body": "#9c5a42"
+   "body": "#f6f5f0"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Wainwright Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

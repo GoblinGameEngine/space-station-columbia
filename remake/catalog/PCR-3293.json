@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.4,
-  "d": 37.5
+  "w": 18.3,
+  "d": 20.7
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 39,
+  "main_w_ft": 36,
+  "main_d_ft": 24,
   "roof": {
    "type": "hip",
    "pitch_deg": 27,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -36,26 +36,25 @@
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1934,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Marlowe",
-  "house_number": 195
+  "house_number": 128
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1296"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1168"
 }

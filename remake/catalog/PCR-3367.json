@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.4,
-  "d": 20.0
+  "w": 19.1,
+  "d": 36.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 36,
+  "main_w_ft": 33,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 47,
+   "type": "hip",
+   "pitch_deg": 32,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "body": "#d9dcd8",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "swing_set"
-   ]
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1936,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Raghunathan",
-  "house_number": 2180
+  "house_number": 2176
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1323"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

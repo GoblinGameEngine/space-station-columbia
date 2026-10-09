@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.4,
-  "d": 20.0
+  "w": 24.1,
+  "d": 23.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
   "main_w_ft": 35,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
-   "material": "asphalt_shingle"
+   "pitch_deg": 40,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#808e7c",
-   "trim": "#ffffff",
-   "accent": "#5b6b3a",
-   "roof": "#5a4a40"
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "sliding",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1950,
   "band": "postwar",
-  "form_token": "minimal_traditional"
+  "form_token": "nantucket_cape"
  },
+ "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 1693
+  "house_number": 1293
  },
- "brief": "postwar band minimal_traditional: 1 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4681"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

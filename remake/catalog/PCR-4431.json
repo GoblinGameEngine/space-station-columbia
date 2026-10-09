@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.5,
-  "d": 35.6
+  "w": 23.9,
+  "d": 25.6
  },
  "kind": "house",
  "traits": {
@@ -32,31 +32,33 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": [
+    "shed",
+    "clothesline",
     "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1966,
-  "band": "suburban",
+  "condition": "shabby",
+  "year_built": 1947,
+  "band": "postwar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 3009
+  "house_number": 3085
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3961"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

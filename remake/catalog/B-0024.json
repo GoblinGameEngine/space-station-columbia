@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "brick",
-  "cornice": "parapet_stepped",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Kowal & Haskins Realty",
-    "type": "real_estate",
-    "sign": "KOWAL & HASKINS REALTY",
-    "sign_style": "awning_lettering",
-    "awning": true
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1901,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Mbeki & Marlowe Law Office",
+    "type": "law_office",
+    "sign": "MBEKI & MARLOWE LAW OFFICE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Haskins & Duquesne Law Office",
+    "type": "law_office",
+    "sign": "HASKINS & DUQUESNE LAW OFFICE",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1967,
   "colors": {
-   "body": "#9b916f"
+   "body": "#ac906b"
   }
  },
- "names": {},
- "brief": "store (store) generated for Bellhaven."
+ "names": {
+  "block_name": "Kowal Building"
+ },
+ "brief": "store (office) generated for Bellhaven."
 }

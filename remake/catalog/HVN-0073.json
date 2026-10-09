@@ -6,28 +6,23 @@
   "w": 17.3,
   "d": 31.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Patel Law Office",
-    "type": "law_office",
-    "sign": "PATEL LAW OFFICE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1917,
-  "colors": {
-   "body": "#9c5a42"
-  }
+  "walls": "metal",
+  "year_built": 1893,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Haven Point."
+ "names": {
+  "name": "Wainwright Foundry",
+  "sign": "WAINWRIGHT FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Haven Point."
 }

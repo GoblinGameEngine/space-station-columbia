@@ -8,28 +8,51 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Leclerc & Achterberg Bakery",
-    "type": "bakery",
-    "sign": "LECLERC & ACHTERBERG BAKERY",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "registry_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "insurance_agency"
    }
   ],
-  "condition": "worn",
-  "year_built": 1913,
+  "cornice": "mission_parapet",
+  "storefronts": [
+   {
+    "business": "Exchange Savings Bank",
+    "type": "bank",
+    "sign": "EXCHANGE SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1967,
   "colors": {
-   "body": "#f2e8dc"
+   "body": "#f4f0e6"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Haddad Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

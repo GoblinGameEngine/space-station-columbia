@@ -6,30 +6,22 @@
   "w": 17.5,
   "d": 40.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Delmar & Achterberg Shoe Repair",
-    "type": "shoe_repair",
-    "sign": "DELMAR & ACHTERBERG SHOE REPAIR",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "remelting_works",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1916,
-  "colors": {
-   "body": "#e9d6c8"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1895,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Delmar Remelting Co.",
+  "sign": "DELMAR REMELTING CO."
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

@@ -3,57 +3,71 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.2,
-  "d": 33.7
+  "w": 23.0,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 41,
-  "main_d_ft": 22,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
+   "type": "gambrel",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "recessed",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#8a8378",
    "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1989,
-  "band": "suburban",
-  "form_token": "nantucket_cape"
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 2774
+  "family": "Delmar",
+  "house_number": 3377
  },
- "brief": "suburban band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens)."
+ "brief": "postwar band dutch_colonial: 2 storeys, cedar_shingle walls, recessed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

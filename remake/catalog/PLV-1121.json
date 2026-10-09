@@ -3,58 +3,57 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 21.1,
-  "d": 31.5
+  "w": 32.8,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 39,
-  "main_d_ft": 34,
+  "storeys": 2,
+  "main_w_ft": 48,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 18,
+   "type": "gable",
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#2e2a26",
-   "accent": "#6a2c22",
+   "body": "#e4cfb2",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1986,
+  "band": "suburban",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Bazzi",
-  "house_number": 235
+  "family": "Ostrowski",
+  "house_number": 1229
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2728"
 }

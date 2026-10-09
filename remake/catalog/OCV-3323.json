@@ -3,27 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.0,
-  "d": 14.0
+  "w": 25.6,
+  "d": 29.0
  },
- "kind": "restaurant",
+ "kind": "house",
  "traits": {
-  "year_built": 1900,
-  "over_water": false,
+  "archetype": "ranch",
   "storeys": 1,
-  "storefronts": [
-   {
-    "business": "Castellanos Restaurant",
-    "type": "restaurant",
-    "sign": "CASTELLANOS RESTAURANT",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ]
+  "main_w_ft": 34,
+  "main_d_ft": 23,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 22,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#e8d8c0",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2002,
+  "band": "late",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "name": "Pier Grill"
+  "family": "Loomis",
+  "house_number": 2527
  },
- "brief": "restaurant (restaurant) generated for Oceanview."
+ "brief": "late band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4075"
 }

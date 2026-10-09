@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 23.4,
-  "d": 30.8
+  "w": 17.9,
+  "d": 20.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 31,
-  "main_d_ft": 28,
+  "main_w_ft": 35,
+  "main_d_ft": 31,
   "roof": {
    "type": "hip",
    "pitch_deg": 22,
@@ -19,44 +19,42 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#e9d6c8",
+   "trim": "#2f3b2a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "hedge",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 558
+  "family": "Raghunathan",
+  "house_number": 810
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2306"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1551"
 }

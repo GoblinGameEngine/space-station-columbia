@@ -3,31 +3,31 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.0,
-  "d": 36.0
+  "w": 17.3,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 32,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#5a3a28",
+   "body": "#e9d6c8",
+   "trim": "#3b2a1e",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
@@ -40,21 +40,24 @@
   ],
   "garage": "carport",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "fence": "chainlink",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1960,
   "band": "postwar",
-  "form_token": "california_bungalow"
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 1295
+  "family": "Arrieta",
+  "house_number": 432
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-1964"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0997"
 }

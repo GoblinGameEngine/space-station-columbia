@@ -3,14 +3,14 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.9,
-  "d": 38.3
+  "w": 21.1,
+  "d": 27.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 23,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 39,
   "main_d_ft": 30,
   "roof": {
    "type": "gable",
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
    "body": "#efe6d2",
@@ -32,30 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1961,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 172
+  "family": "Reyes",
+  "house_number": 129
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0758"
+ "brief": "postwar band california_bungalow: 1 storeys, board_and_batten walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

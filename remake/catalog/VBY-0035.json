@@ -3,34 +3,61 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 18.5,
-  "d": 34.1
+  "w": 15.4,
+  "d": 38.7
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 1,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Yoder & Szabo Flowers",
-    "type": "florist",
-    "sign": "YODER & SZABO FLOWERS",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1910,
+  "archetype": "queen_anne",
+  "storeys": 2,
+  "main_w_ft": 60,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
    "body": "#fbf5e6",
-   "trim": "#ffffff",
-   "accent": "#244d3a"
+   "trim": "#f7f6f0",
+   "accent": "#244d3a",
+   "roof": "#2f3438"
   },
-  "awning_style": "striped"
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1868,
+  "band": "rail",
+  "form_token": "queen_anne"
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "family": "Yoder",
+  "house_number": 209
+ },
+ "brief": "rail band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "VBY-0029"
 }

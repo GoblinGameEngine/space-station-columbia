@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.0,
-  "d": 32.5
+  "w": 36.5,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 32,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 47,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 18,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#cfb9a8",
+   "trim": "#f2efe6",
+   "accent": "#3a2a1e",
+   "roof": "#6a5e52"
   },
   "windows": {
-   "type": "picture",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "tree_line",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1959,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1978,
+  "band": "suburban",
+  "form_token": "raised_ranch"
  },
- "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 494
+  "family": "Leclerc",
+  "house_number": 2147
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "suburban band raised_ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4924"
 }

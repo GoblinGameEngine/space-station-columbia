@@ -3,23 +3,23 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.7,
-  "d": 31.9
+  "w": 23.8,
+  "d": 30.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 28,
+  "main_w_ft": 31,
+  "main_d_ft": 33,
   "roof": {
    "type": "hip",
-   "pitch_deg": 20,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -27,32 +27,36 @@
   "foundation": "slab",
   "colors": {
    "body": "#f2e8dc",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1931,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 525
+  "family": "Delmar",
+  "house_number": 187
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.3,
-  "d": 30.4
+  "w": 26.8,
+  "d": 24.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 44,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 45,
   "main_d_ft": 34,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 39,
+   "type": "gable",
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#d6c99f",
+   "trim": "#2e3a4a",
+   "accent": "#5b6b3a",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,13 +48,12 @@
   "condition": "worn",
   "year_built": 1996,
   "band": "late",
-  "form_token": "dutch_colonial"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 3427
+  "house_number": 954
  },
- "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-5924"
+ "brief": "late band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-3494"
 }

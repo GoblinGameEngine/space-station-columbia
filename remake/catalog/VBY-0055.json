@@ -3,60 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 14.0,
-  "d": 29.3
+  "w": 17.1,
+  "d": 30.9
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 49,
-   "material": "slate"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "brick",
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Ring Line Theatre",
+    "type": "movie_theater",
+    "sign": "RING LINE THEATRE",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1893,
   "colors": {
    "body": "#f5e9e4",
    "trim": "#ffffff",
-   "accent": "#1a3d2c",
-   "roof": "#2f3438"
+   "accent": "#1f4a33"
   },
-  "windows": {
-   "type": "2over2",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1924,
-  "band": "streetcar",
-  "form_token": "queen_anne"
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "family": "Leclerc",
-  "house_number": 300
- },
- "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

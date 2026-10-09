@@ -4,17 +4,17 @@
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
   "w": 22.3,
-  "d": 32.8
+  "d": 22.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
   "main_w_ft": 34,
   "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 27,
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d0c9ac",
-   "trim": "#3a3f44",
-   "accent": "#2b4f6b",
-   "roof": "#6a5e52"
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "new",
   "year_built": 2007,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "nantucket_cape"
  },
+ "region": "ne",
  "names": {
   "family": "Villalobos",
-  "house_number": 1183
+  "house_number": 2784
  },
- "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5777"
+ "brief": "late band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

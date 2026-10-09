@@ -8,26 +8,49 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "clapboard",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "doctor_office"
+   }
+  ],
+  "cornice": "bracketed_wood",
   "storefronts": [
    {
-    "business": "Depot Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "DEPOT BEAUTY SHOP",
+    "business": "Commerce Law Office",
+    "type": "law_office",
+    "sign": "COMMERCE LAW OFFICE",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1880,
+  "year_built": 1923,
   "colors": {
-   "body": "#8e4a36"
+   "body": "#8a2e24"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Villalobos Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

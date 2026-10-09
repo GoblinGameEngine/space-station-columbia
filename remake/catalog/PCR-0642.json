@@ -3,31 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.4,
-  "d": 25.5
+  "w": 17.2,
+  "d": 25.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Southland Shoes",
-    "type": "shoe_store",
-    "sign": "SOUTHLAND SHOES",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1889,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [],
+  "walls": "block",
+  "year_built": 1897,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Achterberg Machine Works",
+  "sign": "ACHTERBERG MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

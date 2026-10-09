@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 32.2
+  "w": 11.9,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 29,
+  "main_w_ft": 23,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "wood_shingle"
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#f6f5f0",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "i_house",
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "gable_front",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 1376
+  "family": "Merriweather",
+  "house_number": 1523
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0581"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0604"
 }

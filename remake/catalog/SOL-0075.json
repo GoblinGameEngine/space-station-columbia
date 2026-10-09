@@ -8,28 +8,60 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 10,
   "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "tile_roof",
   "storefronts": [
    {
-    "business": "Wainwright & Stroud Tavern",
-    "type": "bar",
-    "sign": "WAINWRIGHT & STROUD TAVERN",
+    "business": "Holloway Law Office",
+    "type": "law_office",
+    "sign": "HOLLOWAY LAW OFFICE",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1920,
+  "condition": "kept",
+  "year_built": 1914,
   "colors": {
-   "body": "#f0e2cf"
+   "body": "#e6d4bb"
   },
   "arcade": true,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

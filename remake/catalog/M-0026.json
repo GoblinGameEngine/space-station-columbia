@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
   "cornice": "bracketed_metal",
-  "upper_use": "none",
   "storefronts": [
    {
-    "business": "Achterberg Flowers",
-    "type": "florist",
-    "sign": "ACHTERBERG FLOWERS",
+    "business": "Yoder Clothiers",
+    "type": "clothing",
+    "sign": "YODER CLOTHIERS",
+    "sign_style": "projecting",
+    "awning": true
+   },
+   {
+    "business": "Desai Savings Bank",
+    "type": "bank",
+    "sign": "DESAI SAVINGS BANK",
     "sign_style": "awning_lettering",
-    "awning": false
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1877,
+  "year_built": 1908,
   "colors": {
-   "body": "#a58c6a"
+   "body": "#af6551"
   }
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Marlowe."
 }

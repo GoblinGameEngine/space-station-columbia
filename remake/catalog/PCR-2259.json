@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.7,
-  "d": 35.8
+  "w": 24.4,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 26,
+  "main_w_ft": 30,
   "main_d_ft": 30,
   "roof": {
    "type": "gable",
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,29 +32,31 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1933,
-  "band": "interwar",
+  "year_built": 1958,
+  "band": "postwar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Marlowe",
-  "house_number": 829
+  "house_number": 466
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

@@ -3,32 +3,32 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.7,
-  "d": 39.6
+  "w": 16.7,
+  "d": 31.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 36,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 23,
+  "main_d_ft": 40,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
-   "material": "clay_tile"
+   "type": "hip",
+   "pitch_deg": 16,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
@@ -41,21 +41,22 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1911,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Desai",
-  "house_number": 314
+  "family": "Marlowe",
+  "house_number": 145
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0825"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0364"
 }

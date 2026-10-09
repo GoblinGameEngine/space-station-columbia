@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.6,
-  "d": 24.4
+  "w": 18.0,
+  "d": 20.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 40,
-  "main_d_ft": 22,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 38,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1904,
-  "band": "streetcar",
-  "form_token": "nantucket_cape",
-  "units": 2
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Harrow",
-  "house_number": 742
+  "family": "Booker",
+  "house_number": 230
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

@@ -3,61 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 37.4
+  "w": 13.1,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 19,
+  "main_w_ft": 28,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 48,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
+   "body": "#2f3e52",
    "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1920,
+  "condition": "kept",
+  "year_built": 1905,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Desai",
-  "house_number": 871
+  "family": "Haddad",
+  "house_number": 275
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens)."
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

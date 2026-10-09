@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.3,
-  "d": 36.9
+  "w": 24.5,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 33,
+  "main_w_ft": 34,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
-   "pitch_deg": 24,
+   "pitch_deg": 23,
    "material": "clay_tile_old"
   },
   "dormers": [],
@@ -26,36 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#5a3a28",
+   "body": "#f3eadb",
+   "trim": "#2e2a26",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "clothesline"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
+  "year_built": 1964,
+  "band": "postwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 1253
+  "family": "Raghunathan",
+  "house_number": 1123
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0282"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4682"
 }

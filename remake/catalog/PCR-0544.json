@@ -3,37 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.7,
-  "d": 40.7
+  "w": 11.0,
+  "d": 28.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 38,
+  "main_w_ft": 22,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "asphalt_shingle"
+   "pitch_deg": 50,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
+   "body": "#f1ead2",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
    "roof": "#4a4440"
   },
   "windows": {
@@ -43,25 +38,25 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1895,
-  "band": "streetcar",
-  "form_token": "shingle_style"
+  "year_built": 1869,
+  "band": "rail",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 662
+  "family": "Moriarty",
+  "house_number": 579
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens)."
 }

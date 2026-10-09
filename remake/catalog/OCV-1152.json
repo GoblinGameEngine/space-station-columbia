@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.3,
-  "d": 30.2
+  "w": 19.8,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 27,
+  "main_w_ft": 39,
+  "main_d_ft": 20,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
+   "type": "gable",
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,33 +26,39 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 208
+  "family": "Carrow",
+  "house_number": 1110
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0591"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0448"
 }

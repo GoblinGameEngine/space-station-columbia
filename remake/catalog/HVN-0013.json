@@ -8,26 +8,40 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "clapboard",
-  "cornice": "bracketed_wood",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "bracketed_wood",
   "storefronts": [
    {
-    "business": "Desai Diner",
-    "type": "diner",
-    "sign": "DESAI DINER",
+    "business": "Carrow Savings Bank",
+    "type": "bank",
+    "sign": "CARROW SAVINGS BANK",
     "sign_style": "flat_board",
-    "awning": true
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1878,
+  "year_built": 1955,
   "colors": {
-   "body": "#c9cfcf"
+   "body": "#f1ead2"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Haven Point."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Haven Point."
 }

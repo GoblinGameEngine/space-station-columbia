@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 29.6
+  "w": 17.1,
+  "d": 20.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 25,
+  "main_w_ft": 20,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 28,
-   "material": "slate"
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,19 +23,21 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#945843",
-   "trim": "#2e3a4a",
-   "accent": "#7a2e28",
-   "roof": "#555350"
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -46,12 +48,14 @@
   "condition": "kept",
   "year_built": 2006,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "shingle_style",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Pham",
-  "house_number": 2887
+  "house_number": 2229
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5777"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0280"
 }

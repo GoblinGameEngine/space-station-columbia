@@ -3,26 +3,55 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 48.4,
-  "d": 23.0
+  "w": 25.0,
+  "d": 21.9
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "vinyl",
-  "colors": {
-   "body": "#d2bca9"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 43,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2005,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#bfbaa7",
+   "trim": "#e8e0c8",
+   "accent": "#2e3a4a",
+   "roof": "#5a4a40"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 2006,
+  "band": "late",
+  "form_token": "ranch"
  },
  "names": {
-  "name": ""
+  "family": "Villalobos",
+  "house_number": 402
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "HF-0179"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6437"
 }

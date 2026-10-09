@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 20.0
+  "w": 18.9,
+  "d": 28.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 42,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 30,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#b2bfc9",
+   "trim": "#f4f1e8",
+   "accent": "#6a4a2a",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_1",
@@ -46,13 +46,13 @@
   "condition": "kept",
   "year_built": 1992,
   "band": "late",
-  "form_token": "i_house"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Moriarty",
-  "house_number": 2555
+  "house_number": 704
  },
- "brief": "late band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2775"
 }

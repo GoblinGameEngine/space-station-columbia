@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.9,
-  "d": 22.6
+  "w": 25.9,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 35,
   "main_d_ft": 31,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 37,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ab6455",
-   "trim": "#e8e0c8",
-   "accent": "#1f2a33",
-   "roof": "#4e5155"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Osei",
-  "house_number": 1252
+  "house_number": 2578
  },
- "brief": "late band neo_eclectic: 2 storeys, brick walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-7344"
+ "brief": "late band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

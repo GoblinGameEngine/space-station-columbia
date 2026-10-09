@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.6,
-  "d": 30.2
+  "w": 25.5,
+  "d": 25.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 26,
+  "main_w_ft": 35,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 20,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
    "body": "#f3eadb",
@@ -33,27 +33,26 @@
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "privacy",
    "extras": []
   },
   "condition": "worn",
   "year_built": 2005,
   "band": "late",
-  "form_token": "minimal_traditional",
-  "units": 2
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 729
+  "family": "Holloway",
+  "house_number": 208
  },
- "brief": "late band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-1344"
+ "brief": "late band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2498"
 }

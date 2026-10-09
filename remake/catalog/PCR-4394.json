@@ -3,58 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.3,
-  "d": 31.7
+  "w": 30.2,
+  "d": 39.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 52,
-  "main_d_ft": 32,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 47,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
+   "pitch_deg": 23,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#9eaba8",
+   "trim": "#5a3a28",
+   "accent": "#7a2e28",
+   "roof": "#6a5e52"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "tree_line",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1961,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1985,
+  "band": "suburban",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
-  "family": "Merriweather",
-  "house_number": 145
+  "family": "Yoder",
+  "house_number": 2478
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "suburban band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3765"
 }

@@ -3,57 +3,58 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.8,
-  "d": 37.2
+  "w": 18.8,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 37,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 26,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 20,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
+   "body": "#e4cfb2",
    "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1916,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Brannock",
-  "house_number": 340
+  "family": "Nguyen",
+  "house_number": 241
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0758"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

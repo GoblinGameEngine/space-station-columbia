@@ -3,60 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.5,
-  "d": 20.0
+  "w": 17.9,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 54,
-  "main_d_ft": 27,
+  "main_w_ft": 27,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 41,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#8a2e24",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "left_end"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1952,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 2162
+  "family": "Harrow",
+  "house_number": 2221
  },
- "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

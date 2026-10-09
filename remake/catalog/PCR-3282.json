@@ -3,59 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.8,
-  "d": 23.3
+  "w": 19.8,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 47,
-  "main_d_ft": 29,
+  "main_w_ft": 35,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "front_full",
+   "posts": "columns",
    "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "casement",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "left_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
   },
   "condition": "kept",
   "year_built": 1926,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 2035
+  "family": "DeCarlo",
+  "house_number": 2074
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0511"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

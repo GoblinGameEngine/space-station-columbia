@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.2,
-  "d": 32.2
+  "w": 18.4,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 47,
-  "main_d_ft": 33,
+  "main_w_ft": 25,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
    "pitch_deg": 44,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,29 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1959,
-  "band": "postwar",
+  "year_built": 1934,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Reyes",
-  "house_number": 592
+  "house_number": 749
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0676"
 }

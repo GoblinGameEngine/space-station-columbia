@@ -3,36 +3,36 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 13.7,
-  "d": 23.3
+  "w": 11.1,
+  "d": 42.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 28,
+  "main_w_ft": 23,
+  "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 19,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "body": "#f6f1e7",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -40,23 +40,22 @@
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "none",
+   "fence": "picket",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1927,
   "band": "streetcar",
-  "form_token": "ranch"
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Dunmore",
-  "house_number": 523
+  "family": "Smith",
+  "house_number": 115
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0525"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

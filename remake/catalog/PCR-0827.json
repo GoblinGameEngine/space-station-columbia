@@ -3,60 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.7,
-  "d": 23.1
+  "w": 15.5,
+  "d": 41.5
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 40,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#d9dcd8",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
-  },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Nguyen Family Medicine",
+    "type": "doctor_office",
+    "sign": "NGUYEN FAMILY MEDICINE",
+    "sign_style": "flat_board",
+    "awning": false
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1921,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "condition": "shabby",
+  "year_built": 1923,
+  "colors": {
+   "body": "#5b6b5a"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Haddad",
-  "house_number": 834
- },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

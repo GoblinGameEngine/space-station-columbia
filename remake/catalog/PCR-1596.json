@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.0,
-  "d": 34.3
+  "w": 10.7,
+  "d": 25.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 29,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 48,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
@@ -41,23 +41,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1939,
+  "year_built": 1924,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Pham",
-  "house_number": 948
+  "house_number": 649
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0760"
 }

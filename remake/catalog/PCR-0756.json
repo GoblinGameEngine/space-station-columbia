@@ -3,67 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 28.3
+  "w": 16.1,
+  "d": 30.4
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 40,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "none"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [
-   "center"
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Kowal Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "KOWAL BEAUTY SHOP",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed",
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1914,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 11
+  "condition": "worn",
+  "year_built": 1902,
+  "colors": {
+   "body": "#f4f2e8"
   }
  },
  "region": "ne",
- "names": {
-  "family": "Arrieta",
-  "house_number": 172
- },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

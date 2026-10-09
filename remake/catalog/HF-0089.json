@@ -8,25 +8,54 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
+  "form": "office_block",
+  "storeys": 9,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Yoder Savings Bank",
-    "type": "bank",
-    "sign": "YODER SAVINGS BANK",
-    "sign_style": "awning_lettering",
-    "awning": false
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "registry_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1907,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Pruett Cafe",
+    "type": "cafe",
+    "sign": "PRUETT CAFE",
+    "sign_style": "projecting",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1918,
   "colors": {
-   "body": "#ad8974"
+   "body": "#ac6947"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

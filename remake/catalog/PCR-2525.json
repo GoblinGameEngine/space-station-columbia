@@ -3,25 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 36.3
+  "w": 12.8,
+  "d": 28.2
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 32,
+  "main_w_ft": 34,
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 46,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,32 +32,31 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
-   "fence": "none",
+   "fence": "picket",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1936,
-  "band": "interwar",
+  "year_built": 1924,
+  "band": "streetcar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 1569
+  "family": "Arrieta",
+  "house_number": 1668
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0835"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0535"
 }

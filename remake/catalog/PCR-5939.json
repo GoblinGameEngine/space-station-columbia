@@ -3,56 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.2,
+  "w": 28.7,
   "d": 30.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 23,
+  "main_w_ft": 46,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "side": "none",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1991,
-  "band": "late",
-  "form_token": "i_house"
+  "year_built": 1966,
+  "band": "suburban",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 391
+  "family": "Carrow",
+  "house_number": 3618
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "suburban band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

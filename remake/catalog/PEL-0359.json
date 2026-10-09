@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 14.6,
-  "d": 28.8
+  "w": 12.4,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 24,
+  "main_w_ft": 22,
+  "main_d_ft": 39,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
+   "type": "gable",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,19 +26,19 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#2f3b2a",
+   "body": "#f4f0e6",
+   "trim": "#3b2a1e",
    "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
@@ -47,15 +47,16 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1919,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 158
+  "family": "Moriarty",
+  "house_number": 604
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0331"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0527"
 }

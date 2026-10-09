@@ -3,33 +3,25 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 35.9
+  "w": 17.9,
+  "d": 41.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Haddad Dental",
-    "type": "dentist",
-    "sign": "HADDAD DENTAL",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "tyre_works",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1884,
-  "colors": {
-   "body": "#dcc7a6"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1902,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Valley Tyre & Rubber",
+  "sign": "VALLEY TYRE & RUBBER"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

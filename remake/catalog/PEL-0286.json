@@ -3,15 +3,15 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 21.2,
-  "d": 34.4
+  "w": 12.2,
+  "d": 42.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 54,
-  "main_d_ft": 32,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
   "roof": {
    "type": "hip",
    "pitch_deg": 16,
@@ -19,42 +19,44 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "body": "#efe6d2",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1947,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 527
+  "family": "Mbeki",
+  "house_number": 572
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0613"
 }

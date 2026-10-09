@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.1,
-  "d": 22.4
+  "w": 12.2,
+  "d": 37.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 40,
-  "main_d_ft": 26,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 23,
+   "type": "gable",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,45 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#e9dcc2",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "fence": "picket",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 10
+  },
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 690
+  "family": "Loomis",
+  "house_number": 169
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0384"
+ "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0487"
 }

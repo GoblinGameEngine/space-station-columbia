@@ -3,56 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 15.0,
-  "d": 37.4
+  "w": 16.2,
+  "d": 20.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "main_w_ft": 30,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#2f3b2a",
+   "body": "#efe6d2",
+   "trim": "#5a3a28",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1896,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 710
+  "family": "Harrow",
+  "house_number": 150
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0282"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0315"
 }

@@ -3,60 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.4,
-  "d": 20.7
+  "w": 17.7,
+  "d": 25.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 49,
-  "main_d_ft": 25,
+  "main_w_ft": 48,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "slate"
+   "type": "gambrel",
+   "pitch_deg": 43,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1955,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 1225
+  "family": "Holloway",
+  "house_number": 1877
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0476"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.1,
-  "d": 30.4
+  "w": 24.4,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "dutch_colonial",
   "storeys": 2,
   "main_w_ft": 21,
   "main_d_ft": 35,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 37,
-   "material": "slate"
+   "type": "gambrel",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9f8969",
-   "trim": "#2e3a4a",
-   "accent": "#2b4f6b",
-   "roof": "#4a4a48"
+   "body": "#f6f5f0",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1997,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Arrieta",
-  "house_number": 2193
+  "house_number": 3001
  },
- "brief": "late band builder_contemporary: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6804"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

@@ -8,26 +8,44 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "brick",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dispatch_office"
+   }
+  ],
   "cornice": "bracketed_metal",
-  "upper_use": "none",
   "storefronts": [
    {
-    "business": "Depot Books",
-    "type": "bookstore",
-    "sign": "DEPOT BOOKS",
-    "sign_style": "awning_lettering",
+    "business": "Pruett Law Office",
+    "type": "law_office",
+    "sign": "PRUETT LAW OFFICE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Haddad Cafe",
+    "type": "cafe",
+    "sign": "HADDAD CAFE",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "worn",
-  "year_built": 1893,
+  "year_built": 1916,
   "colors": {
    "body": "#8e4a36"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "block_name": "Desai Building"
+ },
+ "brief": "store (office) generated for Brightwater."
 }

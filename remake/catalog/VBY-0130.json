@@ -3,41 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 42.3,
-  "d": 35.8
+  "w": 39.1,
+  "d": 54.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 36,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#fbf5e6",
-   "trim": "#ffffff",
-   "accent": "#1f4a33",
-   "roof": "#3c4048"
-  },
+  "archetype": "queen_anne",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 36,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
+   "type": "cross_gable",
+   "pitch_deg": 50,
    "material": "slate"
   },
-  "year_built": 1909,
-  "condition": "kept",
-  "windows": {
-   "shutters": true
-  },
+  "dormers": [],
   "porch": {
-   "type": "full",
+   "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
-  }
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e9f0e6",
+   "trim": "#f7f6f0",
+   "accent": "#1f4a33",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1936,
+  "band": "interwar",
+  "form_token": "queen_anne"
  },
  "region": "isle",
  "names": {
-  "name": ""
+  "family": "Adebayo",
+  "house_number": 322
  },
- "brief": "townhouse (townhouse) generated for Victory Bay.",
- "model": "VBY-0053"
+ "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 11.0,
-  "d": 35.6
+  "w": 16.8,
+  "d": 38.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
+  "archetype": "minimal_traditional",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,38 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
+   "body": "#ead9c8",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "california_bungalow",
+  "year_built": 1903,
+  "band": "streetcar",
+  "form_token": "minimal_traditional",
   "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Haskins",
-  "house_number": 631
+  "family": "Pham",
+  "house_number": 727
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0489"
+ "brief": "streetcar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-1006"
 }

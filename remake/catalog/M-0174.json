@@ -6,27 +6,22 @@
   "w": 17.6,
   "d": 36.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Delmar Drug",
-    "type": "drug_store",
-    "sign": "DELMAR DRUG",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1923,
-  "colors": {
-   "body": "#945948"
-  }
+  "walls": "brick",
+  "year_built": 1889,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Union Foods",
+  "sign": "UNION FOODS"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

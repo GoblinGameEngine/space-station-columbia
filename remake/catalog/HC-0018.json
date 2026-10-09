@@ -8,25 +8,36 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
+  "form": "office_block",
+  "storeys": 3,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
   "cornice": "corbelled_brick",
-  "upper_use": "none",
   "storefronts": [
    {
-    "business": "Villalobos & Moriarty Law Office",
-    "type": "law_office",
-    "sign": "VILLALOBOS & MORIARTY LAW OFFICE",
-    "sign_style": "flat_board",
+    "business": "Merriweather & Ostrowski Savings Bank",
+    "type": "bank",
+    "sign": "MERRIWEATHER & OSTROWSKI SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1895,
+  "year_built": 1916,
   "colors": {
-   "body": "#934431"
+   "body": "#79392a"
   }
  },
- "names": {},
- "brief": "store (store) generated for Haskins Corner."
+ "names": {
+  "block_name": "Haskins Corner Trust"
+ },
+ "brief": "store (office) generated for Haskins Corner."
 }

@@ -3,56 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 23.5
+  "w": 22.9,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 26,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 36,
+   "pitch_deg": 31,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#547472",
-   "trim": "#f2efe6",
-   "accent": "#2e3a4a",
-   "roof": "#5a5a58"
+   "body": "#ebe6ef",
+   "trim": "#e8e0c8",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
   "year_built": 2006,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
  "names": {
-  "family": "Leclerc",
-  "house_number": 2276
+  "family": "Reyes",
+  "house_number": 187
  },
- "brief": "late band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4318"
+ "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6034"
 }

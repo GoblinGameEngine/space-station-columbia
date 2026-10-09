@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 31.7
+  "w": 26.4,
+  "d": 24.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 26,
+  "main_w_ft": 32,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
@@ -20,42 +20,41 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#f4f3ec",
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
    "accent": "#24382a",
-   "roof": "#2e2e30"
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "privacy",
+   "rear": "tree_line",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 2004,
   "band": "late",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 2590
+  "family": "Reyes",
+  "house_number": 4244
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5949"
 }

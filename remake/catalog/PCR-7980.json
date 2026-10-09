@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.6,
-  "d": 29.6
+  "w": 23.6,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 32,
+  "main_w_ft": 38,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 35,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
    "posts": "columns",
-   "rail": "solid"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#d8ded0",
+   "trim": "#e8e0c8",
+   "accent": "#7a2e28",
+   "roof": "#555350"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "tree_line",
    "extras": [
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 2008,
   "band": "late",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
   "family": "Okonkwo",
-  "house_number": 1270
+  "house_number": 895
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5730"
 }

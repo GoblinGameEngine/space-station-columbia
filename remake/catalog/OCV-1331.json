@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 32.8,
-  "d": 31.3
+  "w": 17.9,
+  "d": 27.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 38,
-  "main_d_ft": 34,
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 45,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,37 +26,38 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
+   "body": "#f6f1e7",
    "trim": "#2f3b2a",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "tree_line",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
   "condition": "worn",
-  "year_built": 1973,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 1268
+  "family": "Okafor",
+  "house_number": 1276
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2778"
+ "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0615"
 }

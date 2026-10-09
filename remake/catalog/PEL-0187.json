@@ -3,36 +3,36 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 19.2,
-  "d": 31.8
+  "w": 14.0,
+  "d": 38.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 53,
-  "main_d_ft": 29,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#4a3324",
-   "accent": "#6a2c22",
+   "body": "#e6d4bb",
+   "trim": "#2f3b2a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -41,23 +41,22 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Smith",
-  "house_number": 347
+  "family": "Stroud",
+  "house_number": 320
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-2050"
 }

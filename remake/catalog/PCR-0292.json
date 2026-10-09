@@ -3,31 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 41.7
+  "w": 17.3,
+  "d": 25.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Infirmary Shoes",
-    "type": "shoe_store",
-    "sign": "INFIRMARY SHOES",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1885,
-  "colors": {
-   "body": "#e8dcc0"
-  }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 5,
+  "components": [],
+  "walls": "block",
+  "year_built": 1921,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Ostrowski Machine Works",
+  "sign": "OSTROWSKI MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

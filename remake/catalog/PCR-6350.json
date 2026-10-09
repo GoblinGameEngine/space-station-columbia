@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.3,
-  "d": 31.6
+  "w": 26.0,
+  "d": 28.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 21,
   "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 30,
-   "material": "asphalt_shingle"
+   "pitch_deg": 50,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#e6eee3",
-   "trim": "#e8e0c8",
-   "accent": "#6a4a2a",
-   "roof": "#4e5155"
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1995,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 951
+  "house_number": 1818
  },
- "brief": "late band builder_contemporary: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-8209"
+ "brief": "late band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

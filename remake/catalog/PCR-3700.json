@@ -3,58 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.6,
-  "d": 20.2
+  "w": 20.0,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "main_w_ft": 29,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#5b6b5a",
    "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "carport",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Pike",
-  "house_number": 2146
+  "family": "Carrow",
+  "house_number": 2241
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1204"
 }

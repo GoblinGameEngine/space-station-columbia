@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.1,
-  "d": 34.9
+  "w": 18.4,
+  "d": 37.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 34,
+  "main_w_ft": 29,
+  "main_d_ft": 29,
   "roof": {
    "type": "hip",
-   "pitch_deg": 17,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
+   "body": "#f3eadb",
    "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -41,21 +41,20 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "hedge",
    "extras": []
   },
-  "condition": "new",
+  "condition": "kept",
   "year_built": 1940,
   "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Foxworth",
-  "house_number": 1215
+  "family": "Smith",
+  "house_number": 1217
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0577"
+ "brief": "interwar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0806"
 }

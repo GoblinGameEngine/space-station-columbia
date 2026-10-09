@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.7,
-  "d": 27.8
+  "w": 17.8,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "tudor_revival",
   "storeys": 1.5,
-  "main_w_ft": 27,
-  "main_d_ft": 40,
+  "main_w_ft": 34,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
+   "type": "cross_gable",
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "stucco",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "body": "#e6e1d5",
+   "trim": "#f2efe6",
+   "accent": "#1f2a33",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1907,
-  "band": "streetcar",
-  "form_token": "cape_cod"
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "tudor"
  },
- "region": "ne",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 395
+  "family": "Carrow",
+  "house_number": 1248
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0702"
+ "brief": "interwar band tudor: 1.5 storeys, stucco walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1038"
 }

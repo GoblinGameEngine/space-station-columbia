@@ -3,31 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.1,
-  "d": 30.0
+  "w": 17.7,
+  "d": 21.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 24,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
-   "material": "wood_shingle"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
+   "body": "#e8dcc0",
+   "trim": "#ffffff",
    "accent": "#1d1f22",
    "roof": "#2f3438"
   },
@@ -39,20 +39,23 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
   "year_built": 1996,
   "band": "late",
-  "form_token": "gable_front"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Garcia",
-  "house_number": 569
+  "family": "Merriweather",
+  "house_number": 1326
  },
- "brief": "late band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

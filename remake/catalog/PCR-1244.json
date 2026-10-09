@@ -3,59 +3,64 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.0,
-  "d": 22.2
+  "w": 12.6,
+  "d": 37.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 47,
-  "main_d_ft": 27,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
-   "material": "asphalt_shingle"
+   "type": "hip",
+   "pitch_deg": 32,
+   "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
+   "type": "wrap",
+   "posts": "turned",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "2over2",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 219
+  "family": "Ostrowski",
+  "house_number": 119
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0284"
+ "brief": "streetcar band foursquare: 2 storeys, cedar_shingle walls, wrap porch, garage none (generated from the Great Lakes tokens)."
 }

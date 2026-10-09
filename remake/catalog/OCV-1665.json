@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 35.9,
-  "d": 36.1
+  "w": 22.8,
+  "d": 30.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 40,
-  "main_d_ft": 23,
+  "main_w_ft": 33,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
+   "type": "hip",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,38 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1978,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "condition": "kept",
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Brandvold",
-  "house_number": 1695
+  "family": "Arrieta",
+  "house_number": 1730
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2726"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

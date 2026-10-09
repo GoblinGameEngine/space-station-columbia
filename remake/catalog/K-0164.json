@@ -6,27 +6,21 @@
   "w": 16.3,
   "d": 41.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Okafor Brewing",
-    "type": "brewpub",
-    "sign": "OKAFOR BREWING",
-    "sign_style": "projecting",
-    "awning": true
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1876,
-  "colors": {
-   "body": "#95543c"
-  }
+  "walls": "brick",
+  "year_built": 1893,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "name": "Drop Yard Machine Works",
+  "sign": "DROP YARD MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Kessler."
 }

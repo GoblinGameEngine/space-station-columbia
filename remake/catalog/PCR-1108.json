@@ -3,58 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.2,
-  "d": 29.8
+  "w": 12.4,
+  "d": 38.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 37,
+  "main_w_ft": 23,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 1041
+  "family": "Duquesne",
+  "house_number": 1017
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0837"
 }

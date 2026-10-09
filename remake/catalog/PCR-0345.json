@@ -3,31 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.9,
-  "d": 31.1
+  "w": 18.5,
+  "d": 40.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Ostrowski Insurance",
-    "type": "insurance_office",
-    "sign": "OSTROWSKI INSURANCE",
-    "sign_style": "projecting",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1886,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [],
+  "walls": "brick",
+  "year_built": 1895,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "DeCarlo Machine Works",
+  "sign": "DECARLO MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

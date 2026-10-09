@@ -3,32 +3,41 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.0,
-  "d": 21.4
+  "w": 19.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 38,
+  "main_w_ft": 24,
+  "main_d_ft": 42,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 50,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#5b6b5a",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
@@ -36,28 +45,28 @@
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "garden",
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1920,
-  "band": "streetcar",
+  "condition": "kept",
+  "year_built": 1934,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 1050
+  "family": "Achterberg",
+  "house_number": 478
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0278"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

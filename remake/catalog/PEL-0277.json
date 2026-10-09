@@ -3,61 +3,60 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 19.5,
-  "d": 35.0
+  "w": 13.9,
+  "d": 39.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 40,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 23,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 19,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
+   "body": "#e9dcc2",
    "trim": "#3b2a1e",
-   "accent": "#2f5e5a",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1925,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Loomis",
-  "house_number": 408
+  "family": "Tremblay",
+  "house_number": 255
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0252"
 }

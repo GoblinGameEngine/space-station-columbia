@@ -3,33 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 44.1,
-  "d": 39.4
+  "w": 17.1,
+  "d": 36.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 39,
+  "main_d_ft": 23,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 22,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
    "body": "#dcc7a6",
    "trim": "#3b2a1e",
-   "accent": "#2e3a4a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 19
+  "windows": {
+   "type": "1over1",
+   "shutters": false
   },
-  "year_built": 1898,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Bazzi",
+  "house_number": 820
  },
- "brief": "townhouse (townhouse) generated for Oceanview.",
- "model": "SOL-0287"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0464"
 }

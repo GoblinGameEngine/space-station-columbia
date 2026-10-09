@@ -6,30 +6,22 @@
   "w": 17.7,
   "d": 25.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
+  "use": "food_plant",
+  "form": "loft",
   "storeys": 3,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Southland Drug",
-    "type": "drug_store",
-    "sign": "SOUTHLAND DRUG",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "components": [
+   "tank"
   ],
-  "condition": "kept",
-  "year_built": 1891,
-  "colors": {
-   "body": "#e8d8c0"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1899,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "DeCarlo Foods",
+  "sign": "DECARLO FOODS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

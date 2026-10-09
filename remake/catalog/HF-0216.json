@@ -6,27 +6,21 @@
   "w": 16.5,
   "d": 25.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Furniture",
-    "type": "furniture",
-    "sign": "DEPOT FURNITURE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank"
   ],
-  "condition": "kept",
-  "year_built": 1909,
-  "colors": {
-   "body": "#b56942"
-  }
+  "walls": "block",
+  "year_built": 1891,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Tremblay Foods",
+  "sign": "TREMBLAY FOODS"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.0,
-  "d": 32.9
+  "w": 17.6,
+  "d": 32.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
+  "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 24,
-  "main_d_ft": 35,
+  "main_w_ft": 33,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,14 +19,14 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#f2f1ea",
    "trim": "#f7f6f0",
    "accent": "#24382a",
    "roof": "#4a4440"
@@ -36,29 +36,25 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed",
-    "swing_set"
-   ]
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1939,
   "band": "interwar",
-  "form_token": "nantucket_cape",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 579
+  "family": "Osei",
+  "house_number": 1071
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0471"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0576"
 }

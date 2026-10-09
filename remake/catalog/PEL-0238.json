@@ -3,23 +3,23 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 18.3,
-  "d": 33.5
+  "w": 24.7,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 40,
+  "main_w_ft": 51,
+  "main_d_ft": 26,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
+   "type": "gable",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -27,34 +27,34 @@
   "foundation": "slab",
   "colors": {
    "body": "#f2e8dc",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1950,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 446
+  "family": "Wainwright",
+  "house_number": 529
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

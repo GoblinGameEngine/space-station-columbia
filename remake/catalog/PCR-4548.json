@@ -3,58 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 30.6
+  "w": 36.2,
+  "d": 35.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 44,
-  "main_d_ft": 30,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 46,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#858976",
+   "trim": "#5a3a28",
+   "accent": "#4a5a48",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "tree_line",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1985,
+  "band": "suburban",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Holloway",
-  "house_number": 3330
+  "house_number": 2850
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "suburban band split_level: 1 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4924"
 }

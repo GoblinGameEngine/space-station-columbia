@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.7,
-  "d": 20.6
+  "w": 21.6,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 43,
+  "main_w_ft": 52,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,31 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
+  "condition": "worn",
+  "year_built": 1952,
+  "band": "postwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "DeCarlo",
-  "house_number": 1137
+  "house_number": 439
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0473"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

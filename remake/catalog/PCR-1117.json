@@ -3,30 +3,30 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.2,
-  "d": 38.9
+  "w": 19.0,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 40,
+  "main_w_ft": 53,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
+   "body": "#7d776d",
    "trim": "#ffffff",
    "accent": "#24382a",
    "roof": "#3a3836"
@@ -36,27 +36,28 @@
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1903,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 665
+  "family": "Achterberg",
+  "house_number": 229
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0665"
+ "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

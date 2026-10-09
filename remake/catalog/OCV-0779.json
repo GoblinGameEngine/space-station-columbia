@@ -3,23 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 24.5,
-  "d": 30.6
+  "w": 17.5,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 30,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 17,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
@@ -27,34 +27,36 @@
   "foundation": "slab",
   "colors": {
    "body": "#e4cfb2",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "casement",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "ranch"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 815
+  "family": "Osei",
+  "house_number": 574
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-4075"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

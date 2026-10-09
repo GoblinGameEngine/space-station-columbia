@@ -3,33 +3,26 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.8,
-  "d": 34.3
+  "w": 17.0,
+  "d": 29.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Leclerc Insurance",
-    "type": "insurance_office",
-    "sign": "LECLERC INSURANCE",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "rolling_mill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "monitor",
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1903,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1883,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Union Rolling Mill",
+  "sign": "UNION ROLLING MILL"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

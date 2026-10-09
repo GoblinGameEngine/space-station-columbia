@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Ring Line Insurance",
-    "type": "insurance_office",
-    "sign": "RING LINE INSURANCE",
-    "sign_style": "awning_lettering",
-    "awning": true
+    "business": "Union Cafe",
+    "type": "cafe",
+    "sign": "UNION CAFE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Union Clothiers",
+    "type": "clothing",
+    "sign": "UNION CLOTHIERS",
+    "sign_style": "flat_board",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1872,
+  "year_built": 1929,
   "colors": {
-   "body": "#a1614a"
+   "body": "#ceb38d"
   }
  },
- "names": {},
- "brief": "store (store) generated for Port Tamsin."
+ "names": {
+  "block_name": "Pike Block"
+ },
+ "brief": "store (office) generated for Port Tamsin."
 }

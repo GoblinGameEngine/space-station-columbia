@@ -3,66 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.2,
-  "d": 39.1
+  "w": 19.8,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 36,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 37,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "slate"
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1923,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 12
-  }
+  "condition": "kept",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Marlowe",
-  "house_number": 305
+  "family": "Pike",
+  "house_number": 1454
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0738"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

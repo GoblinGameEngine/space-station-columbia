@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.9,
-  "d": 29.7
+  "w": 16.1,
+  "d": 26.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 31,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,40 +23,36 @@
    "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#8f4c39",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "privacy",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "tree_line",
+   "extras": []
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 2003,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 3577
+  "family": "Arrieta",
+  "house_number": 2248
  },
- "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-6043"
+ "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3832"
 }

@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.5,
-  "d": 32.1
+  "w": 19.8,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 34,
+  "main_w_ft": 45,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 44,
    "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 1249
+  "family": "Leclerc",
+  "house_number": 413
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0988"
 }

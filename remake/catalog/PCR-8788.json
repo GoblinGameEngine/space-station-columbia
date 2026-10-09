@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.6,
+  "w": 24.7,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 29,
   "main_d_ft": 32,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 27,
+   "type": "gable",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9aa1b0",
-   "trim": "#e8e0c8",
-   "accent": "#4a5a48",
-   "roof": "#6a5e52"
+   "body": "#f6f5f0",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "shabby",
   "year_built": 2002,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Booker",
-  "house_number": 2043
+  "house_number": 2725
  },
- "brief": "late band neo_eclectic: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-7273"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

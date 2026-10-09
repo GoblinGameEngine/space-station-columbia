@@ -3,63 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 37.8
+  "w": 11.4,
+  "d": 40.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 27,
+  "main_w_ft": 24,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 44,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "turned",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "2over2",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "hedge",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
   "year_built": 1871,
   "band": "rail",
-  "form_token": "dutch_colonial",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 12
-  }
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 379
+  "family": "Raghunathan",
+  "house_number": 362
  },
- "brief": "rail band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0742"
 }

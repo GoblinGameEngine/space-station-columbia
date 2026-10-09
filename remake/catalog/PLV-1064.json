@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 21.8,
-  "d": 24.0
+  "w": 17.2,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 41,
-  "main_d_ft": 26,
+  "main_w_ft": 28,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
+   "type": "gable",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#5a3a28",
+   "body": "#ead9c8",
+   "trim": "#2f3b2a",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1959,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Mbeki",
-  "house_number": 236
+  "family": "Osei",
+  "house_number": 1169
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0320"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

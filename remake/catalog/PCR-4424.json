@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
-  "d": 30.8
+  "w": 22.4,
+  "d": 34.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 45,
-  "main_d_ft": 30,
+  "main_w_ft": 31,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -29,33 +29,32 @@
    "body": "#8a8378",
    "trim": "#f7f6f0",
    "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_right"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1954,
   "band": "postwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 3014
+  "family": "Pike",
+  "house_number": 3046
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

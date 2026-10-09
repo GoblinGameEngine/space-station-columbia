@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.4,
-  "d": 30.5
+  "w": 34.9,
+  "d": 39.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
   "main_w_ft": 34,
   "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 49,
+   "type": "gambrel",
+   "pitch_deg": 23,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,40 +23,39 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "body": "#a3aa9d",
+   "trim": "#2e3a4a",
+   "accent": "#2b4f6b",
+   "roof": "#5a5a58"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "tree_line",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "worn",
+  "year_built": 1967,
+  "band": "suburban",
+  "form_token": "dutch_colonial"
  },
- "region": "ne",
  "names": {
-  "family": "Marlowe",
-  "house_number": 150
+  "family": "Solano",
+  "house_number": 2527
  },
- "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "suburban band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5257"
 }

@@ -3,19 +3,19 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.0,
-  "d": 21.6
+  "w": 22.8,
+  "d": 36.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
   "main_w_ft": 33,
-  "main_d_ft": 24,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
-   "material": "clay_tile_old"
+   "type": "hip",
+   "pitch_deg": 22,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -26,9 +26,9 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#f2e8dc",
+   "trim": "#4a3324",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
@@ -41,20 +41,23 @@
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1986,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 248
+  "family": "Haskins",
+  "house_number": 1103
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4167"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0464"
 }

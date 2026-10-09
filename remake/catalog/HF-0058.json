@@ -8,25 +8,57 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
+  "form": "office_block",
+  "storeys": 10,
+  "facade": "stone",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Osei Variety",
-    "type": "variety_store",
-    "sign": "OSEI VARIETY",
+    "business": "Solano & Stroud Cafe",
+    "type": "cafe",
+    "sign": "SOLANO & STROUD CAFE",
     "sign_style": "flat_board",
-    "awning": true
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1900,
+  "year_built": 1951,
   "colors": {
-   "body": "#ab694f"
+   "body": "#b17344"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Haskins Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

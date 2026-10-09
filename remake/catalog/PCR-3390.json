@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 37.9
+  "w": 10.3,
+  "d": 20.3
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 28,
+  "main_w_ft": 24,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -36,7 +36,7 @@
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
@@ -50,13 +50,14 @@
   "condition": "new",
   "year_built": 1925,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 2037
+  "house_number": 2150
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0735"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0452"
 }

@@ -3,58 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.4,
-  "d": 20.7
+  "w": 24.0,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
   "main_w_ft": 35,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 25,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
+   "type": "front_partial",
+   "posts": "square",
    "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#bf5a4d",
+   "trim": "#e9e2d2",
+   "accent": "#4a5a48",
+   "roof": "#555350"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "rear"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "new",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "condition": "kept",
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
- "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 746
+  "family": "Szabo",
+  "house_number": 1330
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0375"
+ "brief": "postwar band minimal_traditional: 1 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-2134"
 }

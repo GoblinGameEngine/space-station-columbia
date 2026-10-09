@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.9,
-  "d": 33.5
+  "w": 22.6,
+  "d": 31.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "split_level",
+  "storeys": 1,
   "main_w_ft": 45,
   "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,16 +24,16 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
+   "body": "#ebe9de",
+   "trim": "#5a3a28",
+   "accent": "#2b4f6b",
+   "roof": "#4e5155"
   },
   "windows": {
    "type": "sliding",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
@@ -50,13 +50,12 @@
   "condition": "worn",
   "year_built": 1957,
   "band": "postwar",
-  "form_token": "i_house"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Villalobos",
-  "house_number": 2027
+  "house_number": 1716
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "postwar band split_level: 1 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-2316"
 }

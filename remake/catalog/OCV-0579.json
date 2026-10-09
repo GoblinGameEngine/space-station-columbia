@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.0,
-  "d": 32.0
+  "w": 14.2,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "main_w_ft": 21,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
+   "type": "gable",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#5a3a28",
+   "body": "#e4cfb2",
+   "trim": "#2e2a26",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
@@ -40,24 +40,29 @@
   ],
   "garage": "none",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden",
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 9
+  },
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Carrow",
-  "house_number": 555
+  "family": "Dunmore",
+  "house_number": 389
  },
- "brief": "interwar band minimal_traditional: 2 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-1414"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

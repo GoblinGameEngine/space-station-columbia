@@ -3,19 +3,27 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 12.0,
-  "d": 10.0
+  "w": 18.0,
+  "d": 14.0
  },
- "kind": "kiosk",
+ "kind": "restaurant",
  "traits": {
   "year_built": 1919,
-  "over_water": false,
-  "type": "restrooms",
-  "use": "restrooms"
+  "over_water": true,
+  "storeys": 1,
+  "storefronts": [
+   {
+    "business": "Wisniewski Restaurant",
+    "type": "restaurant",
+    "sign": "WISNIEWSKI RESTAURANT",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ]
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "name": "End of the Pier Diner"
  },
- "brief": "kiosk (comfort_station) generated for Playa Verde."
+ "brief": "restaurant (restaurant) generated for Playa Verde."
 }

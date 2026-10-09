@@ -8,26 +8,49 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "clapboard",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "bracketed_wood",
   "storefronts": [
    {
-    "business": "Haddad Jewelers",
-    "type": "jeweler",
-    "sign": "HADDAD JEWELERS",
-    "sign_style": "projecting",
+    "business": "Raghunathan Cafe",
+    "type": "cafe",
+    "sign": "RAGHUNATHAN CAFE",
+    "sign_style": "awning_lettering",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1884,
+  "condition": "kept",
+  "year_built": 1931,
   "colors": {
-   "body": "#7a4232"
+   "body": "#f2f1ea"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Arrieta Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

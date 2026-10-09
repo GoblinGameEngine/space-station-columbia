@@ -3,60 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.9,
-  "d": 35.2
+  "w": 29.2,
+  "d": 36.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 28,
+  "main_w_ft": 44,
+  "main_d_ft": 26,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "hip",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
+   "body": "#f0e2cf",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "tree_line",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1937,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "condition": "new",
+  "year_built": 1981,
+  "band": "suburban",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Moriarty",
-  "house_number": 256
+  "family": "Brandvold",
+  "house_number": 985
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0447"
+ "brief": "suburban band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2729"
 }

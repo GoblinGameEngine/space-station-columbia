@@ -3,56 +3,25 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.6,
-  "d": 28.4
+  "w": 17.9,
+  "d": 39.1
  },
- "kind": "house",
+ "kind": "industrial",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 34,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 23,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2e2a26",
-   "accent": "#6a2c22",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
-  },
-  "condition": "kept",
-  "year_built": 1872,
-  "band": "rail",
-  "form_token": "spanish_revival"
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
+  ],
+  "walls": "brick",
+  "year_built": 1886,
+  "condition": "kept"
  },
  "region": "ca",
  "names": {
-  "family": "Haddad",
-  "house_number": 300
+  "name": "Union Machine Works",
+  "sign": "UNION MACHINE WORKS"
  },
- "brief": "rail band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "industrial (industry) generated for Oceanview."
 }

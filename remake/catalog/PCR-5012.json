@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.4,
-  "d": 26.0
+  "w": 17.2,
+  "d": 31.4
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 32,
+  "main_w_ft": 41,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 50,
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -36,25 +36,29 @@
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1947,
   "band": "postwar",
-  "form_token": "shingle_style"
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Reyes",
-  "house_number": 2800
+  "house_number": 505
  },
  "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0534"
+ "model": "PCR-0971"
 }

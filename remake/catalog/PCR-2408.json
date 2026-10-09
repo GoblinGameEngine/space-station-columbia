@@ -3,32 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.8,
-  "d": 35.7
+  "w": 12.3,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 45,
-  "main_d_ft": 28,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 20,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "front_full",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#6f6a62",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "accent": "#24382a",
    "roof": "#3a3836"
   },
   "windows": {
@@ -38,26 +38,28 @@
   "chimneys": [
    "center"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "fence": "hedge",
+   "side": "none",
+   "rear": "none",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "nantucket_cape"
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 12
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Tomczak",
-  "house_number": 815
+  "family": "Dunmore",
+  "house_number": 415
  },
- "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0374"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0465"
 }

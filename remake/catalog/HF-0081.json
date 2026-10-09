@@ -8,25 +8,48 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "works_office"
+   }
+  ],
   "cornice": "parapet_flat",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Main Street Furniture",
-    "type": "furniture",
-    "sign": "MAIN STREET FURNITURE",
-    "sign_style": "projecting",
-    "awning": true
+    "business": "Holloway Drug",
+    "type": "drug_store",
+    "sign": "HOLLOWAY DRUG",
+    "sign_style": "flat_board",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1885,
+  "year_built": 1967,
   "colors": {
-   "body": "#92443f"
+   "body": "#a66745"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Dunmore Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

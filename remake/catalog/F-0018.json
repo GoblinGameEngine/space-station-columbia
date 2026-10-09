@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "brick",
-  "cornice": "corbelled_brick",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Main Street Realty",
-    "type": "real_estate",
-    "sign": "MAIN STREET REALTY",
-    "sign_style": "projecting",
-    "awning": true
+    "type": "wire_studio"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "board_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1917,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Tomczak Savings Bank",
+    "type": "bank",
+    "sign": "TOMCZAK SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1956,
   "colors": {
-   "body": "#8e4634"
+   "body": "#b27145"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Desai Building"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

@@ -6,30 +6,22 @@
   "w": 16.1,
   "d": 43.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Wainwright & Reyes Bakery",
-    "type": "bakery",
-    "sign": "WAINWRIGHT & REYES BAKERY",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "glass_works",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1912,
-  "colors": {
-   "body": "#efd9c4"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1904,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Stroud Glass Works",
+  "sign": "STROUD GLASS WORKS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

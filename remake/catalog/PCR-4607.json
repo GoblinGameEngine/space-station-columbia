@@ -3,30 +3,39 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.5,
-  "d": 37.1
+  "w": 23.2,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 24,
+  "main_w_ft": 29,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "slate"
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#d9dcd8",
    "trim": "#f4f3ec",
    "accent": "#1d1f22",
    "roof": "#4a4440"
@@ -38,23 +47,25 @@
   "chimneys": [
    "rear"
   ],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1966,
-  "band": "suburban",
-  "form_token": "shingle_style"
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 2502
+  "family": "Leclerc",
+  "house_number": 3601
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3003"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

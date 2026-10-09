@@ -3,60 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.2,
-  "d": 37.1
+  "w": 15.3,
+  "d": 33.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 33,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 37,
+  "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "turned",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#9a9184",
    "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1905,
-  "band": "streetcar",
-  "form_token": "shingle_style",
-  "units": 2
+  "year_built": 1878,
+  "band": "rail",
+  "form_token": "nantucket_cape",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 11
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 837
+  "family": "Dunmore",
+  "house_number": 481
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "rail band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens)."
 }

@@ -3,34 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 42.9,
-  "d": 37.7
+  "w": 21.1,
+  "d": 31.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "court",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "stucco",
-  "colors": {
-   "body": "#e9d6c8",
-   "trim": "#2f3b2a",
-   "roof": "#a8492f"
-  },
-  "year_built": 1997,
-  "condition": "kept",
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "material": "clay_tile",
-   "pitch_deg": 19
-  }
+   "pitch_deg": 22,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#e9d6c8",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Pham",
+  "house_number": 840
  },
- "brief": "condo (apartment) generated for Oceanview.",
- "model": "SOL-0955"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

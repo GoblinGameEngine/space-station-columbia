@@ -3,58 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 20.0,
-  "d": 20.9
+  "w": 10.5,
+  "d": 29.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 37,
-  "main_d_ft": 23,
+  "main_w_ft": 23,
+  "main_d_ft": 38,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "body": "#e8d8c0",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Holloway",
-  "house_number": 526
+  "family": "Okonkwo",
+  "house_number": 619
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0384"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0569"
 }

@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 21.6,
-  "d": 20.0
+  "w": 10.0,
+  "d": 21.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 37,
-  "main_d_ft": 27,
+  "main_w_ft": 21,
+  "main_d_ft": 37,
   "roof": {
    "type": "hip",
-   "pitch_deg": 21,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
    "body": "#e9d6c8",
@@ -32,29 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "condition": "new",
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 485
+  "family": "Castellanos",
+  "house_number": 242
  },
- "brief": "postwar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0997"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0512"
 }

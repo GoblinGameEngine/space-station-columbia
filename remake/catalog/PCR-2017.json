@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.7,
-  "d": 36.9
+  "w": 16.3,
+  "d": 23.5
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 28,
+  "main_w_ft": 40,
+  "main_d_ft": 24,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "slate"
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
+   "body": "#8a2e24",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": []
   },
-  "condition": "worn",
-  "year_built": 1927,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 1429
+  "family": "Pike",
+  "house_number": 934
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0300"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0364"
 }

@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 21.9
+  "w": 34.3,
+  "d": 21.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 27,
+  "main_w_ft": 34,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "recessed",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#d9dcd8",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "tree_line",
    "extras": [
     "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "new",
   "year_built": 1969,
   "band": "suburban",
-  "form_token": "shingle_style",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 184
+  "family": "DeCarlo",
+  "house_number": 743
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0510"
+ "brief": "suburban band gable_front: 2 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5306"
 }

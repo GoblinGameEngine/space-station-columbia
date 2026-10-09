@@ -3,59 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.0,
-  "d": 22.5
+  "w": 21.3,
+  "d": 31.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 31,
+  "main_w_ft": 32,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 39,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "iron",
-   "rail": "none"
+   "posts": "square",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#f6f5f0",
    "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
   "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
   "year_built": 1949,
   "band": "postwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Tomczak",
-  "house_number": 1954
+  "family": "Castellanos",
+  "house_number": 1634
  },
- "brief": "postwar band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-1508"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

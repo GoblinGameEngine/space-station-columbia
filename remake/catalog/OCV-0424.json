@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.5,
-  "d": 36.0
+  "w": 16.2,
+  "d": 30.4
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 40,
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 19,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,40 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
    "body": "#f6f1e7",
-   "trim": "#4a3324",
+   "trim": "#5a3a28",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "new",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "condition": "kept",
+  "year_built": 1919,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2,
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Carrow",
-  "house_number": 186
+  "family": "Mbeki",
+  "house_number": 603
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0761"
 }

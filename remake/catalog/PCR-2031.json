@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.9,
-  "d": 23.8
+  "w": 10.5,
+  "d": 32.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 25,
   "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -27,37 +27,37 @@
   "foundation": "cut_stone",
   "colors": {
    "body": "#e8dcc0",
-   "trim": "#f7f6f0",
+   "trim": "#f4f3ec",
    "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1911,
-  "band": "streetcar",
-  "form_token": "i_house",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "cape_cod",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 1370
+  "family": "Dunmore",
+  "house_number": 847
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0452"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0695"
 }

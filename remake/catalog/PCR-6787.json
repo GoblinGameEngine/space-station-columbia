@@ -3,31 +3,56 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 44.6,
-  "d": 34.8
+  "w": 23.5,
+  "d": 32.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#f4f1e8",
-   "accent": "#2b4f6b",
-   "roof": "#4e5155"
-  },
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 24,
   "roof": {
-   "pitch_deg": 32
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "wood_shingle"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f6f5f0",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1994,
+  "band": "late",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Arrieta",
+  "house_number": 3808
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "late band foursquare: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 34.5
+  "w": 19.3,
+  "d": 29.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 32,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 48,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "wood_shingle"
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "posts": "iron",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#6f6a62",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
+   "accent": "#3a2a24",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "garden",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1964,
   "band": "postwar",
-  "form_token": "gable_front"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 984
+  "family": "Patel",
+  "house_number": 1873
  },
- "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

@@ -3,33 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 35.3
+  "w": 14.2,
+  "d": 29.8
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Arrieta Bakery",
-    "type": "bakery",
-    "sign": "ARRIETA BAKERY",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1878,
-  "colors": {
-   "body": "#e4cfb2"
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "clay_tile"
   },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f4f0e6",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "ranch"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "family": "Ostrowski",
+  "house_number": 342
+ },
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0331"
 }

@@ -3,63 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 23.0,
-  "d": 20.6
+  "w": 17.1,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 45,
-  "main_d_ft": 32,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 44,
   "roof": {
    "type": "gable",
-   "pitch_deg": 21,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#2e2a26",
-   "accent": "#2f5e5a",
+   "body": "#e4cfb2",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
     "garden",
-    "shed",
-    "clothesline"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1964,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 807
+  "family": "Marlowe",
+  "house_number": 1167
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0930"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

@@ -8,28 +8,54 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "mission_parapet",
   "storefronts": [
    {
-    "business": "Merriweather Realty",
-    "type": "real_estate",
-    "sign": "MERRIWEATHER REALTY",
+    "business": "Tomczak & Dunmore Law Office",
+    "type": "law_office",
+    "sign": "TOMCZAK & DUNMORE LAW OFFICE",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1918,
+  "year_built": 1966,
   "colors": {
-   "body": "#e4cfb2"
+   "body": "#efe6d2"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Reyes Block"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

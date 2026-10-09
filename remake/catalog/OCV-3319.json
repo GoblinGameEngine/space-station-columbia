@@ -3,25 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 70.0,
-  "d": 40.0
+  "w": 25.1,
+  "d": 29.9
  },
- "kind": "civic",
+ "kind": "house",
  "traits": {
-  "use": "opera_house",
-  "storeys": 2,
-  "style": "mission_revival",
-  "walls": "stucco",
-  "roof_material": "clay_tile",
-  "colors": {
-   "body": "#f0e2cf"
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 18,
+   "material": "clay_tile"
   },
-  "year_built": 1907,
-  "landmark": "casino"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1992,
+  "band": "late",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "name": "The Casino"
+  "family": "Yoder",
+  "house_number": 830
  },
- "brief": "civic (landmark) generated for Oceanview."
+ "brief": "late band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2306"
 }

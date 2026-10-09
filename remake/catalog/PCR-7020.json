@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.0,
-  "d": 32.6
+  "w": 22.4,
+  "d": 31.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 33,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 34,
   "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 36,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#b2b9c2",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -50,13 +50,12 @@
   "condition": "shabby",
   "year_built": 1994,
   "band": "late",
-  "form_token": "i_house"
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
   "family": "Holloway",
-  "house_number": 2228
+  "house_number": 942
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2280"
 }

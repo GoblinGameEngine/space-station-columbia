@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.6,
-  "d": 30.8
+  "w": 11.8,
+  "d": 36.6
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 25,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 47,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,30 +32,32 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
+  "year_built": 1942,
+  "band": "interwar",
   "form_token": "gable_front",
   "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Booker",
-  "house_number": 2379
+  "house_number": 282
  },
- "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

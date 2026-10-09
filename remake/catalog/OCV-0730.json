@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.6,
-  "d": 39.7
+  "w": 18.5,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 44,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 20,
+   "type": "gable",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#2e2a26",
-   "accent": "#6a2c22",
+   "body": "#dcc7a6",
+   "trim": "#3b2a1e",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
-   "shutters": false
+   "type": "casement",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1912,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Merriweather",
-  "house_number": 389
+  "family": "Kowal",
+  "house_number": 711
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "interwar band minimal_traditional: 1 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2595"
 }

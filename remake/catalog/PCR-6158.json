@@ -3,26 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 55.0,
-  "d": 29.2
+  "w": 24.3,
+  "d": 20.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#93aaa3"
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 40,
+  "main_d_ft": 22,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1977,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1992,
+  "band": "late",
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
-  "name": ""
+  "family": "Desai",
+  "house_number": 1963
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "HF-0062"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

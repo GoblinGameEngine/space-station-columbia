@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 34.2
+  "w": 19.7,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 37,
-  "main_d_ft": 33,
+  "main_w_ft": 55,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "front_partial",
    "posts": "columns",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#5b6b5a",
    "trim": "#f7f6f0",
-   "accent": "#24382a",
+   "accent": "#7a1f1a",
    "roof": "#2e2e30"
   },
   "windows": {
    "type": "6over6",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "right_end"
@@ -41,23 +41,23 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
   "year_built": 1940,
   "band": "interwar",
-  "form_token": "cape_cod"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 472
+  "family": "Pham",
+  "house_number": 330
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0530"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

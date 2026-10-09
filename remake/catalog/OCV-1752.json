@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 21.2,
-  "d": 32.1
+  "w": 32.3,
+  "d": 39.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 32,
+  "main_w_ft": 51,
+  "main_d_ft": 30,
   "roof": {
    "type": "hip",
    "pitch_deg": 22,
@@ -32,29 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "tree_line",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1969,
+  "band": "suburban",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Moriarty",
-  "house_number": 2157
+  "family": "Achterberg",
+  "house_number": 1855
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3312"
 }

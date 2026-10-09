@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.1,
-  "d": 39.9
+  "w": 19.3,
+  "d": 33.6
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 33,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "spindle"
   },
   "walls": "clapboard",
@@ -32,39 +32,32 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "garden",
-    "shed",
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1911,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 16,
-   "d_ft": 9
-  }
+  "condition": "worn",
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Moriarty",
-  "house_number": 1367
+  "house_number": 719
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0574"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

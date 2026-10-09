@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 34.5,
-  "d": 37.1
+  "w": 22.9,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 21,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 30,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f7f6f0",
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
    "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1967,
-  "band": "suburban",
-  "form_token": "i_house"
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Arrieta",
-  "house_number": 559
+  "family": "DeCarlo",
+  "house_number": 252
  },
- "brief": "suburban band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3436"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

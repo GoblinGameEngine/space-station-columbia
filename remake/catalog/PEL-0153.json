@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 11.2,
-  "d": 38.0
+  "w": 17.3,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 36,
+  "main_w_ft": 31,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,34 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1906,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1927,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
   "family": "Desai",
-  "house_number": 259
+  "house_number": 434
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0435"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.2,
-  "d": 26.9
+  "w": 13.8,
+  "d": 39.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 36,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "center"
@@ -44,22 +44,18 @@
    "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1883,
-  "band": "rail",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 952
+  "family": "Haddad",
+  "house_number": 405
  },
- "brief": "rail band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0452"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 22.4,
-  "d": 31.2
+  "w": 19.8,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 26,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -19,44 +19,43 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#5a3a28",
-   "accent": "#6a2c22",
+   "body": "#e4cfb2",
+   "trim": "#3b2a1e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "carport",
+  "chimneys": [],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "garden",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
+  "condition": "shabby",
+  "year_built": 1926,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 343
+  "family": "Okonkwo",
+  "house_number": 168
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
  "model": "SOL-0504"
 }

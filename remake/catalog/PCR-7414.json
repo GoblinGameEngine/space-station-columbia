@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.8,
-  "d": 29.8
+  "w": 18.5,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 36,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 27,
-   "material": "asphalt_shingle"
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c1c2b3",
-   "trim": "#3a3f44",
-   "accent": "#2b4f6b",
-   "roof": "#5a4a40"
+   "body": "#f2f1ea",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,14 @@
   "condition": "kept",
   "year_built": 2001,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "cape_cod",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Dunmore",
-  "house_number": 1613
+  "house_number": 3149
  },
- "brief": "late band builder_contemporary: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6539"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

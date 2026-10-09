@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.6,
-  "d": 25.9
+  "w": 19.2,
+  "d": 28.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 48,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 24,
   "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 34,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#e8e6d7",
-   "trim": "#e9e2d2",
-   "accent": "#2e3a4a",
-   "roof": "#555350"
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,14 @@
   "condition": "kept",
   "year_built": 2009,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "gable_front",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 258
+  "house_number": 2469
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5217"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

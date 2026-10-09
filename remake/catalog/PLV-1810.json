@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 34.1,
-  "d": 23.0
+  "w": 21.0,
+  "d": 31.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 36,
-  "main_d_ft": 22,
+  "main_w_ft": 29,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
+   "type": "gable",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,36 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
+   "body": "#f4f0e6",
    "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1973,
-  "band": "suburban",
-  "form_token": "ranch"
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Delmar",
-  "house_number": 1172
+  "family": "Reyes",
+  "house_number": 395
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3943"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

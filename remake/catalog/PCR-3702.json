@@ -3,31 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 43.4,
-  "d": 23.5
+  "w": 16.2,
+  "d": 36.2
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#ffffff",
-   "accent": "#3a2a1e",
-   "roof": "#6a5e52"
-  },
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 29,
+  "main_d_ft": 28,
   "roof": {
-   "pitch_deg": 27
+   "type": "gambrel",
+   "pitch_deg": 47,
+   "material": "slate"
   },
-  "year_built": 1927,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Merriweather",
+  "house_number": 2276
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0385"
 }

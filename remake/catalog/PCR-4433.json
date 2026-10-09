@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.9,
-  "d": 39.0
+  "w": 16.8,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 43,
-  "main_d_ft": 31,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#7d776d",
    "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1976,
-  "band": "suburban",
-  "form_token": "nantucket_cape"
+  "condition": "worn",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Dunmore",
-  "house_number": 2122
+  "family": "DeCarlo",
+  "house_number": 3116
  },
- "brief": "suburban band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3900"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

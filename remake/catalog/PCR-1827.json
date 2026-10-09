@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 32.3
+  "w": 19.9,
+  "d": 37.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 48,
-  "main_d_ft": 25,
+  "main_w_ft": 22,
+  "main_d_ft": 37,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 31,
+   "type": "gable",
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,39 +26,37 @@
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#9a9184",
    "trim": "#ffffff",
-   "accent": "#3a2a24",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "hedge",
    "extras": [
-    "garden",
-    "swing_set"
+    "garden"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1929,
+  "condition": "kept",
+  "year_built": 1924,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 1169
+  "family": "Brannock",
+  "house_number": 1349
  },
- "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0735"
 }

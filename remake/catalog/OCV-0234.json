@@ -3,60 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.6,
-  "d": 33.1
+  "w": 16.6,
+  "d": 35.1
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 38,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#e9dcc2",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "exterior_left"
+  "storeys": 3,
+  "facade": "stucco",
+  "cornice": "tile_roof",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Main Street Hardware",
+    "type": "hardware",
+    "sign": "MAIN STREET HARDWARE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "swing_set"
-   ]
+  "condition": "worn",
+  "year_built": 1918,
+  "colors": {
+   "body": "#f0e2cf"
   },
-  "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "arcade": true,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Carrow",
-  "house_number": 175
- },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0331"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

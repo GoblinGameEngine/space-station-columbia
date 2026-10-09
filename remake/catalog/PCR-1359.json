@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.3,
-  "d": 29.0
+  "w": 12.3,
+  "d": 38.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 34,
-  "main_d_ft": 29,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#f1ead2",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "hedge",
    "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline"
-   ]
+   "rear": "none",
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1899,
   "band": "streetcar",
-  "form_token": "cape_cod"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Patel",
-  "house_number": 825
+  "family": "Pruett",
+  "house_number": 371
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0505"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0835"
 }

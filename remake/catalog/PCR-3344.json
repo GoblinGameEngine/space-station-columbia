@@ -3,61 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
+  "w": 42.6,
   "d": 22.4
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 38,
-  "main_d_ft": 20,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
-   "material": "slate"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "units": 6,
+  "unit_w_ft": 20,
+  "depth_ft": 38,
+  "walls": "clapboard",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#d9dcd8",
    "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "accent": "#6a4a2a",
+   "roof": "#4e5155"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
+  "roof": {
+   "pitch_deg": 30
   },
-  "chimneys": [
-   "right_end"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "nantucket_cape"
+  "year_built": 1959,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 2155
+  "name": ""
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0605"
+ "brief": "townhouse (townhouse) generated for Port Carrow.",
+ "model": "PCR-0398"
 }

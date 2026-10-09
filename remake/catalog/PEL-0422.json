@@ -3,57 +3,60 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 10.9,
-  "d": 35.0
+  "w": 17.7,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 25,
+  "main_w_ft": 28,
   "main_d_ft": 39,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
-   "material": "clay_tile"
+   "pitch_deg": 22,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#e9d6c8",
+   "trim": "#4a3324",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "6over6",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1941,
+  "year_built": 1932,
   "band": "interwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 710
+  "family": "Garcia",
+  "house_number": 210
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0527"
+ "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1170"
 }

@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.3,
-  "d": 30.0
+  "w": 16.8,
+  "d": 28.8
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "foursquare",
   "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Achterberg & Pham Tax Service",
-    "type": "tax_office",
-    "sign": "ACHTERBERG & PHAM TAX SERVICE",
-    "sign_style": "projecting",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1917,
+  "main_w_ft": 26,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8"
-  }
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1881,
+  "band": "rail",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Loomis",
+  "house_number": 867
+ },
+ "brief": "rail band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

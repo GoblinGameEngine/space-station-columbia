@@ -3,25 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.0,
-  "d": 20.0
+  "w": 24.2,
+  "d": 34.5
  },
  "kind": "house",
  "traits": {
   "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 38,
+  "main_w_ft": 31,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,9 +36,9 @@
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -46,16 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1937,
-  "band": "interwar",
-  "form_token": "nantucket_cape",
-  "units": 2
+  "year_built": 1962,
+  "band": "postwar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Carrow",
-  "house_number": 2158
+  "family": "Achterberg",
+  "house_number": 2005
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0599"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.7,
-  "d": 32.7
+  "w": 24.3,
+  "d": 31.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
   "main_w_ft": 37,
   "main_d_ft": 24,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 28,
+   "type": "gambrel",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,16 +24,16 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#eeeae8",
-   "trim": "#f2efe6",
-   "accent": "#7a2e28",
-   "roof": "#4e5155"
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 1783
+  "house_number": 3425
  },
- "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

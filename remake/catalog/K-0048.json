@@ -8,25 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "cast_iron_front",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 10,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Main Street Market",
-    "type": "grocery",
-    "sign": "MAIN STREET MARKET",
-    "sign_style": "flat_board",
+    "business": "Nguyen Law Office",
+    "type": "law_office",
+    "sign": "NGUYEN LAW OFFICE",
+    "sign_style": "projecting",
+    "awning": true
+   },
+   {
+    "business": "Union Drug",
+    "type": "drug_store",
+    "sign": "UNION DRUG",
+    "sign_style": "awning_lettering",
     "awning": true
    }
   ],
-  "condition": "shabby",
-  "year_built": 1888,
+  "condition": "kept",
+  "year_built": 1899,
   "colors": {
-   "body": "#d3b88d"
+   "body": "#ad8a62"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Moriarty Block"
+ },
+ "brief": "store (office) generated for Kessler."
 }

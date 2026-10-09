@@ -3,69 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.0,
-  "d": 32.4
+  "w": 19.9,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
+  "main_w_ft": 28,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
+   "pitch_deg": 50,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
+   "body": "#e6e2d8",
+   "trim": "#ffffff",
    "accent": "#7a1f1a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1961,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "condition": "kept",
+  "year_built": 1936,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Smith",
-  "house_number": 1622
+  "family": "Holloway",
+  "house_number": 2389
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

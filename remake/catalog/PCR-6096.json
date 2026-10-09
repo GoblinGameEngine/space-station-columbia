@@ -3,30 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.9,
-  "d": 22.3
+  "w": 16.1,
+  "d": 33.2
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#c5b68b",
-   "trim": "#3a3f44",
-   "accent": "#2b4f6b",
-   "roof": "#5a4a40"
-  },
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 21,
+  "main_d_ft": 30,
   "roof": {
-   "pitch_deg": 30
+   "type": "hip",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2006,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#e3ebe5",
+   "trim": "#5a3a28",
+   "accent": "#6a4a2a",
+   "roof": "#4a4a48"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1997,
+  "band": "late",
+  "form_token": "ranch",
+  "units": 2
  },
  "names": {
-  "name": ""
+  "family": "Bazzi",
+  "house_number": 737
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "SOL-4941"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4618"
 }

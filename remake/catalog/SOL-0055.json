@@ -8,28 +8,51 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Yoder Shoes",
-    "type": "shoe_store",
-    "sign": "YODER SHOES",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "college_extension"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "dentist"
    }
   ],
-  "condition": "kept",
-  "year_built": 1921,
+  "cornice": "tile_roof",
+  "storefronts": [
+   {
+    "business": "Achterberg & Holloway Cafe",
+    "type": "cafe",
+    "sign": "ACHTERBERG & HOLLOWAY CAFE",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1929,
   "colors": {
-   "body": "#e9dcc2"
+   "body": "#ead9c8"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

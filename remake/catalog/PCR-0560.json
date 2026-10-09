@@ -3,31 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.4,
-  "d": 31.2
+  "w": 16.8,
+  "d": 32.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Raghunathan Shoe Repair",
-    "type": "shoe_repair",
-    "sign": "RAGHUNATHAN SHOE REPAIR",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "rolling_mill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1892,
-  "colors": {
-   "body": "#9c5a42"
-  }
+  "walls": "brick",
+  "year_built": 1897,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Yoder Rolling Mill",
+  "sign": "YODER ROLLING MILL"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

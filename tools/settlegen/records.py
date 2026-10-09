@@ -297,6 +297,33 @@ TENANT_TYPE = {"supermarket": "grocery", "drugstore": "pharmacy", "hardware_stor
                "auto_parts": "auto_parts", "farm_store": "feed_seed", "gas_station": "gas_station", "gas_convenience": "gas_station"}
 
 
+# research/jobs: what the office floors are let to (the clerks, bankers, lawyers and editors a town has), and the trades
+# an industrial park's buildings take by their type (bible/12_industry)
+OFFICE_MIX = {"registry_office": 1.2, "accounting_office": 2.0, "engineering_office": 1.4, "insurance_agency": 1.6, "law_office": 1.4,
+              "works_office": 1.2, "courier_office": 0.4, "dispatch_office": 0.6, "architect_office": 0.6, "board_office": 0.5,
+              "wire_studio": 0.3, "doctor_office": 0.8, "dentist": 0.5, "college_extension": 0.3}
+IND_TRADES = {
+    "manufacturing": {"machine_shop": 3, "remelting_works": 1.2, "foundry": 1.5, "tube_works": 1, "motor_works": 1.5, "cell_works": 1.2,
+                      "tyre_works": 0.8, "glass_works": 0.6, "coachworks": 1.5, "paint_works": 0.6, "textile_mill": 0.8, "sawmill": 0.8,
+                      "food_plant": 1.5, "printing_plant": 0.6, "rolling_mill": 0.6},
+    "flex": {"electronics_works": 3, "gauge_works": 2, "machine_shop": 1, "printing_plant": 1},
+    "warehouse": {"distribution_centre": 3, "warehouse": 2, "food_plant": 0.5},
+    "bulk_distribution": {"distribution_centre": 1},
+    "truck_terminal": {"truck_terminal": 3, "transit_depot": 1},
+    "contractor_yard": {"construction_yard": 3, "scrap_yard": 1},
+    "self_storage": {"warehouse": 1},
+}
+TRADE.update({"registry_office": "Registry", "accounting_office": "Accountants", "engineering_office": "Engineering",
+              "insurance_agency": "Mutual", "works_office": "Works Office", "courier_office": "Courier", "dispatch_office": "Dispatch",
+              "architect_office": "Architects", "board_office": "Board Office", "wire_studio": "Wire", "college_extension": "College Extension",
+              "remelting_works": "Remelting Co.", "rolling_mill": "Rolling Mill", "tube_works": "Tube Works", "foundry": "Foundry",
+              "machine_shop": "Machine Works", "motor_works": "Motor Winding", "cell_works": "Cell Works", "tyre_works": "Tyre & Rubber",
+              "glass_works": "Glass Works", "gauge_works": "Gauge Co.", "electronics_works": "Electric Co.", "coachworks": "Coachworks",
+              "paint_works": "Paint & Enamel", "textile_mill": "Mills", "sawmill": "Lumber & Joinery", "food_plant": "Foods",
+              "printing_plant": "Press", "scrap_yard": "Scrap & Metal", "distribution_centre": "Distribution", "truck_terminal": "Haulage",
+              "transit_depot": "Transit Depot", "construction_yard": "Builders", "warehouse": "Storage"})
+
+
 def business(r, typ, surnames, town, place_words):
     if typ == "vacant":
         return {"business": "", "type": "vacant", "sign": "FOR LEASE"}
@@ -398,6 +425,39 @@ def make_record(s, rules, town, seed):
                          "upper_use": ("apartments" if r.random() < 0.6 else "offices") if storeys > 1 else "none",
                          "storefronts": sf, "condition": wpick(r, {"kept": 6, "worn": 3, "shabby": 1}), "year_built": r.randint(1872, 1924),
                          "colors": {"body": jitter(r.choice(BODY["brick"]), r)}}
+    elif use == "office":
+        # research/jobs: an office block on a downtown store lot -- its floors let to the town's offices, shops below
+        rec["kind"] = "store"
+        n = int(s.get("storeys") or 5)
+        yr = r.randint(1898, 1931) if r.random() < 0.6 else r.randint(1950, 1974)
+        reg = s.get("region", "gl")
+        facade = ("stucco" if reg == "ca" else wpick(r, {"brick": 3, "stone": 2})) if yr < 1945 else wpick(r, {"stone": 1, "stucco": 1, "brick": 1})
+        sf = [business(r, wpick(r, {"bank": 3, "cafe": 2, "drug_store": 1, "diner": 1, "clothing": 1, "law_office": 1}),
+                       rules.surnames, town, [town, "Main Street", "Commerce", "Exchange", "Union"]) for _ in range(r.choice([1, 2]))]
+        offices = [{"type": wpick(r, OFFICE_MIX)} for _ in range(n - 1)]
+        rec["traits"] = {"form": "office_block", "storeys": n, "facade": facade, "upper_use": "offices", "offices": offices,
+                         "cornice": wpick(r, {"parapet_flat": 3, "bracketed_metal": 1, "corbelled_brick": 1}) if yr < 1945 else "parapet_flat",
+                         "storefronts": sf, "condition": wpick(r, {"kept": 7, "worn": 2}), "year_built": yr,
+                         "colors": {"body": jitter(r.choice(BODY["brick"]), r)}}
+        names = {"block_name": wpick(r, {f"{town} Trust": 1, f"{r.choice(rules.surnames)} Building": 3, "Exchange Building": 1,
+                                         "Commerce Building": 1, f"{r.choice(rules.surnames)} Block": 1})}
+    elif use == "industry":
+        # research/jobs: an industrial park's building, named for a trade of bible/12_industry
+        rec["kind"] = "industrial"
+        role = s.get("role") or "manufacturing"
+        trade = wpick(r, IND_TRADES.get(role, IND_TRADES["manufacturing"]))
+        yr = r.randint(1952, 1980) if s.get("era") != "rail" else r.randint(1905, 1948)
+        comps = {"remelting_works": ["stack"], "foundry": ["stack", "monitor"], "rolling_mill": ["monitor"], "glass_works": ["stack"],
+                 "tyre_works": ["stack"], "textile_mill": ["monitor"], "food_plant": ["tank"]}.get(trade, [])
+        loft = int(s.get("storeys") or 1) > 1                   # (a works loft in the old district: brick, storeys, a stack)
+        if loft:
+            yr = r.randint(1882, 1928)
+            comps = comps + (["stack"] if r.random() < 0.4 and "stack" not in comps else [])
+        rec["traits"] = {"use": trade, "form": "loft" if loft else "shed", "storeys": int(s.get("storeys") or 1), "components": comps,
+                         "walls": wpick(r, {"brick": 3, "block": 2, "metal": 1}) if yr < 1950 else wpick(r, {"metal": 3, "block": 3, "brick": 1}),
+                         "year_built": yr, "condition": wpick(r, {"kept": 6, "worn": 3})}
+        b_ = business(r, trade, rules.surnames, town, [town, "Ring Line", "Southland", "Union", "Drop Yard", "Valley"])
+        names = {"name": b_["business"], "sign": b_["sign"]}
     elif use in ("gas_station", "fast_food", "bank", "auto_repair", "funeral_home", "diner", "farm_supply", "car_wash", "insurance",
                  "auto_parts", "tavern"):
         typ = {"fast_food": "diner", "farm_supply": "feed_seed", "car_wash": "auto_repair", "insurance": "insurance_office",

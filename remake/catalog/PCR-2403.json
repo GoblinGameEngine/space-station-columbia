@@ -3,65 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.6,
-  "d": 38.4
+  "w": 16.4,
+  "d": 34.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 31,
+  "main_w_ft": 32,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "enclosed",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
-   "fence": "picket",
-   "side": "none",
+   "fence": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
-    "clothesline"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1918,
-  "band": "streetcar",
-  "form_token": "shingle_style",
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 9
-  }
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 1664
+  "family": "Harrow",
+  "house_number": 1471
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0516"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0548"
 }

@@ -3,63 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.1,
-  "d": 39.7
+  "w": 19.2,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 27,
+  "main_w_ft": 51,
+  "main_d_ft": 25,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f4f3ec",
+   "body": "#e9e8e2",
+   "trim": "#ffffff",
    "accent": "#1f2e44",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": []
   },
-  "condition": "shabby",
-  "year_built": 1904,
-  "band": "streetcar",
-  "form_token": "foursquare",
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 9
-  }
+  "condition": "worn",
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 713
+  "family": "Dunmore",
+  "house_number": 945
  },
- "brief": "streetcar band foursquare: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-1234"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0738"
 }

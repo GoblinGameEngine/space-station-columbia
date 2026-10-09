@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.9,
-  "d": 36.8
+  "w": 11.6,
+  "d": 25.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 35,
+  "main_w_ft": 25,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,29 +32,37 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1924,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 1874,
+  "band": "rail",
+  "form_token": "gable_front",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 12
+  }
  },
  "region": "ne",
  "names": {
   "family": "Foxworth",
-  "house_number": 615
+  "house_number": 1016
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0504"
+ "brief": "rail band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0625"
 }

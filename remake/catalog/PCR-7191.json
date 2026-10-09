@@ -3,30 +3,30 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.2,
-  "d": 20.0
+  "w": 26.2,
+  "d": 30.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 30,
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
+   "type": "cross_gable",
+   "pitch_deg": 32,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "brick",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#a05748",
+   "body": "#c4b687",
    "trim": "#2e3a4a",
    "accent": "#1f2a33",
    "roof": "#555350"
@@ -39,22 +39,21 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
+   "side": "privacy",
+   "rear": "privacy",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 2008,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "neo_eclectic"
  },
  "names": {
   "family": "Kowal",
-  "house_number": 622
+  "house_number": 1912
  },
- "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-1984"
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6110"
 }

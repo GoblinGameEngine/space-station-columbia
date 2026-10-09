@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.1,
-  "d": 20.0
+  "w": 17.8,
+  "d": 29.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 32,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#d3d0b2",
+   "trim": "#2e3a4a",
+   "accent": "#2b4f6b",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,13 @@
   "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "gable_front"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Okafor",
-  "house_number": 766
+  "house_number": 2275
  },
- "brief": "late band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "late band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2775"
 }

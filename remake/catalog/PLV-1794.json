@@ -3,56 +3,27 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 29.3,
-  "d": 27.4
+  "w": 18.0,
+  "d": 14.0
  },
- "kind": "house",
+ "kind": "restaurant",
  "traits": {
-  "archetype": "spanish_revival",
+  "year_built": 1920,
+  "over_water": true,
   "storeys": 1,
-  "main_w_ft": 38,
-  "main_d_ft": 28,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#dcc7a6",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "picture",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "attached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
-  },
-  "condition": "kept",
-  "year_built": 1987,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "storefronts": [
+   {
+    "business": "Haddad & Arrieta Restaurant",
+    "type": "restaurant",
+    "sign": "HADDAD & ARRIETA RESTAURANT",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ]
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 756
+  "name": "End of the Pier Diner"
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4167"
+ "brief": "restaurant (restaurant) generated for Playa Verde."
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 35.8
+  "w": 21.8,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 47,
-  "main_d_ft": 26,
+  "main_w_ft": 34,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 47,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,32 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
     "swing_set"
    ]
   },
   "condition": "worn",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Nguyen",
-  "house_number": 2055
+  "house_number": 981
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

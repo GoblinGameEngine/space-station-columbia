@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.7,
-  "d": 23.6
+  "w": 29.6,
+  "d": 30.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
+  "archetype": "split_level",
+  "storeys": 1,
   "main_w_ft": 45,
   "main_d_ft": 27,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
+   "type": "hip",
+   "pitch_deg": 25,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#deded1",
+   "trim": "#e9e2d2",
+   "accent": "#3a2a1e",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "sliding",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
@@ -48,13 +48,12 @@
   "condition": "worn",
   "year_built": 1988,
   "band": "suburban",
-  "form_token": "cape_cod"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Mbeki",
-  "house_number": 1547
+  "house_number": 681
  },
- "brief": "suburban band cape_cod: 1.5 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3773"
+ "brief": "suburban band split_level: 1 storeys, vinyl walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4002"
 }

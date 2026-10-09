@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.8,
-  "d": 32.5
+  "w": 24.0,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "american_small_house",
+  "storeys": 1,
   "main_w_ft": 28,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "slate"
+   "pitch_deg": 29,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "shingle",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#696556",
+   "trim": "#ffffff",
+   "accent": "#4a5a48",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
@@ -51,13 +51,12 @@
   "condition": "kept",
   "year_built": 1950,
   "band": "postwar",
-  "form_token": "i_house"
+  "form_token": "american_small_house"
  },
- "region": "ne",
  "names": {
   "family": "Leclerc",
-  "house_number": 1031
+  "house_number": 1370
  },
- "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "postwar band american_small_house: 1 storeys, shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4651"
 }

@@ -3,62 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.4,
-  "d": 35.4
+  "w": 16.7,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 36,
+  "main_w_ft": 26,
+  "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 31,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#f2f1ea",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "foursquare",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "gable_front",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 1938
+  "family": "Brannock",
+  "house_number": 1255
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1372"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

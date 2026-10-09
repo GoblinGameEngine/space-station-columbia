@@ -3,70 +3,68 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.2,
-  "d": 20.0
+  "w": 12.1,
+  "d": 32.1
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 26,
-  "main_d_ft": 35,
+  "main_w_ft": 22,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
-   "material": "asphalt_shingle"
+   "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
+   "body": "#8a2e24",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
+    "shed",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "year_built": 1895,
+  "band": "rail",
+  "form_token": "cape_cod",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 10
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 219
+  "family": "Leclerc",
+  "house_number": 400
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0303"
+ "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0632"
 }

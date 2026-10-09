@@ -3,61 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.2,
-  "d": 21.6
+  "w": 19.7,
+  "d": 24.5
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 38,
+  "main_w_ft": 45,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 48,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1901,
-  "band": "streetcar",
+  "condition": "worn",
+  "year_built": 1925,
+  "band": "interwar",
   "form_token": "gable_front",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Leclerc",
-  "house_number": 1155
+  "family": "Osei",
+  "house_number": 636
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0660"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0362"
 }

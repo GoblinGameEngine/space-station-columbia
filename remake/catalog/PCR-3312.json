@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.2,
-  "d": 32.0
+  "w": 19.8,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 48,
-  "main_d_ft": 31,
+  "main_w_ft": 28,
+  "main_d_ft": 29,
   "roof": {
    "type": "hip",
    "pitch_deg": 26,
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,31 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "worn",
-  "year_built": 1954,
-  "band": "postwar",
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "interwar",
   "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Leclerc",
-  "house_number": 1293
+  "house_number": 1932
  },
- "brief": "postwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0915"
 }

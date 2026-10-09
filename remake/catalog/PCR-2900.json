@@ -3,31 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 45.4,
-  "d": 23.8
+  "w": 18.7,
+  "d": 20.5
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#3a3f44",
-   "accent": "#1f2a33",
-   "roof": "#4e5155"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 41,
   "roof": {
-   "pitch_deg": 31
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1927,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a2e24",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1925,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Wainwright",
+  "house_number": 1876
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1204"
 }

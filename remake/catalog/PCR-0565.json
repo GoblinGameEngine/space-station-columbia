@@ -3,31 +3,26 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.1,
-  "d": 30.5
+  "w": 18.1,
+  "d": 30.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Wisniewski Variety",
-    "type": "variety_store",
-    "sign": "WISNIEWSKI VARIETY",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "textile_mill",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "monitor",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1914,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "block",
+  "year_built": 1904,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Harrow Mills",
+  "sign": "HARROW MILLS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

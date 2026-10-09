@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.3,
-  "d": 20.7
+  "w": 24.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 47,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 41,
   "main_d_ft": 26,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 34,
+   "type": "gambrel",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#bfb9b9",
-   "trim": "#2e3a4a",
-   "accent": "#4a5a48",
-   "roof": "#6a5e52"
+   "body": "#e9e8e2",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 2441
+  "house_number": 1343
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6437"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1892"
 }

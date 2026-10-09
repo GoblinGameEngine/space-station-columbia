@@ -3,62 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.9,
-  "d": 20.0
+  "w": 13.4,
+  "d": 34.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 34,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 46,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#f6f5f0",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1936,
-  "band": "interwar",
-  "form_token": "shingle_style"
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 10
+  }
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 725
+  "family": "Garcia",
+  "house_number": 318
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0679"
 }

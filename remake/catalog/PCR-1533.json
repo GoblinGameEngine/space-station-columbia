@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.6,
-  "d": 39.7
+  "w": 18.5,
+  "d": 38.7
  },
  "kind": "house",
  "traits": {
   "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 36,
+  "main_w_ft": 25,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "front_full",
    "posts": "columns",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -38,25 +38,26 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1925,
+  "year_built": 1928,
   "band": "streetcar",
-  "form_token": "nantucket_cape"
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Booker",
-  "house_number": 387
+  "house_number": 1239
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-1004"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0863"
 }

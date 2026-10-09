@@ -3,24 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 35.9
+  "w": 13.1,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 23,
+  "main_w_ft": 25,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
+   "type": "front_full",
+   "posts": "turned",
    "rail": "solid"
   },
   "walls": "clapboard",
@@ -38,26 +47,25 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1910,
+  "year_built": 1896,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Duquesne",
-  "house_number": 1431
+  "house_number": 1424
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

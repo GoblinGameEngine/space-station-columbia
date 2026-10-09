@@ -8,26 +8,56 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Infirmary Variety",
-    "type": "variety_store",
-    "sign": "INFIRMARY VARIETY",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "accounting_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "accounting_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1916,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Tomczak & Wisniewski Drug",
+    "type": "drug_store",
+    "sign": "TOMCZAK & WISNIEWSKI DRUG",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Garcia Savings Bank",
+    "type": "bank",
+    "sign": "GARCIA SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1950,
   "colors": {
-   "body": "#9c5a42"
+   "body": "#7a4232"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

@@ -8,28 +8,54 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "college_extension"
+   }
+  ],
+  "cornice": "mission_parapet",
   "storefronts": [
    {
-    "business": "Leclerc & Solano Insurance",
-    "type": "insurance_office",
-    "sign": "LECLERC & SOLANO INSURANCE",
+    "business": "Union Savings Bank",
+    "type": "bank",
+    "sign": "UNION SAVINGS BANK",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1880,
+  "year_built": 1921,
   "colors": {
-   "body": "#efe6d2"
+   "body": "#f2e8dc"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

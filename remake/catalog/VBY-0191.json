@@ -3,61 +3,69 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 51.0,
-  "d": 33.4
+  "w": 80.0,
+  "d": 34.0
  },
- "kind": "house",
+ "kind": "market",
  "traits": {
-  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 45,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 38,
-   "material": "slate"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "concrete_block",
-  "colors": {
-   "body": "#fbf5e6",
-   "trim": "#ffffff",
-   "accent": "#244d3a",
-   "roof": "#3c4048"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "left_end"
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "storefronts": [
+   {
+    "type": "jeweler",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "clothing",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "florist",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "bookstore",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "cafe",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "art_gallery",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "shoe_store",
+    "awning": true,
+    "sign_style": "flat_board"
+   },
+   {
+    "type": "bakery",
+    "awning": true,
+    "sign_style": "flat_board"
+   }
   ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
+  "year_built": 1902,
+  "landmark": "grand_arcade",
+  "colors": {
+   "body": "#f6f4ec",
+   "trim": "#ffffff",
+   "accent": "#2b4f6e"
   },
-  "condition": "kept",
-  "year_built": 1925,
-  "band": "interwar",
-  "form_token": "queen_anne"
+  "awning_style": "striped",
+  "condition": "kept"
  },
  "region": "isle",
  "names": {
-  "family": "Harrow",
-  "house_number": 318
+  "name": "The Grand Arcade"
  },
- "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "VBY-0179"
+ "brief": "market (landmark) generated for Victory Bay."
 }

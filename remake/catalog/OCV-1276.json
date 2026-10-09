@@ -3,14 +3,14 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 24.3,
-  "d": 26.7
+  "w": 18.1,
+  "d": 29.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 49,
+  "main_w_ft": 50,
   "main_d_ft": 31,
   "roof": {
    "type": "hip",
@@ -32,27 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1959,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Yoder",
-  "house_number": 818
+  "family": "Reyes",
+  "house_number": 1147
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

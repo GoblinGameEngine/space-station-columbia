@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.9,
-  "d": 22.5
+  "w": 22.6,
+  "d": 24.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 30,
   "main_d_ft": 32,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 30,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#e3dad1",
-   "trim": "#5a3a28",
-   "accent": "#5b6b3a",
-   "roof": "#3e3e3c"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Smith",
-  "house_number": 1302
+  "house_number": 2735
  },
- "brief": "late band neo_eclectic: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-7279"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0362"
 }

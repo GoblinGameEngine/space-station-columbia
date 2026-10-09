@@ -3,62 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.7,
-  "d": 33.5
+  "w": 18.6,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 41,
+  "main_w_ft": 23,
+  "main_d_ft": 45,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "wood_shingle"
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#f4f3ec",
+   "body": "#f1ead2",
+   "trim": "#ffffff",
    "accent": "#7a1f1a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "shed"
    ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1939,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 2305
+  "family": "Tremblay",
+  "house_number": 493
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0620"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

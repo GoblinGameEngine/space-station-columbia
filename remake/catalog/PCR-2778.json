@@ -3,58 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.8,
-  "d": 32.9
+  "w": 18.7,
+  "d": 36.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 29,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "stoop",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#f4f2e8",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": []
   },
-  "condition": "shabby",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "condition": "worn",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 1217
+  "family": "Haskins",
+  "house_number": 1557
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0514"
 }

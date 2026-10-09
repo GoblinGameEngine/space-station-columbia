@@ -3,56 +3,56 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.7,
-  "d": 31.8
+  "w": 19.7,
+  "d": 28.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 27,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 25,
+  "main_d_ft": 26,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
+   "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#ddc9a2",
+   "trim": "#e9e2d2",
+   "accent": "#1f2a33",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "privacy",
-   "rear": "privacy",
+   "rear": "tree_line",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 2002,
   "band": "late",
-  "form_token": "foursquare"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Pruett",
-  "house_number": 2632
+  "house_number": 561
  },
- "brief": "late band foursquare: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-5983"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2775"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 20.0
+  "w": 12.0,
+  "d": 35.8
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 34,
+  "main_w_ft": 21,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
@@ -36,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
@@ -50,13 +50,14 @@
   "condition": "kept",
   "year_built": 1926,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Harrow",
-  "house_number": 2166
+  "house_number": 2158
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0465"
 }

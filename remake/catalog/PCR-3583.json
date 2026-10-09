@@ -3,58 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.4,
-  "d": 35.9
+  "w": 11.4,
+  "d": 34.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 31,
+  "main_w_ft": 25,
+  "main_d_ft": 35,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 31,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "iron",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "right_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_2",
   "yard": {
-   "fence": "chainlink",
-   "side": "chainlink",
+   "fence": "none",
+   "side": "none",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1963,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "year_built": 1934,
+  "band": "interwar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 875
+  "family": "Nowicki",
+  "house_number": 494
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1243"
 }

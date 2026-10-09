@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.5,
-  "d": 22.7
+  "w": 22.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 35,
+  "main_w_ft": 34,
   "main_d_ft": 29,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 32,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#af714f",
-   "trim": "#ffffff",
-   "accent": "#2e3a4a",
-   "roof": "#555350"
+   "body": "#f4f2e8",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -52,12 +52,13 @@
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Patel",
-  "house_number": 629
+  "house_number": 1273
  },
- "brief": "late band neo_eclectic: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-7338"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-6649"
 }

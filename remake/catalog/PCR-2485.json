@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.5,
-  "d": 29.3
+  "w": 23.5,
+  "d": 29.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 42,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 46,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "shingle",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a69190",
-   "trim": "#e8e0c8",
-   "accent": "#3a2a1e",
-   "roof": "#2f3133"
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1949,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Yoder",
-  "house_number": 864
+  "house_number": 1643
  },
- "brief": "postwar band ranch: 1 storeys, shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2280"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

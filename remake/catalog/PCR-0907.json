@@ -3,62 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.6,
-  "d": 20.0
+  "w": 11.0,
+  "d": 22.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 48,
-  "main_d_ft": 28,
+  "main_w_ft": 22,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
+   "body": "#6f6a62",
    "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
-   "shutters": false
+   "type": "2over2",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "cape_cod",
+  "year_built": 1877,
+  "band": "rail",
+  "form_token": "nantucket_cape",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 170
+  "family": "Loomis",
+  "house_number": 380
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0303"
+ "brief": "rail band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -3,65 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 13.6,
-  "d": 29.0
+  "w": 38.8,
+  "d": 39.1
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 43,
+  "main_w_ft": 50,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 46,
    "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
   },
   "walls": "cedar_shingle",
-  "foundation": "brick",
+  "foundation": "concrete_block",
   "colors": {
    "body": "#8a8378",
    "trim": "#ffffff",
-   "accent": "#1a3d2c",
-   "roof": "#3c4048"
+   "accent": "#244d3a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "picket",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "garden",
     "gazebo"
    ]
   },
   "condition": "kept",
-  "year_built": 1905,
-  "band": "streetcar",
+  "year_built": 1927,
+  "band": "interwar",
   "form_token": "shingle_style"
  },
  "region": "isle",
  "names": {
-  "family": "Yoder",
-  "house_number": 414
+  "family": "Dunmore",
+  "house_number": 172
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "estate band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

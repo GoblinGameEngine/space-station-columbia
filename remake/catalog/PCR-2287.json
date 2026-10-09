@@ -3,37 +3,32 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.9,
-  "d": 20.0
+  "w": 11.6,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 29,
+  "main_w_ft": 23,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
    "roof": "#4a4440"
   },
   "windows": {
@@ -41,25 +36,28 @@
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "worn",
-  "year_built": 1932,
+  "year_built": 1934,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Arrieta",
-  "house_number": 1174
+  "family": "Pike",
+  "house_number": 577
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0975"
 }

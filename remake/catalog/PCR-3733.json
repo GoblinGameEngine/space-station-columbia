@@ -3,65 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.2,
-  "d": 31.9
+  "w": 18.6,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 34,
-  "main_d_ft": 30,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 51,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 49,
-   "material": "asphalt_shingle"
+   "type": "gambrel",
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "stoop",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#9a9184",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "nantucket_cape"
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Desai",
-  "house_number": 1977
+  "family": "Garcia",
+  "house_number": 246
  },
- "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0967"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

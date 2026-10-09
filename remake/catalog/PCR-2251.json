@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.4,
-  "d": 35.5
+  "w": 22.1,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 40,
+  "main_w_ft": 44,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 44,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,30 +32,32 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_right"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 1441
+  "house_number": 536
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0776"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

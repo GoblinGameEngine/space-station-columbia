@@ -3,60 +3,33 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.8,
-  "d": 30.3
+  "w": 15.0,
+  "d": 26.3
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 32,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#f3eadb",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [
-   "exterior_left"
+  "storeys": 2,
+  "facade": "stucco",
+  "cornice": "tile_roof",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Bazzi Family Medicine",
+    "type": "doctor_office",
+    "sign": "BAZZI FAMILY MEDICINE",
+    "sign_style": "projecting",
+    "awning": false
+   }
   ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "colors": {
+   "body": "#f3eadb"
+  },
+  "arcade": true,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Solano",
-  "house_number": 257
- },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0294"
+ "names": {},
+ "brief": "store (store) generated for Playa Verde."
 }

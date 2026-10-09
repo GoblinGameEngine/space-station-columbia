@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 29.2,
-  "d": 31.1
+  "w": 22.1,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 47,
-  "main_d_ft": 28,
+  "main_w_ft": 42,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
    "pitch_deg": 16,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
    "body": "#efe6d2",
@@ -38,23 +38,25 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1988,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Nowicki",
-  "house_number": 1783
+  "family": "Yoder",
+  "house_number": 304
  },
- "brief": "suburban band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4167"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

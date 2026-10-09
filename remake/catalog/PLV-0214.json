@@ -3,19 +3,19 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.6,
-  "d": 34.5
+  "w": 13.2,
+  "d": 38.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 51,
-  "main_d_ft": 29,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
-   "material": "clay_tile"
+   "pitch_deg": 21,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -23,40 +23,42 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "body": "#dcc7a6",
+   "trim": "#2f3b2a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
     "garden",
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1927,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
-  "house_number": 530
+  "family": "Duquesne",
+  "house_number": 443
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0825"
 }

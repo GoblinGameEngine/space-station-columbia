@@ -3,56 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.8,
-  "d": 30.3
+  "w": 16.5,
+  "d": 30.8
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#f2e8dc",
-   "trim": "#4a3324",
-   "accent": "#6a2c22",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
-  },
+  "storeys": 3,
+  "facade": "stucco",
+  "cornice": "mission_parapet",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Leclerc Jewelers",
+    "type": "jeweler",
+    "sign": "LECLERC JEWELERS",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
   "condition": "kept",
-  "year_built": 1927,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "year_built": 1920,
+  "colors": {
+   "body": "#efd9c4"
+  },
+  "arcade": false,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Kowal",
-  "house_number": 431
- },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0294"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 36.0,
-  "d": 28.1
+  "w": 30.8,
+  "d": 37.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "gable_front",
+  "storeys": 2,
   "main_w_ft": 47,
   "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#98563c",
-   "trim": "#3a3f44",
-   "accent": "#5b6b3a",
-   "roof": "#3e3e3c"
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "worn",
   "year_built": 1979,
   "band": "suburban",
-  "form_token": "ranch"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 2386
+  "house_number": 1013
  },
- "brief": "suburban band ranch: 1 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-5224"
+ "brief": "suburban band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-4691"
 }

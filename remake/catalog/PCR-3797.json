@@ -3,23 +3,28 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 34.7
+  "w": 22.2,
+  "d": 35.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 33,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 35,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_full",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -32,31 +37,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Desai",
-  "house_number": 578
+  "family": "Stroud",
+  "house_number": 2121
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

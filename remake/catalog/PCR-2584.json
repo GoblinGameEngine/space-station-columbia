@@ -3,31 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 40.5,
-  "d": 36.0
+  "w": 17.6,
+  "d": 22.8
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#f4f1e8",
-   "accent": "#3a2a1e",
-   "roof": "#2f3133"
-  },
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 27,
+  "main_d_ft": 38,
   "roof": {
-   "pitch_deg": 34
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1929,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#c9cfcf",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "casement",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 1652
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0178"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0284"
 }

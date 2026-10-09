@@ -3,60 +3,63 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 20.5
+  "w": 18.1,
+  "d": 22.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 25,
+  "main_w_ft": 31,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
+   "type": "hip",
+   "pitch_deg": 26,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "turned",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#f1ead2",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden"
+    "garden",
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1909,
+  "band": "streetcar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1452
+  "family": "Holloway",
+  "house_number": 1539
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1168"
 }

@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.2,
-  "d": 22.5
+  "w": 11.7,
+  "d": 35.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 32,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 38,
   "roof": {
-   "type": "gable",
+   "type": "gambrel",
    "pitch_deg": 42,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#f4f2e8",
    "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
+   "accent": "#24382a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1921,
-  "band": "streetcar",
-  "form_token": "nantucket_cape"
+  "condition": "kept",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Mbeki",
-  "house_number": 1651
+  "family": "Carrow",
+  "house_number": 457
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0598"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0860"
 }

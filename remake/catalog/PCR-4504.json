@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.7,
-  "d": 36.4
+  "w": 22.1,
+  "d": 30.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 39,
-  "main_d_ft": 34,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 42,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 23,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,36 +24,39 @@
    "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#f3eee7",
-   "trim": "#3a3f44",
-   "accent": "#3a2a1e",
-   "roof": "#4e5155"
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1985,
-  "band": "suburban",
-  "form_token": "split_level"
+  "condition": "worn",
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Villalobos",
-  "house_number": 2734
+  "house_number": 3247
  },
- "brief": "suburban band split_level: 1 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3531"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

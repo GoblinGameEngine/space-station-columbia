@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 18.5,
-  "d": 28.5
+  "w": 23.9,
+  "d": 31.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "main_w_ft": 37,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
+   "type": "hip",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "body": "#f6f1e7",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
@@ -41,20 +41,23 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Nguyen",
-  "house_number": 601
+  "family": "Ostrowski",
+  "house_number": 312
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

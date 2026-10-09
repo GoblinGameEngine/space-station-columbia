@@ -8,28 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "stucco",
-  "cornice": "tile_roof",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Yoder Pizza",
-    "type": "pizza",
-    "sign": "YODER PIZZA",
-    "sign_style": "awning_lettering",
+    "business": "Exchange Cafe",
+    "type": "cafe",
+    "sign": "EXCHANGE CAFE",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1881,
+  "condition": "kept",
+  "year_built": 1966,
   "colors": {
-   "body": "#dcc7a6"
+   "body": "#f4f0e6"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "block_name": "DeCarlo Building"
+ },
+ "brief": "store (office) generated for Playa Verde."
 }

@@ -3,58 +3,57 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.8,
-  "d": 31.2
+  "w": 17.7,
+  "d": 20.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 28,
+  "main_w_ft": 42,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "body": "#efd9c4",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline"
-   ]
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1950,
   "band": "postwar",
-  "form_token": "california_bungalow"
+  "form_token": "minimal_traditional",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Pham",
-  "house_number": 1235
+  "family": "Smith",
+  "house_number": 1689
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2306"
+ "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1170"
 }

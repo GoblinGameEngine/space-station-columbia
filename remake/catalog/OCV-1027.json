@@ -3,59 +3,61 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 22.9,
-  "d": 36.2
+  "w": 12.3,
+  "d": 38.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 32,
+  "main_w_ft": 20,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "hip",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
+   "body": "#f0e2cf",
    "trim": "#2e2a26",
-   "accent": "#1f4a6e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "carport",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
+  "year_built": 1908,
+  "band": "streetcar",
   "form_token": "spanish_revival",
   "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 1006
+  "family": "Tomczak",
+  "house_number": 165
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0487"
 }

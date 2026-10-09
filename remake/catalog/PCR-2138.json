@@ -3,41 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.5,
-  "d": 40.4
+  "w": 17.3,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 42,
+  "main_w_ft": 28,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 45,
    "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "enclosed",
-   "posts": "columns",
-   "rail": "solid"
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
+   "body": "#6f6a62",
+   "trim": "#ffffff",
    "accent": "#7a1f1a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "2over2",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
@@ -47,24 +42,23 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1903,
   "band": "streetcar",
   "form_token": "gable_front",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 9
-  }
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Bazzi",
-  "house_number": 385
+  "family": "Pham",
+  "house_number": 301
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0521"
 }

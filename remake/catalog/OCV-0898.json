@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.9,
-  "d": 39.5
+  "w": 22.6,
+  "d": 30.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 24,
+  "main_w_ft": 40,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
+   "type": "hip",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -27,37 +27,34 @@
   "foundation": "slab",
   "colors": {
    "body": "#f6f1e7",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "trim": "#2f3b2a",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": true
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 9
-  }
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 929
+  "family": "Yoder",
+  "house_number": 384
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0282"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

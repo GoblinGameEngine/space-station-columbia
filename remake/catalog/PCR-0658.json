@@ -3,68 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.5,
-  "d": 25.0
+  "w": 17.7,
+  "d": 25.8
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 29,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
-  },
-  "dormers": [
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
    {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
+    "business": "Okonkwo & Merriweather Tax Service",
+    "type": "tax_office",
+    "sign": "OKONKWO & MERRIWEATHER TAX SERVICE",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
-  "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "condition": "kept",
+  "year_built": 1909,
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "worn",
-  "year_built": 1918,
-  "band": "streetcar",
-  "form_token": "i_house"
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Mbeki",
-  "house_number": 348
- },
- "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

@@ -3,34 +3,58 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 42.6,
-  "d": 27.4
+  "w": 19.6,
+  "d": 31.1
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 35,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 16,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#2e2a26",
+   "body": "#ead9c8",
+   "trim": "#4a3324",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
-  "year_built": 1971,
-  "condition": "kept",
-  "roof": {
-   "type": "gable",
-   "material": "clay_tile",
-   "pitch_deg": 22
-  }
+  "windows": {
+   "type": "casement",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Solano",
+  "house_number": 1037
  },
- "brief": "condo (apartment) generated for Playa Verde.",
- "model": "SOL-0319"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

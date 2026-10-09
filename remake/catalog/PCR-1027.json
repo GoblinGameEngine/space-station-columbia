@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 42.1
+  "w": 12.6,
+  "d": 23.5
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 45,
   "roof": {
    "type": "gable",
    "pitch_deg": 49,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "turned",
+   "type": "front_full",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,13 +32,13 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -46,15 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1878,
-  "band": "rail",
+  "year_built": 1905,
+  "band": "streetcar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 233
+  "house_number": 630
  },
- "brief": "rail band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0731"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0602"
 }

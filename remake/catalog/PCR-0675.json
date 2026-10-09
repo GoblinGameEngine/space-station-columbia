@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 61.1,
-  "d": 25.8
+  "w": 15.4,
+  "d": 41.3
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 4,
-  "form": "slab",
-  "units": 24,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
+  "storeys": 3,
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Booker Insurance",
+    "type": "insurance_office",
+    "sign": "BOOKER INSURANCE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1899,
   "colors": {
-   "body": "#7a4232"
-  },
-  "year_built": 2007,
-  "condition": "kept"
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0221"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

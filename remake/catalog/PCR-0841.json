@@ -3,25 +3,34 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.5,
-  "d": 22.4
+  "w": 13.8,
+  "d": 26.4
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 21,
-  "main_d_ft": 35,
+  "main_w_ft": 23,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
+   "type": "front_full",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,7 +41,7 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
@@ -41,21 +50,22 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "picket",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1871,
-  "band": "rail",
-  "form_token": "cape_cod",
-  "units": 2
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 250
+  "house_number": 814
  },
- "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0659"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0551"
 }

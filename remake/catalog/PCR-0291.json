@@ -3,59 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.4,
-  "d": 23.1
+  "w": 16.9,
+  "d": 31.8
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 31,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_full",
-   "posts": "square",
-   "rail": "solid"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#5b6b5a",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
-  },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Villalobos Diner",
+    "type": "diner",
+    "sign": "VILLALOBOS DINER",
+    "sign_style": "projecting",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1878,
-  "band": "rail",
-  "form_token": "gable_front"
+  "condition": "shabby",
+  "year_built": 1903,
+  "colors": {
+   "body": "#7a4232"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Tremblay",
-  "house_number": 236
- },
- "brief": "rail band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

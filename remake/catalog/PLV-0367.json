@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 12.3,
-  "d": 39.1
+  "w": 18.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 40,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 35,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -32,31 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2,
-  "balcony": "monterey"
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Delmar",
-  "house_number": 141
+  "family": "Yoder",
+  "house_number": 524
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0250"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1551"
 }

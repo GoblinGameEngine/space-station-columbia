@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.1,
-  "d": 29.4
+  "w": 17.7,
+  "d": 24.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 32,
+  "main_w_ft": 42,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#f4f2e8",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_right"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1952,
   "band": "postwar",
-  "form_token": "gable_front"
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 1557
+  "family": "Okonkwo",
+  "house_number": 1932
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0942"
 }

@@ -3,60 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.4,
-  "d": 34.6
+  "w": 19.2,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 30,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 33,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "slate"
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#f1ead2",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "right_end"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 1569
+  "family": "Okonkwo",
+  "house_number": 564
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

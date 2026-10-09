@@ -8,26 +8,44 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 3,
+  "facade": "clapboard",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "bracketed_wood",
   "storefronts": [
    {
-    "business": "Desai Courier",
-    "type": "newspaper",
-    "sign": "DESAI COURIER",
-    "sign_style": "flat_board",
+    "business": "Mbeki & Pike Diner",
+    "type": "diner",
+    "sign": "MBEKI & PIKE DINER",
+    "sign_style": "awning_lettering",
+    "awning": false
+   },
+   {
+    "business": "Bazzi Law Office",
+    "type": "law_office",
+    "sign": "BAZZI LAW OFFICE",
+    "sign_style": "projecting",
     "awning": false
    }
   ],
   "condition": "worn",
-  "year_built": 1919,
+  "year_built": 1907,
   "colors": {
-   "body": "#7a4232"
+   "body": "#f1ead2"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "block_name": "Nguyen Building"
+ },
+ "brief": "store (office) generated for Brightwater."
 }

@@ -3,63 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.0,
-  "d": 20.0
+  "w": 23.2,
+  "d": 31.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 33,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
+   "body": "#7d776d",
    "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "worn",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Tomczak",
-  "house_number": 1861
+  "family": "Leclerc",
+  "house_number": 1381
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1086"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

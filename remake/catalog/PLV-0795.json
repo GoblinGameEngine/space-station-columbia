@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.5,
-  "d": 36.1
+  "w": 24.7,
+  "d": 20.1
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 47,
-  "main_d_ft": 29,
+  "main_w_ft": 29,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,41 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#e4cfb2",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 525
+  "family": "Szabo",
+  "house_number": 858
  },
- "brief": "interwar band ranch: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0464"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4716"
 }

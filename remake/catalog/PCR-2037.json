@@ -3,72 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.6,
-  "d": 40.5
+  "w": 18.5,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 29,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 51,
   "main_d_ft": 28,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 42,
+   "type": "gable",
+   "pitch_deg": 38,
    "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "dutch_colonial",
-  "wing": {
-   "side": "rear",
-   "w_ft": 16,
-   "d_ft": 9
-  }
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 1361
+  "family": "Solano",
+  "house_number": 1191
  },
- "brief": "streetcar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1237"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

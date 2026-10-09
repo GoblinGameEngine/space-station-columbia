@@ -3,37 +3,42 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.5,
-  "d": 32.1
+  "w": 13.6,
+  "d": 23.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 27,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 30,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
-   "rail": "solid"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#aa6650",
-   "trim": "#2e3a4a",
-   "accent": "#3a2a1e",
-   "roof": "#4e5155"
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -41,23 +46,22 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1963,
-  "band": "postwar",
-  "form_token": "ranch",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1927,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
-  "family": "Desai",
-  "house_number": 1020
+  "family": "Ostrowski",
+  "house_number": 286
  },
- "brief": "postwar band ranch: 1 storeys, brick walls, recessed porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-2453"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0825"
 }

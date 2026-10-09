@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 16.1,
-  "d": 28.0
+  "w": 16.8,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
   "archetype": "minimal_traditional",
-  "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 34,
+  "storeys": 1,
+  "main_w_ft": 39,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 18,
@@ -32,29 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "condition": "shabby",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "minimal_traditional",
+  "units": 2
  },
  "region": "ca",
  "names": {
   "family": "Nowicki",
-  "house_number": 1285
+  "house_number": 1030
  },
- "brief": "interwar band minimal_traditional: 2 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0901"
+ "brief": "postwar band minimal_traditional: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2743"
 }

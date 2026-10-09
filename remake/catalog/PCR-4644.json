@@ -3,31 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 45.6,
-  "d": 40.4
+  "w": 18.1,
+  "d": 30.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#e9e2d2",
-   "accent": "#5b6b3a",
-   "roof": "#5a4a40"
-  },
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 20,
+  "main_d_ft": 27,
   "roof": {
-   "pitch_deg": 28
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "slate"
   },
-  "year_built": 1979,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f4f2e8",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1976,
+  "band": "suburban",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Kowalczyk",
+  "house_number": 3727
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "suburban band foursquare: 2 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0474"
 }

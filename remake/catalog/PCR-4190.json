@@ -3,31 +3,64 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 42.5,
-  "d": 36.5
+  "w": 17.7,
+  "d": 32.2
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#3a3f44",
-   "accent": "#1f2a33",
-   "roof": "#5a5a58"
-  },
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 32,
   "roof": {
-   "pitch_deg": 27
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f6f5f0",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed",
+    "clothesline",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
   "year_built": 1964,
-  "condition": "kept"
+  "band": "postwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Delmar",
+  "house_number": 314
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0363"
 }

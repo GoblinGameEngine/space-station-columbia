@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 21.6,
-  "d": 32.0
+  "w": 30.6,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 42,
-  "main_d_ft": 30,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 43,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,9 +26,9 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#f4f0e6",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
@@ -38,23 +38,26 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "year_built": 1984,
+  "band": "suburban",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Patel",
-  "house_number": 1819
+  "family": "Nguyen",
+  "house_number": 1691
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2728"
 }

@@ -3,21 +3,30 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.0,
-  "d": 34.4
+  "w": 16.6,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 50,
-  "main_d_ft": 30,
+  "main_w_ft": 33,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
    "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "stoop",
    "posts": "columns",
@@ -36,7 +45,7 @@
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "left_end"
   ],
   "garage": "detached_2",
   "yard": {
@@ -48,14 +57,13 @@
   "condition": "kept",
   "year_built": 1933,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Wisniewski",
-  "house_number": 1668
+  "house_number": 1778
  },
  "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "model": "PCR-0850"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 31.9
+  "w": 26.8,
+  "d": 30.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 28,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 35,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 35,
-   "material": "slate"
+   "type": "gambrel",
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a0b2a5",
-   "trim": "#e9e2d2",
-   "accent": "#1f2a33",
-   "roof": "#2f3133"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -50,13 +50,13 @@
   "condition": "kept",
   "year_built": 2009,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Solano",
-  "house_number": 807
+  "house_number": 2651
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2223"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5797"
 }

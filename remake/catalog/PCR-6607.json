@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 28.6
+  "w": 26.0,
+  "d": 24.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 49,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 54,
   "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 37,
+   "type": "gable",
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#dedec8",
-   "trim": "#f4f1e8",
-   "accent": "#2e3a4a",
-   "roof": "#555350"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1995,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Wisniewski",
-  "house_number": 1578
+  "house_number": 2918
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2280"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

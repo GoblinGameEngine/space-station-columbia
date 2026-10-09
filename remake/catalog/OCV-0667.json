@@ -3,61 +3,57 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.5,
-  "d": 28.9
+  "w": 13.5,
+  "d": 40.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 29,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 24,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "body": "#e8d8c0",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "clothesline"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1906,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Brandvold",
-  "house_number": 494
+  "family": "Smith",
+  "house_number": 683
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0803"
+ "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

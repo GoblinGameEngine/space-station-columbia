@@ -3,40 +3,40 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 32.8
+  "w": 17.8,
+  "d": 30.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 30,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 28,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
-   "material": "wood_shingle"
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "body": "#5c6a76",
+   "trim": "#f2efe6",
+   "accent": "#6a4a2a",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "rear"
   ],
   "garage": "attached_1",
   "yard": {
@@ -44,19 +44,19 @@
    "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "kept",
+  "condition": "shabby",
   "year_built": 1960,
   "band": "postwar",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Achterberg",
-  "house_number": 287
+  "house_number": 879
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "postwar band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3901"
 }

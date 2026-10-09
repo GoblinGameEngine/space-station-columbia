@@ -8,26 +8,62 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
+  "form": "office_block",
+  "storeys": 9,
+  "facade": "brick",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "corbelled_brick",
   "storefronts": [
    {
-    "business": "Moriarty Realty",
-    "type": "real_estate",
-    "sign": "MORIARTY REALTY",
+    "business": "Stroud & Loomis Diner",
+    "type": "diner",
+    "sign": "STROUD & LOOMIS DINER",
+    "sign_style": "awning_lettering",
+    "awning": false
+   },
+   {
+    "business": "Commerce Clothiers",
+    "type": "clothing",
+    "sign": "COMMERCE CLOTHIERS",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "worn",
-  "year_built": 1899,
+  "year_built": 1960,
   "colors": {
-   "body": "#8a2e24"
+   "body": "#9c5a42"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Stroud Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

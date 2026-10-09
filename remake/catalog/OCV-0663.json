@@ -3,61 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.9,
-  "d": 35.8
+  "w": 13.0,
+  "d": 39.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
   "main_w_ft": 31,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
-   "material": "clay_tile"
+   "pitch_deg": 22,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#2e2a26",
-   "accent": "#8a4a20",
+   "body": "#dcc7a6",
+   "trim": "#3b2a1e",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
-  "house_number": 487
+  "family": "Holloway",
+  "house_number": 128
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "streetcar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1666"
 }

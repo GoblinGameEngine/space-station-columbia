@@ -3,56 +3,34 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.9,
-  "d": 35.6
+  "w": 38.5,
+  "d": 37.3
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 37,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "court",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
+   "body": "#f4f0e6",
    "trim": "#4a3324",
-   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": []
-  },
+  "year_built": 2008,
   "condition": "kept",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "ranch"
+  "roof": {
+   "type": "gable",
+   "material": "clay_tile",
+   "pitch_deg": 16
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Merriweather",
-  "house_number": 603
+  "name": ""
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "condo (apartment) generated for Playa Verde.",
+ "model": "SOL-0971"
 }

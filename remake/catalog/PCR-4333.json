@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.4,
-  "d": 31.6
+  "w": 31.6,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 30,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 39,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
-   "pitch_deg": 32,
-   "material": "slate"
+   "pitch_deg": 19,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#c8c7b9",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "rear"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "tree_line",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "condition": "kept",
+  "year_built": 1968,
+  "band": "suburban",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Foxworth",
-  "house_number": 438
+  "house_number": 2419
  },
- "brief": "postwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "suburban band split_level: 1 storeys, vinyl walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3977"
 }

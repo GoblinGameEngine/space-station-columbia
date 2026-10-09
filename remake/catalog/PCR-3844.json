@@ -3,67 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 35.4
+  "w": 23.7,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 40,
+  "main_w_ft": 48,
+  "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
+   "type": "gable",
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
+   "body": "#c9cfcf",
    "trim": "#f4f3ec",
-   "accent": "#3a2a24",
+   "accent": "#1d1f22",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "foursquare"
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 2420
+  "family": "Stroud",
+  "house_number": 2211
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1408"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

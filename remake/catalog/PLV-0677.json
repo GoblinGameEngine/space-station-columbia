@@ -3,58 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.9,
-  "d": 25.0
+  "w": 13.9,
+  "d": 36.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 20,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 18,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
-   "pitch_deg": 21,
-   "material": "clay_tile"
+   "pitch_deg": 18,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#efe6d2",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "none",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1912,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Brannock",
-  "house_number": 849
+  "family": "DeCarlo",
+  "house_number": 838
  },
- "brief": "interwar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0383"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

@@ -3,17 +3,17 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 18.8,
-  "d": 21.0
+  "w": 24.5,
+  "d": 21.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 27,
+  "main_w_ft": 31,
   "main_d_ft": 29,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 21,
    "material": "clay_tile"
   },
@@ -32,29 +32,27 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Loomis",
-  "house_number": 619
+  "family": "Wainwright",
+  "house_number": 336
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0384"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-2498"
 }

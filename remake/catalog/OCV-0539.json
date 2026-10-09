@@ -3,60 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.7,
-  "d": 33.4
+  "w": 12.4,
+  "d": 27.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 32,
+  "main_w_ft": 30,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 21,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2e2a26",
-   "accent": "#6a2c22",
+   "body": "#f2e8dc",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1919,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Tomczak",
-  "house_number": 339
+  "family": "Raghunathan",
+  "house_number": 668
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1344"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0442"
 }

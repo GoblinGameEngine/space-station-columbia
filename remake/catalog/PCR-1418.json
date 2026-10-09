@@ -3,69 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.1,
-  "d": 37.8
+  "w": 42.2,
+  "d": 36.4
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 28,
-  "main_d_ft": 28,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 46,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
-  "porch": {
-   "type": "wrap",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "units": 6,
+  "unit_w_ft": 24,
+  "depth_ft": 38,
+  "walls": "brick",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#8e4a36",
+   "trim": "#f2efe6",
+   "accent": "#3a2a1e",
+   "roof": "#555350"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+  "roof": {
+   "pitch_deg": 33
   },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "shabby",
-  "year_built": 1919,
-  "band": "streetcar",
-  "form_token": "cape_cod"
+  "year_built": 1906,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 945
+  "name": ""
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, wrap porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0311"
+ "brief": "townhouse (townhouse) generated for Port Carrow.",
+ "model": "PCR-0037"
 }

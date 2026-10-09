@@ -8,25 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
+  "form": "office_block",
+  "storeys": 10,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "dispatch_office"
+   }
+  ],
   "cornice": "parapet_flat",
-  "upper_use": "none",
   "storefronts": [
    {
-    "business": "Southland Variety",
-    "type": "variety_store",
-    "sign": "SOUTHLAND VARIETY",
-    "sign_style": "awning_lettering",
+    "business": "Patel Savings Bank",
+    "type": "bank",
+    "sign": "PATEL SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Desai Savings Bank",
+    "type": "bank",
+    "sign": "DESAI SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1887,
+  "condition": "kept",
+  "year_built": 1899,
   "colors": {
-   "body": "#caab8a"
+   "body": "#925f42"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Merriweather Block"
+ },
+ "brief": "store (office) generated for Kessler."
 }

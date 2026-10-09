@@ -3,56 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 34.0,
-  "d": 31.3
+  "w": 23.3,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 54,
-  "main_d_ft": 31,
+  "main_w_ft": 35,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
+   "type": "gable",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
+   "body": "#ead9c8",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
-   "extras": []
+   "fence": "chainlink",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "clothesline",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1983,
-  "band": "suburban",
+  "year_built": 1964,
+  "band": "postwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 1204
+  "family": "Marlowe",
+  "house_number": 1563
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3312"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1964"
 }

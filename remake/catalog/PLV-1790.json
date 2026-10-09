@@ -3,61 +3,27 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 32.1,
-  "d": 23.4
+  "w": 14.0,
+  "d": 14.0
  },
- "kind": "house",
+ "kind": "restaurant",
  "traits": {
-  "archetype": "spanish_revival",
+  "year_built": 1902,
+  "over_water": false,
   "storeys": 1,
-  "main_w_ft": 38,
-  "main_d_ft": 30,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#dcc7a6",
-   "trim": "#3b2a1e",
-   "accent": "#2f5e5a",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "sliding",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "shed",
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1989,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "storefronts": [
+   {
+    "business": "Dunmore & Solano Restaurant",
+    "type": "restaurant",
+    "sign": "DUNMORE & SOLANO RESTAURANT",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ]
  },
  "region": "ca",
  "names": {
-  "family": "Nowicki",
-  "house_number": 626
+  "name": "Pier Grill"
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3378"
+ "brief": "restaurant (restaurant) generated for Playa Verde."
 }

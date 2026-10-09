@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 21.5
+  "w": 24.9,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 45,
-  "main_d_ft": 32,
+  "main_w_ft": 33,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#c9cfcf",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "new",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 2479
+  "family": "Wainwright",
+  "house_number": 2370
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0284"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

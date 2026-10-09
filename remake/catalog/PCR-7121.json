@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.3,
-  "d": 21.4
+  "w": 24.0,
+  "d": 23.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 29,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 39,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#97a5b1",
+   "body": "#d9dcd8",
    "trim": "#ffffff",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -48,13 +48,13 @@
   "condition": "kept",
   "year_built": 1995,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Delmar",
-  "house_number": 2781
+  "house_number": 4180
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4324"
+ "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1204"
 }

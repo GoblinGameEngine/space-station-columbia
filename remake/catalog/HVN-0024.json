@@ -8,26 +8,37 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "clapboard",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "courier_office"
+   }
+  ],
   "cornice": "bracketed_wood",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Main Street Drug",
-    "type": "drug_store",
-    "sign": "MAIN STREET DRUG",
+    "business": "Wainwright Law Office",
+    "type": "law_office",
+    "sign": "WAINWRIGHT LAW OFFICE",
     "sign_style": "projecting",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1877,
+  "condition": "kept",
+  "year_built": 1905,
   "colors": {
    "body": "#f4f2e8"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Haven Point."
+ "names": {
+  "block_name": "Yoder Building"
+ },
+ "brief": "store (office) generated for Haven Point."
 }

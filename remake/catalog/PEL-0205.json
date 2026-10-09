@@ -3,15 +3,15 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 12.2,
-  "d": 32.8
+  "w": 17.5,
+  "d": 33.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 33,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
+  "main_w_ft": 34,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 18,
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
    "body": "#e9dcc2",
@@ -32,7 +32,7 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [],
@@ -40,23 +40,21 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
-    "clothesline"
+    "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1917,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2,
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 117
+  "family": "Brandvold",
+  "house_number": 343
  },
- "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0522"
+ "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1344"
 }

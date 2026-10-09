@@ -8,25 +8,48 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "cast_iron_front",
-  "cornice": "parapet_stepped",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "brick",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "college_extension"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Haskins & Merriweather Gallery",
-    "type": "art_gallery",
-    "sign": "HASKINS & MERRIWEATHER GALLERY",
-    "sign_style": "flat_board",
+    "business": "Main Street Savings Bank",
+    "type": "bank",
+    "sign": "MAIN STREET SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1874,
+  "condition": "kept",
+  "year_built": 1901,
   "colors": {
-   "body": "#976347"
+   "body": "#c5a682"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Harrow Falls Trust"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

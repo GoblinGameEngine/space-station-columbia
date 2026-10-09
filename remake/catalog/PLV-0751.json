@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.2,
-  "d": 36.9
+  "w": 22.4,
+  "d": 31.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 42,
+  "main_w_ft": 43,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
    "pitch_deg": 21,
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed",
+    "clothesline",
+    "swing_set"
    ]
   },
-  "condition": "new",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "condition": "kept",
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 300
+  "family": "Duquesne",
+  "house_number": 591
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0813"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

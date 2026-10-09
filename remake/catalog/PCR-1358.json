@@ -3,59 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.4,
-  "d": 20.7
+  "w": 19.1,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 25,
-  "main_d_ft": 32,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 36,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
-   "material": "slate"
+   "type": "gambrel",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#e8dcc0",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "nantucket_cape",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "dutch_colonial",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 907
+  "family": "Okonkwo",
+  "house_number": 734
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0599"
+ "brief": "streetcar band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

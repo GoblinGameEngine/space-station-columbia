@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.4,
-  "d": 32.7
+  "w": 16.8,
+  "d": 39.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 28,
+  "main_w_ft": 41,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -19,40 +19,48 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
+   "body": "#efe6d2",
+   "trim": "#4a3324",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Dunmore",
-  "house_number": 303
+  "family": "Nowicki",
+  "house_number": 410
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0294"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0448"
 }

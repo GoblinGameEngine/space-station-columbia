@@ -3,60 +3,58 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 17.3,
-  "d": 28.5
+  "w": 12.7,
+  "d": 38.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 31,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
+   "body": "#dcc7a6",
    "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Booker",
-  "house_number": 665
+  "family": "Ostrowski",
+  "house_number": 633
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0591"
+ "brief": "streetcar band minimal_traditional: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1666"
 }

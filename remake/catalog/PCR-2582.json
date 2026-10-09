@@ -3,30 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.9,
-  "d": 35.4
+  "w": 11.6,
+  "d": 35.6
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 38,
-  "main_d_ft": 28,
+  "main_w_ft": 27,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
    "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -41,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
@@ -49,19 +44,20 @@
    "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
   "year_built": 1926,
   "band": "interwar",
-  "form_token": "cape_cod"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Nguyen",
-  "house_number": 1719
+  "house_number": 1653
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0423"
 }

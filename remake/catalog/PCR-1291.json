@@ -3,67 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.7,
-  "d": 32.4
+  "w": 13.1,
+  "d": 38.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 26,
+  "main_w_ft": 25,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "wood_shingle"
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "front_full",
    "posts": "tapered_on_piers",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#e6e2d8",
    "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 317
+  "family": "Desai",
+  "house_number": 879
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

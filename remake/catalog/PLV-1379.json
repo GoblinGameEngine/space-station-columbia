@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.6,
-  "d": 31.7
+  "w": 33.2,
+  "d": 33.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 52,
-  "main_d_ft": 29,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 47,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 22,
@@ -19,44 +19,42 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#2e2a26",
-   "accent": "#6a2c22",
+   "body": "#ead9c8",
+   "trim": "#5a3a28",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "shed",
-    "swing_set"
-   ]
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1988,
+  "band": "suburban",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Loomis",
-  "house_number": 821
+  "family": "Pruett",
+  "house_number": 2045
  },
- "brief": "postwar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2729"
 }

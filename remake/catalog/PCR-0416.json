@@ -3,31 +3,26 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.8,
-  "d": 31.4
+  "w": 16.9,
+  "d": 30.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Infirmary Clothiers",
-    "type": "clothing",
-    "sign": "INFIRMARY CLOTHIERS",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1918,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "walls": "brick",
+  "year_built": 1915,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Haskins Foundry",
+  "sign": "HASKINS FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

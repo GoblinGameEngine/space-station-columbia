@@ -3,60 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.3,
-  "d": 39.1
+  "w": 17.7,
+  "d": 35.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "main_w_ft": 27,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 46,
+   "type": "hip",
+   "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stoop",
    "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#c9cfcf",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1911,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 118
+  "family": "Delmar",
+  "house_number": 1561
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.0,
-  "d": 39.6
+  "w": 24.3,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 29,
+  "main_w_ft": 34,
   "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 29,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
+   "body": "#7d776d",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "center"
@@ -42,22 +42,19 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1907,
-  "band": "streetcar",
-  "form_token": "foursquare"
+  "condition": "worn",
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 463
+  "family": "Osei",
+  "house_number": 1411
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1234"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

@@ -3,30 +3,39 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.9,
-  "d": 23.5
+  "w": 19.3,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 50,
-  "main_d_ft": 31,
+  "main_w_ft": 28,
+  "main_d_ft": 43,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#9a9184",
    "trim": "#f4f3ec",
    "accent": "#24382a",
    "roof": "#2f3438"
@@ -36,28 +45,28 @@
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1931,
+  "year_built": 1939,
   "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 1964
+  "house_number": 1857
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0473"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0964"
 }

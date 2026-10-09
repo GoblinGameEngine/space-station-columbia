@@ -3,58 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.1,
-  "d": 20.0
+  "w": 16.8,
+  "d": 30.9
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 29,
+  "main_w_ft": 42,
+  "main_d_ft": 22,
   "roof": {
    "type": "hip",
-   "pitch_deg": 28,
-   "material": "wood_shingle"
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_full",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#f4f2e8",
    "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1947,
-  "band": "postwar",
+  "year_built": 1941,
+  "band": "interwar",
   "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Okonkwo",
-  "house_number": 1862
+  "family": "Holloway",
+  "house_number": 1878
  },
- "brief": "postwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1168"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1082"
 }

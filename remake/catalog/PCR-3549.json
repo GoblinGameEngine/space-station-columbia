@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.6,
-  "d": 25.2
+  "w": 18.0,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "main_w_ft": 47,
+  "main_d_ft": 31,
   "roof": {
    "type": "gambrel",
    "pitch_deg": 46,
@@ -19,7 +19,7 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "front_partial",
    "posts": "square",
    "rail": "spindle"
   },
@@ -36,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "right_end"
   ],
   "garage": "none",
   "yard": {
@@ -51,13 +51,14 @@
   "condition": "kept",
   "year_built": 1927,
   "band": "interwar",
-  "form_token": "dutch_colonial"
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 417
+  "house_number": 2143
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0838"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0476"
 }

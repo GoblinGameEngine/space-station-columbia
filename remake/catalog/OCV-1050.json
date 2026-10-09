@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.2,
-  "d": 32.4
+  "w": 13.9,
+  "d": 39.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 39,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#e9d6c8",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1909,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 302
+  "family": "Achterberg",
+  "house_number": 250
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.0,
-  "d": 34.1
+  "w": 21.9,
+  "d": 31.7
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 32,
+  "main_w_ft": 56,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "exterior_right"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
+  "year_built": 1951,
+  "band": "postwar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Merriweather",
-  "house_number": 452
+  "family": "Delmar",
+  "house_number": 1772
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0928"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

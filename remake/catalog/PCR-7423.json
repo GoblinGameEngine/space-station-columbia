@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.6,
-  "d": 20.2
+  "w": 19.6,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 21,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 33,
-   "material": "asphalt_shingle"
+   "pitch_deg": 48,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#adbc9f",
-   "trim": "#ffffff",
-   "accent": "#5b6b3a",
-   "roof": "#4a4a48"
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,19 +41,23 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "worn",
   "year_built": 1993,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "cape_cod",
+  "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "Pike",
-  "house_number": 940
+  "family": "Tomczak",
+  "house_number": 3017
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6150"
+ "brief": "late band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

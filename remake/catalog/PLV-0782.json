@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.3,
-  "d": 30.0
+  "w": 14.7,
+  "d": 23.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 50,
-  "main_d_ft": 25,
+  "main_w_ft": 29,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2e2a26",
-   "accent": "#8a4a20",
+   "body": "#efd9c4",
+   "trim": "#5a3a28",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
     "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1926,
+  "band": "streetcar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 701
+  "family": "Castellanos",
+  "house_number": 901
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0844"
 }

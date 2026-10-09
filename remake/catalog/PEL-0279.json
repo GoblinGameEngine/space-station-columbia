@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 16.6,
-  "d": 33.5
+  "w": 14.7,
+  "d": 36.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 27,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 25,
+  "main_d_ft": 43,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
+   "type": "hip",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,36 +26,42 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "body": "#dcc7a6",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "fence": "iron",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "worn",
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 10
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Brannock",
-  "house_number": 503
+  "family": "Merriweather",
+  "house_number": 250
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0761"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0613"
 }

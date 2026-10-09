@@ -8,25 +8,61 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 9,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Castellanos Insurance",
-    "type": "insurance_office",
-    "sign": "CASTELLANOS INSURANCE",
-    "sign_style": "flat_board",
+    "business": "Marlowe & Nowicki Cafe",
+    "type": "cafe",
+    "sign": "MARLOWE & NOWICKI CAFE",
+    "sign_style": "awning_lettering",
+    "awning": true
+   },
+   {
+    "business": "Exchange Savings Bank",
+    "type": "bank",
+    "sign": "EXCHANGE SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1913,
+  "year_built": 1968,
   "colors": {
-   "body": "#804025"
+   "body": "#a45a48"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Harrow Falls Trust"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

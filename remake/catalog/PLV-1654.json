@@ -3,61 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.6,
-  "d": 35.9
+  "w": 21.1,
+  "d": 20.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 28,
+  "main_w_ft": 29,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2e2a26",
-   "accent": "#2c4a2e",
+   "body": "#e8d8c0",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1971,
-  "band": "suburban",
-  "form_token": "spanish_revival",
-  "units": 2
+  "condition": "shabby",
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Szabo",
-  "house_number": 177
+  "family": "Garcia",
+  "house_number": 1057
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-1551"
 }

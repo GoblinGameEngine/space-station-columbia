@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.9,
-  "d": 26.1
+  "w": 23.0,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 33,
-  "main_d_ft": 26,
+  "main_w_ft": 32,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -28,36 +28,35 @@
   "colors": {
    "body": "#e8d8c0",
    "trim": "#2e2a26",
-   "accent": "#1f4a6e",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1963,
   "band": "postwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Brandvold",
-  "house_number": 264
+  "family": "Foxworth",
+  "house_number": 477
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

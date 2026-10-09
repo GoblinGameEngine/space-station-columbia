@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.1,
-  "d": 34.9
+  "w": 12.2,
+  "d": 40.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 32,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 28,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,38 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#2e2a26",
-   "accent": "#2f5e5a",
+   "body": "#f4f0e6",
+   "trim": "#4a3324",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "condition": "kept",
+  "year_built": 1903,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 575
+  "family": "Okafor",
+  "house_number": 687
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1186"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0487"
 }

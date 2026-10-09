@@ -3,61 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.1,
-  "d": 36.2
+  "w": 13.0,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 40,
+  "main_w_ft": 26,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "enclosed",
+   "posts": "turned",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
    "body": "#7d776d",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
     "garden",
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "worn",
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 793
+  "family": "Achterberg",
+  "house_number": 1373
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0578"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

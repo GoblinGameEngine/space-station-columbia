@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 21.2,
-  "d": 30.3
+  "w": 30.6,
+  "d": 38.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 34,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 52,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
+   "type": "hip",
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,12 +23,12 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
+   "body": "#efe6d2",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
@@ -38,26 +38,23 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1952,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1971,
+  "band": "suburban",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 1381
+  "family": "Foxworth",
+  "house_number": 1452
  },
- "brief": "postwar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3532"
 }

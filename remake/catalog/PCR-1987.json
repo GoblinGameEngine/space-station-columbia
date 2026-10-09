@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 20.0
+  "w": 18.2,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "queen_anne",
   "storeys": 2,
   "main_w_ft": 35,
   "main_d_ft": 27,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
+   "type": "cross_gable",
+   "pitch_deg": 41,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#e8e3d0",
+   "trim": "#3a3f44",
+   "accent": "#2b4f6b",
+   "roof": "#555350"
   },
   "windows": {
    "type": "6over6",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -51,13 +51,12 @@
   "condition": "kept",
   "year_built": 1935,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "queen_anne_irregular"
  },
- "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 1173
+  "house_number": 1074
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "interwar band queen_anne_irregular: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-1123"
 }

@@ -3,61 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.4,
-  "d": 31.3
+  "w": 11.4,
+  "d": 27.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 51,
-  "main_d_ft": 27,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
    "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "garden",
+    "shed",
     "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Villalobos",
-  "house_number": 1293
+  "family": "Holloway",
+  "house_number": 1674
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0719"
 }

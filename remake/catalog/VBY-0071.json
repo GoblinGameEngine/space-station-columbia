@@ -3,34 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 18.5,
-  "d": 43.0
+  "w": 12.2,
+  "d": 27.5
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "shingle_style",
   "storeys": 2,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Szabo Pizza",
-    "type": "pizza",
-    "sign": "SZABO PIZZA",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1888,
-  "colors": {
-   "body": "#fbf5e6",
-   "trim": "#ffffff",
-   "accent": "#1a3d2c"
+  "main_w_ft": 29,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "slate"
   },
-  "awning_style": "striped"
+  "dormers": [],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#1a3d2c",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "family": "Castellanos",
+  "house_number": 172
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

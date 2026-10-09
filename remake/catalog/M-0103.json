@@ -6,27 +6,22 @@
   "w": 18.0,
   "d": 34.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Brannock Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "BRANNOCK BEAUTY SHOP",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1897,
-  "colors": {
-   "body": "#a18c67"
-  }
+  "walls": "block",
+  "year_built": 1895,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Ostrowski Foundry",
+  "sign": "OSTROWSKI FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

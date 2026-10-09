@@ -3,31 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.6,
-  "d": 25.2
+  "w": 11.4,
+  "d": 31.2
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "shingle_style",
   "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Port Carrow Pizza",
-    "type": "pizza",
-    "sign": "PORT CARROW PIZZA",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1923,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#8e4a36"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "shingle_style",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 9
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Merriweather",
+  "house_number": 133
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

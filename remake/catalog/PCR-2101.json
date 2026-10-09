@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.3,
-  "d": 35.7
+  "w": 21.1,
+  "d": 35.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 40,
+  "main_w_ft": 51,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "recessed",
+   "posts": "iron",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#f4f2e8",
    "trim": "#ffffff",
-   "accent": "#1f2e44",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 1353
+  "family": "Booker",
+  "house_number": 1470
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0796"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0685"
 }

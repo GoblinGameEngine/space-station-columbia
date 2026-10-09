@@ -3,41 +3,39 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.7,
-  "d": 31.4
+  "w": 16.3,
+  "d": 26.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 41,
-  "main_d_ft": 22,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
+   "pitch_deg": 29,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
+   "posts": "columns",
    "rail": "solid"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#773d34",
+   "trim": "#e9e2d2",
+   "accent": "#3a2a1e",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -45,16 +43,16 @@
    "rear": "privacy",
    "extras": []
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 2000,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 1719
+  "family": "Tremblay",
+  "house_number": 3346
  },
- "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-6043"
+ "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3832"
 }

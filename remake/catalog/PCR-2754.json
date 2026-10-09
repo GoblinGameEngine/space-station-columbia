@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 35.9
+  "w": 11.9,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 37,
+  "main_w_ft": 22,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
@@ -48,15 +48,16 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1934,
+  "year_built": 1930,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 143
+  "family": "Smith",
+  "house_number": 1615
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0384"
 }

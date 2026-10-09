@@ -3,27 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 52.0,
-  "d": 34.3
+  "w": 26.0,
+  "d": 31.2
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232"
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 44,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "wood_shingle"
   },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "kept",
   "year_built": 2004,
-  "condition": "kept"
+  "band": "late",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Moriarty",
+  "house_number": 339
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1085"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

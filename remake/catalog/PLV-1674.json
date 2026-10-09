@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 34.3,
-  "d": 38.6
+  "w": 23.3,
+  "d": 21.1
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 30,
+  "main_w_ft": 46,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 20,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -27,34 +27,36 @@
   "foundation": "slab",
   "colors": {
    "body": "#f4f0e6",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1972,
-  "band": "suburban",
+  "year_built": 1953,
+  "band": "postwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 723
+  "family": "Okonkwo",
+  "house_number": 1313
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2778"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

@@ -3,58 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.3,
+  "w": 17.1,
   "d": 23.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 34,
+  "main_w_ft": 25,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 49,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "tapered_on_piers",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#d9dcd8",
    "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "2over2",
+   "shutters": false
   },
   "chimneys": [
    "center"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 1905,
   "band": "streetcar",
-  "form_token": "shingle_style"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 1483
+  "family": "Loomis",
+  "house_number": 1448
  },
- "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0450"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0364"
 }

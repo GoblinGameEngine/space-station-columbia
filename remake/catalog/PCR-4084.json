@@ -3,70 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.1,
-  "d": 32.9
+  "w": 18.6,
+  "d": 37.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 29,
+  "main_w_ft": 31,
   "main_d_ft": 31,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 48,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "slate"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
+   "body": "#7d776d",
    "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "clothesline",
-    "swing_set"
+    "garden"
    ]
   },
-  "condition": "worn",
-  "year_built": 1963,
-  "band": "postwar",
-  "form_token": "dutch_colonial"
+  "condition": "kept",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Dunmore",
-  "house_number": 2473
+  "house_number": 2576
  },
- "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1979"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0735"
 }

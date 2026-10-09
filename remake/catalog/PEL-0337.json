@@ -3,58 +3,59 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 23.8,
-  "d": 33.2
+  "w": 19.9,
+  "d": 24.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 32,
-  "main_d_ft": 29,
+  "main_w_ft": 36,
+  "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
+   "body": "#e6d4bb",
+   "trim": "#2e2a26",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "none",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1954,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Desai",
-  "house_number": 390
+  "family": "Pike",
+  "house_number": 600
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-4682"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0320"
 }

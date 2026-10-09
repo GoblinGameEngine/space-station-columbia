@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 35.3
+  "w": 18.5,
+  "d": 20.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 20,
+  "main_w_ft": 45,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "iron",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "foursquare"
+  "condition": "kept",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Brandvold",
-  "house_number": 2118
+  "family": "Haskins",
+  "house_number": 1771
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1408"
+ "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, recessed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

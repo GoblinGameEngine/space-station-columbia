@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.9,
-  "d": 23.6
+  "w": 13.0,
+  "d": 38.2
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
+  "main_w_ft": 21,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "wrap",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,37 +32,31 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "none",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1872,
-  "band": "rail",
-  "form_token": "i_house",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 9
-  }
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Reyes",
-  "house_number": 1058
+  "house_number": 866
  },
- "brief": "rail band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0383"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0835"
 }

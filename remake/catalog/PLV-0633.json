@@ -3,39 +3,41 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 13.7,
-  "d": 30.6
+  "w": 17.6,
+  "d": 21.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "spanish_revival",
+  "storeys": 2,
   "main_w_ft": 31,
   "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 17,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 21,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#e9d6c8",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
@@ -43,19 +45,20 @@
    "rear": "chainlink",
    "extras": [
     "garden",
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1904,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Yoder",
-  "house_number": 313
+  "family": "Pike",
+  "house_number": 507
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0689"
+ "brief": "interwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0517"
 }

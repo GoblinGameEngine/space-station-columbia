@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.8,
-  "d": 29.6
+  "w": 16.9,
+  "d": 28.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 30,
+  "main_w_ft": 20,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "slate"
+   "pitch_deg": 49,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
+   "body": "#8a8378",
    "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
@@ -39,20 +39,23 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
-   "extras": []
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "shabby",
+  "condition": "worn",
   "year_built": 1997,
   "band": "late",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 1541
+  "family": "Bazzi",
+  "house_number": 2679
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0583"
 }

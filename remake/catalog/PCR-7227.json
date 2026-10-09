@@ -3,56 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.2,
-  "d": 27.6
+  "w": 18.7,
+  "d": 29.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 22,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 22,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
+   "type": "hip",
+   "pitch_deg": 30,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#bfbfb6",
+   "trim": "#2e3a4a",
+   "accent": "#6a4a2a",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "privacy",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 2008,
   "band": "late",
-  "form_token": "i_house"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 621
+  "family": "Merriweather",
+  "house_number": 894
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2775"
 }

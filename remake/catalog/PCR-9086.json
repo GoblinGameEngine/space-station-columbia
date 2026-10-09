@@ -3,17 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.9,
-  "d": 9.0
+  "w": 22.2,
+  "d": 25.7
  },
- "kind": "fishhouse",
+ "kind": "house",
  "traits": {
-  "year_built": 1985,
-  "over_water": true
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c1beb4",
+   "trim": "#ffffff",
+   "accent": "#7a2e28",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2008,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Okonkwo",
+  "house_number": 231
  },
- "brief": "fishhouse (fishhouse) generated for Port Carrow."
+ "brief": "late band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6831"
 }

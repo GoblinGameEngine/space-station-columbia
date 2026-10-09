@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.1,
-  "d": 30.3
+  "w": 13.8,
+  "d": 38.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 50,
-  "main_d_ft": 27,
+  "main_w_ft": 27,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
+   "pitch_deg": 38,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
+   "type": "wrap",
+   "posts": "columns",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#8a2e24",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "worn",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 693
+  "family": "Haskins",
+  "house_number": 1575
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0548"
 }

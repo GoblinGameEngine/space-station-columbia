@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.1,
-  "d": 20.9
+  "w": 16.2,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 31,
+  "main_w_ft": 24,
+  "main_d_ft": 39,
   "roof": {
    "type": "hip",
    "pitch_deg": 18,
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
    "body": "#f2e8dc",
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1964,
-  "band": "postwar",
+  "year_built": 1942,
+  "band": "interwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 360
+  "family": "Achterberg",
+  "house_number": 1225
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "interwar band spanish_revival: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0357"
 }

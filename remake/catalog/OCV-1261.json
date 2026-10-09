@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.8,
-  "d": 28.7
+  "w": 11.6,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
+  "main_w_ft": 21,
+  "main_d_ft": 41,
   "roof": {
    "type": "hip",
    "pitch_deg": 16,
@@ -32,7 +32,7 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -41,22 +41,23 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "hedge",
    "extras": [
     "garden"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1932,
   "band": "interwar",
-  "form_token": "spanish_revival"
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Smith",
-  "house_number": 1158
+  "family": "Tomczak",
+  "house_number": 1223
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0251"
 }

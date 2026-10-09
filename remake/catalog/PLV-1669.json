@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.3,
-  "d": 27.4
+  "w": 23.8,
+  "d": 22.0
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 27,
+  "main_w_ft": 30,
+  "main_d_ft": 29,
   "roof": {
    "type": "hip",
    "pitch_deg": 22,
@@ -38,24 +38,27 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1983,
-  "band": "suburban",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
   "family": "Moriarty",
-  "house_number": 561
+  "house_number": 1444
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

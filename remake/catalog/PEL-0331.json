@@ -3,34 +3,59 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 42.2,
-  "d": 23.8
+  "w": 18.4,
+  "d": 37.3
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "stucco",
-  "colors": {
-   "body": "#efe6d2",
-   "trim": "#5a3a28",
-   "roof": "#a8492f"
-  },
-  "year_built": 1978,
-  "condition": "kept",
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 27,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "material": "clay_tile",
-   "pitch_deg": 17
-  }
+   "pitch_deg": 22,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f3eadb",
+   "trim": "#5a3a28",
+   "accent": "#1f4a6e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Solano",
+  "house_number": 615
  },
- "brief": "condo (apartment) generated for Pelican Cove.",
- "model": "SOL-0643"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0316"
 }

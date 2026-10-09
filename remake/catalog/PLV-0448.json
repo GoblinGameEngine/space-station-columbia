@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 12.1,
-  "d": 22.1
+  "w": 16.2,
+  "d": 20.4
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 34,
+  "main_w_ft": 36,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,33 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
+   "body": "#f2e8dc",
    "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1920,
-  "band": "streetcar",
+  "year_built": 1934,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Harrow",
-  "house_number": 326
+  "family": "Brandvold",
+  "house_number": 225
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0439"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1441"
 }

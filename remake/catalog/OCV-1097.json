@@ -3,60 +3,64 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.4,
-  "d": 30.9
+  "w": 14.3,
+  "d": 38.3
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
   "main_w_ft": 26,
-  "main_d_ft": 34,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 22,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1914,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Merriweather",
-  "house_number": 1068
+  "family": "Pham",
+  "house_number": 1058
  },
- "brief": "interwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0252"
 }

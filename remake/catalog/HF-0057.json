@@ -8,25 +8,57 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 10,
   "facade": "brick",
-  "cornice": "parapet_flat",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Marlowe & Arrieta Printing",
-    "type": "print_shop",
-    "sign": "MARLOWE & ARRIETA PRINTING",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "works_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "engineering_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1879,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Stroud Cafe",
+    "type": "cafe",
+    "sign": "STROUD CAFE",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1962,
   "colors": {
-   "body": "#c1b586"
+   "body": "#854333"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

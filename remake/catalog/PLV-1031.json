@@ -3,62 +3,61 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.2,
-  "d": 34.4
+  "w": 21.7,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 45,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 41,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 21,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2e2a26",
-   "accent": "#2f5e5a",
+   "body": "#e6d4bb",
+   "trim": "#2f3b2a",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "worn",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Dunmore",
-  "house_number": 1284
+  "family": "Haskins",
+  "house_number": 1072
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

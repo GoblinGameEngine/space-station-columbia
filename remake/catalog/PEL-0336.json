@@ -3,58 +3,61 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 22.9,
-  "d": 31.2
+  "w": 13.3,
+  "d": 30.2
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 29,
+  "main_w_ft": 31,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "body": "#f2e8dc",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1959,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 11
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Tomczak",
-  "house_number": 418
+  "family": "Yoder",
+  "house_number": 618
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0502"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.8,
-  "d": 32.3
+  "w": 17.6,
+  "d": 29.2
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 30,
+  "main_w_ft": 48,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "spindle"
   },
   "walls": "clapboard",
@@ -32,32 +32,30 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "left_end"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
-   "extras": [
-    "shed",
-    "clothesline"
-   ]
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Wainwright",
-  "house_number": 1719
+  "house_number": 2056
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

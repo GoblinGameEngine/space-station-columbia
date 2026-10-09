@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 20.0,
-  "d": 20.1
+  "w": 14.8,
+  "d": 37.3
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 35,
+  "main_w_ft": 26,
   "main_d_ft": 31,
   "roof": {
    "type": "hip",
-   "pitch_deg": 19,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,38 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#2e2a26",
-   "accent": "#2f5e5a",
+   "body": "#f2e8dc",
+   "trim": "#4a3324",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "new",
-  "year_built": 1937,
-  "band": "interwar",
+  "condition": "kept",
+  "year_built": 1926,
+  "band": "streetcar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Holloway",
-  "house_number": 575
+  "family": "Raghunathan",
+  "house_number": 710
  },
- "brief": "interwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1012"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0252"
 }

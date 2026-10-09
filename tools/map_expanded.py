@@ -1871,14 +1871,8 @@ def _plan_cached(spec, blocked, height, where):
     src = open(os.path.join(d, "settlegen", "city.py"), "rb").read().split(b"\ndef library_key")[0]
     a_, b_ = src.find(b"\ndef structures("), src.find(b"\ndef club_scale(")
     path = key(src[:a_] + src[b_:] if a_ >= 0 and b_ > a_ else src)
-    if not os.path.exists(path):
-        # a plan cached under the first key (all of city.py up to library_key, as it stood: plan_cache/city_key_v1.py)
-        old = os.path.join(PLAN_CACHE, "city_key_v1.py")
-        if os.path.exists(old):
-            p1 = key(open(old, "rb").read().split(b"\ndef library_key")[0])
-            if os.path.exists(p1):
-                import shutil
-                shutil.copyfile(p1, path)
+    # (no fallback to the plans cached under the first key, plan_cache/city_key_v1.py: it handed back the old plans after
+    # every planner change -- the jobs pass, 2026-10-08)
     if os.path.exists(path):
         print("  (plan of %s from the cache)" % where[0])
         return pickle.load(open(path, "rb"))
@@ -1999,6 +1993,10 @@ def build_generated(spec):
         f = (lambda c_: (lambda u, v: (u, c_["v_road"] + c_["dirn"] * v)))(c)
         for a in c["plan"]["areas"]:
             t.area(uv([f(*q) for q in a["poly"]]), a["kind"])
+    for pk in p.get("parks", []):                          # (research/jobs: the industrial parks' lawns, car parks, courts, ponds)
+        ua_, sd_, va_ = pk["frame"]
+        for a in pk["plan"]["areas"]:
+            t.area(uv([(ua_ + q[0], sd_ * (va_ + q[1])) for q in a["poly"]]), "lawn" if a["kind"] == "pool" else a["kind"])
     t.stairs = [(uv(st["pts"]), st["name"]) for st in p["stairs"]]
     t.landmarks = [dict(lm, poly=uv(lm["poly"])) if "poly" in lm else dict(lm) for lm in p["landmarks"]]
     def region_at(ring, reg=spec.get("region", "gl")):

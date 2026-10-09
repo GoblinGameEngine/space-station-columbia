@@ -3,60 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 24.8,
-  "d": 30.2
+  "w": 37.2,
+  "d": 21.4
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 27,
+  "storeys": 1,
+  "main_w_ft": 42,
+  "main_d_ft": 24,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2f3b2a",
+   "body": "#f0e2cf",
+   "trim": "#2e2a26",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "condition": "kept",
+  "year_built": 1979,
+  "band": "suburban",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Solano",
-  "house_number": 2023
+  "family": "Arrieta",
+  "house_number": 1808
  },
- "brief": "postwar band spanish_revival: 2 storeys, board_and_batten walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-5638"
+ "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3378"
 }

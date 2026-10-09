@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.1,
-  "d": 25.0
+  "w": 16.6,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 23,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 25,
-   "material": "asphalt_shingle"
+   "pitch_deg": 49,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
-   "rail": "spindle"
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a3aeb0",
-   "trim": "#3a3f44",
-   "accent": "#6a4a2a",
-   "roof": "#6a5e52"
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
@@ -43,17 +43,21 @@
    "fence": "none",
    "side": "none",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 2005,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "nantucket_cape",
+  "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "Moriarty",
-  "house_number": 906
+  "family": "Wisniewski",
+  "house_number": 3034
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5679"
+ "brief": "late band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0907"
 }

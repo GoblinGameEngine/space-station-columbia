@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 23.2,
-  "d": 31.2
+  "w": 16.3,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 30,
+  "main_w_ft": 43,
+  "main_d_ft": 27,
   "roof": {
    "type": "hip",
    "pitch_deg": 16,
@@ -32,31 +32,33 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "garden",
+    "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
   "family": "Garcia",
-  "house_number": 513
+  "house_number": 1383
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0636"
 }

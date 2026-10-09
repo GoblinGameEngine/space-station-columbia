@@ -8,26 +8,58 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 10,
   "facade": "brick",
-  "cornice": "bracketed_metal",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Kowalczyk Drug",
+    "business": "Brandvold & Arrieta Drug",
     "type": "drug_store",
-    "sign": "KOWALCZYK DRUG",
-    "sign_style": "flat_board",
-    "awning": false
+    "sign": "BRANDVOLD & ARRIETA DRUG",
+    "sign_style": "projecting",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1902,
+  "year_built": 1906,
   "colors": {
    "body": "#9c5a42"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Nowicki Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

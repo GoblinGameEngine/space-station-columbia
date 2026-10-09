@@ -3,60 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 16.6,
-  "d": 35.4
+  "w": 17.4,
+  "d": 39.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 30,
+  "main_w_ft": 35,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "body": "#f4f0e6",
+   "trim": "#2e2a26",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "2over2",
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1877,
+  "band": "rail",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 481
+  "family": "Haddad",
+  "house_number": 135
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0636"
+ "brief": "rail band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0316"
 }

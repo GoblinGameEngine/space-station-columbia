@@ -3,19 +3,19 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.0,
-  "d": 34.5
+  "w": 37.8,
+  "d": 39.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 31,
-  "main_d_ft": 34,
+  "main_w_ft": 48,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile"
+   "type": "gable",
+   "pitch_deg": 21,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -23,40 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#dcc7a6",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#f2e8dc",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1970,
+  "band": "suburban",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 1154
+  "family": "Raghunathan",
+  "house_number": 1080
  },
- "brief": "interwar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0636"
+ "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2778"
 }

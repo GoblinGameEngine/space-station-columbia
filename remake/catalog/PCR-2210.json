@@ -3,58 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 20.0
+  "w": 14.6,
+  "d": 36.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 31,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
+   "type": "enclosed",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1927,
-  "band": "interwar",
-  "form_token": "shingle_style"
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 1368
+  "family": "Reyes",
+  "house_number": 1564
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0947"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0978"
 }

@@ -3,33 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 41.6,
-  "d": 39.7
+  "w": 12.5,
+  "d": 36.5
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "stucco",
-  "colors": {
-   "body": "#f4f0e6",
-   "trim": "#3b2a1e",
-   "accent": "#2e3a4a",
-   "roof": "#a8492f"
-  },
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 44,
   "roof": {
    "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 19
+   "pitch_deg": 24,
+   "material": "clay_tile"
   },
-  "year_built": 1911,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#e9d6c8",
+   "trim": "#4a3324",
+   "accent": "#6a2c22",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Brannock",
+  "house_number": 237
  },
- "brief": "townhouse (townhouse) generated for Playa Verde.",
- "model": "SOL-0063"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0487"
 }

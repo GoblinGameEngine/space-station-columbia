@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.7,
-  "d": 35.2
+  "w": 11.0,
+  "d": 30.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 26,
+  "main_w_ft": 25,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 20,
@@ -32,8 +32,8 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,23 +41,23 @@
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "minimal_traditional",
+  "condition": "kept",
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
   "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Brannock",
-  "house_number": 1019
+  "family": "Holloway",
+  "house_number": 939
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0813"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0251"
 }

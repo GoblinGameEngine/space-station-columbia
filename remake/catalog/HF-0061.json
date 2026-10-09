@@ -8,25 +8,61 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Infirmary Music",
-    "type": "music_store",
-    "sign": "INFIRMARY MUSIC",
+    "business": "Nguyen Cafe",
+    "type": "cafe",
+    "sign": "NGUYEN CAFE",
     "sign_style": "flat_board",
-    "awning": false
+    "awning": true
+   },
+   {
+    "business": "Haskins Clothiers",
+    "type": "clothing",
+    "sign": "HASKINS CLOTHIERS",
+    "sign_style": "awning_lettering",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1924,
+  "year_built": 1961,
   "colors": {
-   "body": "#a78068"
+   "body": "#af8a72"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

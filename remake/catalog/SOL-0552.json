@@ -6,30 +6,23 @@
   "w": 18.0,
   "d": 30.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Solana Point Gallery",
-    "type": "art_gallery",
-    "sign": "SOLANA POINT GALLERY",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "shabby",
-  "year_built": 1906,
-  "colors": {
-   "body": "#f2e8dc"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "metal",
+  "year_built": 1922,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Desai & Marlowe Foundry",
+  "sign": "DESAI & MARLOWE FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

@@ -3,65 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.3,
-  "d": 35.0
+  "w": 19.8,
+  "d": 24.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 29,
-  "main_d_ft": 45,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 41,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "posts": "square",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
    "accent": "#1d1f22",
    "roof": "#2f3438"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1896,
-  "band": "streetcar",
-  "form_token": "cape_cod"
+  "condition": "worn",
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Solano",
-  "house_number": 214
+  "family": "Okafor",
+  "house_number": 1078
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0666"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, enclosed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0280"
 }

@@ -3,15 +3,15 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 18.1,
-  "d": 23.6
+  "w": 23.1,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 32,
+  "main_w_ft": 48,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 18,
@@ -32,31 +32,33 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
+    "shed",
+    "clothesline",
     "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "condition": "worn",
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Yoder",
-  "house_number": 347
+  "family": "Patel",
+  "house_number": 413
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0320"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

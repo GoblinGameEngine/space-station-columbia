@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 26.3,
-  "d": 29.4
+  "w": 25.5,
+  "d": 28.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "ranch",
+  "storeys": 1,
   "main_w_ft": 40,
   "main_d_ft": 23,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 36,
-   "material": "asphalt_shingle"
+   "type": "hip",
+   "pitch_deg": 17,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,19 +23,21 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#caaf89",
-   "trim": "#ffffff",
-   "accent": "#3a2a1e",
-   "roof": "#555350"
+   "body": "#efd9c4",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
@@ -46,12 +48,13 @@
   "condition": "kept",
   "year_built": 1991,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "ranch"
  },
+ "region": "ca",
  "names": {
   "family": "Duquesne",
-  "house_number": 1402
+  "house_number": 1927
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4075"
 }

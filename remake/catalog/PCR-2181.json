@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.8,
-  "d": 35.8
+  "w": 23.4,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 48,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "slate"
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "body": "#dec7b3",
+   "trim": "#2e3a4a",
+   "accent": "#2b4f6b",
+   "roof": "#4a4a48"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "condition": "shabby",
+  "year_built": 1949,
+  "band": "postwar",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Tomczak",
-  "house_number": 1271
+  "house_number": 334
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "postwar band split_level: 1 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-2088"
 }

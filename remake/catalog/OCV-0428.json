@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 25.6
+  "w": 16.7,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 27,
+  "main_w_ft": 23,
+  "main_d_ft": 39,
   "roof": {
    "type": "hip",
-   "pitch_deg": 24,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#efd9c4",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -41,22 +41,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "ranch"
+  "condition": "worn",
+  "year_built": 1912,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Solano",
-  "house_number": 122
+  "family": "Brannock",
+  "house_number": 608
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0384"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0364"
 }

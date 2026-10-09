@@ -3,27 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 67.0,
-  "d": 23.9
+  "w": 13.9,
+  "d": 39.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 4,
-  "form": "slab",
-  "units": 24,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#e9e8e2"
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1996,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "wrap",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1903,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Villalobos",
+  "house_number": 456
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0407"
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, wrap porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0800"
 }

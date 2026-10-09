@@ -3,34 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.8,
-  "d": 24.3
+  "w": 21.4,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 43,
+  "main_w_ft": 54,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -41,29 +32,31 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
+  "year_built": 1960,
+  "band": "postwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 537
+  "house_number": 1747
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0511"
+ "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

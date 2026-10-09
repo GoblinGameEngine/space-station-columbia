@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 32.0
+  "w": 23.4,
+  "d": 28.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 27,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 45,
   "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#d2d1ac",
+   "trim": "#3a3f44",
+   "accent": "#2e3a4a",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
@@ -46,14 +46,12 @@
   "condition": "kept",
   "year_built": 2001,
   "band": "late",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
   "family": "Stroud",
-  "house_number": 3934
+  "house_number": 1046
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2280"
 }

@@ -6,27 +6,22 @@
   "w": 17.5,
   "d": 29.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "cast_iron_front",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Tremblay Books",
-    "type": "bookstore",
-    "sign": "TREMBLAY BOOKS",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1907,
-  "colors": {
-   "body": "#97533e"
-  }
+  "walls": "block",
+  "year_built": 1914,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Smith & Adebayo Foods",
+  "sign": "SMITH & ADEBAYO FOODS"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

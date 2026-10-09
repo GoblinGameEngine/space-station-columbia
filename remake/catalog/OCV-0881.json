@@ -3,61 +3,34 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 10.6,
-  "d": 36.4
+  "w": 38.0,
+  "d": 39.9
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "court",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "body": "#e9d6c8",
+   "trim": "#2f3b2a",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed",
-    "swing_set"
-   ]
-  },
+  "year_built": 1986,
   "condition": "kept",
-  "year_built": 1902,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 16
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Moriarty",
-  "house_number": 924
+  "name": ""
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0367"
+ "brief": "condo (apartment) generated for Oceanview.",
+ "model": "SOL-1128"
 }

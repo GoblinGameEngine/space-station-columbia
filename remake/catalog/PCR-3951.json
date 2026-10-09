@@ -3,59 +3,63 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 28.4,
-  "d": 36.6
+  "w": 18.3,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 28,
+  "main_w_ft": 28,
+  "main_d_ft": 44,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
+   "type": "gable",
+   "pitch_deg": 46,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "casement",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "right_end"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1972,
-  "band": "suburban",
-  "form_token": "foursquare"
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 1700
+  "family": "Leclerc",
+  "house_number": 2457
  },
- "brief": "suburban band foursquare: 2 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens)."
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

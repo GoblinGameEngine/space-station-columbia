@@ -3,26 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 64.2,
-  "d": 32.4
+  "w": 17.9,
+  "d": 25.1
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 4,
-  "form": "slab",
-  "units": 24,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
+  "storeys": 2,
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Haddad & Garcia Tavern",
+    "type": "bar",
+    "sign": "HADDAD & GARCIA TAVERN",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1872,
   "colors": {
-   "body": "#d9dcd8"
-  },
-  "year_built": 1973,
-  "condition": "kept"
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

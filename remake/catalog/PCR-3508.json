@@ -3,59 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.3,
-  "d": 35.1
+  "w": 53.1,
+  "d": 38.5
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 53,
-  "main_d_ft": 29,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
-  },
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
   "walls": "clapboard",
-  "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#f1ead2"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": false
-  },
-  "chimneys": [
-   "right_end"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
-  },
-  "condition": "worn",
-  "year_built": 1936,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1999,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Marlowe",
-  "house_number": 2219
+  "name": ""
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0578"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-1075"
 }

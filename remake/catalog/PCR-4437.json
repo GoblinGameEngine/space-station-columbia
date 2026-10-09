@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 32.7,
-  "d": 31.0
+  "w": 22.4,
+  "d": 31.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 58,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 43,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
@@ -20,41 +20,43 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
+   "body": "#6f6a62",
    "trim": "#ffffff",
    "accent": "#24382a",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1972,
-  "band": "suburban",
-  "form_token": "cape_cod"
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Wainwright",
-  "house_number": 2554
+  "family": "Nowicki",
+  "house_number": 3077
  },
- "brief": "suburban band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3773"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

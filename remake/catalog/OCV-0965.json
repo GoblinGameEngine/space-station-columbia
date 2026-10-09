@@ -3,62 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.2,
-  "d": 25.1
+  "w": 19.8,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "main_w_ft": 32,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "body": "#ead9c8",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "clothesline"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 963
+  "family": "Harrow",
+  "house_number": 420
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0378"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

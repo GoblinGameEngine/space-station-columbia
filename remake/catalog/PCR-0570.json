@@ -3,60 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 25.3
+  "w": 15.7,
+  "d": 29.0
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 40,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Haddad Diner",
+    "type": "diner",
+    "sign": "HADDAD DINER",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "picket",
-   "rear": "chainlink",
-   "extras": [
-    "garden"
-   ]
-  },
-  "condition": "shabby",
-  "year_built": 1879,
-  "band": "rail",
-  "form_token": "shingle_style",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1917,
+  "colors": {
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Carrow",
-  "house_number": 624
- },
- "brief": "rail band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

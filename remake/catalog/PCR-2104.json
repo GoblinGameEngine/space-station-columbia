@@ -3,23 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 20.0,
-  "d": 21.0
+  "w": 18.4,
+  "d": 35.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 41,
+  "main_w_ft": 45,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
    "rail": "none"
   },
@@ -27,37 +27,35 @@
   "foundation": "cut_stone",
   "colors": {
    "body": "#f4f2e8",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden"
-   ]
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "gable_front",
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Harrow",
-  "house_number": 1374
+  "family": "Tomczak",
+  "house_number": 1493
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

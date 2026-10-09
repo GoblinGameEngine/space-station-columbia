@@ -3,30 +3,30 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.4,
-  "d": 39.1
+  "w": 18.5,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 28,
+  "main_w_ft": 49,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 46,
-   "material": "wood_shingle"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stoop",
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
+   "body": "#8a2e24",
    "trim": "#f7f6f0",
    "accent": "#24382a",
    "roof": "#2f3438"
@@ -36,27 +36,26 @@
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden"
-   ]
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1926,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Leclerc",
-  "house_number": 1017
+  "family": "Tremblay",
+  "house_number": 177
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0794"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

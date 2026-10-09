@@ -3,65 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 38.1,
-  "d": 33.3
+  "w": 18.3,
+  "d": 41.3
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 52,
-  "main_d_ft": 40,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 47,
-   "material": "wood_shingle"
-  },
-  "dormers": [
+  "facade": "cast_iron_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "offices",
+  "storefronts": [
    {
-    "type": "gable",
-    "side": "front"
+    "business": "Stroud Savings Bank",
+    "type": "bank",
+    "sign": "STROUD SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "concrete_block",
-  "colors": {
-   "body": "#f8f7f2",
-   "trim": "#f7f6f0",
-   "accent": "#2b4f6e",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "left_end"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "queen_anne"
+  "year_built": 1886,
+  "colors": {
+   "body": "#f5e9e4",
+   "trim": "#ffffff",
+   "accent": "#1f4a33"
+  },
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "family": "Patel",
-  "house_number": 244
- },
- "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

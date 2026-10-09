@@ -3,31 +3,26 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 26.1
+  "w": 51.4,
+  "d": 24.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Foxworth Market",
-    "type": "grocery",
-    "sign": "FOXWORTH MARKET",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1891,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "walls": "brick",
+  "year_built": 1924,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Achterberg Foods",
+  "sign": "ACHTERBERG FOODS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

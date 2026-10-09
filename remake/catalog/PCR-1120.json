@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 43.5,
-  "d": 23.8
+  "w": 17.7,
+  "d": 20.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#3a3f44",
-   "accent": "#2b4f6b",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 37,
+  "main_d_ft": 23,
   "roof": {
-   "pitch_deg": 31
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
-  "year_built": 1919,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e9e8e2",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1927,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Nowicki",
+  "house_number": 254
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

@@ -3,27 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 49.1,
-  "d": 26.6
+  "w": 10.3,
+  "d": 40.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36"
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
-  "year_built": 1986,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1900,
+  "band": "streetcar",
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Smith",
+  "house_number": 135
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0337"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0784"
 }

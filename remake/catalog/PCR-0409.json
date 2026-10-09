@@ -3,59 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.0,
-  "d": 30.0
+  "w": 15.1,
+  "d": 25.5
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 24,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#6f6a62",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 2,
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Wainwright & Brannock Market",
+    "type": "grocery",
+    "sign": "WAINWRIGHT & BRANNOCK MARKET",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "picket",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "streetcar",
-  "form_token": "nantucket_cape"
+  "year_built": 1876,
+  "colors": {
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Duquesne",
-  "house_number": 582
- },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

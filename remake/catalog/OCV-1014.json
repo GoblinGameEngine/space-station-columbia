@@ -3,23 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.0,
-  "d": 37.7
+  "w": 19.0,
+  "d": 30.9
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 28,
+  "main_w_ft": 32,
   "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
+   "type": "hip",
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -27,32 +27,34 @@
   "foundation": "slab",
   "colors": {
    "body": "#e8d8c0",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1902,
-  "band": "streetcar",
+  "condition": "kept",
+  "year_built": 1925,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 172
+  "family": "Haskins",
+  "house_number": 942
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0252"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

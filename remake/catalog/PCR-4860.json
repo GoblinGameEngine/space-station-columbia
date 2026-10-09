@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.0,
-  "d": 30.7
+  "w": 21.2,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 45,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 41,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 27,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "shingle",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#bdbca9",
-   "trim": "#f4f1e8",
-   "accent": "#4a5a48",
-   "roof": "#2f3133"
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "sliding",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1952,
   "band": "postwar",
-  "form_token": "ranch"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Patel",
-  "house_number": 341
+  "house_number": 458
  },
- "brief": "postwar band ranch: 1 storeys, shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-4336"
+ "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

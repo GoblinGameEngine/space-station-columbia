@@ -3,34 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.1,
-  "d": 41.1
+  "w": 10.4,
+  "d": 35.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 40,
+  "main_w_ft": 23,
+  "main_d_ft": 37,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "slate"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -41,31 +32,33 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
-   "fence": "iron",
+   "fence": "none",
    "side": "chainlink",
    "rear": "none",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1927,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Mbeki",
-  "house_number": 1261
+  "family": "Wisniewski",
+  "house_number": 839
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0665"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0537"
 }

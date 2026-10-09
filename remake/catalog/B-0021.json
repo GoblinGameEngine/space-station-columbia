@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "cast_iron_front",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "brick",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "dentist"
+   }
+  ],
   "cornice": "bracketed_metal",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Reyes Thrift",
-    "type": "thrift_store",
-    "sign": "REYES THRIFT",
+    "business": "Pham Cafe",
+    "type": "cafe",
+    "sign": "PHAM CAFE",
     "sign_style": "projecting",
-    "awning": true
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1909,
+  "year_built": 1924,
   "colors": {
-   "body": "#874b2d"
+   "body": "#834836"
   }
  },
- "names": {},
- "brief": "store (store) generated for Bellhaven."
+ "names": {
+  "block_name": "Bellhaven Trust"
+ },
+ "brief": "store (office) generated for Bellhaven."
 }

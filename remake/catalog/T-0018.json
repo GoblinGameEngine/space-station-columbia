@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
   "cornice": "bracketed_metal",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Ring Line Savings Bank",
-    "type": "bank",
-    "sign": "RING LINE SAVINGS BANK",
-    "sign_style": "flat_board",
+    "business": "Wisniewski Diner",
+    "type": "diner",
+    "sign": "WISNIEWSKI DINER",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Leclerc & Desai Drug",
+    "type": "drug_store",
+    "sign": "LECLERC & DESAI DRUG",
+    "sign_style": "projecting",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1917,
+  "condition": "kept",
+  "year_built": 1919,
   "colors": {
-   "body": "#873424"
+   "body": "#763b2f"
   }
  },
- "names": {},
- "brief": "store (store) generated for Tamarack."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Tamarack."
 }

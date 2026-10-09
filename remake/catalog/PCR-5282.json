@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 40.5,
-  "d": 27.5
+  "w": 29.8,
+  "d": 37.5
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 36,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#3a3f44",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 49,
+  "main_d_ft": 25,
   "roof": {
-   "pitch_deg": 34
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1976,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "sliding",
+   "shutters": false
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "tree_line",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1983,
+  "band": "suburban",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Castellanos",
+  "house_number": 472
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0178"
+ "brief": "suburban band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3283"
 }

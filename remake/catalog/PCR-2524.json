@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.6,
-  "d": 30.5
+  "w": 13.6,
+  "d": 38.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 35,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -26,37 +26,42 @@
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#9a9184",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "foursquare"
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "nantucket_cape",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 9
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 1547
+  "family": "Marlowe",
+  "house_number": 1656
  },
- "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0978"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.8,
-  "d": 33.0
+  "w": 18.4,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 27,
+  "main_w_ft": 50,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,31 +32,32 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "right_end"
   ],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "clothesline"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1931,
+  "band": "interwar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 1413
+  "house_number": 744
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0685"
 }

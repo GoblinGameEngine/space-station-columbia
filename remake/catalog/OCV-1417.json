@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 23.2,
-  "d": 22.6
+  "w": 17.4,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
   "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 32,
-  "main_d_ft": 29,
+  "storeys": 2,
+  "main_w_ft": 40,
+  "main_d_ft": 21,
   "roof": {
    "type": "hip",
    "pitch_deg": 16,
@@ -32,29 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "garden",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1964,
-  "band": "postwar",
+  "year_built": 1939,
+  "band": "interwar",
   "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
   "family": "Pike",
-  "house_number": 1279
+  "house_number": 343
  },
- "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2694"
+ "brief": "interwar band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1413"
 }

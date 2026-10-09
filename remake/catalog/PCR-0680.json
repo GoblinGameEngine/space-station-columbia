@@ -3,31 +3,64 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 40.5
+  "w": 11.4,
+  "d": 24.9
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Okafor Variety",
-    "type": "variety_store",
-    "sign": "OKAFOR VARIETY",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1910,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2"
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1869,
+  "band": "rail",
+  "form_token": "cape_cod",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Booker",
+  "house_number": 714
+ },
+ "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0301"
 }

@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.6,
-  "d": 40.9
+  "w": 18.0,
+  "d": 38.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 32,
+  "main_w_ft": 30,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "slate"
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
+   "body": "#9a9184",
    "trim": "#ffffff",
    "accent": "#24382a",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
@@ -46,15 +46,15 @@
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1908,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "year_built": 1881,
+  "band": "rail",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 534
+  "family": "Booker",
+  "house_number": 120
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0820"
+ "brief": "rail band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0521"
 }

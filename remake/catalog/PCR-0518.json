@@ -3,31 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 24.8
+  "w": 15.0,
+  "d": 27.6
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "i_house",
   "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Pruett Savings Bank",
-    "type": "bank",
-    "sign": "PRUETT SAVINGS BANK",
-    "sign_style": "projecting",
-    "awning": true
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1899,
+  "main_w_ft": 31,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#7a4232"
-  }
+   "body": "#f6f5f0",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Harrow",
+  "house_number": 258
+ },
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens)."
 }

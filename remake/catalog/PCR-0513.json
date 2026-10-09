@@ -3,33 +3,42 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.2,
-  "d": 33.6
+  "w": 15.7,
+  "d": 39.5
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "main_w_ft": 24,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 42,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "turned",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f4f3ec",
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
    "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "2over2",
@@ -41,22 +50,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "picket",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1896,
   "band": "rail",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Wainwright",
-  "house_number": 446
+  "family": "Patel",
+  "house_number": 408
  },
- "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

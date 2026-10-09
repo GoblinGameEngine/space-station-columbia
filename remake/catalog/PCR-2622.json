@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.7,
-  "d": 38.2
+  "w": 19.4,
+  "d": 36.6
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 28,
+  "main_w_ft": 36,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
-   "material": "asphalt_shingle"
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
+   "body": "#8a8378",
    "trim": "#f7f6f0",
    "accent": "#24382a",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "clothesline"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1904,
-  "band": "streetcar",
+  "condition": "new",
+  "year_built": 1926,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 1771
+  "family": "Mbeki",
+  "house_number": 717
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0794"
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0861"
 }

@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.9,
-  "d": 29.7
+  "w": 36.9,
+  "d": 37.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 34,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 25,
   "roof": {
    "type": "hip",
-   "pitch_deg": 23,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "body": "#f6f1e7",
+   "trim": "#2f3b2a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1947,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "condition": "kept",
+  "year_built": 1966,
+  "band": "suburban",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
+  "family": "Pham",
   "house_number": 953
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-2306"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2966"
 }

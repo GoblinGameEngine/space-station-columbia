@@ -3,27 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 51.8,
-  "d": 36.5
+  "w": 22.4,
+  "d": 31.7
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f4f2e8"
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 48,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1985,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "rear"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Leclerc",
+  "house_number": 2419
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1059"
+ "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

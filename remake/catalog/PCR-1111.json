@@ -3,31 +3,70 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 40.1,
-  "d": 40.1
+  "w": 18.8,
+  "d": 29.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#ffffff",
-   "accent": "#5b6b3a",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 35,
   "roof": {
-   "pitch_deg": 29
+   "type": "gable",
+   "pitch_deg": 49,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1929,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "enclosed",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#d9dcd8",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "shabby",
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Pruett",
+  "house_number": 951
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0178"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

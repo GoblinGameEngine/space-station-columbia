@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 34.8,
-  "d": 37.8
+  "w": 23.8,
+  "d": 29.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 49,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 34,
   "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
+   "type": "hip",
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,38 +23,41 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#2e2a26",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "carport",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1966,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 1136
+  "family": "Haddad",
+  "house_number": 328
  },
- "brief": "suburban band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2726"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

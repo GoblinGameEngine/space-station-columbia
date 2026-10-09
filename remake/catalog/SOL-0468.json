@@ -6,30 +6,22 @@
   "w": 16.3,
   "d": 25.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Okonkwo Insurance",
-    "type": "insurance_office",
-    "sign": "OKONKWO INSURANCE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1884,
-  "colors": {
-   "body": "#e8d8c0"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1916,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Reyes Machine Works",
+  "sign": "REYES MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

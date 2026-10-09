@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 14.1,
-  "d": 40.4
+  "w": 16.9,
+  "d": 35.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 40,
+  "main_w_ft": 31,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,45 +23,39 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#f2e8dc",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "shed"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1920,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 16,
-   "d_ft": 9
-  }
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 301
+  "family": "Loomis",
+  "house_number": 121
  },
- "brief": "streetcar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0368"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

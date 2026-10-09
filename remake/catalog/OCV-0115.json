@@ -3,33 +3,26 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.6,
-  "d": 42.6
+  "w": 16.9,
+  "d": 33.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Carrow & Raghunathan Pizza",
-    "type": "pizza",
-    "sign": "CARROW & RAGHUNATHAN PIZZA",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1921,
-  "colors": {
-   "body": "#efd9c4"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1882,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Bazzi Foundry",
+  "sign": "BAZZI FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

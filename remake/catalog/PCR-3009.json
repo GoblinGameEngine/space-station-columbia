@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.8,
-  "d": 35.0
+  "w": 17.1,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 21,
+  "main_w_ft": 26,
+  "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
+   "type": "gambrel",
+   "pitch_deg": 41,
    "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
+   "body": "#f6f5f0",
    "trim": "#f4f3ec",
    "accent": "#24382a",
-   "roof": "#4a4440"
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "shabby",
+  "year_built": 1950,
+  "band": "postwar",
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 1963
+  "family": "Pike",
+  "house_number": 1304
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0578"
+ "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0476"
 }

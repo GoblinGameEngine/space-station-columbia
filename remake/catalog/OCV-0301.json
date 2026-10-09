@@ -3,60 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.6,
-  "d": 39.8
+  "w": 17.0,
+  "d": 42.2
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "minimal_traditional",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#f4f0e6",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
+  "facade": "stucco",
+  "cornice": "parapet_flat",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Szabo Insurance",
+    "type": "insurance_office",
+    "sign": "SZABO INSURANCE",
+    "sign_style": "flat_board",
+    "awning": false
+   }
   ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1916,
-  "band": "streetcar",
-  "form_token": "minimal_traditional"
+  "year_built": 1877,
+  "colors": {
+   "body": "#efe6d2"
+  },
+  "arcade": false,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Okonkwo",
-  "house_number": 155
- },
- "brief": "streetcar band minimal_traditional: 2 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-1028"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

@@ -3,26 +3,56 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 55.3,
-  "d": 36.0
+  "w": 25.1,
+  "d": 29.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#a1aea8"
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 43,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "slate"
   },
-  "year_built": 1977,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#2f3e52",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "picture",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1994,
+  "band": "late",
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
-  "name": ""
+  "family": "Delmar",
+  "house_number": 811
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "HF-0993"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

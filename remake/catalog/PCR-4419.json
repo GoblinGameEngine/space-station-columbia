@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.6,
-  "d": 20.0
+  "w": 35.7,
+  "d": 38.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 45,
-  "main_d_ft": 28,
+  "main_w_ft": 43,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 32,
+   "type": "gable",
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,35 +26,35 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#f1ead2",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "tree_line",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "year_built": 1970,
+  "band": "suburban",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 2975
+  "family": "Kowal",
+  "house_number": 2556
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-1168"
+ "brief": "suburban band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3347"
 }

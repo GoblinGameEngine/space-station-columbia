@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 22.6,
-  "d": 33.1
+  "w": 30.6,
+  "d": 37.3
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 56,
-  "main_d_ft": 29,
+  "main_w_ft": 40,
+  "main_d_ft": 34,
   "roof": {
    "type": "hip",
    "pitch_deg": 20,
@@ -32,27 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "none",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "tree_line",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
+  "year_built": 1984,
+  "band": "suburban",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
   "family": "Holloway",
-  "house_number": 1793
+  "house_number": 1183
  },
- "brief": "postwar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "suburban band ranch: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2729"
 }

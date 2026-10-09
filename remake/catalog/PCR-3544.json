@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.9,
-  "d": 35.1
+  "w": 30.3,
+  "d": 34.4
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 31,
+  "main_w_ft": 49,
   "main_d_ft": 27,
   "roof": {
    "type": "gable",
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "square",
+   "type": "stoop",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,32 +32,32 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "new",
-  "year_built": 1936,
-  "band": "interwar",
+  "condition": "kept",
+  "year_built": 1980,
+  "band": "suburban",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Wainwright",
-  "house_number": 787
+  "house_number": 1823
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

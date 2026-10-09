@@ -3,60 +3,56 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 12.9,
-  "d": 38.7
+  "w": 17.2,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
   "main_w_ft": 27,
-  "main_d_ft": 33,
+  "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 18,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
+   "body": "#f6f1e7",
    "trim": "#2e2a26",
-   "accent": "#2c4a2e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1923,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "DeCarlo",
-  "house_number": 131
+  "house_number": 603
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0473"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

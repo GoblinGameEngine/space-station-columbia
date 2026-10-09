@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 34.3
+  "w": 11.2,
+  "d": 29.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 22,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 36,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "casement",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
@@ -41,22 +41,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
   "year_built": 1933,
   "band": "interwar",
-  "form_token": "foursquare"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 888
+  "family": "Yoder",
+  "house_number": 1039
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1408"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0525"
 }

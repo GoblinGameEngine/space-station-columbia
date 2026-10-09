@@ -3,33 +3,25 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.8,
-  "d": 39.6
+  "w": 17.6,
+  "d": 40.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Loomis Bakery",
-    "type": "bakery",
-    "sign": "LOOMIS BAKERY",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
+  "use": "tyre_works",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1911,
-  "colors": {
-   "body": "#e9d6c8"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "metal",
+  "year_built": 1885,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Carrow Tyre & Rubber",
+  "sign": "CARROW TYRE & RUBBER"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

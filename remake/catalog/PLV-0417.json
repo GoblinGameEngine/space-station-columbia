@@ -3,58 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.4,
-  "d": 25.6
+  "w": 13.6,
+  "d": 41.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "main_w_ft": 21,
+  "main_d_ft": 36,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
-   "material": "clay_tile"
+   "type": "hip",
+   "pitch_deg": 16,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#5a3a28",
+   "body": "#e9dcc2",
+   "trim": "#2f3b2a",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1918,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 274
+  "family": "Solano",
+  "house_number": 158
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0320"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

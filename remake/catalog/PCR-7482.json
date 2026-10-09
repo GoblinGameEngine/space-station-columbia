@@ -3,30 +3,55 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 44.3,
-  "d": 22.4
+  "w": 26.8,
+  "d": 28.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#ae6751",
-   "trim": "#f2efe6",
-   "accent": "#3a2a1e",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 33,
   "roof": {
-   "pitch_deg": 24
+   "type": "cross_gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#823c26",
+   "trim": "#ffffff",
+   "accent": "#2b4f6b",
+   "roof": "#6a5e52"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Holloway",
+  "house_number": 1079
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "SOL-4364"
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6110"
 }

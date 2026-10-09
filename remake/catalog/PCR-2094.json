@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.0,
+  "w": 12.7,
   "d": 39.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 38,
+  "main_w_ft": 25,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#f6f5f0",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
@@ -44,20 +44,21 @@
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden",
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "worn",
+  "condition": "shabby",
   "year_built": 1926,
   "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 247
+  "family": "Szabo",
+  "house_number": 577
  },
- "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0776"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

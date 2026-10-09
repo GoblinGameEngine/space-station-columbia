@@ -3,18 +3,18 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 19.7,
-  "d": 35.5
+  "w": 13.0,
+  "d": 40.9
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 20,
+  "storeys": 1,
+  "main_w_ft": 21,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
+   "type": "gable",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,9 +26,9 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "body": "#e6d4bb",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
@@ -36,24 +36,25 @@
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1919,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Tremblay",
-  "house_number": 240
+  "family": "Reyes",
+  "house_number": 149
  },
- "brief": "interwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

@@ -3,62 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 21.3
+  "w": 19.1,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 33,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
    "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "casement",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1925,
   "band": "interwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 1868
+  "family": "Osei",
+  "house_number": 302
  },
- "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0961"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

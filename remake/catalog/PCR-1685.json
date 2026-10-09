@@ -3,32 +3,41 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 29.7
+  "w": 12.8,
+  "d": 39.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 37,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 31,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_full",
+   "posts": "tapered_on_piers",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#9a9184",
    "trim": "#f7f6f0",
-   "accent": "#3a2a24",
+   "accent": "#1d1f22",
    "roof": "#4a4440"
   },
   "windows": {
@@ -40,24 +49,23 @@
   ],
   "garage": "none",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1929,
   "band": "streetcar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Haddad",
+  "family": "Castellanos",
   "house_number": 1258
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-1072"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0585"
 }

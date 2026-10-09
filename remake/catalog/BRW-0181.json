@@ -6,28 +6,23 @@
   "w": 17.4,
   "d": 35.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Nguyen Hardware",
-    "type": "hardware",
-    "sign": "NGUYEN HARDWARE",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1884,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "block",
+  "year_built": 1911,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "name": "Kowalczyk Foods",
+  "sign": "KOWALCZYK FOODS"
+ },
+ "brief": "industrial (industry) generated for Brightwater."
 }

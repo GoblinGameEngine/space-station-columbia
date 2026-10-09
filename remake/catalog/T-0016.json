@@ -8,25 +8,49 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 5,
   "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "none",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "dispatch_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Foxworth & Merriweather Tavern",
-    "type": "bar",
-    "sign": "FOXWORTH & MERRIWEATHER TAVERN",
+    "business": "Merriweather Savings Bank",
+    "type": "bank",
+    "sign": "MERRIWEATHER SAVINGS BANK",
     "sign_style": "awning_lettering",
+    "awning": true
+   },
+   {
+    "business": "Tamarack Savings Bank",
+    "type": "bank",
+    "sign": "TAMARACK SAVINGS BANK",
+    "sign_style": "flat_board",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1907,
+  "condition": "kept",
+  "year_built": 1915,
   "colors": {
-   "body": "#87473b"
+   "body": "#91413a"
   }
  },
- "names": {},
- "brief": "store (store) generated for Tamarack."
+ "names": {
+  "block_name": "Commerce Building"
+ },
+ "brief": "store (office) generated for Tamarack."
 }

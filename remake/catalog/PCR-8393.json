@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.6,
-  "d": 29.2
+  "w": 22.5,
+  "d": 31.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 38,
   "main_d_ft": 29,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 38,
+   "type": "gable",
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9ea2aa",
-   "trim": "#f4f1e8",
-   "accent": "#4a5a48",
-   "roof": "#4a4a48"
+   "body": "#6f6a62",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_1",
@@ -46,12 +46,13 @@
   "condition": "kept",
   "year_built": 1994,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Kowal",
-  "house_number": 1210
+  "house_number": 3417
  },
- "brief": "late band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-6110"
+ "brief": "late band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

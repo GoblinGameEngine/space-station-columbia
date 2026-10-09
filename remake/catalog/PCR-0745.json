@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 30.0
+  "w": 10.4,
+  "d": 24.9
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Carrow Books",
-    "type": "bookstore",
-    "sign": "CARROW BOOKS",
-    "sign_style": "projecting",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1884,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 37,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "wood_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#8e4a36"
-  }
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1918,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Haddad",
+  "house_number": 218
+ },
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

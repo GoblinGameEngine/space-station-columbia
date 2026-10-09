@@ -3,62 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 20.0
+  "w": 11.9,
+  "d": 39.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 29,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f4f3ec",
+   "body": "#8a2e24",
+   "trim": "#f7f6f0",
    "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "none",
   "yard": {
-   "fence": "none",
+   "fence": "picket",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden",
     "shed"
    ]
   },
-  "condition": "new",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "shingle_style",
+  "condition": "kept",
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Brandvold",
-  "house_number": 833
+  "family": "Reyes",
+  "house_number": 1478
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0947"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0800"
 }

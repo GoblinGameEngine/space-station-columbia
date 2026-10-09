@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "brick",
-  "cornice": "bracketed_metal",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Moriarty Printing",
-    "type": "print_shop",
-    "sign": "MORIARTY PRINTING",
+    "business": "Pruett & Solano Savings Bank",
+    "type": "bank",
+    "sign": "PRUETT & SOLANO SAVINGS BANK",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1914,
+  "year_built": 1907,
   "colors": {
-   "body": "#cbb985"
+   "body": "#953c32"
   }
  },
- "names": {},
- "brief": "store (store) generated for Bellhaven."
+ "names": {
+  "block_name": "Kowalczyk Block"
+ },
+ "brief": "store (office) generated for Bellhaven."
 }

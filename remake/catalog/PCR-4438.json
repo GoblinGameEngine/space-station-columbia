@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 28.7,
-  "d": 33.0
+  "w": 23.3,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 27,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
+   "type": "gable",
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#b3c0bd",
-   "trim": "#ffffff",
-   "accent": "#6a4a2a",
-   "roof": "#4a4a48"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "attached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "hedge",
    "extras": [
-    "clothesline",
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1986,
-  "band": "suburban",
-  "form_token": "raised_ranch"
+  "condition": "new",
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 2580
+  "family": "Tremblay",
+  "house_number": 3103
  },
- "brief": "suburban band raised_ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2727"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-2750"
 }

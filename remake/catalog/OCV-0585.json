@@ -3,61 +3,56 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 10.6,
-  "d": 40.0
+  "w": 19.2,
+  "d": 38.7
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 34,
+  "main_w_ft": 37,
+  "main_d_ft": 21,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 17,
+   "type": "gable",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f0e2cf",
-   "trim": "#4a3324",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_2",
   "yard": {
-   "fence": "iron",
-   "side": "hedge",
+   "fence": "none",
+   "side": "none",
    "rear": "none",
-   "extras": [
-    "garden"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1908,
-  "band": "streetcar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Pruett",
-  "house_number": 695
+  "family": "Smith",
+  "house_number": 709
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0369"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0316"
 }

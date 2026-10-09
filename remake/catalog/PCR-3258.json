@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.9,
-  "d": 24.1
+  "w": 12.4,
+  "d": 32.6
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 38,
-  "main_d_ft": 20,
+  "main_w_ft": 20,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 47,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -50,13 +50,14 @@
   "condition": "new",
   "year_built": 1922,
   "band": "interwar",
-  "form_token": "cape_cod"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 2064
+  "house_number": 2115
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0290"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0632"
 }

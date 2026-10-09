@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.0,
-  "d": 36.1
+  "w": 22.7,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 28,
+  "main_w_ft": 33,
   "main_d_ft": 33,
   "roof": {
    "type": "hip",
-   "pitch_deg": 23,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,40 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
+   "body": "#f3eadb",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_2",
+  "chimneys": [],
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1911,
-  "band": "streetcar",
-  "form_token": "ranch",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 12
-  }
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 212
+  "family": "Osei",
+  "house_number": 149
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0613"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

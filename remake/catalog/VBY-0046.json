@@ -3,40 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 40.2,
-  "d": 28.5
+  "w": 12.3,
+  "d": 34.3
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#fbf5e6",
-   "trim": "#ffffff",
-   "accent": "#2b4f6e",
-   "roof": "#3c4048"
-  },
+  "archetype": "queen_anne",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 39,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
+   "type": "cross_gable",
+   "pitch_deg": 40,
    "material": "slate"
   },
-  "year_built": 1922,
-  "condition": "kept",
-  "windows": {
-   "shutters": true
-  },
+  "dormers": [],
   "porch": {
-   "type": "full",
+   "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
-  }
+  },
+  "walls": "clapboard",
+  "foundation": "brick",
+  "colors": {
+   "body": "#f8f7f2",
+   "trim": "#ffffff",
+   "accent": "#1a3d2c",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1902,
+  "band": "streetcar",
+  "form_token": "queen_anne"
  },
  "region": "isle",
  "names": {
-  "name": ""
+  "family": "Garcia",
+  "house_number": 135
  },
- "brief": "townhouse (townhouse) generated for Victory Bay."
+ "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

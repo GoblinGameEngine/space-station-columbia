@@ -3,58 +3,61 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.9,
-  "d": 36.0
+  "w": 22.7,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 32,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 19,
-   "material": "asphalt_shingle"
+   "pitch_deg": 23,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#9c9fa9",
-   "trim": "#e9e2d2",
-   "accent": "#5b6b3a",
-   "roof": "#5a5a58"
+   "body": "#e6d4bb",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
+   "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "fence": "chainlink",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1968,
-  "band": "suburban",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1949,
+  "band": "postwar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
+ "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 1592
+  "family": "Haskins",
+  "house_number": 264
  },
- "brief": "suburban band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2453"
+ "brief": "postwar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

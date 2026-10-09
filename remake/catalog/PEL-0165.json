@@ -3,17 +3,17 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 19.4,
-  "d": 33.3
+  "w": 16.4,
+  "d": 29.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 27,
+  "main_w_ft": 41,
+  "main_d_ft": 20,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 23,
    "material": "clay_tile"
   },
@@ -23,38 +23,39 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
    "body": "#f2e8dc",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 230
+  "family": "Haddad",
+  "house_number": 246
  },
- "brief": "interwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0636"
 }

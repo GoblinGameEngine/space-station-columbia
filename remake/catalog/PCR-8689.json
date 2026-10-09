@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.2,
-  "d": 28.3
+  "w": 25.5,
+  "d": 32.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 27,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 35,
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#dcd2a6",
-   "trim": "#ffffff",
-   "accent": "#1f2a33",
-   "roof": "#555350"
+   "body": "#f1ead2",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1992,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Haskins",
-  "house_number": 2744
+  "house_number": 2630
  },
- "brief": "late band builder_contemporary: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6466"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

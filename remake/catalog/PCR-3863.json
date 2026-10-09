@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.8,
-  "d": 20.0
+  "w": 19.8,
+  "d": 35.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 32,
+  "main_w_ft": 55,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "wood_shingle"
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "body": "#d9dcd8",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "condition": "kept",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 2263
+  "family": "Patel",
+  "house_number": 160
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0832"
 }

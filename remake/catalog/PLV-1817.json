@@ -3,19 +3,19 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.9,
-  "d": 28.0
+  "w": 22.0,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 38,
-  "main_d_ft": 34,
+  "main_w_ft": 42,
+  "main_d_ft": 32,
   "roof": {
    "type": "hip",
-   "pitch_deg": 17,
-   "material": "clay_tile_old"
+   "pitch_deg": 18,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
    "body": "#f2e8dc",
@@ -32,30 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1975,
-  "band": "suburban",
-  "form_token": "ranch"
+  "condition": "shabby",
+  "year_built": 1956,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Brannock",
-  "house_number": 1454
+  "family": "Smith",
+  "house_number": 430
  },
- "brief": "suburban band ranch: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5162"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0997"
 }

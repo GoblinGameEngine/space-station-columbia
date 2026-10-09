@@ -3,43 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 55.1,
-  "d": 30.2
+  "w": 16.3,
+  "d": 30.6
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
+  "storeys": 2,
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Brannock Jewelers",
+    "type": "jeweler",
+    "sign": "BRANNOCK JEWELERS",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1876,
   "colors": {
    "body": "#e9f0e6",
    "trim": "#ffffff",
-   "accent": "#244d3a",
-   "roof": "#3c4048"
+   "accent": "#1a3d2c"
   },
-  "year_built": 1989,
-  "condition": "kept",
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 39,
-   "material": "slate"
-  },
-  "windows": {
-   "shutters": true
-  },
-  "porch": {
-   "type": "full",
-   "posts": "turned",
-   "rail": "spindle"
-  }
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Victory Bay.",
- "model": "VBY-0051"
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

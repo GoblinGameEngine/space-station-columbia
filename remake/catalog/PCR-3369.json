@@ -3,57 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.3,
-  "d": 20.0
+  "w": 18.4,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 33,
+  "main_w_ft": 34,
+  "main_d_ft": 24,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "wood_shingle"
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#d9dcd8",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "accent": "#1d1f22",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Harrow",
-  "house_number": 1920
+  "family": "Reyes",
+  "house_number": 2177
  },
- "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

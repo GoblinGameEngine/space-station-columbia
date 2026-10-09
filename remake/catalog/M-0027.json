@@ -8,25 +8,45 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "brick",
-  "cornice": "parapet_flat",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Infirmary Clothiers",
-    "type": "clothing",
-    "sign": "INFIRMARY CLOTHIERS",
-    "sign_style": "flat_board",
-    "awning": false
+    "business": "Exchange Cafe",
+    "type": "cafe",
+    "sign": "EXCHANGE CAFE",
+    "sign_style": "projecting",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1888,
+  "year_built": 1964,
   "colors": {
-   "body": "#783d34"
+   "body": "#7e3e2a"
   }
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "block_name": "Raghunathan Building"
+ },
+ "brief": "store (office) generated for Marlowe."
 }

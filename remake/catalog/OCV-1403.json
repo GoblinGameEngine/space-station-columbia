@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.6,
-  "d": 31.2
+  "w": 23.4,
+  "d": 35.8
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 38,
+  "main_w_ft": 47,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -32,8 +32,8 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,20 +41,22 @@
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1937,
-  "band": "interwar",
+  "year_built": 1955,
+  "band": "postwar",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
   "family": "DeCarlo",
-  "house_number": 1287
+  "house_number": 875
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
  "model": "SOL-0497"
 }

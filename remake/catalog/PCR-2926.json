@@ -3,24 +3,24 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.7,
-  "d": 32.8
+  "w": 19.1,
+  "d": 31.4
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 35,
+  "main_w_ft": 29,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "spindle"
   },
   "walls": "clapboard",
@@ -28,11 +28,11 @@
   "colors": {
    "body": "#e8dcc0",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
@@ -42,20 +42,22 @@
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
   "year_built": 1926,
   "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 1757
+  "family": "Harrow",
+  "house_number": 873
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0607"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

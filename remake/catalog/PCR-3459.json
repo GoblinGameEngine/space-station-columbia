@@ -3,62 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.0,
-  "d": 31.5
+  "w": 18.4,
+  "d": 27.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 30,
+  "main_w_ft": 30,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2e2e30"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "new",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "gable_front",
+  "condition": "kept",
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Nguyen",
-  "house_number": 2140
+  "family": "Tremblay",
+  "house_number": 1955
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

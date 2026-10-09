@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.3,
-  "d": 20.0
+  "w": 31.8,
+  "d": 40.6
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 33,
+  "main_w_ft": 54,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 22,
@@ -38,23 +38,26 @@
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "tree_line",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1947,
-  "band": "postwar",
+  "condition": "kept",
+  "year_built": 1966,
+  "band": "suburban",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
   "family": "Foxworth",
-  "house_number": 242
+  "house_number": 2024
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2778"
 }

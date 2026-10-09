@@ -3,33 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.2,
-  "d": 40.2
+  "w": 12.3,
+  "d": 30.6
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Desai Dental",
-    "type": "dentist",
-    "sign": "DESAI DENTAL",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1875,
-  "colors": {
-   "body": "#f4f0e6"
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 23,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 18,
+   "material": "clay_tile"
   },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#ead9c8",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1896,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "family": "Villalobos",
+  "house_number": 303
+ },
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0502"
 }

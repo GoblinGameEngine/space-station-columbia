@@ -8,26 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Booker Hardware",
-    "type": "hardware",
-    "sign": "BOOKER HARDWARE",
-    "sign_style": "projecting",
+    "business": "Castellanos & Holloway Diner",
+    "type": "diner",
+    "sign": "CASTELLANOS & HOLLOWAY DINER",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
   "year_built": 1904,
   "colors": {
-   "body": "#9c5a42"
+   "body": "#8e4a36"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Marlowe Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

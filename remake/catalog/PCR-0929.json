@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.2,
-  "d": 24.7
+  "w": 17.0,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 19,
-  "main_d_ft": 32,
+  "main_w_ft": 33,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "side",
-   "posts": "square",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1891,
-  "band": "rail",
-  "form_token": "i_house"
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 972
+  "family": "Ostrowski",
+  "house_number": 917
  },
- "brief": "rail band i_house: 2 storeys, cedar_shingle walls, side porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0726"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0583"
 }

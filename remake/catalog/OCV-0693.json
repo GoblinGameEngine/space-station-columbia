@@ -3,58 +3,57 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.3,
-  "d": 39.6
+  "w": 11.8,
+  "d": 22.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 21,
-  "main_d_ft": 32,
+  "main_w_ft": 23,
+  "main_d_ft": 33,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 21,
+   "type": "gable",
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1928,
+  "condition": "kept",
+  "year_built": 1914,
   "band": "streetcar",
-  "form_token": "ranch"
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Adebayo",
-  "house_number": 772
+  "family": "Solano",
+  "house_number": 218
  },
- "brief": "streetcar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0613"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0647"
 }

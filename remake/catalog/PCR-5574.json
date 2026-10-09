@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 29.8,
-  "d": 31.5
+  "w": 31.8,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 38,
   "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 27,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c7ac8d",
-   "trim": "#3a3f44",
-   "accent": "#3a2a1e",
-   "roof": "#4a4a48"
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1975,
   "band": "suburban",
-  "form_token": "two_storey_colonial"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Holloway",
-  "house_number": 389
+  "house_number": 1627
  },
- "brief": "suburban band two_storey_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-5485"
+ "brief": "suburban band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-3708"
 }

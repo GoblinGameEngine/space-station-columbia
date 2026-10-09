@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.8,
-  "d": 35.7
+  "w": 31.4,
+  "d": 36.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 40,
+  "main_w_ft": 47,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 20,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -32,29 +32,27 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "casement",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "tree_line",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1971,
+  "band": "suburban",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1219
+  "family": "Patel",
+  "house_number": 1232
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0447"
+ "brief": "suburban band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2729"
 }

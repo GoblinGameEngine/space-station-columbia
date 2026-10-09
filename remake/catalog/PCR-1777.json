@@ -3,30 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.5,
-  "d": 38.2
+  "w": 10.9,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
   "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 28,
-  "main_d_ft": 46,
+  "main_w_ft": 21,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -43,25 +38,24 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "none",
-   "extras": [
-    "swing_set"
-   ]
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1896,
+  "year_built": 1909,
   "band": "streetcar",
-  "form_token": "nantucket_cape"
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 1358
+  "house_number": 241
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1004"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0874"
 }

@@ -6,27 +6,22 @@
   "w": 18.0,
   "d": 30.1
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Raghunathan Pizza",
-    "type": "pizza",
-    "sign": "RAGHUNATHAN PIZZA",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "shabby",
-  "year_built": 1892,
-  "colors": {
-   "body": "#8e4835"
-  }
+  "walls": "block",
+  "year_built": 1905,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Smith Foundry",
+  "sign": "SMITH FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

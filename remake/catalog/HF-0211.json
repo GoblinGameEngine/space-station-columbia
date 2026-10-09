@@ -6,27 +6,22 @@
   "w": 16.7,
   "d": 30.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Mbeki & Haddad Brewing",
-    "type": "brewpub",
-    "sign": "MBEKI & HADDAD BREWING",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1914,
-  "colors": {
-   "body": "#a3503e"
-  }
+  "walls": "brick",
+  "year_built": 1889,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Southland Foundry",
+  "sign": "SOUTHLAND FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

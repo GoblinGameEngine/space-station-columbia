@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.4,
-  "d": 21.1
+  "w": 19.6,
+  "d": 23.5
  },
  "kind": "house",
  "traits": {
@@ -17,11 +17,20 @@
    "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,25 +45,25 @@
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
+  "year_built": 1928,
+  "band": "interwar",
   "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Szabo",
-  "house_number": 2042
+  "house_number": 2154
  },
- "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-2457"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0284"
 }

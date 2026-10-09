@@ -3,31 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.4,
-  "d": 28.8
+  "w": 18.2,
+  "d": 29.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Osei Dental",
-    "type": "dentist",
-    "sign": "OSEI DENTAL",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "glass_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1899,
-  "colors": {
-   "body": "#f2f1ea"
-  }
+  "walls": "metal",
+  "year_built": 1918,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Okafor Glass Works",
+  "sign": "OKAFOR GLASS WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

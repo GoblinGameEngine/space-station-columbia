@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.2,
-  "d": 23.2
+  "w": 19.9,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
   "main_w_ft": 29,
-  "main_d_ft": 28,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
+   "type": "gambrel",
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "columns",
+   "type": "stoop",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
    "accent": "#1f2e44",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1908,
-  "band": "streetcar",
-  "form_token": "nantucket_cape"
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 418
+  "family": "Moriarty",
+  "house_number": 788
  },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0784"
+ "brief": "interwar band dutch_colonial: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

@@ -3,32 +3,32 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.3,
-  "d": 21.9
+  "w": 22.4,
+  "d": 32.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 42,
-  "main_d_ft": 20,
+  "main_w_ft": 28,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 20,
-   "material": "clay_tile"
+   "pitch_deg": 24,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
+   "body": "#f0e2cf",
+   "trim": "#2e2a26",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
@@ -36,23 +36,26 @@
    "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1966,
-  "band": "suburban",
-  "form_token": "ranch"
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 1570
+  "family": "Tomczak",
+  "house_number": 809
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5162"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

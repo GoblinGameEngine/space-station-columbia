@@ -3,59 +3,60 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 11.7,
-  "d": 33.8
+  "w": 16.2,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 37,
+  "archetype": "minimal_traditional",
+  "storeys": 2,
+  "main_w_ft": 42,
+  "main_d_ft": 22,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "body": "#e9dcc2",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1938,
   "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Booker",
-  "house_number": 342
+  "family": "Brannock",
+  "house_number": 233
  },
- "brief": "interwar band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0370"
+ "brief": "interwar band minimal_traditional: 2 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1006"
 }

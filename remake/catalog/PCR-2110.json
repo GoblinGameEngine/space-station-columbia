@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.7,
-  "d": 32.3
+  "w": 12.1,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
+   "pitch_deg": 49,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
+   "body": "#8a2e24",
    "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": false
+   "type": "2over2",
+   "shutters": true
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1903,
+  "band": "streetcar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 121
+  "family": "Garcia",
+  "house_number": 214
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0788"
 }

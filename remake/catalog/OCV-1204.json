@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.8,
-  "d": 34.1
+  "w": 23.1,
+  "d": 31.2
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 24,
+  "main_w_ft": 27,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 16,
@@ -32,29 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
+  "year_built": 1950,
+  "band": "postwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Garcia",
-  "house_number": 1055
+  "house_number": 770
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-2306"
 }

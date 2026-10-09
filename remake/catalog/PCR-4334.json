@@ -3,24 +3,24 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.1,
-  "d": 32.7
+  "w": 36.3,
+  "d": 36.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 51,
-  "main_d_ft": 26,
+  "main_w_ft": 44,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
+   "type": "gable",
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -28,33 +28,33 @@
   "colors": {
    "body": "#7d776d",
    "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "condition": "worn",
+  "year_built": 1977,
+  "band": "suburban",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Nowicki",
-  "house_number": 2875
+  "family": "Kowal",
+  "house_number": 2447
  },
- "brief": "postwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "suburban band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-4209"
 }

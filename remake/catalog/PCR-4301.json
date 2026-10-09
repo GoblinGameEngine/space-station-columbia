@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 20.0
+  "w": 30.3,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 27,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 38,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "asphalt_shingle"
+   "pitch_deg": 49,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#5b6b5a",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline",
-    "swing_set"
-   ]
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "shingle_style"
+  "year_built": 1975,
+  "band": "suburban",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Tomczak",
-  "house_number": 539
+  "family": "DeCarlo",
+  "house_number": 2872
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "suburban band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3542"
 }

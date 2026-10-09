@@ -3,58 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 36.6,
-  "d": 30.5
+  "w": 24.6,
+  "d": 33.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 25,
+  "main_w_ft": 35,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 43,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#c9cfcf",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1987,
-  "band": "suburban",
-  "form_token": "shingle_style"
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Moriarty",
-  "house_number": 4333
+  "family": "Mbeki",
+  "house_number": 310
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3709"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

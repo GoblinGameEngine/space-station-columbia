@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.5,
-  "d": 32.1
+  "w": 18.5,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 49,
-  "main_d_ft": 27,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 30,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
+   "pitch_deg": 41,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -26,9 +26,9 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
    "roof": "#2f3438"
   },
   "windows": {
@@ -38,23 +38,24 @@
   "chimneys": [
    "rear"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1970,
-  "band": "suburban",
-  "form_token": "cape_cod"
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 462
+  "family": "Mbeki",
+  "house_number": 184
  },
- "brief": "suburban band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3772"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

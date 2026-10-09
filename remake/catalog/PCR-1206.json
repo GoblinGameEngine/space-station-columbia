@@ -3,27 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 38.9,
-  "d": 24.8
+  "w": 19.0,
+  "d": 30.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
-  "colors": {
-   "body": "#c9cfcf"
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 52,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "wood_shingle"
   },
-  "year_built": 2007,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1924,
+  "band": "interwar",
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Achterberg",
+  "house_number": 1057
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0805"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

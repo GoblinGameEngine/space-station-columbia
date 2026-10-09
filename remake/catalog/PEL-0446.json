@@ -3,15 +3,15 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 31.5,
-  "d": 33.8
+  "w": 16.3,
+  "d": 31.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 27,
+  "main_w_ft": 32,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 24,
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "shabby",
-  "year_built": 1974,
-  "band": "suburban",
-  "form_token": "spanish_revival"
+  "condition": "kept",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
   "family": "Holloway",
-  "house_number": 740
+  "house_number": 687
  },
- "brief": "suburban band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2778"
+ "brief": "interwar band minimal_traditional: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2743"
 }

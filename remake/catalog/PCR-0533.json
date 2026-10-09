@@ -3,26 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 38.9,
-  "d": 27.5
+  "w": 16.5,
+  "d": 28.8
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "corbelled_brick",
+  "upper_use": "none",
+  "storefronts": [
+   {
+    "business": "Carrow Savings Bank",
+    "type": "bank",
+    "sign": "CARROW SAVINGS BANK",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1904,
   "colors": {
-   "body": "#8e4a36"
-  },
-  "year_built": 1996,
-  "condition": "kept"
+   "body": "#7a4232"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

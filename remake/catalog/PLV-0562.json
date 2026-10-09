@@ -3,14 +3,14 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.7,
-  "d": 34.6
+  "w": 13.3,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 29,
+  "main_w_ft": 26,
   "main_d_ft": 34,
   "roof": {
    "type": "hip",
@@ -32,31 +32,37 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1922,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 11
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Brandvold",
-  "house_number": 595
+  "family": "Raghunathan",
+  "house_number": 743
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0385"
 }

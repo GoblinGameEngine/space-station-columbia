@@ -3,65 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.3,
+  "w": 16.2,
   "d": 25.2
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 42,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [
+  "storeys": 1,
+  "facade": "brick",
+  "cornice": "parapet_flat",
+  "upper_use": "none",
+  "storefronts": [
    {
-    "type": "gable",
-    "side": "front"
+    "business": "Infirmary Billiards",
+    "type": "pool_hall",
+    "sign": "INFIRMARY BILLIARDS",
+    "sign_style": "awning_lettering",
+    "awning": true
    }
   ],
-  "porch": {
-   "type": "front_full",
-   "posts": "square",
-   "rail": "solid"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "condition": "worn",
+  "year_built": 1915,
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1927,
-  "band": "streetcar",
-  "form_token": "i_house"
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Haddad",
-  "house_number": 279
- },
- "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

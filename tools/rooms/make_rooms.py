@@ -26,6 +26,7 @@ Per building:
 Nothing here depends on the world seed: who fills each post, who sleeps in each bed, which posts stand vacant is the
 game's (NpcOccupancy), from the seed and the journal.
 """
+import hashlib
 import json
 import math
 import os
@@ -116,12 +117,38 @@ def shifts_for(o, c):
     return [(o - 0.5, m + 0.5), (m - 0.5, c + 0.25)]
 
 
-def posts_for(uid, ptype, rooms_by_use):
-    """the rostered posts of a business unit: every role's headcount spread over the shifts, a weekly rota for the places
-    open more than five days, relief posts wherever a shift on some day would have no one at the front"""
+# floor area per job by category (research/jobs/README.md: planning densities -- office 28 m2, light manufacturing 40,
+# retail 47, restaurant 16, hotel 127, government 28, schools and hospitals by their staff per floor): a unit bigger than
+# its type's headcount needs is staffed up in proportion (a supermarket, a ward block, a works, an office floor); never
+# down (a corner shop keeps its shopkeeper and clerk). A type may set its own "m2_per_job".
+M2_PER_JOB = {"retail": 47.0, "food": 22.0, "drink": 25.0, "service": 35.0, "office": 28.0, "health": 45.0, "education": 80.0,
+              "civic": 30.0, "industry": 45.0, "logistics": 100.0, "lodging": 110.0, "leisure": 120.0}
+STAFF_MAX = 40.0                                     # (times a type's headcount, at most)
+
+
+UPPER_OFFICE_MIX = [("insurance_office", 2.5), ("law_office", 1.5), ("accounting_office", 1.8), ("doctor_office", 1.2), ("dentist", 0.8),
+                    ("engineering_office", 0.8), ("registry_office", 0.5), ("architect_office", 0.5), ("dispatch_office", 0.5),
+                    ("courier_office", 0.3), ("college_extension", 0.3)]
+UPPER_OFFICE_TOT = sum(w for _, w in UPPER_OFFICE_MIX)
+
+
+def staff_scale(t, area):
+    """how many times its type's headcount a unit of this floor area employs"""
+    per = t.get("m2_per_job") or M2_PER_JOB.get(t.get("category"))
+    base = sum(int(n) for n in t.get("jobs", {}).values())
+    if not per or not base or not area:
+        return 1.0
+    return min(STAFF_MAX, max(1.0, area / per / base))
+
+
+def posts_for(uid, ptype, rooms_by_use, area=0.0):
+    """the rostered posts of a business unit: every role's headcount (scaled by the unit's floor area: staff_scale) spread
+    over the shifts, a weekly rota for the places open more than five days, relief posts wherever a shift on some day
+    would have no one at the front"""
     t = TYPES.get(ptype)
     if not t:
         return []
+    ks = staff_scale(t, area)
     o, c, days = hours_of(t)
     if days in ("never",):
         return []
@@ -145,6 +172,8 @@ def posts_for(uid, ptype, rooms_by_use):
         if n <= 0:
             continue
         managerial = role in ("shopkeeper", "doctor", "pastor", "lawyer", "banker", "dentist", "librarian", "editor")
+        # (a bigger place has more of every trade; its owner-managers grow slower -- one shopkeeper, a few doctors)
+        n = max(n, round(n * (ks ** 0.5 if managerial and role in ("shopkeeper", "pastor") else ks)))
         # headcount per shift: managers work days; the rest spread by the shift weights, each shift at least one when the
         # headcount allows
         if managerial or len(sh) == 1:
@@ -217,6 +246,8 @@ def rooms_of_door(rooms, d):
 
 def business_type(rec, fit):
     tr = rec.get("traits") or {}
+    if tr.get("use") in TYPES and TYPES[tr["use"]]["category"] in ("industry", "logistics", "office"):
+        return tr["use"]                                 # (a works or office named for its trade: research/jobs)
     if fit and fit not in ("stockroom", "office", "lobby", "guest_room") and fit in PLACE or fit in TYPES:
         return PLACE.get(fit, fit)
     if tr.get("use") in CIVIC_USE:
@@ -315,6 +346,21 @@ def building(rid, raw, rec, pl):
                 ptype = business_type(rec, fit)
                 if ptype and ptype in TYPES:
                     break
+            offs = tr.get("offices") or []
+            if uid.startswith("O") and offs:
+                # an office block's floors: each its tenant (records.py picks them by the town's demand)
+                k = int("".join(ch for ch in uid[1:].split("_")[0] if ch.isdigit()) or 1)
+                ptype = PLACE.get(offs[(k - 1) % len(offs)].get("type"), offs[(k - 1) % len(offs)].get("type"))
+            elif uid.startswith("O") and ptype in (None, "insurance_office"):
+                # an office over a shop: let by the town's mix (research/jobs: every one was "insurance" -- 3,118 of them,
+                # the only trade with more posts than people), the same for a building every time
+                h = int(hashlib.md5(f"{rid}/{uid}".encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
+                acc = 0.0
+                for typ_, w_ in UPPER_OFFICE_MIX:
+                    acc += w_
+                    if h * UPPER_OFFICE_TOT <= acc:
+                        ptype = typ_
+                        break
             if not ptype:
                 ptype = business_type(rec, None)
             if not ptype:
@@ -382,7 +428,7 @@ def building(rid, raw, rec, pl):
             rbu = defaultdict(list)
             for rn in u["rooms"]:
                 rbu[out_rooms[rn]["use"]].append(rn)
-            u["posts"] = posts_for(f"{rid}/{uid}", u["place"], rbu)
+            u["posts"] = posts_for(f"{rid}/{uid}", u["place"], rbu, sum(out_rooms[rn]["area"] for rn in u["rooms"]))
             front = next((p["role"] for p in u["posts"] if p["role"] in FRONT_ROLES), u["posts"][0]["role"] if u["posts"] else None)
             pub = [d for d in cand if d["lock"] in ("hours", "open")] or cand
             u["delivery"] = {"door": pub[0]["node"] if pub else None, "to": f"on_duty:{front}" if front else "owner"}

@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.7,
-  "d": 23.9
+  "w": 21.0,
+  "d": 29.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 48,
+  "main_w_ft": 40,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 24,
-   "material": "clay_tile"
+   "type": "gable",
+   "pitch_deg": 17,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -26,36 +26,33 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "body": "#e9d6c8",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_2",
+  "chimneys": [],
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Loomis",
-  "house_number": 1117
+  "family": "Raghunathan",
+  "house_number": 731
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0384"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

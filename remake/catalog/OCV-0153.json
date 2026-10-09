@@ -3,63 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.3,
-  "d": 38.1
+  "w": 18.5,
+  "d": 31.5
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 31,
-  "main_d_ft": 33,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 20,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#efe6d2",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
-  },
+  "storeys": 2,
+  "facade": "stucco",
+  "cornice": "parapet_flat",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Tomczak Pizza",
+    "type": "pizza",
+    "sign": "TOMCZAK PIZZA",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
   "condition": "kept",
-  "year_built": 1884,
-  "band": "rail",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 11
-  }
+  "year_built": 1885,
+  "colors": {
+   "body": "#f4f0e6"
+  },
+  "arcade": true,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Villalobos",
-  "house_number": 301
- },
- "brief": "rail band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0607"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

@@ -8,25 +8,36 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Ring Line Courier",
-    "type": "newspaper",
-    "sign": "RING LINE COURIER",
+    "business": "Achterberg & Pike Diner",
+    "type": "diner",
+    "sign": "ACHTERBERG & PIKE DINER",
     "sign_style": "flat_board",
-    "awning": true
+    "awning": false
    }
   ],
   "condition": "worn",
-  "year_built": 1903,
+  "year_built": 1931,
   "colors": {
-   "body": "#c3b982"
+   "body": "#90502c"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Okonkwo Building"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

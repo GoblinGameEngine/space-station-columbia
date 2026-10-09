@@ -8,25 +8,57 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
+  "form": "office_block",
+  "storeys": 10,
+  "facade": "stone",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Wainwright & Okafor Variety",
-    "type": "variety_store",
-    "sign": "WAINWRIGHT & OKAFOR VARIETY",
-    "sign_style": "projecting",
-    "awning": false
+    "business": "Main Street Cafe",
+    "type": "cafe",
+    "sign": "MAIN STREET CAFE",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1885,
+  "year_built": 1950,
   "colors": {
-   "body": "#d0b48b"
+   "body": "#82432c"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Kessler."
 }

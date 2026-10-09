@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 28.4
+  "w": 11.3,
+  "d": 24.8
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 28,
+  "main_w_ft": 20,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "turned",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,7 +32,7 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
@@ -41,22 +41,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
     "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1893,
-  "band": "rail",
-  "form_token": "gable_front"
+  "year_built": 1920,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 943
+  "house_number": 880
  },
- "brief": "rail band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0602"
 }

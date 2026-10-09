@@ -3,17 +3,55 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 9.0
+  "w": 25.3,
+  "d": 20.0
  },
- "kind": "shed",
+ "kind": "house",
  "traits": {
-  "year_built": 1919,
-  "over_water": true
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 21,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 28,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "spindle"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#c8af83",
+   "trim": "#e9e2d2",
+   "accent": "#3a2a1e",
+   "roof": "#2f3133"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2005,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Pruett",
+  "house_number": 400
  },
- "brief": "shed (shingle) generated for Port Carrow."
+ "brief": "late band two_storey_colonial: 2 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5806"
 }

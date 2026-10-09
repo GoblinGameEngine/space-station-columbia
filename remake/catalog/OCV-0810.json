@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.4,
-  "d": 32.4
+  "w": 18.1,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 21,
-  "main_d_ft": 40,
+  "main_w_ft": 23,
+  "main_d_ft": 45,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 16,
+   "type": "hip",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,38 +26,33 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2f3b2a",
+   "body": "#efd9c4",
+   "trim": "#5a3a28",
    "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
-  "form_token": "california_bungalow",
-  "wing": {
-   "side": "rear",
-   "w_ft": 12,
-   "d_ft": 9
-  }
+  "condition": "new",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 811
+  "family": "Haddad",
+  "house_number": 619
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0502"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

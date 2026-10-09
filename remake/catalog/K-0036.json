@@ -8,25 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Delmar Thrift",
-    "type": "thrift_store",
-    "sign": "DELMAR THRIFT",
+    "business": "Commerce Clothiers",
+    "type": "clothing",
+    "sign": "COMMERCE CLOTHIERS",
     "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Nowicki & Stroud Cafe",
+    "type": "cafe",
+    "sign": "NOWICKI & STROUD CAFE",
+    "sign_style": "awning_lettering",
     "awning": true
    }
   ],
-  "condition": "shabby",
-  "year_built": 1901,
+  "condition": "kept",
+  "year_built": 1910,
   "colors": {
-   "body": "#964d2c"
+   "body": "#d1b382"
   }
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "block_name": "Merriweather Building"
+ },
+ "brief": "store (office) generated for Kessler."
 }

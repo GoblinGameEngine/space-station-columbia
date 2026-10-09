@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.7,
-  "d": 38.3
+  "w": 11.1,
+  "d": 31.6
  },
  "kind": "house",
  "traits": {
@@ -14,7 +14,7 @@
   "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 45,
    "material": "slate"
   },
   "dormers": [],
@@ -23,47 +23,41 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#f2f1ea",
    "trim": "#f7f6f0",
    "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": [
-    "shed",
-    "clothesline"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1929,
-  "band": "streetcar",
+  "year_built": 1939,
+  "band": "interwar",
   "form_token": "cape_cod",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 16,
-   "d_ft": 12
-  }
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 473
+  "family": "Leclerc",
+  "house_number": 583
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0311"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0695"
 }

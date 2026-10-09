@@ -3,67 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.4,
-  "d": 34.0
+  "w": 17.2,
+  "d": 20.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 29,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 47,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 49,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "turned",
+   "posts": "columns",
    "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1898,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Villalobos",
-  "house_number": 1539
+  "family": "Garcia",
+  "house_number": 913
  },
- "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0410"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

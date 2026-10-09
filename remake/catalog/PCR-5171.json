@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.8,
-  "d": 34.4
+  "w": 16.8,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 41,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 25,
   "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "shingle",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#878263",
+   "trim": "#e9e2d2",
+   "accent": "#1f2a33",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
@@ -48,13 +48,13 @@
   "condition": "kept",
   "year_built": 1954,
   "band": "postwar",
-  "form_token": "gable_front"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Moriarty",
-  "house_number": 1545
+  "house_number": 1049
  },
- "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "postwar band ranch: 1 storeys, shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4324"
 }

@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 32.6,
-  "d": 38.8
+  "w": 24.8,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
+   "type": "stoop",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,31 +32,29 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1976,
-  "band": "suburban",
+  "year_built": 1957,
+  "band": "postwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Raghunathan",
-  "house_number": 2751
+  "house_number": 591
  },
- "brief": "suburban band gable_front: 2 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3708"
+ "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

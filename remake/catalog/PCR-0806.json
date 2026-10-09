@@ -3,31 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 41.6,
-  "d": 25.5
+  "w": 12.8,
+  "d": 22.8
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#f4f1e8",
-   "accent": "#4a5a48",
-   "roof": "#5a5a58"
-  },
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 27,
   "roof": {
-   "pitch_deg": 32
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1887,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1897,
+  "band": "streetcar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Nguyen",
+  "house_number": 554
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0178"
+ "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

@@ -102,14 +102,20 @@ def build_works(rec, tr, boarded=False):
     cond = "boarded" if boarded else tr.get("condition", "kept")
     materials(b, tr, cond)
     comps = " ".join(str(c) for c in (tr.get("components") or [])).lower()
-    storeys = int(clamp(tr.get("storeys") or 2, 1, 5))
-    W = clamp(lot_w - 6.0, 12.0, 60.0)
-    D = clamp(lot_d - 8.0, 10.0, 34.0)
+    # an industrial park's building (research/jobs, urban_layout/07): one tall bay up to 120 x 80 m, the office across
+    # its front, docks behind
+    shed = tr.get("form") == "shed"
+    storeys = 1 if shed else int(clamp(tr.get("storeys") or 2, 1, 5))
+    W = clamp(lot_w - 6.0, 12.0, 120.0 if shed else 60.0)
+    D = clamp(lot_d - 8.0, 10.0, 80.0 if shed else 34.0)
+    if shed and tr.get("bldg_w"):
+        W = clamp(float(tr["bldg_w"]), 12.0, min(120.0, lot_w - 4.0))
+        D = clamp(float(tr["bldg_d"]), 10.0, min(80.0, lot_d - 4.0))
     x0, x1 = -W / 2, W / 2
     y1 = lot_d / 2 - 4.0
     y0 = y1 - D
-    FL = 0.35
-    H = 4.4
+    FL = 1.2 if shed else 0.35                 # (a shed's floor at dock height)
+    H = 7.5 if shed else 4.4
     floors = [(FL, FL + H)]
     for k in range(1, storeys):
         fz = floors[-1][1] + 0.4
@@ -145,7 +151,7 @@ def build_works(rec, tr, boarded=False):
     if storeys > 1:
         doors.append(dict(name="stair_office", at=(sb1, front_y), w=0.9, swing_into="OFFICE"))
     # freight doors on the rear wall (hinged pairs), a loading dock outside
-    nd = max(1, int((x1 - gx0) / 9.0))
+    nd = max(1, int((x1 - gx0) / (12.0 if shed else 9.0)))
     for i in range(nd):
         doors.append(dict(name=f"freight{i}", at=(gx0 + (x1 - gx0) * (i + 0.5) / nd, y0), w=3.0, h=3.2, ext=True, leaves=2, out=True,
                           panels=[(0.1, 0.5, 0.9, 0.9), (0.1, 0.08, 0.9, 0.45)]))
@@ -171,11 +177,14 @@ def build_works(rec, tr, boarded=False):
     for k, (fz, cz) in enumerate(floors):
         for (a, c) in (((x1, y1), (x0, y1)), ((x0, y0), (x1, y0)), ((x0, y1), (x0, y0)), ((x1, y0), (x1, y1))):
             Lw = math.dist(a, c)
-            n = max(1, int((Lw - 1.0) / 2.4))
+            n = max(1, int((Lw - 1.0) / (6.0 if shed else 2.4)))
             for j in range(n):
                 t = (j + 0.5) / n
                 p = (a[0] + (c[0] - a[0]) * t, a[1] + (c[1] - a[1]) * t)
                 if any(math.dist(p, d["at"]) < d["w"] / 2 + 0.6 + 0.4 for d in doors if d.get("floor", 0) == k or d.get("ext")):
+                    continue
+                if shed:            # a clerestory band high in the bay's walls
+                    wins.append(dict(at=p, floor=k, w=2.4, sill=4.6, h=1.6, kind="picture", cols=3))
                     continue
                 wins.append(dict(at=p, floor=k, w=1.2, sill=1.0, h=min(2.4, cz - fz - 1.3), kind="dh", cols=3, head_cap=True))
     spec = dict(t_ext=TE, t_int=0.2, era="old",

@@ -3,60 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 41.3,
-  "d": 50.5
+  "w": 16.2,
+  "d": 42.6
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "queen_anne",
-  "storeys": 2,
-  "main_w_ft": 52,
-  "main_d_ft": 27,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "concrete_block",
-  "colors": {
-   "body": "#e9f0e6",
-   "trim": "#f7f6f0",
-   "accent": "#1a3d2c",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "left_end"
+  "storeys": 3,
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Harrow Printing",
+    "type": "print_shop",
+    "sign": "HARROW PRINTING",
+    "sign_style": "flat_board",
+    "awning": true
+   }
   ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
-  "form_token": "queen_anne"
+  "year_built": 1884,
+  "colors": {
+   "body": "#eef2f4",
+   "trim": "#ffffff",
+   "accent": "#1a3d2c"
+  },
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "family": "Villalobos",
-  "house_number": 284
- },
- "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

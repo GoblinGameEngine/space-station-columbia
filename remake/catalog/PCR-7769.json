@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.6,
-  "d": 21.8
+  "w": 17.7,
+  "d": 30.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 35,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 20,
   "main_d_ft": 30,
   "roof": {
    "type": "hip",
-   "pitch_deg": 25,
-   "material": "slate"
+   "pitch_deg": 31,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#b47254",
-   "trim": "#5a3a28",
-   "accent": "#2b4f6b",
-   "roof": "#2f3133"
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,14 @@
   "condition": "kept",
   "year_built": 2009,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "foursquare",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 2593
+  "house_number": 367
  },
- "brief": "late band ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2193"
+ "brief": "late band foursquare: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0474"
 }

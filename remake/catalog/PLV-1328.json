@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.0,
-  "d": 34.1
+  "w": 35.5,
+  "d": 29.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 54,
-  "main_d_ft": 29,
+  "main_w_ft": 48,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 18,
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1954,
-  "band": "postwar",
+  "year_built": 1985,
+  "band": "suburban",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Harrow",
-  "house_number": 825
+  "family": "Foxworth",
+  "house_number": 1745
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4682"
+ "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2778"
 }

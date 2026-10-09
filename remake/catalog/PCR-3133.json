@@ -3,25 +3,34 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 34.9
+  "w": 16.7,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 27,
-  "main_d_ft": 38,
+  "main_w_ft": 38,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -36,29 +45,28 @@
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "hedge",
    "extras": [
     "garden",
     "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "new",
   "year_built": 1942,
   "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Osei",
-  "house_number": 291
+  "house_number": 248
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0583"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

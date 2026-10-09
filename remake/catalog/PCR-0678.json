@@ -3,66 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 39.8
+  "w": 16.8,
+  "d": 26.1
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 24,
-  "main_d_ft": 34,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "side",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 2,
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Delmar Clothiers",
+    "type": "clothing",
+    "sign": "DELMAR CLOTHIERS",
+    "sign_style": "projecting",
+    "awning": false
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "picket",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "clothesline"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1886,
-  "band": "rail",
-  "form_token": "cape_cod",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
+  "year_built": 1885,
+  "colors": {
+   "body": "#f4f2e8"
   }
  },
  "region": "ne",
- "names": {
-  "family": "Castellanos",
-  "house_number": 492
- },
- "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, side porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

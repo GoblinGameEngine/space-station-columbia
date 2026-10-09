@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.2,
-  "d": 32.4
+  "w": 12.2,
+  "d": 38.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 26,
-   "material": "asphalt_shingle"
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
   "dormers": [
    {
@@ -28,41 +28,42 @@
    }
   ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "front_full",
+   "posts": "turned",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#883d3b",
-   "trim": "#f2efe6",
-   "accent": "#4a5a48",
-   "roof": "#4e5155"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1957,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
-  "family": "Pruett",
-  "house_number": 334
+  "family": "Villalobos",
+  "house_number": 280
  },
- "brief": "postwar band cape_cod: 1.5 storeys, brick walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4677"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0837"
 }

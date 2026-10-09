@@ -3,62 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.9,
-  "d": 30.6
+  "w": 15.4,
+  "d": 30.2
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 39,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#e9e8e2",
-   "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "center"
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Duquesne Courier",
+    "type": "newspaper",
+    "sign": "DUQUESNE COURIER",
+    "sign_style": "projecting",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed",
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1909,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "condition": "shabby",
+  "year_built": 1923,
+  "colors": {
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Ostrowski",
-  "house_number": 253
- },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

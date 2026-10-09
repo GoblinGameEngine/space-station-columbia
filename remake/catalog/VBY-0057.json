@@ -3,69 +3,34 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 12.3,
-  "d": 37.7
+  "w": 16.1,
+  "d": 30.0
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "queen_anne",
-  "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 56,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 39,
-   "material": "wood_shingle"
-  },
-  "dormers": [
+  "storeys": 1,
+  "facade": "frame_false_front",
+  "cornice": "bracketed_metal",
+  "upper_use": "none",
+  "storefronts": [
    {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
+    "business": "Okonkwo Brewing",
+    "type": "brewpub",
+    "sign": "OKONKWO BREWING",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "brick",
+  "condition": "kept",
+  "year_built": 1888,
   "colors": {
    "body": "#f8f7f2",
-   "trim": "#f7f6f0",
-   "accent": "#2b4f6e",
-   "roof": "#2f3438"
+   "trim": "#ffffff",
+   "accent": "#2b4f6e"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
-  "form_token": "queen_anne"
+  "awning_style": "striped"
  },
  "region": "isle",
- "names": {
-  "family": "Tremblay",
-  "house_number": 247
- },
- "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Victory Bay."
 }

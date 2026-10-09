@@ -3,66 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.0,
-  "d": 37.0
+  "w": 19.2,
+  "d": 41.7
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
   "main_w_ft": 25,
-  "main_d_ft": 37,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
-   "material": "asphalt_shingle"
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "turned",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "body": "#f2f1ea",
+   "trim": "#ffffff",
+   "accent": "#24382a",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "2over2",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "none",
    "extras": [
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1923,
+  "condition": "shabby",
+  "year_built": 1913,
   "band": "streetcar",
   "form_token": "gable_front",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 16,
-   "d_ft": 10
-  }
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haddad",
-  "house_number": 1373
+  "family": "Smith",
+  "house_number": 1364
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0713"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0676"
 }

@@ -8,26 +8,37 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 3,
   "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Arrieta Music",
-    "type": "music_store",
-    "sign": "ARRIETA MUSIC",
-    "sign_style": "projecting",
-    "awning": false
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1913,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Osei Clothiers",
+    "type": "clothing",
+    "sign": "OSEI CLOTHIERS",
+    "sign_style": "flat_board",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1916,
   "colors": {
-   "body": "#8e4a36"
+   "body": "#7a4232"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Brightwater."
 }

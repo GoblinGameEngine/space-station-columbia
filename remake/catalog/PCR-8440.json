@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 28.7
+  "w": 18.2,
+  "d": 28.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "gable_front",
+  "storeys": 2,
   "main_w_ft": 20,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 29,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c6c1b9",
-   "trim": "#3a3f44",
-   "accent": "#6a4a2a",
-   "roof": "#3e3e3c"
+   "body": "#e6e2d8",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,14 @@
   "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "ranch",
+  "form_token": "gable_front",
   "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 393
+  "house_number": 1834
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4051"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0362"
 }

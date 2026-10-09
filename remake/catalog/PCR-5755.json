@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 34.7,
-  "d": 36.7
+  "w": 34.3,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "shingle_style",
+  "storeys": 2,
   "main_w_ft": 47,
   "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
+   "type": "gable",
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#844432",
-   "trim": "#3a3f44",
-   "accent": "#2b4f6b",
-   "roof": "#5a4a40"
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "sliding",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1973,
   "band": "suburban",
-  "form_token": "ranch"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Carrow",
-  "house_number": 2449
+  "house_number": 913
  },
- "brief": "suburban band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3583"
+ "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3441"
 }

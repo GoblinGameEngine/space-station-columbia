@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.2,
-  "d": 35.8
+  "w": 12.3,
+  "d": 37.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 31,
-  "main_d_ft": 31,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 45,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "wood_shingle"
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "front_full",
+   "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1961,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 1905,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Solano",
-  "house_number": 1726
+  "family": "Nguyen",
+  "house_number": 1766
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0871"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
+  "w": 21.7,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
   "main_w_ft": 33,
   "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "slate"
+   "pitch_deg": 27,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#9a5d3d",
+   "trim": "#f2efe6",
+   "accent": "#4a5a48",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
@@ -50,13 +50,12 @@
   "condition": "kept",
   "year_built": 1950,
   "band": "postwar",
-  "form_token": "i_house"
+  "form_token": "minimal_traditional"
  },
- "region": "ne",
  "names": {
   "family": "Carrow",
-  "house_number": 1631
+  "house_number": 1667
  },
- "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "postwar band minimal_traditional: 1 storeys, brick walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "HF-2071"
 }

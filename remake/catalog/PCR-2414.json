@@ -3,58 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.1,
-  "d": 31.4
+  "w": 14.5,
+  "d": 29.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 47,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 28,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "slate"
+   "pitch_deg": 42,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "enclosed",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f7f6f0",
+   "body": "#9a9184",
+   "trim": "#ffffff",
    "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1957,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 766
+  "family": "Pruett",
+  "house_number": 1576
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0618"
 }

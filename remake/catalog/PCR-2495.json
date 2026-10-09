@@ -3,60 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.7,
-  "d": 20.0
+  "w": 13.3,
+  "d": 42.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 25,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 45,
+   "type": "gambrel",
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
+   "type": "enclosed",
+   "posts": "turned",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#4a4440"
+   "body": "#e9e8e2",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1933,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "family": "Solano",
-  "house_number": 1542
+  "family": "Tremblay",
+  "house_number": 1652
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "streetcar band dutch_colonial: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1863"
 }

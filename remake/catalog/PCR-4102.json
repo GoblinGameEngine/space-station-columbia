@@ -3,69 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.6,
-  "d": 26.7
+  "w": 32.1,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 34,
+  "main_w_ft": 40,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
-   "material": "wood_shingle"
+   "pitch_deg": 19,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#ccb9af",
+   "trim": "#f2efe6",
+   "accent": "#3a2a1e",
+   "roof": "#555350"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "privacy",
+   "rear": "hedge",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1961,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1968,
+  "band": "suburban",
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 789
+  "family": "Kowalczyk",
+  "house_number": 2621
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "suburban band two_storey_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5232"
 }

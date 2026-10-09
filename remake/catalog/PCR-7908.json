@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.9,
-  "d": 32.4
+  "w": 17.8,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 42,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 20,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
+   "type": "gambrel",
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,16 +24,16 @@
    "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#8aa8b1",
-   "trim": "#e9e2d2",
-   "accent": "#6a4a2a",
-   "roof": "#555350"
+   "body": "#c9cfcf",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -48,12 +48,14 @@
   "condition": "kept",
   "year_built": 2004,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "dutch_colonial",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Dunmore",
-  "house_number": 582
+  "house_number": 2707
  },
- "brief": "late band ranch: 1 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4341"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1680"
 }

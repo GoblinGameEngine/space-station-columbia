@@ -3,41 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 44.9,
-  "d": 29.2
+  "w": 54.1,
+  "d": 44.1
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#eef2f4",
-   "trim": "#f7f6f0",
-   "accent": "#1f4a33",
-   "roof": "#3c4048"
-  },
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 47,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 36,
+   "pitch_deg": 45,
    "material": "slate"
   },
-  "year_built": 1884,
-  "condition": "kept",
-  "windows": {
-   "shutters": true
-  },
+  "dormers": [],
   "porch": {
-   "type": "full",
+   "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
-  }
+  },
+  "walls": "cedar_shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#2b4f6e",
+   "roof": "#3c4048"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1927,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "isle",
  "names": {
-  "name": ""
+  "family": "Adebayo",
+  "house_number": 280
  },
- "brief": "townhouse (townhouse) generated for Victory Bay.",
- "model": "VBY-0053"
+ "brief": "estate band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

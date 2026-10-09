@@ -3,27 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 52.3,
-  "d": 29.4
+  "w": 25.0,
+  "d": 22.0
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232"
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1987,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f2f1ea",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "chainlink",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1960,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Nowicki",
+  "house_number": 1152
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0036"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

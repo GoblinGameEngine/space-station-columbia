@@ -3,60 +3,34 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 11.2,
-  "d": 38.1
+  "w": 38.1,
+  "d": 27.6
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 38,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "court",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "body": "#e8d8c0",
+   "trim": "#5a3a28",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "swing_set"
-   ]
-  },
+  "year_built": 1978,
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 21
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Haskins",
-  "house_number": 593
+  "name": ""
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0435"
+ "brief": "condo (apartment) generated for Playa Verde.",
+ "model": "SOL-0499"
 }

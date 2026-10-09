@@ -6,30 +6,23 @@
   "w": 18.0,
   "d": 39.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Tomczak & Haskins Furniture",
-    "type": "furniture",
-    "sign": "TOMCZAK & HASKINS FURNITURE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1916,
-  "colors": {
-   "body": "#f4f0e6"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "block",
+  "year_built": 1907,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Merriweather Foundry",
+  "sign": "MERRIWEATHER FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

@@ -6,30 +6,23 @@
   "w": 17.8,
   "d": 25.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
+  "use": "food_plant",
+  "form": "loft",
   "storeys": 3,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Duquesne Family Medicine",
-    "type": "doctor_office",
-    "sign": "DUQUESNE FAMILY MEDICINE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1916,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1924,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Arrieta Foods",
+  "sign": "ARRIETA FOODS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

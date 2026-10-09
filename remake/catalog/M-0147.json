@@ -6,27 +6,21 @@
   "w": 16.2,
   "d": 30.5
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Garcia Diner",
-    "type": "diner",
-    "sign": "GARCIA DINER",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "sawmill",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1887,
-  "colors": {
-   "body": "#7d462e"
-  }
+  "walls": "metal",
+  "year_built": 1928,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "name": "Union Lumber & Joinery",
+  "sign": "UNION LUMBER & JOINERY"
+ },
+ "brief": "industrial (industry) generated for Marlowe."
 }

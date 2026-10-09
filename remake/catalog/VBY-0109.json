@@ -3,60 +3,41 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 38.2,
-  "d": 47.9
+  "w": 45.3,
+  "d": 40.2
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "queen_anne",
-  "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 37,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 41,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
+  "units": 6,
+  "unit_w_ft": 22,
+  "depth_ft": 36,
   "walls": "clapboard",
-  "foundation": "concrete_block",
   "colors": {
-   "body": "#f6f4ec",
+   "body": "#e9f0e6",
    "trim": "#f7f6f0",
-   "accent": "#1a3d2c",
-   "roof": "#4a4440"
+   "accent": "#1f4a33",
+   "roof": "#3c4048"
   },
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "slate"
+  },
+  "year_built": 1914,
+  "condition": "kept",
   "windows": {
-   "type": "3over1_craftsman",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "queen_anne"
+  "porch": {
+   "type": "full",
+   "posts": "turned",
+   "rail": "spindle"
+  }
  },
  "region": "isle",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 246
+  "name": ""
  },
- "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "townhouse (townhouse) generated for Victory Bay.",
+ "model": "VBY-0058"
 }

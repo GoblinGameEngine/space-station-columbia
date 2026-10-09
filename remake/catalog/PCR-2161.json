@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 34.9
+  "w": 21.4,
+  "d": 30.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 22,
+  "main_w_ft": 31,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "slate"
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
+   "body": "#e9e8e2",
    "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#4a4440"
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "casement",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Loomis",
-  "house_number": 663
+  "family": "Brandvold",
+  "house_number": 163
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

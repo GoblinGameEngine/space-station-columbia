@@ -3,59 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.3,
-  "d": 33.9
+  "w": 24.3,
+  "d": 31.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 38,
+  "main_w_ft": 27,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
+   "body": "#6f6a62",
    "trim": "#f4f3ec",
    "accent": "#24382a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "exterior_right"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1953,
+  "band": "postwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 1579
+  "family": "Bazzi",
+  "house_number": 910
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0608"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

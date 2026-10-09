@@ -3,19 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.0,
-  "d": 10.0
+  "w": 22.5,
+  "d": 21.2
  },
- "kind": "kiosk",
+ "kind": "house",
  "traits": {
-  "year_built": 1966,
-  "over_water": false,
-  "type": "restrooms",
-  "use": "restrooms"
+  "archetype": "spanish_revival",
+  "storeys": 1,
+  "main_w_ft": 34,
+  "main_d_ft": 29,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 23,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#ead9c8",
+   "trim": "#2f3b2a",
+   "accent": "#2c4a2e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 2007,
+  "band": "late",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Szabo",
+  "house_number": 2535
  },
- "brief": "kiosk (comfort_station) generated for Oceanview."
+ "brief": "late band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0357"
 }

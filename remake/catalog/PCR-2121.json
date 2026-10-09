@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.1,
-  "d": 30.5
+  "w": 19.3,
+  "d": 32.7
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 32,
+  "main_w_ft": 50,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
@@ -19,7 +19,7 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
@@ -32,31 +32,32 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Delmar",
-  "house_number": 163
+  "house_number": 1337
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

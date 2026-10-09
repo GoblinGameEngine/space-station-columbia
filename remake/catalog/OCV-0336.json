@@ -3,63 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.6,
-  "d": 38.2
+  "w": 17.8,
+  "d": 37.0
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 30,
-  "main_d_ft": 32,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#5a3a28",
-   "accent": "#8a4a20",
+   "body": "#f0e2cf",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
-  "condition": "worn",
-  "year_built": 1908,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 11
-  }
+  "condition": "kept",
+  "year_built": 1881,
+  "band": "rail",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 261
+  "family": "Mbeki",
+  "house_number": 262
  },
- "brief": "streetcar band spanish_revival: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0473"
+ "brief": "rail band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0282"
 }

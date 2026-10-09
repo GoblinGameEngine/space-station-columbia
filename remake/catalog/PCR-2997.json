@@ -3,23 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 38.2
+  "w": 16.2,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 28,
+  "main_w_ft": 43,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "slate"
+   "type": "gambrel",
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "tapered_on_piers",
    "rail": "none"
   },
@@ -27,18 +27,18 @@
   "foundation": "cut_stone",
   "colors": {
    "body": "#5b6b5a",
-   "trim": "#ffffff",
+   "trim": "#f4f3ec",
    "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "casement",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -46,15 +46,16 @@
    "extras": []
   },
   "condition": "worn",
-  "year_built": 1936,
+  "year_built": 1925,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Reyes",
-  "house_number": 1677
+  "family": "Ostrowski",
+  "house_number": 416
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0578"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-2007"
 }

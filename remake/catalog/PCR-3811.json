@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.9,
-  "d": 35.8
+  "w": 17.6,
+  "d": 20.8
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 36,
+  "main_w_ft": 36,
+  "main_d_ft": 22,
   "roof": {
    "type": "hip",
    "pitch_deg": 32,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -42,20 +42,22 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
   "year_built": 1933,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Duquesne",
-  "house_number": 2353
+  "house_number": 2361
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0798"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0455"
 }

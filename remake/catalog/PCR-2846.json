@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 20.8
+  "w": 21.1,
+  "d": 31.3
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 34,
+  "main_w_ft": 35,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
-  "garage": "detached_2",
+  "garage": "attached_1",
   "yard": {
-   "fence": "none",
+   "fence": "chainlink",
    "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "clothesline"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1959,
+  "band": "postwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 1863
+  "family": "Brannock",
+  "house_number": 1837
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1801"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

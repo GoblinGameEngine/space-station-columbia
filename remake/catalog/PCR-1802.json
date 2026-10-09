@@ -3,62 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.0,
-  "d": 39.7
+  "w": 50.4,
+  "d": 35.8
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 34,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 46,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "front",
+  "ground_floor": "apartments",
+  "walls": "brick",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "body": "#7a4232"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
-  },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "shed",
-    "clothesline",
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1917,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 1987,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 415
+  "name": ""
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-0650"
 }

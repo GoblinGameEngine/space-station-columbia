@@ -3,59 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.4,
-  "d": 32.8
+  "w": 14.0,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 40,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
+   "body": "#c9cfcf",
+   "trim": "#f7f6f0",
    "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1292
+  "family": "Wainwright",
+  "house_number": 1181
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0608"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

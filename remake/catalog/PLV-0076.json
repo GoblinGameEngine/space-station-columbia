@@ -6,30 +6,23 @@
   "w": 18.0,
   "d": 24.8
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Pham & Duquesne Tavern",
-    "type": "bar",
-    "sign": "PHAM & DUQUESNE TAVERN",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "shabby",
-  "year_built": 1905,
-  "colors": {
-   "body": "#dcc7a6"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1924,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "name": "Kowalczyk Foundry",
+  "sign": "KOWALCZYK FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Playa Verde."
 }

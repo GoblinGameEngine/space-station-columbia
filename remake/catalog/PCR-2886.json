@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 34.9
+  "w": 17.0,
+  "d": 35.5
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 31,
+  "main_w_ft": 28,
+  "main_d_ft": 27,
   "roof": {
    "type": "hip",
    "pitch_deg": 26,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "columns",
-   "rail": "none"
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -38,7 +38,7 @@
   "chimneys": [
    "right_end"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -47,17 +47,16 @@
     "swing_set"
    ]
   },
-  "condition": "kept",
+  "condition": "shabby",
   "year_built": 1923,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Mbeki",
-  "house_number": 1875
+  "house_number": 578
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1408"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1115"
 }

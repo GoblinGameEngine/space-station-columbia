@@ -3,60 +3,58 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.1,
-  "d": 41.9
+  "w": 21.9,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "minimal_traditional",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 39,
+  "main_w_ft": 35,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 17,
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
+   "body": "#efe6d2",
    "trim": "#3b2a1e",
    "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
+   "type": "sliding",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_2",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "shabby",
-  "year_built": 1911,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "year_built": 1955,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Tomczak",
-  "house_number": 922
+  "family": "Brandvold",
+  "house_number": 389
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0368"
+ "brief": "postwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2225"
 }

@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 20.2
+  "w": 26.2,
+  "d": 23.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 27,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 22,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "front_full",
    "posts": "square",
    "rail": "solid"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c0c2ad",
-   "trim": "#f2efe6",
-   "accent": "#4a5a48",
-   "roof": "#4a4a48"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
@@ -41,18 +41,20 @@
    "fence": "none",
    "side": "privacy",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 2006,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Duquesne",
-  "house_number": 2472
+  "house_number": 4344
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4350"
+ "brief": "late band i_house: 2 storeys, clapboard walls, front_full porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5949"
 }

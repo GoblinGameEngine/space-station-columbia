@@ -3,34 +3,65 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 16.2,
-  "d": 30.7
+  "w": 14.6,
+  "d": 37.9
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "shingle_style",
   "storeys": 2,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
+  "main_w_ft": 37,
+  "main_d_ft": 56,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "wood_shingle"
+  },
+  "dormers": [
    {
-    "business": "Villalobos Pizza",
-    "type": "pizza",
-    "sign": "VILLALOBOS PIZZA",
-    "sign_style": "flat_board",
-    "awning": true
+    "type": "gable",
+    "side": "front"
    }
   ],
-  "condition": "kept",
-  "year_built": 1882,
-  "colors": {
-   "body": "#eef0f6",
-   "trim": "#ffffff",
-   "accent": "#1f4a33"
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
   },
-  "awning_style": "striped"
+  "walls": "cedar_shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#1f4a33",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "family": "Leclerc",
+  "house_number": 167
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

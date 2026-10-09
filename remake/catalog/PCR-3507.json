@@ -3,69 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 34.8
+  "w": 18.6,
+  "d": 23.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 29,
-  "main_d_ft": 45,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 51,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "tapered_on_piers",
+   "posts": "columns",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#2f3e52",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "left_end"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1933,
   "band": "interwar",
-  "form_token": "cape_cod"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Pham",
-  "house_number": 2177
+  "family": "Ostrowski",
+  "house_number": 247
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0577"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

@@ -3,30 +3,30 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.5,
-  "d": 40.0
+  "w": 18.1,
+  "d": 35.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 24,
+  "main_w_ft": 34,
+  "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 30,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 45,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "turned",
+   "type": "front_partial",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#9a9184",
    "trim": "#f4f3ec",
    "accent": "#1f2e44",
    "roof": "#2f3438"
@@ -36,26 +36,27 @@
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1903,
-  "band": "streetcar",
-  "form_token": "foursquare"
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Merriweather",
-  "house_number": 1059
+  "family": "Duquesne",
+  "house_number": 917
  },
- "brief": "streetcar band foursquare: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0685"
 }

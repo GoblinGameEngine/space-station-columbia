@@ -3,34 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 18.4,
-  "d": 30.3
+  "w": 12.9,
+  "d": 30.8
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "shingle_style",
   "storeys": 2,
-  "facade": "cast_iron_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Clothiers",
-    "type": "clothing",
-    "sign": "DEPOT CLOTHIERS",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1877,
-  "colors": {
-   "body": "#f6f4ec",
-   "trim": "#ffffff",
-   "accent": "#1a3d2c"
+  "main_w_ft": 40,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
   },
-  "awning_style": "striped"
+  "dormers": [],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#244d3a",
+   "roof": "#3c4048"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1913,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "family": "Patel",
+  "house_number": 133
+ },
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

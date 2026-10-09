@@ -3,31 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.1,
-  "d": 29.6
+  "w": 16.8,
+  "d": 25.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Yoder Family Medicine",
-    "type": "doctor_office",
-    "sign": "YODER FAMILY MEDICINE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1906,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "brick",
+  "year_built": 1893,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Okafor Machine Works",
+  "sign": "OKAFOR MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

@@ -8,28 +8,42 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "stucco",
-  "cornice": "mission_parapet",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "tile_roof",
   "storefronts": [
    {
-    "business": "Adebayo Barber Shop",
-    "type": "barber",
-    "sign": "ADEBAYO BARBER SHOP",
+    "business": "Commerce Cafe",
+    "type": "cafe",
+    "sign": "COMMERCE CAFE",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
-  "condition": "kept",
-  "year_built": 1898,
+  "condition": "worn",
+  "year_built": 1922,
   "colors": {
-   "body": "#f3eadb"
+   "body": "#e9dcc2"
   },
   "arcade": true,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Oceanview."
 }

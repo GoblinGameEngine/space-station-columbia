@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.2,
-  "d": 23.1
+  "w": 16.2,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 54,
-  "main_d_ft": 27,
+  "main_w_ft": 30,
+  "main_d_ft": 33,
   "roof": {
    "type": "hip",
    "pitch_deg": 27,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "front_partial",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,33 +32,32 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "left_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "clothesline",
+    "shed",
     "swing_set"
    ]
   },
-  "condition": "worn",
-  "year_built": 1958,
-  "band": "postwar",
+  "condition": "kept",
+  "year_built": 1922,
+  "band": "interwar",
   "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Holloway",
-  "house_number": 982
+  "house_number": 2056
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1168"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0915"
 }

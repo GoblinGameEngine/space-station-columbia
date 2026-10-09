@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.5,
-  "d": 32.4
+  "w": 22.2,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "tudor_revival",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 34,
+  "main_w_ft": 33,
   "main_d_ft": 30,
   "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 35,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d4d9d5",
-   "trim": "#e8e0c8",
-   "accent": "#3a2a1e",
-   "roof": "#555350"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "worn",
   "year_built": 2008,
   "band": "late",
-  "form_token": "neo_eclectic"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Solano",
-  "house_number": 872
+  "house_number": 274
  },
- "brief": "late band neo_eclectic: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5822"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2750"
 }

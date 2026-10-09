@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 15.9,
-  "d": 25.7
+  "w": 19.5,
+  "d": 26.1
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "gable_front",
   "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Infirmary Music",
-    "type": "music_store",
-    "sign": "INFIRMARY MUSIC",
-    "sign_style": "projecting",
-    "awning": true
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1918,
+  "main_w_ft": 25,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "turned",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#8e4a36"
-  }
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Holloway",
+  "house_number": 164
+ },
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

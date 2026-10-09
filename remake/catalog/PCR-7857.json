@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.9,
-  "d": 29.5
+  "w": 26.0,
+  "d": 26.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "shingle_style",
+  "storeys": 2,
   "main_w_ft": 46,
   "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a35f3f",
-   "trim": "#f4f1e8",
-   "accent": "#7a2e28",
-   "roof": "#3e3e3c"
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "worn",
   "year_built": 2003,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 2048
+  "house_number": 3939
  },
- "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2280"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

@@ -3,70 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.3,
-  "d": 34.3
+  "w": 19.3,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 33,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 33,
+  "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_right"
   ],
-  "garage": "carport",
+  "garage": "attached_1",
   "yard": {
-   "fence": "chainlink",
+   "fence": "none",
    "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "clothesline",
-    "swing_set"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "new",
-  "year_built": 1955,
+  "condition": "kept",
+  "year_built": 1957,
   "band": "postwar",
-  "form_token": "shingle_style"
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 663
+  "family": "Okonkwo",
+  "house_number": 655
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "postwar band cape_cod: 1.5 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0576"
 }

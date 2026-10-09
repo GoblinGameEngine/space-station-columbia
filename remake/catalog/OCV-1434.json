@@ -3,58 +3,34 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.7,
-  "d": 28.2
+  "w": 43.3,
+  "d": 37.2
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 38,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "court",
+  "units": 8,
+  "balconies": "none",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
-  },
+  "year_built": 2003,
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "ranch"
+  "roof": {
+   "type": "gable",
+   "material": "clay_tile",
+   "pitch_deg": 17
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Tomczak",
-  "house_number": 485
+  "name": ""
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0636"
+ "brief": "condo (apartment) generated for Oceanview.",
+ "model": "SOL-0955"
 }

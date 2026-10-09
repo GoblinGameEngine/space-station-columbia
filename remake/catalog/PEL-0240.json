@@ -3,58 +3,34 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 16.1,
-  "d": 23.1
+  "w": 37.2,
+  "d": 31.7
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 37,
-  "main_d_ft": 32,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
+  "storeys": 2,
+  "form": "slab",
+  "units": 8,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "stucco",
-  "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
+   "body": "#dcc7a6",
    "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
-  },
+  "year_built": 1992,
   "condition": "kept",
-  "year_built": 1939,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "roof": {
+   "type": "gable",
+   "material": "clay_tile",
+   "pitch_deg": 16
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Dunmore",
-  "house_number": 476
+  "name": ""
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0357"
+ "brief": "condo (apartment) generated for Pelican Cove.",
+ "model": "SOL-0656"
 }

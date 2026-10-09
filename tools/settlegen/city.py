@@ -293,12 +293,30 @@ def plan_city(spec, blocked=lambda u, v: False, height=lambda u, v: 0.0):
         hh = _pods(pl, spec, U, V, R_grid, H_target, hh, height, blocked, rng, lay, names)
     if tier in ("city", "town") and pop > 4000:
         _centres(pl, spec, U, V, rng)
+    # ================= jobs: office blocks downtown, industrial parks at the edge (research/jobs) =================
+    # (its own random stream, after everything else: the plan up to here is what it was without it)
+    jobs = _jobs_pass(pl, spec, U, V, core, height, blocked)
+    # the homes those lots had (flats over the shops, apartment blocks) built again as pods at the edge: the town keeps
+    # its people (the user, 2026-10-08: "Do we still have the 240k population?")
+    # (taller blocks on lots the town already has -- the inner apartments, nearest the heart, built a storey up to twice
+    # the flats; a second round of pods laid its drives over the first's houses)
+    lost = jobs.get("hh_lost", 0.0)
+    ups = sorted([l for l in pl.lots if l["use"] in ("apartment", "apartment_court") and l.get("zone") in ("downtown", "inner", "middle")],
+                 key=lambda l: math.hypot(sum(q[0] for q in l["poly"]) / 4, sum(q[1] for q in l["poly"]) / 4))
+    for l in ups:
+        if lost <= 0:
+            break
+        lost -= UNITS["apartment_big"] - UNITS[l["use"]]
+        l["use"] = "apartment_big"
+    hh -= max(0.0, lost)
+    jobs["hh_unrestored"] = max(0.0, lost)
     stats = {"households": round(hh), "target": round(H_target), "lots": len(pl.lots), "streets": len(pl.streets),
              "stairs": len(pl.stairs), "landmarks": len(pl.landmarks), "institutions": placed}
     stats["walks"] = len(pl.walks)
+    stats["jobs"] = jobs
     stats["waterfront_bldgs"] = len(pl.wbldgs)
     return {"streets": pl.streets, "stairs": pl.stairs, "lots": pl.lots, "areas": pl.areas, "marks": pl.marks,
-            "centres": pl.centres, "landmarks": pl.landmarks, "walks": pl.walks, "wbldgs": pl.wbldgs, "stats": stats}
+            "centres": pl.centres, "landmarks": pl.landmarks, "walks": pl.walks, "wbldgs": pl.wbldgs, "parks": pl.parks, "stats": stats}
 
 
 def _block_faces(pts, blk):
@@ -536,6 +554,154 @@ def _edge_tracts(pl, spec, U, V, H_target, hh, height, blocked, rng, streets, la
     return hh
 
 
+# research/jobs: the occupations people hold (the lives bake, 2026-10-08) as shares of a town's population -- the works'
+# trades (factory hands, mechanics, drivers, dock workers, builders) ~9 %, the offices' (clerks, bankers, lawyers,
+# editors beyond the upstairs offices) ~3.5 %; at 45 and 28 m2 of floor a job (planning densities)
+IND_SHARE, OFF_SHARE = 0.09, 0.035
+IND_M2, OFF_M2 = 45.0, 28.0
+IND_COVER = 0.36
+
+
+def _strip(pts, w):
+    """a thin rectangle round a two-point line (the occupancy test of a connector street)"""
+    (a, b), (c, d) = pts
+    L = math.hypot(c - a, d - b) or 1.0
+    nx, ny = -(d - b) / L * w / 2, (c - a) / L * w / 2
+    return [(a + nx, b + ny), (c + nx, d + ny), (c - nx, d - ny), (a - nx, b - ny)]
+
+
+def _jobs_pass(pl, spec, U, V, core, height, blocked):
+    """office blocks: the downtown store lots nearest the heart become office blocks (lot.use "office", storeys by the
+    town's size) until the town's office floor is met; industrial parks: centers.industrial_park sites fronting Main past
+    the shopping centres, sized to the works' trades (one or two), their spine and loop streets laid as streets"""
+    rng = random.Random(spec.get("seed", 1) * 7919 + 101)
+    pop = spec["pop"]
+    tier = spec.get("tier", "town")
+    pl.parks = []
+    out = {"office_lots": 0, "office_m2": 0, "parks": 0, "ind_m2": 0}
+    if pop < 2000:
+        return out
+    # -- offices
+    need = pop * OFF_SHARE * OFF_M2
+    storeys = (6, 10) if pop > 30000 else ((4, 6) if pop > 8000 else (3, 4))
+    cand = [l for l in pl.lots if l["use"] == "store" and l.get("zone") == "downtown"]
+    cand.sort(key=lambda l: math.hypot(*(sum(q[i] for q in l["poly"]) / len(l["poly"]) for i in (0, 1))))
+    got = 0.0
+    for l in cand[1::2]:                                 # (every other one: the street keeps its shops between)
+        if got >= need:
+            break
+        w = math.dist(l["poly"][0], l["poly"][1])
+        d = math.dist(l["poly"][1], l["poly"][2])
+        if w < 14.0 or d < 18.0:
+            continue
+        n = rng.randint(*storeys)
+        out["hh_lost"] = out.get("hh_lost", 0.0) + _households(l)
+        l["use"] = "office"
+        l["storeys"] = n
+        got += min(w, 40.0) * min(d - 3.5, 30.0) * (n - 1) * 0.8
+        out["office_lots"] += 1
+    out["office_m2"] = round(got)
+    # -- industrial parks
+    need = pop * IND_SHARE * IND_M2 / IND_COVER                 # (site m2)
+    era = "rail" if spec.get("rail") else "postwar"
+    n_parks = 2 if need > 250000 else 1
+    each = need / n_parks
+    left = n_parks
+    st_pts = [q for st in pl.streets for q in st["pts"][::3]]
+    for frac in (1.0, 0.7, 0.5, 0.35, 0.25):
+        if left <= 0:
+            break
+        d = min(380.0, max(150.0, math.sqrt(each * frac) * 0.8))
+        w = each * frac / d
+        # every free, dry, flat rectangle of this size on a 40 m grid, the farthest from the heart first (industry at the
+        # edge); its front (v0) toward the town's middle, a frontage street along it joined to the nearest street
+        cands = []
+        for iu in range(int(-U / 40), int(U / 40) + 1):
+            for iv in range(int(-V / 40), int(V / 40) + 1):
+                cu, cv = iu * 40.0, iv * 40.0
+                if math.hypot(cu / max(U, 1), cv / max(V, 1)) < 0.45:
+                    continue
+                cands.append((-math.hypot(cu / max(U, 1), cv / max(V, 1)) + rng.random() * 0.05, cu, cv))
+        cands.sort()
+        for _, cu, cv in cands:
+            if left <= 0:
+                break
+            side = 1 if cv >= 0 else -1                        # (the site runs away from Main: its front faces the middle)
+            ua, ub = cu - w / 2, cu + w / 2
+            va = abs(cv) - d / 2
+            if va < ROW["main"] / 2 + 2.0:
+                continue
+            poly = rect(ua, ub, side * va, side * (va + d)) if side > 0 else rect(ua, ub, side * (va + d), side * va)
+            if not (pl.inside(poly) and pl.occ.free(poly, shrink=1.0) and pl.dry(poly)):
+                continue
+            if any(blocked(ua + (ub - ua) * i / 6, side * (va + d * j / 4)) for i in range(7) for j in range(5)):
+                continue
+            if _lot_slope(poly, height) > 0.06:
+                continue
+            # the frontage street along the front, 8 m out, and a connector straight to the nearest street
+            fv = side * (va - 8.0)
+            front = [(ua, fv), (ub, fv)]
+            mid = ((ua + ub) / 2, fv)
+            near = min(st_pts, key=lambda q: math.dist(q, mid)) if st_pts else None
+            if near is None or math.dist(near, mid) > 260.0:
+                continue
+            conn = [mid, near]
+            # (the frontage street and the connector on free ground too: unchecked, they ran through whole rows of houses
+            # -- 6,000 buildings left out across the map, 2026-10-08)
+            if not pl.occ.free(_strip(front, 12.0), shrink=0.5):
+                continue
+            if math.dist(near, mid) > 14.0:
+                a_ = (mid[0] + (near[0] - mid[0]) * 6.0 / math.dist(near, mid), mid[1] + (near[1] - mid[1]) * 6.0 / math.dist(near, mid))
+                b_ = (near[0] - (near[0] - mid[0]) * 8.0 / math.dist(near, mid), near[1] - (near[1] - mid[1]) * 8.0 / math.dist(near, mid))
+                if not pl.occ.free(_strip([a_, b_], 8.0), shrink=0.5):
+                    continue
+            plan = CT.industrial_park(CT.Site(0.0, ub - ua, 0.0, d), era, rng)
+            fr = (lambda ua_, sd, va_: (lambda u, v: (ua_ + u, sd * (va_ + v))))(ua, side, va)
+            pl.street(front, "street", spec["name"] + " Industrial Way")
+            if math.dist(near, mid) > 6.0:
+                pl.street(conn, "street", spec["name"] + " Industrial Way")
+            for ln in plan["lines"]:
+                pl.street([fr(*q) for q in ln["pts"]], "alley" if ln["cls"] == "alley" else "street", spec["name"] + " Industrial Way")
+            pl.occ.poly(poly)
+            pl.parks.append({"name": f"{spec['name']} {['Industrial Park', 'Works District'][len(pl.parks) % 2]}", "plan": plan,
+                             "frame": (ua, side, va), "era": era})
+            out["parks"] += 1
+            out["ind_m2"] += plan["stats"]["built_sqft"] * 0.0929
+            left -= 1
+    # -- the old works district: where the parks fall short (a city built out to its edge), store and apartment lots by
+    # the rail -- or round downtown's edge -- become multi-storey works lofts (urban_layout/07 §4: "the old district along
+    # the rail and river, inside the town"; the retail traded out, the user's leave, 2026-10-08)
+    short = pop * IND_SHARE * IND_M2 - out["ind_m2"]
+    rail_v = spec.get("rail_v")
+    if short > 4000.0:
+        def cen(l):
+            return (sum(q[0] for q in l["poly"]) / len(l["poly"]), sum(q[1] for q in l["poly"]) / len(l["poly"]))
+
+        def near_rail(l):
+            c = cen(l)
+            return abs(c[1] - rail_v(c[0])) if rail_v else abs(math.hypot(c[0] / max(core, 1.0), c[1] / max(core * 0.8, 1.0)) - 1.15) * core
+        cand = [l for l in pl.lots if l["use"] in ("store", "apartment", "apartment_big") and l.get("zone") in ("downtown", "inner")]
+        cand.sort(key=near_rail)
+        n_l = 0
+        for l in cand:
+            if short <= 0 or n_l >= (150 if pop > 30000 else 80):
+                break
+            w = math.dist(l["poly"][0], l["poly"][1])
+            d = math.dist(l["poly"][1], l["poly"][2])
+            if w < 16.0 or d < 22.0 or rng.random() < 0.35:   # (not every lot: the street keeps some of its life)
+                continue
+            n = rng.choice([3, 4, 4, 5])
+            out["hh_lost"] = out.get("hh_lost", 0.0) + _households(l)
+            l["use"] = "works_loft"
+            l["storeys"] = n
+            short -= min(w - 6.0, 60.0) * min(d - 8.0, 34.0) * n * 0.85
+            n_l += 1
+        out["lofts"] = n_l
+        out["ind_m2"] = round(pop * IND_SHARE * IND_M2 - max(short, 0.0))
+    out["ind_m2"] = round(out["ind_m2"])
+    return out
+
+
 def _centres(pl, spec, U, V, rng):
     kinds = ["community", "neighborhood", "convenience"] if spec["pop"] > 20000 else ["neighborhood", "convenience"]
     for k, kind in enumerate(kinds):
@@ -688,6 +854,11 @@ def structures(p, spec, uv, region_at=None):
         if l["use"] in ("apartment", "apartment_big", "apartment_court"):
             e["use"] = "apartment"
             e["storeys"] = {"apartment": 3, "apartment_big": 4, "apartment_court": 2}[l["use"]]
+        if l["use"] == "office":
+            e["storeys"] = l["storeys"]
+            e["kind"] = "store"
+        if l["use"] == "works_loft":
+            e["use"], e["role"], e["storeys"], e["era"], e["kind"] = "industry", "manufacturing", l["storeys"], "rail", "industrial"
         out.append(e)
     for c in p["centres"]:
         frame = (lambda c_: (lambda u, v: uv([(u, c_["v_road"] + c_["dirn"] * v)])[0]))(c)
@@ -750,6 +921,23 @@ def structures(p, spec, uv, region_at=None):
         out.append(dict(use=b["kind"], label=b.get("label"), poly=ring, lot_w=math.dist(ring[0], ring[1]), lot_d=math.dist(ring[1], ring[2]),
                         band="interwar", kind=b["kind"], over_water=not b.get("land"), members=b.get("members"), slips=b.get("slips"),
                         area_m2=b.get("area_m2")))
+    # 4. the industrial parks' buildings -- last, so every id before them is what it was (research/jobs); each ring from
+    # its front edge, the side facing its spine road (the office and car park are in front, the docks behind)
+    for pk in p.get("parks", []):
+        ua, side, va = pk["frame"]
+        spines = [ln["pts"][0][0] for ln in pk["plan"]["lines"] if ln.get("what") == "spine"]
+        for b in pk["plan"]["buildings"]:
+            us_ = [q[0] for q in b["poly"]]
+            vs_ = [q[1] for q in b["poly"]]
+            a_, b_, c_, d_ = min(us_), max(us_), min(vs_), max(vs_)
+            sp = min(spines, key=lambda s_: min(abs(s_ - a_), abs(s_ - b_))) if spines else a_
+            if abs(sp - a_) <= abs(sp - b_):
+                loc = [(a_, d_), (a_, c_), (b_, c_), (b_, d_)]
+            else:
+                loc = [(b_, c_), (b_, d_), (a_, d_), (a_, c_)]
+            ring = uv([(ua + u, side * (va + v)) for u, v in loc])
+            out.append(dict(use="industry", role=b.get("role"), tenant=b.get("tenant"), poly=ring, lot_w=math.dist(ring[0], ring[1]),
+                            lot_d=math.dist(ring[1], ring[2]), band="postwar", kind="industrial", park=pk["name"], era=pk["era"]))
     pre = spec.get("prefix") or spec["name"][:3].upper()
     for k, e in enumerate(out, 1):
         e["id"] = "%s-%04d" % (pre, k)

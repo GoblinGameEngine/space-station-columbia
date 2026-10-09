@@ -3,33 +3,38 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.4,
-  "d": 29.8
+  "w": 12.9,
+  "d": 40.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 21,
-  "main_d_ft": 38,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#d9dcd8",
+   "body": "#e6e2d8",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -41,23 +46,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden",
+    "clothesline"
    ]
   },
   "condition": "worn",
   "year_built": 1918,
   "band": "streetcar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 1059
+  "family": "Raghunathan",
+  "house_number": 772
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0549"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

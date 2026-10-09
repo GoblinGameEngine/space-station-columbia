@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 34.6
+  "w": 18.9,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 28,
-  "main_d_ft": 38,
+  "main_w_ft": 48,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
-   "material": "wood_shingle"
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stoop",
    "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1938,
+  "year_built": 1930,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 873
+  "family": "Adebayo",
+  "house_number": 2178
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

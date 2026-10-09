@@ -3,62 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.6,
-  "d": 34.0
+  "w": 13.1,
+  "d": 40.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
+  "archetype": "cape_cod",
   "storeys": 1.5,
   "main_w_ft": 25,
-  "main_d_ft": 39,
+  "main_d_ft": 44,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "asphalt_shingle"
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "enclosed",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#f2f1ea",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
     "garden",
     "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1925,
-  "band": "interwar",
-  "form_token": "nantucket_cape",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1902,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Smith",
-  "house_number": 495
+  "family": "Achterberg",
+  "house_number": 1628
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0874"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0585"
 }

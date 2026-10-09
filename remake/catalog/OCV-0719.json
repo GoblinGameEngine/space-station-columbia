@@ -3,36 +3,36 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 13.3,
-  "d": 39.2
+  "w": 17.2,
+  "d": 29.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 33,
+  "main_w_ft": 26,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "body": "#efd9c4",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -41,28 +41,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
     "garden",
-    "clothesline"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
-  "form_token": "california_bungalow",
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 9
-  }
+  "year_built": 1935,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 836
+  "family": "Duquesne",
+  "house_number": 392
  },
- "brief": "streetcar band california_bungalow: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0636"
 }

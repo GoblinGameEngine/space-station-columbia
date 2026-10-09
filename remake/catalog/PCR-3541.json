@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.2,
-  "d": 34.3
+  "w": 16.8,
+  "d": 31.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 25,
-  "main_d_ft": 38,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
@@ -19,43 +19,43 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#ffffff",
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
    "accent": "#3a2a24",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "casement",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1933,
-  "band": "interwar",
-  "form_token": "gable_front",
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Smith",
-  "house_number": 326
+  "family": "Kowal",
+  "house_number": 1879
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0431"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

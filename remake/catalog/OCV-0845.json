@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.2,
-  "d": 38.5
+  "w": 22.8,
+  "d": 23.8
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 22,
-  "main_d_ft": 34,
+  "main_w_ft": 29,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
+   "type": "hip",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,19 +26,17 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "body": "#f0e2cf",
+   "trim": "#5a3a28",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "none",
+  "chimneys": [],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
@@ -48,16 +46,15 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1914,
-  "band": "streetcar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "year_built": 1958,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Foxworth",
-  "house_number": 265
+  "family": "Haskins",
+  "house_number": 165
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0316"
+ "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0320"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 29.3
+  "w": 25.9,
+  "d": 27.9
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 29,
+  "main_w_ft": 35,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "wood_shingle"
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,19 +23,21 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#cdcc9f",
+   "trim": "#3a3f44",
+   "accent": "#3a2a1e",
+   "roof": "#4e5155"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -45,17 +47,15 @@
     "shed"
    ]
   },
-  "condition": "shabby",
+  "condition": "kept",
   "year_built": 1992,
   "band": "late",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
   "family": "Holloway",
-  "house_number": 2531
+  "house_number": 3966
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0581"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6136"
 }

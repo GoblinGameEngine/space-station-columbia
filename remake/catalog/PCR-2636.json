@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.4,
-  "d": 34.9
+  "w": 23.5,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 41,
+  "main_w_ft": 42,
+  "main_d_ft": 34,
   "roof": {
    "type": "gambrel",
    "pitch_deg": 45,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,31 +32,31 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1934,
-  "band": "interwar",
+  "condition": "kept",
+  "year_built": 1959,
+  "band": "postwar",
   "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 1539
+  "house_number": 1256
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-1889"
+ "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-1892"
 }

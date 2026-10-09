@@ -8,28 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Garcia Cafe",
-    "type": "cafe",
-    "sign": "GARCIA CAFE",
-    "sign_style": "awning_lettering",
-    "awning": true
+    "type": "college_extension"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "engineering_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1924,
+  "cornice": "mission_parapet",
+  "storefronts": [
+   {
+    "business": "Nowicki & Raghunathan Cafe",
+    "type": "cafe",
+    "sign": "NOWICKI & RAGHUNATHAN CAFE",
+    "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Kowalczyk Clothiers",
+    "type": "clothing",
+    "sign": "KOWALCZYK CLOTHIERS",
+    "sign_style": "projecting",
+    "awning": false
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1956,
   "colors": {
-   "body": "#f6f1e7"
+   "body": "#efd9c4"
   },
-  "arcade": false,
+  "arcade": true,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Kowalczyk Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

@@ -4,13 +4,13 @@
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
   "w": 17.6,
-  "d": 29.9
+  "d": 35.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 48,
+  "main_w_ft": 27,
   "main_d_ft": 30,
   "roof": {
    "type": "gable",
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,30 +32,32 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
-   "extras": []
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
+  "year_built": 1947,
+  "band": "postwar",
   "form_token": "i_house",
   "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 974
+  "house_number": 834
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

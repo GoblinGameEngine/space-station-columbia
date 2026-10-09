@@ -3,61 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 29.2,
-  "d": 33.4
+  "w": 18.4,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 31,
+  "main_w_ft": 27,
   "main_d_ft": 31,
   "roof": {
    "type": "hip",
-   "pitch_deg": 24,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "body": "#dcc7a6",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
     "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1967,
-  "band": "suburban",
+  "year_built": 1923,
+  "band": "interwar",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
   "family": "Reyes",
-  "house_number": 1015
+  "house_number": 1489
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2729"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

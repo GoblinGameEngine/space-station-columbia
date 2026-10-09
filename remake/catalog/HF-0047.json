@@ -8,25 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 10,
+  "facade": "brick",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Adebayo Pharmacy",
-    "type": "pharmacy",
-    "sign": "ADEBAYO PHARMACY",
-    "sign_style": "awning_lettering",
-    "awning": true
+    "business": "Mbeki Clothiers",
+    "type": "clothing",
+    "sign": "MBEKI CLOTHIERS",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Mbeki & Okonkwo Savings Bank",
+    "type": "bank",
+    "sign": "MBEKI & OKONKWO SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1907,
+  "year_built": 1908,
   "colors": {
-   "body": "#ba704b"
+   "body": "#cda980"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Castellanos Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

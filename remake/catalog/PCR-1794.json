@@ -3,69 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 36.3
+  "w": 13.3,
+  "d": 31.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 34,
-  "main_d_ft": 28,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 24,
+  "main_d_ft": 42,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
-   "material": "slate"
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
+   "type": "1over1",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1937,
-  "band": "interwar",
-  "form_token": "nantucket_cape"
+  "year_built": 1909,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 819
+  "family": "Patel",
+  "house_number": 1231
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0978"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, wrap porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0633"
 }

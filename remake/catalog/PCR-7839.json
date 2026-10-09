@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.5,
-  "d": 31.3
+  "w": 19.8,
+  "d": 31.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 44,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 26,
   "main_d_ft": 26,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 43,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9f5e48",
-   "trim": "#3a3f44",
-   "accent": "#6a4a2a",
-   "roof": "#5a4a40"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,14 @@
   "condition": "kept",
   "year_built": 1997,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "i_house",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 2815
+  "house_number": 2871
  },
- "brief": "late band ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4627"
+ "brief": "late band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

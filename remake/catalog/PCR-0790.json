@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.3,
-  "d": 37.0
+  "w": 11.9,
+  "d": 22.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 24,
+  "main_w_ft": 24,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
-   "material": "asphalt_shingle"
+   "pitch_deg": 46,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "turned",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
+   "body": "#2f3e52",
    "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
@@ -41,19 +41,21 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
   "year_built": 1918,
   "band": "streetcar",
-  "form_token": "gable_front"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Moriarty",
-  "house_number": 489
+  "family": "Desai",
+  "house_number": 312
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0698"
 }

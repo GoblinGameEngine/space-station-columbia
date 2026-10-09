@@ -3,34 +3,56 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 50.4,
-  "d": 39.7
+  "w": 13.4,
+  "d": 27.4
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "none",
-  "ground_floor": "apartments",
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 21,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2e2a26",
+   "body": "#f6f1e7",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
-  "year_built": 1970,
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": []
+  },
   "condition": "kept",
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 20
-  }
+  "year_built": 1923,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Carrow",
+  "house_number": 467
  },
- "brief": "condo (apartment) generated for Playa Verde.",
- "model": "SOL-0765"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0502"
 }

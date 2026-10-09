@@ -3,25 +3,34 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 33.4
+  "w": 18.7,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 28,
+  "main_w_ft": 25,
+  "main_d_ft": 37,
   "roof": {
    "type": "hip",
    "pitch_deg": 31,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -38,24 +47,25 @@
   "chimneys": [
    "right_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1941,
+  "condition": "worn",
+  "year_built": 1932,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Stroud",
-  "house_number": 727
+  "house_number": 369
  },
- "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0829"
+ "brief": "interwar band foursquare: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0474"
 }

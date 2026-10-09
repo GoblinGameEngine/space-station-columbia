@@ -3,41 +3,60 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 44.4,
-  "d": 41.2
+  "w": 43.1,
+  "d": 41.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f3ede0",
-   "trim": "#ffffff",
-   "accent": "#2b4f6e",
-   "roof": "#3c4048"
-  },
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 40,
+  "main_d_ft": 56,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "slate"
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1905,
-  "condition": "kept",
-  "windows": {
-   "shutters": true
-  },
+  "dormers": [],
   "porch": {
-   "type": "full",
+   "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
-  }
+  },
+  "walls": "cedar_shingle",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#244d3a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "isle",
  "names": {
-  "name": ""
+  "family": "Nguyen",
+  "house_number": 349
  },
- "brief": "townhouse (townhouse) generated for Victory Bay.",
- "model": "VBY-0053"
+ "brief": "estate band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

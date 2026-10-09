@@ -3,27 +3,70 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 37.5,
-  "d": 38.6
+  "w": 19.3,
+  "d": 35.8
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
+  "archetype": "shingle_style",
   "storeys": 2,
-  "form": "slab",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232"
+  "main_w_ft": 25,
+  "main_d_ft": 38,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1994,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
+  },
+  "condition": "new",
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Stroud",
+  "house_number": 915
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1413"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0964"
 }

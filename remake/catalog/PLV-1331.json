@@ -3,17 +3,17 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.8,
-  "d": 28.3
+  "w": 34.9,
+  "d": 40.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 32,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 39,
+  "main_d_ft": 25,
   "roof": {
-   "type": "hip",
+   "type": "gable",
    "pitch_deg": 24,
    "material": "clay_tile"
   },
@@ -23,7 +23,7 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
    "body": "#efd9c4",
@@ -32,11 +32,11 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": false
+   "type": "picture",
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "none",
+  "garage": "carport",
   "yard": {
    "fence": "none",
    "side": "none",
@@ -45,17 +45,17 @@
     "shed"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1960,
-  "band": "postwar",
-  "form_token": "ranch",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1979,
+  "band": "suburban",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 710
+  "family": "Dunmore",
+  "house_number": 1801
  },
- "brief": "postwar band ranch: 1 storeys, board_and_batten walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-2728"
 }

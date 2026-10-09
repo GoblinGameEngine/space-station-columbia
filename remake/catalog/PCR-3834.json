@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.4,
-  "d": 32.7
+  "w": 36.6,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 23,
+  "main_w_ft": 41,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "stoop",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,31 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "chainlink",
+   "rear": "tree_line",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1931,
-  "band": "interwar",
+  "year_built": 1975,
+  "band": "suburban",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 665
+  "house_number": 1971
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "suburban band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-3708"
 }

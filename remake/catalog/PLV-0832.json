@@ -3,19 +3,19 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 37.8,
-  "d": 21.3
+  "w": 24.6,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 44,
+  "main_w_ft": 30,
   "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile_old"
+   "pitch_deg": 20,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#4a3324",
-   "accent": "#1f4a6e",
+   "body": "#f4f0e6",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1970,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Yoder",
-  "house_number": 927
+  "family": "Villalobos",
+  "house_number": 668
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4919"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

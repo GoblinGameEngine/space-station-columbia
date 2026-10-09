@@ -3,59 +3,60 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.0,
-  "d": 24.7
+  "w": 10.8,
+  "d": 41.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 20,
+  "main_w_ft": 22,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
+   "type": "hip",
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
+   "body": "#ead9c8",
+   "trim": "#4a3324",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "hedge",
    "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1928,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
-  "house_number": 927
+  "family": "Loomis",
+  "house_number": 957
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0384"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0581"
 }

@@ -3,31 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.0,
-  "d": 25.4
+  "w": 17.0,
+  "d": 31.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Garcia Diner",
-    "type": "diner",
-    "sign": "GARCIA DINER",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1907,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "use": "tube_works",
+  "form": "loft",
+  "storeys": 4,
+  "components": [],
+  "walls": "block",
+  "year_built": 1894,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Port Carrow Tube Works",
+  "sign": "PORT CARROW TUBE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

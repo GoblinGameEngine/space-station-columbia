@@ -3,60 +3,41 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 52.1,
-  "d": 36.1
+  "w": 40.2,
+  "d": 40.9
  },
- "kind": "house",
+ "kind": "townhouse",
  "traits": {
-  "archetype": "queen_anne",
-  "storeys": 2,
-  "main_w_ft": 49,
-  "main_d_ft": 36,
-  "roof": {
-   "type": "cross_gable",
-   "pitch_deg": 48,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "wrap",
-   "posts": "turned",
-   "rail": "spindle"
-  },
+  "units": 6,
+  "unit_w_ft": 22,
+  "depth_ft": 38,
   "walls": "clapboard",
-  "foundation": "concrete_block",
   "colors": {
-   "body": "#f8f7f2",
+   "body": "#eef2f4",
    "trim": "#f7f6f0",
    "accent": "#1f4a33",
    "roof": "#3c4048"
   },
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 34,
+   "material": "slate"
+  },
+  "year_built": 1898,
+  "condition": "kept",
   "windows": {
-   "type": "casement",
    "shutters": true
   },
-  "chimneys": [
-   "left_end"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "picket",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "gazebo"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1932,
-  "band": "interwar",
-  "form_token": "queen_anne"
+  "porch": {
+   "type": "full",
+   "posts": "turned",
+   "rail": "spindle"
+  }
  },
  "region": "isle",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 136
+  "name": ""
  },
- "brief": "estate band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "townhouse (townhouse) generated for Victory Bay.",
+ "model": "VBY-0112"
 }

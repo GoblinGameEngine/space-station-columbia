@@ -8,25 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "cast_iron_front",
+  "form": "office_block",
+  "storeys": 4,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
   "cornice": "parapet_flat",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Achterberg Cafe",
-    "type": "cafe",
-    "sign": "ACHTERBERG CAFE",
-    "sign_style": "awning_lettering",
+    "business": "Patel & Merriweather Savings Bank",
+    "type": "bank",
+    "sign": "PATEL & MERRIWEATHER SAVINGS BANK",
+    "sign_style": "flat_board",
     "awning": false
+   },
+   {
+    "business": "Bellhaven Savings Bank",
+    "type": "bank",
+    "sign": "BELLHAVEN SAVINGS BANK",
+    "sign_style": "awning_lettering",
+    "awning": true
    }
   ],
   "condition": "worn",
-  "year_built": 1924,
+  "year_built": 1957,
   "colors": {
-   "body": "#8e3c2f"
+   "body": "#aa6345"
   }
  },
- "names": {},
- "brief": "store (store) generated for Bellhaven."
+ "names": {
+  "block_name": "Mbeki Building"
+ },
+ "brief": "store (office) generated for Bellhaven."
 }

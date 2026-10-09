@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 30.2,
-  "d": 28.6
+  "w": 22.2,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 41,
-  "main_d_ft": 30,
+  "main_w_ft": 27,
+  "main_d_ft": 33,
   "roof": {
    "type": "hip",
    "pitch_deg": 22,
@@ -33,28 +33,30 @@
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1988,
-  "band": "suburban",
+  "condition": "worn",
+  "year_built": 1963,
+  "band": "postwar",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
   "family": "Tremblay",
-  "house_number": 1390
+  "house_number": 404
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5162"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1551"
 }

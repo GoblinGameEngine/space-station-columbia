@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.4,
-  "d": 20.0
+  "w": 16.8,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 33,
+  "main_w_ft": 37,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 50,
@@ -19,8 +19,8 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,32 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "sliding",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "right_end"
   ],
-  "garage": "attached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "hedge",
    "extras": [
-    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
+  "year_built": 1938,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Achterberg",
-  "house_number": 2167
+  "house_number": 2360
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

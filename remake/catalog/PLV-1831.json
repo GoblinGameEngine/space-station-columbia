@@ -3,27 +3,41 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.0,
-  "d": 14.0
+  "w": 16.6,
+  "d": 16.6
  },
- "kind": "restaurant",
+ "kind": "clubhouse",
  "traits": {
-  "year_built": 1961,
-  "over_water": false,
-  "storeys": 1,
-  "storefronts": [
-   {
-    "business": "Szabo Restaurant",
-    "type": "restaurant",
-    "sign": "SZABO RESTAURANT",
-    "sign_style": "projecting",
-    "awning": false
-   }
-  ]
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "walls": "stucco",
+  "main_w_ft": 60,
+  "main_d_ft": 44,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 20,
+   "material": "clay_tile"
+  },
+  "porch": {
+   "type": "wrap",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "use": "yacht_club",
+  "members": 80,
+  "slips": 25,
+  "area_m2": 176,
+  "garage": "none",
+  "year_built": 1920,
+  "colors": {
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
+   "accent": "#1f4a6e"
+  }
  },
  "region": "ca",
  "names": {
-  "name": "Pier Grill"
+  "name": "Playa Verde Yacht Club"
  },
- "brief": "restaurant (restaurant) generated for Playa Verde."
+ "brief": "clubhouse (clubhouse) generated for Playa Verde."
 }

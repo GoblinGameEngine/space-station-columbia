@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 49.3,
-  "d": 24.6
+  "w": 15.1,
+  "d": 41.6
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
+  "storeys": 2,
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Smith Insurance",
+    "type": "insurance_office",
+    "sign": "SMITH INSURANCE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1916,
   "colors": {
-   "body": "#8e4a36"
-  },
-  "year_built": 1973,
-  "condition": "kept"
+   "body": "#7a4232"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0337"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

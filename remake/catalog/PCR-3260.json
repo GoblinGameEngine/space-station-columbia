@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.2,
-  "d": 20.0
+  "w": 18.1,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 27,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
+  "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
+   "type": "gable",
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#8a2e24",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -41,24 +41,22 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
   "year_built": 1940,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 2079
+  "family": "Castellanos",
+  "house_number": 2076
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-1097"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0284"
 }

@@ -8,25 +8,36 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 3,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Villalobos Gallery",
-    "type": "art_gallery",
-    "sign": "VILLALOBOS GALLERY",
-    "sign_style": "awning_lettering",
+    "business": "Duquesne & Arrieta Cafe",
+    "type": "cafe",
+    "sign": "DUQUESNE & ARRIETA CAFE",
+    "sign_style": "flat_board",
     "awning": true
    }
   ],
-  "condition": "kept",
-  "year_built": 1906,
+  "condition": "worn",
+  "year_built": 1950,
   "colors": {
-   "body": "#903f2f"
+   "body": "#90403d"
   }
  },
- "names": {},
- "brief": "store (store) generated for Haskins Corner."
+ "names": {
+  "block_name": "Wisniewski Building"
+ },
+ "brief": "store (office) generated for Haskins Corner."
 }

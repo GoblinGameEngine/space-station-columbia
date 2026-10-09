@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.2,
-  "d": 31.1
+  "w": 31.5,
+  "d": 32.4
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 28,
+  "main_w_ft": 40,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "recessed",
-   "posts": "iron",
+   "posts": "square",
    "rail": "solid"
   },
   "walls": "clapboard",
@@ -36,27 +36,24 @@
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "hedge",
-   "extras": [
-    "shed"
-   ]
+   "extras": []
   },
-  "condition": "shabby",
-  "year_built": 1962,
-  "band": "postwar",
+  "condition": "kept",
+  "year_built": 1981,
+  "band": "suburban",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Haddad",
-  "house_number": 2701
+  "house_number": 2664
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "suburban band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens)."
 }

@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.0,
-  "d": 32.0
+  "w": 14.1,
+  "d": 29.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 38,
+  "main_w_ft": 25,
+  "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile"
+   "pitch_deg": 24,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -27,34 +27,37 @@
   "foundation": "slab",
   "colors": {
    "body": "#e4cfb2",
-   "trim": "#2e2a26",
-   "accent": "#1f4a6e",
+   "trim": "#2f3b2a",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1900,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Haskins",
-  "house_number": 595
+  "family": "Foxworth",
+  "house_number": 594
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0364"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0498"
 }

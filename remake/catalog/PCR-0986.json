@@ -3,62 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.3,
-  "d": 23.5
+  "w": 11.7,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 39,
+  "main_w_ft": 21,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
+   "pitch_deg": 46,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "turned",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#e8dcc0",
    "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "2over2",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
-   "fence": "hedge",
+   "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1893,
-  "band": "rail",
+  "year_built": 1935,
+  "band": "interwar",
   "form_token": "cape_cod",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Dunmore",
-  "house_number": 978
+  "family": "Desai",
+  "house_number": 437
  },
- "brief": "rail band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0290"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0601"
 }

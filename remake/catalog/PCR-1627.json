@@ -3,61 +3,63 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.9,
-  "d": 20.3
+  "w": 10.9,
+  "d": 40.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 31,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 40,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 44,
+   "type": "gable",
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stacked",
    "posts": "square",
-   "rail": "solid"
+   "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "concrete_block",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#e6d186",
-   "trim": "#f2efe6",
-   "accent": "#4a5a48",
-   "roof": "#5a5a58"
+   "body": "#8a2e24",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "shed",
+    "garden",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "ranch",
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "i_house",
   "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Haskins",
-  "house_number": 819
+  "house_number": 407
  },
- "brief": "interwar band ranch: 1 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2193"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0742"
 }

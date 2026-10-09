@@ -8,28 +8,48 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "architect_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Tomczak Barber Shop",
-    "type": "barber",
-    "sign": "TOMCZAK BARBER SHOP",
+    "business": "Main Street Savings Bank",
+    "type": "bank",
+    "sign": "MAIN STREET SAVINGS BANK",
     "sign_style": "awning_lettering",
-    "awning": false
+    "awning": true
    }
   ],
   "condition": "worn",
-  "year_built": 1920,
+  "year_built": 1922,
   "colors": {
-   "body": "#e6d4bb"
+   "body": "#e4cfb2"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "block_name": "Harrow Building"
+ },
+ "brief": "store (office) generated for Oceanview."
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.1,
-  "d": 37.3
+  "w": 30.1,
+  "d": 29.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
   "main_w_ft": 49,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "gambrel",
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,16 +24,16 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#f8f2e7",
-   "trim": "#e8e0c8",
-   "accent": "#5b6b3a",
-   "roof": "#5a5a58"
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 1985,
   "band": "suburban",
-  "form_token": "ranch"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Carrow",
-  "house_number": 413
+  "house_number": 1690
  },
- "brief": "suburban band ranch: 1 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-3002"
+ "brief": "suburban band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-4637"
 }

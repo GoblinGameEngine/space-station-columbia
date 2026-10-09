@@ -3,59 +3,33 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.3,
-  "d": 39.1
+  "w": 15.5,
+  "d": 31.5
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 23,
-  "main_d_ft": 32,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "board_and_batten",
-  "foundation": "slab",
+  "storeys": 2,
+  "facade": "stucco",
+  "cornice": "tile_roof",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Nguyen Furniture",
+    "type": "furniture",
+    "sign": "NGUYEN FURNITURE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
+  ],
+  "condition": "shabby",
+  "year_built": 1882,
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#5a3a28",
-   "accent": "#6a2c22",
-   "roof": "#a8492f"
+   "body": "#f4f0e6"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "worn",
-  "year_built": 1868,
-  "band": "rail",
-  "form_token": "spanish_revival",
-  "units": 2
+  "arcade": true,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Reyes",
-  "house_number": 260
- },
- "brief": "rail band spanish_revival: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0607"
+ "names": {},
+ "brief": "store (store) generated for Playa Verde."
 }

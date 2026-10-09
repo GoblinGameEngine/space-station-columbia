@@ -3,58 +3,67 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.7,
-  "d": 35.5
+  "w": 14.0,
+  "d": 40.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 30,
+  "main_w_ft": 32,
   "main_d_ft": 34,
   "roof": {
    "type": "hip",
-   "pitch_deg": 22,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "body": "#ead9c8",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "none",
    "extras": [
-    "shed"
+    "garden",
+    "clothesline",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1933,
-  "band": "interwar",
-  "form_token": "ranch"
+  "condition": "worn",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 12
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Moriarty",
-  "house_number": 445
+  "family": "Garcia",
+  "house_number": 920
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0464"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0368"
 }

@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 28.2,
-  "d": 20.7
+  "w": 30.6,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "spanish_revival",
   "storeys": 2,
   "main_w_ft": 32,
   "main_d_ft": 32,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 23,
-   "material": "asphalt_shingle"
+   "type": "hip",
+   "pitch_deg": 16,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,20 +23,20 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
-  "foundation": "poured_concrete",
+  "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#7e3339",
-   "trim": "#f4f1e8",
-   "accent": "#7a2e28",
-   "roof": "#555350"
+   "body": "#ead9c8",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
   },
   "windows": {
    "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
   "garage": "attached_1",
   "yard": {
@@ -48,12 +48,14 @@
   "condition": "kept",
   "year_built": 1989,
   "band": "suburban",
-  "form_token": "dutch_colonial"
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
+ "region": "ca",
  "names": {
   "family": "Haddad",
-  "house_number": 704
+  "house_number": 1775
  },
- "brief": "suburban band dutch_colonial: 2 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "HF-5843"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2728"
 }

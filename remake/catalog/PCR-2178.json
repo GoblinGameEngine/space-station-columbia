@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.1,
-  "d": 35.1
+  "w": 12.6,
+  "d": 39.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 38,
+  "main_w_ft": 22,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [
@@ -25,43 +25,43 @@
   ],
   "porch": {
    "type": "front_full",
-   "posts": "tapered_on_piers",
+   "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
+   "body": "#8a8378",
    "trim": "#f7f6f0",
    "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1896,
+  "band": "streetcar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 1223
+  "family": "DeCarlo",
+  "house_number": 367
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0578"
+ "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

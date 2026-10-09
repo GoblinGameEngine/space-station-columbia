@@ -8,26 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "brick",
-  "cornice": "corbelled_brick",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Raghunathan Printing",
-    "type": "print_shop",
-    "sign": "RAGHUNATHAN PRINTING",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "engineering_office"
+   },
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "architect_office"
    }
   ],
-  "condition": "kept",
-  "year_built": 1893,
+  "cornice": "corbelled_brick",
+  "storefronts": [
+   {
+    "business": "Tremblay Savings Bank",
+    "type": "bank",
+    "sign": "TREMBLAY SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": true
+   }
+  ],
+  "condition": "worn",
+  "year_built": 1965,
   "colors": {
    "body": "#8e4a36"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

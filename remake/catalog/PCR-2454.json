@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.5,
-  "d": 35.6
+  "w": 13.5,
+  "d": 38.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 30,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 31,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
-   "material": "wood_shingle"
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -26,37 +26,37 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#3a3836"
+   "body": "#5b6b5a",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 1899,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 1621
+  "family": "Patel",
+  "house_number": 1642
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0585"
 }

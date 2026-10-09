@@ -3,66 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.3,
-  "d": 36.7
+  "w": 17.3,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 32,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 40,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
+   "body": "#e9e8e2",
+   "trim": "#ffffff",
    "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
+    "shed",
     "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1918,
-  "band": "streetcar",
-  "form_token": "dutch_colonial",
-  "wing": {
-   "side": "rear",
-   "w_ft": 14,
-   "d_ft": 9
-  }
+  "condition": "worn",
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 1678
+  "family": "Wisniewski",
+  "house_number": 1453
  },
- "brief": "streetcar band dutch_colonial: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-1680"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0576"
 }

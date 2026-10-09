@@ -87,7 +87,8 @@
     "stocker"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 40
   },
   "bakery": {
    "name": "Bakery",
@@ -143,7 +144,8 @@
     "cook"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 30
   },
   "butcher": {
    "name": "Butcher",
@@ -591,7 +593,8 @@
     "pharmacist"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 47
   },
   "hardware": {
    "name": "Hardware store",
@@ -649,7 +652,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 60
   },
   "clothing": {
    "name": "Clothing store",
@@ -999,7 +1003,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 90
   },
   "sporting_goods": {
    "name": "Sporting goods / outfitter",
@@ -1357,7 +1362,8 @@
     "banker"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 30
   },
   "insurance_office": {
    "name": "Insurance / real-estate office",
@@ -1799,7 +1805,8 @@
     "emt"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 45
   },
   "care_home": {
    "name": "Care home",
@@ -1845,7 +1852,8 @@
     "home_health_aide"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 35
   },
   "post_office": {
    "name": "Post office",
@@ -2240,7 +2248,8 @@
     "teacher_aide"
    ],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 80
   },
   "college": {
    "name": "College",
@@ -2293,7 +2302,8 @@
     "teacher"
    ],
    "station": false,
-   "note": "the largest school of a college town (bake_places.py)"
+   "note": "the largest school of a college town (bake_places.py)",
+   "m2_per_job": 70
   },
   "childcare": {
    "name": "Childcare centre",
@@ -2434,7 +2444,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 120
   },
   "arcade": {
    "name": "Arcade / games hall",
@@ -2673,7 +2684,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 90
   },
   "hotel": {
    "name": "Hotel",
@@ -2713,7 +2725,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 110
   },
   "motel": {
    "name": "Motel",
@@ -2972,7 +2985,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 40
   },
   "fish_house": {
    "name": "Fish house / net loft",
@@ -3014,7 +3028,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 20
   },
   "boatyard": {
    "name": "Boatyard",
@@ -3132,7 +3147,8 @@
    "addictions": [],
    "roles": [],
    "station": false,
-   "note": ""
+   "note": "",
+   "m2_per_job": 100
   },
   "construction_yard": {
    "name": "Builder's yard",
@@ -3171,7 +3187,1363 @@
    "addictions": [],
    "roles": [],
    "station": false,
+   "note": "",
+   "m2_per_job": 60
+  },
+  "registry_office": {
+   "name": "Registry office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 6,
+    "janitor": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [
+    {
+     "purpose": "civic_business",
+     "per_week": 0.02,
+     "who": "age >= 18",
+     "dwell_min": 20
+    }
+   ],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "counters",
+     "ledger_stacks",
+     "filing_cabinets",
+     "desks"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "registry_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the Registry's branch: births, deeds, shares, the census"
+  },
+  "board_office": {
+   "name": "Assembly board office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 4,
+    "lawyer": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "desks",
+     "filing_cabinets",
+     "conference_table"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "board_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "an Assembly board's offices (the Board Office, the Panel Board, the Ordinance Board)"
+  },
+  "wire_studio": {
+   "name": "Wire studio",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "editor": 3,
+    "clerk": 2,
+    "mechanic": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "studio_booth",
+     "transmitter_rack",
+     "desks"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "wire_studio"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "a Wire station's studio and offices"
+  },
+  "engineering_office": {
+   "name": "Engineering / drafting office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 4,
+    "builder": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "drafting_tables",
+     "plan_chests",
+     "desks"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "engineering_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "engineers and draughtsmen for the works and the builders"
+  },
+  "accounting_office": {
+   "name": "Accounting office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 4,
+    "banker": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [
+    {
+     "purpose": "finance",
+     "per_week": 0.01,
+     "who": "age >= 18",
+     "dwell_min": 30
+    }
+   ],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "desks",
+     "adding_machines",
+     "filing_cabinets"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "accounting_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
    "note": ""
+  },
+  "dispatch_office": {
+   "name": "Cab / haulage dispatch",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 2,
+    "driver": 6
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "dispatch_board",
+     "radio_desk",
+     "desks"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "dispatch_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the cab firms' and hauliers' dispatch"
+  },
+  "courier_office": {
+   "name": "The Courier (newspaper)",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "editor": 4,
+    "clerk": 3
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "desks",
+     "typewriters",
+     "morgue_files"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "courier_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the town paper's newsroom"
+  },
+  "architect_office": {
+   "name": "Architects' office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 3,
+    "builder": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "drafting_tables",
+     "model_table",
+     "plan_chests"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "architect_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": ""
+  },
+  "insurance_agency": {
+   "name": "Insurance company office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "agent": 3,
+    "clerk": 4
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [
+    {
+     "purpose": "insurance",
+     "per_week": 0.01,
+     "who": "age >= 18",
+     "dwell_min": 30
+    }
+   ],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "desks",
+     "filing_cabinets",
+     "counter"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "insurance_agency"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "a company's branch, bigger than the corner agent"
+  },
+  "college_extension": {
+   "name": "College extension office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "teacher": 2,
+    "clerk": 2
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [
+    {
+     "purpose": "classes",
+     "per_week": 0.01,
+     "who": "age >= 18",
+     "dwell_min": 60
+    }
+   ],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "classroom_desks",
+     "desks",
+     "bookshelves"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "college_extension"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the College's evening classes and the Book of the Thirty-Two courses"
+  },
+  "works_office": {
+   "name": "Works head office",
+   "category": "office",
+   "shells": [
+    "upper_office",
+    "office_floor",
+    "storefront"
+   ],
+   "jobs": {
+    "clerk": 6,
+    "banker": 1,
+    "lawyer": 1
+   },
+   "hours": {
+    "open": "08:30",
+    "close": "17:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "desks",
+     "filing_cabinets",
+     "conference_table"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "works_office"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "a works' or a builder's head office: sales, payroll, the drawing office"
+  },
+  "remelting_works": {
+   "name": "Remelting works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 24,
+    "mechanic": 3,
+    "driver": 2,
+    "clerk": 2,
+    "janitor": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "charging_floor",
+     "casting_bay",
+     "scrap_bays"
+    ],
+    "stock": [],
+    "machinery": [
+     "induction_furnace",
+     "arc_furnace",
+     "overhead_crane",
+     "ladles"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "remelting_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "Drop scrap into steel and aluminium again: every works town has one"
+  },
+  "rolling_mill": {
+   "name": "Rolling mill",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 30,
+    "mechanic": 4,
+    "driver": 3,
+    "clerk": 2,
+    "janitor": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "mill_bay",
+     "coil_store"
+    ],
+    "stock": [],
+    "machinery": [
+     "rolling_stands",
+     "reheat_furnace",
+     "overhead_crane",
+     "shears"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "rolling_mill"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "strip and plate"
+  },
+  "tube_works": {
+   "name": "Tube works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 18,
+    "mechanic": 3,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "mill_bay",
+     "stock_racks"
+    ],
+    "stock": [],
+    "machinery": [
+     "tube_mill",
+     "seam_welder",
+     "draw_bench"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "tube_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "rolled-and-welded and drawn tube (Harrow's ladders, Solana's chromoly)"
+  },
+  "foundry": {
+   "name": "Foundry",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 20,
+    "mechanic": 2,
+    "clerk": 1,
+    "janitor": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "moulding_floor",
+     "pattern_shop"
+    ],
+    "stock": [],
+    "machinery": [
+     "cupola",
+     "sand_mixer",
+     "shakeout",
+     "overhead_crane"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "foundry"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "sand castings: brackets, hubs, motor housings"
+  },
+  "machine_shop": {
+   "name": "Machine shop",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 12,
+    "mechanic": 4,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "machine_floor",
+     "tool_crib"
+    ],
+    "stock": [],
+    "machinery": [
+     "lathes",
+     "mills",
+     "smart_lathes",
+     "drill_presses"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "machine_shop"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the Thirty-Two-run 'smart lathes' of Kessler and Harrow"
+  },
+  "motor_works": {
+   "name": "Motor winding works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 16,
+    "mechanic": 2,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "winding_benches",
+     "test_bay"
+    ],
+    "stock": [],
+    "machinery": [
+     "winding_machines",
+     "lamination_press",
+     "varnish_oven"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "motor_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "induction motors wound by hand and machine"
+  },
+  "cell_works": {
+   "name": "Cell works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 22,
+    "mechanic": 3,
+    "clerk": 2,
+    "janitor": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "cell_lines",
+     "formation_room"
+    ],
+    "stock": [],
+    "machinery": [
+     "mixers",
+     "coaters",
+     "can_welders",
+     "formation_racks"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "cell_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "LFP cells, packs, crates and cassettes"
+  },
+  "tyre_works": {
+   "name": "Tyre works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 20,
+    "mechanic": 2,
+    "driver": 2,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "mixing_room",
+     "press_bay"
+    ],
+    "stock": [],
+    "machinery": [
+     "banbury_mixer",
+     "curing_presses",
+     "calenders"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "tyre_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "Southland dandelion rubber, Drop sulfur"
+  },
+  "glass_works": {
+   "name": "Glass works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 18,
+    "mechanic": 2,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "batch_house",
+     "lehr_hall"
+    ],
+    "stock": [],
+    "machinery": [
+     "furnace",
+     "float_bath",
+     "lehr",
+     "presses"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "glass_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "float and pressed glass (Port Carrow, Marlowe)"
+  },
+  "gauge_works": {
+   "name": "Gauge and instrument works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 12,
+    "mechanic": 1,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "bench_rows",
+     "calibration_room"
+    ],
+    "stock": [],
+    "machinery": [
+     "lathes",
+     "dial_printers",
+     "calibration_rigs"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "gauge_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the clock-and-watch families' gauges (Fenwick's)"
+  },
+  "electronics_works": {
+   "name": "Electronics works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 14,
+    "mechanic": 2,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "bench_rows",
+     "test_room"
+    ],
+    "stock": [],
+    "machinery": [
+     "soldering_benches",
+     "relay_winders",
+     "test_rigs"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "electronics_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "boards round the Thirty-Two, relays, switches, Wire sets"
+  },
+  "coachworks": {
+   "name": "Coachworks",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 20,
+    "mechanic": 4,
+    "builder": 2,
+    "clerk": 2
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "body_shop",
+     "paint_booth",
+     "trim_shop"
+    ],
+    "stock": [],
+    "machinery": [
+     "jigs",
+     "welders",
+     "paint_booth",
+     "body_presses"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "coachworks"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "bodies for the boards (the Pattern): the three works' and the small builders'"
+  },
+  "paint_works": {
+   "name": "Paint and enamel works",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 8,
+    "driver": 1,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "mixing_room",
+     "can_line"
+    ],
+    "stock": [],
+    "machinery": [
+     "ball_mills",
+     "mixers",
+     "can_fillers"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "paint_works"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "lead-free enamels, red oxide primer"
+  },
+  "textile_mill": {
+   "name": "Textile mill",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 26,
+    "mechanic": 2,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "spinning_room",
+     "weave_shed"
+    ],
+    "stock": [],
+    "machinery": [
+     "spinning_frames",
+     "looms",
+     "dye_vats"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "textile_mill"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "cloth beyond the Draw's"
+  },
+  "sawmill": {
+   "name": "Sawmill and joinery",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 12,
+    "builder": 2,
+    "driver": 2
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "saw_shed",
+     "joinery_shop",
+     "lumber_yard"
+    ],
+    "stock": [],
+    "machinery": [
+     "head_saw",
+     "planers",
+     "kilns"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "sawmill"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the woodlots' timber: framing, joinery, furniture"
+  },
+  "food_plant": {
+   "name": "Food plant",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 18,
+    "cook": 4,
+    "driver": 3,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "process_room",
+     "cold_store"
+    ],
+    "stock": [],
+    "machinery": [
+     "kettles",
+     "fillers",
+     "pasteurisers"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "food_plant"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "creamery, bakery plant, cannery inland"
+  },
+  "printing_plant": {
+   "name": "Printing plant",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 10,
+    "editor": 1,
+    "driver": 2,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "press_hall",
+     "bindery"
+    ],
+    "stock": [],
+    "machinery": [
+     "rotary_press",
+     "folders",
+     "guillotines"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "printing_plant"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the Courier, the College's books, the Registry's forms"
+  },
+  "scrap_yard": {
+   "name": "Drop yard and scrap merchant",
+   "category": "industry",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "factory_hand": 6,
+    "driver": 3,
+    "clerk": 1
+   },
+   "hours": {
+    "open": "06:00",
+    "close": "22:00",
+    "days": "mon-fri"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "scrap_bays",
+     "weighbridge"
+    ],
+    "stock": [],
+    "machinery": [
+     "shears",
+     "magnet_crane",
+     "balers"
+    ]
+   },
+   "signage": "fascia",
+   "hints": [
+    "scrap_yard"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the scrappers' yard beside a Drop"
+  },
+  "distribution_centre": {
+   "name": "Distribution warehouse",
+   "category": "logistics",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "dock_worker": 14,
+    "driver": 8,
+    "clerk": 2
+   },
+   "hours": {
+    "open": "05:00",
+    "close": "23:00",
+    "days": "daily"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "racking",
+     "loading_docks",
+     "office"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "distribution_centre"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the Draw's stock and the works' goods between towns"
+  },
+  "truck_terminal": {
+   "name": "Haulage terminal",
+   "category": "logistics",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "driver": 16,
+    "dock_worker": 8,
+    "mechanic": 2,
+    "clerk": 2
+   },
+   "hours": {
+    "open": "05:00",
+    "close": "23:00",
+    "days": "daily"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "cross_dock",
+     "truck_bays",
+     "office"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "truck_terminal"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "hauliers' cross-dock"
+  },
+  "transit_depot": {
+   "name": "Tram and bus depot",
+   "category": "logistics",
+   "shells": [
+    "industrial_shed",
+    "warehouse"
+   ],
+   "jobs": {
+    "driver": 20,
+    "mechanic": 6,
+    "clerk": 2,
+    "janitor": 2
+   },
+   "hours": {
+    "open": "05:00",
+    "close": "23:00",
+    "days": "daily"
+   },
+   "visits": [],
+   "third_place": false,
+   "price": 0,
+   "per1000": 0.0,
+   "contents": {
+    "fixtures": [
+     "tram_bays",
+     "pits",
+     "office"
+    ],
+    "stock": [],
+    "machinery": []
+   },
+   "signage": "fascia",
+   "hints": [
+    "transit_depot"
+   ],
+   "addictions": [],
+   "roles": [],
+   "station": false,
+   "note": "the trams' and coaches' barns and pits"
   },
   "farm": {
    "name": "Farm",

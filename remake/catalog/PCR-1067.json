@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.4,
-  "d": 23.3
+  "w": 11.7,
+  "d": 37.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
   "main_w_ft": 22,
   "main_d_ft": 36,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 39,
+   "type": "gambrel",
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,14 +26,14 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
+   "body": "#f2f1ea",
    "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#4a4440"
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -41,23 +41,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "picket",
    "rear": "chainlink",
    "extras": [
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1903,
-  "band": "streetcar",
-  "form_token": "i_house",
+  "year_built": 1876,
+  "band": "rail",
+  "form_token": "dutch_colonial",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 944
+  "family": "Garcia",
+  "house_number": 281
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0452"
+ "brief": "rail band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0743"
 }

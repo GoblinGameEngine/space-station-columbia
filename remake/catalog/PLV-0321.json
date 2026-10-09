@@ -3,64 +3,61 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 12.3,
-  "d": 33.3
+  "w": 11.7,
+  "d": 28.6
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
-  "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 32,
+  "storeys": 1,
+  "main_w_ft": 21,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 20,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#4a3324",
-   "accent": "#2c4a2e",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1913,
+  "year_built": 1905,
   "band": "streetcar",
   "form_token": "spanish_revival",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 12
-  },
-  "balcony": "monterey"
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 513
+  "family": "Patel",
+  "house_number": 552
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0596"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0312"
 }

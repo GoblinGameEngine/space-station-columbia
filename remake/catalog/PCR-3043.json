@@ -3,40 +3,40 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.8,
-  "d": 32.3
+  "w": 23.2,
+  "d": 33.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 37,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
+  "main_w_ft": 33,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 26,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "recessed",
    "posts": "square",
    "rail": "spindle"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#9ab3a1",
+   "trim": "#ffffff",
+   "accent": "#2b4f6b",
+   "roof": "#5a5a58"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "exterior_right"
   ],
   "garage": "detached_1",
   "yard": {
@@ -44,20 +44,19 @@
    "side": "none",
    "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1941,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1961,
+  "band": "postwar",
+  "form_token": "minimal_traditional"
  },
- "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 817
+  "house_number": 1453
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0608"
+ "brief": "postwar band minimal_traditional: 1 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2497"
 }

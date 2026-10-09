@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.9,
-  "d": 30.4
+  "w": 16.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 38,
-  "main_d_ft": 23,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "slate"
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,40 +23,36 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#cac5a9",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#555350"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "privacy",
    "rear": "privacy",
-   "extras": [
-    "swing_set"
-   ]
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
   "family": "Achterberg",
-  "house_number": 3064
+  "house_number": 2063
  },
- "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-6078"
+ "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2224"
 }

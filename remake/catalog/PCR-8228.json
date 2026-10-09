@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.1,
+  "w": 26.1,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 33,
+  "main_w_ft": 34,
   "main_d_ft": 25,
   "roof": {
    "type": "gable",
-   "pitch_deg": 26,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#b86250",
-   "trim": "#f2efe6",
-   "accent": "#2b4f6b",
-   "roof": "#555350"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "worn",
   "year_built": 2009,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Leclerc",
-  "house_number": 1117
+  "house_number": 895
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6214"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

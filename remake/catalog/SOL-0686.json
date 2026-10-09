@@ -6,30 +6,22 @@
   "w": 16.6,
   "d": 40.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Nguyen Hardware",
-    "type": "hardware",
-    "sign": "NGUYEN HARDWARE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "coachworks",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1890,
-  "colors": {
-   "body": "#f2e8dc"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "metal",
+  "year_built": 1921,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Ring Line Coachworks",
+  "sign": "RING LINE COACHWORKS"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

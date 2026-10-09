@@ -3,19 +3,19 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 22.1,
-  "d": 34.1
+  "w": 17.4,
+  "d": 32.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 2,
+  "archetype": "minimal_traditional",
+  "storeys": 1,
   "main_w_ft": 38,
   "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
-   "material": "clay_tile"
+   "type": "gable",
+   "pitch_deg": 19,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -23,41 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e9dcc2",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "body": "#efe6d2",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "balcony": "monterey"
+  "year_built": 1928,
+  "band": "interwar",
+  "form_token": "minimal_traditional"
  },
  "region": "ca",
  "names": {
-  "family": "Delmar",
-  "house_number": 461
+  "family": "DeCarlo",
+  "house_number": 630
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0419"
+ "brief": "interwar band minimal_traditional: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2323"
 }

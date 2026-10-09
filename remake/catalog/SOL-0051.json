@@ -8,28 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "college_extension"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "courier_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Booker Pizza",
-    "type": "pizza",
-    "sign": "BOOKER PIZZA",
-    "sign_style": "awning_lettering",
+    "business": "Booker Diner",
+    "type": "diner",
+    "sign": "BOOKER DINER",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Reyes Savings Bank",
+    "type": "bank",
+    "sign": "REYES SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1894,
+  "year_built": 1927,
   "colors": {
-   "body": "#e9dcc2"
+   "body": "#ead9c8"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Raghunathan Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

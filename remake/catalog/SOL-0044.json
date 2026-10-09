@@ -8,21 +8,51 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 10,
   "facade": "stucco",
-  "cornice": "mission_parapet",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Harrow Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "HARROW BEAUTY SHOP",
-    "sign_style": "projecting",
-    "awning": false
+    "type": "registry_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "law_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1919,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Tremblay & Pike Drug",
+    "type": "drug_store",
+    "sign": "TREMBLAY & PIKE DRUG",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1962,
   "colors": {
    "body": "#e8d8c0"
   },
@@ -30,6 +60,8 @@
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Duquesne Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

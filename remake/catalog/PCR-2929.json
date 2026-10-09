@@ -3,60 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 35.3
+  "w": 22.5,
+  "d": 27.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "main_w_ft": 34,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
+   "type": "gambrel",
+   "pitch_deg": 39,
    "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
+   "type": "stoop",
+   "posts": "iron",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
+   "body": "#f6f5f0",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "gable_front"
+  "year_built": 1961,
+  "band": "postwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
   "family": "Pruett",
-  "house_number": 1720
+  "house_number": 1464
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "postwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1157"
 }

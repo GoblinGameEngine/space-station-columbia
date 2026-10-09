@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 29.0,
-  "d": 39.6
+  "w": 12.2,
+  "d": 36.2
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 54,
-  "main_d_ft": 31,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,38 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
+   "body": "#efe6d2",
+   "trim": "#2e2a26",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": false
+   "type": "casement",
+   "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": [
     "clothesline",
     "swing_set"
    ]
   },
   "condition": "worn",
-  "year_built": 1985,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Marlowe",
-  "house_number": 1034
+  "family": "Mbeki",
+  "house_number": 295
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1964"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0488"
 }

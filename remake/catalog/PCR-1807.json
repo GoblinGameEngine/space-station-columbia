@@ -3,40 +3,40 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.2,
-  "d": 36.1
+  "w": 18.1,
+  "d": 33.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "prairie_box",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 39,
+  "main_w_ft": 31,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 42,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "enclosed",
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#9a9184",
+   "body": "#853e39",
    "trim": "#ffffff",
-   "accent": "#24382a",
-   "roof": "#4a4440"
+   "accent": "#5b6b3a",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
@@ -50,14 +50,12 @@
   "condition": "kept",
   "year_built": 1937,
   "band": "interwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "form_token": "modern_box"
  },
- "region": "ne",
  "names": {
   "family": "Brandvold",
-  "house_number": 1122
+  "house_number": 925
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0873"
+ "brief": "interwar band modern_box: 2 storeys, brick walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "HF-2745"
 }

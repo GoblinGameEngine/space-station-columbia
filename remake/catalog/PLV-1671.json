@@ -3,15 +3,15 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 29.0,
-  "d": 22.8
+  "w": 24.0,
+  "d": 21.9
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 28,
+  "main_w_ft": 46,
+  "main_d_ft": 27,
   "roof": {
    "type": "hip",
    "pitch_deg": 24,
@@ -32,29 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
-   "extras": []
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1985,
-  "band": "suburban",
+  "year_built": 1958,
+  "band": "postwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Villalobos",
-  "house_number": 740
+  "house_number": 1484
  },
- "brief": "suburban band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "brief": "postwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
  "model": "SOL-2498"
 }

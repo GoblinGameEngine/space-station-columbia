@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 33.1
+  "w": 22.2,
+  "d": 23.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 31,
+  "main_w_ft": 43,
+  "main_d_ft": 26,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#e9e8e2",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1989,
-  "band": "suburban",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1947,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 2589
+  "family": "Villalobos",
+  "house_number": 3072
  },
- "brief": "suburban band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0581"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0364"
 }

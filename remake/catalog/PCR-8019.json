@@ -3,58 +3,56 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.3,
-  "d": 22.3
+  "w": 19.2,
+  "d": 26.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 29,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 24,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
+   "pitch_deg": 25,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
+   "posts": "columns",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#6f6a62",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#babac6",
+   "trim": "#ffffff",
+   "accent": "#1f2a33",
+   "roof": "#3e3e3c"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1996,
   "band": "late",
-  "form_token": "shingle_style"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
-  "family": "Arrieta",
-  "house_number": 2433
+  "family": "Duquesne",
+  "house_number": 405
  },
- "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4318"
 }

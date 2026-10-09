@@ -3,36 +3,36 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.1,
-  "d": 28.5
+  "w": 18.4,
+  "d": 32.5
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 30,
+  "main_w_ft": 26,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 16,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
+   "body": "#f4f0e6",
+   "trim": "#3b2a1e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
@@ -41,21 +41,20 @@
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1940,
   "band": "interwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Kowal",
-  "house_number": 412
+  "family": "Brandvold",
+  "house_number": 1069
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
  "model": "SOL-0582"
 }

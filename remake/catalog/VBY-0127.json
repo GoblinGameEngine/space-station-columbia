@@ -3,45 +3,40 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 40.7,
-  "d": 54.7
+  "w": 12.5,
+  "d": 40.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "queen_anne",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 49,
+  "main_w_ft": 30,
+  "main_d_ft": 47,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
+   "type": "cross_gable",
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
    "type": "wrap",
    "posts": "turned",
    "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "concrete_block",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#f7f6f0",
-   "accent": "#1f4a33",
-   "roof": "#4a4440"
+   "body": "#fbf5e6",
+   "trim": "#ffffff",
+   "accent": "#2b4f6e",
+   "roof": "#3c4048"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_2",
   "yard": {
@@ -54,14 +49,14 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "shingle_style"
+  "year_built": 1902,
+  "band": "streetcar",
+  "form_token": "queen_anne"
  },
  "region": "isle",
  "names": {
-  "family": "Stroud",
-  "house_number": 347
+  "family": "Holloway",
+  "house_number": 478
  },
- "brief": "estate band shingle_style: 2 storeys, cedar_shingle walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

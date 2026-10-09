@@ -3,59 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.0,
-  "d": 41.1
+  "w": 17.5,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 41,
+  "main_w_ft": 26,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
+   "type": "front_full",
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
+   "body": "#7d776d",
    "trim": "#f7f6f0",
    "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "none",
-   "extras": []
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1938,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Garcia",
-  "house_number": 1067
+  "family": "Mbeki",
+  "house_number": 919
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0665"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0971"
 }

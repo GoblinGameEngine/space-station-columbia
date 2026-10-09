@@ -3,61 +3,25 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 19.5,
-  "d": 31.3
+  "w": 18.4,
+  "d": 29.7
  },
- "kind": "house",
+ "kind": "industrial",
  "traits": {
-  "archetype": "spanish_revival",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
-  "colors": {
-   "body": "#e8d8c0",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
-   "roof": "#a8492f"
-  },
-  "windows": {
-   "type": "1over1",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
+  "use": "tyre_works",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1870,
-  "band": "rail",
-  "form_token": "spanish_revival",
-  "units": 2
+  "walls": "brick",
+  "year_built": 1889,
+  "condition": "worn"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 120
+  "name": "Raghunathan Tyre & Rubber",
+  "sign": "RAGHUNATHAN TYRE & RUBBER"
  },
- "brief": "rail band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "industrial (industry) generated for Oceanview."
 }

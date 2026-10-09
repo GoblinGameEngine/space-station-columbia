@@ -3,17 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 9.0
+  "w": 24.1,
+  "d": 21.8
  },
- "kind": "fishhouse",
+ "kind": "house",
  "traits": {
-  "year_built": 1938,
-  "over_water": true
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 40,
+  "main_d_ft": 27,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "wood_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e6e2d8",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1996,
+  "band": "late",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Booker",
+  "house_number": 420
  },
- "brief": "fishhouse (fishhouse) generated for Port Carrow."
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2300"
 }

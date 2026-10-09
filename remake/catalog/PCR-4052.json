@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.3,
-  "d": 33.9
+  "w": 23.7,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 34,
-  "main_d_ft": 30,
+  "main_w_ft": 48,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 43,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,31 +32,31 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1922,
-  "band": "interwar",
+  "condition": "new",
+  "year_built": 1963,
+  "band": "postwar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Stroud",
-  "house_number": 2541
+  "house_number": 2526
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

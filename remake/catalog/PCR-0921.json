@@ -3,70 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 29.5
+  "w": 14.1,
+  "d": 28.9
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 31,
-  "main_d_ft": 28,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "wood_shingle"
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
+   "type": "front_full",
+   "posts": "tapered_on_piers",
    "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
    "body": "#8a2e24",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
     "garden",
     "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1935,
-  "band": "interwar",
+  "condition": "kept",
+  "year_built": 1918,
+  "band": "streetcar",
   "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Dunmore",
-  "house_number": 918
+  "family": "Desai",
+  "house_number": 772
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0582"
 }

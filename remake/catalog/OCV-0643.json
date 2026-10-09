@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.3,
-  "d": 40.3
+  "w": 17.6,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 33,
+  "main_w_ft": 28,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 19,
@@ -19,44 +19,46 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
+   "body": "#e9d6c8",
    "trim": "#4a3324",
-   "accent": "#1f4a6e",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "garden",
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1925,
-  "band": "streetcar",
+  "year_built": 1937,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Harrow",
-  "house_number": 681
+  "family": "Delmar",
+  "house_number": 758
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0252"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

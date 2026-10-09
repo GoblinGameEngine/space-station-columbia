@@ -3,56 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.6,
-  "d": 30.5
+  "w": 23.5,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 20,
-  "main_d_ft": 25,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 38,
+  "main_d_ft": 20,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 35,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#985239",
-   "trim": "#f2efe6",
-   "accent": "#1f2a33",
-   "roof": "#6a5e52"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
    "side": "privacy",
    "rear": "privacy",
-   "extras": []
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "nantucket_cape"
  },
+ "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 3235
+  "family": "Patel",
+  "house_number": 1785
  },
- "brief": "late band ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4051"
+ "brief": "late band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

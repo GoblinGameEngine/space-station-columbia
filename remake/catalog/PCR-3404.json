@@ -3,61 +3,71 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 36.2
+  "w": 19.4,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 47,
-  "main_d_ft": 31,
+  "main_w_ft": 26,
+  "main_d_ft": 39,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 42,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#f4f2e8",
    "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden",
+    "shed",
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1935,
+  "condition": "new",
+  "year_built": 1939,
   "band": "interwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Merriweather",
-  "house_number": 2045
+  "family": "Pham",
+  "house_number": 2041
  },
- "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0928"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.0,
-  "d": 40.0
+  "w": 17.2,
+  "d": 32.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 21,
+  "main_w_ft": 24,
   "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "hip",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -27,32 +27,34 @@
   "foundation": "slab",
   "colors": {
    "body": "#ead9c8",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1918,
-  "band": "streetcar",
-  "form_token": "spanish_revival"
+  "condition": "shabby",
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Harrow",
-  "house_number": 445
+  "family": "DeCarlo",
+  "house_number": 127
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0368"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0636"
 }

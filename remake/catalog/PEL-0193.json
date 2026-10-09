@@ -3,19 +3,19 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 16.4,
-  "d": 31.3
+  "w": 12.5,
+  "d": 26.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 29,
+  "main_w_ft": 34,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
-   "material": "clay_tile"
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
@@ -33,29 +33,30 @@
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "none",
    "extras": [
+    "garden",
     "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1933,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "condition": "shabby",
+  "year_built": 1917,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 300
+  "family": "Leclerc",
+  "house_number": 265
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0364"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0580"
 }

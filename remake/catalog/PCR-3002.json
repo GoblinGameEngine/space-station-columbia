@@ -3,59 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 34.5,
-  "d": 34.4
+  "w": 17.8,
+  "d": 38.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 41,
-  "main_d_ft": 34,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 34,
+  "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
+   "type": "gambrel",
+   "pitch_deg": 48,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#90443e",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
-   "roof": "#2f3133"
+   "body": "#f2f1ea",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "hedge",
-   "rear": "tree_line",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1988,
-  "band": "suburban",
-  "form_token": "raised_ranch"
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 1905
+  "house_number": 1677
  },
- "brief": "suburban band raised_ranch: 1 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-4953"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1358"
 }

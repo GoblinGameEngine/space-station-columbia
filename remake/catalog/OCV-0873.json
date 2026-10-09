@@ -3,59 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 10.1,
-  "d": 36.9
+  "w": 14.1,
+  "d": 36.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 21,
-  "main_d_ft": 35,
+  "main_w_ft": 28,
+  "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 17,
+   "type": "hip",
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
+   "body": "#f0e2cf",
    "trim": "#5a3a28",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
   },
   "condition": "kept",
   "year_built": 1921,
   "band": "streetcar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Foxworth",
-  "house_number": 294
+  "family": "Wisniewski",
+  "house_number": 265
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0489"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0613"
 }

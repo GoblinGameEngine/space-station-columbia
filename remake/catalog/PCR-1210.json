@@ -3,45 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.6,
-  "d": 36.4
+  "w": 10.0,
+  "d": 20.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 35,
-  "main_d_ft": 31,
+  "main_w_ft": 20,
+  "main_d_ft": 37,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 39,
-   "material": "wood_shingle"
+   "type": "gambrel",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#2f3e52",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "6over6",
+   "type": "casement",
    "shutters": true
   },
   "chimneys": [
@@ -51,19 +42,21 @@
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
   "year_built": 1929,
   "band": "interwar",
-  "form_token": "gable_front"
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 916
+  "family": "Brandvold",
+  "house_number": 912
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, enclosed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0778"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage attached_1 (generated from the Great Lakes tokens)."
 }

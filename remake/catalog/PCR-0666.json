@@ -3,59 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.7,
-  "d": 34.9
+  "w": 17.5,
+  "d": 38.7
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 35,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 40,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "enclosed",
-   "posts": "turned",
-   "rail": "none"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#8a8378",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
-  },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 2,
+  "facade": "brick",
+  "cornice": "corbelled_brick",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Nowicki Bakery",
+    "type": "bakery",
+    "sign": "NOWICKI BAKERY",
+    "sign_style": "awning_lettering",
+    "awning": true
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1898,
-  "band": "streetcar",
-  "form_token": "cape_cod"
+  "year_built": 1879,
+  "colors": {
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Haddad",
-  "house_number": 803
- },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

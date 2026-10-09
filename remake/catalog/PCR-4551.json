@@ -3,60 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.2,
-  "d": 31.9
+  "w": 32.2,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 41,
-  "main_d_ft": 31,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 43,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 41,
+   "type": "hip",
+   "pitch_deg": 27,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#2e2e30"
+   "body": "#92443f",
+   "trim": "#f2efe6",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "carport",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1985,
+  "band": "suburban",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 3402
+  "house_number": 2879
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "suburban band split_level: 1 storeys, brick walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3902"
 }

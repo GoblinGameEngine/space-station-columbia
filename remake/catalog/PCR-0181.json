@@ -3,27 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 50.2,
-  "d": 30.3
+  "w": 16.5,
+  "d": 30.1
  },
- "kind": "condo",
+ "kind": "store",
  "traits": {
   "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "clapboard",
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Kowal Bakery",
+    "type": "bakery",
+    "sign": "KOWAL BAKERY",
+    "sign_style": "flat_board",
+    "awning": false
+   }
+  ],
+  "condition": "shabby",
+  "year_built": 1886,
   "colors": {
-   "body": "#2f3e52"
-  },
-  "year_built": 1987,
-  "condition": "kept"
+   "body": "#9c5a42"
+  }
  },
  "region": "ne",
- "names": {
-  "name": ""
- },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-0142"
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

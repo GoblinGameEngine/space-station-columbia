@@ -8,26 +8,56 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 3,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "clapboard",
-  "cornice": "bracketed_wood",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "college_extension"
+   },
+   {
+    "type": "registry_office"
+   }
+  ],
+  "cornice": "bracketed_wood",
   "storefronts": [
    {
-    "business": "Main Street Bakery",
-    "type": "bakery",
-    "sign": "MAIN STREET BAKERY",
+    "business": "Merriweather Clothiers",
+    "type": "clothing",
+    "sign": "MERRIWEATHER CLOTHIERS",
     "sign_style": "awning_lettering",
+    "awning": true
+   },
+   {
+    "business": "Port Carrow Savings Bank",
+    "type": "bank",
+    "sign": "PORT CARROW SAVINGS BANK",
+    "sign_style": "flat_board",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1894,
+  "year_built": 1967,
   "colors": {
-   "body": "#8a2e24"
+   "body": "#e8dcc0"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Port Carrow Trust"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

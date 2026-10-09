@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 20.0,
-  "d": 29.5
+  "w": 24.6,
+  "d": 29.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 28,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 33,
+  "main_d_ft": 22,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,19 +23,21 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#97a7b0",
-   "trim": "#e8e0c8",
-   "accent": "#1f2a33",
-   "roof": "#4e5155"
+   "body": "#f1ead2",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -46,13 +48,13 @@
   "condition": "kept",
   "year_built": 2000,
   "band": "late",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 1256
+  "house_number": 464
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2300"
+ "brief": "late band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5949"
 }

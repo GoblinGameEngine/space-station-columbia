@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.4,
-  "d": 38.1
+  "w": 18.4,
+  "d": 20.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 38,
-  "main_d_ft": 24,
+  "main_w_ft": 30,
+  "main_d_ft": 25,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
+   "type": "gable",
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,37 +23,39 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "body": "#e4cfb2",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1901,
-  "band": "streetcar",
-  "form_token": "spanish_revival",
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "ranch",
   "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Nowicki",
-  "house_number": 235
+  "family": "Raghunathan",
+  "house_number": 119
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0607"
+ "brief": "postwar band ranch: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1551"
 }

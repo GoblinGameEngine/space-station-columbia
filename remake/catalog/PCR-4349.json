@@ -3,14 +3,14 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 30.7,
-  "d": 37.8
+  "w": 16.1,
+  "d": 35.0
  },
  "kind": "house",
  "traits": {
   "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 52,
+  "main_w_ft": 22,
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
@@ -32,31 +32,32 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1983,
-  "band": "suburban",
-  "form_token": "shingle_style"
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 2434
+  "house_number": 279
  },
- "brief": "suburban band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3961"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1023"
 }

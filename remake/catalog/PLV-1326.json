@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.5,
-  "d": 34.0
+  "w": 36.6,
+  "d": 39.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 48,
-  "main_d_ft": 32,
+  "main_w_ft": 45,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
+   "type": "hip",
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,36 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "body": "#e9dcc2",
+   "trim": "#4a3324",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "carport",
   "yard": {
-   "fence": "chainlink",
+   "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "swing_set"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "year_built": 1972,
+  "band": "suburban",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Holloway",
-  "house_number": 869
+  "family": "Kowalczyk",
+  "house_number": 1756
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0249"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-2726"
 }

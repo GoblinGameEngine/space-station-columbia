@@ -3,34 +3,65 @@
  "settlement": "Victory Bay",
  "generated": "tools/settlegen (Victory Bay)",
  "lot": {
-  "w": 18.2,
-  "d": 31.3
+  "w": 12.7,
+  "d": 25.7
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "queen_anne",
   "storeys": 2,
-  "facade": "frame_false_front",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Main Street Drug",
-    "type": "drug_store",
-    "sign": "MAIN STREET DRUG",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1882,
-  "colors": {
-   "body": "#f8f7f2",
-   "trim": "#ffffff",
-   "accent": "#2b4f6e"
+  "main_w_ft": 39,
+  "main_d_ft": 51,
+  "roof": {
+   "type": "cross_gable",
+   "pitch_deg": 43,
+   "material": "wood_shingle"
   },
-  "awning_style": "striped"
+  "dormers": [],
+  "porch": {
+   "type": "wrap",
+   "posts": "turned",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "concrete_block",
+  "colors": {
+   "body": "#e9f0e6",
+   "trim": "#ffffff",
+   "accent": "#2b4f6e",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "picket",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "gazebo"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1904,
+  "band": "streetcar",
+  "form_token": "queen_anne",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 10
+  }
  },
  "region": "isle",
- "names": {},
- "brief": "store (store) generated for Victory Bay."
+ "names": {
+  "family": "Dunmore",
+  "house_number": 118
+ },
+ "brief": "streetcar band queen_anne: 2 storeys, clapboard walls, wrap porch, garage detached_2 (generated from the Great Lakes tokens)."
 }

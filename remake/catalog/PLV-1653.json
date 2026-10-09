@@ -3,60 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 34.8,
-  "d": 37.0
+  "w": 21.4,
+  "d": 20.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 58,
-  "main_d_ft": 25,
+  "main_w_ft": 38,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
-   "material": "clay_tile"
+   "type": "gable",
+   "pitch_deg": 24,
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
+   "body": "#e8d8c0",
+   "trim": "#4a3324",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
+    "shed",
+    "clothesline",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1981,
-  "band": "suburban",
-  "form_token": "ranch"
+  "year_built": 1962,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Reyes",
-  "house_number": 211
+  "family": "Osei",
+  "house_number": 981
  },
- "brief": "suburban band ranch: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-2967"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0997"
 }

@@ -8,21 +8,46 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "stucco",
-  "cornice": "parapet_flat",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "architect_office"
+   }
+  ],
+  "cornice": "tile_roof",
   "storefronts": [
    {
-    "business": "Pruett Jewelers",
-    "type": "jeweler",
-    "sign": "PRUETT JEWELERS",
+    "business": "Commerce Cafe",
+    "type": "cafe",
+    "sign": "COMMERCE CAFE",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Patel Savings Bank",
+    "type": "bank",
+    "sign": "PATEL SAVINGS BANK",
     "sign_style": "flat_board",
     "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1919,
+  "year_built": 1930,
   "colors": {
    "body": "#f2e8dc"
   },
@@ -30,6 +55,8 @@
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "block_name": "Carrow Building"
+ },
+ "brief": "store (office) generated for Oceanview."
 }

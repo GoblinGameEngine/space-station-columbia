@@ -3,31 +3,56 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 44.7,
-  "d": 37.0
+  "w": 25.5,
+  "d": 20.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36",
-   "trim": "#3a3f44",
-   "accent": "#7a2e28",
-   "roof": "#2f3133"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 33,
   "roof": {
-   "pitch_deg": 29
+   "type": "gable",
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2001,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 2008,
+  "band": "late",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Loomis",
+  "house_number": 1029
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

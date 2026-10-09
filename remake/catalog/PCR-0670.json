@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 25.7
+  "w": 10.1,
+  "d": 26.9
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Tremblay Savings Bank",
-    "type": "bank",
-    "sign": "TREMBLAY SAVINGS BANK",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1908,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 24,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "asphalt_shingle"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52"
-  }
+   "body": "#f2f1ea",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "2over2",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1914,
+  "band": "streetcar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Okonkwo",
+  "house_number": 334
+ },
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

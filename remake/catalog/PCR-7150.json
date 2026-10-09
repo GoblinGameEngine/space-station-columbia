@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.1,
-  "d": 30.7
+  "w": 22.1,
+  "d": 27.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 43,
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 33,
   "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 30,
-   "material": "asphalt_shingle"
+   "type": "gambrel",
+   "pitch_deg": 44,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "spindle"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d6d4cb",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
-   "roof": "#6a5e52"
+   "body": "#9a9184",
+   "trim": "#ffffff",
+   "accent": "#1d1f22",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Adebayo",
-  "house_number": 1810
+  "house_number": 2840
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-4627"
+ "brief": "late band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1157"
 }

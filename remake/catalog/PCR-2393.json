@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.1,
-  "d": 29.9
+  "w": 11.0,
+  "d": 36.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 27,
+  "main_w_ft": 22,
   "main_d_ft": 39,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 39,
-   "material": "wood_shingle"
+   "type": "gambrel",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "body": "#8a2e24",
+   "trim": "#ffffff",
+   "accent": "#24382a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 1926,
+  "band": "interwar",
+  "form_token": "dutch_colonial",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 1568
+  "family": "Wisniewski",
+  "house_number": 1213
  },
- "brief": "streetcar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0521"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0860"
 }

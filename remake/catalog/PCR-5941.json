@@ -3,57 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 29.6
+  "w": 32.1,
+  "d": 23.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 32,
+  "main_w_ft": 39,
+  "main_d_ft": 34,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 31,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#3a3836"
+   "body": "#f4f2e8",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "rear"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "privacy",
+   "side": "privacy",
+   "rear": "tree_line",
    "extras": []
   },
   "condition": "new",
-  "year_built": 2000,
-  "band": "late",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1975,
+  "band": "suburban",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Kowal",
-  "house_number": 503
+  "family": "Tomczak",
+  "house_number": 234
  },
- "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "suburban band foursquare: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5560"
 }

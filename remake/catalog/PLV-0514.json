@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.0,
-  "d": 28.2
+  "w": 16.3,
+  "d": 33.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 40,
+  "main_w_ft": 31,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 19,
+   "type": "hip",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,38 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#efd9c4",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1921,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Duquesne",
-  "house_number": 708
+  "family": "Villalobos",
+  "house_number": 495
  },
- "brief": "streetcar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0385"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0636"
 }

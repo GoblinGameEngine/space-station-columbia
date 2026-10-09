@@ -6,27 +6,22 @@
   "w": 17.5,
   "d": 39.6
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Wainwright Tavern",
-    "type": "bar",
-    "sign": "WAINWRIGHT TAVERN",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "worn",
-  "year_built": 1923,
-  "colors": {
-   "body": "#853431"
-  }
+  "walls": "metal",
+  "year_built": 1888,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Port Tamsin."
+ "names": {
+  "name": "Nguyen Foundry",
+  "sign": "NGUYEN FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Port Tamsin."
 }

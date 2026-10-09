@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 34.8
+  "w": 24.5,
+  "d": 31.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
   "main_w_ft": 29,
-  "main_d_ft": 33,
+  "main_d_ft": 28,
   "roof": {
    "type": "gable",
    "pitch_deg": 46,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
@@ -32,31 +32,31 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "casement",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
+  "year_built": 1949,
+  "band": "postwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 2337
+  "house_number": 2057
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "postwar band i_house: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

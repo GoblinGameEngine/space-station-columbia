@@ -3,33 +3,59 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 16.8,
-  "d": 31.0
+  "w": 17.1,
+  "d": 40.7
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "spanish_revival",
   "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Delmar Diner",
-    "type": "diner",
-    "sign": "DELMAR DINER",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1896,
-  "colors": {
-   "body": "#f3eadb"
+  "main_w_ft": 23,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 23,
+   "material": "clay_tile_old"
   },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "board_and_batten",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f0e2cf",
+   "trim": "#5a3a28",
+   "accent": "#6a2c22",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1878,
+  "band": "rail",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "family": "Brandvold",
+  "house_number": 318
+ },
+ "brief": "rail band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

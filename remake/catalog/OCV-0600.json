@@ -3,32 +3,32 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.0,
-  "d": 34.3
+  "w": 10.0,
+  "d": 38.9
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 31,
-  "main_d_ft": 34,
+  "main_w_ft": 27,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 23,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
+   "body": "#e6d4bb",
    "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
   "windows": {
@@ -44,19 +44,20 @@
    "side": "none",
    "rear": "none",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Arrieta",
-  "house_number": 153
+  "family": "Marlowe",
+  "house_number": 389
  },
- "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "streetcar band california_bungalow: 1 storeys, board_and_batten walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0369"
 }

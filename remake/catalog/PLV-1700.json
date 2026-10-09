@@ -3,14 +3,14 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.4,
-  "d": 40.2
+  "w": 21.3,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 23,
+  "main_w_ft": 49,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
@@ -32,30 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "clothesline",
+    "swing_set"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1970,
-  "band": "suburban",
-  "form_token": "california_bungalow",
-  "units": 2
+  "condition": "shabby",
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Achterberg",
-  "house_number": 547
+  "house_number": 291
  },
- "brief": "suburban band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0316"
+ "brief": "postwar band california_bungalow: 1 storeys, board_and_batten walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0320"
 }

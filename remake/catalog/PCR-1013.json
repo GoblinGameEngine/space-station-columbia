@@ -3,60 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.8,
-  "d": 38.4
+  "w": 17.9,
+  "d": 35.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 34,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
+   "pitch_deg": 41,
    "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1906,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 1927,
+  "band": "interwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 818
+  "family": "Dunmore",
+  "house_number": 377
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0790"
+ "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

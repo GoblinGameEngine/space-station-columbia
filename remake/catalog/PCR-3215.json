@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 31.5
+  "w": 18.7,
+  "d": 21.8
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 28,
+  "main_w_ft": 29,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -32,30 +32,31 @@
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1964,
-  "band": "postwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1939,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
   "family": "Pham",
-  "house_number": 1643
+  "house_number": 1956
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0720"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0850"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.7,
+  "w": 25.2,
   "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 42,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 43,
   "main_d_ft": 28,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 46,
-   "material": "asphalt_shingle"
+   "type": "hip",
+   "pitch_deg": 25,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#9e8562",
+   "trim": "#f2efe6",
+   "accent": "#1f2a33",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -48,13 +48,12 @@
   "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "gable_front"
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Wainwright",
-  "house_number": 2075
+  "house_number": 916
  },
- "brief": "late band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "late band split_level: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5723"
 }

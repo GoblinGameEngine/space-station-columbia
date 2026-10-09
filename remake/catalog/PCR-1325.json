@@ -3,62 +3,63 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.5,
-  "d": 32.9
+  "w": 14.7,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
+   "pitch_deg": 40,
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#4a4440"
+   "body": "#f1ead2",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
-   "extras": [
-    "garden",
-    "swing_set"
-   ]
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "i_house",
-  "units": 2
+  "condition": "shabby",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Brannock",
-  "house_number": 1069
+  "family": "Wisniewski",
+  "house_number": 1168
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0545"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0501"
 }

@@ -3,70 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.9,
-  "d": 31.0
+  "w": 41.3,
+  "d": 37.8
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 41,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "solid"
-  },
+  "form": "slab",
+  "units": 8,
+  "balconies": "none",
+  "ground_floor": "apartments",
   "walls": "clapboard",
-  "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#2f3e52"
   },
-  "windows": {
-   "type": "6over6",
-   "shutters": true
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "shed"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "i_house"
+  "year_built": 2013,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Bazzi",
-  "house_number": 820
+  "name": ""
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-1198"
 }

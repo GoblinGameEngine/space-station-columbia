@@ -3,33 +3,58 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 43.7,
-  "d": 23.0
+  "w": 14.9,
+  "d": 26.6
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 29,
+  "main_d_ft": 28,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 17,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#2e2a26",
-   "accent": "#7a2e28",
+   "body": "#f2e8dc",
+   "trim": "#5a3a28",
+   "accent": "#2c4a2e",
    "roof": "#a8492f"
   },
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 22
+  "windows": {
+   "type": "1over1",
+   "shutters": true
   },
-  "year_built": 1928,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1929,
+  "band": "streetcar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Haskins",
+  "house_number": 451
  },
- "brief": "townhouse (townhouse) generated for Playa Verde.",
- "model": "SOL-0287"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0331"
 }

@@ -3,60 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.9,
-  "d": 30.5
+  "w": 32.3,
+  "d": 34.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 29,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 43,
   "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "slate"
+   "type": "hip",
+   "pitch_deg": 23,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#64637d",
+   "trim": "#5a3a28",
+   "accent": "#7a2e28",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "privacy",
+   "rear": "hedge",
    "extras": [
-    "clothesline"
+    "swing_set"
    ]
   },
-  "condition": "kept",
-  "year_built": 1950,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "condition": "worn",
+  "year_built": 1969,
+  "band": "suburban",
+  "form_token": "raised_ranch"
  },
- "region": "ne",
  "names": {
   "family": "Haddad",
-  "house_number": 3352
+  "house_number": 2880
  },
- "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0810"
+ "brief": "suburban band raised_ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3632"
 }

@@ -3,31 +3,31 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 10.5,
-  "d": 33.0
+  "w": 16.3,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 24,
-  "main_d_ft": 32,
+  "main_w_ft": 34,
+  "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 23,
+   "type": "gable",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2f3b2a",
+   "body": "#ead9c8",
+   "trim": "#3b2a1e",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
@@ -35,29 +35,26 @@
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1942,
   "band": "interwar",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Bazzi",
-  "house_number": 295
+  "family": "Wainwright",
+  "house_number": 143
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0514"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0364"
 }

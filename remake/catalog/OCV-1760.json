@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 37.9,
-  "d": 30.9
+  "w": 21.8,
+  "d": 26.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 32,
+  "main_w_ft": 32,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 18,
+   "type": "gable",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#e9dcc2",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "attached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "tree_line",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1967,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1948,
+  "band": "postwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Foxworth",
-  "house_number": 1501
+  "family": "Duquesne",
+  "house_number": 2158
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2776"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

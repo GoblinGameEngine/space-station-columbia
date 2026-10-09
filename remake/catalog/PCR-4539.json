@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 33.7,
-  "d": 36.1
+  "w": 24.8,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 30,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 32,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 28,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -24,36 +24,37 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c3b9bd",
-   "trim": "#e9e2d2",
-   "accent": "#2b4f6b",
-   "roof": "#4e5155"
+   "body": "#e8dcc0",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
-  "garage": "attached_2",
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "tree_line",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1973,
-  "band": "suburban",
-  "form_token": "ranch"
+  "condition": "shabby",
+  "year_built": 1954,
+  "band": "postwar",
+  "form_token": "i_house"
  },
+ "region": "ne",
  "names": {
   "family": "Garcia",
-  "house_number": 2823
+  "house_number": 3369
  },
- "brief": "suburban band ranch: 1 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3002"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

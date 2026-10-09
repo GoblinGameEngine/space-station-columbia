@@ -6,27 +6,22 @@
   "w": 18.0,
   "d": 30.1
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
+  "use": "food_plant",
+  "form": "loft",
   "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_stepped",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Wainwright Drug",
-    "type": "drug_store",
-    "sign": "WAINWRIGHT DRUG",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1897,
-  "colors": {
-   "body": "#92604c"
-  }
+  "walls": "brick",
+  "year_built": 1911,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Kessler."
+ "names": {
+  "name": "Harrow Foods",
+  "sign": "HARROW FOODS"
+ },
+ "brief": "industrial (industry) generated for Kessler."
 }

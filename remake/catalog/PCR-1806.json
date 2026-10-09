@@ -3,63 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.1,
-  "d": 37.8
+  "w": 17.2,
+  "d": 34.6
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 30,
+  "main_w_ft": 34,
   "main_d_ft": 28,
   "roof": {
    "type": "gable",
-   "pitch_deg": 42,
-   "material": "slate"
+   "pitch_deg": 45,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
+   "body": "#c9cfcf",
    "trim": "#f7f6f0",
    "accent": "#24382a",
-   "roof": "#2e2e30"
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
     "garden",
-    "shed",
-    "clothesline"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1929,
+  "band": "interwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Bazzi",
-  "house_number": 659
+  "family": "Tomczak",
+  "house_number": 947
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0734"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0859"
 }

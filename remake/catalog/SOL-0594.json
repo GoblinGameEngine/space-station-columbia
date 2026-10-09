@@ -6,30 +6,23 @@
   "w": 16.2,
   "d": 24.9
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Main Street Appliance",
-    "type": "appliance_repair",
-    "sign": "MAIN STREET APPLIANCE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "shabby",
-  "year_built": 1889,
-  "colors": {
-   "body": "#efe6d2"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1927,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Union Foundry",
+  "sign": "UNION FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

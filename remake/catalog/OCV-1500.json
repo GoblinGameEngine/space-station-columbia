@@ -3,23 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 30.4,
-  "d": 39.6
+  "w": 17.0,
+  "d": 34.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 49,
-  "main_d_ft": 33,
+  "main_w_ft": 25,
+  "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
@@ -32,30 +32,30 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "tree_line",
+   "rear": "hedge",
    "extras": [
     "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1966,
-  "band": "suburban",
-  "form_token": "california_bungalow"
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 1417
+  "family": "Leclerc",
+  "house_number": 1379
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-3532"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

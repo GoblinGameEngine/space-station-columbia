@@ -3,30 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 43.4,
-  "d": 38.4
+  "w": 23.0,
+  "d": 29.2
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "vinyl",
-  "colors": {
-   "body": "#dcc2a3",
-   "trim": "#3a3f44",
-   "accent": "#3a2a1e",
-   "roof": "#5a5a58"
-  },
+  "archetype": "tudor_revival",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 32,
   "roof": {
-   "pitch_deg": 25
+   "type": "cross_gable",
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1994,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "brick",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#84463a",
+   "trim": "#e8e0c8",
+   "accent": "#1f2a33",
+   "roof": "#555350"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_1",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1999,
+  "band": "late",
+  "form_token": "neo_eclectic"
  },
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 2715
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "SOL-2480"
+ "brief": "late band neo_eclectic: 2 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-6164"
 }

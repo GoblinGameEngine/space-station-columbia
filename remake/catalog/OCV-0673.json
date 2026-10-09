@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.1,
-  "d": 33.3
+  "w": 13.5,
+  "d": 37.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 34,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
    "pitch_deg": 17,
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
+   "body": "#e9d6c8",
    "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
@@ -41,21 +41,28 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden",
+    "swing_set"
+   ]
   },
   "condition": "kept",
   "year_built": 1907,
   "band": "streetcar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "form_token": "california_bungalow",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 9
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 526
+  "family": "Patel",
+  "house_number": 172
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0488"
 }

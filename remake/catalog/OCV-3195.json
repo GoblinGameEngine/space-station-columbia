@@ -3,41 +3,39 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 22.5,
-  "d": 29.7
+  "w": 25.0,
+  "d": 29.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 34,
+  "main_w_ft": 43,
   "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 18,
-   "material": "clay_tile"
+   "type": "hip",
+   "pitch_deg": 33,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "columns",
    "rail": "none"
   },
-  "walls": "stucco",
-  "foundation": "slab",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
-   "roof": "#a8492f"
+   "body": "#acbc9c",
+   "trim": "#e8e0c8",
+   "accent": "#3a2a1e",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [
-   "exterior_left"
-  ],
+  "chimneys": [],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -50,13 +48,12 @@
   "condition": "kept",
   "year_built": 2003,
   "band": "late",
-  "form_token": "spanish_revival"
+  "form_token": "ranch"
  },
- "region": "ca",
  "names": {
   "family": "Delmar",
-  "house_number": 573
+  "house_number": 831
  },
- "brief": "late band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2280"
 }

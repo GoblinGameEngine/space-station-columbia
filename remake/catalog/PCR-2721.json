@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.6,
-  "d": 33.5
+  "w": 18.3,
+  "d": 36.3
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 37,
+  "main_w_ft": 25,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
    "pitch_deg": 42,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -36,29 +36,25 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "right_end"
   ],
   "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
   "year_built": 1936,
   "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Arrieta",
-  "house_number": 1547
+  "house_number": 995
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0702"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0405"
 }

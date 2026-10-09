@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.9,
-  "d": 30.7
+  "w": 26.4,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
   "main_w_ft": 35,
   "main_d_ft": 25,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 29,
-   "material": "slate"
+   "type": "gambrel",
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#c4b181",
-   "trim": "#f2efe6",
-   "accent": "#6a4a2a",
-   "roof": "#2f3133"
+   "body": "#d9dcd8",
+   "trim": "#f7f6f0",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1995,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Reyes",
-  "house_number": 3349
+  "house_number": 1659
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-5947"
 }

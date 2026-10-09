@@ -3,61 +3,69 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 37.9
+  "w": 13.3,
+  "d": 33.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 20,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 21,
+  "main_d_ft": 27,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 43,
-   "material": "slate"
+   "type": "gable",
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "enclosed",
+   "posts": "turned",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
+   "body": "#6f6a62",
    "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1930,
-  "band": "interwar",
-  "form_token": "dutch_colonial"
+  "year_built": 1911,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Adebayo",
-  "house_number": 1001
+  "family": "Stroud",
+  "house_number": 1547
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1888"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0632"
 }

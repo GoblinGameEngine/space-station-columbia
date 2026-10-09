@@ -3,33 +3,38 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 39.2
+  "w": 12.9,
+  "d": 40.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 21,
-  "main_d_ft": 38,
+  "main_w_ft": 24,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "asphalt_shingle"
+   "pitch_deg": 43,
+   "material": "wood_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
    "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "posts": "turned",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#c9cfcf",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
@@ -38,26 +43,31 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
    "side": "none",
    "rear": "none",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1920,
+  "year_built": 1912,
   "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "shingle_style",
+  "wing": {
+   "side": "rear",
+   "w_ft": 16,
+   "d_ft": 11
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Pike",
-  "house_number": 1123
+  "family": "Wainwright",
+  "house_number": 715
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0735"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0837"
 }

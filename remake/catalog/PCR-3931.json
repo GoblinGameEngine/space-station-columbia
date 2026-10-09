@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.0,
-  "d": 32.9
+  "w": 12.0,
+  "d": 33.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 36,
-  "main_d_ft": 34,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
-   "material": "wood_shingle"
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "columns",
-   "rail": "solid"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#9a9184",
    "trim": "#f4f3ec",
-   "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "casement",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
    "left_end"
@@ -41,20 +41,21 @@
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "hedge",
    "rear": "hedge",
    "extras": []
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1928,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Tremblay",
-  "house_number": 2478
+  "family": "Arrieta",
+  "house_number": 2461
  },
- "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0874"
 }

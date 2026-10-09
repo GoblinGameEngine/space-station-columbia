@@ -3,61 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.1,
-  "d": 20.0
+  "w": 13.8,
+  "d": 26.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 21,
-  "main_d_ft": 35,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 18,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
    "body": "#8a8378",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden",
+    "shed",
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1935,
-  "band": "interwar",
-  "form_token": "nantucket_cape",
-  "units": 2
+  "year_built": 1921,
+  "band": "streetcar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 976
+  "family": "Raghunathan",
+  "house_number": 668
  },
- "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0599"
+ "brief": "streetcar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0838"
 }

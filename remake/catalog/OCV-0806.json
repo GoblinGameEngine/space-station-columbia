@@ -3,40 +3,42 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.9,
-  "d": 25.5
+  "w": 23.9,
+  "d": 28.3
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 33,
+  "main_w_ft": 37,
   "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 22,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 16,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f2e8dc",
+   "body": "#e9dcc2",
    "trim": "#4a3324",
-   "accent": "#8a4a20",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_1",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "hedge",
@@ -46,15 +48,15 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1897,
-  "band": "streetcar",
+  "year_built": 1948,
+  "band": "postwar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Patel",
-  "house_number": 844
+  "family": "Foxworth",
+  "house_number": 838
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1605"
+ "brief": "postwar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-1766"
 }

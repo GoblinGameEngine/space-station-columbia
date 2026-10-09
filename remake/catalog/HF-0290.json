@@ -6,27 +6,21 @@
   "w": 16.4,
   "d": 25.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Nowicki Realty",
-    "type": "real_estate",
-    "sign": "NOWICKI REALTY",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1889,
-  "colors": {
-   "body": "#7e3b36"
-  }
+  "walls": "brick",
+  "year_built": 1906,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Union Machine Works",
+  "sign": "UNION MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

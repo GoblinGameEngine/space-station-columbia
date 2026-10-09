@@ -4,18 +4,18 @@
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
   "w": 23.0,
-  "d": 25.4
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
   "main_w_ft": 24,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 37,
-   "material": "slate"
+   "pitch_deg": 45,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#eece91",
-   "trim": "#2e3a4a",
-   "accent": "#2e3a4a",
-   "roof": "#2f3133"
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#3a2a24",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -50,12 +50,13 @@
   "condition": "kept",
   "year_built": 1997,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Bazzi",
-  "house_number": 2646
+  "house_number": 720
  },
- "brief": "late band builder_contemporary: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6057"
+ "brief": "late band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

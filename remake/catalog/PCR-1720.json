@@ -3,31 +3,62 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 40.4,
-  "d": 41.4
+  "w": 12.5,
+  "d": 40.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#e9e2d2",
-   "accent": "#3a2a1e",
-   "roof": "#2f3133"
-  },
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 22,
+  "main_d_ft": 33,
   "roof": {
-   "pitch_deg": 25
+   "type": "hip",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1897,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "clothesline"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Adebayo",
+  "house_number": 1168
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0178"
+ "brief": "streetcar band foursquare: 2 storeys, cedar_shingle walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0577"
 }

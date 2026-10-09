@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.7,
-  "d": 20.4
+  "w": 17.5,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 30,
-  "main_d_ft": 31,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 27,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,37 +26,39 @@
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "body": "#e6e2d8",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "center"
   ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": [
-    "clothesline"
+    "shed",
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1958,
   "band": "postwar",
-  "form_token": "cape_cod"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Holloway",
-  "house_number": 823
+  "family": "Harrow",
+  "house_number": 314
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0303"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 34.3
+  "w": 21.5,
+  "d": 25.2
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 29,
+  "main_w_ft": 54,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 44,
@@ -19,9 +19,9 @@
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -36,25 +36,25 @@
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "chainlink",
+   "rear": "chainlink",
    "extras": []
   },
-  "condition": "worn",
-  "year_built": 1926,
-  "band": "interwar",
+  "condition": "kept",
+  "year_built": 1951,
+  "band": "postwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
   "family": "Desai",
-  "house_number": 2059
+  "house_number": 1621
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0808"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

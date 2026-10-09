@@ -3,31 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 45.9,
-  "d": 35.2
+  "w": 19.5,
+  "d": 20.0
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 38,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#ffffff",
-   "accent": "#2e3a4a",
-   "roof": "#4a4a48"
-  },
+  "archetype": "dutch_colonial",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 39,
   "roof": {
-   "pitch_deg": 33
+   "type": "gambrel",
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1924,
-  "condition": "kept"
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
+  "porch": {
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#e6e2d8",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "left_end"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "dutch_colonial"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Szabo",
+  "house_number": 1725
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0037"
+ "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-1892"
 }

@@ -8,26 +8,53 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "clapboard",
-  "cornice": "bracketed_wood",
-  "upper_use": "apartments",
+  "form": "office_block",
+  "storeys": 6,
+  "facade": "brick",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Stroud Printing",
-    "type": "print_shop",
-    "sign": "STROUD PRINTING",
-    "sign_style": "flat_board",
-    "awning": false
+    "business": "Exchange Drug",
+    "type": "drug_store",
+    "sign": "EXCHANGE DRUG",
+    "sign_style": "awning_lettering",
+    "awning": true
+   },
+   {
+    "business": "Haddad & Arrieta Savings Bank",
+    "type": "bank",
+    "sign": "HADDAD & ARRIETA SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1880,
+  "year_built": 1951,
   "colors": {
-   "body": "#2f3e52"
+   "body": "#8e4a36"
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "block_name": "Port Carrow Trust"
+ },
+ "brief": "store (office) generated for Port Carrow."
 }

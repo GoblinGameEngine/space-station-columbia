@@ -3,33 +3,56 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 18.4,
-  "d": 24.0
+  "w": 12.1,
+  "d": 29.1
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Playa Verde Cafe",
-    "type": "cafe",
-    "sign": "PLAYA VERDE CAFE",
-    "sign_style": "awning_lettering",
-    "awning": true
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1898,
-  "colors": {
-   "body": "#f3eadb"
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 27,
+  "main_d_ft": 34,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 17,
+   "material": "clay_tile"
   },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#e9dcc2",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "hedge",
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1908,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "family": "Raghunathan",
+  "house_number": 268
+ },
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0480"
 }

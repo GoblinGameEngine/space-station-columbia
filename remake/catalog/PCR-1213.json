@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.2,
-  "d": 36.6
+  "w": 12.8,
+  "d": 38.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "main_w_ft": 28,
+  "main_d_ft": 46,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
-   "material": "wood_shingle"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "front_partial",
+   "posts": "turned",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "2over2",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
-   "fence": "none",
+   "fence": "iron",
    "side": "none",
    "rear": "none",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1909,
+  "year_built": 1897,
   "band": "streetcar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Booker",
-  "house_number": 1060
+  "family": "Patel",
+  "house_number": 1020
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0978"
 }

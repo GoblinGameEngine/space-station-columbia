@@ -3,58 +3,60 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.6,
-  "d": 28.8
+  "w": 15.1,
+  "d": 29.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "main_w_ft": 24,
+  "main_d_ft": 33,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 17,
+   "type": "gable",
+   "pitch_deg": 19,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#5a3a28",
-   "accent": "#2c4a2e",
+   "body": "#f0e2cf",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1908,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "shabby",
+  "year_built": 1898,
+  "band": "rail",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Booker",
-  "house_number": 391
+  "family": "Stroud",
+  "house_number": 476
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0331"
+ "brief": "rail band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0294"
 }

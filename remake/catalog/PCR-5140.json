@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.2,
-  "d": 20.5
+  "w": 19.6,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 32,
+  "archetype": "nantucket_cape",
+  "storeys": 1.5,
+  "main_w_ft": 34,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
    "pitch_deg": 38,
@@ -20,13 +20,13 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "square",
+   "posts": "iron",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
+   "body": "#8a8378",
    "trim": "#f7f6f0",
    "accent": "#1d1f22",
    "roof": "#2e2e30"
@@ -36,7 +36,7 @@
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "center"
   ],
   "garage": "attached_1",
   "yard": {
@@ -44,19 +44,20 @@
    "side": "chainlink",
    "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
   "year_built": 1954,
   "band": "postwar",
-  "form_token": "gable_front"
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haskins",
-  "house_number": 847
+  "family": "Pruett",
+  "house_number": 385
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "postwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0863"
 }

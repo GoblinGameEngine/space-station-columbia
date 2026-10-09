@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.8,
-  "d": 30.4
+  "w": 22.4,
+  "d": 28.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 39,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 34,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 34,
+   "pitch_deg": 45,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "solid"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#9faaab",
-   "trim": "#e8e0c8",
-   "accent": "#5b6b3a",
-   "roof": "#4a4a48"
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "picture",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -49,12 +49,13 @@
   "condition": "kept",
   "year_built": 2005,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Leclerc",
-  "house_number": 1327
+  "house_number": 3263
  },
- "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2280"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2750"
 }

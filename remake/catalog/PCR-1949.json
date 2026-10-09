@@ -3,69 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.9,
-  "d": 35.4
+  "w": 12.0,
+  "d": 39.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 23,
-  "main_d_ft": 35,
+  "main_w_ft": 22,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 50,
+   "pitch_deg": 39,
    "material": "wood_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
+   "body": "#d9dcd8",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
    "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "garden"
    ]
   },
-  "condition": "kept",
-  "year_built": 1911,
+  "condition": "worn",
+  "year_built": 1908,
   "band": "streetcar",
-  "form_token": "i_house"
+  "form_token": "gable_front",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Marlowe",
-  "house_number": 1417
+  "house_number": 209
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0740"
+ "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0466"
 }

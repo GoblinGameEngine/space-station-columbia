@@ -3,31 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 45.2,
-  "d": 37.8
+  "w": 12.0,
+  "d": 40.9
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f4f2e8",
-   "trim": "#e9e2d2",
-   "accent": "#3a2a1e",
-   "roof": "#555350"
-  },
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
-   "pitch_deg": 31
+   "type": "hip",
+   "pitch_deg": 30,
+   "material": "wood_shingle"
   },
-  "year_built": 1931,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#5b6b5a",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#3a3836"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": true
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1926,
+  "band": "streetcar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Szabo",
+  "house_number": 1023
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0304"
+ "brief": "streetcar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

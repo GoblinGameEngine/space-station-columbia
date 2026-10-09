@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 18.9,
-  "d": 35.2
+  "w": 14.8,
+  "d": 22.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
+  "archetype": "spanish_revival",
+  "storeys": 2,
   "main_w_ft": 27,
-  "main_d_ft": 46,
+  "main_d_ft": 34,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 16,
-   "material": "clay_tile_old"
+   "type": "gable",
+   "pitch_deg": 18,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -23,41 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
+  "walls": "board_and_batten",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
+   "body": "#e6d4bb",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "detached_1",
+  "chimneys": [],
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed"
+    "clothesline",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1940,
-  "band": "interwar",
-  "form_token": "ranch"
+  "year_built": 1916,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Villalobos",
-  "house_number": 339
+  "family": "Haskins",
+  "house_number": 525
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0497"
+ "brief": "streetcar band spanish_revival: 2 storeys, board_and_batten walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0780"
 }

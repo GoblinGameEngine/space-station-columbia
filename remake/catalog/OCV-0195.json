@@ -3,33 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.4,
-  "d": 34.5
+  "w": 17.2,
+  "d": 25.2
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Oceanview Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "OCEANVIEW BEAUTY SHOP",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1872,
-  "colors": {
-   "body": "#e4cfb2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "use": "tube_works",
+  "form": "loft",
+  "storeys": 3,
+  "components": [],
+  "walls": "brick",
+  "year_built": 1927,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Oceanview Tube Works",
+  "sign": "OCEANVIEW TUBE WORKS"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

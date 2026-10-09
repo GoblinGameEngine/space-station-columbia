@@ -3,27 +3,57 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 48.6,
-  "d": 34.4
+  "w": 23.8,
+  "d": 32.5
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 3,
-  "form": "slab",
-  "units": 12,
-  "balconies": "front",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36"
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 19,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 26,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1986,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "solid"
+  },
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
+  "colors": {
+   "body": "#59657b",
+   "trim": "#f4f1e8",
+   "accent": "#3a2a1e",
+   "roof": "#4e5155"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1993,
+  "band": "late",
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
-  "name": ""
+  "family": "Duquesne",
+  "house_number": 1221
  },
- "brief": "condo (apartment) generated for Port Carrow.",
- "model": "PCR-1336"
+ "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-6034"
 }

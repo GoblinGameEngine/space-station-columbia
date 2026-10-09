@@ -3,66 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.7,
-  "d": 23.8
+  "w": 16.7,
+  "d": 34.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
+  "archetype": "i_house",
+  "storeys": 2,
   "main_w_ft": 25,
-  "main_d_ft": 38,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 46,
-   "material": "slate"
+   "pitch_deg": 39,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "front_full",
-   "posts": "square",
-   "rail": "spindle"
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#2e2e30"
+   "body": "#7d776d",
+   "trim": "#f7f6f0",
+   "accent": "#3a2a24",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden",
+    "shed"
    ]
   },
   "condition": "worn",
-  "year_built": 1916,
-  "band": "streetcar",
-  "form_token": "cape_cod",
-  "wing": {
-   "side": "rear",
-   "w_ft": 13,
-   "d_ft": 9
-  }
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Castellanos",
-  "house_number": 1430
+  "family": "Leclerc",
+  "house_number": 1252
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0659"
+ "brief": "interwar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0402"
 }

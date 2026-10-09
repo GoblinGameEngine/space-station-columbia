@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 21.8,
-  "d": 29.4
+  "w": 18.6,
+  "d": 36.1
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 27,
+  "main_w_ft": 20,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
+   "body": "#f6f1e7",
    "trim": "#2e2a26",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
@@ -41,20 +41,23 @@
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "hedge",
+   "extras": [
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "california_bungalow"
+  "year_built": 1989,
+  "band": "suburban",
+  "form_token": "california_bungalow",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 1626
+  "family": "Okafor",
+  "house_number": 1308
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

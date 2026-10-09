@@ -6,28 +6,22 @@
   "w": 16.0,
   "d": 32.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Desai Variety",
-    "type": "variety_store",
-    "sign": "DESAI VARIETY",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1880,
-  "colors": {
-   "body": "#7a4232"
-  }
+  "walls": "brick",
+  "year_built": 1923,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "name": "Pham & Delmar Machine Works",
+  "sign": "PHAM & DELMAR MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Brightwater."
 }

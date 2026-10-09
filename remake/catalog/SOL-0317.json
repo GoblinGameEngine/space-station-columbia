@@ -6,30 +6,23 @@
   "w": 17.1,
   "d": 26.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Delmar & Nguyen Clothiers",
-    "type": "clothing",
-    "sign": "DELMAR & NGUYEN CLOTHIERS",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1877,
-  "colors": {
-   "body": "#e9dcc2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1923,
+  "condition": "kept"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Solana Point Foundry",
+  "sign": "SOLANA POINT FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

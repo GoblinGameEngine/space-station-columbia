@@ -8,25 +8,58 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "bracketed_metal",
   "storefronts": [
    {
-    "business": "Raghunathan Realty",
-    "type": "real_estate",
-    "sign": "RAGHUNATHAN REALTY",
-    "sign_style": "awning_lettering",
+    "business": "Wainwright Savings Bank",
+    "type": "bank",
+    "sign": "WAINWRIGHT SAVINGS BANK",
+    "sign_style": "flat_board",
+    "awning": true
+   },
+   {
+    "business": "Holloway Savings Bank",
+    "type": "bank",
+    "sign": "HOLLOWAY SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1878,
+  "condition": "kept",
+  "year_built": 1911,
   "colors": {
-   "body": "#843525"
+   "body": "#a05645"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

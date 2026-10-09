@@ -3,58 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.7,
-  "d": 32.8
+  "w": 16.8,
+  "d": 32.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 44,
-  "main_d_ft": 28,
+  "main_w_ft": 25,
+  "main_d_ft": 39,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 31,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 39,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "iron",
-   "rail": "solid"
+   "type": "front_full",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f2f1ea",
+   "body": "#f6f5f0",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
+   "accent": "#1f2e44",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "none",
    "extras": []
   },
-  "condition": "kept",
-  "year_built": 1947,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "condition": "worn",
+  "year_built": 1940,
+  "band": "interwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 961
+  "family": "Reyes",
+  "house_number": 2421
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_full porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0382"
 }

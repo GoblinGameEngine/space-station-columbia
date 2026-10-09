@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 16.8,
-  "d": 37.2
+  "w": 14.2,
+  "d": 38.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
+  "archetype": "spanish_revival",
+  "storeys": 2,
   "main_w_ft": 26,
   "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 23,
+   "type": "hip",
+   "pitch_deg": 24,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,36 +26,41 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2f3b2a",
+   "body": "#e9dcc2",
+   "trim": "#5a3a28",
    "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1926,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "condition": "worn",
+  "year_built": 1903,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "wing": {
+   "side": "rear",
+   "w_ft": 12,
+   "d_ft": 12
+  },
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Nguyen",
-  "house_number": 617
+  "family": "Solano",
+  "house_number": 208
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-2511"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

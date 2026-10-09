@@ -3,60 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 32.1,
-  "d": 36.1
+  "w": 24.4,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 39,
-  "main_d_ft": 20,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
-   "material": "wood_shingle"
+   "pitch_deg": 46,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "stoop",
+   "posts": "iron",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_2",
+  "garage": "detached_1",
   "yard": {
-   "fence": "none",
-   "side": "privacy",
-   "rear": "tree_line",
+   "fence": "chainlink",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
     "garden",
     "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1984,
-  "band": "suburban",
+  "year_built": 1954,
+  "band": "postwar",
   "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Holloway",
-  "house_number": 2537
+  "family": "Reyes",
+  "house_number": 540
  },
- "brief": "suburban band i_house: 2 storeys, clapboard walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens)."
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

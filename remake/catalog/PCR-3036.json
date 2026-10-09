@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.6,
-  "d": 32.9
+  "w": 19.9,
+  "d": 20.6
  },
  "kind": "house",
  "traits": {
   "archetype": "cape_cod",
   "storeys": 1.5,
-  "main_w_ft": 55,
-  "main_d_ft": 31,
+  "main_w_ft": 28,
+  "main_d_ft": 43,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
@@ -20,7 +20,7 @@
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
   "walls": "clapboard",
@@ -32,31 +32,31 @@
    "roof": "#3a3836"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "rear"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
-   "fence": "chainlink",
-   "side": "hedge",
-   "rear": "hedge",
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "worn",
-  "year_built": 1948,
-  "band": "postwar",
+  "year_built": 1932,
+  "band": "interwar",
   "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
   "family": "Nowicki",
-  "house_number": 1448
+  "house_number": 1730
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0692"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

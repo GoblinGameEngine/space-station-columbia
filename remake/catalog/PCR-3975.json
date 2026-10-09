@@ -3,62 +3,67 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 35.3
+  "w": 24.2,
+  "d": 32.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 47,
-  "main_d_ft": 26,
+  "main_w_ft": 29,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 45,
+   "type": "gable",
+   "pitch_deg": 43,
    "material": "slate"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
-   "rail": "spindle"
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f4f3ec",
+   "body": "#5b6b5a",
+   "trim": "#ffffff",
    "accent": "#7a1f1a",
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1942,
-  "band": "interwar",
-  "form_token": "dutch_colonial",
-  "units": 2
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Wainwright",
-  "house_number": 2458
+  "family": "Stroud",
+  "house_number": 2372
  },
- "brief": "interwar band dutch_colonial: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1760"
+ "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

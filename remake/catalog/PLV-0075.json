@@ -6,30 +6,22 @@
   "w": 17.1,
   "d": 41.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Marlowe Variety",
-    "type": "variety_store",
-    "sign": "MARLOWE VARIETY",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1891,
-  "colors": {
-   "body": "#e8d8c0"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1898,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "name": "Marlowe Machine Works",
+  "sign": "MARLOWE MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Playa Verde."
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 35.0,
-  "d": 35.3
+  "w": 17.0,
+  "d": 35.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "split_level",
-  "storeys": 1,
-  "main_w_ft": 42,
-  "main_d_ft": 29,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 28,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 28,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,40 +23,39 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ac6352",
-   "trim": "#5a3a28",
-   "accent": "#3a2a1e",
-   "roof": "#555350"
+   "body": "#8a8378",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "carport",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "swing_set"
-   ]
+   "side": "hedge",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1987,
-  "band": "suburban",
-  "form_token": "split_level"
+  "year_built": 1951,
+  "band": "postwar",
+  "form_token": "shingle_style",
+  "units": 2
  },
+ "region": "ne",
  "names": {
-  "family": "Carrow",
-  "house_number": 2839
+  "family": "Patel",
+  "house_number": 2856
  },
- "brief": "suburban band split_level: 1 storeys, brick walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-3531"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0964"
 }

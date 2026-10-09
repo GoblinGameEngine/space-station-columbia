@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.9,
-  "d": 20.1
+  "w": 18.1,
+  "d": 26.2
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 27,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
    "type": "hip",
    "pitch_deg": 17,
@@ -32,33 +32,32 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
-    "shed",
-    "clothesline"
+    "garden",
+    "shed"
    ]
   },
-  "condition": "kept",
-  "year_built": 1953,
-  "band": "postwar",
-  "form_token": "california_bungalow",
-  "units": 2
+  "condition": "shabby",
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Okafor",
-  "house_number": 1491
+  "house_number": 1510
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1012"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

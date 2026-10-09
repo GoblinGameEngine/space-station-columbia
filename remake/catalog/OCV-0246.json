@@ -3,33 +3,34 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.4,
-  "d": 34.2
+  "w": 48.0,
+  "d": 31.6
  },
- "kind": "store",
+ "kind": "condo",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Ostrowski Diner",
-    "type": "diner",
-    "sign": "OSTROWSKI DINER",
-    "sign_style": "flat_board",
-    "awning": false
-   }
-  ],
-  "condition": "kept",
-  "year_built": 1905,
+  "storeys": 4,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
+  "walls": "stucco",
   "colors": {
-   "body": "#f4f0e6"
+   "body": "#efe6d2",
+   "trim": "#4a3324",
+   "roof": "#a8492f"
   },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "year_built": 2009,
+  "condition": "kept",
+  "roof": {
+   "type": "gable",
+   "material": "clay_tile",
+   "pitch_deg": 20
+  }
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": ""
+ },
+ "brief": "condo (apartment) generated for Oceanview.",
+ "model": "SOL-0095"
 }

@@ -3,14 +3,14 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 24.6,
-  "d": 20.0
+  "w": 17.4,
+  "d": 35.4
  },
  "kind": "house",
  "traits": {
   "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 45,
+  "main_w_ft": 31,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
@@ -32,27 +32,29 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [],
-  "garage": "carport",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
+  "year_built": 1924,
+  "band": "interwar",
   "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
   "family": "Loomis",
-  "house_number": 776
+  "house_number": 430
  },
- "brief": "postwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-2498"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0447"
 }

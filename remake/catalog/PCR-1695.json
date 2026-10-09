@@ -3,37 +3,37 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 38.4
+  "w": 10.7,
+  "d": 24.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 24,
-  "main_d_ft": 36,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 45,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
+   "type": "stacked",
+   "posts": "square",
    "rail": "spindle"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#9a9184",
+   "body": "#7d776d",
    "trim": "#f4f3ec",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "center"
@@ -45,22 +45,20 @@
    "rear": "chainlink",
    "extras": [
     "garden",
-    "shed",
-    "clothesline",
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1921,
+  "year_built": 1912,
   "band": "streetcar",
-  "form_token": "i_house",
+  "form_token": "cape_cod",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Delmar",
-  "house_number": 163
+  "family": "Arrieta",
+  "house_number": 1249
  },
- "brief": "streetcar band i_house: 2 storeys, cedar_shingle walls, front_full porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0735"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0670"
 }

@@ -3,58 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 24.7
+  "w": 19.0,
+  "d": 22.8
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 33,
-  "main_d_ft": 34,
+  "main_w_ft": 53,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 45,
-   "material": "wood_shingle"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f7f6f0",
-   "accent": "#3a2a24",
-   "roof": "#2f3438"
+   "body": "#7d776d",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "sliding",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "left_end"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "cape_cod"
+  "year_built": 1923,
+  "band": "interwar",
+  "form_token": "nantucket_cape",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 981
+  "family": "Villalobos",
+  "house_number": 2255
  },
- "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-2457"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0934"
 }

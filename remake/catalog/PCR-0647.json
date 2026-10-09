@@ -3,31 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.5,
-  "d": 26.0
+  "w": 16.4,
+  "d": 26.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "corbelled_brick",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Brandvold Insurance",
-    "type": "insurance_office",
-    "sign": "BRANDVOLD INSURANCE",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack"
   ],
-  "condition": "kept",
-  "year_built": 1900,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "block",
+  "year_built": 1908,
+  "condition": "worn"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Ring Line Machine Works",
+  "sign": "RING LINE MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

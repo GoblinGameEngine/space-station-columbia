@@ -6,27 +6,22 @@
   "w": 16.4,
   "d": 31.1
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Moriarty Tavern",
-    "type": "bar",
-    "sign": "MORIARTY TAVERN",
-    "sign_style": "projecting",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 3,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1909,
-  "colors": {
-   "body": "#834f3f"
-  }
+  "walls": "brick",
+  "year_built": 1886,
+  "condition": "worn"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Drop Yard Foundry",
+  "sign": "DROP YARD FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

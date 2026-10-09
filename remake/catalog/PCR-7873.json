@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.6,
-  "d": 27.8
+  "w": 22.3,
+  "d": 29.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 35,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 34,
   "main_d_ft": 21,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
-   "material": "asphalt_shingle"
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#edf1db",
-   "trim": "#f4f1e8",
-   "accent": "#5b6b3a",
-   "roof": "#5a4a40"
+   "body": "#8a2e24",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,12 +46,13 @@
   "condition": "kept",
   "year_built": 2005,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
   "family": "Dunmore",
-  "house_number": 1665
+  "house_number": 3422
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6190"
+ "brief": "late band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0481"
 }

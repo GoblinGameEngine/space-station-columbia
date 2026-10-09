@@ -8,28 +8,57 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "stucco",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "college_extension"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
   "cornice": "tile_roof",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Szabo Savings Bank",
+    "business": "Exchange Savings Bank",
     "type": "bank",
-    "sign": "SZABO SAVINGS BANK",
-    "sign_style": "projecting",
+    "sign": "EXCHANGE SAVINGS BANK",
+    "sign_style": "flat_board",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1906,
+  "year_built": 1960,
   "colors": {
-   "body": "#e9dcc2"
+   "body": "#dcc7a6"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Nguyen Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

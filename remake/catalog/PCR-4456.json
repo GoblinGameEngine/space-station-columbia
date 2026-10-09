@@ -3,61 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.5,
-  "d": 33.2
+  "w": 30.0,
+  "d": 36.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 32,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 54,
+  "main_d_ft": 29,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 30,
+   "type": "gable",
+   "pitch_deg": 25,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#c9c1b0",
+   "trim": "#3a3f44",
+   "accent": "#2e3a4a",
+   "roof": "#6a5e52"
   },
   "windows": {
    "type": "picture",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "rear"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "foursquare",
-  "units": 2
+  "year_built": 1987,
+  "band": "suburban",
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 3088
+  "family": "Pham",
+  "house_number": 2671
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0829"
+ "brief": "suburban band ranch: 1 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-3973"
 }

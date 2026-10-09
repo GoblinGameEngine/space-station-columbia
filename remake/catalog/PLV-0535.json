@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 16.2,
-  "d": 34.3
+  "w": 13.3,
+  "d": 26.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 32,
-  "main_d_ft": 33,
+  "main_w_ft": 29,
+  "main_d_ft": 29,
   "roof": {
    "type": "hip",
-   "pitch_deg": 24,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,40 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f6f1e7",
-   "trim": "#3b2a1e",
-   "accent": "#8a4a20",
+   "body": "#dcc7a6",
+   "trim": "#2f3b2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
    "rear": "none",
    "extras": [
-    "shed"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "condition": "worn",
+  "year_built": 1910,
+  "band": "streetcar",
+  "form_token": "ranch",
+  "wing": {
+   "side": "rear",
+   "w_ft": 13,
+   "d_ft": 11
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Ostrowski",
-  "house_number": 590
+  "family": "Holloway",
+  "house_number": 609
  },
- "brief": "interwar band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2511"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0492"
 }

@@ -3,31 +3,26 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.6,
-  "d": 40.3
+  "w": 17.4,
+  "d": 29.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Port Carrow Diner",
-    "type": "diner",
-    "sign": "PORT CARROW DINER",
-    "sign_style": "awning_lettering",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "shabby",
-  "year_built": 1922,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "walls": "brick",
+  "year_built": 1898,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Holloway Foundry",
+  "sign": "HOLLOWAY FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

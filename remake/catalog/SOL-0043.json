@@ -8,28 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 9,
   "facade": "stucco",
-  "cornice": "tile_roof",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Achterberg Tavern",
-    "type": "bar",
-    "sign": "ACHTERBERG TAVERN",
-    "sign_style": "projecting",
+    "business": "Brannock Savings Bank",
+    "type": "bank",
+    "sign": "BRANNOCK SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": true
+   },
+   {
+    "business": "Leclerc Cafe",
+    "type": "cafe",
+    "sign": "LECLERC CAFE",
+    "sign_style": "projecting",
+    "awning": false
    }
   ],
   "condition": "kept",
-  "year_built": 1924,
+  "year_built": 1958,
   "colors": {
-   "body": "#f4f0e6"
+   "body": "#e8d8c0"
   },
-  "arcade": true,
+  "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Villalobos Block"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

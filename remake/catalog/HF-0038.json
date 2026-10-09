@@ -8,25 +8,64 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 10,
   "facade": "brick",
-  "cornice": "corbelled_brick",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "engineering_office"
+   }
+  ],
+  "cornice": "corbelled_brick",
   "storefronts": [
    {
-    "business": "Smith Variety",
-    "type": "variety_store",
-    "sign": "SMITH VARIETY",
-    "sign_style": "flat_board",
+    "business": "Commerce Diner",
+    "type": "diner",
+    "sign": "COMMERCE DINER",
+    "sign_style": "projecting",
     "awning": false
+   },
+   {
+    "business": "Pruett Drug",
+    "type": "drug_store",
+    "sign": "PRUETT DRUG",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1893,
+  "year_built": 1899,
   "colors": {
-   "body": "#a2553a"
+   "body": "#763d35"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Okonkwo Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

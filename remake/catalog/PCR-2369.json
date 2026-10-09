@@ -3,76 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.1,
-  "d": 38.0
+  "w": 21.4,
+  "d": 33.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 28,
+  "archetype": "american_small_house",
+  "storeys": 1,
+  "main_w_ft": 33,
   "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 30,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_full",
-   "posts": "tapered_on_piers",
+   "type": "stoop",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#a77253",
+   "trim": "#f4f1e8",
+   "accent": "#5b6b3a",
+   "roof": "#4e5155"
   },
   "windows": {
-   "type": "1over1",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_right"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
-    "garden",
-    "shed",
-    "clothesline"
+    "clothesline",
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1916,
-  "band": "streetcar",
-  "form_token": "gable_front",
-  "wing": {
-   "side": "rear",
-   "w_ft": 16,
-   "d_ft": 12
-  }
+  "year_built": 1957,
+  "band": "postwar",
+  "form_token": "american_small_house"
  },
- "region": "ne",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 1576
+  "family": "Desai",
+  "house_number": 712
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "postwar band american_small_house: 1 storeys, brick walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4352"
 }

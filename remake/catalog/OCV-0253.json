@@ -3,33 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.0,
-  "d": 29.7
+  "w": 16.9,
+  "d": 31.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "stucco",
-  "cornice": "mission_parapet",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Szabo & Desai Hardware",
-    "type": "hardware",
-    "sign": "SZABO & DESAI HARDWARE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "shabby",
-  "year_built": 1876,
-  "colors": {
-   "body": "#f0e2cf"
-  },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "use": "printing_plant",
+  "form": "loft",
+  "storeys": 5,
+  "components": [],
+  "walls": "metal",
+  "year_built": 1920,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Oceanview."
+ "names": {
+  "name": "Ring Line Press",
+  "sign": "RING LINE PRESS"
+ },
+ "brief": "industrial (industry) generated for Oceanview."
 }

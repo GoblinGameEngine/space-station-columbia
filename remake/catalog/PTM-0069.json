@@ -6,27 +6,22 @@
   "w": 16.1,
   "d": 25.3
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Books",
-    "type": "bookstore",
-    "sign": "DEPOT BOOKS",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1902,
-  "colors": {
-   "body": "#b46c51"
-  }
+  "walls": "block",
+  "year_built": 1919,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Port Tamsin."
+ "names": {
+  "name": "Moriarty Foundry",
+  "sign": "MORIARTY FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Port Tamsin."
 }

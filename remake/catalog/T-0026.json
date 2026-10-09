@@ -8,25 +8,42 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "brick",
+  "form": "office_block",
+  "storeys": 5,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
   "cornice": "parapet_flat",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Wainwright & Wainwright Savings Bank",
-    "type": "bank",
-    "sign": "WAINWRIGHT & WAINWRIGHT SAVINGS BANK",
-    "sign_style": "projecting",
+    "business": "Exchange Cafe",
+    "type": "cafe",
+    "sign": "EXCHANGE CAFE",
+    "sign_style": "flat_board",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1901,
+  "condition": "kept",
+  "year_built": 1918,
   "colors": {
-   "body": "#a29073"
+   "body": "#b77354"
   }
  },
- "names": {},
- "brief": "store (store) generated for Tamarack."
+ "names": {
+  "block_name": "Tamarack Trust"
+ },
+ "brief": "store (office) generated for Tamarack."
 }

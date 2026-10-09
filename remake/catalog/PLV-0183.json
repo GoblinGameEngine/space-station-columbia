@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 10.9,
-  "d": 27.6
+  "w": 13.9,
+  "d": 37.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 2,
-  "main_w_ft": 25,
-  "main_d_ft": 39,
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 24,
+  "main_d_ft": 41,
   "roof": {
    "type": "gable",
-   "pitch_deg": 24,
+   "pitch_deg": 18,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,36 +26,38 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f3eadb",
-   "trim": "#5a3a28",
-   "accent": "#2f5e5a",
+   "body": "#f4f0e6",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "2over2",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
-   "fence": "none",
+   "fence": "picket",
    "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "clothesline"
+   ]
   },
   "condition": "kept",
-  "year_built": 1896,
-  "band": "rail",
-  "form_token": "minimal_traditional",
-  "units": 2
+  "year_built": 1901,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Holloway",
-  "house_number": 460
+  "family": "Brannock",
+  "house_number": 161
  },
- "brief": "rail band minimal_traditional: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0475"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0252"
 }

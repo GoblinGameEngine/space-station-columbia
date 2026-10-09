@@ -8,25 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
-  "facade": "frame_false_front",
+  "form": "office_block",
+  "storeys": 7,
+  "facade": "brick",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dispatch_office"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "college_extension"
+   }
+  ],
   "cornice": "bracketed_metal",
-  "upper_use": "apartments",
   "storefronts": [
    {
-    "business": "Ostrowski & Mbeki Savings Bank",
+    "business": "Main Street Law Office",
+    "type": "law_office",
+    "sign": "MAIN STREET LAW OFFICE",
+    "sign_style": "projecting",
+    "awning": false
+   },
+   {
+    "business": "Stroud Savings Bank",
     "type": "bank",
-    "sign": "OSTROWSKI & MBEKI SAVINGS BANK",
-    "sign_style": "flat_board",
+    "sign": "STROUD SAVINGS BANK",
+    "sign_style": "awning_lettering",
     "awning": false
    }
   ],
-  "condition": "worn",
-  "year_built": 1903,
+  "condition": "kept",
+  "year_built": 1917,
   "colors": {
-   "body": "#a99167"
+   "body": "#9f5e43"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

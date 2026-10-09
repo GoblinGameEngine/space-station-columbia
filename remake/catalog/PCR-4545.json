@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.2,
-  "d": 30.5
+  "w": 32.2,
+  "d": 38.9
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 29,
+  "main_w_ft": 34,
+  "main_d_ft": 23,
   "roof": {
    "type": "hip",
    "pitch_deg": 30,
@@ -19,7 +19,7 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
    "rail": "none"
   },
@@ -36,26 +36,25 @@
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "privacy",
+   "rear": "tree_line",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "foursquare",
-  "units": 2
+  "year_built": 1967,
+  "band": "suburban",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
   "family": "Okonkwo",
-  "house_number": 3352
+  "house_number": 2400
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0829"
+ "brief": "suburban band foursquare: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-3144"
 }

@@ -6,30 +6,23 @@
   "w": 16.6,
   "d": 28.7
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 2,
-  "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Stroud & Achterberg Bakery",
-    "type": "bakery",
-    "sign": "STROUD & ACHTERBERG BAKERY",
-    "sign_style": "flat_board",
-    "awning": false
-   }
+  "use": "foundry",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "stack",
+   "monitor"
   ],
-  "condition": "kept",
-  "year_built": 1881,
-  "colors": {
-   "body": "#efe6d2"
-  },
-  "arcade": false,
-  "roof_trim": "clay_tile"
+  "walls": "brick",
+  "year_built": 1918,
+  "condition": "worn"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "name": "Mbeki Foundry",
+  "sign": "MBEKI FOUNDRY"
+ },
+ "brief": "industrial (industry) generated for Solana Point."
 }

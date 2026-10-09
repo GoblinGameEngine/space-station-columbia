@@ -3,65 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 14.7,
-  "d": 24.8
+  "w": 18.8,
+  "d": 35.1
  },
  "kind": "house",
  "traits": {
   "archetype": "gable_front",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 34,
+  "main_w_ft": 40,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "turned",
-   "rail": "solid"
+   "type": "front_full",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
    "roof": "#4a4440"
   },
   "windows": {
    "type": "3over1_craftsman",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
   "garage": "detached_2",
   "yard": {
-   "fence": "iron",
-   "side": "none",
+   "fence": "none",
+   "side": "chainlink",
    "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1910,
-  "band": "streetcar",
+  "year_built": 1941,
+  "band": "interwar",
   "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Brandvold",
-  "house_number": 1563
+  "family": "Tremblay",
+  "house_number": 1531
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0291"
+ "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.3,
-  "d": 31.2
+  "w": 25.3,
+  "d": 25.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 34,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 44,
   "main_d_ft": 27,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 38,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,13 +23,13 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#ab6649",
-   "trim": "#3a3f44",
-   "accent": "#2b4f6b",
-   "roof": "#5a5a58"
+   "body": "#e8dcc0",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "picture",
@@ -49,12 +49,13 @@
   "condition": "worn",
   "year_built": 1996,
   "band": "late",
-  "form_token": "ranch"
+  "form_token": "gable_front"
  },
+ "region": "ne",
  "names": {
   "family": "Merriweather",
-  "house_number": 2177
+  "house_number": 3789
  },
- "brief": "late band ranch: 1 storeys, brick walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2280"
+ "brief": "late band gable_front: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

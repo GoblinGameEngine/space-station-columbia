@@ -3,34 +3,56 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 41.2,
-  "d": 37.8
+  "w": 18.5,
+  "d": 34.7
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 2,
-  "form": "court",
-  "units": 8,
-  "balconies": "front",
-  "ground_floor": "apartments",
+  "archetype": "california_bungalow",
+  "storeys": 1,
+  "main_w_ft": 32,
+  "main_d_ft": 30,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 17,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2e2a26",
+   "body": "#f3eadb",
+   "trim": "#2f3b2a",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
-  "year_built": 2006,
-  "condition": "kept",
-  "roof": {
-   "type": "gable",
-   "material": "clay_tile",
-   "pitch_deg": 19
-  }
+  "windows": {
+   "type": "6over6",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "shabby",
+  "year_built": 1936,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Adebayo",
+  "house_number": 451
  },
- "brief": "condo (apartment) generated for Playa Verde.",
- "model": "SOL-0955"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

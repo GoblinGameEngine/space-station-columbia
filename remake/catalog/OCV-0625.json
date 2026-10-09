@@ -3,18 +3,18 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 10.8,
-  "d": 25.6
+  "w": 18.5,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 33,
+  "main_w_ft": 51,
+  "main_d_ft": 26,
   "roof": {
    "type": "hip",
-   "pitch_deg": 16,
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,34 +26,36 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efd9c4",
-   "trim": "#3b2a1e",
-   "accent": "#6a2c22",
+   "body": "#dcc7a6",
+   "trim": "#2e2a26",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1912,
-  "band": "streetcar",
-  "form_token": "california_bungalow",
+  "year_built": 1930,
+  "band": "interwar",
+  "form_token": "ranch",
   "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Osei",
-  "house_number": 708
+  "family": "Kowal",
+  "house_number": 139
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0328"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0497"
 }

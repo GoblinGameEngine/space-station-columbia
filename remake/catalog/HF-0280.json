@@ -6,27 +6,22 @@
   "w": 16.4,
   "d": 31.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Harrow Sporting Goods",
-    "type": "sporting_goods",
-    "sign": "HARROW SPORTING GOODS",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "tank",
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1899,
-  "colors": {
-   "body": "#bfb18d"
-  }
+  "walls": "brick",
+  "year_built": 1898,
+  "condition": "kept"
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "name": "Nowicki Foods",
+  "sign": "NOWICKI FOODS"
+ },
+ "brief": "industrial (industry) generated for Harrow Falls."
 }

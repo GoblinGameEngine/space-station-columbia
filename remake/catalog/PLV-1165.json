@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.4,
-  "d": 33.1
+  "w": 23.5,
+  "d": 30.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 41,
-  "main_d_ft": 29,
+  "main_w_ft": 28,
+  "main_d_ft": 31,
   "roof": {
    "type": "hip",
-   "pitch_deg": 23,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,13 +26,13 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e6d4bb",
-   "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "body": "#f4f0e6",
+   "trim": "#5a3a28",
+   "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "picture",
+   "type": "sliding",
    "shutters": false
   },
   "chimneys": [
@@ -40,22 +40,23 @@
   ],
   "garage": "none",
   "yard": {
-   "fence": "chainlink",
+   "fence": "none",
    "side": "hedge",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1956,
   "band": "postwar",
-  "form_token": "spanish_revival",
-  "units": 2
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Mbeki",
-  "house_number": 1479
+  "family": "Loomis",
+  "house_number": 1258
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-4075"
 }

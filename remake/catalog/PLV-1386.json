@@ -3,61 +3,57 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.2,
-  "d": 20.0
+  "w": 35.0,
+  "d": 23.3
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 27,
+  "main_w_ft": 45,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 20,
-   "material": "clay_tile"
+   "material": "clay_tile_old"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
+   "body": "#ead9c8",
    "trim": "#2f3b2a",
-   "accent": "#6a2c22",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "attached_1",
+  "chimneys": [],
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1952,
-  "band": "postwar",
+  "year_built": 1971,
+  "band": "suburban",
   "form_token": "spanish_revival",
   "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Nowicki",
-  "house_number": 1136
+  "family": "Villalobos",
+  "house_number": 2146
  },
- "brief": "postwar band spanish_revival: 2 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0930"
+ "brief": "suburban band spanish_revival: 2 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3990"
 }

@@ -3,8 +3,8 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.5,
-  "d": 31.6
+  "w": 18.3,
+  "d": 35.7
  },
  "kind": "house",
  "traits": {
@@ -17,10 +17,19 @@
    "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   },
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "recessed",
-   "posts": "iron",
+   "type": "stoop",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "cedar_shingle",
@@ -32,29 +41,31 @@
    "roof": "#2e2e30"
   },
   "windows": {
-   "type": "1over1",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
-  "garage": "carport",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1955,
-  "band": "postwar",
+  "year_built": 1930,
+  "band": "interwar",
   "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
   "family": "Ostrowski",
-  "house_number": 690
+  "house_number": 623
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0964"
 }

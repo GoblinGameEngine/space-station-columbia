@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 14.1,
-  "d": 40.8
+  "w": 18.1,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 24,
+  "main_w_ft": 30,
   "main_d_ft": 27,
   "roof": {
    "type": "gable",
    "pitch_deg": 19,
-   "material": "clay_tile_old"
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
@@ -26,35 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#f4f0e6",
-   "trim": "#2f3b2a",
-   "accent": "#2f5e5a",
+   "body": "#efd9c4",
+   "trim": "#3b2a1e",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "3over1_craftsman",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "none",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
-   "extras": [
-    "clothesline"
-   ]
+   "side": "none",
+   "rear": "chainlink",
+   "extras": []
   },
-  "condition": "worn",
-  "year_built": 1926,
-  "band": "streetcar",
-  "form_token": "ranch"
+  "condition": "kept",
+  "year_built": 1937,
+  "band": "interwar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 377
+  "family": "Booker",
+  "house_number": 157
  },
- "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0763"
+ "brief": "interwar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0504"
 }

@@ -8,25 +8,58 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 8,
   "facade": "brick",
-  "cornice": "parapet_flat",
   "upper_use": "offices",
-  "storefronts": [
+  "offices": [
    {
-    "business": "Pham Tavern",
-    "type": "bar",
-    "sign": "PHAM TAVERN",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "dentist"
+   },
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "courier_office"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "registry_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1880,
+  "cornice": "corbelled_brick",
+  "storefronts": [
+   {
+    "business": "Ostrowski Cafe",
+    "type": "cafe",
+    "sign": "OSTROWSKI CAFE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Commerce Savings Bank",
+    "type": "bank",
+    "sign": "COMMERCE SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1917,
   "colors": {
-   "body": "#9e583a"
+   "body": "#945036"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Adebayo Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

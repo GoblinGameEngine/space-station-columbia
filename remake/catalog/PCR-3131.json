@@ -3,36 +3,36 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.8,
-  "d": 24.8
+  "w": 18.5,
+  "d": 33.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
+  "archetype": "nantucket_cape",
   "storeys": 1.5,
-  "main_w_ft": 31,
-  "main_d_ft": 27,
+  "main_w_ft": 33,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 41,
-   "material": "slate"
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "columns",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
+   "body": "#6f6a62",
    "trim": "#f7f6f0",
    "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": false
   },
   "chimneys": [
@@ -41,23 +41,22 @@
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "none",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1926,
   "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "nantucket_cape"
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 1854
+  "family": "Wisniewski",
+  "house_number": 236
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0436"
+ "brief": "interwar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0327"
 }

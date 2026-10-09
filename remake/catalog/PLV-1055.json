@@ -3,17 +3,17 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 23.5,
-  "d": 31.1
+  "w": 19.4,
+  "d": 34.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 45,
-  "main_d_ft": 32,
+  "main_w_ft": 26,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
+   "type": "hip",
    "pitch_deg": 23,
    "material": "clay_tile"
   },
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
+   "body": "#f3eadb",
    "trim": "#2f3b2a",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
-   "extras": []
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1957,
-  "band": "postwar",
-  "form_token": "ranch"
+  "year_built": 1942,
+  "band": "interwar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 342
+  "family": "Nguyen",
+  "house_number": 1152
  },
- "brief": "postwar band ranch: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-4075"
+ "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0249"
 }

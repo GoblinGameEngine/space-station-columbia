@@ -8,25 +8,51 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
+  "form": "office_block",
+  "storeys": 8,
+  "facade": "stone",
+  "upper_use": "offices",
+  "offices": [
    {
-    "business": "Achterberg Brewing",
-    "type": "brewpub",
-    "sign": "ACHTERBERG BREWING",
-    "sign_style": "flat_board",
-    "awning": false
+    "type": "works_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "registry_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "dispatch_office"
    }
   ],
-  "condition": "worn",
-  "year_built": 1915,
+  "cornice": "parapet_flat",
+  "storefronts": [
+   {
+    "business": "Union Clothiers",
+    "type": "clothing",
+    "sign": "UNION CLOTHIERS",
+    "sign_style": "projecting",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1919,
   "colors": {
-   "body": "#903d3a"
+   "body": "#a18d61"
   }
  },
- "names": {},
- "brief": "store (store) generated for Harrow Falls."
+ "names": {
+  "block_name": "Delmar Building"
+ },
+ "brief": "store (office) generated for Harrow Falls."
 }

@@ -3,34 +3,25 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.5,
-  "d": 22.7
+  "w": 11.1,
+  "d": 24.7
  },
  "kind": "house",
  "traits": {
   "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 27,
-  "main_d_ft": 43,
+  "main_w_ft": 26,
+  "main_d_ft": 38,
   "roof": {
    "type": "hip",
    "pitch_deg": 31,
    "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   },
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
@@ -41,29 +32,30 @@
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "6over6",
    "shutters": true
   },
   "chimneys": [
    "left_end"
   ],
-  "garage": "none",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1942,
+  "year_built": 1934,
   "band": "interwar",
-  "form_token": "foursquare"
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 1774
+  "house_number": 1648
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0982"
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0715"
 }

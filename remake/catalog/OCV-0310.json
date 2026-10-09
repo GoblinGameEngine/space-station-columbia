@@ -3,33 +3,61 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 40.8,
-  "d": 35.0
+  "w": 14.6,
+  "d": 39.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 36,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 28,
+  "main_d_ft": 31,
+  "roof": {
+   "type": "gable",
+   "pitch_deg": 18,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#2e2a26",
-   "accent": "#2e3a4a",
+   "body": "#e8d8c0",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 20
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
   },
-  "year_built": 1918,
-  "condition": "kept"
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1912,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Moriarty",
+  "house_number": 537
  },
- "brief": "townhouse (townhouse) generated for Oceanview.",
- "model": "SOL-0063"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0758"
 }

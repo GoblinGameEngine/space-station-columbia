@@ -3,26 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 65.7,
-  "d": 29.8
+  "w": 10.4,
+  "d": 20.1
  },
- "kind": "condo",
+ "kind": "house",
  "traits": {
-  "storeys": 4,
-  "form": "slab",
-  "units": 24,
-  "balconies": "none",
-  "ground_floor": "apartments",
-  "walls": "brick",
-  "colors": {
-   "body": "#8e4a36"
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 23,
+  "main_d_ft": 35,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 30,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2011,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#f6f5f0",
+   "trim": "#f7f6f0",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
+  },
+  "windows": {
+   "type": "3over1_craftsman",
+   "shutters": false
+  },
+  "chimneys": [
+   "right_end"
+  ],
+  "garage": "detached_1",
+  "yard": {
+   "fence": "none",
+   "side": "hedge",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "kept",
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "foursquare",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Villalobos",
+  "house_number": 474
  },
- "brief": "condo (apartment) generated for Port Carrow."
+ "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
 }

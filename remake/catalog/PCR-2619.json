@@ -3,40 +3,40 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.5,
-  "d": 31.1
+  "w": 19.6,
+  "d": 32.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
+  "main_w_ft": 33,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 30,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 47,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "tapered_on_piers",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#e6e2d8",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
@@ -44,20 +44,19 @@
    "side": "hedge",
    "rear": "chainlink",
    "extras": [
-    "shed"
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1930,
   "band": "interwar",
-  "form_token": "foursquare",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Harrow",
-  "house_number": 452
+  "family": "Okonkwo",
+  "house_number": 1573
  },
- "brief": "interwar band foursquare: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-1072"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0818"
 }

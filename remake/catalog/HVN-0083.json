@@ -6,28 +6,22 @@
   "w": 18.3,
   "d": 40.4
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Haskins Variety",
-    "type": "variety_store",
-    "sign": "HASKINS VARIETY",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 5,
+  "components": [
+   "stack"
   ],
-  "condition": "worn",
-  "year_built": 1921,
-  "colors": {
-   "body": "#9c5a42"
-  }
+  "walls": "brick",
+  "year_built": 1911,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Haven Point."
+ "names": {
+  "name": "Arrieta Machine Works",
+  "sign": "ARRIETA MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Haven Point."
 }

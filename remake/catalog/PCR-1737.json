@@ -3,57 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 31.1
+  "w": 14.2,
+  "d": 40.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 31,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 29,
   "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 28,
+   "pitch_deg": 38,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "enclosed",
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "concrete_block",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#637171",
-   "trim": "#e9e2d2",
-   "accent": "#2e3a4a",
-   "roof": "#4e5155"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [
-   "left_end"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
-   "extras": []
+   "side": "none",
+   "rear": "none",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "minimal_traditional"
+  "year_built": 1928,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
+ "region": "ne",
  "names": {
-  "family": "Bazzi",
-  "house_number": 995
+  "family": "Leclerc",
+  "house_number": 1266
  },
- "brief": "interwar band minimal_traditional: 1 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "HF-1644"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0513"
 }

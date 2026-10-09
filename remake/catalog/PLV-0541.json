@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 12.7,
-  "d": 38.7
+  "w": 19.0,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 18,
-  "main_d_ft": 31,
+  "main_w_ft": 38,
+  "main_d_ft": 21,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 20,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -23,40 +23,40 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
+   "body": "#f2e8dc",
    "trim": "#3b2a1e",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "chainlink",
+   "rear": "hedge",
    "extras": [
     "shed"
    ]
   },
-  "condition": "kept",
+  "condition": "shabby",
   "year_built": 1925,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "band": "interwar",
+  "form_token": "ranch"
  },
  "region": "ca",
  "names": {
-  "family": "Kowalczyk",
-  "house_number": 738
+  "family": "Yoder",
+  "house_number": 511
  },
- "brief": "streetcar band california_bungalow: 1 storeys, board_and_batten walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0464"
 }

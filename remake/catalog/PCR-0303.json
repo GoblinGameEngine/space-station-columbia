@@ -3,59 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.2,
-  "d": 21.9
+  "w": 15.0,
+  "d": 25.2
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 48,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_full",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [
-   "center"
+  "storeys": 1,
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "none",
+  "storefronts": [
+   {
+    "business": "Haskins Drug",
+    "type": "drug_store",
+    "sign": "HASKINS DRUG",
+    "sign_style": "flat_board",
+    "awning": false
+   }
   ],
-  "garage": "detached_2",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
-   "extras": [
-    "shed"
-   ]
-  },
   "condition": "kept",
-  "year_built": 1875,
-  "band": "rail",
-  "form_token": "cape_cod"
+  "year_built": 1888,
+  "colors": {
+   "body": "#e9e8e2"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Moriarty",
-  "house_number": 318
- },
- "brief": "rail band cape_cod: 1.5 storeys, clapboard walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

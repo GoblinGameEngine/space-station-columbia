@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.3,
-  "d": 28.8
+  "w": 25.0,
+  "d": 30.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
   "main_w_ft": 42,
   "main_d_ft": 25,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 25,
+   "type": "gambrel",
+   "pitch_deg": 40,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,13 +23,13 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "clapboard",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#d2b48b",
-   "trim": "#f4f1e8",
-   "accent": "#1f2a33",
-   "roof": "#3e3e3c"
+   "body": "#5b6b5a",
+   "trim": "#ffffff",
+   "accent": "#7a1f1a",
+   "roof": "#2f3438"
   },
   "windows": {
    "type": "1over1",
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 2000,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "dutch_colonial"
  },
+ "region": "ne",
  "names": {
   "family": "Okonkwo",
-  "house_number": 851
+  "house_number": 2218
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5840"
+ "brief": "late band dutch_colonial: 2 storeys, clapboard walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-1778"
 }

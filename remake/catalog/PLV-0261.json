@@ -3,61 +3,34 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.5,
-  "d": 34.7
+  "w": 36.9,
+  "d": 38.2
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 29,
-  "main_d_ft": 31,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 17,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "front_partial",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "board_and_batten",
-  "foundation": "slab",
+  "storeys": 4,
+  "form": "slab",
+  "units": 24,
+  "balconies": "front",
+  "ground_floor": "apartments",
+  "walls": "stucco",
   "colors": {
    "body": "#efe6d2",
-   "trim": "#4a3324",
-   "accent": "#2f5e5a",
+   "trim": "#2e2a26",
    "roof": "#a8492f"
   },
-  "windows": {
-   "type": "3over1_craftsman",
-   "shutters": false
-  },
-  "chimneys": [
-   "exterior_left"
-  ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "swing_set"
-   ]
-  },
+  "year_built": 1969,
   "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "california_bungalow"
+  "roof": {
+   "type": "hip",
+   "material": "clay_tile",
+   "pitch_deg": 16
+  }
  },
  "region": "ca",
  "names": {
-  "family": "Patel",
-  "house_number": 179
+  "name": ""
  },
- "brief": "interwar band california_bungalow: 1 storeys, board_and_batten walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0504"
+ "brief": "condo (apartment) generated for Playa Verde.",
+ "model": "SOL-1179"
 }

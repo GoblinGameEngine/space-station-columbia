@@ -3,23 +3,23 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 23.5,
-  "d": 22.8
+  "w": 18.3,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 28,
-  "main_d_ft": 33,
+  "main_w_ft": 21,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 21,
+   "type": "hip",
+   "pitch_deg": 23,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "square",
    "rail": "none"
   },
@@ -27,34 +27,37 @@
   "foundation": "slab",
   "colors": {
    "body": "#e9dcc2",
-   "trim": "#3b2a1e",
-   "accent": "#1f4a6e",
+   "trim": "#4a3324",
+   "accent": "#2f5e5a",
    "roof": "#a8492f"
   },
   "windows": {
    "type": "picture",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "none",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "carport",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "hedge",
    "extras": [
-    "garden"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1952,
-  "band": "postwar",
-  "form_token": "spanish_revival"
+  "year_built": 1971,
+  "band": "suburban",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Stroud",
-  "house_number": 1726
+  "family": "Dunmore",
+  "house_number": 1176
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "suburban band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "SOL-0582"
 }

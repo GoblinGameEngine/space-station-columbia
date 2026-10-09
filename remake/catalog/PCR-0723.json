@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.4,
-  "d": 23.8
+  "w": 16.9,
+  "d": 28.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 22,
-  "main_d_ft": 36,
+  "main_w_ft": 24,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 47,
+   "pitch_deg": 50,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_partial",
+   "posts": "turned",
+   "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
+   "body": "#8a8378",
    "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "6over6",
+   "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
+    "garden",
     "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1900,
-  "band": "streetcar",
-  "form_token": "i_house",
-  "units": 2
+  "year_built": 1873,
+  "band": "rail",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Desai",
-  "house_number": 568
+  "family": "Nowicki",
+  "house_number": 721
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens)."
+ "brief": "rail band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens)."
 }

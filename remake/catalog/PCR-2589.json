@@ -3,59 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
-  "d": 35.5
+  "w": 22.6,
+  "d": 34.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 50,
-  "main_d_ft": 28,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 32,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 39,
-   "material": "asphalt_shingle"
+   "pitch_deg": 19,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
+   "type": "stoop",
+   "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "clapboard",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "body": "#eed295",
+   "trim": "#5a3a28",
+   "accent": "#6a4a2a",
+   "roof": "#5a5a58"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": false
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
+   "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
   },
   "condition": "kept",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "year_built": 1959,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
- "region": "ne",
  "names": {
   "family": "Kowalczyk",
-  "house_number": 384
+  "house_number": 1041
  },
- "brief": "interwar band gable_front: 2 storeys, cedar_shingle walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0797"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2581"
 }

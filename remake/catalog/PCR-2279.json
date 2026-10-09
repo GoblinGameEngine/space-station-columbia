@@ -3,59 +3,59 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.9,
-  "d": 33.1
+  "w": 10.6,
+  "d": 37.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
-  "storeys": 2,
-  "main_w_ft": 43,
-  "main_d_ft": 27,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 23,
+  "main_d_ft": 34,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
-   "material": "asphalt_shingle"
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
+   "type": "stacked",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
+   "body": "#e9e8e2",
+   "trim": "#f4f3ec",
    "accent": "#3a2a24",
-   "roof": "#3a3836"
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "3over1_craftsman",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "center"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "hedge",
+   "fence": "picket",
+   "side": "none",
+   "rear": "chainlink",
    "extras": []
   },
   "condition": "worn",
-  "year_built": 1948,
-  "band": "postwar",
-  "form_token": "shingle_style",
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "cape_cod",
   "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Achterberg",
-  "house_number": 617
+  "family": "Holloway",
+  "house_number": 1517
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0719"
+ "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0311"
 }

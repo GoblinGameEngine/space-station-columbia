@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 34.5,
-  "d": 22.7
+  "w": 18.6,
+  "d": 22.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "dutch_colonial",
-  "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 20,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 20,
+  "main_d_ft": 26,
   "roof": {
-   "type": "gambrel",
-   "pitch_deg": 47,
+   "type": "gable",
+   "pitch_deg": 22,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,40 +23,38 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#7d776d",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
+   "body": "#9d9061",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#4e5155"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "sliding",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "rear"
   ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "hedge",
    "rear": "tree_line",
-   "extras": [
-    "swing_set"
-   ]
+   "extras": []
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1983,
   "band": "suburban",
-  "form_token": "dutch_colonial"
+  "form_token": "ranch",
+  "units": 2
  },
- "region": "ne",
  "names": {
-  "family": "Foxworth",
-  "house_number": 562
+  "family": "Osei",
+  "house_number": 1072
  },
- "brief": "suburban band dutch_colonial: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-5260"
+ "brief": "suburban band ranch: 1 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-2193"
 }

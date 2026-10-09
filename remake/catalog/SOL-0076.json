@@ -8,28 +8,55 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 1,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "stucco",
-  "cornice": "parapet_flat",
-  "upper_use": "none",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "works_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "architect_office"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "tile_roof",
   "storefronts": [
    {
-    "business": "Solano & Smith Diner",
-    "type": "diner",
-    "sign": "SOLANO & SMITH DINER",
+    "business": "Desai Law Office",
+    "type": "law_office",
+    "sign": "DESAI LAW OFFICE",
+    "sign_style": "flat_board",
+    "awning": false
+   },
+   {
+    "business": "Adebayo Drug",
+    "type": "drug_store",
+    "sign": "ADEBAYO DRUG",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
-  "condition": "shabby",
-  "year_built": 1915,
+  "condition": "kept",
+  "year_built": 1907,
   "colors": {
-   "body": "#efd9c4"
+   "body": "#efe6d2"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Brannock Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

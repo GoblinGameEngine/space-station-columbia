@@ -3,31 +3,65 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.9,
-  "d": 29.0
+  "w": 10.6,
+  "d": 39.1
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "foursquare",
   "storeys": 2,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "offices",
-  "storefronts": [
-   {
-    "business": "Smith & Stroud Beauty Shop",
-    "type": "beauty_salon",
-    "sign": "SMITH & STROUD BEAUTY SHOP",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "shabby",
-  "year_built": 1895,
+  "main_w_ft": 22,
+  "main_d_ft": 40,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 27,
+   "material": "slate"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#7a4232"
+   "body": "#8a8378",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [
+   "center"
+  ],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "swing_set"
+   ]
+  },
+  "condition": "kept",
+  "year_built": 1895,
+  "band": "streetcar",
+  "form_token": "foursquare",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 14,
+   "d_ft": 11
   }
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "family": "Holloway",
+  "house_number": 453
+ },
+ "brief": "streetcar band foursquare: 2 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens)."
 }

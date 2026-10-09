@@ -8,25 +8,52 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 6,
   "facade": "brick",
-  "cornice": "corbelled_brick",
   "upper_use": "offices",
+  "offices": [
+   {
+    "type": "law_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "board_office"
+   },
+   {
+    "type": "courier_office"
+   }
+  ],
+  "cornice": "parapet_flat",
   "storefronts": [
    {
-    "business": "Nguyen Gallery",
-    "type": "art_gallery",
-    "sign": "NGUYEN GALLERY",
-    "sign_style": "flat_board",
+    "business": "Commerce Savings Bank",
+    "type": "bank",
+    "sign": "COMMERCE SAVINGS BANK",
+    "sign_style": "projecting",
+    "awning": true
+   },
+   {
+    "business": "Tremblay Savings Bank",
+    "type": "bank",
+    "sign": "TREMBLAY SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": true
    }
   ],
   "condition": "kept",
-  "year_built": 1922,
+  "year_built": 1901,
   "colors": {
-   "body": "#743526"
+   "body": "#d3af83"
   }
  },
- "names": {},
- "brief": "store (store) generated for Marlowe."
+ "names": {
+  "block_name": "Arrieta Building"
+ },
+ "brief": "store (office) generated for Marlowe."
 }

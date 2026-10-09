@@ -3,31 +3,31 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 13.2,
-  "d": 25.1
+  "w": 10.6,
+  "d": 24.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 37,
+  "main_w_ft": 25,
+  "main_d_ft": 39,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 24,
-   "material": "clay_tile_old"
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2e2a26",
+   "body": "#f3eadb",
+   "trim": "#2f3b2a",
    "accent": "#8a4a20",
    "roof": "#a8492f"
   },
@@ -35,24 +35,27 @@
    "type": "2over2",
    "shutters": false
   },
-  "chimneys": [],
-  "garage": "detached_2",
+  "chimneys": [
+   "exterior_left"
+  ],
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "chainlink",
+   "side": "chainlink",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1904,
+  "year_built": 1912,
   "band": "streetcar",
-  "form_token": "spanish_revival"
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Wainwright",
-  "house_number": 946
+  "family": "Solano",
+  "house_number": 918
  },
- "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0378"
+ "brief": "streetcar band ranch: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0715"
 }

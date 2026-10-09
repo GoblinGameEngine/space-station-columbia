@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 22.8
+  "w": 23.4,
+  "d": 32.2
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 20,
-  "main_d_ft": 29,
+  "main_w_ft": 33,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "slate"
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f4f3ec",
-   "accent": "#1f2e44",
-   "roof": "#2f3438"
+   "body": "#a9aca3",
+   "trim": "#e9e2d2",
+   "accent": "#2b4f6b",
+   "roof": "#6a5e52"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,25 +41,22 @@
   "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
    "extras": [
-    "garden",
-    "clothesline",
-    "swing_set"
+    "shed",
+    "clothesline"
    ]
   },
-  "condition": "worn",
+  "condition": "kept",
   "year_built": 1993,
   "band": "late",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 900
+  "family": "Garcia",
+  "house_number": 1028
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0326"
+ "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5730"
 }

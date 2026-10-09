@@ -3,19 +3,19 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 31.5,
-  "d": 24.2
+  "w": 29.7,
+  "d": 26.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "split_level",
   "storeys": 1,
   "main_w_ft": 48,
   "main_d_ft": 29,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 22,
-   "material": "clay_tile_old"
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,19 +23,21 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "stucco",
-  "foundation": "slab",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#efe6d2",
-   "trim": "#2f3b2a",
-   "accent": "#2c4a2e",
-   "roof": "#a8492f"
+   "body": "#a6ba9f",
+   "trim": "#f4f1e8",
+   "accent": "#2b4f6b",
+   "roof": "#2f3133"
   },
   "windows": {
    "type": "sliding",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -46,13 +48,12 @@
   "condition": "kept",
   "year_built": 1972,
   "band": "suburban",
-  "form_token": "california_bungalow"
+  "form_token": "split_level"
  },
- "region": "ca",
  "names": {
   "family": "Castellanos",
-  "house_number": 262
+  "house_number": 614
  },
- "brief": "suburban band california_bungalow: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-3614"
+ "brief": "suburban band split_level: 1 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-5234"
 }

@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.8,
-  "d": 23.0
+  "w": 16.2,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 49,
-  "main_d_ft": 27,
+  "archetype": "side_gable_cottage",
+  "storeys": 1,
+  "main_w_ft": 31,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
-   "pitch_deg": 41,
-   "material": "wood_shingle"
+   "pitch_deg": 36,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "tapered_on_piers",
    "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "stucco",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f7f6f0",
-   "accent": "#24382a",
-   "roof": "#2f3438"
+   "body": "#ccb09c",
+   "trim": "#f4f1e8",
+   "accent": "#5b6b3a",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "6over6",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -51,14 +51,12 @@
   "condition": "kept",
   "year_built": 1936,
   "band": "interwar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "side_gable_cottage"
  },
- "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 1134
+  "house_number": 1156
  },
- "brief": "interwar band gable_front: 2 storeys, clapboard walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0511"
+ "brief": "interwar band side_gable_cottage: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-0823"
 }

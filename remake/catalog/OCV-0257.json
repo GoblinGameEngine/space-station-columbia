@@ -3,63 +3,33 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 15.8,
-  "d": 32.9
+  "w": 15.0,
+  "d": 31.1
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "minimal_traditional",
-  "storeys": 1,
-  "main_w_ft": 27,
-  "main_d_ft": 27,
-  "roof": {
-   "type": "hip",
-   "pitch_deg": 19,
-   "material": "clay_tile"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stoop",
-   "posts": "square",
-   "rail": "none"
-  },
-  "walls": "stucco",
-  "foundation": "slab",
+  "storeys": 2,
+  "facade": "stucco",
+  "cornice": "tile_roof",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Infirmary Printing",
+    "type": "print_shop",
+    "sign": "INFIRMARY PRINTING",
+    "sign_style": "projecting",
+    "awning": true
+   }
+  ],
+  "condition": "kept",
+  "year_built": 1895,
   "colors": {
-   "body": "#e9d6c8",
-   "trim": "#2f3b2a",
-   "accent": "#8a4a20",
-   "roof": "#a8492f"
+   "body": "#ead9c8"
   },
-  "windows": {
-   "type": "2over2",
-   "shutters": false
-  },
-  "chimneys": [],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "hedge",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "clothesline"
-   ]
-  },
-  "condition": "worn",
-  "year_built": 1889,
-  "band": "rail",
-  "form_token": "minimal_traditional",
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
-  }
+  "arcade": false,
+  "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {
-  "family": "Patel",
-  "house_number": 467
- },
- "brief": "rail band minimal_traditional: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1186"
+ "names": {},
+ "brief": "store (store) generated for Oceanview."
 }

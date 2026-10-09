@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 12.9,
-  "d": 37.5
+  "w": 11.1,
+  "d": 26.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 28,
+  "main_w_ft": 24,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 23,
@@ -32,7 +32,7 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
+   "type": "2over2",
    "shutters": false
   },
   "chimneys": [],
@@ -41,12 +41,16 @@
    "fence": "none",
    "side": "none",
    "rear": "chainlink",
-   "extras": []
+   "extras": [
+    "garden",
+    "shed"
+   ]
   },
   "condition": "kept",
-  "year_built": 1922,
-  "band": "streetcar",
+  "year_built": 1895,
+  "band": "rail",
   "form_token": "spanish_revival",
+  "units": 2,
   "wing": {
    "side": "rear",
    "w_ft": 13,
@@ -57,8 +61,8 @@
  "region": "ca",
  "names": {
   "family": "Desai",
-  "house_number": 345
+  "house_number": 508
  },
- "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0825"
+ "brief": "rail band spanish_revival: 2 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0812"
 }

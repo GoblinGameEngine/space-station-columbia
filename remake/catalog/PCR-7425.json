@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 23.5,
-  "d": 33.5
+  "w": 24.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 38,
+  "main_w_ft": 40,
   "main_d_ft": 20,
   "roof": {
    "type": "gable",
-   "pitch_deg": 32,
+   "pitch_deg": 41,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "brick",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#813b27",
-   "trim": "#f2efe6",
-   "accent": "#2b4f6b",
-   "roof": "#2f3133"
+   "body": "#6f6a62",
+   "trim": "#ffffff",
+   "accent": "#1f2e44",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Booker",
-  "house_number": 1231
+  "house_number": 2614
  },
- "brief": "late band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-6034"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2750"
 }

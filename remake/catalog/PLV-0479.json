@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 19.5,
-  "d": 32.5
+  "w": 13.7,
+  "d": 38.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "california_bungalow",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 31,
+  "main_w_ft": 24,
+  "main_d_ft": 38,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 20,
+   "type": "hip",
+   "pitch_deg": 16,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -32,8 +32,8 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -41,24 +41,23 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "none",
    "extras": [
     "garden",
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
-  "condition": "kept",
-  "year_built": 1923,
-  "band": "interwar",
-  "form_token": "spanish_revival"
+  "condition": "worn",
+  "year_built": 1898,
+  "band": "streetcar",
+  "form_token": "california_bungalow"
  },
  "region": "ca",
  "names": {
-  "family": "Leclerc",
-  "house_number": 523
+  "family": "Moriarty",
+  "house_number": 633
  },
- "brief": "interwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0582"
+ "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0488"
 }

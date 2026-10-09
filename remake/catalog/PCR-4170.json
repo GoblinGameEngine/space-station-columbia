@@ -3,61 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.0,
-  "d": 21.3
+  "w": 23.1,
+  "d": 20.0
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 30,
+  "main_w_ft": 32,
+  "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "wood_shingle"
+   "pitch_deg": 43,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "stoop",
-   "posts": "iron",
+   "posts": "square",
    "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
+   "body": "#8a2e24",
    "trim": "#ffffff",
    "accent": "#3a2a24",
-   "roof": "#4a4440"
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "picture",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
-   "center"
+   "rear"
   ],
   "garage": "attached_1",
   "yard": {
-   "fence": "chainlink",
-   "side": "hedge",
-   "rear": "hedge",
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "clothesline"
+    "garden",
+    "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1960,
   "band": "postwar",
-  "form_token": "i_house",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Solano",
-  "house_number": 2657
+  "family": "Foxworth",
+  "house_number": 2675
  },
  "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0326"
+ "model": "PCR-1204"
 }

@@ -3,58 +3,61 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.7,
-  "d": 31.4
+  "w": 11.2,
+  "d": 26.3
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 33,
-  "main_d_ft": 30,
+  "main_w_ft": 23,
+  "main_d_ft": 36,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
+   "pitch_deg": 49,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#5b6b5a",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "6over6",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "left_end"
+   "exterior_left"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "hedge",
-   "extras": []
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
   "year_built": 1924,
   "band": "interwar",
-  "form_token": "i_house"
+  "form_token": "i_house",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Yoder",
-  "house_number": 148
+  "family": "Kowalczyk",
+  "house_number": 2041
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0581"
+ "brief": "interwar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0630"
 }

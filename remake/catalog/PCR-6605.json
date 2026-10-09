@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 26.5,
-  "d": 32.6
+  "w": 16.2,
+  "d": 31.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 38,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 22,
+  "main_d_ft": 30,
   "roof": {
    "type": "gable",
-   "pitch_deg": 35,
-   "material": "asphalt_shingle"
+   "pitch_deg": 43,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a0b198",
-   "trim": "#5a3a28",
-   "accent": "#7a2e28",
-   "roof": "#555350"
+   "body": "#6f6a62",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [],
   "garage": "attached_1",
@@ -46,12 +46,14 @@
   "condition": "worn",
   "year_built": 2003,
   "band": "late",
-  "form_token": "builder_contemporary"
+  "form_token": "cape_cod",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Foxworth",
-  "house_number": 1733
+  "house_number": 3043
  },
- "brief": "late band builder_contemporary: 2 storeys, clapboard walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-6407"
+ "brief": "late band cape_cod: 1.5 storeys, cedar_shingle walls, front_partial porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0479"
 }

@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.9,
-  "d": 31.8
+  "w": 18.7,
+  "d": 28.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 25,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 29,
+   "type": "hip",
+   "pitch_deg": 37,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -26,34 +26,39 @@
   "walls": "vinyl",
   "foundation": "poured_concrete",
   "colors": {
-   "body": "#9da5b3",
-   "trim": "#f4f1e8",
-   "accent": "#2b4f6b",
-   "roof": "#6a5e52"
+   "body": "#d0c4a9",
+   "trim": "#3a3f44",
+   "accent": "#4a5a48",
+   "roof": "#5a5a58"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "privacy",
+   "side": "none",
    "rear": "privacy",
    "extras": [
+    "garden",
+    "shed",
     "swing_set"
    ]
   },
   "condition": "kept",
   "year_built": 1998,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "ranch",
+  "units": 2
  },
  "names": {
-  "family": "Pham",
-  "house_number": 1278
+  "family": "Achterberg",
+  "house_number": 3295
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-6034"
+ "brief": "late band ranch: 1 storeys, vinyl walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-2775"
 }

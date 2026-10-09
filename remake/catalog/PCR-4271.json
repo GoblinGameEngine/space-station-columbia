@@ -3,18 +3,18 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.6,
-  "d": 20.0
+  "w": 37.2,
+  "d": 34.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 29,
+  "main_w_ft": 35,
+  "main_d_ft": 23,
   "roof": {
    "type": "gable",
-   "pitch_deg": 44,
+   "pitch_deg": 28,
    "material": "asphalt_shingle"
   },
   "dormers": [],
@@ -23,42 +23,37 @@
    "posts": "square",
    "rail": "none"
   },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
+  "walls": "brick",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#9a9184",
-   "trim": "#f7f6f0",
-   "accent": "#7a1f1a",
-   "roof": "#3a3836"
+   "body": "#9b5844",
+   "trim": "#3a3f44",
+   "accent": "#2b4f6b",
+   "roof": "#4e5155"
   },
   "windows": {
    "type": "sliding",
    "shutters": true
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "carport",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": [
-    "clothesline",
-    "swing_set"
-   ]
+   "side": "none",
+   "rear": "tree_line",
+   "extras": []
   },
-  "condition": "kept",
-  "year_built": 1951,
-  "band": "postwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "condition": "worn",
+  "year_built": 1970,
+  "band": "suburban",
+  "form_token": "two_storey_colonial"
  },
- "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 2776
+  "house_number": 2350
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "PCR-0938"
+ "brief": "suburban band two_storey_colonial: 2 storeys, brick walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4000"
 }

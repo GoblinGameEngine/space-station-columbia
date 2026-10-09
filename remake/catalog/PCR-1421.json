@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.5,
-  "d": 40.1
+  "w": 14.5,
+  "d": 39.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 25,
+  "main_w_ft": 29,
   "main_d_ft": 35,
   "roof": {
    "type": "gable",
-   "pitch_deg": 49,
+   "pitch_deg": 44,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "none"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f6f5f0",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
+   "roof": "#3a3836"
   },
   "windows": {
    "type": "3over1_craftsman",
@@ -38,28 +38,26 @@
   "chimneys": [
    "center"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
-   "fence": "picket",
+   "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
     "garden",
-    "shed",
-    "clothesline"
+    "swing_set"
    ]
   },
   "condition": "kept",
-  "year_built": 1910,
+  "year_built": 1923,
   "band": "streetcar",
-  "form_token": "gable_front",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Brandvold",
-  "house_number": 966
+  "family": "Moriarty",
+  "house_number": 1116
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, stacked porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-0794"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0800"
 }

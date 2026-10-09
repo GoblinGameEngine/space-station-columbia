@@ -3,63 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 10.5,
-  "d": 23.8
+  "w": 17.2,
+  "d": 25.3
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "nantucket_cape",
-  "storeys": 1.5,
-  "main_w_ft": 21,
-  "main_d_ft": 33,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "cedar_shingle",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#8a8378",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#2f3438"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 2,
+  "facade": "clapboard",
+  "cornice": "bracketed_wood",
+  "upper_use": "offices",
+  "storefronts": [
+   {
+    "business": "Main Street Beauty Shop",
+    "type": "beauty_salon",
+    "sign": "MAIN STREET BEAUTY SHOP",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
   ],
-  "garage": "none",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
-  },
-  "condition": "kept",
-  "year_built": 1903,
-  "band": "streetcar",
-  "form_token": "nantucket_cape",
-  "units": 2,
-  "wing": {
-   "side": "rear",
-   "w_ft": 15,
-   "d_ft": 12
+  "condition": "shabby",
+  "year_built": 1924,
+  "colors": {
+   "body": "#2f3e52"
   }
  },
  "region": "ne",
- "names": {
-  "family": "Patel",
-  "house_number": 182
- },
- "brief": "streetcar band nantucket_cape: 1.5 storeys, cedar_shingle walls, stacked porch, garage none (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

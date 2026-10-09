@@ -8,25 +8,39 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 4,
   "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "wire_studio"
+   },
+   {
+    "type": "insurance_agency"
+   }
+  ],
+  "cornice": "corbelled_brick",
   "storefronts": [
    {
-    "business": "Reyes Bakery",
-    "type": "bakery",
-    "sign": "REYES BAKERY",
+    "business": "Foxworth Law Office",
+    "type": "law_office",
+    "sign": "FOXWORTH LAW OFFICE",
     "sign_style": "flat_board",
     "awning": true
    }
   ],
-  "condition": "worn",
-  "year_built": 1897,
+  "condition": "kept",
+  "year_built": 1903,
   "colors": {
-   "body": "#874435"
+   "body": "#9c8c70"
   }
  },
- "names": {},
- "brief": "store (store) generated for Fenwick."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Fenwick."
 }

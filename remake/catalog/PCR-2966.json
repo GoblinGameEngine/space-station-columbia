@@ -3,63 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.0,
-  "d": 33.5
+  "w": 53.7,
+  "d": 23.2
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 29,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 38,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [
-   {
-    "type": "gable",
-    "side": "front"
-   }
-  ],
-  "porch": {
-   "type": "recessed",
-   "posts": "square",
-   "rail": "solid"
-  },
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "front",
+  "ground_floor": "apartments",
   "walls": "clapboard",
-  "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#e6e2d8"
   },
-  "windows": {
-   "type": "1over1",
-   "shutters": false
-  },
-  "chimneys": [
-   "rear"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
-  },
-  "condition": "kept",
-  "year_built": 1956,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "year_built": 2003,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Osei",
-  "house_number": 1403
+  "name": ""
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-2954"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-1171"
 }

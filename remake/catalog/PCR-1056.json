@@ -3,60 +3,66 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.8,
-  "d": 41.8
+  "w": 11.2,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
   "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 26,
-  "main_d_ft": 36,
+  "main_w_ft": 25,
+  "main_d_ft": 40,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
+   "pitch_deg": 47,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#5b6b5a",
+   "body": "#f4f2e8",
    "trim": "#ffffff",
    "accent": "#7a1f1a",
    "roof": "#2f3438"
   },
   "windows": {
-   "type": "1over1",
+   "type": "3over1_craftsman",
    "shutters": true
   },
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1912,
+  "year_built": 1923,
   "band": "streetcar",
-  "form_token": "i_house"
+  "form_token": "i_house",
+  "units": 2,
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 10
+  }
  },
  "region": "ne",
  "names": {
-  "family": "Pruett",
-  "house_number": 916
+  "family": "Wisniewski",
+  "house_number": 567
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0665"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0788"
 }

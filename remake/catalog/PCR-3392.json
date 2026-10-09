@@ -3,61 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 19.0,
-  "d": 34.4
+  "w": 24.8,
+  "d": 34.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 38,
-  "main_d_ft": 23,
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 30,
+  "main_d_ft": 31,
   "roof": {
    "type": "gable",
-   "pitch_deg": 48,
-   "material": "asphalt_shingle"
+   "pitch_deg": 46,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "columns",
-   "rail": "none"
+   "type": "recessed",
+   "posts": "square",
+   "rail": "solid"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f4f3ec",
+   "body": "#9a9184",
+   "trim": "#ffffff",
    "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "6over6",
+   "type": "1over1",
    "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": [
-    "garden",
-    "shed"
-   ]
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": []
   },
   "condition": "kept",
-  "year_built": 1938,
-  "band": "interwar",
-  "form_token": "cape_cod"
+  "year_built": 1963,
+  "band": "postwar",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "family": "Haddad",
-  "house_number": 2076
+  "family": "Adebayo",
+  "house_number": 1949
  },
- "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0664"
+ "brief": "postwar band gable_front: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-2346"
 }

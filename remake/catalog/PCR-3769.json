@@ -3,59 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.1,
-  "d": 33.6
+  "w": 36.5,
+  "d": 33.1
  },
  "kind": "house",
  "traits": {
-  "archetype": "shingle_style",
+  "archetype": "foursquare",
   "storeys": 2,
-  "main_w_ft": 40,
-  "main_d_ft": 30,
+  "main_w_ft": 42,
+  "main_d_ft": 32,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 32,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
    "type": "recessed",
-   "posts": "iron",
-   "rail": "none"
+   "posts": "square",
+   "rail": "solid"
   },
   "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
+   "body": "#7d776d",
    "trim": "#ffffff",
    "accent": "#24382a",
-   "roof": "#2e2e30"
+   "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "rear"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "hedge",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "shingle_style",
-  "units": 2
+  "year_built": 1981,
+  "band": "suburban",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "DeCarlo",
-  "house_number": 873
+  "family": "Leclerc",
+  "house_number": 2329
  },
- "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, recessed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0928"
+ "brief": "suburban band foursquare: 2 storeys, cedar_shingle walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-3144"
 }

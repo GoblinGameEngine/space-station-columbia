@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 45.0,
-  "d": 36.9
+  "w": 22.7,
+  "d": 29.4
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 20,
-  "depth_ft": 36,
-  "walls": "clapboard",
-  "colors": {
-   "body": "#f4f2e8",
-   "trim": "#e9e2d2",
-   "accent": "#2b4f6b",
-   "roof": "#5a5a58"
-  },
+  "archetype": "gable_front",
+  "storeys": 2,
+  "main_w_ft": 35,
+  "main_d_ft": 24,
   "roof": {
-   "pitch_deg": 32
+   "type": "gable",
+   "pitch_deg": 41,
+   "material": "asphalt_shingle"
   },
-  "year_built": 2002,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "columns",
+   "rail": "none"
+  },
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#1d1f22",
+   "roof": "#2f3438"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [],
+  "garage": "attached_2",
+  "yard": {
+   "fence": "none",
+   "side": "privacy",
+   "rear": "privacy",
+   "extras": [
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1992,
+  "band": "late",
+  "form_token": "gable_front"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Leclerc",
+  "house_number": 385
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-0304"
+ "brief": "late band gable_front: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0824"
 }

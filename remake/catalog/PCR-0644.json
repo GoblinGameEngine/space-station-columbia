@@ -3,58 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.9,
-  "d": 29.0
+  "w": 18.2,
+  "d": 29.8
  },
- "kind": "house",
+ "kind": "store",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 37,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 43,
-   "material": "slate"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "stacked",
-   "posts": "square",
-   "rail": "spindle"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
-  "colors": {
-   "body": "#2f3e52",
-   "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#3a3836"
-  },
-  "windows": {
-   "type": "2over2",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
+  "storeys": 2,
+  "facade": "brick",
+  "cornice": "bracketed_metal",
+  "upper_use": "apartments",
+  "storefronts": [
+   {
+    "business": "Achterberg Tax Service",
+    "type": "tax_office",
+    "sign": "ACHTERBERG TAX SERVICE",
+    "sign_style": "awning_lettering",
+    "awning": false
+   }
   ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": []
-  },
   "condition": "kept",
-  "year_built": 1926,
-  "band": "streetcar",
-  "form_token": "cape_cod",
-  "units": 2
+  "year_built": 1899,
+  "colors": {
+   "body": "#8e4a36"
+  }
  },
  "region": "ne",
- "names": {
-  "family": "Pham",
-  "house_number": 267
- },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens)."
+ "names": {},
+ "brief": "store (store) generated for Port Carrow."
 }

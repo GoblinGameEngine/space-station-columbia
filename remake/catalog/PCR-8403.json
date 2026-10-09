@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.5,
-  "d": 29.8
+  "w": 25.2,
+  "d": 30.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
   "main_w_ft": 40,
   "main_d_ft": 24,
   "roof": {
    "type": "gable",
-   "pitch_deg": 31,
-   "material": "asphalt_shingle"
+   "pitch_deg": 42,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "columns",
    "rail": "solid"
   },
-  "walls": "clapboard",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#89a4ba",
-   "trim": "#5a3a28",
-   "accent": "#5b6b3a",
-   "roof": "#3e3e3c"
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
@@ -48,12 +48,13 @@
   "condition": "kept",
   "year_built": 2005,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Pike",
-  "house_number": 1237
+  "house_number": 2828
  },
- "brief": "late band two_storey_colonial: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-2312"
 }

@@ -3,58 +3,66 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.1,
-  "d": 31.8
+  "w": 17.9,
+  "d": 36.0
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
+  "archetype": "tudor_revival",
+  "storeys": 1.5,
   "main_w_ft": 33,
   "main_d_ft": 30,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 46,
-   "material": "slate"
+   "type": "cross_gable",
+   "pitch_deg": 38,
+   "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "shed",
+    "side": "front"
+   },
+   {
+    "type": "shed",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
-   "posts": "iron",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "columns",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "stucco",
+  "foundation": "concrete_block",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f4f3ec",
-   "accent": "#24382a",
-   "roof": "#2e2e30"
+   "body": "#f3f0d1",
+   "trim": "#f4f1e8",
+   "accent": "#1f2a33",
+   "roof": "#4a4a48"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "6over6",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "exterior_left"
   ],
-  "garage": "detached_1",
+  "garage": "detached_2",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
+   "side": "hedge",
+   "rear": "none",
    "extras": []
   },
   "condition": "kept",
-  "year_built": 1958,
-  "band": "postwar",
-  "form_token": "i_house"
+  "year_built": 1933,
+  "band": "interwar",
+  "form_token": "tudor"
  },
- "region": "ne",
  "names": {
-  "family": "Okafor",
-  "house_number": 135
+  "family": "Ostrowski",
+  "house_number": 1239
  },
- "brief": "postwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0398"
+ "brief": "interwar band tudor: 1.5 storeys, stucco walls, front_full porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "HF-2265"
 }

@@ -3,61 +3,27 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 13.7,
-  "d": 39.1
+  "w": 50.4,
+  "d": 30.0
  },
- "kind": "house",
+ "kind": "condo",
  "traits": {
-  "archetype": "gable_front",
-  "storeys": 2,
-  "main_w_ft": 32,
-  "main_d_ft": 33,
-  "roof": {
-   "type": "gable",
-   "pitch_deg": 39,
-   "material": "asphalt_shingle"
-  },
-  "dormers": [],
-  "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
-  },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "storeys": 3,
+  "form": "slab",
+  "units": 12,
+  "balconies": "none",
+  "ground_floor": "apartments",
+  "walls": "brick",
   "colors": {
-   "body": "#5b6b5a",
-   "trim": "#f7f6f0",
-   "accent": "#1d1f22",
-   "roof": "#4a4440"
+   "body": "#8e4a36"
   },
-  "windows": {
-   "type": "2over2",
-   "shutters": true
-  },
-  "chimneys": [
-   "center"
-  ],
-  "garage": "detached_1",
-  "yard": {
-   "fence": "none",
-   "side": "none",
-   "rear": "none",
-   "extras": [
-    "garden",
-    "swing_set"
-   ]
-  },
-  "condition": "kept",
-  "year_built": 1914,
-  "band": "streetcar",
-  "form_token": "gable_front"
+  "year_built": 2012,
+  "condition": "kept"
  },
  "region": "ne",
  "names": {
-  "family": "Raghunathan",
-  "house_number": 657
+  "name": ""
  },
- "brief": "streetcar band gable_front: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0851"
+ "brief": "condo (apartment) generated for Port Carrow.",
+ "model": "PCR-0901"
 }

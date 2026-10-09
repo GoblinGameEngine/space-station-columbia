@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 24.7,
-  "d": 30.5
+  "w": 22.6,
+  "d": 32.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 42,
+  "archetype": "ranch",
+  "storeys": 1,
+  "main_w_ft": 35,
   "main_d_ft": 27,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 49,
-   "material": "wood_shingle"
+   "type": "hip",
+   "pitch_deg": 34,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "square",
    "rail": "spindle"
   },
-  "walls": "clapboard",
-  "foundation": "cut_stone",
+  "walls": "vinyl",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e9e8e2",
-   "trim": "#f4f3ec",
-   "accent": "#7a1f1a",
-   "roof": "#2f3438"
+   "body": "#c0c1cd",
+   "trim": "#f2efe6",
+   "accent": "#4a5a48",
+   "roof": "#5a4a40"
   },
   "windows": {
    "type": "1over1",
-   "shutters": true
+   "shutters": false
   },
   "chimneys": [],
   "garage": "attached_2",
@@ -46,13 +46,12 @@
   "condition": "kept",
   "year_built": 2007,
   "band": "late",
-  "form_token": "i_house"
+  "form_token": "ranch"
  },
- "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 229
+  "house_number": 1088
  },
- "brief": "late band i_house: 2 storeys, clapboard walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "PCR-3369"
+ "brief": "late band ranch: 1 storeys, vinyl walls, front_partial porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-4333"
 }

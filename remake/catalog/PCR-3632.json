@@ -3,61 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 17.3,
-  "d": 21.1
+  "w": 24.2,
+  "d": 34.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 47,
-  "main_d_ft": 28,
+  "archetype": "foursquare",
+  "storeys": 2,
+  "main_w_ft": 31,
+  "main_d_ft": 33,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 50,
+   "type": "hip",
+   "pitch_deg": 27,
    "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "solid"
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
   },
-  "walls": "cedar_shingle",
+  "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a8378",
-   "trim": "#ffffff",
-   "accent": "#7a1f1a",
-   "roof": "#4a4440"
+   "body": "#f1ead2",
+   "trim": "#f4f3ec",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
+   "type": "picture",
    "shutters": true
   },
   "chimneys": [
-   "right_end"
+   "rear"
   ],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "none",
+   "rear": "chainlink",
    "extras": [
     "shed"
    ]
   },
-  "condition": "worn",
-  "year_built": 1934,
-  "band": "interwar",
-  "form_token": "cape_cod",
-  "units": 2
+  "condition": "kept",
+  "year_built": 1952,
+  "band": "postwar",
+  "form_token": "foursquare"
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 2142
+  "family": "Smith",
+  "house_number": 1950
  },
- "brief": "interwar band cape_cod: 1.5 storeys, cedar_shingle walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0375"
+ "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0474"
 }

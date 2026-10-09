@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 14.7,
-  "d": 38.0
+  "w": 17.4,
+  "d": 30.3
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
+  "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 26,
-  "main_d_ft": 43,
+  "main_w_ft": 47,
+  "main_d_ft": 28,
   "roof": {
    "type": "hip",
-   "pitch_deg": 16,
+   "pitch_deg": 21,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,35 +26,37 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e8d8c0",
+   "body": "#f4f0e6",
    "trim": "#3b2a1e",
    "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "clothesline"
+    "garden",
+    "swing_set"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1919,
-  "band": "streetcar",
-  "form_token": "california_bungalow"
+  "condition": "kept",
+  "year_built": 1932,
+  "band": "interwar",
+  "form_token": "ranch",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "family": "Garcia",
-  "house_number": 158
+  "family": "Booker",
+  "house_number": 573
  },
- "brief": "streetcar band california_bungalow: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
- "model": "SOL-0252"
+ "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0383"
 }

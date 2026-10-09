@@ -3,31 +3,58 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 46.0,
-  "d": 41.1
+  "w": 22.6,
+  "d": 21.0
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 22,
-  "depth_ft": 34,
-  "walls": "brick",
-  "colors": {
-   "body": "#7a4232",
-   "trim": "#f4f1e8",
-   "accent": "#6a4a2a",
-   "roof": "#3e3e3c"
-  },
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
   "roof": {
-   "pitch_deg": 29
+   "type": "gable",
+   "pitch_deg": 40,
+   "material": "asphalt_shingle"
   },
-  "year_built": 1957,
-  "condition": "kept"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "clapboard",
+  "foundation": "cut_stone",
+  "colors": {
+   "body": "#2f3e52",
+   "trim": "#f4f3ec",
+   "accent": "#1f2e44",
+   "roof": "#4a4440"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": true
+  },
+  "chimneys": [
+   "exterior_right"
+  ],
+  "garage": "carport",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "hedge",
+   "extras": []
+  },
+  "condition": "worn",
+  "year_built": 1964,
+  "band": "postwar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "name": ""
+  "family": "Pham",
+  "house_number": 2580
  },
- "brief": "townhouse (townhouse) generated for Port Carrow.",
- "model": "PCR-3994"
+ "brief": "postwar band cape_cod: 1.5 storeys, clapboard walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0635"
 }

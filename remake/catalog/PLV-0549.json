@@ -3,18 +3,18 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 24.1,
-  "d": 27.6
+  "w": 12.8,
+  "d": 33.7
  },
  "kind": "house",
  "traits": {
   "archetype": "spanish_revival",
   "storeys": 1,
-  "main_w_ft": 37,
+  "main_w_ft": 33,
   "main_d_ft": 33,
   "roof": {
    "type": "gable",
-   "pitch_deg": 18,
+   "pitch_deg": 17,
    "material": "clay_tile"
   },
   "dormers": [],
@@ -26,33 +26,35 @@
   "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#ead9c8",
+   "body": "#e6d4bb",
    "trim": "#2f3b2a",
-   "accent": "#1f4a6e",
+   "accent": "#6a2c22",
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "sliding",
+   "type": "2over2",
    "shutters": true
   },
   "chimneys": [],
-  "garage": "attached_1",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "hedge",
-   "extras": []
+   "side": "chainlink",
+   "rear": "none",
+   "extras": [
+    "garden"
+   ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
+  "year_built": 1899,
+  "band": "streetcar",
   "form_token": "spanish_revival"
  },
  "region": "ca",
  "names": {
-  "family": "Wisniewski",
-  "house_number": 219
+  "family": "Bazzi",
+  "house_number": 389
  },
- "brief": "postwar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-1766"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0370"
 }

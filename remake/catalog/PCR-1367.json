@@ -3,40 +3,31 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 12.8,
-  "d": 23.2
+  "w": 10.5,
+  "d": 33.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 29,
-  "main_d_ft": 31,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 25,
+  "main_d_ft": 38,
   "roof": {
    "type": "gable",
-   "pitch_deg": 40,
-   "material": "wood_shingle"
+   "pitch_deg": 44,
+   "material": "asphalt_shingle"
   },
-  "dormers": [
-   {
-    "type": "shed",
-    "side": "front"
-   },
-   {
-    "type": "shed",
-    "side": "front"
-   }
-  ],
+  "dormers": [],
   "porch": {
-   "type": "enclosed",
-   "posts": "tapered_on_piers",
-   "rail": "none"
+   "type": "stacked",
+   "posts": "square",
+   "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f4f2e8",
-   "trim": "#ffffff",
+   "body": "#e6e2d8",
+   "trim": "#f7f6f0",
    "accent": "#1d1f22",
    "roof": "#3a3836"
   },
@@ -45,28 +36,28 @@
    "shutters": true
   },
   "chimneys": [
-   "center"
+   "right_end"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "none",
+   "side": "none",
+   "rear": "chainlink",
    "extras": [
-    "shed",
-    "swing_set"
+    "garden"
    ]
   },
   "condition": "kept",
-  "year_built": 1895,
-  "band": "streetcar",
-  "form_token": "i_house"
+  "year_built": 1922,
+  "band": "interwar",
+  "form_token": "cape_cod",
+  "units": 2
  },
  "region": "ne",
  "names": {
-  "family": "Haddad",
-  "house_number": 1130
+  "family": "Desai",
+  "house_number": 733
  },
- "brief": "streetcar band i_house: 2 storeys, clapboard walls, enclosed porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0645"
+ "brief": "interwar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0695"
 }

@@ -3,39 +3,41 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 32.8,
-  "d": 32.6
+  "w": 30.5,
+  "d": 35.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "spanish_revival",
+  "archetype": "split_level",
   "storeys": 1,
   "main_w_ft": 42,
   "main_d_ft": 30,
   "roof": {
    "type": "hip",
-   "pitch_deg": 21,
-   "material": "clay_tile_old"
+   "pitch_deg": 18,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
+   "type": "recessed",
    "posts": "square",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "stucco",
-  "foundation": "slab",
+  "walls": "board_and_batten",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#5a3a28",
-   "accent": "#1f4a6e",
-   "roof": "#a8492f"
+   "body": "#783433",
+   "trim": "#e9e2d2",
+   "accent": "#7a2e28",
+   "roof": "#3e3e3c"
   },
   "windows": {
    "type": "1over1",
    "shutters": false
   },
-  "chimneys": [],
+  "chimneys": [
+   "rear"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -49,13 +51,12 @@
   "condition": "kept",
   "year_built": 1989,
   "band": "suburban",
-  "form_token": "spanish_revival"
+  "form_token": "split_level"
  },
- "region": "ca",
  "names": {
   "family": "Nowicki",
-  "house_number": 1884
+  "house_number": 1359
  },
- "brief": "suburban band spanish_revival: 1 storeys, stucco walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-2778"
+ "brief": "suburban band split_level: 1 storeys, board_and_batten walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-3765"
 }

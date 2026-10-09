@@ -6,28 +6,22 @@
   "w": 18.1,
   "d": 42.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 3,
-  "facade": "brick",
-  "cornice": "parapet_flat",
-  "upper_use": "apartments",
-  "storefronts": [
-   {
-    "business": "Depot Tavern",
-    "type": "bar",
-    "sign": "DEPOT TAVERN",
-    "sign_style": "flat_board",
-    "awning": true
-   }
+  "use": "food_plant",
+  "form": "loft",
+  "storeys": 4,
+  "components": [
+   "tank"
   ],
-  "condition": "kept",
-  "year_built": 1893,
-  "colors": {
-   "body": "#9c5a42"
-  }
+  "walls": "block",
+  "year_built": 1895,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Brightwater."
+ "names": {
+  "name": "Drop Yard Foods",
+  "sign": "DROP YARD FOODS"
+ },
+ "brief": "industrial (industry) generated for Brightwater."
 }

@@ -3,33 +3,33 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.4,
-  "d": 22.6
+  "w": 12.3,
+  "d": 22.7
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
-  "storeys": 2,
-  "main_w_ft": 30,
-  "main_d_ft": 33,
+  "archetype": "cape_cod",
+  "storeys": 1.5,
+  "main_w_ft": 18,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 38,
-   "material": "slate"
+   "pitch_deg": 47,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
-   "type": "stoop",
-   "posts": "turned",
-   "rail": "none"
+   "type": "front_full",
+   "posts": "tapered_on_piers",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e6e2d8",
-   "trim": "#f4f3ec",
+   "body": "#8a8378",
+   "trim": "#ffffff",
    "accent": "#24382a",
-   "roof": "#3a3836"
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
@@ -38,10 +38,10 @@
   "chimneys": [
    "center"
   ],
-  "garage": "none",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
+   "side": "none",
    "rear": "none",
    "extras": [
     "garden",
@@ -49,15 +49,15 @@
    ]
   },
   "condition": "kept",
-  "year_built": 1894,
-  "band": "rail",
-  "form_token": "i_house"
+  "year_built": 1900,
+  "band": "streetcar",
+  "form_token": "cape_cod"
  },
  "region": "ne",
  "names": {
-  "family": "Moriarty",
-  "house_number": 974
+  "family": "Merriweather",
+  "house_number": 652
  },
- "brief": "rail band i_house: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0473"
+ "brief": "streetcar band cape_cod: 1.5 storeys, cedar_shingle walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0605"
 }

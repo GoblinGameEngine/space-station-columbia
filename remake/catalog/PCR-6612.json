@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 25.7,
-  "d": 29.2
+  "w": 19.8,
+  "d": 23.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 42,
-  "main_d_ft": 21,
+  "main_w_ft": 26,
+  "main_d_ft": 27,
   "roof": {
    "type": "gable",
-   "pitch_deg": 29,
-   "material": "slate"
+   "pitch_deg": 48,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,19 +23,21 @@
    "posts": "columns",
    "rail": "none"
   },
-  "walls": "vinyl",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a1b2a2",
-   "trim": "#f2efe6",
-   "accent": "#2e3a4a",
-   "roof": "#555350"
+   "body": "#7d776d",
+   "trim": "#ffffff",
+   "accent": "#24382a",
+   "roof": "#4a4440"
   },
   "windows": {
    "type": "1over1",
    "shutters": true
   },
-  "chimneys": [],
+  "chimneys": [
+   "exterior_left"
+  ],
   "garage": "attached_2",
   "yard": {
    "fence": "none",
@@ -46,12 +48,14 @@
   "condition": "kept",
   "year_built": 2009,
   "band": "late",
-  "form_token": "two_storey_colonial"
+  "form_token": "shingle_style",
+  "units": 2
  },
+ "region": "ne",
  "names": {
   "family": "Mbeki",
-  "house_number": 1430
+  "house_number": 2955
  },
- "brief": "late band two_storey_colonial: 2 storeys, vinyl walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-5735"
+ "brief": "late band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-0280"
 }

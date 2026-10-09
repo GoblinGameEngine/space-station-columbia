@@ -8,28 +8,58 @@
  },
  "kind": "store",
  "traits": {
-  "storeys": 2,
+  "form": "office_block",
+  "storeys": 7,
   "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "apartments",
+  "upper_use": "offices",
+  "offices": [
+   {
+    "type": "accounting_office"
+   },
+   {
+    "type": "doctor_office"
+   },
+   {
+    "type": "dentist"
+   },
+   {
+    "type": "insurance_agency"
+   },
+   {
+    "type": "engineering_office"
+   },
+   {
+    "type": "accounting_office"
+   }
+  ],
+  "cornice": "mission_parapet",
   "storefronts": [
    {
-    "business": "Solano Clothiers",
-    "type": "clothing",
-    "sign": "SOLANO CLOTHIERS",
-    "sign_style": "awning_lettering",
+    "business": "Harrow Savings Bank",
+    "type": "bank",
+    "sign": "HARROW SAVINGS BANK",
+    "sign_style": "projecting",
     "awning": false
+   },
+   {
+    "business": "Achterberg Diner",
+    "type": "diner",
+    "sign": "ACHTERBERG DINER",
+    "sign_style": "flat_board",
+    "awning": true
    }
   ],
   "condition": "worn",
-  "year_built": 1923,
+  "year_built": 1928,
   "colors": {
-   "body": "#f0e2cf"
+   "body": "#f4f0e6"
   },
   "arcade": false,
   "roof_trim": "clay_tile"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Solana Point."
+ "names": {
+  "block_name": "Exchange Building"
+ },
+ "brief": "store (office) generated for Solana Point."
 }

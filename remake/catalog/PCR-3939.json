@@ -3,60 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.8,
-  "d": 32.9
+  "w": 18.6,
+  "d": 28.5
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
+  "archetype": "shingle_style",
   "storeys": 2,
-  "main_w_ft": 57,
-  "main_d_ft": 32,
+  "main_w_ft": 28,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 26,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 50,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
-   "type": "recessed",
-   "posts": "square",
+   "type": "stoop",
+   "posts": "tapered_on_piers",
    "rail": "none"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#8a2e24",
+   "body": "#6f6a62",
    "trim": "#ffffff",
-   "accent": "#1d1f22",
-   "roof": "#2e2e30"
+   "accent": "#1f2e44",
+   "roof": "#2f3438"
   },
   "windows": {
-   "type": "sliding",
+   "type": "3over1_craftsman",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "left_end"
   ],
   "garage": "none",
   "yard": {
    "fence": "none",
    "side": "chainlink",
-   "rear": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "swing_set"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1962,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "year_built": 1941,
+  "band": "interwar",
+  "form_token": "shingle_style"
  },
  "region": "ne",
  "names": {
-  "family": "Duquesne",
-  "house_number": 2261
+  "family": "Harrow",
+  "house_number": 2453
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, recessed porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "interwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "PCR-0992"
 }

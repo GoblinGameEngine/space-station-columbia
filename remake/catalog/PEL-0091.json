@@ -3,32 +3,32 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 12.8,
-  "d": 40.6
+  "w": 19.8,
+  "d": 33.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "california_bungalow",
-  "storeys": 1,
-  "main_w_ft": 35,
-  "main_d_ft": 32,
+  "archetype": "spanish_revival",
+  "storeys": 2,
+  "main_w_ft": 21,
+  "main_d_ft": 36,
   "roof": {
    "type": "hip",
-   "pitch_deg": 21,
+   "pitch_deg": 22,
    "material": "clay_tile"
   },
   "dormers": [],
   "porch": {
-   "type": "front_partial",
+   "type": "stoop",
    "posts": "square",
    "rail": "none"
   },
-  "walls": "board_and_batten",
+  "walls": "stucco",
   "foundation": "slab",
   "colors": {
-   "body": "#e4cfb2",
-   "trim": "#3b2a1e",
-   "accent": "#2c4a2e",
+   "body": "#dcc7a6",
+   "trim": "#2e2a26",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
   "windows": {
@@ -36,26 +36,27 @@
    "shutters": false
   },
   "chimneys": [],
-  "garage": "detached_1",
+  "garage": "none",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "chainlink",
+   "rear": "none",
    "extras": [
-    "shed",
-    "clothesline"
+    "shed"
    ]
   },
   "condition": "kept",
-  "year_built": 1922,
+  "year_built": 1895,
   "band": "streetcar",
-  "form_token": "california_bungalow"
+  "form_token": "spanish_revival",
+  "units": 2,
+  "balcony": "monterey"
  },
  "region": "ca",
  "names": {
-  "family": "Smith",
-  "house_number": 247
+  "family": "Moriarty",
+  "house_number": 264
  },
- "brief": "streetcar band california_bungalow: 1 storeys, board_and_batten walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "SOL-0488"
+ "brief": "streetcar band spanish_revival: 2 storeys, stucco walls, stoop porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0419"
 }

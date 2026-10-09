@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 18.7,
-  "d": 24.8
+  "w": 24.0,
+  "d": 31.9
  },
  "kind": "house",
  "traits": {
-  "archetype": "ranch",
-  "storeys": 1,
-  "main_w_ft": 33,
+  "archetype": "shingle_style",
+  "storeys": 2,
+  "main_w_ft": 50,
   "main_d_ft": 32,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 18,
-   "material": "asphalt_shingle"
+   "type": "gable",
+   "pitch_deg": 48,
+   "material": "wood_shingle"
   },
   "dormers": [],
   "porch": {
@@ -23,17 +23,17 @@
    "posts": "iron",
    "rail": "none"
   },
-  "walls": "shingle",
-  "foundation": "poured_concrete",
+  "walls": "cedar_shingle",
+  "foundation": "cut_stone",
   "colors": {
-   "body": "#a0a189",
-   "trim": "#e8e0c8",
-   "accent": "#4a5a48",
-   "roof": "#5a4a40"
+   "body": "#9a9184",
+   "trim": "#f7f6f0",
+   "accent": "#24382a",
+   "roof": "#2e2e30"
   },
   "windows": {
    "type": "1over1",
-   "shutters": false
+   "shutters": true
   },
   "chimneys": [
    "exterior_right"
@@ -50,13 +50,13 @@
   "condition": "kept",
   "year_built": 1947,
   "band": "postwar",
-  "form_token": "ranch",
-  "units": 2
+  "form_token": "shingle_style"
  },
+ "region": "ne",
  "names": {
   "family": "Castellanos",
-  "house_number": 614
+  "house_number": 516
  },
- "brief": "postwar band ranch: 1 storeys, shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
- "model": "SOL-4318"
+ "brief": "postwar band shingle_style: 2 storeys, cedar_shingle walls, stoop porch, garage carport (generated from the Great Lakes tokens).",
+ "model": "PCR-0987"
 }

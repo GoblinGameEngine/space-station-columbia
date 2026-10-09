@@ -3,15 +3,15 @@
  "settlement": "Oceanview",
  "generated": "tools/settlegen (Oceanview)",
  "lot": {
-  "w": 17.7,
-  "d": 32.3
+  "w": 21.3,
+  "d": 23.2
  },
  "kind": "house",
  "traits": {
   "archetype": "ranch",
   "storeys": 1,
-  "main_w_ft": 34,
-  "main_d_ft": 20,
+  "main_w_ft": 54,
+  "main_d_ft": 29,
   "roof": {
    "type": "gable",
    "pitch_deg": 16,
@@ -32,29 +32,31 @@
    "roof": "#a8492f"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "sliding",
+   "shutters": false
   },
   "chimneys": [
    "exterior_left"
   ],
-  "garage": "detached_2",
+  "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
+   "side": "chainlink",
    "rear": "hedge",
-   "extras": []
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "kept",
-  "year_built": 1929,
-  "band": "interwar",
+  "condition": "shabby",
+  "year_built": 1964,
+  "band": "postwar",
   "form_token": "ranch"
  },
  "region": "ca",
  "names": {
   "family": "Arrieta",
-  "house_number": 1347
+  "house_number": 902
  },
- "brief": "interwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_2 (generated from the Great Lakes tokens).",
- "model": "SOL-0591"
+ "brief": "postwar band ranch: 1 storeys, stucco walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-0384"
 }

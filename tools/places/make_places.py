@@ -47,11 +47,13 @@ T = {}
 
 
 def pt(id, name, cat, shells, jobs, hours, visits, third=False, price=1, per1000=0.0, fixtures=(), stock=(), machinery=(),
-       signage="fascia", hints=(), addictions=(), roles=(), station=False, note=""):
+       signage="fascia", hints=(), addictions=(), roles=(), station=False, note="", m2_per_job=None):
     T[id] = dict(name=name, category=cat, shells=list(shells), jobs=jobs, hours=dict(open=hours[0], close=hours[1], days=hours[2]),
                  visits=[dict(purpose=p, per_week=w, who=who, dwell_min=d) for p, w, who, d in visits], third_place=third,
                  price=price, per1000=per1000, contents=dict(fixtures=list(fixtures), stock=list(stock), machinery=list(machinery)),
                  signage=signage, hints=list(hints), addictions=list(addictions), roles=list(roles), station=station, note=note)
+    if m2_per_job:
+        T[id]["m2_per_job"] = m2_per_job              # (floor area per job: tools/rooms/make_rooms.staff_scale)
 
 
 SF = ["storefront", "strip_unit"]
@@ -62,9 +64,9 @@ ADULT = "age >= 18"
 # -- food and drink
 pt("grocery", "Grocery", "food", SF + ["big_box"], {"shop_clerk": 4, "shopkeeper": 1, "cook": 1}, ["07:00", "21:00", ALL],
    [("groceries", 1.0, ADULT, 25)], price=1, per1000=0.8, fixtures=["checkout_counter", "shelving_aisles", "chiller_cases", "freezer_cases", "produce_bins", "baskets_carts"],
-   stock=["produce", "canned_goods", "dairy", "bread", "meat", "household_goods"], signage="fascia", hints=["grocery", "dry_goods", "variety_store"], roles=["shopkeeper", "retail_clerk", "cashier", "stocker"])
+   stock=["produce", "canned_goods", "dairy", "bread", "meat", "household_goods"], signage="fascia", hints=["grocery", "dry_goods", "variety_store"], roles=["shopkeeper", "retail_clerk", "cashier", "stocker"], m2_per_job=40)
 pt("bakery", "Bakery", "food", SF, {"baker": 2, "shop_clerk": 1}, ["06:00", "15:00", WK], [("bread", 0.6, ADULT, 8)], price=1, per1000=0.3,
-   fixtures=["display_case", "counter", "bread_racks", "ovens_back"], stock=["bread", "pastries", "cakes"], machinery=["deck_oven", "mixer", "proofer"], hints=["bakery"], roles=["cook"])
+   fixtures=["display_case", "counter", "bread_racks", "ovens_back"], stock=["bread", "pastries", "cakes"], machinery=["deck_oven", "mixer", "proofer"], hints=["bakery"], roles=["cook"], m2_per_job=30)
 pt("butcher", "Butcher", "food", SF, {"shopkeeper": 1, "shop_clerk": 1}, ["08:00", "18:00", WK], [("meat", 0.3, ADULT, 8)], price=2, per1000=0.15,
    fixtures=["chilled_counter", "hooks_rail", "block_table"], stock=["meat", "sausages"], machinery=["band_saw", "grinder", "walk_in_cooler"], hints=["butcher"])
 pt("fish_market", "Fish market", "food", SF + ["waterfront_works"], {"shopkeeper": 1, "fisher": 1}, ["06:00", "14:00", WK], [("fish", 0.2, ADULT, 8)], price=1, per1000=0.1,
@@ -82,9 +84,9 @@ pt("liquor_store", "Liquor store", "retail", SF, {"shop_clerk": 2}, ["10:00", "2
    fixtures=["counter", "shelving", "cooler"], stock=["spirits", "beer", "wine", "lottery_tickets"], hints=[], addictions=["alcohol", "gambling", "nicotine"])
 # -- retail
 pt("drug_store", "Pharmacy / drug store", "health", SF, {"pharmacist": 1, "shop_clerk": 2}, ["08:00", "21:00", ALL], [("pharmacy", 0.2, ANY, 12)], price=1, per1000=0.3,
-   fixtures=["pharmacy_counter", "shelving_aisles", "checkout_counter"], stock=["medicines", "toiletries", "cosmetics", "snacks"], hints=["drug_store"], addictions=["opioids", "sedatives", "nicotine"], roles=["pharmacist"])
+   fixtures=["pharmacy_counter", "shelving_aisles", "checkout_counter"], stock=["medicines", "toiletries", "cosmetics", "snacks"], hints=["drug_store"], addictions=["opioids", "sedatives", "nicotine"], roles=["pharmacist"], m2_per_job=47)
 pt("hardware", "Hardware store", "retail", SF + ["big_box"], {"shopkeeper": 1, "shop_clerk": 2}, ["08:00", "18:00", WK], [("hardware", 0.2, ADULT, 15)], price=1, per1000=0.2,
-   fixtures=["counter", "pegboard_walls", "bins", "key_cutting_bench"], stock=["tools", "paint", "fasteners", "keys", "garden"], machinery=["key_cutter", "paint_shaker"], hints=["hardware", "feed_seed", "auto_parts"])
+   fixtures=["counter", "pegboard_walls", "bins", "key_cutting_bench"], stock=["tools", "paint", "fasteners", "keys", "garden"], machinery=["key_cutter", "paint_shaker"], hints=["hardware", "feed_seed", "auto_parts"], m2_per_job=60)
 pt("clothing", "Clothing store", "retail", SF, {"shopkeeper": 1, "shop_clerk": 2}, ["10:00", "18:00", WK], [("clothes", 0.1, "age >= 12", 25)], price=2, per1000=0.3,
    fixtures=["clothing_racks", "fitting_rooms", "counter", "mannequins"], stock=["clothing", "shoes", "accessories"], hints=["clothing", "beachwear", "t_shirts", "shoe_store", "surf_shop"], addictions=["shopping"])
 pt("variety_store", "Variety / general store", "retail", SF, {"shopkeeper": 1, "shop_clerk": 1}, ["08:00", "20:00", ALL], [("sundries", 0.3, "age >= 8", 12)], price=1, per1000=0.3,
@@ -98,7 +100,7 @@ pt("jeweler", "Jeweller", "retail", SF, {"shopkeeper": 1}, ["10:00", "17:00", WK
 pt("florist", "Florist", "retail", SF, {"shopkeeper": 1}, ["09:00", "17:00", WK], [("flowers", 0.03, ADULT, 10)], price=2, per1000=0.08,
    fixtures=["buckets", "cooler", "work_table"], stock=["flowers", "plants"], hints=["florist"])
 pt("furniture", "Furniture / appliance store", "retail", SF + ["big_box"], {"shop_clerk": 2}, ["10:00", "18:00", WK], [("furniture", 0.01, ADULT, 30)], price=2, per1000=0.05,
-   fixtures=["showroom_floor"], stock=["furniture", "appliances"], hints=["furniture", "appliance_repair"])
+   fixtures=["showroom_floor"], stock=["furniture", "appliances"], hints=["furniture", "appliance_repair"], m2_per_job=90)
 pt("sporting_goods", "Sporting goods / outfitter", "retail", SF + ["kiosk"], {"shop_clerk": 2}, ["09:00", "18:00", WK], [("gear", 0.04, "age >= 10", 20)], price=2, per1000=0.08,
    fixtures=["racks", "counter", "gun_case_optional"], stock=["sports_gear", "fishing_tackle", "bikes"], hints=["sporting_goods", "bike_rental", "surf_shop", "bait"])
 pt("charge_stop", "Charging stop / convenience", "retail", ["kiosk", "strip_unit", "storefront"], {"shop_clerk": 2}, ["05:00", "23:00", ALL], [("charge", 0.25, "car_access != 'none'", 20)], price=1, per1000=0.4,
@@ -113,7 +115,7 @@ pt("beauty_salon", "Beauty salon", "service", SF, {"barber": 2}, ["09:00", "19:0
 pt("laundromat", "Laundromat", "service", SF, {"janitor": 1}, ["06:00", "22:00", ALL], [("laundry", 0.3, ADULT, 60)], third=True, price=0, per1000=0.15,
    fixtures=["washers", "dryers", "folding_tables", "benches"], machinery=["washers", "dryers"], hints=["laundromat"])
 pt("bank", "Bank", "service", SF + ["civic_hall"], {"banker": 3, "clerk": 2}, ["09:00", "16:00", "mon-fri"], [("banking", 0.15, ADULT, 12)], price=0, per1000=0.2,
-   fixtures=["teller_windows", "vault", "desks", "waiting_line"], hints=["bank"], roles=["banker"])
+   fixtures=["teller_windows", "vault", "desks", "waiting_line"], hints=["bank"], roles=["banker"], m2_per_job=30)
 pt("insurance_office", "Insurance / real-estate office", "service", SF + ["upper_office"], {"agent": 2, "clerk": 1}, ["09:00", "17:00", "mon-fri"], [("insurance", 0.02, ADULT, 30)], price=0, per1000=0.3,
    fixtures=["desks", "filing_cabinets", "listing_boards"], hints=["insurance_office", "real_estate"], roles=["insurance_agent", "real_estate_agent"])
 pt("law_office", "Law office", "service", SF + ["upper_office"], {"lawyer": 2, "clerk": 1}, ["09:00", "17:00", "mon-fri"], [("legal", 0.005, ADULT, 45)], price=3, per1000=0.15,
@@ -132,9 +134,9 @@ pt("doctor_office", "Doctor's office / clinic", "health", SF + ["upper_office", 
 pt("dentist", "Dentist", "health", SF + ["upper_office"], {"dentist": 1, "nurse": 1}, ["08:00", "17:00", "mon-fri"], [("dentist", 0.04, ANY, 45)], price=2, per1000=0.15,
    fixtures=["dental_chair", "waiting_room"], machinery=["dental_unit", "x_ray"], hints=["dentist"])
 pt("hospital", "Hospital", "health", ["civic_hall"], {"doctor": 8, "nurse": 25, "care_aide": 10, "janitor": 4, "clerk": 5, "cook": 3}, ["00:00", "24:00", ALL], [("hospital", 0.01, ANY, 120)], price=3,
-   fixtures=["wards", "emergency_bay", "operating_room"], machinery=["imaging", "monitors"], hints=["Hospital"], roles=["physician", "nurse", "emt"])
+   fixtures=["wards", "emergency_bay", "operating_room"], machinery=["imaging", "monitors"], hints=["Hospital"], roles=["physician", "nurse", "emt"], m2_per_job=45)
 pt("care_home", "Care home", "health", ["house", "civic_hall"], {"care_aide": 6, "nurse": 2, "cook": 1}, ["00:00", "24:00", ALL], [("visit_elder", 0.2, ADULT, 60)], price=2,
-   fixtures=["bedrooms", "lounge", "dining_room"], hints=[], roles=["home_health_aide"])
+   fixtures=["bedrooms", "lounge", "dining_room"], hints=[], roles=["home_health_aide"], m2_per_job=35)
 # -- civic
 pt("post_office", "Post office", "civic", ["civic_hall", "storefront"], {"postal_worker": 4, "clerk": 1}, ["08:00", "17:00", WK], [("post", 0.25, ADULT, 12)], price=0, per1000=0.2,
    fixtures=["counter", "po_boxes", "sorting_tables"], stock=["parcels", "stamps"], hints=["Post Office", "post_office"], roles=["postal_worker"])
@@ -151,17 +153,17 @@ pt("harbormaster", "Harbormaster / coast guard", "civic", ["civic_hall", "tower"
 pt("community_hall", "Community / lodge hall", "civic", ["upper_hall", "civic_hall"], {"janitor": 1}, ["18:00", "23:00", ALL], [("meeting", 0.1, ADULT, 120)], third=True, price=0,
    fixtures=["hall_chairs", "stage", "kitchen"], hints=["lodge_hall", "Convention Hall", "Opera House", "Visitor Center", "Oceanfront Visitor Ctr.", "Yacht Club"], roles=["club_president", "festival_organiser"])
 pt("school", "School", "education", ["school"], {"teacher": 12, "care_aide": 3, "janitor": 2, "cook": 2, "clerk": 1}, ["08:00", "15:30", "mon-fri"], [("school", 5.0, "occupation == 'student'", 420)], price=0,
-   fixtures=["classrooms", "desks", "chalkboards", "gym", "cafeteria"], stock=["books", "supplies"], roles=["teacher", "teacher_aide"])
+   fixtures=["classrooms", "desks", "chalkboards", "gym", "cafeteria"], stock=["books", "supplies"], roles=["teacher", "teacher_aide"], m2_per_job=80)
 pt("college", "College", "education", ["school", "civic_hall"], {"teacher": 20, "librarian": 2, "clerk": 4, "janitor": 3, "cook": 3}, ["08:00", "21:00", "mon-fri"],
    [("classes", 4.0, "occupation == 'university_student'", 240)], third=True, price=0, fixtures=["lecture_halls", "labs", "library", "quad_benches"], stock=["books"],
-   machinery=["lab_equipment"], roles=["teacher"], note="the largest school of a college town (bake_places.py)")
+   machinery=["lab_equipment"], roles=["teacher"], note="the largest school of a college town (bake_places.py)", m2_per_job=70)
 pt("childcare", "Childcare centre", "education", SF + ["house"], {"care_aide": 3}, ["07:00", "18:00", "mon-fri"], [("childcare", 5.0, "occupation == 'preschool'", 480)], price=2, per1000=0.2,
    fixtures=["play_room", "nap_mats", "cubbies"], stock=["toys"], roles=["childcare_worker"])
 pt("church", "Church", "faith", ["church"], {"pastor": 1}, ["08:00", "20:00", ALL], [("worship", 1.0, "congregant", 75)], third=True, price=0,
    fixtures=["pews", "altar", "pulpit", "organ"], stock=["hymnals"], roles=["clergy", "church_elder", "choir_director"])
 # -- leisure
 pt("movie_theater", "Cinema", "leisure", SF, {"shop_clerk": 2}, ["14:00", "23:00", ALL], [("film", 0.1, "age >= 8", 130)], price=1, per1000=0.1,
-   fixtures=["auditorium_seats", "screen", "concession_counter"], machinery=["projector"], hints=["movie_theater"])
+   fixtures=["auditorium_seats", "screen", "concession_counter"], machinery=["projector"], hints=["movie_theater"], m2_per_job=120)
 pt("arcade", "Arcade / games hall", "leisure", ["storefront", "kiosk", "pavilion"], {"shop_clerk": 1}, ["11:00", "23:00", ALL], [("games", 0.12, "age >= 10", 60)], price=1, per1000=0.08,
    fixtures=["cabinets", "change_counter", "prize_counter"], machinery=["arcade_cabinets", "claw_machines", "slot_style_machines"], hints=["arcade", "games"], addictions=["gaming", "gambling"])
 pt("amusement", "Amusement ride / stand", "leisure", ["kiosk", "pavilion", "tower"], {"shop_clerk": 1}, ["10:00", "22:00", "seasonal"], [("ride", 0.05, "age >= 5", 20)], price=1,
@@ -171,10 +173,10 @@ pt("food_stand", "Food / souvenir stand", "food", ["kiosk"], {"shop_clerk": 1}, 
 pt("park_pavilion", "Bandstand / pavilion", "leisure", ["pavilion"], {}, ["00:00", "24:00", ALL], [("outing", 0.15, ANY, 45)], third=True, price=0,
    fixtures=["benches", "stage"], hints=["bandstand", "shelter", "ticket", "cafe"])
 pt("gym", "Gym / fitness", "leisure", SF + ["big_box"], {"shop_clerk": 1}, ["05:00", "22:00", ALL], [("workout", 0.3, "age >= 15", 60)], price=1, per1000=0.1,
-   fixtures=["weights", "mats", "lockers"], machinery=["treadmills", "machines"], hints=[])
+   fixtures=["weights", "mats", "lockers"], machinery=["treadmills", "machines"], hints=[], m2_per_job=90)
 # -- lodging
 pt("hotel", "Hotel", "lodging", ["hotel"], {"hotel_worker": 6, "cook": 2, "waiter": 2, "janitor": 2, "clerk": 1}, ["00:00", "24:00", ALL], [], price=2,
-   fixtures=["lobby_desk", "guest_rooms", "dining_room"], hints=["tavern_hotel"])
+   fixtures=["lobby_desk", "guest_rooms", "dining_room"], hints=["tavern_hotel"], m2_per_job=110)
 pt("motel", "Motel", "lodging", ["motel"], {"hotel_worker": 3, "janitor": 1}, ["00:00", "24:00", ALL], [], price=1,
    fixtures=["office_desk", "guest_rooms", "ice_machine"], hints=["motel"])
 # -- industry (the machinery lists are what the factories are empty of today)
@@ -187,17 +189,96 @@ pt("mill", "Flour / feed mill", "industry", ["industrial_shed"], {"factory_hand"
 pt("grain_elevator", "Grain elevator", "industry", ["industrial_shed", "tower"], {"factory_hand": 4, "driver": 3}, ["06:00", "20:00", "seasonal"], [], price=0,
    fixtures=["scale_house", "office"], machinery=["bucket_elevator", "augers", "grain_dryer", "truck_scale"], hints=["grain_elevator"])
 pt("cannery", "Cannery", "industry", ["waterfront_works"], {"factory_hand": 25, "dock_worker": 4, "mechanic": 2}, ["05:00", "19:00", "seasonal"], [], price=0,
-   fixtures=["processing_floor", "cold_store", "loading_dock"], machinery=["retorts", "sealing_line", "conveyors", "boilers"], hints=["cannery"])
+   fixtures=["processing_floor", "cold_store", "loading_dock"], machinery=["retorts", "sealing_line", "conveyors", "boilers"], hints=["cannery"], m2_per_job=40)
 pt("fish_house", "Fish house / net loft", "industry", ["waterfront_works", "warehouse"], {"fisher": 4, "dock_worker": 2}, ["04:00", "16:00", "mon-sat"], [], price=0,
-   fixtures=["gutting_tables", "net_racks", "ice_bins"], machinery=["winches", "ice_maker"], hints=["fish_processing", "net_loft"])
+   fixtures=["gutting_tables", "net_racks", "ice_bins"], machinery=["winches", "ice_maker"], hints=["fish_processing", "net_loft"], m2_per_job=20)
 pt("boatyard", "Boatyard", "industry", ["waterfront_works"], {"builder": 4, "mechanic": 2}, ["07:00", "17:00", "mon-sat"], [], price=0,
    fixtures=["slipway", "workshop", "boat_stands"], machinery=["travel_lift", "saws", "planer"], hints=["boat_shed"])
 pt("ice_plant", "Ice house / cold store", "industry", ["waterfront_works"], {"factory_hand": 3}, ["05:00", "15:00", ALL], [], price=0,
    machinery=["ice_machines", "compressors"], hints=["ice_plant"])
 pt("warehouse", "Warehouse / depot", "industry", ["warehouse", "industrial_shed"], {"dock_worker": 6, "driver": 4, "clerk": 1}, ["06:00", "18:00", "mon-fri"], [], price=0,
-   fixtures=["racking", "loading_dock", "office"], machinery=["forklifts", "pallet_jacks"], hints=["depot"])
+   fixtures=["racking", "loading_dock", "office"], machinery=["forklifts", "pallet_jacks"], hints=["depot"], m2_per_job=100)
 pt("construction_yard", "Builder's yard", "industry", ["industrial_shed", "warehouse"], {"builder": 10, "driver": 2}, ["07:00", "16:00", "mon-fri"], [], price=0,
-   fixtures=["material_stacks", "site_office"], machinery=["mixers", "trucks", "scaffolding"], hints=[])
+   fixtures=["material_stacks", "site_office"], machinery=["mixers", "trucks", "scaffolding"], hints=[], m2_per_job=60)
+# -- offices (research/jobs: the upstairs offices and the downtown office blocks, by demand; canon offices from the bible)
+OF = ["upper_office", "office_floor"]
+MF = "mon-fri"
+for _id, _nm, _jobs, _vis, _fx, _note in [
+        ("registry_office", "Registry office", {"clerk": 6, "janitor": 1}, [("civic_business", 0.02, ADULT, 20)],
+         ["counters", "ledger_stacks", "filing_cabinets", "desks"], "the Registry's branch: births, deeds, shares, the census"),
+        ("board_office", "Assembly board office", {"clerk": 4, "lawyer": 1}, [], ["desks", "filing_cabinets", "conference_table"],
+         "an Assembly board's offices (the Board Office, the Panel Board, the Ordinance Board)"),
+        ("wire_studio", "Wire studio", {"editor": 3, "clerk": 2, "mechanic": 1}, [], ["studio_booth", "transmitter_rack", "desks"],
+         "a Wire station's studio and offices"),
+        ("engineering_office", "Engineering / drafting office", {"clerk": 4, "builder": 1}, [], ["drafting_tables", "plan_chests", "desks"],
+         "engineers and draughtsmen for the works and the builders"),
+        ("accounting_office", "Accounting office", {"clerk": 4, "banker": 1}, [("finance", 0.01, ADULT, 30)],
+         ["desks", "adding_machines", "filing_cabinets"], ""),
+        ("dispatch_office", "Cab / haulage dispatch", {"clerk": 2, "driver": 6}, [], ["dispatch_board", "radio_desk", "desks"],
+         "the cab firms' and hauliers' dispatch"),
+        ("courier_office", "The Courier (newspaper)", {"editor": 4, "clerk": 3}, [], ["desks", "typewriters", "morgue_files"],
+         "the town paper's newsroom"),
+        ("architect_office", "Architects' office", {"clerk": 3, "builder": 1}, [], ["drafting_tables", "model_table", "plan_chests"], ""),
+        ("insurance_agency", "Insurance company office", {"agent": 3, "clerk": 4}, [("insurance", 0.01, ADULT, 30)],
+         ["desks", "filing_cabinets", "counter"], "a company's branch, bigger than the corner agent"),
+        ("college_extension", "College extension office", {"teacher": 2, "clerk": 2}, [("classes", 0.01, ADULT, 60)],
+         ["classroom_desks", "desks", "bookshelves"], "the College's evening classes and the Book of the Thirty-Two courses"),
+        ("works_office", "Works head office", {"clerk": 6, "banker": 1, "lawyer": 1}, [], ["desks", "filing_cabinets", "conference_table"],
+         "a works' or a builder's head office: sales, payroll, the drawing office")]:
+    pt(_id, _nm, "office", OF + ["storefront"], _jobs, ["08:30", "17:00", MF], _vis, price=0, per1000=0.0, fixtures=_fx,
+       hints=[_id], note=_note)
+
+# -- industry (research/jobs; the trades from bible/12_industry: what people make from the Drops' scrap, alloy and minerals)
+IS = ["industrial_shed", "warehouse"]
+for _id, _nm, _jobs, _fx, _mach, _note in [
+        ("remelting_works", "Remelting works", {"factory_hand": 24, "mechanic": 3, "driver": 2, "clerk": 2, "janitor": 1},
+         ["charging_floor", "casting_bay", "scrap_bays"], ["induction_furnace", "arc_furnace", "overhead_crane", "ladles"],
+         "Drop scrap into steel and aluminium again: every works town has one"),
+        ("rolling_mill", "Rolling mill", {"factory_hand": 30, "mechanic": 4, "driver": 3, "clerk": 2, "janitor": 1},
+         ["mill_bay", "coil_store"], ["rolling_stands", "reheat_furnace", "overhead_crane", "shears"], "strip and plate"),
+        ("tube_works", "Tube works", {"factory_hand": 18, "mechanic": 3, "clerk": 1}, ["mill_bay", "stock_racks"],
+         ["tube_mill", "seam_welder", "draw_bench"], "rolled-and-welded and drawn tube (Harrow's ladders, Solana's chromoly)"),
+        ("foundry", "Foundry", {"factory_hand": 20, "mechanic": 2, "clerk": 1, "janitor": 1}, ["moulding_floor", "pattern_shop"],
+         ["cupola", "sand_mixer", "shakeout", "overhead_crane"], "sand castings: brackets, hubs, motor housings"),
+        ("machine_shop", "Machine shop", {"factory_hand": 12, "mechanic": 4, "clerk": 1}, ["machine_floor", "tool_crib"],
+         ["lathes", "mills", "smart_lathes", "drill_presses"], "the Thirty-Two-run 'smart lathes' of Kessler and Harrow"),
+        ("motor_works", "Motor winding works", {"factory_hand": 16, "mechanic": 2, "clerk": 1}, ["winding_benches", "test_bay"],
+         ["winding_machines", "lamination_press", "varnish_oven"], "induction motors wound by hand and machine"),
+        ("cell_works", "Cell works", {"factory_hand": 22, "mechanic": 3, "clerk": 2, "janitor": 1}, ["cell_lines", "formation_room"],
+         ["mixers", "coaters", "can_welders", "formation_racks"], "LFP cells, packs, crates and cassettes"),
+        ("tyre_works", "Tyre works", {"factory_hand": 20, "mechanic": 2, "driver": 2, "clerk": 1}, ["mixing_room", "press_bay"],
+         ["banbury_mixer", "curing_presses", "calenders"], "Southland dandelion rubber, Drop sulfur"),
+        ("glass_works", "Glass works", {"factory_hand": 18, "mechanic": 2, "clerk": 1}, ["batch_house", "lehr_hall"],
+         ["furnace", "float_bath", "lehr", "presses"], "float and pressed glass (Port Carrow, Marlowe)"),
+        ("gauge_works", "Gauge and instrument works", {"factory_hand": 12, "mechanic": 1, "clerk": 1}, ["bench_rows", "calibration_room"],
+         ["lathes", "dial_printers", "calibration_rigs"], "the clock-and-watch families' gauges (Fenwick's)"),
+        ("electronics_works", "Electronics works", {"factory_hand": 14, "mechanic": 2, "clerk": 1}, ["bench_rows", "test_room"],
+         ["soldering_benches", "relay_winders", "test_rigs"], "boards round the Thirty-Two, relays, switches, Wire sets"),
+        ("coachworks", "Coachworks", {"factory_hand": 20, "mechanic": 4, "builder": 2, "clerk": 2}, ["body_shop", "paint_booth", "trim_shop"],
+         ["jigs", "welders", "paint_booth", "body_presses"], "bodies for the boards (the Pattern): the three works' and the small builders'"),
+        ("paint_works", "Paint and enamel works", {"factory_hand": 8, "driver": 1, "clerk": 1}, ["mixing_room", "can_line"],
+         ["ball_mills", "mixers", "can_fillers"], "lead-free enamels, red oxide primer"),
+        ("textile_mill", "Textile mill", {"factory_hand": 26, "mechanic": 2, "clerk": 1}, ["spinning_room", "weave_shed"],
+         ["spinning_frames", "looms", "dye_vats"], "cloth beyond the Draw's"),
+        ("sawmill", "Sawmill and joinery", {"factory_hand": 12, "builder": 2, "driver": 2}, ["saw_shed", "joinery_shop", "lumber_yard"],
+         ["head_saw", "planers", "kilns"], "the woodlots' timber: framing, joinery, furniture"),
+        ("food_plant", "Food plant", {"factory_hand": 18, "cook": 4, "driver": 3, "clerk": 1}, ["process_room", "cold_store"],
+         ["kettles", "fillers", "pasteurisers"], "creamery, bakery plant, cannery inland"),
+        ("printing_plant", "Printing plant", {"factory_hand": 10, "editor": 1, "driver": 2, "clerk": 1}, ["press_hall", "bindery"],
+         ["rotary_press", "folders", "guillotines"], "the Courier, the College's books, the Registry's forms"),
+        ("scrap_yard", "Drop yard and scrap merchant", {"factory_hand": 6, "driver": 3, "clerk": 1}, ["scrap_bays", "weighbridge"],
+         ["shears", "magnet_crane", "balers"], "the scrappers' yard beside a Drop")]:
+    pt(_id, _nm, "industry", IS, _jobs, ["06:00", "22:00", MF], [], price=0, per1000=0.0, fixtures=_fx, machinery=_mach,
+       hints=[_id], note=_note)
+for _id, _nm, _jobs, _fx, _note in [
+        ("distribution_centre", "Distribution warehouse", {"dock_worker": 14, "driver": 8, "clerk": 2},
+         ["racking", "loading_docks", "office"], "the Draw's stock and the works' goods between towns"),
+        ("truck_terminal", "Haulage terminal", {"driver": 16, "dock_worker": 8, "mechanic": 2, "clerk": 2},
+         ["cross_dock", "truck_bays", "office"], "hauliers' cross-dock"),
+        ("transit_depot", "Tram and bus depot", {"driver": 20, "mechanic": 6, "clerk": 2, "janitor": 2},
+         ["tram_bays", "pits", "office"], "the trams' and coaches' barns and pits")]:
+    pt(_id, _nm, "logistics", IS, _jobs, ["05:00", "23:00", ALL], [], price=0, per1000=0.0, fixtures=_fx, hints=[_id], note=_note)
+
 pt("farm", "Farm", "farm", ["farmstead"], {"farmer": 1, "farmhand": 2}, ["05:00", "20:00", ALL], [], price=0,
    fixtures=["barn_stalls", "hayloft", "milking_parlour", "silo"], machinery=["tractor", "combine", "milking_machines", "grain_dryer"], hints=["farm"], roles=["farmer", "farmhand"])
 pt("lighthouse", "Lighthouse / lifeguard station", "civic", ["tower"], {"dock_worker": 1}, ["00:00", "24:00", "seasonal"], [], price=0,

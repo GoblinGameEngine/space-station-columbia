@@ -3,15 +3,15 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 11.7,
-  "d": 37.6
+  "w": 13.9,
+  "d": 24.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "cape_cod",
-  "storeys": 1.5,
-  "main_w_ft": 22,
-  "main_d_ft": 40,
+  "archetype": "i_house",
+  "storeys": 2,
+  "main_w_ft": 26,
+  "main_d_ft": 33,
   "roof": {
    "type": "gable",
    "pitch_deg": 39,
@@ -19,21 +19,21 @@
   },
   "dormers": [],
   "porch": {
-   "type": "stacked",
-   "posts": "square",
+   "type": "front_full",
+   "posts": "tapered_on_piers",
    "rail": "spindle"
   },
   "walls": "clapboard",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e8dcc0",
-   "trim": "#f7f6f0",
+   "body": "#f2f1ea",
+   "trim": "#f4f3ec",
    "accent": "#1d1f22",
-   "roof": "#3a3836"
+   "roof": "#2e2e30"
   },
   "windows": {
-   "type": "3over1_craftsman",
-   "shutters": true
+   "type": "1over1",
+   "shutters": false
   },
   "chimneys": [
    "center"
@@ -41,24 +41,24 @@
   "garage": "detached_1",
   "yard": {
    "fence": "none",
-   "side": "none",
-   "rear": "none",
+   "side": "hedge",
+   "rear": "chainlink",
    "extras": [
-    "shed",
+    "garden",
+    "clothesline",
     "swing_set"
    ]
   },
-  "condition": "kept",
+  "condition": "worn",
   "year_built": 1913,
   "band": "streetcar",
-  "form_token": "cape_cod",
-  "units": 2
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Stroud",
-  "house_number": 828
+  "family": "Duquesne",
+  "house_number": 816
  },
- "brief": "streetcar band cape_cod: 1.5 storeys, clapboard walls, stacked porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0311"
+ "brief": "streetcar band i_house: 2 storeys, clapboard walls, front_full porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-0669"
 }

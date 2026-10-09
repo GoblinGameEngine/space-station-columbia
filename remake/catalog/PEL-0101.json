@@ -3,33 +3,60 @@
  "settlement": "Pelican Cove",
  "generated": "tools/settlegen (Pelican Cove)",
  "lot": {
-  "w": 41.4,
-  "d": 26.0
+  "w": 17.0,
+  "d": 41.7
  },
- "kind": "townhouse",
+ "kind": "house",
  "traits": {
-  "units": 6,
-  "unit_w_ft": 24,
-  "depth_ft": 34,
+  "archetype": "spanish_revival",
+  "storeys": 1,
+  "main_w_ft": 23,
+  "main_d_ft": 39,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "clay_tile"
+  },
+  "dormers": [],
+  "porch": {
+   "type": "front_partial",
+   "posts": "square",
+   "rail": "none"
+  },
   "walls": "stucco",
+  "foundation": "slab",
   "colors": {
    "body": "#f0e2cf",
    "trim": "#3b2a1e",
-   "accent": "#6a4a2a",
+   "accent": "#1f4a6e",
    "roof": "#a8492f"
   },
-  "roof": {
-   "type": "hip",
-   "material": "clay_tile",
-   "pitch_deg": 19
+  "windows": {
+   "type": "1over1",
+   "shutters": false
   },
-  "year_built": 1915,
-  "condition": "kept"
+  "chimneys": [],
+  "garage": "none",
+  "yard": {
+   "fence": "none",
+   "side": "chainlink",
+   "rear": "chainlink",
+   "extras": [
+    "garden",
+    "shed"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1923,
+  "band": "streetcar",
+  "form_token": "spanish_revival",
+  "units": 2
  },
  "region": "ca",
  "names": {
-  "name": ""
+  "family": "Raghunathan",
+  "house_number": 357
  },
- "brief": "townhouse (townhouse) generated for Pelican Cove.",
- "model": "SOL-0063"
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, front_partial porch, garage none (generated from the Great Lakes tokens).",
+ "model": "SOL-0448"
 }

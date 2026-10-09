@@ -3,61 +3,70 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.4,
-  "d": 20.0
+  "w": 13.2,
+  "d": 21.2
  },
  "kind": "house",
  "traits": {
-  "archetype": "i_house",
+  "archetype": "dutch_colonial",
   "storeys": 2,
-  "main_w_ft": 37,
-  "main_d_ft": 30,
+  "main_w_ft": 23,
+  "main_d_ft": 36,
   "roof": {
-   "type": "gable",
-   "pitch_deg": 49,
+   "type": "gambrel",
+   "pitch_deg": 39,
    "material": "asphalt_shingle"
   },
-  "dormers": [],
+  "dormers": [
+   {
+    "type": "gable",
+    "side": "front"
+   }
+  ],
   "porch": {
-   "type": "stoop",
+   "type": "front_partial",
    "posts": "columns",
-   "rail": "none"
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#e9e8e2",
+   "body": "#7d776d",
    "trim": "#ffffff",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "accent": "#24382a",
+   "roof": "#3a3836"
   },
   "windows": {
-   "type": "6over6",
-   "shutters": false
+   "type": "3over1_craftsman",
+   "shutters": true
   },
   "chimneys": [
-   "exterior_left"
+   "center"
   ],
   "garage": "detached_1",
   "yard": {
    "fence": "none",
    "side": "none",
-   "rear": "hedge",
+   "rear": "none",
    "extras": [
-    "garden",
-    "shed"
+    "garden"
    ]
   },
-  "condition": "shabby",
-  "year_built": 1924,
-  "band": "interwar",
-  "form_token": "i_house"
+  "condition": "kept",
+  "year_built": 1919,
+  "band": "streetcar",
+  "form_token": "dutch_colonial",
+  "wing": {
+   "side": "rear",
+   "w_ft": 15,
+   "d_ft": 11
+  }
  },
  "region": "ne",
  "names": {
   "family": "Brannock",
-  "house_number": 1470
+  "house_number": 1557
  },
- "brief": "interwar band i_house: 2 storeys, clapboard walls, stoop porch, garage detached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0831"
+ "brief": "streetcar band dutch_colonial: 2 storeys, cedar_shingle walls, front_partial porch, garage detached_1 (generated from the Great Lakes tokens).",
+ "model": "PCR-1730"
 }

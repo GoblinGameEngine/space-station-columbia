@@ -3,58 +3,60 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 21.5,
-  "d": 20.0
+  "w": 31.2,
+  "d": 36.6
  },
  "kind": "house",
  "traits": {
-  "archetype": "gable_front",
+  "archetype": "i_house",
   "storeys": 2,
-  "main_w_ft": 38,
+  "main_w_ft": 29,
   "main_d_ft": 32,
   "roof": {
    "type": "gable",
-   "pitch_deg": 43,
-   "material": "asphalt_shingle"
+   "pitch_deg": 42,
+   "material": "slate"
   },
   "dormers": [],
   "porch": {
    "type": "recessed",
-   "posts": "iron",
-   "rail": "solid"
+   "posts": "square",
+   "rail": "spindle"
   },
-  "walls": "clapboard",
+  "walls": "cedar_shingle",
   "foundation": "cut_stone",
   "colors": {
-   "body": "#f1ead2",
-   "trim": "#ffffff",
-   "accent": "#3a2a24",
+   "body": "#9a9184",
+   "trim": "#f4f3ec",
+   "accent": "#7a1f1a",
    "roof": "#4a4440"
   },
   "windows": {
-   "type": "1over1",
-   "shutters": true
+   "type": "picture",
+   "shutters": false
   },
   "chimneys": [
-   "exterior_right"
+   "rear"
   ],
-  "garage": "attached_1",
+  "garage": "attached_2",
   "yard": {
    "fence": "none",
-   "side": "chainlink",
-   "rear": "chainlink",
-   "extras": []
+   "side": "privacy",
+   "rear": "tree_line",
+   "extras": [
+    "shed"
+   ]
   },
-  "condition": "new",
-  "year_built": 1955,
-  "band": "postwar",
-  "form_token": "gable_front"
+  "condition": "kept",
+  "year_built": 1974,
+  "band": "suburban",
+  "form_token": "i_house"
  },
  "region": "ne",
  "names": {
-  "family": "Szabo",
-  "house_number": 3604
+  "family": "Kowal",
+  "house_number": 3671
  },
- "brief": "postwar band gable_front: 2 storeys, clapboard walls, recessed porch, garage attached_1 (generated from the Great Lakes tokens).",
- "model": "PCR-0604"
+ "brief": "suburban band i_house: 2 storeys, cedar_shingle walls, recessed porch, garage attached_2 (generated from the Great Lakes tokens).",
+ "model": "PCR-4173"
 }

@@ -3,31 +3,23 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 16.9,
-  "d": 31.4
+  "w": 16.3,
+  "d": 25.0
  },
- "kind": "store",
+ "kind": "industrial",
  "traits": {
-  "storeys": 1,
-  "facade": "brick",
-  "cornice": "bracketed_metal",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Merriweather & Kowalczyk Variety",
-    "type": "variety_store",
-    "sign": "MERRIWEATHER & KOWALCZYK VARIETY",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "worn",
-  "year_built": 1883,
-  "colors": {
-   "body": "#8e4a36"
-  }
+  "use": "machine_shop",
+  "form": "loft",
+  "storeys": 4,
+  "components": [],
+  "walls": "brick",
+  "year_built": 1911,
+  "condition": "kept"
  },
  "region": "ne",
- "names": {},
- "brief": "store (store) generated for Port Carrow."
+ "names": {
+  "name": "Ring Line Machine Works",
+  "sign": "RING LINE MACHINE WORKS"
+ },
+ "brief": "industrial (industry) generated for Port Carrow."
 }

@@ -3,33 +3,59 @@
  "settlement": "Playa Verde",
  "generated": "tools/settlegen (Playa Verde)",
  "lot": {
-  "w": 17.7,
-  "d": 25.0
+  "w": 12.9,
+  "d": 31.4
  },
- "kind": "store",
+ "kind": "house",
  "traits": {
+  "archetype": "spanish_revival",
   "storeys": 1,
-  "facade": "stucco",
-  "cornice": "tile_roof",
-  "upper_use": "none",
-  "storefronts": [
-   {
-    "business": "Okafor Insurance",
-    "type": "insurance_office",
-    "sign": "OKAFOR INSURANCE",
-    "sign_style": "flat_board",
-    "awning": true
-   }
-  ],
-  "condition": "shabby",
-  "year_built": 1879,
-  "colors": {
-   "body": "#e9dcc2"
+  "main_w_ft": 24,
+  "main_d_ft": 32,
+  "roof": {
+   "type": "hip",
+   "pitch_deg": 19,
+   "material": "clay_tile"
   },
-  "arcade": true,
-  "roof_trim": "clay_tile"
+  "dormers": [],
+  "porch": {
+   "type": "stoop",
+   "posts": "square",
+   "rail": "none"
+  },
+  "walls": "stucco",
+  "foundation": "slab",
+  "colors": {
+   "body": "#f0e2cf",
+   "trim": "#4a3324",
+   "accent": "#1f4a6e",
+   "roof": "#a8492f"
+  },
+  "windows": {
+   "type": "1over1",
+   "shutters": false
+  },
+  "chimneys": [],
+  "garage": "detached_2",
+  "yard": {
+   "fence": "none",
+   "side": "none",
+   "rear": "chainlink",
+   "extras": [
+    "shed",
+    "swing_set"
+   ]
+  },
+  "condition": "worn",
+  "year_built": 1915,
+  "band": "streetcar",
+  "form_token": "spanish_revival"
  },
  "region": "ca",
- "names": {},
- "brief": "store (store) generated for Playa Verde."
+ "names": {
+  "family": "Solano",
+  "house_number": 282
+ },
+ "brief": "streetcar band spanish_revival: 1 storeys, stucco walls, stoop porch, garage detached_2 (generated from the Great Lakes tokens).",
+ "model": "SOL-0478"
 }

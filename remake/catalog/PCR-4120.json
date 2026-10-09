@@ -3,19 +3,19 @@
  "settlement": "Port Carrow",
  "generated": "tools/settlegen (Port Carrow)",
  "lot": {
-  "w": 22.7,
-  "d": 33.2
+  "w": 37.2,
+  "d": 33.4
  },
  "kind": "house",
  "traits": {
-  "archetype": "foursquare",
-  "storeys": 2,
-  "main_w_ft": 46,
-  "main_d_ft": 28,
+  "archetype": "split_level",
+  "storeys": 1,
+  "main_w_ft": 39,
+  "main_d_ft": 30,
   "roof": {
-   "type": "hip",
-   "pitch_deg": 27,
-   "material": "wood_shingle"
+   "type": "gable",
+   "pitch_deg": 25,
+   "material": "asphalt_shingle"
   },
   "dormers": [],
   "porch": {
@@ -24,40 +24,38 @@
    "rail": "none"
   },
   "walls": "clapboard",
-  "foundation": "cut_stone",
+  "foundation": "poured_concrete",
   "colors": {
-   "body": "#2f3e52",
-   "trim": "#f7f6f0",
-   "accent": "#1f2e44",
-   "roof": "#4a4440"
+   "body": "#efd097",
+   "trim": "#e9e2d2",
+   "accent": "#6a4a2a",
+   "roof": "#555350"
   },
   "windows": {
-   "type": "1over1",
+   "type": "picture",
    "shutters": false
   },
   "chimneys": [
-   "center"
+   "exterior_left"
   ],
-  "garage": "none",
+  "garage": "attached_1",
   "yard": {
    "fence": "none",
-   "side": "hedge",
-   "rear": "chainlink",
+   "side": "none",
+   "rear": "hedge",
    "extras": [
-    "shed",
-    "swing_set"
+    "clothesline"
    ]
   },
   "condition": "kept",
-  "year_built": 1949,
-  "band": "postwar",
-  "form_token": "foursquare"
+  "year_built": 1968,
+  "band": "suburban",
+  "form_token": "split_level"
  },
- "region": "ne",
  "names": {
   "family": "Loomis",
-  "house_number": 875
+  "house_number": 1804
  },
- "brief": "postwar band foursquare: 2 storeys, clapboard walls, stoop porch, garage none (generated from the Great Lakes tokens).",
- "model": "PCR-0901"
+ "brief": "suburban band split_level: 1 storeys, clapboard walls, stoop porch, garage attached_1 (generated from the Great Lakes tokens).",
+ "model": "SOL-4924"
 }
