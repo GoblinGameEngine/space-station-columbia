@@ -113,3 +113,6 @@ func knock(id: int, v: Vector3, m_hit: float, hitter: Node = null) -> void:
 		if is_instance_valid(old):
 			old.queue_free()
 	RoadDriver.tally["signs_knocked_down"] = int(RoadDriver.tally.get("signs_knocked_down", 0)) + 1
+	var sp := rb.global_position
+	TrafficReports.file("sign_hit", Vector2(StationGeo.s_of(sp), sp.x), "a sign knocked down by %s at %.0f km/h" % [
+		str(hitter.name) if hitter is Node else "something", v.length() * 3.6], str(hitter.name) if hitter is Node else "")

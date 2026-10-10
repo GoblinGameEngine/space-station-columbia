@@ -16,6 +16,9 @@ global uniform float daylight;            // 1 by day, 0 at night (DaySkySystem)
 #include "res://remake/shaders/land_cover.gdshaderinc"
 
 void fragment() {
+	if (cut_here(UV)) {
+		discard;                                // (the fine ground is complete here: MapTerrainMesh._cut)
+	}
 	float s = UV2.x;
 	float d = abs(mod(s - farside_player_s + circ * 0.5, circ) - circ * 0.5);
 	if (d > flat_arc) {

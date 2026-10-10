@@ -670,12 +670,14 @@ static func side_offset(ri: int, along: bool, edge: float, lane := -1.0) -> floa
 	##               or edge beyond the kerb where there's none
 	##   edge < 0    in the road (cyclists, trams): |edge| inside the travel lane's outer edge -- never in a
 	##               parking lane, nor over the kerb onto the sidewalk (signs stand there)
-	if lane >= 0.0:
-		return lane
 	if ri < 0:
-		return NAN
+		return lane if lane >= 0.0 else NAN
 	var rd := _road(ri)
 	var kerb := float(rd.get("hr" if along else "hl", float(rd.w) * 0.5))
+	if lane >= 0.0:
+		# (never so far right the car's side is over the kerb: a 3 m alley is one lane, driven down its middle -- at
+		# 1.8 m every car ran half off it, through the signs at its mouth: TrafficReports sign_in_lane, 2026-10-09)
+		return minf(lane, maxf(0.0, kerb - 1.05))
 	if edge >= 0.0:
 		var walk := float(rd.get("walk", 0.0))
 		if walk > 0.0:

@@ -66,6 +66,7 @@ var length := 4.8
 var limit := URBAN
 var professional := false
 var v_cap := INF                     # an outside limit on speed (a tram keeping to its timetable)
+var stop_at_end := false             # a trip that ends parked (its route runs into the space): to a stop at its end
 var id: Variant = null
 
 var speeding := 0.0
@@ -171,9 +172,17 @@ func step(dt: float, all_agents: Array, all_peds: Array, clock_s: float) -> void
 	# every check below looks within 90 m (trains: 400 m): sift the lists once, not in each of the six loops (a busy
 	# town's ~40 drivers each scanning ~80 agents six times a step was 5 ms a frame -- Calder, 2026-10-06)
 	var agents: Array = []
+	var near_all: Array = []                                   # (and the parked: only ever a leader, standing in the lane)
 	for a in all_agents:
-		if str(a.kind) == "train" or ((a.p as Vector2) - p).length_squared() < 12100.0 or absf((a.p as Vector2).x - p.x) > 9000.0:
+		var ap: Vector2 = a.p
+		var dsq := (ap - p).length_squared()
+		var wrapped := absf(ap.x - p.x) > 9000.0
+		if a.kind == "parked":
+			if dsq < 8100.0 or wrapped:
+				near_all.append(a)
+		elif a.kind == "train" or dsq < 12100.0 or wrapped:
 			agents.append(a)
+			near_all.append(a)
 	var peds: Array = []
 	for q in all_peds:
 		if ((q.p as Vector2) - p).length_squared() < 1600.0 or absf((q.p as Vector2).x - p.x) > 9000.0:
@@ -204,7 +213,7 @@ func step(dt: float, all_agents: Array, all_peds: Array, clock_s: float) -> void
 	for c in _curves:
 		var dd := float(c[0]) - t
 		if dd > -3.0:
-			vdes = minf(vdes, sqrt(a_lat / float(c[1]) + 2.0 * B_COMF * maxf(0.0, dd - 6.0)))
+			vdes = minf(vdes, sqrt(a_lat / float(c[1]) + 2.0 * B_COMF * maxf(0.0, dd - 3.0)))
 	vdes = minf(vdes, v_cap)
 
 	Prof.begin("step.junctions")
@@ -314,7 +323,7 @@ func step(dt: float, all_agents: Array, all_peds: Array, clock_s: float) -> void
 	# -- the vehicle ahead, and passing it --------------------------------------------------------------
 	var leader := {}
 	var lgap := INF
-	for a in agents:
+	for a in near_all:
 		if _me(a) or (_passing != "" and a.id == _pass_id):
 			continue
 		var rel := _rel(p, a.p)
@@ -326,16 +335,19 @@ func step(dt: float, all_agents: Array, all_peds: Array, clock_s: float) -> void
 		# a standoff: two cars each with the other in its way (on top of each other, or nose to nose across a
 		# junction), both stood still -- the one with the lower id goes, as drivers wave each other on. Without it a
 		# rush hour's queues locked solid and grew to ~200 cars (Calder's Main St, 2026-10-06)
-		if float(a.v) < 0.1 and str(id) < str(a.id) and (gap < 0.0 or (_still_s > STANDOFF_S and gap < 6.0)):
+		if float(a.v) < 0.1 and not parked_kind(a) and str(id) < str(a.id) and (gap < 0.0 or (_still_s > STANDOFF_S and gap < 6.0)):
 			continue
 		var same := (a.dir as Vector2).dot(d) > 0.3
 		if gap < lgap:
 			lgap = gap
 			leader = a
 		obstacles.append([gap, float(a.v) if same else 0.0, "leader"])
-	_overtaking(dt, leader, lgap, vdes, p, d, agents)
+	_overtaking(dt, leader, lgap, vdes, p, d, near_all)
 	lat = move_toward(lat, _lat_target, 1.3 * dt)
 
+	# -- the end of the trip: in to the kerb over the last stretch, and stopped at the end -----------------------
+	if path_len < INF and stop_at_end:
+		obstacles.append([path_len - t + S0 - 0.3, 0.0, "end"])
 	Prof.end("step.ahead")
 	Prof.begin("step.idm")
 	last_obstacles = obstacles                                     # (for debugging a stuck driver)
@@ -376,6 +388,21 @@ func step(dt: float, all_agents: Array, all_peds: Array, clock_s: float) -> void
 	Prof.end("step.idm")
 
 
+func bend_speed(from_t: float, ahead: float, a_lat := 3.0, b := 5.0) -> float:
+	## The fastest it can be going now and still take every bend in the next `ahead` m of its route (lateral a_lat,
+	## braking at b): a car on its wheels checks this itself (NpcCarBody), so a timetable that handed it over at speed
+	## just before a corner can't send it through the corner.
+	var vmin := INF
+	var dd := 0.0
+	var top := path_len - from_t if path_len < INF else INF
+	while dd <= minf(ahead, top):
+		var kap := absf(dir_at(from_t + dd - 2.0).angle_to(dir_at(from_t + dd + 2.0))) / 4.0
+		if kap > 0.004:
+			vmin = minf(vmin, sqrt(a_lat / kap + 2.0 * b * maxf(0.0, dd - 1.0)))
+		dd += 2.0
+	return vmin
+
+
 func pull_over(on: bool) -> void:
 	## Stopping on a round (a delivery, the mail): over to the kerb, out of the lane.
 	if _passing == "":
@@ -406,6 +433,7 @@ func _perceive(p: Vector2, look: float) -> void:
 			seen[s.id] = true
 			if facing < -0.6 and side > -1.0:
 				_on_sign(s, along, stop_ctl)
+				_check_sign(s, side)
 			elif facing > 0.6 and side < 1.0 and str(s.t) == "town" and along <= 0.0 and not _passed.has(s.id):
 				_passed[s.id] = true                               # the back of a town sign: leaving town
 				limit = RURAL
@@ -413,18 +441,36 @@ func _perceive(p: Vector2, look: float) -> void:
 	_stop_abs.clear()
 	for c in stop_ctl:
 		_stop_abs.append([t + float(c[0]), c[1]])
+	# (every 3 m over a 4 m window from just ahead: driven on its wheels, a car has to be slow enough at a town corner's
+	# 5-7 m arc -- sampled every 6 m from 5 m on, the corner just ahead was missed and the car ran wide)
 	_curves.clear()
-	var dd := 5.0
+	var dd := 1.0
 	while dd < minf(look, 80.0):
-		var h0 := dir_at(t + dd - 4.0)
-		var h1 := dir_at(t + dd + 4.0)
-		var kap := absf(h0.angle_to(h1)) / 8.0
-		if kap > 0.002:
+		var h0 := dir_at(t + dd - 2.0)
+		var h1 := dir_at(t + dd + 2.0)
+		var kap := absf(h0.angle_to(h1)) / 4.0
+		if kap > 0.004:
 			_curves.append([t + dd, kap])
-		dd += 6.0
+		dd += 3.0
 	_sig = TrafficSigns.signal_near(pos_at(t + minf(look, 40.0)), 30.0)
 	_juncs = TrafficSigns.junctions_near(pos_at(t + minf(look, 45.0) * 0.5), minf(look, 45.0) * 0.5 + 8.0)
 	_xing = TrafficSigns.crossing_near(pos_at(t + minf(look, 40.0)), 30.0)
+
+
+func _check_sign(s: Dictionary, side: float) -> void:
+	## Anything wrong with a sign this driver faces, reported once (TrafficReports): a stop or yield with no junction
+	## to stop for, a sign standing in the lane being driven.
+	if _reported.has(s.id):
+		return
+	_reported[s.id] = true
+	var ty := str(s.t)
+	if (ty == "stop" or ty == "yield") and TrafficSigns.junctions_near(s.p, 30.0).is_empty():
+		TrafficReports.file("sign_no_junction", s.p, "a %s sign facing traffic, no junction within 30 m" % ty, str(id))
+	if absf(side - lat) < 1.3:
+		TrafficReports.file("sign_in_lane", s.p, "a %s sign standing in the driving lane (%.1f m off the lane's line)" % [ty, side - lat], str(id))
+
+
+var _reported := {}
 
 
 func _on_sign(s: Dictionary, along: float, stop_ctl: Array) -> void:
@@ -517,22 +563,23 @@ func _overtaking(dt: float, leader: Dictionary, lgap: float, vdes: float, p: Vec
 	var lid := str(leader.id)
 	# passing on the right: a stopped vehicle (4511.28: only round a left-turner, on pavement wide
 	# enough for two lines, never off the roadway -- our streets have one lane each way)
-	if lv < 0.5 and _held > 3.0 and _decide("pr:" + lid, pass_right):
+	if lv < 0.5 and not parked_kind(leader) and _held > 3.0 and _decide("pr:" + lid, pass_right):
 		_passing = "right"
 		_pass_id = leader.id
 		_lat_target = 2.6
 		_violate("passed_on_right")
 		return
-	# overtaking on the left: a slow vehicle, nothing coming, no junction near (4511.29-.31)
-	if lv > 0.5 and lv < 0.6 * vdes and _held > 4.0:
+	# overtaking on the left: a slow vehicle, or one parked out in the lane (4511.29-.31), nothing coming, no junction near
+	var parked := str(leader.get("kind", "")) == "parked"
+	if (parked or lv > 0.5 and lv < 0.6 * vdes) and _held > (2.0 if parked else 4.0):
 		for a in agents:
 			var rel := _rel(p, a.p)
-			if (a.dir as Vector2).dot(d) < -0.5 and rel.dot(d) > 0.0 and rel.dot(d) < 220.0:
+			if not parked_kind(a) and (a.dir as Vector2).dot(d) < -0.5 and rel.dot(d) > 0.0 and rel.dot(d) < 220.0:
 				return                                             # oncoming: not now
 		if not TrafficSigns.junctions_near(pos_at(t + 30.0), 30.0).is_empty():
 			return
 		var line := TrafficSigns.centre_line(p)
-		var slow_exception := lv < 0.5 * limit                    # 4511.31(B)
+		var slow_exception := lv < 0.5 * limit or parked          # 4511.31(B); an obstruction (4511.31(A)(3))
 		if line == "solid" and not slow_exception:
 			if not _decide("xs:" + lid, cross_solid):
 				return
@@ -544,6 +591,10 @@ func _overtaking(dt: float, leader: Dictionary, lgap: float, vdes: float, p: Vec
 
 var _noted := {}
 var _over_s := 0.0
+
+
+static func parked_kind(a: Dictionary) -> bool:
+	return str(a.get("kind", "")) == "parked"
 
 
 func _me(a: Dictionary) -> bool:

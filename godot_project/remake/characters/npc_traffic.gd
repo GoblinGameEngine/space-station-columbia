@@ -83,6 +83,7 @@ func _ready() -> void:
 		for g in (JSON.parse_string(FileAccess.get_file_as_string("res://remake/groundcars.json")) as Dictionary).groundcars:
 			_taken.append(Vector2(float(g.s), float(g.x)))
 	_load_fleet()
+	TrafficReports.load_saved()
 	print("NpcTraffic: %d vehicles (%d with rounds)" % [_f_id.size(), _f_rounds.size()])
 
 
@@ -206,6 +207,8 @@ func _refresh_candidates() -> void:
 	for di in range(-r, r + 1):
 		for dj in range(-r, r + 1):
 			for i in _f_grid.get(Vector2i(posmod(ci + di, ncol), cj + dj), PackedInt32Array()):
+				if _gone.has(_f_id[i]):
+					continue
 				var d := NpcPlaces.dist(Vector2(_f_door[i * 2], _f_door[i * 2 + 1]), _here)
 				if d <= NEAR_PARKED or (_f_rounds.has(i) and d <= ROUNDS_R) \
 						or (d <= LOADED_R and _f_driver[i] != "" and _life.is_loaded(_f_driver[i])):
@@ -389,11 +392,20 @@ func _route_async(from_b: String, to_b: String) -> void:
 
 func _route_ready(key: String, r: PackedVector2Array) -> void:
 	_route_pending.erase(key)
+	if r.size() < 2:
+		_no_route(key)
 	if not is_inside_tree():
 		return
 	if _route_cache.size() > 20000:
 		_route_cache.clear()
 	_route_cache[key] = r.slice(1, r.size() - 1) if r.size() > 3 else r
+
+
+func _no_route(key: String) -> void:
+	var ab := key.split(">")
+	var bi := Placement.index(ab[0])
+	if bi >= 0:
+		TrafficReports.file("no_route", Vector2(Placement.s(bi), Placement.x(bi)), "no road route from %s to %s" % [ab[0], ab[1] if ab.size() > 1 else "?"])
 
 
 func _route(from_b: String, to_b: String) -> PackedVector2Array:
@@ -479,7 +491,9 @@ func _parked(door: Vector2, v: Dictionary) -> Dictionary:
 	return {"pos": p, "yaw": atan2(-dir.y, dir.x), "driving": false, "speed": 0.0}
 
 
-func _find_spot(door: Vector2) -> Dictionary:
+func _find_spot(door: Vector2, want_face := Vector2.ZERO) -> Dictionary:
+	## want_face: the way the car arriving will be pointing -- the space is taken on the side of the street that faces
+	## it (its right-hand kerb), so it drives straight in.
 	var a := NpcPlaces._attach_on(door, ROADS)
 	if a.is_empty():
 		return {}
@@ -502,25 +516,44 @@ func _find_spot(door: Vector2) -> Dictionary:
 	var park: Array = rd.get("park", [1 if w >= PARK_LANE else 0, 1 if w >= PARK_LANE else 0])
 	var kerb_r := float(rd.get("hr", w * 0.5))
 	var kerb_l := float(rd.get("hl", w * 0.5))
+	if want_face != Vector2.ZERO:
+		side = 1.0 if want_face.dot(t) >= 0.0 else -1.0       # (face = t on the +side, -t on the other)
 	var ix_door := 1 if side > 0.0 else 0
-	if int(park[ix_door]) == 0 and int(park[1 - ix_door]) == 1:
+	if want_face == Vector2.ZERO and int(park[ix_door]) == 0 and int(park[1 - ix_door]) == 1:
 		side = -side                                           # across the street, where parking is allowed
 		ix_door = 1 - ix_door
 	var face := t if side > 0.0 else -t
 	var kerb := kerb_r if side > 0.0 else kerb_l
+	if int(park[ix_door]) == 1 and kerb - 2.1 < LANE + 1.15:
+		park = [0, 0]                                          # (a lane too narrow to park in clear of the traffic: off the street)
 	var off := kerb - 1.15 if int(park[ix_door]) == 1 \
 		else kerb + float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0)) + (VERGE if float(rd.get("walk", 0.0)) > 0.0 else VERGE)
-	for k in 17:                                               # 0, +6.5, -6.5, +13 ... along the road
-		var along := ceilf(k / 2.0) * 6.5 * (1.0 if k % 2 == 1 else -1.0)
-		var p := c + right * side * off + t * along
+	var sides := [side] if want_face != Vector2.ZERO else [side, -side]   # (the door's side first, then across the street)
+	for k in 25 * sides.size():                                # 0, +6.5, -6.5, +13 ... along the road, out to 78 m
+		var sd: float = sides[k / 25]
+		if k % 25 == 0 and k > 0:
+			var ixo := 1 if sd > 0.0 else 0                    # (the other side: its own lane or verge)
+			face = t if sd > 0.0 else -t
+			kerb = kerb_r if sd > 0.0 else kerb_l
+			off = kerb - 1.15 if int(park[ixo]) == 1 and kerb - 2.1 >= LANE + 1.15 \
+				else kerb + float(rd.get("lawn", 0.0)) + float(rd.get("walk", 0.0)) + VERGE
+		var kk := k % 25
+		var along := ceilf(kk / 2.0) * 6.5 * (1.0 if kk % 2 == 1 else -1.0)
+		var p := c + right * sd * off + t * along
 		p = Vector2(fposmod(p.x, StationGeo.CIRC), p.y)
 		if _blocked(p, face):
 			continue
+		if not TrafficSigns.junctions_near(p, JUNCTION_CLEAR).is_empty():
+			continue                                           # (none within 20 ft of a crosswalk at a junction: 4511.68)
 		if int(park[ix_door]) == 1 and TramStopZones.inside(p, 2.5):
 			continue                                           # a tram stop's kerb: no parking (R7-107)
 		_taken.append(p)
 		return {"p": p, "dir": face}
+	TrafficReports.file("no_parking", door, "nowhere legal to park within 78 m of this door, either side of %s" % str(rd.get("name", "its road")))
 	return {}
+
+
+const JUNCTION_CLEAR := 13.0         # m from a junction's middle: its cross street's half width, the crosswalk, 20 ft
 
 
 func _blocked(p: Vector2, face: Vector2) -> bool:
@@ -570,6 +603,11 @@ func _process(delta: float) -> void:
 	Prof.begin("traffic")
 	_tick_traffic(delta)
 	Prof.end("traffic")
+	TrafficReports.tick()
+
+
+func _exit_tree() -> void:
+	TrafficReports.save()
 
 
 func _tick_traffic(delta: float) -> void:
@@ -689,11 +727,26 @@ func _sense_world() -> void:
 	peds.clear()
 	for id in live:
 		var e: Dictionary = live[id]
-		if e.sim == null:
-			continue                                               # parked: off the carriageway
 		var f := _flat((e.node as Node3D).global_transform)
+		if e.sim == null:
+			# parked (or a wreck): only in a driver's way if it stands in their lane -- RoadDriver's leader looks within
+			# 1.9 m of its line (a car at the kerb is ~2.5 m off it), and goes round one on the left when it's clear
+			agents.append({"id": id, "p": f[0], "dir": f[1], "v": 0.0, "len": float(e.len), "kind": "parked"})
+			continue
 		agents.append({"id": id, "p": f[0], "dir": f[1], "v": (e.sim as RoadDriver).v, "len": float(e.len), "kind": "car"})
 	var st := get_tree().current_scene
+	# the player's fleet parked about the streets (pods, vans, bicycles: VehicleStreamer) -- obstacles like any parked car
+	if _streamers.is_empty() or _ms > _streamers_ms:
+		_streamers_ms = _ms + 10000
+		_streamers = st.find_children("*", "VehicleStreamer", true, false)
+	for vs in _streamers:
+		if not is_instance_valid(vs):
+			continue
+		for n in (vs as VehicleStreamer)._nodes.values():
+			if is_instance_valid(n) and n is RemakeAirVehicle and (n as Node3D).global_position.distance_squared_to(player.global_position) < 40000.0:
+				var fv := _flat((n as Node3D).global_transform)
+				agents.append({"id": "pv:" + str((n as Node).name), "p": fv[0], "dir": fv[1], "v": (n as RigidBody3D).linear_velocity.length(),
+					"len": 4.5 if not n is RemakeBicycle else 1.8, "kind": "parked"})
 	var tr = st.get("transit")
 	if tr != null:
 		for key in tr.live:
@@ -709,9 +762,15 @@ func _sense_world() -> void:
 	if player != null:
 		var f := _flat(player.global_transform)
 		var pv := 0.0
+		var plen := 1.0
 		if player is CharacterBody3D:
 			pv = (player as CharacterBody3D).velocity.length()
-		agents.append({"id": "player", "p": f[0], "dir": f[1], "v": pv, "len": 1.0, "kind": "player"})
+		var pveh = player.get("_vehicle")
+		if pveh is RigidBody3D:                                    # (driving: the vehicle is what the others see)
+			f = _flat((pveh as Node3D).global_transform)
+			pv = (pveh as RigidBody3D).linear_velocity.length()
+			plen = 4.6
+		agents.append({"id": "player", "p": f[0], "dir": f[1], "v": pv, "len": plen, "kind": "player"})
 	var pop = st.get("npcs")
 	if pop != null:
 		for pid in pop.live:
@@ -770,33 +829,251 @@ func _spot_taken(p: Vector2, me: String) -> bool:
 	return false
 
 
-func _make_sim(v: Dictionary, e: Dictionary, w: Dictionary) -> void:
+func _make_sim(v: Dictionary, e: Dictionary, w: Dictionary, was_parked := false) -> void:
 	var r: PackedVector2Array = w.route
+	var fresh := false
+	var arrive := {}
+	if not w.has("loop"):
+		# a trip, driven: out of the space it's parked in (just setting off), and into a free space at the far end facing
+		# the way it arrives -- from one place to another, never popping onto or off the road (the user, 2026-10-09)
+		if was_parked:                                     # (stood at the kerb when its trip began: off from there)
+			var r2 := _depart_leg(e.node as Node3D, r)
+			fresh = r2 != r
+			r = r2
+			trips["departed"] = int(trips.get("departed", 0)) + (1 if fresh else 0)
+			trips["set_off_on_road"] = int(trips.get("set_off_on_road", 0)) + (0 if fresh else 1)
+		var dest: Vector2 = w.get("dest", Vector2.INF)
+		if dest != Vector2.INF and r.size() >= 2:
+			var n := r.size()
+			var de := Vector2(StationGeo.wrap_ds(r[n - 1].x - r[n - 2].x), r[n - 1].y - r[n - 2].y).normalized()
+			var key := "%.1f,%.1f#%s" % [dest.x, dest.y, str(v.id)]
+			var old_sp: Dictionary = _spot_cache.get(key, {})
+			if not old_sp.is_empty():
+				_taken.erase(old_sp.p)
+			var sp := _find_spot(dest, de)
+			if not sp.is_empty():
+				var r3 := _arrive_leg(r, sp)
+				if r3 != r:
+					r = r3
+					_spot_cache[key] = sp
+					arrive = sp
+		trips["into_a_space" if not arrive.is_empty() else "no_space_leg"] = int(trips.get("into_a_space" if not arrive.is_empty() else "no_space_leg", 0)) + 1
+	r = drivable(r, false, str(v.id))
 	var person: Dictionary = e.get("person", {})
 	if person.is_empty():
 		person = _person(v)
 		e.person = person
 	var s := RoadDriver.new()
 	s.id = v.id
+	# (the rounded route is a little shorter than the timetable's: its distances are scaled to it)
+	var k := 1.0
 	if w.has("loop"):
-		var L: float = w.loop
 		var rp := RoadDriver.Path.new(r)
+		var L: float = rp.length
+		k = L / maxf(float(w.loop), 1.0)
 		s.setup(func(dd): return rp.at(fposmod(dd, L)), float(e.len), person, hash(str(v.id)))
 		e.loop = L
-		e.marks = w.marks
-		e.next_mark = _next_mark(float(w.t), L, w.marks)
+		e.marks = (w.marks as Array).map(func(m): return float(m) * k)
+		e.next_mark = _next_mark(float(w.t) * k, L, e.marks)
 	else:
 		var rp2 := RoadDriver.Path.new(r)
 		s.setup(func(dd): return rp2.at(dd), float(e.len), person, hash(str(v.id)))
-		s.path_len = float(w.get("length", NpcPlaces.route_length(r)))
+		s.path_len = rp2.length
+		k = rp2.length / maxf(float(w.get("length", rp2.length)), 1.0)
+		s.stop_at_end = not arrive.is_empty()
 		e.trip = w.get("trip", "")
 		e.dest = w.get("dest", Vector2.ZERO)
 		e.loop = 0.0
-	s.t = float(w.t)
+	s.t = 0.0 if fresh else float(w.t) * k
+	if not fresh:                                       # (where it really stands, on the cleaned route)
+		var bp := (e.node as Node3D).global_position
+		s.t = _project(s, Vector2(StationGeo.s_of(bp), bp.x))
 	s.v = CAR_SPEED * 0.8 if float(w.t) > 1.0 else 0.0
 	e.sim = s
+	(e.node as NpcCarBody).sim = s
 	e.hold = 0.0
 	e.parity = hash(str(v.id)) % 6                                 # (the far cars' steps spread over the frames)
+
+
+func _depart_leg(node: Node3D, r: PackedVector2Array) -> PackedVector2Array:
+	## The route from where the car stands (parked at a kerb, by its trip's start): ahead and out into the lane if it
+	## points the route's way, else round in a U-turn first. Unchanged if it isn't by the route's start.
+	var f := _flat(node.global_transform)
+	var p0: Vector2 = f[0]
+	var face: Vector2 = f[1]
+	if r.size() < 2 or NpcPlaces.dist(p0, r[0]) > 60.0:
+		return r
+	var d0 := Vector2(StationGeo.wrap_ds(r[1].x - r[0].x), r[1].y - r[0].y).normalized()
+	var out := PackedVector2Array([p0])
+	var go := face
+	if face.dot(d0) < 0.0:
+		# a U-turn to the left, from a little ahead (in (s, x) +x is right of +s: a left turn is clockwise)
+		const R := 3.6
+		var left := Vector2(face.y, -face.x)
+		var a := p0 + face * 2.5
+		var c := a + left * R
+		var a0 := (a - c).angle()
+		for m in range(0, 9):
+			out.append(c + Vector2.from_angle(a0 - PI * m / 8.0) * R)
+		go = -face
+	else:
+		out.append(p0 + face * 5.0)
+	# on into the route, from its first point well ahead of where the turn left the car
+	var tip := out[out.size() - 1]
+	for i in r.size():
+		var q := r[i]
+		var dq := Vector2(StationGeo.wrap_ds(q.x - tip.x), q.y - tip.y)
+		if dq.dot(go) > 8.0:
+			for k in range(i, r.size()):
+				out.append(r[k])
+			return out
+		if NpcPlaces.dist(q, r[0]) > 80.0:
+			break
+	return r
+
+
+func _arrive_leg(r: PackedVector2Array, sp: Dictionary) -> PackedVector2Array:
+	## The route cut a little before the free space and run into it (it faces the way the car arrives). Unchanged if the
+	## space isn't by the route's end.
+	var p: Vector2 = sp.p
+	var face: Vector2 = sp.dir
+	var n := r.size()
+	if n < 2 or NpcPlaces.dist(r[n - 1], p) > 70.0:
+		return r
+	var acc := 0.0
+	for i in range(n - 1, -1, -1):
+		if i < n - 1:
+			acc += NpcPlaces.dist(r[i], r[i + 1])
+		if acc > 120.0:
+			break
+		var dq := Vector2(StationGeo.wrap_ds(r[i].x - p.x), r[i].y - p.y)
+		if absf(dq.cross(face)) > 7.0:
+			continue                                     # (not on the space's street: never across a block)
+		if dq.dot(face) < -14.0:
+			var out := r.slice(0, i + 1)
+			out.append(p - face * 6.0)
+			out.append(p)
+			return out
+	return r
+
+
+static func drivable(r: PackedVector2Array, loop := false, report := "") -> PackedVector2Array:
+	## A route a car can steer along: the lane offset's loops cut out (offsetting a turn leaves a little swallowtail on
+	## its inside, and a spike back on itself), and every corner rounded into an arc (radius up to CORNER_R). On rails
+	## the spikes were never seen; on wheels a car can't go back on itself, and a van turning a corner climbed the car
+	## parked on it (2026-10-09). (s, x) unwrapped from the first point, wrapped again at the end.
+	if r.size() < 3:
+		return r
+	var u := PackedVector2Array()
+	u.append(r[0])
+	var prev := r[0]
+	var unw := r[0]
+	for i in range(1, r.size()):
+		unw = Vector2(unw.x + StationGeo.wrap_ds(r[i].x - prev.x), r[i].y)
+		prev = r[i]
+		# (points closer than MERGE_M to the last kept one go -- a junction's bunch of 1 m legs left no room to round
+		# its turn: TrafficReports turn_too_tight, 2026-10-09 -- the last point is always kept)
+		if unw.distance_to(u[u.size() - 1]) > MERGE_M or i == r.size() - 1:
+			if i == r.size() - 1 and u.size() > 1 and unw.distance_to(u[u.size() - 1]) < 0.25:
+				continue
+			u.append(unw)
+	# loops: a segment crossing one a few on -- what lies between is cut, the crossing kept
+	var i := 0
+	while i < u.size() - 3:
+		var cut := false
+		for j in range(i + 2, mini(i + 9, u.size() - 1)):
+			var x = Geometry2D.segment_intersects_segment(u[i], u[i + 1], u[j], u[j + 1])
+			var loop_len := 0.0
+			if x != null:
+				for q in range(i + 1, j):
+					loop_len += u[q].distance_to(u[q + 1])
+			if x != null and loop_len < 15.0:               # (a lane offset's little loop; never a real block the route rounds)
+				var keep := u.slice(0, i + 1)
+				keep.append(x)
+				keep.append_array(u.slice(j + 1))
+				u = keep
+				cut = true
+				break
+		if not cut:
+			i += 1
+	# spikes: a point the route turns back through (more than ~115 degrees) -- an offset's artefact, dropped; or a real
+	# reversal (a round going back the way it came: both legs 6 m and more, nearly opposite), made a U-turn to the left
+	# (radius UTURN_R, wide of the lane it returns in: a car can't turn on the spot -- TrafficReports off_route, 2026-10-09)
+	var changed := true
+	var guard := 0
+	while changed and u.size() > 2 and guard < 200:
+		changed = false
+		guard += 1
+		for k in range(1, u.size() - 1):
+			var la2 := u[k].distance_to(u[k - 1])
+			var lb2 := u[k + 1].distance_to(u[k])
+			var a := (u[k] - u[k - 1]) / maxf(la2, 1e-6)
+			var b := (u[k + 1] - u[k]) / maxf(lb2, 1e-6)
+			if a.dot(b) < -0.42:
+				if a.dot(b) < -0.85 and la2 >= 6.0 and lb2 >= 6.0:
+					var left := Vector2(a.y, -a.x)
+					var start := u[k] - a * 2.0
+					var c := start + left * UTURN_R
+					var a0 := (start - c).angle()
+					var arc := PackedVector2Array()
+					for m in range(0, 9):
+						arc.append(c + Vector2.from_angle(a0 - PI * m / 8.0) * UTURN_R)
+					var keep := u.slice(0, k)
+					keep.append_array(arc)
+					keep.append_array(u.slice(k + 1))
+					u = keep
+				else:
+					u.remove_at(k)
+				changed = true
+				break
+	# corners: an arc tangent to both legs
+	var out := PackedVector2Array()
+	out.append(u[0])
+	for k in range(1, u.size() - 1):
+		var a := u[k] - u[k - 1]
+		var b := u[k + 1] - u[k]
+		var la := a.length()
+		var lb := b.length()
+		var th := absf(a.angle_to(b))
+		if th < 0.12 or la < 0.3 or lb < 0.3:
+			out.append(u[k])
+			continue
+		var tan_d := minf(CORNER_R * tan(th * 0.5), 0.45 * minf(la, lb))
+		var rad := tan_d / tan(th * 0.5)
+		# a right turn (in (s, x) +x is right of +s: a right turn is anticlockwise, a.cross(b) > 0) has the kerb's corner
+		# inside it: the arc may cut no more than CUT_IN inside the lane's corner -- the rest of the way it swings wide.
+		# (Rounded on the corner itself it ran over the kerb, through the corner's sign posts: TrafficReports sign_in_lane
+		# and sign_hit at Ocean Rd, 38th and 39th Sts, 2026-10-09)
+		var vk := u[k]
+		if a.cross(b) > 0.0:
+			var dev := rad * (1.0 / cos(th * 0.5) - 1.0)
+			if dev > CUT_IN:
+				var inward := (-a / la + b / lb).normalized()
+				vk -= inward * (dev - CUT_IN)
+		if rad < TrafficReports.MIN_R and th > 0.6 and report != "":
+			TrafficReports.file("turn_too_tight", Vector2(fposmod(u[k].x, StationGeo.CIRC), u[k].y),
+				"a %d-degree turn with room for a %.1f m radius (legs %.1f and %.1f m)" % [roundi(rad_to_deg(th)), rad, la, lb], report)
+		var p0 := vk - a / la * tan_d
+		var p1 := vk + b / lb * tan_d
+		var n := clampi(ceili(th * rad / 1.2), 2, 12)
+		# the arc's centre: off p0 square to the incoming leg, toward the turn
+		var left := Vector2(-a.y, a.x) / la * signf(a.cross(b))
+		var c := p0 + left * rad
+		var a0 := (p0 - c).angle()
+		var sweep := (p1 - c).angle() - a0
+		sweep = wrapf(sweep, -PI, PI)
+		for m in n + 1:
+			out.append(c + Vector2.from_angle(a0 + sweep * m / n) * rad)
+	out.append(u[u.size() - 1])
+	for k in out.size():
+		out[k] = Vector2(fposmod(out[k].x, StationGeo.CIRC), out[k].y)
+	return out
+
+
+const CORNER_R := 7.0                 # m: the most a corner is rounded by (a town street's turn)
+const MERGE_M := 5.0                   # m: route points closer than this merge (legs long enough for a ~3 m turn)
+const UTURN_R := 2.9                  # m: a reversal's U-turn
+const CUT_IN := 0.6                   # m: the most a right turn's arc cuts inside its lane's corner
 
 
 static func _next_mark(t: float, L: float, marks: Array) -> float:
@@ -827,13 +1104,55 @@ func _drive(e: Dictionary, dt: float, now: Array, think := true) -> void:
 		else:
 			s.v_cap = INF if absf(s.lat) < 0.3 else 3.0              # back out into the lane first
 			s.pull_over(false)
-	if think:
+	# near the player it drives on its wheels (NpcCarBody: the physics), farther off it is placed along the route
+	var body := e.node as NpcCarBody
+	var bp := body.global_position
+	var near_d := NpcPlaces.dist(Vector2(StationGeo.s_of(bp), bp.x), _here)
+	if not body.driving and near_d < PHYS_R and not body.crashed:
+		body.start_driving(s.v)
+	elif body.driving and near_d > PHYS_R + 20.0:
+		body.stop_driving()
+	if body.driving:
+		if think:
+			# where the physics has it: along its route, and how fast (a crawl in a queue is standing still: else it
+			# never counts as stopped -- the standoff rule and the slow decisions of a stood queue wait on that)
+			s.t = _project(s, Vector2(StationGeo.s_of(bp), bp.x))
+			s.v = maxf(0.0, body.speed) if body.speed > 0.15 else 0.0
+			Prof.begin("drive.step")
+			s.step(dt, _agents_near(s.pos_at(s.t)), peds, now[2])
+			Prof.end("drive.step")
+			body.want_acc = s._last_acc
+			body.hard_stop = s._last_hard
+			# the last word: anything right in front of its nose, the way it's really pointing -- brakes on, whatever the
+			# rules said (they judge along the route; a body turning across it at a junction, or one stood half in the lane,
+			# was hit on wheels where on rails it was driven through)
+			Prof.begin("drive.ahead")
+			var blk := _blocked_ahead(e, body)
+			Prof.end("drive.ahead")
+			if blk != "":
+				if int(e.get("blocked_ms", 0)) == 0:
+					e.blocked_ms = _ms
+				# two stood nose to nose (a junction's standoff): after a few seconds the lower id goes first, slowly
+				if (_ms - int(e.blocked_ms)) > STANDOFF_S * 1000.0 and str(v.id) < blk:
+					body.want_acc = minf(body.want_acc, 0.6 if body.speed < 1.5 else -1.0)
+				else:
+					body.want_acc = -8.0
+					body.hard_stop = body.speed < 0.5
+			else:
+				e.blocked_ms = 0
+			if body.want_acc > 0.3 and not body.hard_stop:
+				body.wake()
+			_watch(e, s, body, Vector2(StationGeo.s_of(bp), bp.x), blk)
+	elif think:
 		Prof.begin("drive.step")
 		s.step(dt, _agents_near(s.pos_at(s.t)), peds, now[2])
 		Prof.end("drive.step")
 	else:
 		s.coast(dt)
-	if float(e.loop) <= 0.0 and s.t >= s.path_len - 0.5:
+	# (stood 5 s within 12 m of the end -- someone else in its space, the household's other car: it parks there)
+	var near_end := float(e.loop) <= 0.0 and body.driving and s.path_len - s.t < 12.0 and body.speed < 0.2 \
+		and int(e.get("still_ms", 0)) > 0 and _ms - int(e.still_ms) > 5000
+	if float(e.loop) <= 0.0 and (s.t >= s.path_len - (2.0 if body.driving else 0.5) or near_end):
 		var done: Dictionary = v.get("done", {})
 		done[e.trip] = true
 		v.done = done
@@ -846,11 +1165,97 @@ func _drive(e: Dictionary, dt: float, now: Array, think := true) -> void:
 		(e.node as Node).queue_free()
 		live.erase(v.id)
 		return
+	if body.driving:
+		e.speed = body.speed
+		return
 	Prof.begin("drive.ground")
 	(e.node as Node3D).global_transform = _on_ground(e.node, str(v.type), q, atan2(-d.y, d.x))
 	Prof.end("drive.ground")
 	e.speed = s.v
-	(e.node as NpcCarBody).v_now = -(e.node as Node3D).global_transform.basis.z * s.v
+	body.v_now = -(e.node as Node3D).global_transform.basis.z * s.v
+
+
+const STANDOFF_S := 3.0
+const STUCK_S := 60.0
+
+
+func _watch(e: Dictionary, s: RoadDriver, body: NpcCarBody, at: Vector2, blk: String) -> void:
+	## What a driver reports about the road as they go (TrafficReports): a road they couldn't keep to, and being stuck.
+	var p := s.pos_at(s.t)
+	var d := s.dir_at(s.t)
+	var side := Vector2(StationGeo.wrap_ds(at.x - p.x), at.y - p.y).dot(Vector2(-d.y, d.x)) - s.lat
+	if absf(side) > 3.0 and body.speed > 1.0:
+		if int(e.get("off_ms", 0)) == 0:
+			e.off_ms = _ms
+		elif _ms - int(e.off_ms) > 2000 and not e.get("off_told", false):
+			e.off_told = true
+			TrafficReports.file("off_route", p, "couldn't keep to its route: %.1f m off it at %.0f km/h, heading %d degrees off" % [
+				side, body.speed * 3.6, roundi(rad_to_deg(absf(Vector2(-body.global_transform.basis.z.dot(StationGeo.forward(at.x)),
+				-body.global_transform.basis.z.x).angle_to(d))))], str(e.v.id))
+	else:
+		e.off_ms = 0
+	if body.speed < 0.2 and float(e.get("hold", 0.0)) <= 0.0:
+		if int(e.get("still_ms", 0)) == 0:
+			e.still_ms = _ms
+		elif _ms - int(e.still_ms) > STUCK_S * 1000.0 and not e.get("stuck_told", false):
+			e.stuck_told = true
+			var why: Array = []
+			for o in s.last_obstacles:
+				if not why.has(str(o[2])):
+					why.append(str(o[2]))
+			TrafficReports.file("stuck", at, "stood %d s wanting to go; held by %s%s" % [int(STUCK_S), ", ".join(why) if not why.is_empty() else "nothing it could see",
+				(" (in front of its nose: %s)" % blk) if blk != "" else ""], str(e.v.id))
+	else:
+		e.still_ms = 0
+		e.stuck_told = false
+
+func _blocked_ahead(e: Dictionary, body: NpcCarBody) -> String:
+	## The id of whatever stands right ahead of this car's nose (within its stopping distance, across its width), or "".
+	var f := _flat(body.global_transform)
+	var me: Vector2 = f[0]
+	var hd: Vector2 = f[1]
+	var rt := Vector2(-hd.y, hd.x)
+	var v := maxf(body.speed, 0.0)
+	var reach := float(e.len) * 0.5 + 1.0 + v * 0.4 + v * v / 12.0
+	var my_id := str(e.v.id)
+	for a in _agents_near(me):
+		if str(a.id) == my_id:
+			continue
+		var rel := Vector2(StationGeo.wrap_ds((a.p as Vector2).x - me.x), (a.p as Vector2).y - me.y)
+		var along := rel.dot(hd)
+		if along <= 0.0:
+			continue
+		# its extent toward us: half its length along its own heading, half a car's width across it
+		var ad: Vector2 = a.dir
+		var c := absf(ad.dot(hd))
+		var ext := float(a.len) * 0.5 * c + 1.0 * (1.0 - c)
+		if along - ext > reach:
+			continue
+		var side_ext := float(a.len) * 0.5 * (1.0 - c) + 1.0 * c
+		if absf(rel.dot(rt)) < 1.0 + side_ext + 0.15:
+			return str(a.id)
+	return ""
+
+
+static var PHYS_R := 90.0             # m from the player: driven cars within this drive on their wheels (NpcCarBody; the
+                                     # user, 2026-10-09: "NPC cars need to be driving with physics not moving arbitrarily").
+                                     # Past it (to RANGE) they follow the same drivable route at their drivers' speeds: 50 on
+                                     # wheels at a rush hour was 12 fps, and from 90 m the two can't be told apart
+
+
+static func _project(s: RoadDriver, at: Vector2) -> float:
+	## How far along its route the point nearest `at` is, from where the driver last was (a few Newton steps).
+	var t := s.t
+	for k in 3:
+		var a := s.pos_at(t)
+		var d := s.dir_at(t)
+		var step := clampf(Vector2(StationGeo.wrap_ds(at.x - a.x), at.y - a.y).dot(d), -12.0, 12.0)
+		t += step
+		if absf(step) < 0.02:
+			break
+	if s.path_len < INF:
+		t = clampf(t, 0.0, s.path_len)
+	return maxf(t, s.t - 1.0)                   # (never back: a car nosing past its line doesn't re-live the stop)
 
 
 var _wheelbox := {}                   # type -> Vector2(half the wheelbase, half the track)
@@ -947,6 +1352,20 @@ func _road_h(p: Vector2, node: Node3D) -> float:
 
 
 func _end_drive(e: Dictionary) -> void:
+	var body := e.node as NpcCarBody
+	if body.driving and not body.crashed and Vector2(e.get("dest", Vector2.ZERO)) != Vector2.ZERO:
+		# parked where it really stopped, as it stands (else it snapped to its space's exact middle)
+		var f := _flat(body.global_transform)
+		var dest: Vector2 = e.dest
+		var key := "%.1f,%.1f#%s" % [dest.x, dest.y, str(e.v.id)]
+		var old_sp: Dictionary = _spot_cache.get(key, {})
+		if not old_sp.is_empty():
+			_taken.erase(old_sp.p)
+		_taken.append(f[0])
+		_spot_cache[key] = {"p": f[0], "dir": f[1]}
+		trips["parked_on_arrival"] = int(trips.get("parked_on_arrival", 0)) + 1
+	(e.node as NpcCarBody).stop_driving()
+	(e.node as NpcCarBody).sim = null
 	e.sim = null
 	e.moving = false
 	e.speed = 0.0
@@ -995,8 +1414,17 @@ func _show(v: Dictionary) -> void:
 			return
 		live[v.id] = e
 	var node := e.node as Node3D
+	var was_parked := e.sim == null and not bool(e.get("moving", false)) and e.has("placed")
+	if bool(w.get("moving", false)) and e.sim == null and w.has("route"):
+		e.moving = true
+		e.speed = float(w.get("speed", 0.0))
+		if not was_parked:
+			node.global_transform = _on_ground(node, str(v.type), w.pos, float(w.yaw))
+		_make_sim(v, e, w, was_parked)                         # (parked: it sets off from where it stands)
+		return
 	var p: Vector2 = w.pos
 	node.global_transform = _on_ground(node, str(v.type), p, float(w.yaw))
+	e.placed = true
 	e.speed = float(w.get("speed", 0.0))
 	e.moving = bool(w.get("moving", false))
 	if bool(w.get("moving", false)) and e.sim == null and w.has("route"):
@@ -1023,15 +1451,21 @@ func _build(v: Dictionary) -> Dictionary:
 	body.traffic = self
 	body.entry_id = str(v.id)
 	body.mass = float(phys.get("mass_kg", 1500.0))
+	body.phys = phys
+	var wb := _wheel_box(str(v.type))
+	body.half_wb = wb.x
+	body.half_tr = wb.y
+	body.wheel_r = float(phys.get("wheel_r", 0.34))
 	body.center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
-	body.center_of_mass = Vector3(0, float(size[2]) * 0.35, 0)     # low: batteries in the floor
+	body.center_of_mass = Vector3(0, minf(float(size[2]) * 0.3, 0.55), 0)     # low: batteries in the floor
 	body.collision_layer = 1 | RemakeGroundVehicle.HULL_LAYER
-	body.collision_mask = 1 | RemakeGroundVehicle.HULL_LAYER
+	body.collision_mask = 1 | RemakeGroundVehicle.HULL_LAYER | RemakeGroundVehicle.PED_LAYER
 	var cs := CollisionShape3D.new()
 	var sh := BoxShape3D.new()
-	sh.size = Vector3(float(size[1]), float(size[2]) * 0.85, float(size[0])) * 0.96
+	var h := float(size[2]) * 0.95 - NpcCarBody.CLEAR               # (from CLEAR up: driven, kerbs pass under it)
+	sh.size = Vector3(float(size[1]) * 0.96, h, float(size[0]) * 0.96)
 	cs.shape = sh
-	cs.position = Vector3(0, float(size[2]) * 0.85 * 0.5 + float(size[2]) * 0.1, 0)
+	cs.position = Vector3(0, NpcCarBody.CLEAR + h * 0.5, 0)
 	body.add_child(cs)
 	add_child(body)
 	return {"node": body, "v": v, "wheels": [], "seat": null, "driver": null, "pending": {}, "speed": 0.0, "moving": false, "spin": 0.0,
@@ -1303,12 +1737,57 @@ static func build_merged(parts: Array) -> ArrayMesh:
 	return out
 
 
+var trips := {}                      # how trips began and ended near the player, since load (tools)
+var _streamers: Array = []
+var _streamers_ms := 0
+var _gone := {}                      # vehicle id -> true: taken by the player, or dismissed -- never shown again
+
+
+func take_over(id: String, by: StationPlayer) -> String:
+	## A parked car, got into: its traffic box goes, and the full drivable body of its type (RemakeModularCar, as Edit >
+	## Summon makes) stands where it was, the player at the wheel. From then on it's the player's (group taken_vehicle):
+	## the traffic forgets it.
+	var e: Dictionary = live.get(id, {})
+	if e.is_empty() or e.sim != null:
+		return ""
+	var vt := str(e.v.type)
+	var info := FleetBodies.of(vt)
+	if info.is_empty() or bool(info.get("prop", false)) or bool(info.get("air", false)) or bool(info.get("boat", false)):
+		return ""
+	var node := e.node as Node3D
+	var xf := node.global_transform
+	var car: RemakeAirVehicle = RemakeBicycle.new() if vt == "bicycle" else RemakeModularCar.new(vt)
+	car.name = "Taken_" + id.replace("/", "_")
+	car.add_to_group("taken_vehicle")
+	get_tree().current_scene.add_child(car)
+	car.global_transform = Transform3D(xf.basis, xf.origin + xf.basis.y * 0.05)
+	forget(id)
+	car.take_seat(by)
+	return "car"
+
+
+func forget(id: String) -> void:
+	## Off the roads for good (taken, or dismissed from the PDA): its box freed, never placed again.
+	_gone[id] = true
+	var e: Dictionary = live.get(id, {})
+	if not e.is_empty():
+		(e.node as Node).queue_free()
+		live.erase(id)
+	for i in _cand.keys():
+		if str(_cand[i].id) == id:
+			_cand.erase(i)
+	vehicles = _cand.values()
+	_i = _i % maxi(1, vehicles.size())
+
+
 func on_crash(id: String) -> void:
 	## Hit: no longer driven -- the physics has it now (a wreck, with its driver sat in it).
 	var e: Dictionary = live.get(id, {})
 	if e.is_empty():
 		return
 	e.sim = null
+	(e.node as NpcCarBody).sim = null
+	(e.node as NpcCarBody).crashed = true
 	e.moving = false
 	e.crashed = true
 	e.speed = 0.0

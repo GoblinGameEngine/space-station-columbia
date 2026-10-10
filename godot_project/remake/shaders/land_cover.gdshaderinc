@@ -42,3 +42,16 @@ vec3 to_linear(vec3 c) {
 	return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(vec3(0.04045), c));
 }
 
+// The coarse terrain tiers stand aside where the fine ground is complete (MapTerrainMesh._cut): inside terrain_cut's
+// circle -- (s, x) of its centre, its radius -- a coarse tier draws nothing. (Drawn there too, a 64 m tile's straight
+// faces stood metres above a hillside's hollows: the player looked sunk in the ground -- 2026-10-09.)
+global uniform vec4 terrain_cut;
+
+bool cut_here(vec2 uv) {
+	float x = uv.x * tex_m;
+	float s = uv.y * tex_m;
+	float ds = mod(s - terrain_cut.x + circ * 0.5, circ) - circ * 0.5;
+	float dx = x - terrain_cut.y;
+	return ds * ds + dx * dx < terrain_cut.z * terrain_cut.z;
+}
+

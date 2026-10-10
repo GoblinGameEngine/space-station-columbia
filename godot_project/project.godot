@@ -7,7 +7,7 @@ config_version=5
 [application]
 
 config/name="Space Station Columbia"
-config/version="0.7.9-alpha.2"
+config/version="0.8.1-beta.1"
 run/main_scene="res://remake/scenes/RemakeStation.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.0157, 0.0235, 0.047, 1)
@@ -138,4 +138,8 @@ sky_color={
 farside_player_s={
 "type": "float",
 "value": 0.0
+}
+terrain_cut={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
 }

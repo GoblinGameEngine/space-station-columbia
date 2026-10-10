@@ -7,7 +7,12 @@ shader_type spatial;
 uniform sampler2D detail : source_color, filter_linear_mipmap, repeat_enable;
 #include "res://remake/shaders/land_cover.gdshaderinc"
 
+uniform bool coarse = false;          // a coarse tier's material (MapTerrainMesh.coarse_material): cut by terrain_cut
+
 void fragment() {
+	if (coarse && cut_here(UV)) {
+		discard;
+	}
 	vec3 c = mix(cover(UV), COLOR.rgb, COLOR.a);
 	ALBEDO = to_linear(c) * texture(detail, UV).rgb;
 }

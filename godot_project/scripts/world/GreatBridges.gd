@@ -24,7 +24,8 @@ const STEP := 5.0
 const FOUND := 25.0
 const DECK_D := 2.2
 const APPROACH_MIN := 30.0
-const SMOOTH_R := 20.0
+const SMOOTH_R := 4.0              # (tools/road_fix.py eases the road onto the span itself: rounding it again over 20 m took the
+                                    #  deck up to 3 m off the road's own line -- the lane on and off the deck, 2026-10-09)
 
 var _mats := {}
 static var decks: Array = []         # every great bridge's line (the spans), for the trees to keep out from under
@@ -444,6 +445,14 @@ func _build(br: Dictionary) -> void:
 		zz[i] = maxf(zz[i], _ground_across(us[i], hw) + 0.05)
 		var gm := _ground_across((us[i - 1] + us[i]) * 0.5, hw) + 0.05
 		zz[i] = maxf(zz[i], gm - (zz[i - 1] - gm))            # the ground between samples, too
+	# and no step anywhere along it: the ground clamp above can lift one sample alone -- each sample at most GRADE
+	# times its spacing from its neighbours, raised (never lowered: the ground still stays under it), both ways
+	# (the road survey's 0.18 m steps on the Lakeshore Road and Ford Road decks, 2026-10-09)
+	for pass_ in 2:
+		for i in range(1, n):                            # (the two ends stay where they meet the road)
+			zz[i] = maxf(zz[i], zz[i - 1] - GRADE * (us[i] - us[i - 1]))
+		for i in range(n - 1, 0, -1):
+			zz[i] = maxf(zz[i], zz[i + 1] - GRADE * (us[i + 1] - us[i]))
 	# what the traffic stands on (deck_h): the deck's profile along the line
 	spans[-1]["us"] = PackedFloat32Array(us)
 	spans[-1]["zz"] = PackedFloat32Array(zz)

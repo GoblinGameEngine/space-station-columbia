@@ -822,6 +822,181 @@ print("parking and subdivision signs:", N_PARK)
 print("parking lots:", N_LOT)
 print("tram stop zones:", N_STOPZ)
 
+# ------------------------------------------------------------------ no sign in a carriageway
+# Every sign clear of every road's travelled way: one standing within 0.4 m of a road's kerb line (or inside it) is
+# moved out, square to that road, to 0.6 m behind its kerb -- again for the next road, at a corner. The game's drivers
+# reported them (TrafficReports sign_in_lane, 2026-10-09: a street-name blade 2.1 m off Ocean Rd's centreline, 1.9 m
+# into its lane; a stop sign in Carrow Pike; an emergency-route sign in the middle of an alley): signs placed beside one
+# road at a junction landed in the other.
+N_MOVED = 0
+N_STILL = 0
+for s_ in SIGNS_OUT:
+    p = (s_["s"], s_["x"])
+    moved = False
+    for _ in range(4):
+        hit = None
+        for d, ri, k, proj in near_roads(p, 12.0):
+            rd = ROADS[ri]
+            half = max(float(rd.get("hl", rd["w"] * 0.5)), float(rd.get("hr", rd["w"] * 0.5)))
+            if d < half + 0.4:
+                hit = (d, ri, k, proj, half)
+                break
+        if hit is None:
+            break
+        d, ri, k, proj, half = hit
+        if d > 0.05:
+            n = (wd(p[0] - proj[0]) / d, (p[1] - proj[1]) / d)
+        else:
+            n = right_of(heading(ri, min(k, len(ROADS[ri]["pts"]) - 2)))
+        p = (proj[0] + n[0] * (half + 0.6), proj[1] + n[1] * (half + 0.6))
+        moved = True
+    if moved:
+        N_MOVED += 1
+        if any(d < float(max(ROADS[ri].get("hl", ROADS[ri]["w"] * 0.5), ROADS[ri].get("hr", ROADS[ri]["w"] * 0.5))) + 0.4
+               for d, ri, k, proj in near_roads(p, 12.0)):
+            N_STILL += 1
+        s_["s"] = round(p[0] % C, 2)
+        s_["x"] = round(p[1], 2)
+print(f"signs moved out of a carriageway: {N_MOVED} ({N_STILL} still against one: hemmed in at a tight junction)")
+
+
+# ------------------------------------------------------------------ no sign hidden by another, none left in a road
+# The road survey (RoadSurvey, 2026-10-09) found 16,000 pairs of signs within 1.2 m of each other, facing the same way at
+# the same height (a street-name blade on its own post just in front of the stop sign, parking plates crowding a stop
+# post), 935 standing on the very same spot (91 stop on stop), and stop signs with no junction. Here, for every sign:
+#   a duplicate (same type, text and facing, within DUP_R) is dropped;
+#   a blade crowding a stop or yield goes on that sign's post, above it;
+#   any other sign crowding one more important moves along the kerb to the first clear slot (+-1.5, 3, 4.5 m) outside
+#     every carriageway, or is dropped (clutter) if there's none;
+#   a stop or yield with no junction within 30 m is dropped;
+#   one still inside a carriageway (hemmed in at a tight corner) slides along the kerb, or is dropped.
+PRIORITY = ["stop", "yield", "speed_", "curve_", "junction", "stop_ahead", "rr_ahead", "crossbuck", "route_", "town",
+            "emergency_route", "flood_route", "no_parking_tram", "dead_end", "no_outlet", "blade", "accessible"]
+DUP_R = 1.2
+CROWD_R = 1.2
+
+
+def prio(t):
+    for i, p in enumerate(PRIORITY):
+        if t == p or (p.endswith("_") and t.startswith(p)):
+            return i
+    return len(PRIORITY)
+
+
+def face_of(sg):
+    return (math.cos(sg["yaw"]), -math.sin(sg["yaw"]))      # (yaw_facing's inverse)
+
+
+def in_carriageway(p, margin=0.4):
+    for d, ri, k, proj in near_roads(p, 12.0):
+        rd = ROADS[ri]
+        if d < max(float(rd.get("hl", rd["w"] * 0.5)), float(rd.get("hr", rd["w"] * 0.5))) + margin:
+            return True
+    return False
+
+
+JN_PTS = {}
+for J in JUNCS:
+    q = J["p"]
+    JN_PTS.setdefault((int((q[0] % C) // 30), int(q[1] // 30)), []).append(q)
+
+
+def junction_within(p, r):
+    ci, cj = int((p[0] % C) // 30), int(p[1] // 30)
+    for di in (-1, 0, 1, 2, -2):
+        for dj in (-1, 0, 1, 2, -2):
+            for q in JN_PTS.get(((ci + di) % int(C // 30 + 1), cj + dj), ()):
+                if math.hypot(wd(q[0] - p[0]), q[1] - p[1]) < r:
+                    return True
+    return False
+
+
+SG = {}
+def sg_key(p):
+    return (int((p[0] % C) // 2), int(p[1] // 2))
+
+
+def crowded(p, sg, ignore):
+    """The signs within CROWD_R of p facing sg's way at its height (bar ignore)"""
+    f = face_of(sg)
+    out = []
+    ci, cj = sg_key(p)
+    for di in (-1, 0, 1):
+        for dj in (-1, 0, 1):
+            for o in SG.get((ci + di, cj + dj), ()):
+                if o is ignore or o.get("_drop"):
+                    continue
+                fo = face_of(o)
+                if f[0] * fo[0] + f[1] * fo[1] < 0.7:
+                    continue                                   # (any height: two posts this close crowd each other --
+                                                               #  the survey's 2,000 pay stations against stop posts)
+                if math.hypot(wd(o["s"] - p[0]), o["x"] - p[1]) < CROWD_R:
+                    out.append(o)
+    return out
+
+
+for sg in SIGNS_OUT:
+    SG.setdefault(sg_key((sg["s"], sg["x"])), []).append(sg)
+n_dup = n_post = n_moved = n_drop = n_orphan = n_slid = 0
+for sg in sorted(SIGNS_OUT, key=lambda q: prio(q["t"])):
+    if sg.get("_drop"):
+        continue
+    p = (sg["s"], sg["x"])
+    if sg["t"] in ("stop", "yield") and not junction_within(p, 30.0):
+        sg["_drop"] = True
+        n_orphan += 1
+        continue
+    for o in crowded(p, sg, sg):
+        if o["t"] == sg["t"] and o.get("txt") == sg.get("txt"):
+            o["_drop"] = True                                  # a duplicate
+            n_dup += 1
+            continue
+        if prio(o["t"]) < prio(sg["t"]):
+            continue                                           # (it was placed first: sg moves, below, in its turn)
+        if o["t"] == "blade" and sg["t"] in ("stop", "yield"):
+            o["s"], o["x"], o["yaw"], o["h"] = sg["s"], sg["x"], sg["yaw"], round(sg.get("h", 2.1) + 0.8, 2)
+            o["_post"] = True                                  # on the stop sign's post, above it
+            n_post += 1
+            continue
+        if o.get("_post"):
+            continue
+        # along the kerb: perpendicular to its face
+        f = face_of(o)
+        kd = (-f[1], f[0])
+        placed = False
+        for off in (1.5, -1.5, 3.0, -3.0, 4.5, -4.5):
+            q = (o["s"] + kd[0] * off, o["x"] + kd[1] * off)
+            if in_carriageway(q) or crowded(q, o, o):
+                continue
+            SG[sg_key((o["s"], o["x"]))].remove(o)
+            o["s"], o["x"] = round(q[0] % C, 2), round(q[1], 2)
+            SG.setdefault(sg_key((o["s"], o["x"])), []).append(o)
+            n_moved += 1
+            placed = True
+            break
+        if not placed:
+            o["_drop"] = True
+            n_drop += 1
+# still in a carriageway: along the kerb, or out
+for sg in SIGNS_OUT:
+    if sg.get("_drop") or not in_carriageway((sg["s"], sg["x"]), 0.0):
+        continue
+    f = face_of(sg)
+    kd = (-f[1], f[0])
+    for off in (1.0, -1.0, 2.0, -2.0, 3.0, -3.0, 4.5, -4.5, 6.0, -6.0):
+        q = (sg["s"] + kd[0] * off, sg["x"] + kd[1] * off)
+        if not in_carriageway(q, 0.3):
+            sg["s"], sg["x"] = round(q[0] % C, 2), round(q[1], 2)
+            n_slid += 1
+            break
+    else:
+        sg["_drop"] = True
+        n_drop += 1
+SIGNS_OUT[:] = [{k: v for k, v in sg.items() if not k.startswith("_")} for sg in SIGNS_OUT if not sg.get("_drop")]
+print(f"signs: {n_dup} duplicates dropped, {n_post} blades onto their stop sign's post, {n_moved} moved along the kerb "
+      f"out of another's way, {n_slid} slid out of a carriageway, {n_orphan} stop/yield with no junction dropped, "
+      f"{n_drop} dropped as clutter (no clear place)")
+
 out = {
     "ctx": CTX,
     "jn": JN,

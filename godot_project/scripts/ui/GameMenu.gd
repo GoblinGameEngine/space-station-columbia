@@ -6,7 +6,7 @@ extends CanvasLayer
 ##   - the menu bar along the top: the System menu (the logo: About, the apps), then the menus, and
 ##     the clock at the right. Menus drop down from it and may hold submenus (hierarchical, System 7's).
 ##     On the desktop: File (New Game, Load Game), Edit (Summon <kind> > every vehicle of it, Summon
-##     Tram..., Dismiss Vehicle), System (Respawn, Exit Game). In an app: File (Close), View (its pages),
+##     Tram..., Dismiss Current Vehicle), System (Respawn, Exit Game). In an app: File (Close), View (its pages),
 ##     Help;
 ##   - the desktop: the grey dither, the apps' icons (double-tap opens);
 ##   - the apps: windows with a pinstriped title bar and a close box, their pages chosen from View:
@@ -1538,6 +1538,8 @@ func _draw_nearby_marker() -> void:
 ## 03_settlements.md), and the law where you stand (research/law/02_cities.md).
 var _nav_map: NavMap
 var _nav_list: VBoxContainer
+var _nav_where: OptionButton
+var _ft_groups: Array = []           # [{name, dests: [{name, s, x, face, what}]}] (fast travel: _fast_travel_groups)
 var _nav_law: Label
 var _nav_status: Label
 
@@ -1564,7 +1566,10 @@ func _nav_tabs() -> TabContainer:
 	row.add_child(zout)
 	pg.add_child(row)
 	var tv := _tab_page(tabs, "Travel")
-	tv.add_child(_label("Ride the tram to:", true))
+	tv.add_child(_label("Fast travel to:", true))
+	_nav_where = OptionButton.new()
+	_nav_where.item_selected.connect(_fill_fast_travel)
+	tv.add_child(_nav_where)
 	_nav_list = VBoxContainer.new()
 	_nav_list.add_theme_constant_override("separation", 3)
 	tv.add_child(_nav_list)
@@ -1608,12 +1613,25 @@ func _refresh_nav() -> void:
 		return
 	if _nav_map.dests.is_empty():
 		_nav_map.dests = _nav_dests()
-		for c in _nav_list.get_children():
-			c.queue_free()
-		for dd in _nav_map.dests:
-			var b := _button("%s -- %s%s" % [dd.name, dd.stop, "" if dd.own else " (nearest)"], _nav_confirm.bind(dd))
-			b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-			_nav_list.add_child(b)
+	if _ft_groups.is_empty():
+		_ft_groups = _fast_travel_groups()
+		_nav_where.clear()
+		for g in _ft_groups:
+			_nav_where.add_item(str(g.name))
+	# (the town you're nearest, each time the PDA opens)
+	var here_i := 0
+	var hd2 := INF
+	var p0 := _player_sx()
+	for i in _ft_groups.size():
+		var c = _ft_groups[i].get("centre")
+		if c is Vector2:
+			var d := Vector2(StationGeo.wrap_ds((c as Vector2).x - p0.x), (c as Vector2).y - p0.y).length()
+			if d < hd2:
+				hd2 = d
+				here_i = i
+	if not _ft_groups.is_empty():
+		_nav_where.select(here_i)
+		_fill_fast_travel(here_i)
 	_nav_map.follow = true
 	# the law where you stand: the nearest settlement, and the city whose ordinances it follows
 	var p := _player_sx()
@@ -1642,6 +1660,184 @@ func _refresh_nav() -> void:
 				here.name, here.tier, hd / 1000.0, city.name, city.code, int(city.speed.residential_kmh), int(city.speed.school_kmh), int(city.speed.alley_kmh),
 				pk.downtown.hours, int(pk.downtown.limit_h), int(pk.residential.max_hours), city.transit.authority]
 	_nav_law.text = txt
+
+
+# ------------------------------------------------------------------ fast travel (the Navigator's Travel page)
+## The user, 2026-10-09: "fast travel locations to points of interest in each city and significant places on the map"
+## (the player's alone: NPCs never use it). Each town's civic and public places (its town hall, courthouse, library,
+## hospital, schools, churches, post office, station, cinema, lighthouse ...), its squares, beaches and fields, and its
+## tram stop; and the map's landmarks -- the summits, the islands, the falls, the ponds. You arrive outside, facing it;
+## the clock moves on by the trip.
+const FT_PLACES := [["town_hall", "Town Hall", 1], ["courthouse", "Courthouse", 1], ["admin_center", "Administration Centre", 1],
+	["police_fire", "Police and Fire", 1], ["hospital", "Hospital", 1], ["library", "Library", 1], ["post_office", "Post Office", 1],
+	["college", "College", 1], ["college_extension", "College Extension", 1], ["school", "School", 2], ["church", "Church", 2],
+	["community_hall", "Community Hall", 1], ["movie_theater", "Cinema", 1], ["hotel", "Hotel", 1], ["transit_station", "Station", 1],
+	["transit_depot", "Transit Depot", 1], ["lighthouse", "Lighthouse", 1], ["grocery", "Grocery", 1], ["diner", "Diner", 1],
+	["bar", "Bar", 1], ["bank", "Bank", 1], ["charge_stop", "Charge Stop", 1], ["grain_elevator", "Grain Elevator", 1],
+	["farm", "Farm", 1]]
+const FT_WORKS := ["remelting_works", "rolling_mill", "tube_works", "foundry", "machine_shop", "motor_works", "cell_works",
+	"tyre_works", "glass_works", "gauge_works", "electronics_works", "coachworks", "paint_works", "textile_mill", "sawmill",
+	"food_plant", "printing_plant", "factory", "distribution_centre", "truck_terminal", "warehouse"]
+const FT_AREAS := {"square": "Town Square", "plaza": "Plaza", "beach": "Beach", "sportsfield": "Sports Field", "green": "Village Green",
+	"campus": "Campus", "boat_ramp": "Boat Ramp"}
+
+
+func _fast_travel_groups() -> Array:
+	var units := NpcPlaces.units()
+	var by_town := {}                                    # settlement -> [units]
+	for uid in units:
+		var u: Dictionary = units[uid]
+		var t := str(u.get("settlement", ""))
+		if t == "":
+			continue
+		if not by_town.has(t):
+			by_town[t] = []
+		(by_town[t] as Array).append(u)
+	var info := {}
+	if FileAccess.file_exists("res://remake/law/settlements.json"):
+		for st in JSON.parse_string(FileAccess.get_file_as_string("res://remake/law/settlements.json")).settlements:
+			info[str(st.name)] = st
+	var trams := {}
+	for dd in _nav_dests():
+		if dd.own:
+			trams[str(dd.name)] = dd
+	var areas: Array = MapTerrain.data().get("areas", [])
+	var groups: Array = []
+	for t in by_town:
+		var us: Array = by_town[t]
+		var st: Dictionary = info.get(t, {})
+		var c := Vector2.INF
+		if st.get("centre") != null:
+			c = Vector2(float(st.centre[0]), float(st.centre[1]))
+		else:                                            # (the middle of its places)
+			var acc := Vector2.ZERO
+			var s0 := float(us[0].door[0])
+			for u in us:
+				acc += Vector2(StationGeo.wrap_ds(float(u.door[0]) - s0), float(u.door[1]))
+			acc /= us.size()
+			c = Vector2(fposmod(s0 + acc.x, StationGeo.CIRC), acc.y)
+		var dests: Array = []
+		if trams.has(t):
+			var td: Dictionary = trams[t]
+			var right := Vector2(-(td.dir as Vector2).y, (td.dir as Vector2).x)
+			dests.append({"name": "Tram stop: " + str(td.stop), "s": float(td.s) + right.x * 7.5, "x": float(td.x) + right.y * 7.5,
+				"face": -right})
+		for pt in FT_PLACES:
+			var of: Array = us.filter(func(u): return str(u.type) == str(pt[0]))
+			of.sort_custom(func(a, b): return _sx_dist(a.door, c) < _sx_dist(b.door, c))
+			for k in mini(int(pt[2]), of.size()):
+				dests.append(_door_dest(of[k], str(pt[1]) + ("" if k == 0 else " %d" % (k + 1))))
+		var works: Array = us.filter(func(u): return FT_WORKS.has(str(u.type)))
+		if not works.is_empty():
+			works.sort_custom(func(a, b): return _sx_dist(a.door, c) > _sx_dist(b.door, c))
+			dests.append(_door_dest(works[0], "Works District"))      # (the industry out at the town's edge)
+		var seen := {}
+		for a in areas:
+			if str(a.get("town", "")) != t or not FT_AREAS.has(str(a.kind)) or seen.has(str(a.kind)):
+				continue
+			seen[str(a.kind)] = true
+			var poly: Array = a.poly
+			var m := Vector2.ZERO
+			for q in poly:
+				m += Vector2(StationGeo.wrap_ds(float(q[0]) - float(poly[0][0])), float(q[1]))
+			m /= poly.size()
+			dests.append({"name": str(FT_AREAS[str(a.kind)]), "s": fposmod(float(poly[0][0]) + m.x, StationGeo.CIRC), "x": m.y,
+				"face": Vector2.ZERO})
+		groups.append({"name": t, "centre": c, "pop": int(st.get("pop", us.size())), "dests": dests})
+	groups.sort_custom(func(a, b): return int(a.pop) > int(b.pop))
+	groups.append({"name": "Landmarks", "dests": _landmark_dests()})
+	return groups
+
+
+func _sx_dist(door: Array, c: Vector2) -> float:
+	return Vector2(StationGeo.wrap_ds(float(door[0]) - c.x), float(door[1]) - c.y).length()
+
+
+func _door_dest(u: Dictionary, label: String) -> Dictionary:
+	## Outside a place: 4 m out from its door, away from its building, looking at it.
+	var door := Vector2(float(u.door[0]), float(u.door[1]))
+	var out := Vector2.ZERO
+	var bi := Placement.index(str(u.get("building", "")))
+	if bi >= 0:
+		out = Vector2(StationGeo.wrap_ds(door.x - Placement.s(bi)), door.y - Placement.x(bi)).normalized()
+	var at := door + out * 4.0
+	return {"name": label, "s": fposmod(at.x, StationGeo.CIRC), "x": at.y, "face": -out}
+
+
+func _landmark_dests() -> Array:
+	var d := MapTerrain.data()
+	var out: Array = []
+	for m in d.get("summits", []):
+		out.append({"name": "%s (%d m)" % [m.name, roundi(float(m.h))], "s": float(m.s), "x": float(m.x), "face": Vector2.ZERO})
+	for f in d.get("falls", []):
+		var lip := Vector2(float(f.lip[0]), float(f.lip[1]))
+		var foot := Vector2(float(f.foot[0]), float(f.foot[1]))
+		var away := Vector2(StationGeo.wrap_ds(foot.x - lip.x), foot.y - lip.y).normalized()
+		var at := foot + away * 25.0                    # (down the run from its foot, looking up at it)
+		out.append({"name": str(f.name), "s": fposmod(at.x, StationGeo.CIRC), "x": at.y, "face": -away})
+	for i in d.get("islands", []):
+		out.append({"name": str(i.name), "s": float(i.s), "x": float(i.x), "face": Vector2.ZERO, "land": true})
+	for p in d.get("ponds", []):
+		var a := float(p.a) + 8.0                       # (on its shore, looking across it)
+		var dir := Vector2.from_angle(float(p.get("rot", 0.0)))
+		out.append({"name": str(p.name), "s": fposmod(float(p.s) - dir.x * a, StationGeo.CIRC), "x": float(p.x) - dir.y * a, "face": dir})
+	out.sort_custom(func(a, b): return str(a.name) < str(b.name))
+	return out
+
+
+func _fill_fast_travel(i: int) -> void:
+	for c in _nav_list.get_children():
+		c.queue_free()
+	if i < 0 or i >= _ft_groups.size():
+		return
+	for dd in _ft_groups[i].dests:
+		var b := _button(str(dd.name), _ft_confirm.bind(dd, str(_ft_groups[i].name)))
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_nav_list.add_child(b)
+
+
+func _ft_confirm(dd: Dictionary, where: String) -> void:
+	var p := _player_sx()
+	var km := Vector2(StationGeo.wrap_ds(float(dd.s) - p.x), float(dd.x) - p.y).length() / 1000.0
+	var mins := int(round(4.0 + km * 3.2))
+	var title := str(dd.name) if where == "Landmarks" else "%s, %s" % [dd.name, where]
+	_show_message("Fast Travel", "Travel to %s?\nAbout %d minutes." % [title, mins],
+		[["Travel", _fast_travel.bind(dd, mins, title)], ["Cancel", Callable()]])
+
+
+func _fast_travel(dd: Dictionary, mins: int, title: String) -> void:
+	## There, on foot (out of any vehicle first), on the ground -- on land, for an island -- facing the place; the clock
+	## moves on by the trip.
+	var pl := get_tree().get_first_node_in_group("player") as StationPlayer
+	if pl == null:
+		return
+	if pl.is_seated() and pl._vehicle and pl._vehicle.has_method("leave_seat"):
+		pl._vehicle.leave_seat()
+	set_open(false)
+	var s := float(dd.s)
+	var x := float(dd.x)
+	if MapTerrain.water_at(s, x).x > -9000.0:          # (in the water: the nearest dry ground round it)
+		var found := false
+		for r in [10.0, 25.0, 50.0, 100.0, 200.0, 400.0, 800.0]:
+			for k in 16:
+				var a := TAU * k / 16.0
+				if MapTerrain.water_at(s + cos(a) * r, x + sin(a) * r).x < -9000.0:
+					s += cos(a) * r
+					x += sin(a) * r
+					found = true
+					break
+			if found:
+				break
+	s = fposmod(s, StationGeo.CIRC)
+	var face: Vector2 = dd.get("face", Vector2.ZERO)
+	var yaw := atan2(-face.y, face.x) if face.length() > 0.1 else 0.0
+	pl.carrier_velocity = Vector3.ZERO
+	pl.sheltered = false
+	pl.stand_up(StationGeo.point(s, x, MapTerrain.elevation(s, x) + 1.0), StationGeo.basis(s, yaw))
+	var sky := get_tree().current_scene.get_node_or_null("DaySkySystem")
+	if sky:
+		sky.time_of_day = fposmod(float(sky.time_of_day) + mins / 1440.0, 1.0)
+	_tell(title)
 
 
 func _nav_confirm(dd: Dictionary) -> void:
@@ -1676,8 +1872,9 @@ func _nav_travel(dd: Dictionary, mins: int) -> void:
 # ------------------------------------------------------------------ Summon (the Edit menu)
 ## Call a vehicle to you from Edit > Summon <kind> > <vehicle>: it is set down a few metres in front of you, to the
 ## left, facing the way you look (an aerostat flies in and lands near you). Summon Tram... asks how many sections.
-## Dismiss Vehicle sends it away; summoning another dismisses the last (one at a time). Every type of the fleet
-## (FleetBodies) is in a kind; any the kinds don't name go under Summon Other, so none is ever missing.
+## Dismiss Current Vehicle sends away the one you're in (or beside, or summoned); summoning another dismisses the last
+## (one at a time). Every type of the fleet (FleetBodies) is in a kind; any the kinds don't name go under Summon Other,
+## so none is ever missing.
 const HAND_BUILT := ["aerostat", "pod", "van", "bicycle"]
 const SUMMON_KINDS := [
 	["Summon Aerostat", ["aerostat", "personal_aerostat", "summoned_aerostat", "cargo_aerostat", "rescue_aerostat"]],
@@ -1741,8 +1938,81 @@ func _edit_items() -> Array:
 	if not rest.is_empty():
 		out.append(_sub("Summon Other", _vehicle_items(rest)))
 	out.append(_sep())
-	out.append(_item("Dismiss Vehicle", func(): _dismiss(true)))
+	out.append(_item("Dismiss Current Vehicle", _dismiss_current))
 	return out
+
+
+func _current_vehicle() -> Node3D:
+	## The vehicle you're in (at the controls, or standing aboard), else the nearest one beside you (within 10 m: a parked
+	## car, a map aerostat, a traffic car stood at the kerb), else the one you summoned.
+	var p := get_tree().get_first_node_in_group("player") as StationPlayer
+	if p == null:
+		return null
+	if p.is_seated():
+		return p._vehicle as Node3D
+	# (every vehicle, not a shape query: in a town the query's results were all buildings and road before any car)
+	var best: Node3D = null
+	var bd := 10.0
+	var sc := get_tree().current_scene
+	var cands: Array = sc.find_children("*", "RemakeAirVehicle", true, false)
+	var tr = sc.find_child("NpcTraffic", false, false)
+	if tr != null:
+		for id in tr.live:
+			var e: Dictionary = tr.live[id]
+			if e.sim == null:                           # (parked or a wreck; not one someone's driving)
+				cands.append(e.node)
+	for n in cands:
+		if not is_instance_valid(n) or (n as Node3D).is_queued_for_deletion() or not (n as Node3D).is_visible_in_tree():
+			continue
+		var riders = n.get("_riders")
+		if riders is Array and (riders as Array).has(p):
+			return n as Node3D                          # (aboard it)
+		var d := (n as Node3D).global_position.distance_to(p.global_position)
+		if d < bd:
+			bd = d
+			best = n as Node3D
+	if best:
+		return best
+	for v in get_tree().get_nodes_in_group("delivered_wagon") + get_tree().get_nodes_in_group("summoned_aerostat"):
+		if not (v as Node).is_queued_for_deletion():
+			return v as Node3D
+	return null
+
+
+func _dismiss_current() -> void:
+	## Edit > Dismiss Current Vehicle (the user, 2026-10-09): gone, whichever it is -- you out of it first. A parked one
+	## (the map's, or the traffic's) is gone for good: it isn't put back when you come by again.
+	set_open(false)
+	var v := _current_vehicle()
+	if v == null:
+		_tell("No vehicle to dismiss.")
+		return
+	var p := get_tree().get_first_node_in_group("player") as StationPlayer
+	if v.get("pilot") != null and v.has_method("leave_seat"):
+		v.leave_seat()
+	var riders = v.get("_riders")
+	if p and riders is Array and (riders as Array).has(p):
+		var up := StationGeo.up(StationGeo.s_of(v.global_position))
+		var side := v.global_transform.basis.x
+		side = (side - up * side.dot(up)).normalized()
+		var r := maxf(2.5, float(v.get("half_w")) + 1.5 if v.get("half_w") != null else 2.5)
+		p.carrier_velocity = Vector3.ZERO
+		p.sheltered = false
+		p.stand_up(v.global_position + side * r + up * 1.0, p.global_transform.basis)
+	var what := "vehicle"
+	if v is NpcCarBody:
+		var tr := v.get_parent()
+		what = _vname(str(tr.live[(v as NpcCarBody).entry_id].v.type)).to_lower() if tr.live.has((v as NpcCarBody).entry_id) else what
+		tr.forget((v as NpcCarBody).entry_id)
+	else:
+		if v.get("vtype") != null and str(v.get("vtype")) != "":
+			what = _vname(str(v.get("vtype"))).to_lower()
+		v.remove_from_group("delivered_wagon")
+		v.remove_from_group("summoned_aerostat")
+		v.remove_from_group("taken_vehicle")
+		if not (v.get_parent() is VehicleStreamer and (v.get_parent() as VehicleStreamer).forget(v)):
+			v.queue_free()
+	_tell("Dismissed the %s." % what)
 
 
 func _vehicle_items(ts: Array) -> Array:
@@ -2295,7 +2565,7 @@ func _help_tabs() -> TabContainer:
 			["Talking to people", true],
 			["Open NPC AI and follow its three steps to give the station's people their voices.", false],
 			["Getting a ride", true],
-			["Choose Edit > Summon and a kind of vehicle: it is set down in front of you.  Summon Tram... asks how many sections.  Edit > Dismiss Vehicle sends it away.  An aerostat flies in and lands near you; fly gently -- it takes damage from 15 km/h.", false],
+			["Choose Edit > Summon and a kind of vehicle: it is set down in front of you.  Summon Tram... asks how many sections.  Edit > Dismiss Current Vehicle sends away the one you're in or beside (or the one you summoned).  An aerostat flies in and lands near you; fly gently -- it takes damage from 15 km/h.", false],
 			["Putting it away", true],
 			["Press the Power key, or the Communicator key again.", false]]:
 		c.add_child(_label(line[0], line[1]))

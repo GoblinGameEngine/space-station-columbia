@@ -55,6 +55,26 @@ func add(id: String, make: Callable, xf: Transform3D, ground := false) -> void:
 	_mm_dirty = true
 
 
+func forget(n: Node) -> bool:
+	## A built vehicle taken off the map for good (the PDA's Edit > Dismiss Current Vehicle): freed, its record never built
+	## or drawn again.
+	for i in _nodes.keys():
+		if _nodes[i] == n:
+			_nodes.erase(i)
+			_mk[i] = -1
+			var key := _cell_of(_origin(i))
+			var a: PackedInt32Array = _grid.get(key, PackedInt32Array())
+			var at := a.find(i)
+			if at >= 0:
+				a.remove_at(at)
+				_grid[key] = a
+			_want.erase(i)
+			n.queue_free()
+			_mm_dirty = true
+			return true
+	return false
+
+
 func count() -> int:
 	return _ids.size()
 
@@ -114,7 +134,7 @@ func _near_records(p: Vector3, r: float) -> Array[int]:
 func build_near(p: Vector3) -> void:
 	## Now, all at once: the ones around the player's start (the load waits for these only).
 	for i in _near_records(p, near):
-		if not _nodes.has(i):
+		if not _nodes.has(i) and _mk[i] >= 0:
 			_build(i)
 
 
@@ -144,7 +164,7 @@ func _process(delta: float) -> void:
 	var t0 := Time.get_ticks_usec()
 	while not _want.is_empty() and Time.get_ticks_usec() - t0 < budget_us:
 		var i: int = _want.pop_back()
-		if not _nodes.has(i):
+		if not _nodes.has(i) and _mk[i] >= 0:
 			_build(i)
 			break                                          # (one a frame)
 	if _mm_dirty and impostor != null:
@@ -187,7 +207,7 @@ func _redraw_impostors() -> void:
 		add_child(_mm)
 	var xs: Array = []
 	for i in _ids.size():
-		if not _nodes.has(i):
+		if not _nodes.has(i) and _mk[i] >= 0:
 			xs.append(_xform(i) * Transform3D(Basis(), impostor_lift))
 	_mm.multimesh.instance_count = xs.size()
 	for i in xs.size():

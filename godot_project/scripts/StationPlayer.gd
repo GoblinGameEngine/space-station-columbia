@@ -133,14 +133,37 @@ func is_seated() -> bool:
 	return _vehicle != null
 
 func is_swimming() -> bool:
-	if _water_volumes.is_empty() or sheltered or _vehicle != null:
+	if sheltered or _vehicle != null:
 		return false
 	# in a volume that really holds this spot (a cloud only above its flat base: its spheres reach far
 	# below what's drawn)
 	for v in _water_volumes:
 		if is_instance_valid(v) and (not v.has_method("holds") or v.holds(global_position)):
 			return true
-	return false
+	return _in_map_water()
+
+
+## The map's own water -- rivers, the lake, the seas (MapTerrain.water_at). None of it is a WaterVolume: those were
+## only ever the clouds, so swimming never started in real water (the user, 2026-10-09: "The swimming mechanic never
+## worked in the water"). In once it is over the chest; out again once it is down to the waist (wading ashore).
+const SWIM_IN := 1.05                # m of water over the feet: swimming from here
+const SWIM_OUT := 0.85               # and walking again below this
+const FLOAT_EYE := 0.12              # m: afloat and still, the eyes this far above the surface
+var _water_level := -9999.0          # the surface here last tick (-9999: none)
+var _in_water := false
+
+
+func _in_map_water() -> bool:
+	var p := global_position
+	var s := StationGeo.s_of(p)
+	var wa := MapTerrain.water_at(s, p.x)
+	_water_level = wa.x
+	if wa.x < -9000.0:
+		_in_water = false
+		return false
+	var depth := wa.x - (StationGeo.h_of(p) - _feet_depth())
+	_in_water = depth > (SWIM_OUT if _in_water else SWIM_IN)
+	return _in_water
 
 ## WaterVolume.gd's own contract -- called via has_method(), not a typed
 ## signal connection, so any body (not just this class) can opt in.
@@ -321,12 +344,19 @@ func _physics_process(delta: float) -> void:
 		# swim in it"). Vertical control replaces jump/gravity: hold jump
 		# to rise, swim_down to sink, let go to coast toward a hover
 		# instead of falling.
+		# in the map's water a body floats: let go, it comes up till the head is out, and it can't swim up out of the
+		# surface (a cloud's water has no surface to float at: there, letting go hovers)
+		var eye_over := StationGeo.h_of(global_position) - _water_level if _in_water else NAN
 		if Input.is_action_pressed("jump"):
 			up_speed = move_toward(up_speed, SWIM_VERTICAL_SPEED, SWIM_VERTICAL_SPEED * 6.0 * delta)
 		elif Input.is_action_pressed("swim_down"):
 			up_speed = move_toward(up_speed, -SWIM_VERTICAL_SPEED, SWIM_VERTICAL_SPEED * 6.0 * delta)
+		elif _in_water:
+			up_speed = move_toward(up_speed, clampf((FLOAT_EYE - eye_over) * 2.0, -1.0, 1.2), SWIM_VERTICAL_SPEED * 3.0 * delta)
 		else:
 			up_speed = move_toward(up_speed, 0.0, SWIM_VERTICAL_SPEED * 3.0 * delta)
+		if _in_water and eye_over > FLOAT_EYE + 0.25 and not is_on_floor():
+			up_speed = minf(up_speed, -0.5)        # (out of the water's top: back down onto it)
 	else:
 		if not is_on_floor():
 			# Stepped radial gradient (0G at the axis, TARGET_G at the wall)
@@ -376,4 +406,5 @@ func respawn() -> void:
 	global_transform = spawn_transform
 	velocity = Vector3.ZERO
 	_water_volumes.clear()  # a mid-swim death would otherwise respawn the player still "swimming" on dry land
+	_in_water = false
 	health.heal(health.max_health)

@@ -648,9 +648,13 @@ func _carry(delta: float) -> void:
 func _out_a_door(lp: Vector3) -> bool:
 	## Is lp (local) out through a doorway whose doors are open?
 	for dw in _doorways:
-		var leaves: Array = dw[1]
-		if leaves.is_empty() or not (leaves[0] as RemakeSlideDoor).is_open:
-			continue
+		if dw[1] is Callable:                          # (a fleet body's: FleetClosers.doorways)
+			if not (dw[1] as Callable).call():
+				continue
+		else:
+			var leaves: Array = dw[1]
+			if leaves.is_empty() or not (leaves[0] as RemakeSlideDoor).is_open:
+				continue
 		var box: AABB = dw[0]
 		# the doorway, reaching out from the cabin wall (across its thin dimension) a metre each way
 		var g := box.grow(0.3)

@@ -121,6 +121,8 @@ func _build_hull() -> void:
 	else:
 		_cabin_hull()
 	_fc.build(self, body, body.plan.bp)
+	if not boat:
+		_doorways.append_array(_fc.doorways(body.plan.bp, half_w, floor_y, float(body.plan.std.get("crown", roof_y))))
 
 
 func _cabin_hull() -> void:
@@ -233,6 +235,13 @@ func _physics_process(delta: float) -> void:
 
 func _sweep_excluded() -> Array[RID]:
 	return _fc.rids()
+
+
+func _out_a_door(lp: Vector3) -> bool:
+	## A boat (or the open sled) is stepped off over its side anywhere; a cabin only through its open doorways.
+	if boat or str(info.get("standard", "")).begins_with("PX"):
+		return true
+	return super(lp)
 
 
 func take_seat(p: StationPlayer) -> void:

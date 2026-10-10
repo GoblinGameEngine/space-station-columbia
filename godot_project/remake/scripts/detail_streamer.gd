@@ -384,6 +384,19 @@ func bands_pending() -> bool:
 
 
 func _finish_lod1() -> void:
+	# the loads in flight, whoever still wants them: a building whose cell went off while its LOD1 loaded left the queue,
+	# and nothing looked at its load again -- its slot held for good. Four such (a fast travel, a jump) and no LOD1 ever
+	# loaded again: a town's buildings were missing, only their far cells drawn (2026-10-09).
+	for model in _lod1_loading.keys():
+		var lp: String = _lod1_loading[model]
+		var ls := ResourceLoader.load_threaded_get_status(lp)
+		if ls == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+			continue
+		_lod1_loading.erase(model)
+		if ls == ResourceLoader.THREAD_LOAD_LOADED:
+			var ps = ResourceLoader.load_threaded_get(lp)
+			if not _lod1_scenes.has(model) and _lod1_queue.any(func(i): return records[i].model == model):
+				_lod1_scenes[model] = ps                 # (still wanted: the queue below puts it in; else dropped)
 	var t0 := Time.get_ticks_usec()
 	var budget := 60000 if StationGeo.loading else LOD1_BUDGET_USEC
 	var keep := []

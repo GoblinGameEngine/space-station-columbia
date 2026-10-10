@@ -160,6 +160,7 @@ func _build_hull() -> void:
 					Vector3(sx * (half_w - 0.04), (float(std.get("crown", roof_y)) + floor_y) * 0.5, (z + g[0]) * 0.5))
 			z = maxf(z, g[1])
 	_build_closers(bp)
+	_doorways.append_array(_fc.doorways(bp, half_w, floor_y, float(std.get("crown", roof_y))))
 
 
 # ------------------------------------------------------------------ towing (a trailer, an unpowered rail car)

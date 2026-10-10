@@ -643,19 +643,28 @@ static func _road_grade(s: float, x: float, base: float) -> Vector2:
 			best_h = h
 			best_d = dist
 			best_rise = CURB_RISE * clampf((dist - kerb) / 0.25, 0.0, 1.0) if verge > 0.0 else 0.0
-		# where carriageways overlap (a junction), each road's nearest segment, to blend between
-		if w > 0.999 and dist < float(on_road.get(ri, [INF])[0]):
-			on_road[ri] = [dist, h]
+		# each road's nearest segment (with its weight), to blend between
+		if w > 0.0 and dist < float(on_road.get(ri, [INF])[0]):
+			on_road[ri] = [dist, h, w, 1.0 - smoothstep(kerb - 0.5, kerb + 4.0, dist)]
 	if on_road.size() > 1:
-		# a junction: the roads' heights (one at the junction itself, tools/road_profile.py) blended by
-		# nearness, so the surface doesn't step where one road's carriageway gives way to the next's
+		# more than one road reaches here (a junction, a road beside another, the edge of one's grading over the next):
+		# their heights blended by weight and nearness -- continuously, so the surface never steps where one road takes
+		# over from the next (it took the single strongest, and a road's surface jumped where the strongest changed: the
+		# road survey's "step" at junctions and beside other roads, up to 1.2 m, 2026-10-09)
+		# On a road's own carriageway its own height rules: another road's grading reaching across it (a road beside it on
+		# a hillside, 4 or 40 m higher) blends in only where the carriageways overlap (a junction) or off them both --
+		# a fade over 4.5 m across the kerb (1 m stepped 0.12-0.16 m where a side road meets a main road: round 3) (the survey's "camber" and "step" on single roads, 2026-10-09: 1,300 of them).
+		var most_in := 0.0
+		for r in on_road.values():
+			most_in = maxf(most_in, float(r[3]))
 		var sk := 0.0
 		var sh := 0.0
 		for r in on_road.values():
-			var kk := 1.0 / pow(0.5 + float(r[0]), 2.0)
+			var kk := pow(float(r[2]), 4.0) / pow(0.5 + float(r[0]), 2.0) * (float(r[3]) + 1.0 - most_in + 1e-4)
 			sk += kk
 			sh += kk * float(r[1])
-		best_h = sh / sk
+		if sk > 0.0:
+			best_h = sh / sk
 	if best_w > 0.0 and not _bridges.is_empty() and not _d.has("decks"):
 		best_h = _ramp_to_bridge(s, x, best_h)       # (graded roads already ramp to their decks)
 	if not on_carriageway:

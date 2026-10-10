@@ -51,6 +51,7 @@ var _done_lock := Mutex.new()
 var _col_queue: Array = []            # [MeshInstance3D, faces]: collision pieces still to add
 var _pending := {}                    # [tier, key] being generated, so they aren't queued twice
 var _t := 0.0
+var _cut_t := 0.0
 var _far_task := -1                   # loading the baked far tier
 var _far_baked: Array = []            # [[key, arrays]] from it, once loaded
 
@@ -256,10 +257,13 @@ func _gen(r: Rect2, step: float) -> Array:
 		var db: Vector3 = ups[b[0]] * SKIRT
 		var na: Vector3 = nrm[a[0]][a[1]]
 		var nb: Vector3 = nrm[b[0]][b[1]]
-		for v in [[pa, na], [pb - db, nb], [pb, nb], [pa, na], [pa - da, na], [pb - db, nb]]:
+		# (the skirt's UV is its place on the map, as the surface's: the coarse tiers' cut (terrain_cut) takes it too)
+		var ua := Vector2((r.position.y + r.size.y * a[1] / float(nx)) / TEX_M, (r.position.x + r.size.x * a[0] / float(ns)) / TEX_M)
+		var ub := Vector2((r.position.y + r.size.y * b[1] / float(nx)) / TEX_M, (r.position.x + r.size.x * b[0] / float(ns)) / TEX_M)
+		for v in [[pa, na, ua], [pb - db, nb, ub], [pb, nb, ub], [pa, na, ua], [pa - da, na, ua], [pb - db, nb, ub]]:
 			st.set_color(MUD)
 			st.set_normal(v[1])
-			st.set_uv(Vector2.ZERO)
+			st.set_uv(v[2])
 			st.add_vertex(v[0])
 	return st.commit_to_arrays()
 
@@ -302,6 +306,10 @@ func _process(delta: float) -> void:
 	if _t <= 0.0:
 		_t = 0.5
 		_update()
+	_cut_t -= delta
+	if _cut_dirty or _cut_t <= 0.0:
+		_cut_t = 0.25
+		_cut()
 	# pieces of near tiles' collision, then finished tiles into nodes, within BUDGET_USEC a frame
 	# (always at least one, so a busy frame can't stall it)
 	var t0 := Time.get_ticks_usec()
@@ -444,15 +452,14 @@ func _finish(tier: int, key: Vector2i, arrays: Array) -> void:
 		2:
 			if want2.has(key):
 				_t2[key] = _make(arrays, false, "t2_%d_%d" % [key.x, key.y])
+				_t2[key].material_override = coarse_material()
 		3:
 			_t3[key] = _make(arrays, false, "t3_%d_%d" % [key.x, key.y])
-			if far_material_for.is_valid():
-				_t3[key].material_override = far_material_for.call(key)
+			_t3[key].material_override = far_material_for.call(key) if far_material_for.is_valid() else coarse_material()
 		4:
 			if want4.has(key):
 				_t4[key] = _make(arrays, false, "t4_%d_%d" % [key.x, key.y])
-				if far_material_for.is_valid():
-					_t4[key].material_override = far_material_for.call(far_of(key))
+				_t4[key].material_override = far_material_for.call(far_of(key)) if far_material_for.is_valid() else coarse_material()
 	_apply_visibility(want0, near_groups, want2, want4)
 
 
@@ -571,13 +578,62 @@ func _do(job: Array) -> void:
 		2:
 			if not _t2.has(key):
 				_t2[key] = _build(_group_rect(key), 8.0, false, "t2_%d_%d" % [key.x, key.y])
+				_t2[key].material_override = coarse_material()
 	_apply_visibility(_vis_state[0], _vis_state[1], _vis_state[2], _vis_state[3])
 
 
 var _vis_state := [{}, {}, {}, {}]
+var _coarse_mat: Material
+var _cut_dirty := true
+var last_cut := Vector4.ZERO          # (s, x, radius): the coarse tiers' cut, as last set (for tools)
+
+
+func coarse_material() -> Material:
+	## The ground material for the coarse tiers (T2; T3 and T4 without a far side): the same, cut by terrain_cut.
+	if _coarse_mat == null:
+		_coarse_mat = material
+		if material is ShaderMaterial:
+			_coarse_mat = material.duplicate()
+			(_coarse_mat as ShaderMaterial).set_shader_parameter("coarse", true)
+	return _coarse_mat
+
+
+func _cut() -> void:
+	## Where the fine ground is complete round the player -- every chunk within the radius built at 2 m (T0) or 8 m (T1)
+	## -- the coarse tiers draw nothing (terrain_cut, land_cover.gdshaderinc). They are the stand-ins for what isn't built
+	## yet; drawn over what is, a 64 m far tile kept showing round the player for a second or two after every crossing
+	## into a new far tile, its straight faces metres above a hillside's hollows (the user, 2026-10-09: "On hills it
+	## clips in and looks like the player is standing in the ground ... most noticable in the coastal cities on the
+	## slopes. It appears momentarily and disappears"). The circle is fixed in the world where it was worked out.
+	_cut_dirty = false
+	if not near_tier or target == null:
+		RenderingServer.global_shader_parameter_set("terrain_cut", Vector4.ZERO)
+		return
+	var p := target.global_position
+	var s_here := StationGeo.s_of(p)
+	var x_here := p.x
+	# every chunk round here now (not the wanted lists of the last update: just after a jump those were all built --
+	# round where the player was -- and the cut opened a hole where nothing was yet)
+	var r := NEAR
+	var cs := StationGeo.CIRC / CHUNKS_ROUND
+	for c in range(floori((s_here - NEAR) / cs), floori((s_here + NEAR) / cs) + 1):
+		for cx in range(maxi(0, floori((x_here + half_w - NEAR) / CHUNK_X)), mini(_n_cx - 1, floori((x_here + half_w + NEAR) / CHUNK_X)) + 1):
+			var key := Vector2i(posmod(c, _n_cs), cx)
+			if not _t0.has(key) and not _t1.has(key):
+				r = minf(r, _rect_dist(_chunk_rect(key), s_here, x_here))
+	last_cut = Vector4(s_here, x_here, maxf(0.0, r - 0.5), 0.0)
+	RenderingServer.global_shader_parameter_set("terrain_cut", last_cut)
+
+
+func _rect_dist(rc: Rect2, s_here: float, x_here: float) -> float:
+	var dx := maxf(0.0, maxf(rc.position.y - x_here, x_here - rc.end.y))
+	var ds := maxf(0.0, absf(_wrap_s(rc.get_center().x - s_here)) - rc.size.x * 0.5)
+	return Vector2(ds, dx).length()
+
 
 func _apply_visibility(want0: Dictionary, near_groups: Dictionary, want2: Dictionary, want4: Dictionary) -> void:
 	_vis_state = [want0, near_groups, want2, want4]
+	_cut_dirty = true
 	for key in _t1:
 		_t1[key].visible = not (want0.has(key) and _t0.has(key))
 	for g in _t2:
@@ -615,8 +671,8 @@ func _apply_visibility(want0: Dictionary, near_groups: Dictionary, want2: Dictio
 				for j in GROUP:
 					var key := Vector2i(g.x * GROUP + i, g.y * GROUP + j)
 					if _t1.has(key):
-						_t1[key].visible = false
-					if _t0.has(key):
+						_t1[key].visible = not _t0.has(key)       # (kept where there's no 2 m chunk: inside the cut
+					if _t0.has(key):                              #  the far tile draws nothing -- _cut)
 						_t0[key].visible = true
 
 

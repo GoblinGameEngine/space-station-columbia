@@ -20,8 +20,10 @@ step() {
 }
 gd() { (cd godot_project && "$GD" "$@"); }
 step import          gd --headless --path . --import
+step road_fix        $P tools/road_fix.py        # (every road's line drivable: de-staired, rounded, joined, straight over its bridges)
 step street_rules    $P tools/street_rules.py
 step placement       $P remake/tools/placement.py
+step road_fix2       $P tools/road_fix.py --after-placement   # (the kinks the crossings' snapping leaves, rounded)
 step road_profile1   $P tools/road_profile.py
 step road_profile2   $P tools/road_profile.py
 step town_grade      $P tools/town_grade.py

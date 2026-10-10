@@ -124,6 +124,21 @@ func animate(delta: float) -> void:
 			p.transform.basis = Basis(c.axis, deg_to_rad(float(c.deg)) * e)
 
 
+func doorways(bp: Dictionary, half_w: float, floor_y: float, top: float) -> Array:
+	## The body's doorways as RemakeAirVehicle._carry's ways out: [AABB (local: the aperture in the side wall, floor to
+	## top), Callable -> its door is open enough to pass]. A doorway with no closer of its own is always open. (The fleet
+	## bodies had none: anyone stood up in an aerostat's cabin was put back in at every doorway -- the user, 2026-10-09:
+	## "The aerostats have entrances too small for the player to exit".)
+	var out: Array = []
+	for d in bp.get("doors", []):
+		var sx := 1.0 if str(d.side) == "R" else -1.0
+		var w := float(d.width)
+		var box := AABB(Vector3(sx * half_w - 0.15, floor_y, float(d.z) - w * 0.5), Vector3(0.3, top - floor_y, w))
+		var id := str(d.get("id", ""))
+		out.append([box, func() -> bool: return not closers.has(id) or float(closers[id].t) > 0.6])
+	return out
+
+
 func rids() -> Array[RID]:
 	var ex: Array[RID] = []
 	for id in closers:

@@ -62,7 +62,7 @@ permissive license is planned once the project reaches a usable state.
 
 ## Version
 
-**Current: `0.7.9-alpha.2`** — alpha. Tracked in the `VERSION`
+**Current: `0.8.1-beta.1`** — beta. Tracked in the `VERSION`
 file at the repo root (single source of truth) and mirrored into
 `godot_project/project.godot`'s `config/version`.
 
@@ -74,7 +74,7 @@ Scheme: `MAJOR.MINOR.PATCH-phase.N`, phase one of `prealpha` / `alpha`
   during that phase (`prealpha.1`, `prealpha.2`, ...).
 - Advancing phases (e.g. pre-alpha → alpha) resets `N` to `1` and is a
   deliberate call, not automatic. The project moved to alpha at 0.7.9
-  (2026-09-29).
+  (2026-09-29) and to beta at 0.8.1 (2026-10-09).
 
 Each versioned push is tagged in git as `v<version>` (e.g. `v0.1.0-prealpha.1`).
 

@@ -181,9 +181,13 @@ static func mem_line() -> String:
 
 
 func _watch_load() -> void:
-	## When each piece built over later frames is done, and the worst frame meanwhile.
-	var t0 := Time.get_ticks_msec()
-	var waiting := {
+	## When each piece built over later frames is done, and the worst frame meanwhile. Polled from _process, not one
+	## awaited loop: in a release build a runtime error ends a function silently, and the awaited loop then never came
+	## back -- the splash up for good over a running game (0.8.1-beta.1's first export, every check after "cloud skins").
+	## Now an error costs a frame's check, the next frame tries again; what's still out is printed every 15 s.
+	_lw_t0 = Time.get_ticks_msec()
+	_lw_next_report = _lw_t0 + 15000
+	_lw_waiting = {
 		"terrain (all tiers)": func() -> bool: return terrain._far_todo.is_empty() and not terrain.busy(),
 		"trees": func() -> bool: return (get_node("Trees") as MapTrees).loaded(),
 		"roads": func() -> bool: return (get_node("Roads") as MapRoads).near_done,
@@ -194,25 +198,50 @@ func _watch_load() -> void:
 		"aerostats": func() -> bool: return _aero_done,
 		"ground vehicles": func() -> bool: return _cars_done,
 	}
-	var worst := 0.0
-	var frames := 0
-	var total := waiting.size()
-	while not waiting.is_empty():
-		if _splash:
-			_splash_bar.value = 1.0 - waiting.size() / float(total)
-			# the splash stays up until the world is all in (the builders work flat out meanwhile, the 3D
-			# view off), or LOADING_MAX_MS at the most
-			if Time.get_ticks_msec() - t0 > LOADING_MAX_MS:
-				_hide_splash()
-		await get_tree().process_frame
-		frames += 1
-		worst = maxf(worst, get_process_delta_time())
-		for k in waiting.keys():
-			if waiting[k].call():
-				print("LOAD %-24s done at t=%d  (%d ms after ready)   %s" % [k, Time.get_ticks_msec(), Time.get_ticks_msec() - t0, mem_line()])
-				waiting.erase(k)
-	_hide_splash()
-	print("LOAD complete: %d frames, worst frame %.0f ms, t=%d   %s" % [frames, worst * 1000.0, Time.get_ticks_msec(), mem_line()])
+	_lw_total = _lw_waiting.size()
+	set_process(true)
+
+
+var _lw_waiting := {}
+var _lw_total := 1
+var _lw_t0 := 0
+var _lw_next_report := 0
+var _lw_frames := 0
+var _lw_worst := 0.0
+
+
+func _process(delta: float) -> void:
+	if _lw_waiting.is_empty():
+		set_process(false)
+		return
+	var now := Time.get_ticks_msec()
+	if _splash:
+		_splash_bar.value = 1.0 - _lw_waiting.size() / float(_lw_total)
+		# the splash stays up until the world is all in (the builders work flat out meanwhile, the 3D view off), or
+		# LOADING_MAX_MS at the most
+		if now - _lw_t0 > LOADING_MAX_MS:
+			_hide_splash()
+	_lw_frames += 1
+	_lw_worst = maxf(_lw_worst, delta)
+	for k in _lw_waiting.keys():
+		_lw_check(k)
+	if now > _lw_next_report and not _lw_waiting.is_empty():
+		_lw_next_report = now + 15000
+		print("LOAD still waiting at t=%d: %s" % [now, ", ".join(PackedStringArray(_lw_waiting.keys()))])
+	if _lw_waiting.is_empty():
+		_hide_splash()
+		print("LOAD complete: %d frames, worst frame %.0f ms, t=%d   %s" % [_lw_frames, _lw_worst * 1000.0, Time.get_ticks_msec(), mem_line()])
+		if OS.get_cmdline_user_args().has("--selftest"):
+			add_child(TrafficSelfTest.new())               # (the game playtests its roads on its own: TrafficSelfTest)
+		if OS.get_cmdline_user_args().has("--roadsurvey"):
+			add_child(RoadSurvey.new())                    # (every major road and bridge driven both ways at once: RoadSurvey)
+
+
+func _lw_check(k: String) -> void:
+	## (its own function: a check that errors ends here, not the frame's other checks)
+	if (_lw_waiting[k] as Callable).call():
+		print("LOAD %-24s done at t=%d  (%d ms after ready)   %s" % [k, Time.get_ticks_msec(), Time.get_ticks_msec() - _lw_t0, mem_line()])
+		_lw_waiting.erase(k)
 
 
 var _splash: CanvasLayer
