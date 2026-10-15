@@ -1,5 +1,9 @@
 # Space Station Columbia
 
+> **Development has moved.** Space Station Columbia is now the sample game of the
+> [Goblin Game Engine](https://github.com/GoblinGameEngine/goblin-engine), and all new work happens there.
+> This repo keeps the game's history and its releases up to 0.8.1.
+
 A first-person game set inside Space Station Columbia: an O'Neill cylinder 3 km in radius and 8 km
 long. Its floor holds a research-derived American landscape, with towns, farms, rivers, a lake,
 two seas and a railway. You can walk it, drive its ground vehicles or fly its aerostats. The
